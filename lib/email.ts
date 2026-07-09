@@ -4,7 +4,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 // En dev : utilise l'adresse de test Resend si le domaine n'est pas encore vérifié
 const FROM =
-  process.env.EMAIL_FROM ?? "SantéauMaroc <onboarding@resend.dev>";
+  process.env.RESEND_FROM ?? process.env.EMAIL_FROM ?? "SantéauMaroc <onboarding@resend.dev>";
 
 // Destinataire des notifications internes (leads, demandes commerciales).
 const ADMIN_TO =
@@ -462,7 +462,7 @@ export async function sendAppointmentConfirmationEmail(
   date: string,
   time: string
 ) {
-  await resend.emails.send({
+  await send({
     from: FROM,
     to: email,
     subject: `Rendez-vous confirmé avec ${doctorName} — SantéauMaroc`,
