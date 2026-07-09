@@ -98,9 +98,9 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
     {
       icon: <PhoneIcon />,
       label: tc.cards.phoneLabel,
-      value: "+212 5 22 XX XX XX",
+      value: "+212 661 44 63 34",
       sub: tc.cards.phoneSub,
-      href: "tel:+212522000000",
+      href: "tel:+212661446334",
       color: "bg-primary-50 text-primary-600",
       gradient: "linear-gradient(90deg, #2563eb 0%, #3b82f6 100%)",
     },
