@@ -1,0 +1,873 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─────────────────────────────────────────
+// USER
+// ─────────────────────────────────────────
+
+model User {
+  id                       String    @id @default(cuid())
+  email                    String    @unique
+  password                 String
+  name                     String
+  phone                    String?
+  role                     String    @default("PATIENT") // PATIENT | DOCTOR | ADMIN
+  avatar                   String?
+  // E-E-A-T / signature éditoriale médicale (auteur ou relecteur d'articles)
+  jobTitle                 String? // ex. « Médecin généraliste », « Rédaction médicale »
+  credentials              String?   @db.Text // diplômes, expertise (1-2 lignes)
+  bio                      String?   @db.Text // biographie courte affichée en bas d'article
+  registrationNumber       String? // n° d'inscription à l'ordre (INPE) — optionnel
+  isActive                 Boolean   @default(false)
+  emailVerified            Boolean   @default(false)
+  verificationToken        String?   @unique
+  verificationTokenExpiry  DateTime?
+  resetPasswordToken       String?   @unique
+  resetPasswordTokenExpiry DateTime?
+  createdAt                DateTime  @default(now())
+  updatedAt                DateTime  @updatedAt
+
+  appointments      Appointment[]      @relation("PatientAppointments")
+  reviews           Review[]           @relation("PatientReviews")
+  doctorProfile     Doctor?
+  claims            DoctorClaim[]
+  reviewedClaims    DoctorClaim[]      @relation("ClaimReviewer")
+  adminLogs         VerificationLog[]  @relation("VerificationAdmin")
+  supportTickets    SupportTicket[]    @relation("UserSupportTickets")
+  supportReplies    SupportTicket[]    @relation("SupportTicketReplies")
+  authoredPosts     Post[]             @relation("AuthorPosts")
+  reviewedPosts     Post[]             @relation("ReviewerPosts")
+  subscriptionLeads SubscriptionLead[] @relation("UserSubscriptionLeads")
+  // Espace Questions / Réponses médicales
+  questions         Question[]         @relation("AskedQuestions")
+  answerVotes       AnswerVote[]
+  thanks            Thank[]
+  qaComments        AnswerComment[]    @relation("UserQaComments")
+  questionFollows   QuestionFollow[]
+  reports           Report[]           @relation("UserReports")
+  establishmentReviews EstablishmentReview[] @relation("UserEstablishmentReviews")
+
+  @@index([email])
+  @@index([role])
+  @@index([verificationTokenExpiry])
+  @@index([resetPasswordTokenExpiry])
+  @@map("users")
+}
+
+// ─────────────────────────────────────────
+// SPECIALTY
+// ─────────────────────────────────────────
+
+model Specialty {
+  id    String  @id @default(cuid())
+  name  String  @unique
+  slug  String  @unique
+  icon  String?
+  order Int     @default(999)
+
+  doctors        Doctor[]
+  establishments Establishment[]
+  questions      Question[]
+
+  @@map("specialties")
+}
+
+// ─────────────────────────────────────────
+// CITY
+// ─────────────────────────────────────────
+
+model City {
+  id        String  @id @default(cuid())
+  name      String  @unique
+  slug      String  @unique
+  region    String?
+  order     Int     @default(999)
+  latitude  Float? // centroïde de la ville (SEO local / repli geo)
+  longitude Float?
+
+  doctors        Doctor[]
+  establishments Establishment[]
+  questions      Question[]
+
+  @@map("cities")
+}
+
+// ─────────────────────────────────────────
+// DOCTOR (médecin / professionnel de santé)
+// ─────────────────────────────────────────
+
+model Doctor {
+  id                   String    @id @default(cuid())
+  userId               String?   @unique
+  user                 User?     @relation(fields: [userId], references: [id], onDelete: SetNull)
+  specialtyId          String
+  specialty            Specialty @relation(fields: [specialtyId], references: [id])
+  cityId               String
+  city                 City      @relation(fields: [cityId], references: [id])
+  slug                 String?   @unique
+  nom                  String?
+  prenom               String?
+  civilite             String? // Dr | Pr | M. | Mme
+  adresse              String
+  latitude             Float? // coordonnées du cabinet (SEO local / schema geo)
+  longitude            Float?
+  description          String?
+  prix                 Decimal?  @db.Decimal(10, 2)
+  phone                String
+  avatar               String?
+  isVerified           Boolean   @default(false)
+  isActive             Boolean   @default(true)
+  isBlacklisted        Boolean   @default(false)
+  plan                 String    @default("FREE") // FREE | PRO | CABINET — fonctions premium (RDV en ligne…)
+  planActivatedAt      DateTime?
+  planExpiresAt        DateTime? // null = sans échéance (activation manuelle)
+  featuredUntil        DateTime? // add-on « Mise en avant Premium » actif jusqu'à cette date (null = aucun)
+  trialEndsAt          DateTime? // essai gratuit Pro en cours jusqu'à cette date (débloque les RDV en ligne)
+  trialUsedAt          DateTime? // date de démarrage de l'essai — non-null = essai déjà consommé (1×/médecin)
+  smsReminderEnabled   Boolean   @default(false)
+  smsReminderConfig    Json?
+  langues              String[]  @default(["Arabe", "Darija", "Français"])
+  conventions          String[]  @default([]) // conventionnement / prise en charge (CNSS, AMO, CNOPS, RAMED, mutuelle privée…)
+  paymentMethods       String[]  @default([]) // modes de paiement acceptés (espèces, carte, chèque, virement)
+  motifs               String[]  @default([]) // motifs/actes pris en charge, saisis par le médecin (SEO longue traîne + CRO)
+  experience           Int?
+  consultationDuration Int       @default(30)
+  bookingLeadHours     Int       @default(1) // délai min avant RDV (heures)
+  bookingMaxDays       Int       @default(60) // horizon max de réservation (jours)
+  averageRating        Float     @default(0)
+  // Nombre d'avis dénormalisé (maintenu par features/reviews/actions.ts). Évite
+  // un LEFT JOIN + GROUP BY sur ~7300 lignes pour le tri « plus d'avis » (tri=avis).
+  reviewsCount         Int       @default(0)
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+
+  appointments       Appointment[]
+  reviews            Review[]
+  workingHours       WorkingHours[]
+  blockedSlots       BlockedSlot[]
+  absences           DoctorAbsence[]
+  claims             DoctorClaim[]
+  verificationLogs   VerificationLog[]
+  callbackRequests   CallbackRequest[]
+  subscriptionOrders SubscriptionOrder[]
+  answers            Answer[]
+  phoneClicks        PhoneClick[]
+
+  @@index([cityId])
+  @@index([specialtyId])
+  @@index([slug])
+  @@index([isActive])
+  // Composite index for the main listing sort: WHERE isActive ORDER BY isVerified DESC, averageRating DESC
+  @@index([isActive, isVerified, averageRating])
+  // Composite indexes for filtered listing queries
+  @@index([isActive, specialtyId, isVerified, averageRating])
+  @@index([isActive, cityId, isVerified, averageRating])
+  // Tri « plus d'avis » (tri=avis) filtré par spécialité, sur colonne dénormalisée.
+  @@index([isActive, specialtyId, reviewsCount])
+  @@map("doctors")
+}
+
+// ─────────────────────────────────────────
+// ESTABLISHMENT (clinique, hôpital, labo…)
+// ─────────────────────────────────────────
+
+model Establishment {
+  id            String     @id @default(cuid())
+  nom           String
+  slug          String     @unique
+  type          String? // clinique | hôpital | cabinet | laboratoire | pharmacie
+  adresse       String
+  phone         String?
+  email         String?
+  website       String?
+  description   String?
+  avatar        String?
+  latitude      Float? // coordonnées de l'établissement (SEO local / schema geo)
+  longitude     Float?
+  geoApprox     Boolean @default(false) // true = repli centroïde ville (pas l'adresse exacte)
+  cityId        String
+  city          City       @relation(fields: [cityId], references: [id])
+  specialtyId   String?
+  specialty     Specialty? @relation(fields: [specialtyId], references: [id])
+  isActive      Boolean    @default(true)
+  isVerified    Boolean    @default(false)
+  averageRating Float      @default(0)
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  reviews EstablishmentReview[]
+
+  @@index([cityId])
+  @@index([cityId, isActive])
+  @@index([slug])
+  @@map("establishments")
+}
+
+model EstablishmentReview {
+  id              String        @id @default(cuid())
+  establishmentId String
+  establishment   Establishment @relation(fields: [establishmentId], references: [id], onDelete: Cascade)
+  // Avis authentifié. null = avis historique importé (attribué via `auteur` libre).
+  userId          String?
+  user            User?         @relation("UserEstablishmentReviews", fields: [userId], references: [id], onDelete: SetNull)
+  auteur          String
+  note            Int
+  commentaire     String?
+  isPublic        Boolean       @default(true)
+  createdAt       DateTime      @default(now())
+
+  // Un seul avis par utilisateur et par établissement. Les NULL (avis importés)
+  // restent distincts sous Postgres → cohabitation sans conflit d'unicité.
+  @@unique([userId, establishmentId])
+  @@index([establishmentId])
+  @@map("establishment_reviews")
+}
+
+// ─────────────────────────────────────────
+// SUPPORT TICKET (médecins + patients)
+// ─────────────────────────────────────────
+
+model SupportTicket {
+  id          String    @id @default(cuid())
+  userId      String
+  user        User      @relation("UserSupportTickets", fields: [userId], references: [id], onDelete: Cascade)
+  category    String
+  subject     String
+  message     String    @db.Text
+  priority    String    @default("normal")
+  status      String    @default("open")
+  phone       String?
+  adminReply  String?   @db.Text
+  repliedAt   DateTime?
+  repliedById String?
+  repliedBy   User?     @relation("SupportTicketReplies", fields: [repliedById], references: [id], onDelete: SetNull)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([userId])
+  @@index([userId, status])
+  @@index([status])
+  @@index([repliedById])
+  @@map("support_tickets")
+}
+
+// ─────────────────────────────────────────
+// DOCTOR ABSENCE
+// ─────────────────────────────────────────
+
+model DoctorAbsence {
+  id        String   @id @default(cuid())
+  doctorId  String
+  doctor    Doctor   @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+  type      String   @default("CONGE")
+  startDate String
+  endDate   String
+  allDay    Boolean  @default(true)
+  startTime String?
+  endTime   String?
+  reason    String?
+  notified  Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([doctorId, startDate, endDate])
+  @@map("doctor_absences")
+}
+
+// ─────────────────────────────────────────
+// WORKING HOURS
+// ─────────────────────────────────────────
+
+model WorkingHours {
+  id        String  @id @default(cuid())
+  doctorId  String
+  doctor    Doctor  @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+  dayOfWeek Int
+  startTime String
+  endTime   String
+  isActive  Boolean @default(true)
+
+  @@unique([doctorId, dayOfWeek])
+  @@map("working_hours")
+}
+
+// ─────────────────────────────────────────
+// BLOCKED SLOT
+// ─────────────────────────────────────────
+
+model BlockedSlot {
+  id        String   @id @default(cuid())
+  doctorId  String
+  doctor    Doctor   @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+  date      String
+  time      String
+  createdAt DateTime @default(now())
+
+  @@unique([doctorId, date, time])
+  @@index([doctorId])
+  @@map("blocked_slots")
+}
+
+// ─────────────────────────────────────────
+// APPOINTMENT
+// ─────────────────────────────────────────
+
+model Appointment {
+  id                String    @id @default(cuid())
+  patientId         String
+  patient           User      @relation("PatientAppointments", fields: [patientId], references: [id], onDelete: Cascade)
+  doctorId          String
+  doctor            Doctor    @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+  date              String
+  time              String
+  reason            String?
+  doctorNote        String?
+  status            String    @default("PENDING")
+  reminderSent      Boolean   @default(false)
+  cancelledAt       DateTime?
+  completedAt       DateTime?
+  // Collecte d'avis post-consultation : token de lien public (faible friction) + horodatage de la demande.
+  reviewToken       String?   @unique
+  reviewRequestedAt DateTime?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  review Review?
+
+  @@index([patientId])
+  @@index([patientId, date])
+  @@index([doctorId])
+  @@index([status])
+  @@index([doctorId, date, time])
+  @@map("appointments")
+}
+
+// ─────────────────────────────────────────
+// REVIEW
+// ─────────────────────────────────────────
+
+model Review {
+  id            String       @id @default(cuid())
+  appointmentId String?      @unique
+  appointment   Appointment? @relation(fields: [appointmentId], references: [id], onDelete: SetNull)
+  patientId     String
+  patient       User         @relation("PatientReviews", fields: [patientId], references: [id], onDelete: Cascade)
+  doctorId      String
+  doctor        Doctor       @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+  rating        Int
+  comment       String?
+  isPublic      Boolean      @default(true)
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  @@unique([patientId, doctorId])
+  @@index([doctorId, isPublic, createdAt])
+  @@index([patientId, createdAt])
+  @@map("reviews")
+}
+
+// ─────────────────────────────────────────
+// DOCTOR CLAIM
+// ─────────────────────────────────────────
+
+model DoctorClaim {
+  id             String    @id @default(cuid())
+  doctorId       String
+  doctor         Doctor    @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+  userId         String
+  user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  status         String    @default("PENDING") // PENDING | APPROVED | REJECTED
+  message        String?
+  adminNote      String?
+  originalUserId String?
+  ordreNumber    String? // N° inscription Ordre National des Médecins
+  documents      Json?     @default("[]") // [{url, name, size, type, category}] category: cin | diplome | autre
+  reviewedAt     DateTime?
+  reviewedById   String?
+  reviewer       User?     @relation("ClaimReviewer", fields: [reviewedById], references: [id])
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@unique([doctorId, userId])
+  @@index([status, createdAt])
+  @@index([userId, status])
+  @@index([doctorId, status])
+  @@map("doctor_claims")
+}
+
+// ─────────────────────────────────────────
+// VERIFICATION LOG
+// ─────────────────────────────────────────
+
+model VerificationLog {
+  id        String   @id @default(cuid())
+  doctorId  String
+  doctor    Doctor   @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+  adminId   String?
+  admin     User?    @relation("VerificationAdmin", fields: [adminId], references: [id])
+  action    String // SUBMITTED | APPROVED | REJECTED | REVOKED | DOCUMENTS_UPDATED
+  note      String?
+  createdAt DateTime @default(now())
+
+  @@index([doctorId, createdAt])
+  @@index([adminId])
+  @@map("verification_logs")
+}
+
+// ─────────────────────────────────────────
+// CONTACT REQUEST
+// ─────────────────────────────────────────
+
+model ContactRequest {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String
+  message   String
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([email])
+  @@map("contact_requests")
+}
+
+// ─────────────────────────────────────────
+// CALLBACK REQUEST (demande de rappel — fiche sans agenda en ligne)
+// Anti-cul-de-sac de conversion : capture le lead quand le praticien
+// n'a pas encore configuré son agenda.
+// ─────────────────────────────────────────
+
+model CallbackRequest {
+  id            String   @id @default(cuid())
+  doctorId      String
+  doctor        Doctor   @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+  name          String
+  phone         String
+  preferredSlot String? // asap | morning | afternoon
+  reason        String? // motif de la visite (texte libre, facultatif)
+  status        String   @default("PENDING") // PENDING | CONTACTED | CLOSED
+  createdAt     DateTime @default(now())
+
+  @@index([doctorId, status])
+  @@index([createdAt])
+  @@map("callback_requests")
+}
+
+// ─────────────────────────────────────────
+// PHONE CLICK (clic sur le lien `tel:` d'une fiche praticien)
+// Capture l'intention patient qui, sur les fiches non réservables (la quasi-totalité),
+// appelle directement — un contact autrement invisible. Sert de KPI « contacts entrants »
+// au médecin (preuve de valeur → levier revendication/abonnement).
+// Événementiel, non authentifié : best-effort, tolérant au bruit.
+// ─────────────────────────────────────────
+
+model PhoneClick {
+  id        String   @id @default(cuid())
+  doctorId  String
+  doctor    Doctor   @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+  source    String   @default("profile") // profile | listing | card — provenance du clic
+  createdAt DateTime @default(now())
+
+  @@index([doctorId, createdAt])
+  @@map("phone_clicks")
+}
+
+// ─────────────────────────────────────────
+// SUBSCRIPTION LEAD (demande d'activation d'abonnement — tunnel sales-assisté)
+// Capture le médecin intéressé par une offre payante. Pas de paiement en ligne :
+// un conseiller le recontacte, configure le compte et envoie une facture (virement).
+// ─────────────────────────────────────────
+
+model SubscriptionLead {
+  id        String   @id @default(cuid())
+  plan      String // PRO | CABINET
+  billing   String? // MONTHLY | ANNUAL (offre Pro)
+  name      String
+  email     String
+  phone     String
+  city      String?
+  specialty String?
+  message   String?
+  status    String   @default("NEW") // NEW | CONTACTED | CONVERTED | CLOSED
+  userId    String?
+  user      User?    @relation("UserSubscriptionLeads", fields: [userId], references: [id], onDelete: SetNull)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status, createdAt])
+  @@index([userId])
+  @@index([email])
+  @@map("subscription_leads")
+}
+
+// ─────────────────────────────────────────
+// NEWSLETTER (capture lead santé depuis le blog)
+// ─────────────────────────────────────────
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  locale    String   @default("fr")
+  source    String? // ex. « blog », « article:diabete-type-2-maroc »
+  confirmed Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+  @@map("newsletter_subscribers")
+}
+
+// ─────────────────────────────────────────
+// SUBSCRIPTION ORDER (virement bancaire)
+// Tunnel self-service pour l'offre Pro : commande générée avec une référence
+// unique (= n° de dossier), montant exact à virer, justificatif téléversé par le
+// médecin, puis validée par un admin → active le plan du médecin.
+// ─────────────────────────────────────────
+
+model SubscriptionOrder {
+  id              String    @id @default(cuid())
+  reference       String    @unique // réf. de virement + n° de dossier (ex. "SAM-7K2-X9F4")
+  doctorId        String
+  doctor          Doctor    @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+  plan            String    @default("PRO")
+  billing         String // MONTHLY | ANNUAL
+  featured        Boolean   @default(false) // add-on « Mise en avant Premium » inclus
+  amount          Int // total exact en MAD (dirhams entiers)
+  currency        String    @default("MAD")
+  status          String    @default("PENDING") // PENDING | VERIFIED | REJECTED | CANCELLED
+  periodStart     DateTime? // posés à l'activation
+  periodEnd       DateTime? // = nouveau planExpiresAt
+  reviewedById    String? // admin (User.id)
+  reviewedAt      DateTime?
+  adminNote       String?
+  rejectionReason String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([doctorId, createdAt])
+  @@index([status, createdAt])
+  @@map("subscription_orders")
+}
+
+// ─────────────────────────────────────────
+// BANK SETTINGS (coordonnées de virement, éditées par l'admin)
+// Singleton : une seule ligne (id = "default").
+// ─────────────────────────────────────────
+
+model BankSettings {
+  id        String   @id @default("default")
+  holder    String   @default("") // titulaire du compte
+  bank      String   @default("") // nom de la banque
+  rib       String   @default("")
+  iban      String   @default("")
+  swift     String   @default("")
+  updatedAt DateTime @updatedAt
+
+  @@map("bank_settings")
+}
+
+// ─────────────────────────────────────────
+// MEDICATION
+// ─────────────────────────────────────────
+
+model Medication {
+  id                String   @id @default(cuid())
+  nom               String
+  slug              String   @unique
+  dci               String? // dci1 — Dénomination commune internationale
+  dosage            String? // dosage1
+  uniteDosage       String? // unite_dosage1
+  classe            String?
+  forme             String? // comprimé | gélule | sirop | injection...
+  presentation      String? // conditionnement / présentation
+  princepsGenerique String? // princeps_generique — "princeps" | "générique"
+  ppv               Decimal? @db.Decimal(10, 2) // prix public de vente
+  ph                Decimal? @db.Decimal(10, 2) // prix hospitalier
+  prixBR            Decimal? @db.Decimal(10, 2) // prix base de remboursement
+  tauxRemboursement String? // taux_remboursement — "40 %" etc.
+  description       String?  @db.Text
+  isActive          Boolean  @default(true)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  reviews MedicationReview[]
+
+  @@index([slug])
+  @@map("medications")
+}
+
+model MedicationReview {
+  id           String     @id @default(cuid())
+  medicationId String
+  medication   Medication @relation(fields: [medicationId], references: [id], onDelete: Cascade)
+  auteur       String
+  note         Int
+  commentaire  String?
+  isPublic     Boolean    @default(true)
+  createdAt    DateTime   @default(now())
+
+  @@index([medicationId])
+  @@map("medication_reviews")
+}
+
+// ─────────────────────────────────────────
+// BLOG
+// ─────────────────────────────────────────
+
+model PostCategory {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  slug        String   @unique
+  description String?
+  color       String   @default("blue")
+  posts       Post[]
+  createdAt   DateTime @default(now())
+
+  @@map("post_categories")
+}
+
+model Post {
+  id           String       @id @default(cuid())
+  title        String
+  slug         String       @unique
+  excerpt      String       @db.Text
+  content      String       @db.Text
+  coverImage   String?
+  coverAlt     String? // texte alternatif SEO décrivant l'image de couverture (repli = titre)
+  categoryId   String
+  category     PostCategory @relation(fields: [categoryId], references: [id])
+  authorId     String
+  author       User         @relation("AuthorPosts", fields: [authorId], references: [id])
+  // Relecture médicale (E-E-A-T / YMYL)
+  reviewedById String?
+  reviewedBy   User?        @relation("ReviewerPosts", fields: [reviewedById], references: [id], onDelete: SetNull)
+  reviewedAt   DateTime? // date de dernière vérification médicale (= lastReviewed)
+  status       String       @default("DRAFT")
+  publishedAt  DateTime?
+  readingTime  Int?
+  metaTitle    String?
+  metaDesc     String?
+  // Optimisation GEO / AI Overview
+  keyTakeaways String?      @db.Text // « À retenir » — points clés, 1 par ligne
+  faqJson      String?      @db.Text // FAQ structurée : JSON [{ "q": "...", "a": "..." }]
+  // Entité médicale réelle pour JSON-LD about (ex. « Diabète de type 2 »),
+  // distincte du titre de l'article. Repli sur le titre si vide.
+  aboutEntity  String?
+  // Cocon sémantique : un satellite pointe vers son pilier (guide exhaustif).
+  // Le pilier expose ses satellites via la relation inverse.
+  pillarId     String?
+  pillar       Post?        @relation("Cocon", fields: [pillarId], references: [id], onDelete: SetNull)
+  satellites   Post[]       @relation("Cocon")
+  views        Int          @default(0)
+  featured     Boolean      @default(false)
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  @@index([status, publishedAt])
+  @@index([categoryId, status])
+  @@index([slug])
+  @@index([authorId])
+  @@index([reviewedById])
+  @@index([pillarId])
+  @@map("posts")
+}
+
+// ─────────────────────────────────────────
+// QUESTIONS / RÉPONSES MÉDICALES
+// Les patients posent une question (modérée avant publication) ; seuls les
+// médecins vérifiés répondent. Chaque question publiée = page SEO (QAPage) qui
+// convertit le visiteur en prise de RDV. Specialty sert de catégorie médicale.
+// ─────────────────────────────────────────
+
+model Question {
+  id             String     @id @default(cuid())
+  slug           String     @unique
+  title          String // la question, éventuellement reformulée (IA / admin)
+  body           String?    @db.Text // contexte / détails facultatifs
+  status         String     @default("PENDING") // PENDING | PUBLISHED | REJECTED | MERGED
+  askedById      String
+  askedBy        User       @relation("AskedQuestions", fields: [askedById], references: [id], onDelete: Cascade)
+  specialtyId    String?
+  specialty      Specialty? @relation(fields: [specialtyId], references: [id])
+  cityId         String?
+  city           City?      @relation(fields: [cityId], references: [id])
+  tags           String[]   @default([])
+  views          Int        @default(0)
+  isAnonymous    Boolean    @default(false) // masque l'identité du demandeur sur la page publique
+  metaTitle      String?
+  metaDesc       String?
+  aiSummary      String?    @db.Text // « L'essentiel » synthétisé — extraction AI Overviews
+  // Gouvernance YMYL : « L'essentiel » est DÉRIVÉ de la réponse acceptée. On trace
+  // sa source + son horodatage pour interdire l'affichage d'un résumé orphelin
+  // (réponse retirée/dé-acceptée) ou divergent (réponse éditée après génération).
+  // cf lib/qa-summary + garde-fou d'affichage page [slug].
+  aiSummarySourceAnswerId String? // id de la réponse acceptée d'où provient le résumé
+  aiSummaryAt    DateTime? // date de (re)génération du résumé
+  // Traduction arabe (contenu). Servie/indexée uniquement une fois `arReviewedAt`
+  // posé (relecture humaine — garde-fou YMYL). Fallback FR si absent. cf lib/qa-content.
+  titleAr        String?
+  bodyAr         String?    @db.Text
+  aiSummaryAr    String?    @db.Text
+  metaTitleAr    String?
+  metaDescAr     String?
+  arReviewedAt   DateTime?
+  urgencyLevel   String     @default("NONE") // NONE | ADVICE | URGENT (heuristique / IA)
+  moderationNote String?
+  // Fusion de doublons : la question fusionnée pointe vers sa cible canonique.
+  mergedIntoId   String?
+  mergedInto     Question?  @relation("QuestionMerge", fields: [mergedIntoId], references: [id], onDelete: SetNull)
+  mergedFrom     Question[] @relation("QuestionMerge")
+  answersCount   Int        @default(0) // dénormalisé (perf liste)
+  publishedAt    DateTime?
+  lastAnswerAt   DateTime?
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+
+  answers Answer[]
+  follows QuestionFollow[]
+
+  @@index([status, publishedAt])
+  @@index([slug])
+  // Couvre le WHERE (specialtyId,status) ET le tri publishedAt de la section
+  // « questions de la spécialité » (SpecialtyQuestionsSection). Le préfixe
+  // [specialtyId, status] reste servi par cet index → pas de doublon nécessaire.
+  @@index([specialtyId, status, publishedAt])
+  @@index([status, lastAnswerAt])
+  @@index([askedById])
+  @@map("questions")
+}
+
+model Answer {
+  id          String    @id @default(cuid())
+  questionId  String
+  question    Question  @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  doctorId    String
+  doctor      Doctor    @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+  body        String    @db.Text // HTML (Tiptap) assaini côté serveur
+  bodyAr      String?   @db.Text // traduction arabe (relue) — cf lib/qa-content
+  arReviewedAt DateTime? // relecture humaine AR validée
+  status      String    @default("PUBLISHED") // PUBLISHED | PENDING | REMOVED
+  isAccepted  Boolean   @default(false) // « meilleure réponse » (auteur question ou admin)
+  upvotes     Int       @default(0) // dénormalisé
+  thanksCount Int       @default(0) // dénormalisé
+  score       Float     @default(0) // rang calculé (votes + accepted + boost Pro/vérifié − décote temps)
+  editedAt    DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  votes    AnswerVote[]
+  thanks   Thank[]
+  comments AnswerComment[]
+
+  @@index([questionId, status, score])
+  @@index([doctorId, createdAt])
+  @@map("qa_answers")
+}
+
+model AnswerVote {
+  id        String   @id @default(cuid())
+  answerId  String
+  answer    Answer   @relation(fields: [answerId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([answerId, userId]) // présence = vote « utile » (un seul par utilisateur)
+  @@index([userId])
+  @@map("qa_answer_votes")
+}
+
+model Thank {
+  id        String   @id @default(cuid())
+  answerId  String
+  answer    Answer   @relation(fields: [answerId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([answerId, userId])
+  @@index([userId])
+  @@map("qa_thanks")
+}
+
+// Patients : commenter une réponse / demander une précision (pas une réponse médicale).
+model AnswerComment {
+  id        String   @id @default(cuid())
+  answerId  String
+  answer    Answer   @relation(fields: [answerId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation("UserQaComments", fields: [userId], references: [id], onDelete: Cascade)
+  body      String   @db.Text
+  status    String   @default("PUBLISHED") // PUBLISHED | REMOVED
+  createdAt DateTime @default(now())
+
+  @@index([answerId, createdAt])
+  @@map("qa_answer_comments")
+}
+
+model QuestionFollow {
+  id         String    @id @default(cuid())
+  questionId String
+  question   Question  @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  userId     String
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  notifiedAt DateTime?
+  createdAt  DateTime  @default(now())
+
+  @@unique([questionId, userId])
+  @@index([userId])
+  @@map("question_follows")
+}
+
+// Signalement générique (modération) : spam, danger, désinformation, doublon…
+model Report {
+  id           String    @id @default(cuid())
+  targetType   String // QUESTION | ANSWER | COMMENT
+  targetId     String
+  reporterId   String
+  reporter     User      @relation("UserReports", fields: [reporterId], references: [id], onDelete: Cascade)
+  reason       String // SPAM | DANGEROUS | MISINFORMATION | DUPLICATE | OTHER
+  detail       String?
+  status       String    @default("OPEN") // OPEN | REVIEWED | DISMISSED | ACTIONED
+  reviewedById String? // admin (User.id) — pas de relation (cf. SubscriptionOrder)
+  reviewedAt   DateTime?
+  createdAt    DateTime  @default(now())
+
+  @@index([status, createdAt])
+  @@index([targetType, targetId])
+  @@index([reporterId])
+  @@map("qa_reports")
+}
+
+// Journal d'audit de la modération Q/R (actorId null = système / IA).
+model QaModerationLog {
+  id         String   @id @default(cuid())
+  entityType String // QUESTION | ANSWER | COMMENT | REPORT
+  entityId   String
+  action     String // SUBMITTED | AI_CHECK | PUBLISHED | REJECTED | MERGED | EDITED | REMOVED | RESTORED
+  actorId    String?
+  note       String?
+  meta       Json?
+  createdAt  DateTime @default(now())
+
+  @@index([entityType, entityId, createdAt])
+  @@map("qa_moderation_logs")
+}
+
+// Historique des modifications (snapshots) pour questions et réponses.
+model QaRevision {
+  id            String   @id @default(cuid())
+  entityType    String   // QUESTION | ANSWER
+  entityId      String
+  editorId      String?  // User.id de l'éditeur (null = système)
+  previousTitle String?
+  previousBody  String?  @db.Text
+  createdAt     DateTime @default(now())
+
+  @@index([entityType, entityId, createdAt])
+  @@map("qa_revisions")
+}

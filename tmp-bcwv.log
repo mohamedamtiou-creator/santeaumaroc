@@ -1,0 +1,139 @@
+
+> app@0.1.0 build
+> next build
+
+Warning: Custom Cache-Control headers detected for the following routes:
+  - /_next/static/(.*)
+
+Setting a custom Cache-Control header can break Next.js development behavior.
+▲ Next.js 16.2.9 (Turbopack)
+- Environments: .env
+- Experiments (use with caution):
+  · serverActions
+  · staleTimes
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 12.2s
+  Running TypeScript ...
+  Finished TypeScript in 15.9s ...
+  Collecting page data using 11 workers ...
+⚠ Using edge runtime on a page currently disables static generation for that page
+  Generating static pages using 11 workers (0/1726) ...
+  Generating static pages using 11 workers (431/1726) 
+  Generating static pages using 11 workers (862/1726) 
+  Generating static pages using 11 workers (1294/1726) 
+✓ Generating static pages using 11 workers (1726/1726) in 4.2s
+  Finalizing page optimization ...
+
+Route (app)                                                    Revalidate  Expire
+┌ ƒ /
+├ ƒ /_not-found
+├ ƒ /a-propos
+├ ƒ /admin
+├ ƒ /admin/abonnements
+├ ƒ /admin/abonnements/[id]
+├ ƒ /admin/blog
+├ ƒ /admin/blog/[id]/modifier
+├ ƒ /admin/blog/nouveau
+├ ƒ /admin/contact
+├ ƒ /admin/paiements
+├ ƒ /admin/paiements/[id]
+├ ƒ /admin/praticiens
+├ ƒ /admin/praticiens/[id]
+├ ƒ /admin/prospection
+├ ƒ /admin/questions
+├ ƒ /admin/questions/[id]
+├ ƒ /admin/revendications
+├ ƒ /admin/revendications/[id]
+├ ƒ /admin/support
+├ ƒ /admin/support/[id]
+├ ƒ /api/auth/verify-email
+├ ƒ /api/badge/[slug]
+├ ƒ /api/cron/qa-digest
+├ ƒ /api/documents/[filename]
+├ ƒ /api/upload/avatar
+├ ƒ /api/upload/document
+├ ƒ /auth/email-envoye
+├ ƒ /auth/mot-de-passe-oublie
+├ ƒ /auth/reinitialiser-mot-de-passe
+├ ƒ /auth/verification-envoyee
+├ ƒ /auth/verify-email
+├ ƒ /avis/[token]
+├ ƒ /badge
+├ ƒ /blog
+├ ƒ /blog/[slug]
+├ ƒ /blog/-/opengraph-image
+├ ƒ /blog/categorie/[slug]
+├ ƒ /charte-editoriale
+├ ƒ /cliniques
+├ ƒ /cliniques/[slug]
+├ ƒ /conditions-utilisation
+├ ƒ /connexion
+├ ƒ /contact
+├ ƒ /gerer-ma-fiche
+├ ƒ /guide-du-medecin
+├ ƒ /inscription
+├ ƒ /inscription-praticien
+├ ƒ /laboratoires
+├ ƒ /laboratoires/[slug]
+├ ○ /llms.txt                                                          1d      1y
+├ ○ /manifest.webmanifest
+├ ƒ /medicaments
+├ ƒ /medicaments/[slug]
+├ ƒ /observatoire-sante-maroc
+├ ƒ /opengraph-image
+├ ƒ /pharmacies
+├ ƒ /pharmacies/[slug]
+├ ƒ /plan-du-site
+├ ƒ /politique-confidentialite
+├ ƒ /praticien/tableau-de-bord
+├ ƒ /praticien/tableau-de-bord/abonnement
+├ ƒ /praticien/tableau-de-bord/abonnement/[reference]
+├ ƒ /praticien/tableau-de-bord/abonnement/[reference]/facture
+├ ƒ /praticien/tableau-de-bord/agenda
+├ ƒ /praticien/tableau-de-bord/horaires
+├ ƒ /praticien/tableau-de-bord/profil
+├ ƒ /praticien/tableau-de-bord/rappels
+├ ƒ /praticien/tableau-de-bord/rendez-vous
+├ ƒ /praticien/tableau-de-bord/reponses
+├ ƒ /praticien/tableau-de-bord/verification
+├ ƒ /praticiens
+├ ƒ /praticiens/[slug]
+├ ƒ /praticiens/-/opengraph-image
+├ ƒ /praticiens/[slug]/rdv
+├ ƒ /praticiens/[slug]/rdv/confirmation
+├ ƒ /praticiens/[slug]/revendiquer
+├ ƒ /presse
+├ ƒ /questions
+├ ƒ /questions/[slug]
+├ ƒ /questions/poser
+├ ƒ /questions/specialite/[slug]
+├ ƒ /remboursement-amo-cnss
+├ ○ /robots.txt
+├ ƒ /sante-darija
+├ ● /sitemap/[__metadata_id__]                                         1d      1y
+│ ├ /sitemap/core.xml                                                  1d      1y
+│ ├ /sitemap/doctors.xml                                               1d      1y
+│ ├ /sitemap/combos.xml                                                1d      1y
+│ └ /sitemap/content.xml                                               1d      1y
+├ ƒ /specialites
+├ ƒ /specialites/[slug]
+├ ƒ /specialites/[slug]/[ville]
+├ ƒ /support
+├ ƒ /tableau-de-bord
+├ ƒ /tableau-de-bord/profil
+├ ƒ /tableau-de-bord/questions
+├ ƒ /tableau-de-bord/rendez-vous
+├ ƒ /tarifs
+├ ƒ /tarifs/activer
+├ ƒ /tarifs/souscrire
+├ ƒ /villes
+└ ƒ /villes/[slug]
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

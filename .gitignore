@@ -20,6 +20,10 @@
 # production
 /build
 
+# private uploads (CIN, diplômes…) — jamais servis publiquement
+/storage
+/public/uploads
+
 # misc
 .DS_Store
 *.pem

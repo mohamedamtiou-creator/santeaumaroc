@@ -1,26 +1,561 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* ══════════════════════════════════════════════════════════
+     BLEU MÉDICAL (Primary) — Confiance, Autorité, Clarté
+     Remplace le navy #162e7a trop sombre et peu accessible
+     primary-600 sur blanc = 5.74:1 → WCAG AA ✓
+     ══════════════════════════════════════════════════════════ */
+  --color-primary-50:  #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+  --color-primary-950: #172554;
+
+  /* ══════════════════════════════════════════════════════════
+     VERT SANTÉ (Secondary) — Vie, Santé, Nature, Confiance
+     Remplace le teal trop atténué par un émeraude vibrant
+     secondary-700 sur blanc = 6.1:1 → WCAG AA ✓
+     ══════════════════════════════════════════════════════════ */
+  --color-secondary-50:  #ecfdf5;
+  --color-secondary-100: #d1fae5;
+  --color-secondary-200: #a7f3d0;
+  --color-secondary-300: #6ee7b7;
+  --color-secondary-400: #34d399;
+  --color-secondary-500: #10b981;
+  --color-secondary-600: #059669;
+  --color-secondary-700: #047857;
+  --color-secondary-800: #065f46;
+  --color-secondary-900: #064e3b;
+  --color-secondary-950: #022c22;
+
+  /* ══════════════════════════════════════════════════════════
+     TERRACOTTA MAROCAIN — Architecture, médinas, artisanat
+     Signal d'identité locale — distingue de Doctolib FR
+     terra-600 sur blanc = 4.9:1 → WCAG AA ✓
+     ══════════════════════════════════════════════════════════ */
+  --color-terra-50:  #fdf4f0;
+  --color-terra-100: #fae5d8;
+  --color-terra-200: #f4c4a8;
+  --color-terra-300: #eb9f77;
+  --color-terra-400: #de7848;
+  --color-terra-500: #c2614f;
+  --color-terra-600: #a84f3e;
+  --color-terra-700: #8c3d2e;
+
+  /* ══════════════════════════════════════════════════════════
+     AMBRE MAROCAIN (Accent) — Identité locale, Chaleur, Premium
+     Utilisé pour : étoiles, badges premium, highlights
+     ══════════════════════════════════════════════════════════ */
+  --color-accent-50:  #fffbeb;
+  --color-accent-100: #fef3c7;
+  --color-accent-200: #fde68a;
+  --color-accent-300: #fcd34d;
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
+  --color-accent-700: #b45309;
+  --color-accent-800: #92400e;
+  --color-accent-900: #78350f;
+
+  /* ══════════════════════════════════════════════════════════
+     TYPOGRAPHIE — Inter Variable
+     Chargée via next/font/google pour l'optimisation Web
+     ══════════════════════════════════════════════════════════ */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui,
+               -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ────────────────────────────────────────────────────────────
+   BASE
+   ──────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    /* La navbar sticky (h-16) ne doit masquer ni l'ancre ciblée ni l'élément
+       reçu par le focus au clavier (WCAG 2.2 — 2.4.11 Focus Not Obscured). */
+    scroll-padding-top: 5rem;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    @apply text-slate-800 bg-slate-50 font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-slate-900;
+  }
+
+  /*
+   * Les éléments de formulaire n'héritent PAS de font-family par défaut
+   * dans les navigateurs (spéc. CSS). On force l'héritage d'Inter ici.
+   */
+  input,
+  textarea,
+  select,
+  button,
+  optgroup,
+  option {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: inherit;
+    color: inherit;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ────────────────────────────────────────────────────────────
+   UTILITIES
+   ──────────────────────────────────────────────────────────── */
+@layer utilities {
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Dégradé héro — profondeur avec glows radiales */
+  .hero-bg {
+    background:
+      radial-gradient(ellipse at 20% 45%, rgb(37 99 235 / 0.25) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 15%, rgb(4 120 87 / 0.2) 0%, transparent 50%),
+      radial-gradient(ellipse at 8% 88%, rgb(217 119 6 / 0.18) 0%, transparent 38%),
+      linear-gradient(135deg, #1e3a8a 0%, #2563eb 55%, #059669 100%);
+  }
+
+  /* Texte dégradé brand */
+  .text-gradient-brand {
+    background: linear-gradient(135deg, #2563eb 30%, #059669 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Section alt background */
+  .bg-section-alt {
+    background: linear-gradient(180deg, #f0f9ff 0%, #f8fafc 100%);
+  }
+
+  /* Étoiles de notation */
+  .text-star { color: #fbbf24; }
+
+  /* Motif géométrique marocain — grille de losanges (zellige simplifié) */
+  .bg-pattern-moroccan {
+    background-image:
+      linear-gradient(45deg, rgba(194,97,79,0.055) 2px, transparent 2px),
+      linear-gradient(-45deg, rgba(194,97,79,0.055) 2px, transparent 2px);
+    background-size: 24px 24px;
+  }
+
+  /* Respect de la zone de sécurité iPhone (bottom bar) */
+  .safe-area-bottom {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+
+  /* Avatar avec bague dégradée */
+  .avatar-ring {
+    padding: 2.5px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #1d4ed8, #059669);
+    display: inline-block;
+  }
+  .avatar-ring-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 9999px;
+    overflow: hidden;
+    background: #eff6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Conteneur de page standardisé */
+  .page-outer {
+    @apply max-w-5xl mx-auto px-4 py-8 sm:py-12;
+  }
+
+  /* État vide cohérent — styles du .card inlinés (pas d'@apply inter-layer) */
+  .empty-state {
+    @apply bg-white rounded-2xl border border-slate-100
+           p-12 text-center flex flex-col items-center gap-3;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   COMPONENTS
+   ──────────────────────────────────────────────────────────── */
+@layer components {
+
+  /* ── Boutons ───────────────────────────────────────── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-primary-600 text-white px-5 py-2.5 rounded-lg
+           font-semibold text-sm
+           transition-all duration-150
+           disabled:opacity-50 disabled:cursor-not-allowed
+           focus-visible:outline-none focus-visible:ring-2
+           focus-visible:ring-primary-500 focus-visible:ring-offset-2;
+    box-shadow: 0 1px 2px 0 rgb(37 99 235 / 0.3);
+  }
+  .btn-primary:not(:disabled):hover {
+    @apply bg-primary-700;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px 0 rgb(37 99 235 / 0.38);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-secondary-600 text-white px-5 py-2.5 rounded-lg
+           font-semibold text-sm
+           transition-all duration-150
+           disabled:opacity-50 disabled:cursor-not-allowed
+           focus-visible:outline-none focus-visible:ring-2
+           focus-visible:ring-secondary-500 focus-visible:ring-offset-2;
+    box-shadow: 0 1px 2px 0 rgb(5 150 105 / 0.3);
+  }
+  .btn-secondary:not(:disabled):hover {
+    @apply bg-secondary-700;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px 0 rgb(5 150 105 / 0.38);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2
+           border-2 border-primary-600 text-primary-700
+           px-5 py-2.5 rounded-lg font-semibold text-sm
+           transition-all duration-150
+           hover:bg-primary-50 hover:border-primary-700
+           focus-visible:outline-none focus-visible:ring-2
+           focus-visible:ring-primary-500 focus-visible:ring-offset-2;
+  }
+
+  .btn-ghost-white {
+    @apply inline-flex items-center justify-center gap-2
+           border-2 border-white/60 text-white
+           px-5 py-2.5 rounded-lg font-semibold text-sm
+           transition-all duration-150;
+  }
+  .btn-ghost-white:hover {
+    @apply bg-white text-primary-900 border-white;
+  }
+
+  /* ── Champs de formulaire ──────────────────────────── */
+  .input-field {
+    /* text-base (16px) : confort de lecture ET empêche le zoom auto d'iOS Safari
+       au focus d'un champ (< 16px le déclenche). placeholder:slate-500 ≈ 4.8:1. */
+    @apply w-full border border-slate-300 rounded-lg px-4 py-2.5 text-base
+           bg-white text-slate-900 placeholder:text-slate-500
+           transition-colors duration-150
+           focus-visible:outline-none focus-visible:ring-2
+           focus-visible:ring-primary-500 focus-visible:border-transparent;
+  }
+
+  /* ── Cards ─────────────────────────────────────────── */
+  .card {
+    @apply bg-white rounded-2xl border border-slate-100;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+    transition: box-shadow 220ms ease, transform 220ms ease;
+  }
+  .card:hover {
+    box-shadow: 0 10px 24px -4px rgb(30 58 138 / 0.1), 0 4px 8px -2px rgb(30 58 138 / 0.06);
+    transform: translateY(-2px);
+  }
+
+  .card-flat {
+    @apply bg-white rounded-2xl border border-slate-200;
+  }
+
+  /* ── Badges ─────────────────────────────────────────── */
+  .badge {
+    @apply inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full;
+  }
+  .badge-primary {
+    @apply inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full
+           bg-primary-50 text-primary-700 border border-primary-100;
+  }
+  .badge-secondary {
+    @apply inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full
+           bg-secondary-50 text-secondary-700 border border-secondary-100;
+  }
+  .badge-accent {
+    @apply inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full
+           bg-accent-50 text-accent-700 border border-accent-200;
+  }
+  /* Badge « Vérifié » : pastille teintée douce (et non un aplat dégradé saturé),
+     plus conviviale et qui ne rivalise pas avec le nom. Émeraude = langage de
+     confiance cohérent avec les ✓ de la bande de réassurance. Monochrome →
+     l'icône hérite de la couleur via currentColor. */
+  .badge-verified {
+    @apply inline-flex items-center gap-1 text-[11px] leading-none font-semibold px-1.5 py-1 rounded-full
+           text-secondary-700 bg-secondary-50 ring-1 ring-secondary-200;
+  }
+
+  /* Badge de confiance (fond sombre — hero) */
+  .badge-trust {
+    @apply inline-flex items-center gap-2
+           bg-white/12 backdrop-blur-sm border border-white/20
+           text-white text-xs font-semibold
+           px-4 py-2 rounded-full;
+  }
+
+  /* Tag spécialité */
+  .tag-specialty {
+    @apply inline-flex items-center text-xs font-medium
+           bg-primary-50 text-primary-700 border border-primary-100
+           px-2.5 py-1 rounded-full;
+  }
+
+  /* ── Navigation ─────────────────────────────────────── */
+  .nav-link {
+    @apply px-3 py-2 rounded-lg text-sm font-medium text-slate-600
+           hover:text-primary-700 hover:bg-primary-50
+           transition-colors duration-150 whitespace-nowrap
+           focus-visible:outline-none focus-visible:ring-2
+           focus-visible:ring-primary-500 focus-visible:ring-offset-2;
+  }
+  .nav-link-active {
+    @apply text-primary-700 bg-primary-50 font-semibold;
+  }
+
+  /* ── Numéro d'étape ─────────────────────────────────── */
+  .step-number {
+    @apply w-11 h-11 rounded-full flex items-center justify-center
+           font-bold text-sm text-white shrink-0;
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    box-shadow: 0 4px 12px 0 rgb(37 99 235 / 0.35);
+  }
+
+  /* ── Section headers ────────────────────────────────── */
+  .section-eyebrow {
+    @apply text-xs font-bold uppercase tracking-widest text-secondary-600;
+  }
+  .section-eyebrow-maroc {
+    @apply text-xs font-bold uppercase tracking-widest text-terra-600;
+  }
+  .section-title {
+    @apply text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight;
+  }
+  .section-subtitle {
+    @apply text-slate-500 text-base max-w-2xl;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   ACCESSIBILITÉ
+   ──────────────────────────────────────────────────────────── */
+
+/*
+ * Bague de focus universelle — fallback pour tout élément interactif
+ * sans styles focus-visible explicites (liens footer, summary, etc.).
+ * Les composants qui utilisent focus-visible:outline-none focus-visible:ring-*
+ * gardent leur propre style car @layer utilities > @layer base.
+ */
+@layer base {
+  :focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .card:hover { transform: none !important; }
+  .btn-primary:hover,
+  .btn-secondary:hover { transform: none !important; }
+}
+
+/* ────────────────────────────────────────────────────────────
+   ARABE / RTL — Typographie dédiée
+   ──────────────────────────────────────────────────────────────
+   Inter ne contient aucun glyphe arabe : sans pile dédiée, l'arabe
+   tombe sur la police système (incohérente d'un OS à l'autre).
+   Règles volontairement HORS @layer pour passer devant :
+     • `body { @apply font-sans }` (qui fixe font-family sur body)
+     • `h1..h6 { @apply tracking-tight }` et les eyebrows `tracking-widest`
+   `:lang(ar)` matche <html lang="ar"> ET tous ses descendants (lang hérite).
+   ──────────────────────────────────────────────────────────── */
+:lang(ar) {
+  /* var(--font-arabic) est injectée par next/font (Cairo) */
+  font-family: var(--font-arabic), "Cairo", "Noto Sans Arabic", "Geeza Pro",
+               "Segoe UI", Tahoma, sans-serif;
+  /* L'arabe est cursif : TOUT letter-spacing casse les liaisons entre lettres.
+     Neutralise les tracking-tight / tracking-widest hérités du design latin. */
+  letter-spacing: 0;
+}
+
+/* Interligne : généreux sur le TEXTE COURANT (les diacritiques i'jām/tashkīl
+   se chevauchent quand c'est serré), mais on NE desserre PAS les contrôles ni
+   les titres — un interligne global de 1.85 rendait les <h1>/<h2> béants. */
+:lang(ar) p,
+:lang(ar) li { line-height: 1.8; }
+
+/* Les titres gardent un interligne serré (juste un cran plus aéré que le latin
+   pour laisser respirer les diacritiques). */
+:lang(ar) h1, :lang(ar) h2, :lang(ar) h3,
+:lang(ar) h4, :lang(ar) h5, :lang(ar) h6 { line-height: 1.35; }
+
+/* ────────────────────────────────────────────────────────────
+   BLOG — Styles prose pour le rendu des articles Tiptap
+   ──────────────────────────────────────────────────────────── */
+
+.blog-prose {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #334155; /* slate-700 */
+}
+
+/* Responsive : légèrement plus petit sur mobile */
+@media (min-width: 640px) {
+  .blog-prose { font-size: 1.0625rem; }
+}
+
+/* Neutralise le margin-top du premier élément (évite l'espace vide en tête) */
+.blog-prose > *:first-child {
+  margin-top: 0 !important;
+}
+
+.blog-prose p {
+  margin-bottom: 1.25rem;
+}
+.blog-prose h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: 2.5rem;
+  margin-bottom: 0.875rem;
+  line-height: 1.3;
+  /* Ligne d'accroche colorée */
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e0f2fe; /* sky-100 */
+}
+.blog-prose h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 2rem;
+  margin-bottom: 0.625rem;
+  line-height: 1.35;
+}
+.blog-prose h4 {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #1e3a8a; /* primary-900 */
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+.blog-prose ul,
+.blog-prose ol {
+  padding-inline-start: 1.5rem; /* logique : passe à droite en RTL (arabe) */
+  margin-bottom: 1.25rem;
+}
+.blog-prose ul { list-style-type: disc; }
+.blog-prose ol { list-style-type: decimal; }
+.blog-prose li { margin-bottom: 0.375rem; }
+.blog-prose li > ul,
+.blog-prose li > ol { margin-top: 0.375rem; margin-bottom: 0.5rem; }
+.blog-prose blockquote {
+  /* logique : la barre colorée et les coins plats restent côté début de ligne
+     (gauche en FR, droite en arabe RTL). */
+  border-inline-start: 4px solid #93c5fd; /* primary-300 */
+  padding: 0.875rem 1.25rem;
+  color: #1e3a8a; /* primary-900 */
+  font-style: italic;
+  margin: 1.75rem 0;
+  background-color: #eff6ff; /* primary-50 */
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+  border-start-end-radius: 0.75rem;
+  border-end-end-radius: 0.75rem;
+}
+.blog-prose blockquote p { margin-bottom: 0; }
+.blog-prose a {
+  color: #2563eb; /* primary-600 */
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.blog-prose a:hover { color: #1d4ed8; }
+.blog-prose strong { font-weight: 700; color: #0f172a; }
+.blog-prose em     { font-style: italic; }
+.blog-prose s      { text-decoration: line-through; color: #94a3b8; }
+.blog-prose code {
+  font-size: 0.875em;
+  background-color: #f1f5f9;
+  color: #0f172a;
+  padding: 0.15em 0.4em;
+  border-radius: 0.375rem;
+  font-family: ui-monospace, monospace;
+}
+.blog-prose pre {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+}
+.blog-prose pre code { background: none; color: inherit; padding: 0; }
+.blog-prose hr {
+  border: none;
+  border-top: 2px solid #e2e8f0;
+  margin: 2.5rem 0;
+}
+.blog-prose img {
+  border-radius: 0.75rem;
+  max-width: 100%;
+  height: auto;
+  margin: 1.75rem auto;
+  display: block;
+}
+
+/* ── Tableaux de données médicales (valeurs de référence, etc.) ── */
+.blog-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.75rem 0;
+  font-size: 0.9375rem;
+  overflow-x: auto;
+  display: block;
+}
+.blog-prose thead {
+  background-color: #eff6ff; /* primary-50 */
+}
+.blog-prose th {
+  text-align: start; /* logique : s'aligne à droite en RTL (arabe) */
+  padding: 0.625rem 1rem;
+  font-weight: 700;
+  color: #1e3a8a; /* primary-900 */
+  border-bottom: 2px solid #bfdbfe; /* primary-200 */
+  white-space: nowrap;
+}
+.blog-prose td {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #e2e8f0; /* slate-200 */
+  color: #334155;
+}
+.blog-prose tbody tr:hover { background-color: #f8fafc; }
+.blog-prose tbody tr:last-child td { border-bottom: none; }
+
+/* ── Ancres sur les titres (injectées par addHeadingIds) ── */
+.blog-prose h2[id],
+.blog-prose h3[id],
+.blog-prose h4[id] {
+  scroll-margin-top: 5rem; /* compense la navbar sticky */
 }

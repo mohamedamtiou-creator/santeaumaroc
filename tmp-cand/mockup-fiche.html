@@ -1,0 +1,530 @@
+<title>Fiche praticien — Maquette de modernisation</title>
+<style>
+  :root{
+    --primary-50:#eff6ff; --primary-100:#dbeafe; --primary-200:#bfdbfe;
+    --primary-600:#2563eb; --primary-700:#1d4ed8;
+    --em-50:#ecfdf5; --em-100:#d1fae5; --em-200:#a7f3d0; --em-500:#10b981; --em-600:#059669; --em-700:#047857;
+    --terra-50:#fdf4f0; --terra-100:#fae5d8; --terra-600:#a84f3e; --terra-700:#8c3d2e;
+    --amber-400:#fbbf24; --amber-600:#d97706;
+    --s50:#f8fafc; --s100:#f1f5f9; --s200:#e2e8f0; --s300:#cbd5e1;
+    --s400:#94a3b8; --s500:#64748b; --s600:#475569; --s700:#334155; --s800:#1e293b; --s900:#0f172a;
+    --ink:#0f172a; --muted:#64748b;
+    --shadow-sm:0 1px 3px 0 rgb(15 23 42/.06), 0 1px 2px -1px rgb(15 23 42/.04);
+    --shadow-md:0 10px 24px -6px rgb(30 58 138/.10), 0 4px 10px -4px rgb(30 58 138/.06);
+    --radius:16px;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,ui-sans-serif,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:var(--font);background:var(--s50);color:var(--s700);
+       -webkit-font-smoothing:antialiased;line-height:1.5;font-size:15px}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{margin:0;color:var(--ink);letter-spacing:-.01em;line-height:1.2}
+  .tnum{font-variant-numeric:tabular-nums}
+
+  /* ── proposal ribbon ── */
+  .ribbon{background:linear-gradient(90deg,#0f172a,#1e293b);color:#e2e8f0;font-size:13px;
+          padding:9px 20px;display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap}
+  .ribbon b{color:#fff}
+  .ribbon .dot{width:6px;height:6px;border-radius:99px;background:var(--em-500)}
+
+  /* ── faux topbar ── */
+  .topbar{background:#fff;border-bottom:1px solid var(--s100);height:56px;display:flex;align-items:center;
+          gap:16px;padding:0 24px;position:sticky;top:0;z-index:20}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:800;color:var(--ink);font-size:16px}
+  .brand .mk{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--primary-600),var(--em-600));
+             display:grid;place-items:center;color:#fff}
+  .brand .mk svg{width:16px;height:16px}
+  .brand span b{color:var(--em-600)}
+  .navhint{margin-left:auto;display:flex;gap:6px;color:var(--s400);font-size:13px;font-weight:600}
+  .navhint .pill{padding:6px 12px;border-radius:8px}
+  .navhint .pill.on{background:var(--primary-50);color:var(--primary-700)}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:26px 24px 80px}
+
+  /* breadcrumb */
+  .crumb{display:flex;align-items:center;gap:7px;color:var(--s400);font-size:13px;margin-bottom:20px;flex-wrap:wrap}
+  .crumb a:hover{color:var(--em-600)}
+  .crumb svg{width:13px;height:13px;color:var(--s300)}
+  .crumb .cur{color:var(--s600)}
+
+  .grid{display:grid;grid-template-columns:1fr;gap:18px}
+  @media(min-width:900px){.grid{grid-template-columns:1.9fr 1fr}}
+  .col-main{display:flex;flex-direction:column;gap:16px;min-width:0}
+  .col-side{display:flex;flex-direction:column;gap:16px;min-width:0}
+
+  .card{background:#fff;border:1px solid var(--s100);border-radius:var(--radius);box-shadow:var(--shadow-sm)}
+  .pad{padding:22px}
+
+  /* ═══ HERO (modernisé) ═══ */
+  .hero{overflow:hidden}
+  .hero .keyline{height:4px;background:linear-gradient(90deg,var(--primary-600),var(--em-600) 70%,var(--terra-600))}
+  .hero .body{padding:22px 24px;position:relative}
+  .hero .tint{position:absolute;inset:0;pointer-events:none;
+      background:radial-gradient(120% 120% at 0% 0%, rgba(37,99,235,.05), transparent 45%),
+                 radial-gradient(120% 120% at 100% 0%, rgba(5,150,105,.05), transparent 42%)}
+  .hero .top{display:flex;gap:18px;align-items:flex-start;position:relative}
+  .avatar{width:92px;height:92px;border-radius:22px;flex:none;padding:3px;background:#fff;
+          box-shadow:0 6px 18px -6px rgb(30 58 138/.28);position:relative}
+  .avatar .inner{width:100%;height:100%;border-radius:19px;overflow:hidden;
+          background:linear-gradient(135deg,var(--primary-50),var(--em-50));display:grid;place-items:center}
+  .avatar .inner img{width:100%;height:100%;object-fit:cover}
+  .avatar .init{font-size:30px;font-weight:800;color:var(--primary-700)}
+  .avatar .vbadge{position:absolute;right:-4px;bottom:-4px;width:26px;height:26px;border-radius:99px;background:#fff;
+          display:grid;place-items:center;box-shadow:var(--shadow-sm)}
+  .avatar .vbadge svg{width:20px;height:20px}
+  .idcol{flex:1;min-width:0}
+  .idcol h1{font-size:28px;font-weight:800}
+  @media(min-width:900px){.idcol h1{font-size:30px}}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
+  .chip{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;
+        padding:5px 11px;border-radius:99px;border:1px solid transparent}
+  .chip svg{width:13px;height:13px}
+  .chip-spec{background:var(--primary-50);color:var(--primary-700);border-color:var(--primary-100)}
+  .chip-verified{background:var(--em-50);color:var(--em-700);border-color:var(--em-200)}
+  .chip-new{background:var(--primary-50);color:var(--primary-700);border-color:var(--primary-100)}
+  .chip-rating{background:#fffbeb;color:var(--amber-600);border-color:#fde68a}
+  .stars{display:inline-flex;gap:1px}
+  .stars svg{width:14px;height:14px}
+  .rating-line{display:inline-flex;align-items:center;gap:7px}
+  .rating-line .score{font-weight:800;color:var(--ink);font-size:15px}
+  .rating-line .cnt{color:var(--muted);font-size:12.5px}
+  .rating-few{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:12.5px;font-weight:500}
+
+  /* factoide raffiné */
+  .factoid{position:relative;margin-top:16px;background:var(--s50);border:1px solid var(--s100);
+           border-radius:12px;padding:13px 16px 13px 44px;color:var(--s600);font-size:14px;line-height:1.6}
+  .factoid .q{position:absolute;left:14px;top:9px;color:var(--em-500);font-size:30px;line-height:1;font-weight:800;font-family:Georgia,serif}
+
+  /* ═══ META RAIL (avec icônes) ═══ */
+  .meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;
+        background:var(--s100);border-top:1px solid var(--s100);position:relative}
+  .meta .cell{background:#fff;padding:14px 16px;min-width:0;display:flex;gap:11px;align-items:flex-start}
+  .meta .ic{width:30px;height:30px;border-radius:9px;flex:none;display:grid;place-items:center}
+  .meta .ic svg{width:15px;height:15px}
+  .ic-blue{background:var(--primary-50);color:var(--primary-600)}
+  .ic-em{background:var(--em-50);color:var(--em-600)}
+  .ic-terra{background:var(--terra-50);color:var(--terra-600)}
+  .ic-amber{background:#fffbeb;color:var(--amber-600)}
+  .meta .lbl{font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--s400)}
+  .meta .val{font-size:13px;color:var(--s700);margin-top:2px;line-height:1.35}
+  .meta .val b{color:var(--ink);font-weight:600}
+  .meta .val a{color:var(--primary-700);font-weight:600}
+  .langtags{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}
+  .langtag{font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:99px;border:1px solid var(--s200);background:var(--s100);color:var(--s600)}
+  .langtag.local{background:var(--em-50);color:var(--em-700);border-color:var(--em-200)}
+
+  /* ═══ SECTION HEADERS unifiés ═══ */
+  .sechead{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+  .sechead .ic{width:34px;height:34px;border-radius:11px;flex:none;display:grid;place-items:center}
+  .sechead .ic svg{width:18px;height:18px}
+  .sechead h2{font-size:16.5px;font-weight:700}
+  .sechead .sub{font-size:12.5px;color:var(--muted);margin-top:1px;font-weight:500}
+  .lead{color:var(--s600);font-size:14.5px;line-height:1.65}
+  .empty-about{color:var(--s500);font-style:italic}
+
+  /* coverage tags */
+  .taggrp{margin-top:14px}
+  .taggrp .h{font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--s400);margin-bottom:8px}
+  .taglist{display:flex;flex-wrap:wrap;gap:8px}
+  .tag{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;padding:7px 13px;border-radius:99px;border:1px solid}
+  .tag svg{width:14px;height:14px;flex:none}
+  .tag-em{background:var(--em-50);border-color:var(--em-200);color:var(--em-700);font-weight:500}
+  .tag-neutral{background:var(--s50);border-color:var(--s200);color:var(--s700)}
+
+  /* map */
+  .map{position:relative;height:170px;border-radius:12px;border:1px solid var(--s100);overflow:hidden;margin-bottom:14px;
+       background:linear-gradient(0deg,rgba(5,150,105,.05),rgba(37,99,235,.05)),#eef3f8}
+  .map .grid-bg{position:absolute;inset:0;
+       background-image:linear-gradient(rgba(148,163,184,.18) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.18) 1px,transparent 1px);
+       background-size:26px 26px}
+  .map .road{position:absolute;left:8%;top:50%;width:140%;height:13px;background:rgba(37,99,235,.18);transform:rotate(-7deg);border-radius:99px}
+  .map .pin{position:absolute;left:50%;top:42%;transform:translate(-50%,-100%);color:var(--terra-600);filter:drop-shadow(0 6px 8px rgba(15,27,45,.25))}
+  .map .pin svg{width:38px;height:38px}
+  .maprow{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .btn-terra{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;padding:9px 15px;border-radius:11px;
+             background:var(--terra-50);color:var(--terra-700);border:1px solid var(--terra-100)}
+  .btn-terra svg{width:15px;height:15px}
+
+  /* ═══ BOOKING SIDEBAR ═══ */
+  .book-head{overflow:hidden;padding:0}
+  .book-head .bar{height:4px;background:linear-gradient(90deg,var(--em-600),var(--primary-600))}
+  .book-head .in{padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .price{font-size:24px;font-weight:800;color:var(--ink)}
+  .price small{font-size:13px;font-weight:600;color:var(--muted)}
+  .price .rb{font-size:11.5px;color:var(--muted);font-weight:500;margin-top:2px}
+  .dur{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);font-weight:600}
+  .dur svg{width:14px;height:14px}
+
+  .book .sect-t{font-size:15px;font-weight:700;color:var(--ink)}
+  .book .sect-s{font-size:12.5px;color:var(--muted);margin-top:2px}
+  .nextslot{margin-top:14px;display:flex;align-items:center;gap:11px;background:var(--em-50);border:1px solid var(--em-200);
+            border-radius:12px;padding:11px 13px}
+  .nextslot .ic{width:32px;height:32px;border-radius:9px;background:#fff;display:grid;place-items:center;flex:none;box-shadow:var(--shadow-sm)}
+  .nextslot .ic svg{width:17px;height:17px;color:var(--em-600)}
+  .nextslot .lbl{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--em-700)}
+  .nextslot .v{font-size:13.5px;font-weight:700;color:var(--ink)}
+
+  .daypick{display:flex;gap:7px;margin-top:14px;overflow-x:auto;padding-bottom:2px}
+  .day{flex:none;width:52px;border:1px solid var(--s200);border-radius:12px;padding:8px 0;text-align:center;background:#fff;cursor:pointer}
+  .day .d{font-size:10px;font-weight:700;text-transform:uppercase;color:var(--s400);letter-spacing:.04em}
+  .day .n{font-size:17px;font-weight:800;color:var(--ink);margin-top:1px}
+  .day .dot{width:4px;height:4px;border-radius:99px;background:var(--em-500);margin:3px auto 0}
+  .day.on{background:var(--primary-600);border-color:var(--primary-600)}
+  .day.on .d,.day.on .n{color:#fff}
+  .day.on .dot{background:#fff}
+
+  .slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+  .slot{border:1px solid var(--primary-200);color:var(--primary-700);background:var(--primary-50);border-radius:10px;
+        padding:9px 0;text-align:center;font-size:13.5px;font-weight:700;cursor:pointer}
+  .slot:hover{background:var(--primary-100)}
+  .slotnote{font-size:12px;color:var(--muted);margin-top:10px;text-align:center}
+
+  .reassure{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:4px}
+  .reassure li{list-style:none;display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--s600)}
+  .reassure svg{width:14px;height:14px;color:var(--em-600)}
+  ul{margin:0;padding:0}
+
+  /* callback variant */
+  .cb-icon{width:40px;height:40px;border-radius:11px;background:#fffbeb;border:1px solid #fde68a;display:grid;place-items:center;flex:none}
+  .cb-icon svg{width:20px;height:20px;color:var(--amber-600)}
+  .field{margin-top:11px}
+  .field label{font-size:12px;font-weight:600;color:var(--s600);display:block;margin-bottom:5px}
+  .field .inp{border:1px solid var(--s300);border-radius:10px;padding:10px 12px;font-size:13.5px;color:var(--s400);background:#fff}
+  .motifs{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px}
+  .motif{font-size:12.5px;padding:6px 11px;border-radius:99px;border:1px solid var(--s200);background:#fff;color:var(--s600);cursor:pointer}
+  .motif.on{background:var(--primary-50);border-color:var(--primary-200);color:var(--primary-700);font-weight:600}
+  .btn-em{display:block;width:100%;text-align:center;background:var(--em-600);color:#fff;font-weight:700;font-size:14.5px;
+          padding:12px;border-radius:11px;border:none;margin-top:13px;box-shadow:0 1px 2px rgb(5 150 105/.3);cursor:pointer}
+  .btn-call{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:9px;
+            background:var(--primary-50);color:var(--primary-700);border:1px solid var(--primary-100);
+            font-weight:600;font-size:13.5px;padding:10px;border-radius:11px}
+  .btn-call svg{width:15px;height:15px}
+
+  /* schedule */
+  .schrow{display:flex;justify-content:space-between;align-items:center;font-size:13.5px;padding:6px 0;border-bottom:1px solid var(--s50)}
+  .schrow:last-child{border-bottom:none}
+  .schrow.today{background:var(--em-50);margin:0 -8px;padding:6px 8px;border-radius:9px;border:none}
+  .schrow .day{width:auto;padding:0;border:none;background:none;text-align:left;font-weight:600;color:var(--s500)}
+  .schrow.today .day{color:var(--em-700)}
+  .schrow .hrs{font-weight:700;color:var(--s800)}
+  .schrow.today .hrs{color:var(--em-700)}
+  .openbadge{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:99px;
+             background:var(--em-50);color:var(--em-700);border:1px solid var(--em-200)}
+  .openbadge .d{width:6px;height:6px;border-radius:99px;background:var(--em-500)}
+
+  /* section divider label */
+  .divider{display:flex;align-items:center;gap:14px;margin:40px 0 4px}
+  .divider::before,.divider::after{content:"";height:1px;background:var(--s200);flex:1}
+  .divider span{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--s400)}
+
+  /* changelog */
+  .changelog{margin-top:18px}
+  .cl-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:6px}
+  @media(min-width:720px){.cl-grid{grid-template-columns:1fr 1fr}}
+  .cl-item{display:flex;gap:12px;padding:14px;border:1px solid var(--s100);border-radius:12px;background:#fff}
+  .cl-num{width:26px;height:26px;border-radius:8px;background:var(--primary-50);color:var(--primary-700);
+          font-weight:800;font-size:13px;display:grid;place-items:center;flex:none}
+  .cl-item .t{font-weight:700;color:var(--ink);font-size:13.5px}
+  .cl-item .old{font-size:12.5px;color:var(--s500);margin-top:3px}
+  .cl-item .old del{color:#b91c1c;text-decoration-color:#fca5a5}
+  .cl-item .old ins{color:var(--em-700);text-decoration:none;font-weight:600}
+</style>
+
+<div class="ribbon">
+  <span class="dot"></span>
+  <span><b>Maquette de proposition</b> — modernisation UI des fiches praticien · non implémentée · fidèle au Design System « Medical Clarity »</span>
+</div>
+
+<!-- faux topbar -->
+<div class="topbar">
+  <div class="brand">
+    <span class="mk"><svg viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v14M3 10h14"/></svg></span>
+    <span>Santé<b>au</b>Maroc</span>
+  </div>
+  <div class="navhint">
+    <span class="pill on">Médecins</span>
+    <span class="pill">Questions</span>
+    <span class="pill">Conseils Santé</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ═══════════ FICHE 1 — Dr CHIYAMI (réservable) ═══════════ -->
+  <nav class="crumb">
+    <a>Accueil</a>
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 3 5 5-5 5" stroke-linecap="round"/></svg>
+    <a>Médecins</a>
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 3 5 5-5 5" stroke-linecap="round"/></svg>
+    <a>Acupuncture</a>
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 3 5 5-5 5" stroke-linecap="round"/></svg>
+    <a>Chtouka-Aït-Baha</a>
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 3 5 5-5 5" stroke-linecap="round"/></svg>
+    <span class="cur">Dr Mohammed Chiyami</span>
+  </nav>
+
+  <div class="grid">
+    <div class="col-main">
+
+      <!-- HERO -->
+      <section class="card hero">
+        <div class="keyline"></div>
+        <div class="body">
+          <div class="tint"></div>
+          <div class="top">
+            <div class="avatar">
+              <div class="inner"><span class="init">MC</span></div>
+              <span class="vbadge">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V5z" fill="#ecfdf5" stroke="#059669" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.5 12l2.5 2.5L16 9" stroke="#059669" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+            <div class="idcol">
+              <h1>Dr Mohammed Chiyami</h1>
+              <div class="chips">
+                <span class="chip chip-spec">Acupuncture</span>
+                <span class="chip chip-verified">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.5 12l2.5 2.5L16 9" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Profil vérifié
+                </span>
+                <!-- état AUCUN AVIS modernisé : pastille neutre, pas de fausses étoiles -->
+                <span class="chip chip-new">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 21.5"/></svg>
+                  Nouveau profil
+                </span>
+              </div>
+              <div class="factoid">
+                <span class="q">“</span>
+                Dr Mohammed Chiyami est acupuncteur à Chtouka-Aït-Baha. Consulte en arabe, français, anglais, espagnol, amazighe et darija. Reçoit au Centre de Santé Sidi Bibi.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- META RAIL avec icônes -->
+        <div class="meta">
+          <div class="cell">
+            <span class="ic ic-terra"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 1C5.8 1 4 2.8 4 5c0 3.3 4 9 4 9s4-5.7 4-9c0-2.2-1.8-4-4-4z"/><circle cx="8" cy="5" r="1.5"/></svg></span>
+            <div><div class="lbl">Adresse</div><div class="val">Centre de Santé Sidi Bibi, <b>Chtouka-Aït-Baha</b></div></div>
+          </div>
+          <div class="cell">
+            <span class="ic ic-blue"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 1h3l1.5 3.5-2 1.5a8 8 0 0 0 3.5 3.5L10.5 8 14 9.5V13c0 1-.9 1.5-2 1.5C5.5 14.5 1.5 10.5 1.5 4A2 2 0 0 1 3 1z"/></svg></span>
+            <div><div class="lbl">Téléphone</div><div class="val"><a class="tnum">0662541803</a></div></div>
+          </div>
+          <div class="cell">
+            <span class="ic ic-em"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6.5"/><path d="M1.5 8h13M8 1.5c2 2 2 11 0 13M8 1.5c-2 2-2 11 0 13"/></svg></span>
+            <div><div class="lbl">Langues</div>
+              <div class="langtags">
+                <span class="langtag local">Arabe</span><span class="langtag">Français</span><span class="langtag">Anglais</span>
+                <span class="langtag">Espagnol</span><span class="langtag local">Amazighe</span><span class="langtag local">Darija</span>
+              </div>
+            </div>
+          </div>
+          <div class="cell">
+            <span class="ic ic-amber"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 2.5"/></svg></span>
+            <div><div class="lbl">Expérience</div><div class="val"><b>10 ans</b></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- À PROPOS (en-tête unifié) -->
+      <section class="card pad">
+        <div class="sechead">
+          <span class="ic ic-blue"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="8"/><path d="M10 9v5M10 6.4v.2" stroke-linecap="round"/></svg></span>
+          <h2>À propos</h2>
+        </div>
+        <p class="lead empty-about">Dr Mohammed Chiyami exerce en tant qu'acupuncteur à Chtouka-Aït-Baha. Cette fiche n'a pas encore été complétée par le praticien.</p>
+      </section>
+
+      <!-- PRISE EN CHARGE (en-tête unifié, même patron) -->
+      <section class="card pad">
+        <div class="sechead">
+          <span class="ic ic-em"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2l6 2.5v5c0 4-3 6.5-6 7.5-3-1-6-3.5-6-7.5v-5z"/><path d="M7.3 10l1.9 1.9L13 7.8"/></svg></span>
+          <div><h2>Prise en charge &amp; paiement</h2><div class="sub">Ce que ce praticien accepte</div></div>
+        </div>
+        <div class="taggrp">
+          <div class="h">Conventionnement</div>
+          <div class="taglist">
+            <span class="tag tag-em"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"/></svg>CNSS</span>
+            <span class="tag tag-em"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"/></svg>CNOPS / Mutuelle</span>
+          </div>
+        </div>
+        <div class="taggrp">
+          <div class="h">Moyens de paiement</div>
+          <div class="taglist">
+            <span class="tag tag-neutral"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1.5" y="3.5" width="13" height="9" rx="1.5"/><path d="M1.5 6.5h13"/></svg>Espèces</span>
+            <span class="tag tag-neutral"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1.5" y="3.5" width="13" height="9" rx="1.5"/><path d="M1.5 6.5h13"/></svg>Carte bancaire</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- LOCALISATION (en-tête unifié, accent terracotta) -->
+      <section class="card pad">
+        <div class="sechead">
+          <span class="ic ic-terra"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 1.5C7 1.5 4.5 4 4.5 7c0 4.4 5.5 11.5 5.5 11.5S15.5 11.4 15.5 7C15.5 4 13 1.5 10 1.5z"/><circle cx="10" cy="7" r="2"/></svg></span>
+          <h2>Localisation du cabinet</h2>
+        </div>
+        <div class="map">
+          <div class="grid-bg"></div><div class="road"></div>
+          <div class="pin"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.7 2 6 4.7 6 8c0 4.5 6 12 6 12s6-7.5 6-12c0-3.3-2.7-6-6-6z"/><circle cx="12" cy="8" r="2.4" fill="#fff"/></svg></div>
+        </div>
+        <div class="maprow">
+          <p class="lead" style="margin:0">Centre de Santé Sidi Bibi, <b style="color:var(--ink)">Chtouka-Aït-Baha</b></p>
+          <a class="btn-terra"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 1C5.8 1 4 2.8 4 5c0 3.3 4 9 4 9s4-5.7 4-9c0-2.2-1.8-4-4-4z"/><circle cx="8" cy="5" r="1.5"/></svg>Voir l'itinéraire</a>
+        </div>
+      </section>
+    </div>
+
+    <!-- SIDEBAR — réservation en ligne -->
+    <aside class="col-side">
+      <div class="card book-head">
+        <div class="bar"></div>
+        <div class="in">
+          <div>
+            <div class="price">300 <small>Dh</small></div>
+            <div class="rb">Tarif indicatif · non remboursé</div>
+          </div>
+          <span class="dur"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 2.5" stroke-linecap="round"/></svg>30 min</span>
+        </div>
+      </div>
+
+      <div class="card pad book">
+        <div class="sect-t">Choisissez votre créneau</div>
+        <div class="sect-s">Sélectionnez un jour puis une heure</div>
+
+        <div class="nextslot">
+          <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"/></svg></span>
+          <div><div class="lbl">Prochaine disponibilité</div><div class="v">Lundi 6 juillet · 15:00</div></div>
+        </div>
+
+        <div class="daypick">
+          <div class="day on"><div class="d">Lun</div><div class="n">6</div><span class="dot"></span></div>
+          <div class="day"><div class="d">Mar</div><div class="n">7</div><span class="dot"></span></div>
+          <div class="day"><div class="d">Mer</div><div class="n">8</div></div>
+          <div class="day"><div class="d">Jeu</div><div class="n">9</div></div>
+          <div class="day"><div class="d">Ven</div><div class="n">10</div><span class="dot"></span></div>
+        </div>
+
+        <div class="slots">
+          <div class="slot">15:00</div><div class="slot">15:30</div><div class="slot">16:00</div><div class="slot">16:30</div>
+        </div>
+        <div class="slotnote">Lundi 6 juillet — 4 créneaux</div>
+
+        <ul class="reassure" style="margin-top:16px">
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"/></svg>Gratuit</li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"/></svg>Sans engagement</li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"/></svg>Annulation libre</li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"/></svg>Données sécurisées</li>
+        </ul>
+      </div>
+
+      <!-- Horaires -->
+      <div class="card pad">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px">
+          <div class="sechead" style="margin:0"><span class="ic ic-blue" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 2.5" stroke-linecap="round"/></svg></span><h2 style="font-size:15px">Horaires</h2></div>
+          <span class="openbadge"><span class="d"></span>Ouvert</span>
+        </div>
+        <div class="schrow today"><span class="day">Lun</span><span class="hrs tnum">09:00 – 17:00</span></div>
+        <div class="schrow"><span class="day">Mar</span><span class="hrs tnum">09:00 – 17:00</span></div>
+        <div class="schrow"><span class="day">Mer</span><span class="hrs tnum">09:00 – 12:00</span></div>
+        <div class="schrow"><span class="day">Ven</span><span class="hrs tnum">09:00 – 17:00</span></div>
+      </div>
+    </aside>
+  </div>
+
+
+  <!-- ═══════════ FICHE 2 — Dr GUILLEMETEAU (variante non réservable) ═══════════ -->
+  <div class="divider"><span>Variante — fiche non réservable (rappel téléphonique)</span></div>
+
+  <div class="grid" style="margin-top:16px">
+    <div class="col-main">
+      <section class="card hero">
+        <div class="keyline"></div>
+        <div class="body">
+          <div class="tint"></div>
+          <div class="top">
+            <div class="avatar">
+              <div class="inner"><span class="init">CG</span></div>
+              <span class="vbadge"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V5z" fill="#ecfdf5" stroke="#059669" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.5 12l2.5 2.5L16 9" stroke="#059669" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+            <div class="idcol">
+              <h1>Dr Catherine Guillemeteau</h1>
+              <div class="chips">
+                <span class="chip chip-spec">Pédiatrie</span>
+                <span class="chip chip-verified"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.5 12l2.5 2.5L16 9" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>Profil vérifié</span>
+                <!-- état 1 AVIS : sobre, une étoile creuse, pas de note gonflée -->
+                <span class="rating-few">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="var(--s300)" stroke-width="1.2"><path d="M8 1.5l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 14.7 4.3 16.3l.7-4.3-3.1-3 4.3-.6z"/></svg>
+                  1 avis
+                </span>
+              </div>
+              <div class="factoid">
+                <span class="q">“</span>
+                Dr Catherine Guillemeteau est pédiatre à Casablanca. Consulte en arabe, français et darija. Reçoit au 46 Bd Tidghine, Lot. Koubi 1er Étage, Tamaris.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="meta">
+          <div class="cell">
+            <span class="ic ic-terra"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 1C5.8 1 4 2.8 4 5c0 3.3 4 9 4 9s4-5.7 4-9c0-2.2-1.8-4-4-4z"/><circle cx="8" cy="5" r="1.5"/></svg></span>
+            <div><div class="lbl">Adresse</div><div class="val">46 Bd Tidghine, Lot. Koubi 1er Étage, Tamaris, <b>Casablanca</b></div></div>
+          </div>
+          <div class="cell">
+            <span class="ic ic-blue"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 1h3l1.5 3.5-2 1.5a8 8 0 0 0 3.5 3.5L10.5 8 14 9.5V13c0 1-.9 1.5-2 1.5C5.5 14.5 1.5 10.5 1.5 4A2 2 0 0 1 3 1z"/></svg></span>
+            <div><div class="lbl">Téléphone</div><div class="val"><a class="tnum">0522961791 / 0522961795</a></div></div>
+          </div>
+          <div class="cell">
+            <span class="ic ic-em"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6.5"/><path d="M1.5 8h13M8 1.5c2 2 2 11 0 13M8 1.5c-2 2-2 11 0 13"/></svg></span>
+            <div><div class="lbl">Langues</div><div class="langtags"><span class="langtag local">Arabe</span><span class="langtag">Français</span><span class="langtag local">Darija</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card pad">
+        <div class="sechead">
+          <span class="ic ic-blue"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="8"/><path d="M10 9v5M10 6.4v.2" stroke-linecap="round"/></svg></span>
+          <h2>À propos</h2>
+        </div>
+        <p class="lead">Dr Catherine Guillemeteau accueille les enfants de la naissance à l'adolescence : suivi de croissance, vaccinations, maladies courantes et conseils aux jeunes parents. Consultations en arabe, français et darija.</p>
+      </section>
+    </div>
+
+    <aside class="col-side">
+      <!-- CALLBACK -->
+      <div class="card pad">
+        <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:6px">
+          <span class="cb-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4a1 1 0 0 1 1-1h2.2l1.2 3.4-1.7 1.2a9 9 0 0 0 3.5 3.5l1.2-1.7L14 11v2.2a1 1 0 0 1-1 1A10 10 0 0 1 3 4z"/></svg></span>
+          <div><div class="sect-t">Réservez par téléphone</div><div class="sect-s" style="line-height:1.5">Laissez votre numéro : le cabinet vous rappelle pour fixer un rendez-vous, généralement sous 24–48 h ouvrées.</div></div>
+        </div>
+        <div class="field"><label>Votre nom</label><div class="inp">Prénom et nom</div></div>
+        <div class="field"><label>Téléphone</label><div class="inp tnum">06 12 34 56 78</div></div>
+        <div class="field"><label>Motif de la visite <span style="color:var(--s400);font-weight:400">· facultatif</span></label>
+          <div class="motifs"><span class="motif on">Première consultation</span><span class="motif">Suivi / contrôle</span><span class="motif">Vaccination</span><span class="motif">Autre</span></div>
+        </div>
+        <button class="btn-em">Être rappelé(e)</button>
+        <a class="btn-call"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 1h3l1.5 3.5-2 1.5a8 8 0 0 0 3.5 3.5L10.5 8 14 9.5V13c0 1-.9 1.5-2 1.5C5.5 14.5 1.5 10.5 1.5 4A2 2 0 0 1 3 1z"/></svg>Appeler le cabinet</a>
+        <ul class="reassure" style="margin-top:14px">
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"/></svg>Gratuit</li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"/></svg>Sans engagement</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+
+  <!-- ═══════════ CHANGELOG ═══════════ -->
+  <div class="divider"><span>Ce qui change vs l'actuel</span></div>
+  <section class="changelog">
+    <div class="cl-grid">
+      <div class="cl-item"><span class="cl-num">1</span><div><div class="t">Hero allégé</div><div class="old"><del>Bandeau dégradé plein (h-28) saturé</del> → <ins>keyline fine + wash discret + avatar plus grand</ins>. Moins « cover photo 2020 », plus focus sur l'identité.</div></div></div>
+      <div class="cl-item"><span class="cl-num">2</span><div><div class="t">État « aucun avis »</div><div class="old"><del>5 étoiles grises = se lit « 0/5 »</del> → <ins>pastille « Nouveau profil »</ins>. Honnête, valorisant, non pénalisant.</div></div></div>
+      <div class="cl-item"><span class="cl-num">3</span><div><div class="t">Meta strip iconographié</div><div class="old"><del>Labels capitales seuls</del> → <ins>icône + label + valeur</ins>. Scan instantané (adresse, tél, langues, exp.).</div></div></div>
+      <div class="cl-item"><span class="cl-num">4</span><div><div class="t">En-têtes de section unifiés</div><div class="old"><del>Icône nue vs chip coloré selon les sections</del> → <ins>un seul patron chip d'icône</ins>, couleur par domaine.</div></div></div>
+      <div class="cl-item"><span class="cl-num">5</span><div><div class="t">Factoïde raffiné</div><div class="old"><del>Encadré bordure-gauche</del> → <ins>guillemet d'accent + fond neutre choisi</ins>. Toujours 100 % citable (GEO).</div></div></div>
+      <div class="cl-item"><span class="cl-num">6</span><div><div class="t">Sidebar de réservation clarifiée</div><div class="old"><ins>« Prochaine dispo » en chip héro</ins>, créneaux en pastilles, réassurance en ligne compacte. CTA plus lisible.</div></div></div>
+    </div>
+    <p style="font-size:12.5px;color:var(--s500);margin-top:16px;line-height:1.6">
+      <b style="color:var(--ink)">Intact :</b> tout le JSON-LD / SEO, l'i18n FR + العربية (RTL mirroré), l'a11y WCAG 2.2 AA, les seuils d'avis (≥3), le module de réservation/rappel et la logique Pro. Aucune donnée ni route modifiée — refonte purement présentationnelle, appliquée au fichier partagé (donc à toutes les fiches).
+    </p>
+  </section>
+</div>

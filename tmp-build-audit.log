@@ -1,0 +1,188 @@
+
+> app@0.1.0 build
+> next build
+
+Warning: Custom Cache-Control headers detected for the following routes:
+  - /_next/static/(.*)
+
+Setting a custom Cache-Control header can break Next.js development behavior.
+▲ Next.js 16.2.9 (Turbopack)
+- Environments: .env
+- Experiments (use with caution):
+  · serverActions
+  · staleTimes
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 9.0s
+  Running TypeScript ...
+  Finished TypeScript in 19.5s ...
+  Collecting page data using 11 workers ...
+⚠ Using edge runtime on a page currently disables static generation for that page
+  Generating static pages using 11 workers (0/3519) ...
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+  Generating static pages using 11 workers (879/3519) 
+  Generating static pages using 11 workers (1759/3519) 
+  Generating static pages using 11 workers (2639/3519) 
+✓ Generating static pages using 11 workers (3519/3519) in 15.5s
+  Finalizing page optimization ...
+
+Route (app)                                                           Revalidate  Expire
+┌ ○ /_not-found
+├ ● /[lang]                                                                   1h      1y
+│ ├ /fr                                                                       1h      1y
+│ └ /ar                                                                       1h      1y
+├ ● /[lang]/a-propos
+│ ├ /fr/a-propos
+│ └ /ar/a-propos
+├ ● /[lang]/admin
+│ ├ /fr/admin
+│ └ /ar/admin
+├ ƒ /[lang]/admin/abonnements
+├ ƒ /[lang]/admin/abonnements/[id]
+├ ƒ /[lang]/admin/blog
+├ ƒ /[lang]/admin/blog/[id]/modifier
+├ ● /[lang]/admin/blog/nouveau
+│ ├ /fr/admin/blog/nouveau
+│ └ /ar/admin/blog/nouveau
+├ ƒ /[lang]/admin/contact
+├ ƒ /[lang]/admin/paiements
+├ ƒ /[lang]/admin/paiements/[id]
+├ ƒ /[lang]/admin/praticiens
+├ ƒ /[lang]/admin/praticiens/[id]
+├ ƒ /[lang]/admin/prospection
+├ ƒ /[lang]/admin/questions
+├ ƒ /[lang]/admin/questions/[id]
+├ ƒ /[lang]/admin/revendications
+├ ƒ /[lang]/admin/revendications/[id]
+├ ƒ /[lang]/admin/support
+├ ƒ /[lang]/admin/support/[id]
+├ ƒ /[lang]/auth/email-envoye
+├ ƒ /[lang]/auth/mot-de-passe-oublie
+├ ƒ /[lang]/auth/reinitialiser-mot-de-passe
+├ ƒ /[lang]/auth/verification-envoyee
+├ ƒ /[lang]/auth/verify-email
+├ ƒ /[lang]/avis/[token]
+├ ƒ /[lang]/badge
+├ ƒ /[lang]/blog
+├ ● /[lang]/blog/[slug]                                                       5m      1y
+│ ├ /fr/blog/bilan-de-sante-quand-faire-maroc                                 5m      1y
+│ ├ /fr/blog/hypertension-arterielle-maroc                                    5m      1y
+│ ├ /fr/blog/prevention-sante-guide-maroc                                     5m      1y
+│ └ [+77 more paths]
+├ ƒ /[lang]/blog/[slug]/opengraph-image-pwwwzc
+├ ƒ /[lang]/blog/categorie/[slug]
+├ ● /[lang]/charte-editoriale
+│ ├ /fr/charte-editoriale
+│ └ /ar/charte-editoriale
+├ ƒ /[lang]/cliniques
+├ ƒ /[lang]/cliniques/[slug]
+├ ● /[lang]/conditions-utilisation
+│ ├ /fr/conditions-utilisation
+│ └ /ar/conditions-utilisation
+├ ƒ /[lang]/connexion
+├ ● /[lang]/contact
+│ ├ /fr/contact
+│ └ /ar/contact
+├ ● /[lang]/gerer-ma-fiche
+│ ├ /fr/gerer-ma-fiche
+│ └ /ar/gerer-ma-fiche
+├ ● /[lang]/guide-du-medecin
+│ ├ /fr/guide-du-medecin
+│ └ /ar/guide-du-medecin
+├ ƒ /[lang]/inscription
+├ ƒ /[lang]/inscription-praticien
+├ ƒ /[lang]/laboratoires
+├ ƒ /[lang]/laboratoires/[slug]
+├ ƒ /[lang]/medicaments
+├ ƒ /[lang]/medicaments/[slug]
+├ ● /[lang]/observatoire-sante-maroc                                          1w      1y
+│ ├ /fr/observatoire-sante-maroc                                              1w      1y
+│ └ /ar/observatoire-sante-maroc                                              1w      1y
+├ ƒ /[lang]/pharmacies
+├ ƒ /[lang]/pharmacies/[slug]
+├ ● /[lang]/plan-du-site
+│ ├ /fr/plan-du-site
+│ └ /ar/plan-du-site
+├ ● /[lang]/politique-confidentialite
+│ ├ /fr/politique-confidentialite
+│ └ /ar/politique-confidentialite
+├ ƒ /[lang]/praticien/tableau-de-bord
+├ ƒ /[lang]/praticien/tableau-de-bord/abonnement
+├ ƒ /[lang]/praticien/tableau-de-bord/abonnement/[reference]
+├ ƒ /[lang]/praticien/tableau-de-bord/abonnement/[reference]/facture
+├ ƒ /[lang]/praticien/tableau-de-bord/agenda
+├ ƒ /[lang]/praticien/tableau-de-bord/horaires
+├ ƒ /[lang]/praticien/tableau-de-bord/profil
+├ ƒ /[lang]/praticien/tableau-de-bord/rappels
+├ ƒ /[lang]/praticien/tableau-de-bord/rendez-vous
+├ ƒ /[lang]/praticien/tableau-de-bord/reponses
+├ ƒ /[lang]/praticien/tableau-de-bord/verification
+├ ƒ /[lang]/praticiens
+├ ƒ /[lang]/praticiens/[slug]
+├ ƒ /[lang]/praticiens/[slug]/opengraph-image-1q8l34
+├ ƒ /[lang]/praticiens/[slug]/rdv
+├ ƒ /[lang]/praticiens/[slug]/rdv/confirmation
+├ ƒ /[lang]/praticiens/[slug]/revendiquer
+├ ● /[lang]/presse
+│ ├ /fr/presse
+│ └ /ar/presse
+├ ƒ /[lang]/questions
+├ ƒ /[lang]/questions/[slug]
+├ ƒ /[lang]/questions/poser
+├ ƒ /[lang]/questions/specialite/[slug]
+├ ● /[lang]/remboursement-amo-cnss
+│ ├ /fr/remboursement-amo-cnss
+│ └ /ar/remboursement-amo-cnss
+├ ● /[lang]/sante-darija
+│ ├ /fr/sante-darija
+│ └ /ar/sante-darija
+├ ● /[lang]/specialites
+│ ├ /fr/specialites
+│ └ /ar/specialites
+├ ƒ /[lang]/specialites/[slug]
+├ ƒ /[lang]/specialites/[slug]/[ville]
+├ ƒ /[lang]/support
+├ ƒ /[lang]/tableau-de-bord
+├ ƒ /[lang]/tableau-de-bord/profil
+├ ƒ /[lang]/tableau-de-bord/questions
+├ ƒ /[lang]/tableau-de-bord/rendez-vous
+├ ƒ /[lang]/tarifs
+├ ƒ /[lang]/tarifs/activer
+├ ƒ /[lang]/tarifs/souscrire
+├ ● /[lang]/villes
+│ ├ /fr/villes
+│ └ /ar/villes
+├ ƒ /[lang]/villes/[slug]
+├ ƒ /api/auth/verify-email
+├ ƒ /api/badge/[slug]
+├ ƒ /api/cron/qa-digest
+├ ƒ /api/documents/[filename]
+├ ƒ /api/upload/avatar
+├ ƒ /api/upload/document
+├ ○ /llms.txt                                                                 1d      1y
+├ ○ /manifest.webmanifest
+├ ƒ /opengraph-image
+├ ○ /robots.txt
+└ ● /sitemap/[__metadata_id__]                                                1d      1y
+  ├ /sitemap/core.xml                                                         1d      1y
+  ├ /sitemap/doctors.xml                                                      1d      1y
+  ├ /sitemap/combos.xml                                                       1d      1y
+  └ /sitemap/content.xml                                                      1d      1y
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+
