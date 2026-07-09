@@ -12,6 +12,12 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Scripts de seed/maintenance et fichiers temporaires : hors build de l'app,
+    // exécutés manuellement (tsx/node), pas soumis aux règles du bundle applicatif.
+    "scripts/**",
+    "tmp-*.cjs",
+    "tmp-*.mjs",
+    "test-*.cjs",
   ]),
 ]);
 

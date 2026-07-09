@@ -2,6 +2,7 @@
 
 import { useActionState, useState } from "react";
 import { register } from "@/features/auth/actions";
+import { LocaleLink } from "@/components/i18n/LocaleLink";
 import { useEmailAvailability } from "@/components/auth/useEmailAvailability";
 import type { Dictionary } from "@/lib/i18n";
 
@@ -156,7 +157,7 @@ export function RegisterForm({ t}: { t: FormT }) {
               <path d="M6 4v2.5M6 8h.01" stroke="white" strokeWidth="1.25" strokeLinecap="round" />
             </svg>
             {t.emailTaken}{" "}
-            <a href="/connexion" className="font-semibold underline">{t.login}</a>
+            <LocaleLink href="/connexion" className="font-semibold underline">{t.login}</LocaleLink>
           </p>
         ) : (
           <FieldError id="email-error" message={state?.errors?.email?.[0]} />
@@ -288,9 +289,9 @@ export function RegisterForm({ t}: { t: FormT }) {
 
       <p className="text-xs text-slate-500 text-center leading-relaxed">
         {t.termsPre}{" "}
-        <a href="/conditions-utilisation" className="text-secondary-600 hover:underline">
+        <LocaleLink href="/conditions-utilisation" className="text-secondary-600 hover:underline">
           {t.termsLink}
-        </a>
+        </LocaleLink>
         .
       </p>
     </form>

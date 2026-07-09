@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { AdminPageHeader } from "../_components/AdminPageHeader";
 import { AdminListFooter } from "../_components/AdminListFooter";
@@ -64,7 +65,7 @@ export default async function AdminContactPage({ searchParams }: { searchParams:
 
       {/* Filtres par sujet */}
       <div className="flex flex-wrap gap-1.5 mb-5">
-        <a
+        <Link
           href="/admin/contact"
           className={`text-xs font-semibold px-3 py-1.5 rounded-full border transition-all ${
             !sujet
@@ -73,9 +74,9 @@ export default async function AdminContactPage({ searchParams }: { searchParams:
           }`}
         >
           Tous
-        </a>
+        </Link>
         {SUBJECTS.map((s) => (
-          <a
+          <Link
             key={s}
             href={`/admin/contact?sujet=${encodeURIComponent(s)}`}
             className={`text-xs font-semibold px-3 py-1.5 rounded-full border transition-all ${
@@ -85,7 +86,7 @@ export default async function AdminContactPage({ searchParams }: { searchParams:
             }`}
           >
             {s}
-          </a>
+          </Link>
         ))}
       </div>
 

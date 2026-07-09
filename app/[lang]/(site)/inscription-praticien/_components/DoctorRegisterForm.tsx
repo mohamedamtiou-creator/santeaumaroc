@@ -2,6 +2,7 @@
 
 import { useActionState, useState } from "react";
 import { registerDoctor, type DoctorRegisterState } from "../_actions";
+import { LocaleLink } from "@/components/i18n/LocaleLink";
 import { GroupedSelect } from "@/components/ui/GroupedSelect";
 import { useEmailAvailability } from "@/components/auth/useEmailAvailability";
 import type { Dictionary } from "@/lib/i18n";
@@ -367,7 +368,7 @@ export function DoctorRegisterForm({
                 <path d="M6 4v2.5M6 8h.01" stroke="white" strokeWidth="1.25" strokeLinecap="round"/>
               </svg>
               {t.emailTaken}{" "}
-              <a href="/connexion" className="font-semibold underline">{t.login}</a>
+              <LocaleLink href="/connexion" className="font-semibold underline">{t.login}</LocaleLink>
             </p>
           ) : (
             <FieldError id="email-error" msg={state?.errors?.email} />

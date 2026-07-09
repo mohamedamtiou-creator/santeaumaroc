@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
+import Link from "next/link";
 import dynamic from "next/dynamic";
 import { createPost, updatePost } from "@/features/blog/actions";
 
@@ -161,7 +162,7 @@ export function PostEditor({ categories, pillars = [], post }: { categories: Cat
         </div>
 
         <div>
-          <label className={labelCls}>Texte alternatif de l'image <span className="normal-case font-normal text-slate-500">(SEO/accessibilité — décrire l'image, pas le titre)</span></label>
+          <label className={labelCls}>Texte alternatif de l’image <span className="normal-case font-normal text-slate-500">(SEO/accessibilité — décrire l’image, pas le titre)</span></label>
           <input type="text" value={coverAlt} onChange={(e) => setCoverAlt(e.target.value)} maxLength={160}
             placeholder="Ex. : Lecteur de glycémie et stylo autopiqueur pour dépister le diabète" className={inputCls} />
           <p className="text-xs text-slate-500 mt-1">Repli sur le titre si vide. {coverAlt.length} / 160 caractères</p>
@@ -183,7 +184,7 @@ export function PostEditor({ categories, pillars = [], post }: { categories: Cat
 
       {/* ── Éditeur contenu ──────────────────────── */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6">
-        <h2 className="text-sm font-bold text-slate-900 mb-4">Contenu de l'article</h2>
+        <h2 className="text-sm font-bold text-slate-900 mb-4">Contenu de l’article</h2>
         <TiptapEditor content={content} onChange={setContent} />
       </div>
 
@@ -191,7 +192,7 @@ export function PostEditor({ categories, pillars = [], post }: { categories: Cat
       <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-5">
         <div>
           <h2 className="text-sm font-bold text-slate-900">Optimisation IA (GEO) & relecture médicale</h2>
-          <p className="text-xs text-slate-500 mt-1">Améliore les chances d'être cité par Google AI Overview, ChatGPT, Gemini et Perplexity.</p>
+          <p className="text-xs text-slate-500 mt-1">Améliore les chances d’être cité par Google AI Overview, ChatGPT, Gemini et Perplexity.</p>
         </div>
 
         <div>
@@ -256,7 +257,7 @@ export function PostEditor({ categories, pillars = [], post }: { categories: Cat
         {seoOpen && (
           <div className="px-6 pb-6 space-y-4 border-t border-slate-100 pt-5">
             <div>
-              <label className={labelCls}>Meta titre <span className="normal-case font-normal text-slate-500">(par défaut : titre de l'article)</span></label>
+              <label className={labelCls}>Meta titre <span className="normal-case font-normal text-slate-500">(par défaut : titre de l’article)</span></label>
               <input type="text" value={metaTitle} onChange={(e) => setMetaTitle(e.target.value)}
                 placeholder={title || "Meta titre…"} className={inputCls} />
               <p className="text-xs text-slate-500 mt-1">{(metaTitle || title).length} / 60 caractères</p>
@@ -273,9 +274,9 @@ export function PostEditor({ categories, pillars = [], post }: { categories: Cat
 
       {/* ── Actions ──────────────────────────────── */}
       <div className="flex items-center justify-between gap-4">
-        <a href="/admin/blog" className="text-sm text-slate-500 hover:text-slate-700 transition-colors">
+        <Link href="/admin/blog" className="text-sm text-slate-500 hover:text-slate-700 transition-colors">
           ← Retour à la liste
-        </a>
+        </Link>
         <div className="flex items-center gap-3">
           <button
             type="button" onClick={() => handleSave(false)} disabled={pending}

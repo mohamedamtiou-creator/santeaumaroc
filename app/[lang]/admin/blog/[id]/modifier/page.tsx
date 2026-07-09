@@ -35,7 +35,7 @@ export default async function ModifierArticlePage({ params }: { params: Params }
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-xl font-bold text-slate-900">Modifier l'article</h1>
+        <h1 className="text-xl font-bold text-slate-900">Modifier l’article</h1>
         <p className="text-sm text-slate-500 mt-0.5 font-mono">/blog/{post.slug}</p>
       </div>
       <PostEditor categories={categories} pillars={pillars} post={postData} />

@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useEffect, useId, useState } from "react";
+import { useActionState, useId, useState } from "react";
 import { usePathname } from "next/navigation";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { postComment } from "@/features/qa/comment-actions";
@@ -21,9 +21,13 @@ export function CommentForm({
   const uid = useId();
   const pathname = usePathname();
 
-  useEffect(() => {
+  // Vide le champ pendant le rendu quand le commentaire est accepté
+  // (pattern React recommandé plutôt qu'un setState dans useEffect).
+  const [prevState, setPrevState] = useState(state);
+  if (state !== prevState) {
+    setPrevState(state);
     if (state?.message === "ok") setValue("");
-  }, [state]);
+  }
 
   if (!isAuthed) {
     return (
