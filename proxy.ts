@@ -8,7 +8,12 @@ function isPassthrough(pathname: string): boolean {
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
     pathname === "/opengraph-image" ||
-    /\.[^/]+$/.test(pathname) // robots.txt, sitemap/*.xml, *.png, favicon.ico, llms.txt…
+    // Assets & fichiers de métadonnées à extension (robots.txt, sitemap/*.xml,
+    // *.png, favicon.ico, llms.txt…). On EXCLUT `.html` : ce sont d'anciennes
+    // URLs du site PHP (`{id}-{slug}.html`) qui ne correspondent à aucune route.
+    // En les laissant suivre la réécriture de locale, une URL inconnue affiche
+    // bien le 404 premium (global-not-found) au lieu du 404 par défaut de Next.
+    (/\.[^/]+$/.test(pathname) && !pathname.endsWith(".html"))
   );
 }
 
