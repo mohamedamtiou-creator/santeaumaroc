@@ -1,6 +1,9 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
+// Pas de `runtime = "edge"` : l'image n'utilise que du SVG inline + polices
+// système (aucun fs/fetch). Le runtime Node par défaut permet la GÉNÉRATION
+// STATIQUE (image produite au build, servie par le CDN) au lieu d'un rendu edge
+// à la demande — et supprime le warning « edge runtime disables static generation ».
 export const alt = "SantéauMaroc — Annuaire médical marocain";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";

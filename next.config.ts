@@ -57,16 +57,13 @@ const nextConfig: NextConfig = {
         source: "/(.*)",
         headers: securityHeaders,
       },
-      // Cache headers only in production — dev HMR needs uncached responses
+      // Cache headers only in production — dev HMR needs uncached responses.
+      // NB : PAS de règle sur `/_next/static/(.*)` — Next (next start ET Vercel)
+      // pose déjà `public, max-age=31536000, immutable` sur ces assets hashés.
+      // Un header custom y est redondant et déclenche le warning Vercel
+      // « Custom Cache-Control headers detected ».
       ...(isProd
         ? [
-            // Immutable assets — content-hash filenames never change; cache 1 year
-            {
-              source: "/_next/static/(.*)",
-              headers: [
-                { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
-              ],
-            },
             // Public assets — versioned manually; cache 1 week with revalidation
             {
               source: "/favicon\\.(svg|ico)",
