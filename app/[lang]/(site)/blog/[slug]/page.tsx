@@ -17,6 +17,8 @@ import { relatedSpecialty, specialtyCityLinks } from "@/lib/blog-related";
 import { RelatedDoctors } from "@/components/blog/RelatedDoctors";
 import { localizedAlternates } from "@/lib/hreflang";
 import { getDictionary, toLocale, type Dictionary } from "@/lib/i18n";
+import { InArticleAds } from "@/components/ads/InArticleAds";
+import { adsActive } from "@/lib/ads/config";
 
 type BlogT = Dictionary["blog"];
 
@@ -342,6 +344,10 @@ export default async function BlogArticlePage({ params }: { params: Params }) {
   // On y substitue le widget RDV / disclaimer patient par un CTA de recrutement.
   const isDoctorAudience = post.category.slug === "medecins";
 
+  // Publicité in-article : uniquement si activée (flags) ET audience patient.
+  // Les articles B2B « médecins » ciblent le recrutement praticien → pas de pub.
+  const showAds = adsActive("blog") && !isDoctorAudience;
+
   // Dates : publication, mise à jour, vérification médicale
   const showUpdated =
     post.publishedAt && post.updatedAt.getTime() - post.publishedAt.getTime() > 86_400_000;
@@ -539,12 +545,9 @@ export default async function BlogArticlePage({ params }: { params: Params }) {
             {/* Cocon : rattachement au pilier (article satellite) */}
             {post.pillar && <PillarBanner pillar={post.pillar} tb={tb} />}
 
-            {/* Contenu */}
-            <div
-              dir="auto"
-              className="blog-prose"
-              dangerouslySetInnerHTML={{ __html: contentHtml }}
-            />
+            {/* Contenu — encarts AdSense interleavés entre les H2 si la pub est
+                active (sinon rendu identique : un seul bloc `blog-prose`). */}
+            <InArticleAds html={contentHtml} active={showAds} />
 
             {/* Cocon : « Dans ce dossier » (article pilier → satellites) */}
             <CoconFolder satellites={post.satellites} tb={tb} />
