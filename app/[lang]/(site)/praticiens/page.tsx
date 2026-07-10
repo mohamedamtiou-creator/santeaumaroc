@@ -4,22 +4,19 @@ import { unstable_cache } from "next/cache";
 import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import { processCache } from "@/lib/process-cache";
-import { slugify, generateAvailableSlots } from "@/lib/utils";
 import { localizedAlternates } from "@/lib/hreflang";
 import { getDictionary, toLocale, type Locale } from "@/lib/i18n";
 import { tSpecialty } from "@/lib/specialty-i18n";
 import { PraticienCard } from "@/components/PraticienCard";
-import { isProPlan, isFeaturedActive, hasProAccess } from "@/lib/plan";
 import { SearchFilters } from "@/components/SearchFilters";
 import { Pagination } from "@/components/ui/Pagination";
 import { FaqAccordion } from "@/components/ui/FaqAccordion";
-import { PraticienCardSkeleton } from "@/components/PraticienCardSkeleton";
+import { getCachedDoctors, PRATICIENS_PAGE_SIZE as PAGE_SIZE } from "@/lib/praticiens-query";
+import { PraticiensResults } from "@/components/praticiens/PraticiensResults";
 
-const PAGE_SIZE = 15;
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 
 type Params = Promise<{ lang: string }>;
-type SearchParams = Promise<{ q?: string; specialite?: string; ville?: string; page?: string }>;
 
 // ── Cached filter dropdowns (1 h) ─────────────────────────────────────────────
 // Two-layer cache:
@@ -49,183 +46,20 @@ const getFiltersData = unstable_cache(
   { revalidate: 3600, tags: ["filters"] },
 );
 
-// Normalise Prisma Decimal → number so the value survives JSON round-trips
-// (unstable_cache serialises via JSON; Decimal.toJSON() returns a string).
-function normalisePrix(prix: unknown): number | null {
-  if (prix === null || prix === undefined) return null;
-  if (typeof prix === "number") return prix;
-  if (typeof prix === "object" && typeof (prix as { toNumber(): number }).toNumber === "function")
-    return (prix as { toNumber(): number }).toNumber();
-  if (typeof prix === "string") return parseFloat(prix as string);
-  return null;
-}
-
-// Strip control characters (newlines, tabs, etc.) from DB strings.
-// A literal \n inside an RSC streaming chunk (embedded in a JS <script> string)
-// causes: SyntaxError: "" literal not terminated before end of script.
-function sanitize(s: string | null | undefined): string | null {
-  if (s === null || s === undefined) return null;
-  return s.replace(/[\r\n\t\x00-\x08\x0B\x0C\x0E-\x1F\x7F]+/g, " ").trim();
-}
-
-// ── Cached doctor queries (5 min) ─────────────────────────────────────────────
-// Args (q, specialite, ville, page) are included in the processCache key so each
-// unique filter combination is cached independently in both layers.
-// IMPORTANT: return only the fields PraticienCard needs — spreading the full
-// Prisma object would include description, langues, smsReminderConfig, etc.,
-// all of which are serialised into the RSC streaming payload. Any field with
-// a literal newline breaks the <script> tag the Suspense chunk is embedded in.
-const getCachedDoctors = unstable_cache(
-  (q: string, specialite: string, ville: string, page: number) =>
-    processCache(
-      `praticiens:doctors:${q}|${specialite}|${ville}|${page}`,
-      300,
-      async () => {
-        const where = {
-          isActive: true,
-          ...(q ? {
-            OR: [
-              { nom:       { contains: q, mode: "insensitive" as const } },
-              { prenom:    { contains: q, mode: "insensitive" as const } },
-              { specialty: { name: { contains: q, mode: "insensitive" as const } } },
-            ],
-          } : {}),
-          ...(specialite ? { specialty: { slug: specialite } } : {}),
-          ...(ville      ? { city:      { slug: ville      } } : {}),
-        };
-        const [rawDoctors, total] = await Promise.all([
-          prisma.doctor.findMany({
-            where,
-            include: {
-              specialty:    { select: { name: true, slug: true } },
-              city:         { select: { name: true, slug: true } },
-              _count:       { select: { reviews: true } },
-              workingHours: { select: { dayOfWeek: true, startTime: true, endTime: true }, where: { isActive: true } },
-            },
-            // Mise en avant : l'add-on Premium (featuredUntil) remonte en tête,
-            // puis les abonnés Pro (planActivatedAt), puis vérifiés/notés.
-            orderBy: [
-              { featuredUntil: { sort: "desc", nulls: "last" } },
-              { planActivatedAt: { sort: "desc", nulls: "last" } },
-              { isVerified: "desc" },
-              { averageRating: "desc" },
-            ],
-            take: PAGE_SIZE,
-            skip: (page - 1) * PAGE_SIZE,
-          }),
-          prisma.doctor.count({ where }),
-        ]);
-
-        // Créneaux réservables inline (puces sur la carte). Requête ciblée sur les
-        // seules fiches Pro + horaires → coût nul sinon. Fenêtre courte (14 j).
-        const bookableIds = rawDoctors
-          .filter((d) => hasProAccess(d.plan, d.planExpiresAt, d.trialEndsAt) && d.workingHours.length > 0)
-          .map((d) => d.id);
-        const slotsByDoctor: Record<string, { date: string; time: string }[]> = {};
-        if (bookableIds.length > 0) {
-          const sched = await prisma.doctor.findMany({
-            where: { id: { in: bookableIds } },
-            select: {
-              id: true,
-              consultationDuration: true,
-              bookingLeadHours: true,
-              bookingMaxDays: true,
-              workingHours: true,
-              blockedSlots: { select: { date: true, time: true } },
-              absences: { select: { startDate: true, endDate: true, allDay: true, startTime: true, endTime: true } },
-              appointments: { where: { status: { notIn: ["CANCELLED"] } }, select: { date: true, time: true } },
-            },
-          });
-          for (const d of sched) {
-            const booked = d.appointments.map((a) => ({ date: a.date, time: a.time }));
-            const all = generateAvailableSlots(booked, d.workingHours, d.consultationDuration, d.absences, {
-              leadHours: d.bookingLeadHours,
-              maxDays: Math.min(d.bookingMaxDays, 14),
-            });
-            const blockedSet = new Set(d.blockedSlots.map((b) => `${b.date}-${b.time}`));
-            slotsByDoctor[d.id] = all
-              .filter((s) => s.available && !blockedSet.has(`${s.date}-${s.time}`))
-              .slice(0, 4)
-              .map((s) => ({ date: s.date, time: s.time }));
-          }
-        }
-
-        return {
-          doctors: rawDoctors.map((d) => ({
-            id:            d.id,
-            slug:          d.slug,
-            nom:           sanitize(d.nom),
-            prenom:        sanitize(d.prenom),
-            civilite:      sanitize(d.civilite),
-            adresse:       sanitize(d.adresse) ?? "",
-            avatar:        d.avatar,
-            averageRating: d.averageRating,
-            prix:          normalisePrix(d.prix),
-            isVerified:    d.isVerified,
-            isPro:         isProPlan(d.plan, d.planExpiresAt),
-            isFeatured:    isFeaturedActive(d.featuredUntil),
-            canBookOnline: hasProAccess(d.plan, d.planExpiresAt, d.trialEndsAt),
-            // Valeurs courtes et contrôlées (pas de newline) → sûres pour le flux RSC.
-            langues:       d.langues,
-            conventions:   d.conventions,
-            specialty:     { name: sanitize(d.specialty.name) ?? d.specialty.name, slug: d.specialty.slug },
-            city:          { name: sanitize(d.city.name)      ?? d.city.name,      slug: d.city.slug },
-            _count:        { reviews: d._count.reviews },
-            workingHours:  d.workingHours.map((wh) => ({ dayOfWeek: wh.dayOfWeek, startTime: wh.startTime, endTime: wh.endTime })),
-            phone:         sanitize(d.phone),
-            slots:         slotsByDoctor[d.id],
-          })),
-          total,
-        };
-      }
-    ),
-  ["praticiens-doctors"],
-  { revalidate: 300, tags: ["doctors"] },
-);
-
 // ── generateMetadata ──────────────────────────────────────────────────────────
-export async function generateMetadata({ params, searchParams }: { params: Params; searchParams: SearchParams }): Promise<Metadata> {
-  const { q = "", specialite = "", ville: villeRaw = "", page: pageStr = "1" } = await searchParams;
-  const ville = villeRaw ? slugify(villeRaw) : "";
-  const page = Math.max(1, Number(pageStr) || 1);
-
-  // Reuse the filter cache (processCache) instead of issuing 2 separate DB queries.
-  let specialtyName = "";
-  let cityName = "";
-  if (specialite || ville) {
-    const { specialties, cities } = await getFiltersData();
-    if (specialite) specialtyName = specialties.find((s) => s.slug === specialite)?.name ?? "";
-    if (ville)      cityName      = cities.find((c)      => c.slug === ville)?.name      ?? "";
-  }
-
-  const label = specialtyName || (q ? `"${q}"` : "");
-  const title = label
-    ? `${label}${cityName ? ` à ${cityName}` : ""} — Annuaire médical Maroc`
-    : "Médecins & Praticiens au Maroc — Annuaire médical";
-  const description = specialtyName
-    ? `Trouvez les meilleurs ${specialtyName.toLowerCase()}${cityName ? ` à ${cityName}` : ""} au Maroc. Consultez les avis patients et prenez rendez-vous en ligne.`
-    : "Trouvez des médecins et spécialistes partout au Maroc. Consultez les avis patients, tarifs et horaires. Prise de RDV en ligne gratuite.";
-
-  const isFiltered = !!(specialite || ville || q);
-  // Canonical auto-référente : la page 2+ se déclare canonique d'elle-même
-  // (avec ?page=N), jamais de la page 1 — sinon Google traite les pages
-  // profondes comme des doublons et déréférence les praticiens listés au-delà.
-  // Canonical toujours émise (même filtrée) : une page filtrée consolide vers
-  // la base indexable /praticiens ; une page profonde non filtrée reste
-  // canonique d'elle-même (?page=N). Sans ce signal, une page filtrée+paginée
-  // n'avait ni canonical ni parent déclaré.
-  const canonical = isFiltered
-    ? "/praticiens"
-    : page > 1
-      ? `/praticiens?page=${page}`
-      : "/praticiens";
+// La page est STATIQUE : le serveur ne lit plus searchParams (filtres/pagination
+// gérés côté client, vues noindex). Les métadonnées ne concernent donc que la vue
+// canonique de base /praticiens.
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const title = "Médecins & Praticiens au Maroc — Annuaire médical";
+  const description =
+    "Trouvez des médecins et spécialistes partout au Maroc. Consultez les avis patients, tarifs et horaires. Prise de RDV en ligne gratuite.";
   const locale = toLocale((await params).lang);
   return {
     title,
     description,
-    alternates: localizedAlternates(canonical, locale),
-    ...(isFiltered && { robots: { index: false } }),
-    openGraph: { title, description, url: canonical, type: "website" },
+    alternates: localizedAlternates("/praticiens", locale),
+    openGraph: { title, description, url: "/praticiens", type: "website" },
     twitter:   { card: "summary_large_image", title, description },
   };
 }
@@ -545,26 +379,12 @@ async function DoctorResults({
 }
 
 // ── Skeleton shown while DoctorResults resolves ────────────────────────────────
-function DoctorResultsFallback() {
-  return (
-    <div className="mt-2 animate-pulse">
-      <div className="h-4 bg-slate-100 rounded w-52 mt-2 mb-5" />
-      <div className="h-px bg-slate-100 mb-4" />
-      <div className="flex flex-col gap-3">
-        {Array.from({ length: 8 }).map((_, i) => (
-          <PraticienCardSkeleton key={i} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
 // ── Page ──────────────────────────────────────────────────────────────────────
-export default async function PraticiensPage({ params, searchParams }: { params: Params; searchParams: SearchParams }) {
-  const { q = "", specialite = "", ville: villeRaw = "", page: pageStr = "1" } = await searchParams;
-  const ville = villeRaw ? slugify(villeRaw) : "";
-  const page = Math.max(1, Number(pageStr) || 1);
-
+// STATIQUE (ISR via le Data Cache des requêtes) : le serveur ne lit PAS
+// searchParams. La vue de base (page 1, sans filtre) est prérendue = shell SEO.
+// Les filtres/recherche/pagination sont gérés côté client (PraticiensResults →
+// /api/praticiens/search) ; ces vues sont noindex, hors périmètre SEO.
+export default async function PraticiensPage({ params }: { params: Params }) {
   // Filters are cached — resolves without hitting DB after first request
   const { specialties, cities } = await getFiltersData();
   const locale = toLocale((await params).lang);
@@ -573,47 +393,47 @@ export default async function PraticiensPage({ params, searchParams }: { params:
   const specialtiesT = locale === "ar"
     ? specialties.map((s) => ({ ...s, name: tSpecialty(s.name, locale) }))
     : specialties;
-  const activeSpecialty = specialite ? specialties.find((s) => s.slug === specialite) : null;
-  const activeCity      = ville      ? cities.find((c)      => c.slug === ville)      : null;
+
+  // Vue de base (page 1, aucun filtre) rendue côté serveur. Sert à la fois de
+  // contenu du shell statique (fallback <Suspense>, donc présent dans le HTML
+  // prérendu = indexable) ET de contenu affiché quand aucun filtre n'est actif.
+  const baseList = (
+    <DoctorResults
+      q="" specialite="" ville="" page={1}
+      specialties={specialties} cities={cities} locale={locale}
+    />
+  );
 
   return (
     <div className="page-outer">
 
-      {/* ── En-tête (renders immediately — no DB needed) ──── */}
       <header className="mb-8">
         <p className="section-eyebrow mb-1.5">{dict.praticiens.eyebrow}</p>
-        <h1 className="section-title">
-          {activeSpecialty ? tSpecialty(activeSpecialty.name, locale) : dict.praticiens.defaultTitle}
-          {activeCity && (
-            <span className="text-slate-500 font-normal"> · {activeCity.name}</span>
-          )}
-        </h1>
+        <h1 className="section-title">{dict.praticiens.defaultTitle}</h1>
         <ReassuranceBar t={dict.footer.trust} />
-        {/* Stat line + filter chips stream in with DoctorResults below */}
       </header>
 
-      {/* ── Filtres (renders immediately — no Suspense needed; no useSearchParams) ── */}
+      {/* Filtres — client (router.push met à jour l'URL, sans requête serveur) */}
       <div
         className="bg-white rounded-2xl border border-slate-200 p-4 mb-5"
         style={{ boxShadow: "0 1px 4px 0 rgb(0 0 0 / 0.06)" }}
       >
-        <SearchFilters
-          key={`${q}|${specialite}|${ville}`}
-          specialties={specialtiesT}
-          cities={cities}
-          currentQ={q}
-          currentSpecialty={specialite}
-          currentVille={ville}
-          t={dict.filters}
-        />
+        <SearchFilters specialties={specialtiesT} cities={cities} t={dict.filters} />
       </div>
 
-      {/* ── Résultats (streamed — DB query runs async) ─────── */}
-      <Suspense fallback={<DoctorResultsFallback />}>
-        <DoctorResults
-          q={q} specialite={specialite} ville={ville} page={page}
-          specialties={specialties} cities={cities} locale={locale}
-        />
+      {/* Résultats — <Suspense> requis par useSearchParams en page statique.
+          Fallback = liste de base SSR → présente dans le HTML prérendu (SEO). */}
+      <Suspense fallback={baseList}>
+        <PraticiensResults
+          specialties={specialtiesT}
+          cities={cities}
+          locale={locale}
+          cardT={dict.card}
+          paginationT={dict.pagination}
+          tp={dict.praticiens}
+        >
+          {baseList}
+        </PraticiensResults>
       </Suspense>
 
     </div>
