@@ -20,6 +20,8 @@ import { UrgencyBanner } from "@/components/qa/UrgencyBanner";
 import { QuestionCard, type QuestionCardData } from "@/components/qa/QuestionCard";
 import { BookingCard, type BookingDoctor } from "@/components/qa/BookingCard";
 import { RecommendedDoctors } from "@/components/qa/RecommendedDoctors";
+import { AdSlot } from "@/components/ads/AdSlot";
+import { adsActive, ADS } from "@/lib/ads/config";
 
 export const revalidate = 300;
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
@@ -238,6 +240,11 @@ export default async function QuestionDetailPage({ params }: { params: Params })
 
   const askerName = q.isAnonymous ? t.anonymous : (q.askedBy?.name ?? t.anonymous);
 
+  // Publicité Q/R : un seul encart, activé par flag ET seulement si la page a du
+  // contenu réel (≥ 1 réponse publiée) — pas de pub sur une question sans réponse
+  // (page mince → risque policy AdSense). Placé après le bloc conversion.
+  const showAds = adsActive("questions") && answers.length > 0;
+
   // ── JSON-LD QAPage + MedicalWebPage + BreadcrumbList ──────────────────────
   const url = `${BASE}/questions/${slug}`;
   const answerNode = (a: AnswerCardData) => {
@@ -420,6 +427,11 @@ export default async function QuestionDetailPage({ params }: { params: Params })
           )}
         </aside>
       </div>{/* /grille 2 colonnes */}
+
+      {/* Publicité — un seul encart, APRÈS le contenu ET les cartes de conversion
+          (BookingCard/RDV), avant le maillage secondaire. Jamais entre la question
+          et ses réponses ni avant le CTA rendez-vous. */}
+      {showAds && <AdSlot slot={ADS.inArticleSlot} />}
 
       {/* Questions similaires */}
       {related.length > 0 && (
