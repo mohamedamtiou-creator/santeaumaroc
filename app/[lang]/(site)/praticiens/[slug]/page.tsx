@@ -4,7 +4,7 @@ import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import Image from "next/image";
 import { prisma } from "@/lib/prisma";
 import { DoctorAnswersSection } from "@/components/qa/DoctorAnswersSection";
-import { getDoctorInitials, generateAvailableSlots, cleanDoctorDescription, telHref, formatStreetAddress } from "@/lib/utils";
+import { getDoctorInitials, generateAvailableSlots, cleanDoctorDescription, telHref, formatStreetAddress, formatDoctorName } from "@/lib/utils";
 import { hasProAccess } from "@/lib/plan";
 import { tryGetSession } from "@/lib/dal";
 import { BookingForm } from "./rdv/_components/BookingForm";
@@ -70,7 +70,9 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const { lang, slug } = await params;
   const p = await getDoctorProfile(slug);
   if (!p) return { title: "Praticien introuvable", robots: { index: false } };
-  const name = [p.civilite, p.prenom, p.nom].filter(Boolean).join(" ");
+  // Casse normalisée (« Dr Jamal Bouajaj », pas « Dr JAMAL BOUAJAJ ») pour le
+  // titre SERP et l'OpenGraph — la BDD migrée stocke les noms en capitales.
+  const name = formatDoctorName({ civilite: p.civilite, prenom: p.prenom, nom: p.nom });
   const title = `${name} — ${p.specialty.name} à ${p.city.name}`;
   // Même seuil que la page : pas de note agrégée dans le SEO sous 3 avis fiables.
   const ratingSnippet = p._count.reviews >= 3 && p.averageRating > 0
@@ -111,9 +113,11 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 /* ── Helpers ─────────────────────────────────────────────── */
 
 function ratingColor(r: number): string {
-  if (r >= 4) return "text-emerald-600";
-  if (r >= 3) return "text-amber-600";
-  return "text-rose-500";
+  // Teintes -700 : le texte de note est petit et gras → besoin d'un contraste
+  // WCAG AA ≥ 4,5:1 sur blanc (emerald/amber-600 plafonnaient à ~3,7:1).
+  if (r >= 4) return "text-emerald-700";
+  if (r >= 3) return "text-amber-700";
+  return "text-rose-600";
 }
 
 function avatarColor(name: string): { bg: string; text: string } {
@@ -377,7 +381,9 @@ export default async function PraticienProfilePage({ params }: { params: Params 
   existingReview = reviewResult;
   existingClaim  = claimResult;
 
-  const fullName   = [p.civilite, p.prenom, p.nom].filter(Boolean).join(" ") || d.fallbackName;
+  const fullName   = (p.prenom || p.nom)
+    ? formatDoctorName({ civilite: p.civilite, prenom: p.prenom, nom: p.nom })
+    : d.fallbackName;
   // Présentation exploitable ou null (écarte les données-poubelle : « Test »…).
   // Sert au bloc « À propos » et au JSON-LD ; le SEO utilise la même logique.
   const cleanDescription = cleanDoctorDescription(p.description);
