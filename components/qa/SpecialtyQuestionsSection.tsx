@@ -1,6 +1,6 @@
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { prisma } from "@/lib/prisma";
-import { processCache } from "@/lib/process-cache";
+import { cachedQuery } from "@/lib/cache";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import { tSpecialty } from "@/lib/specialty-i18n";
 import { answersLabel } from "@/lib/qa";
@@ -17,9 +17,10 @@ export async function SpecialtyQuestionsSection({
   specialtyName: string;
   locale: Locale;
 }) {
-  // Résultat JSON-sérialisable simple (pas de Decimal) → processCache in-process
-  // évite un aller-retour DB non caché à CHAQUE rendu de page spécialité.
-  const questions = await processCache(
+  // Résultat JSON-sérialisable simple (pas de Decimal) → cache DURABLE (Data Cache
+  // + LRU mémoire) : évite un aller-retour DB non caché à CHAQUE rendu de page
+  // spécialité, et survit aux cold starts serverless.
+  const questions = await cachedQuery(
     `specialite:questions:${specialtyId}`,
     3600,
     () =>

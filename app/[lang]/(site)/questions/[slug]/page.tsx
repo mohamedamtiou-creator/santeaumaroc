@@ -1,8 +1,8 @@
-import { cache } from "react";
 import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { prisma } from "@/lib/prisma";
+import { cachedQuery } from "@/lib/cache";
 import { tryGetSession } from "@/lib/dal";
 import { localizedAlternates, frenchOnlyAlternates } from "@/lib/hreflang";
 import { qLocalized, aLocalized, isQuestionArReady } from "@/lib/qa-content";
@@ -26,35 +26,40 @@ const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 
 type Params = Promise<{ lang: string; slug: string }>;
 
-const getQuestion = cache(async (slug: string) =>
-  prisma.question.findUnique({
-    where: { slug },
-    include: {
-      askedBy: { select: { name: true } },
-      specialty: { select: { name: true, slug: true } },
-      city: { select: { name: true, slug: true } },
-      answers: {
-        where: { status: "PUBLISHED" },
-        orderBy: { score: "desc" },
-        include: {
-          doctor: {
-            select: {
-              id: true, slug: true, nom: true, prenom: true, civilite: true, avatar: true,
-              isVerified: true, plan: true, planExpiresAt: true, averageRating: true,
-              specialty: { select: { name: true } }, city: { select: { name: true } },
-              _count: { select: { reviews: { where: { isPublic: true } } } },
+// Lecture STABLE de la question (identité + réponses publiées + médecins + commentaires),
+// cache DURABLE 300 s aligné sur l'ISR de la page. Partagée generateMetadata + rendu.
+// L'incrément de vues (write) reste hors cache, fire-and-forget. JSON-safe : aucun
+// Decimal sélectionné (Doctor.prix non inclus), Float/Date révivés par Next.
+const getQuestion = (slug: string) =>
+  cachedQuery(`question:${slug}`, 300, () =>
+    prisma.question.findUnique({
+      where: { slug },
+      include: {
+        askedBy: { select: { name: true } },
+        specialty: { select: { name: true, slug: true } },
+        city: { select: { name: true, slug: true } },
+        answers: {
+          where: { status: "PUBLISHED" },
+          orderBy: { score: "desc" },
+          include: {
+            doctor: {
+              select: {
+                id: true, slug: true, nom: true, prenom: true, civilite: true, avatar: true,
+                isVerified: true, plan: true, planExpiresAt: true, averageRating: true,
+                specialty: { select: { name: true } }, city: { select: { name: true } },
+                _count: { select: { reviews: { where: { isPublic: true } } } },
+              },
             },
-          },
-          comments: {
-            where: { status: "PUBLISHED" },
-            orderBy: { createdAt: "asc" },
-            include: { user: { select: { name: true } } },
+            comments: {
+              where: { status: "PUBLISHED" },
+              orderBy: { createdAt: "asc" },
+              include: { user: { select: { name: true } } },
+            },
           },
         },
       },
-    },
-  }),
-);
+    }),
+  );
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { lang, slug } = await params;

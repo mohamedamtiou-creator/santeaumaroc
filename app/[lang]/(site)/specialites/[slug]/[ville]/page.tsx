@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { prisma } from "@/lib/prisma";
-import { processCache } from "@/lib/process-cache";
+import { cachedQuery } from "@/lib/cache";
 import { PraticienCard } from "@/components/PraticienCard";
 import { ListingControls, FILTERABLE_LANGUAGES } from "@/components/ListingControls";
 import { SpecialtyControls, SpecialtyResults as SpecialtyResultsLive } from "@/components/specialites/SpecialtyListing";
@@ -48,17 +48,17 @@ export async function generateStaticParams() {
 }
 
 async function getSpecialty(slug: string) {
-  return processCache(`specialite:meta:${slug}`, 3600, () =>
+  return cachedQuery(`specialite:meta:${slug}`, 3600, () =>
     prisma.specialty.findUnique({ where: { slug } }),
   );
 }
 async function getCity(ville: string) {
-  return processCache(`ville:meta:${ville}`, 3600, () =>
+  return cachedQuery(`ville:meta:${ville}`, 3600, () =>
     prisma.city.findUnique({ where: { slug: ville } }),
   );
 }
 function cityCount(slug: string, ville: string) {
-  return processCache(`specialite:count:${slug}:${ville}`, 3600, () =>
+  return cachedQuery(`specialite:count:${slug}:${ville}`, 3600, () =>
     prisma.doctor.count({ where: { isActive: true, specialty: { slug }, city: { slug: ville } } }),
   );
 }

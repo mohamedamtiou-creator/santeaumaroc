@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import { processCache } from "@/lib/process-cache";
+import { cachedQuery } from "@/lib/cache";
 
 export type SpecialtyCity = { slug: string; name: string; _count: { doctors: number } };
 
@@ -11,11 +11,12 @@ export type SpecialtyCity = { slug: string; name: string; _count: { doctors: num
  * ville (~143×, mesuré à 52,9 ms / 11k buffers) — par un seul `groupBy` agrégé
  * puis une résolution des noms en `id IN (...)`.
  *
- * Cache in-process par slug SEUL (indépendant des filtres ville/tri/page) → bien
- * plus de cache-hits que l'ancienne version qui recalculait par combinaison.
+ * Cache DURABLE par slug SEUL (indépendant des filtres ville/tri/page) → bien
+ * plus de cache-hits que l'ancienne version qui recalculait par combinaison, et
+ * survit aux cold starts serverless (Data Cache, contrairement à processCache seul).
  */
 export function specialtyCityCounts(slug: string): Promise<SpecialtyCity[]> {
-  return processCache(`specialite:cities:${slug}`, 3600, async () => {
+  return cachedQuery(`specialite:cities:${slug}`, 3600, async () => {
     const groups = await prisma.doctor.groupBy({
       by: ["cityId"],
       where: { isActive: true, specialty: { slug } },

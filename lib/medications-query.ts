@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import { cachedQuery } from "@/lib/cache";
+import { cachedQuery, decToNum } from "@/lib/cache";
 
 export const MEDICATIONS_PAGE_SIZE = 30;
 
@@ -84,6 +84,30 @@ export function getMedications(q: string, forme: string, page: number): Promise<
       reviewsCount: m.reviews.length,
     }));
     return { medications, total };
+  });
+}
+
+/**
+ * Détail d'un médicament (fiche + avis publics + compteur), cache DURABLE 1 h.
+ * Source UNIQUE partagée par `generateMetadata` ET le rendu → une requête DB par
+ * slug/heure au lieu de deux à chaque requête (page dynamique).
+ *
+ * ⚠️ Les prix `ppv`/`ph`/`prixBR` sont des `Prisma.Decimal` → convertis en
+ * `number | null` via {@link decToNum} AVANT le cache (le Data Cache sérialise en
+ * JSON : un Decimal désérialisé perd son prototype et `.toFixed()` planterait).
+ * Les usages page passent tous par `Number(...)` → compatibles avec `number`.
+ */
+export function getMedicationDetail(slug: string) {
+  return cachedQuery(`medication:${slug}`, 3600, async () => {
+    const m = await prisma.medication.findUnique({
+      where: { slug },
+      include: {
+        reviews: { where: { isPublic: true }, orderBy: { createdAt: "desc" }, take: 100 },
+        _count:  { select: { reviews: true } },
+      },
+    });
+    if (!m) return null;
+    return { ...m, ppv: decToNum(m.ppv), ph: decToNum(m.ph), prixBR: decToNum(m.prixBR) };
   });
 }
 

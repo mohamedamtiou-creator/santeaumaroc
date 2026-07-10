@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
+import { getEstablishmentDetail } from "@/lib/establishments-query";
 import { EstablishmentProfile } from "@/components/EstablishmentProfile";
 import { tryGetSession } from "@/lib/dal";
 import { localizedAlternates } from "@/lib/hreflang";
@@ -10,10 +11,7 @@ type Params = Promise<{ lang: string; slug: string }>;
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { lang, slug } = await params;
-  const e = await prisma.establishment.findUnique({
-    where: { slug },
-    include: { city: { select: { name: true } } },
-  });
+  const e = await getEstablishmentDetail(slug);
   const locale = toLocale(lang);
   const m = getDictionary(locale).estab.meta;
   if (!e) return { title: m.cliniqueNotFound, robots: { index: false } };
@@ -33,14 +31,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 export default async function CliniquePage({ params }: { params: Params }) {
   const { lang, slug } = await params;
 
-  const establishment = await prisma.establishment.findUnique({
-    where: { slug },
-    include: {
-      city:    { select: { name: true, slug: true } },
-      reviews: { where: { isPublic: true }, orderBy: { createdAt: "desc" }, take: 100 },
-      _count: { select: { reviews: { where: { isPublic: true } } } },
-    },
-  });
+  const establishment = await getEstablishmentDetail(slug);
 
   if (!establishment || !establishment.isActive) notFound();
 

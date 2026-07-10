@@ -75,6 +75,30 @@ export function getEstablishments(types: string[], ville: string, q: string, pag
   });
 }
 
+/**
+ * Détail d'un établissement (identité + ville + avis publics + compteur), mis en
+ * cache DURABLE 1 h. Données STABLES uniquement — la partie session-spécifique
+ * (avis de l'utilisateur connecté) reste hors cache, côté page. Source UNIQUE
+ * partagée par `generateMetadata` ET le rendu des 3 pages détail
+ * (cliniques/laboratoires/pharmacies/[slug]) → une seule requête DB par slug/heure
+ * au lieu de deux requêtes non cachées à CHAQUE requête (page dynamique = session).
+ *
+ * JSON-safe : `averageRating`/`latitude`/`longitude` sont des `Float`, `note` un
+ * `Int`, `createdAt` une `Date` (révivée par Next) → aucun `Decimal`.
+ */
+export function getEstablishmentDetail(slug: string) {
+  return cachedQuery(`establishment:${slug}`, 3600, () =>
+    prisma.establishment.findUnique({
+      where: { slug },
+      include: {
+        city:    { select: { name: true, slug: true } },
+        reviews: { where: { isPublic: true }, orderBy: { createdAt: "desc" }, take: 100 },
+        _count:  { select: { reviews: { where: { isPublic: true } } } },
+      },
+    }),
+  );
+}
+
 /** Villes pour le sélecteur de filtre (triées par nb d'établissements), cachées 1 h. */
 export function getEstablishmentCities(): Promise<{ slug: string; name: string }[]> {
   return cachedQuery("establishments:cities", 3600, async () => {

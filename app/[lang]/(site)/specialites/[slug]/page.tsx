@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { prisma } from "@/lib/prisma";
-import { processCache } from "@/lib/process-cache";
+import { cachedQuery } from "@/lib/cache";
 import { SpecialtyQuestionsSection } from "@/components/qa/SpecialtyQuestionsSection";
 import { PraticienCard } from "@/components/PraticienCard";
 import { ListingControls, FILTERABLE_LANGUAGES } from "@/components/ListingControls";
@@ -53,7 +53,7 @@ function buildWhere(slug: string, f: { ville: string; dispo: string; conv: strin
 }
 
 async function getSpecialty(slug: string) {
-  return processCache(`specialite:meta:${slug}`, 3600, () =>
+  return cachedQuery(`specialite:meta:${slug}`, 3600, () =>
     prisma.specialty.findUnique({ where: { slug } }),
   );
 }
@@ -65,7 +65,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const [s, count] = await Promise.all([
     getSpecialty(slug),
     // Compteur canonique caché (mutualisé avec la coquille de la page).
-    processCache(`specialite:count:${slug}`, 3600, () =>
+    cachedQuery(`specialite:count:${slug}`, 3600, () =>
       prisma.doctor.count({ where: { isActive: true, specialty: { slug } } }),
     ),
   ]);
@@ -266,7 +266,7 @@ async function SpecialtyRelated({
 }) {
   const relatedPostSlugs = articleSlugsForSpecialty(slug);
   const [relatedSpecialties, relatedPosts] = await Promise.all([
-    processCache(`specialite:related:${slug}`, 3600, async () => {
+    cachedQuery(`specialite:related:${slug}`, 3600, async () => {
       // groupBy agrégé (1 scan) au lieu d'un `_count` corrélé par spécialité (~96
       // sous-requêtes). On exclut la spécialité courante après résolution des noms.
       const groups = await prisma.doctor.groupBy({
@@ -376,7 +376,7 @@ export default async function SpecialitePage({ params }: { params: Params }) {
   // Données de la COQUILLE uniquement (rapides / cachées), en parallèle.
   const [specialty, total, cities] = await Promise.all([
     getSpecialty(slug),
-    processCache(`specialite:count:${slug}`, 3600, () => prisma.doctor.count({ where })),
+    cachedQuery(`specialite:count:${slug}`, 3600, () => prisma.doctor.count({ where })),
     specialtyCityCounts(slug),
   ]);
   if (!specialty) notFound();

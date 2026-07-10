@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
-import { prisma } from "@/lib/prisma";
+import { getMedicationDetail } from "@/lib/medications-query";
 import { localizedAlternates } from "@/lib/hreflang";
 import { toLocale } from "@/lib/i18n";
 
@@ -9,7 +9,7 @@ type Params = Promise<{ lang: string; slug: string }>;
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { lang, slug } = await params;
-  const m = await prisma.medication.findUnique({ where: { slug } });
+  const m = await getMedicationDetail(slug);
   if (!m) return { title: "Médicament introuvable", robots: { index: false } };
   const locale = toLocale(lang);
   const dosageLabel = [m.dosage, m.uniteDosage].filter(Boolean).join(" ");
@@ -261,17 +261,7 @@ function EmptyReviews() {
 export default async function MedicamentPage({ params }: { params: Params }) {
   const { slug } = await params;
 
-  const medication = await prisma.medication.findUnique({
-    where: { slug },
-    include: {
-      reviews: {
-        where: { isPublic: true },
-        orderBy: { createdAt: "desc" },
-        take: 100,
-      },
-      _count: { select: { reviews: true } },
-    },
-  });
+  const medication = await getMedicationDetail(slug);
 
   if (!medication || !medication.isActive) notFound();
   const m = medication;
