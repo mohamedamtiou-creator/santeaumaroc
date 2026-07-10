@@ -737,6 +737,13 @@ model Question {
   // [specialtyId, status] reste servi par cet index → pas de doublon nécessaire.
   @@index([specialtyId, status, publishedAt])
   @@index([status, lastAnswerAt])
+  // Tri « populaires » (QaHome trending + /questions?tri=populaires) :
+  // WHERE status='PUBLISHED' ORDER BY views DESC. Sans cet index → scan+tri de
+  // toutes les questions publiées à chaque requête (page /questions dynamique).
+  @@index([status, views])
+  // Filtre « sans réponse » (/questions?tri=sans-reponse) :
+  // WHERE status='PUBLISHED' AND answersCount=0 ORDER BY publishedAt DESC.
+  @@index([status, answersCount, publishedAt])
   @@index([askedById])
   @@map("questions")
 }

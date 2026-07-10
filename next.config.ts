@@ -109,6 +109,9 @@ const nextConfig: NextConfig = {
     serverActions: {
       bodySizeLimit: "12mb",
     },
+    // Tree-shaking dirigé des libs à barrel (imports nommés → imports directs).
+    // Bénéficie surtout aux bundles admin/Q-R où vit l'éditeur riche TipTap.
+    optimizePackageImports: ["@tiptap/react", "@tiptap/starter-kit"],
   },
 
   async redirects() {

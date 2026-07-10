@@ -3,9 +3,8 @@ import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 import { prisma } from "@/lib/prisma";
-import { getLocale } from "@/lib/i18n-server";
 import { frenchOnlyAlternates } from "@/lib/hreflang";
-import { getDictionary } from "@/lib/i18n";
+import { getDictionary, toLocale } from "@/lib/i18n";
 import { tSpecialty } from "@/lib/specialty-i18n";
 import { QuestionCard, type QuestionCardData } from "@/components/qa/QuestionCard";
 import { Pagination } from "@/components/ui/Pagination";
@@ -14,7 +13,7 @@ export const revalidate = 600;
 const PAGE_SIZE = 12;
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 
-type Params = Promise<{ slug: string }>;
+type Params = Promise<{ lang: string; slug: string }>;
 type SearchParams = Promise<{ page?: string }>;
 
 const getSpecialty = cache(async (slug: string) =>
@@ -30,10 +29,10 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const { slug } = await params;
+  const { lang, slug } = await params;
   const sp = await getSpecialty(slug);
   if (!sp) return { title: "Spécialité introuvable", robots: { index: false } };
-  const locale = await getLocale();
+  const locale = toLocale(lang);
   const t = getDictionary(locale).qa;
   const name = sp.name;
   // Le hub liste des titres de questions encore en français ; tant que le contenu
@@ -48,14 +47,14 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 }
 
 export default async function QuestionsBySpecialtyPage({ params, searchParams }: { params: Params; searchParams: SearchParams }) {
-  const { slug } = await params;
+  const { lang, slug } = await params;
   const { page: pageStr = "1" } = await searchParams;
   const page = Math.max(1, Number(pageStr) || 1);
 
   const sp = await getSpecialty(slug);
   if (!sp) notFound();
 
-  const locale = await getLocale();
+  const locale = toLocale(lang);
   const dict = getDictionary(locale);
   const t = dict.qa;
   const label = tSpecialty(sp.name, locale);

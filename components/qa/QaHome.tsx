@@ -1,5 +1,6 @@
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { prisma } from "@/lib/prisma";
+import { cachedQuery } from "@/lib/cache";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import { tSpecialty } from "@/lib/specialty-i18n";
 import { getDoctorInitials, formatDoctorName, hasReliableRating } from "@/lib/utils";
@@ -19,6 +20,60 @@ function Check() {
 }
 
 /**
+ * Données de la home Q/R (7 requêtes : 4 counts + tendances + catégories +
+ * médecins actifs). Mise en cache DURABLE (Vercel Data Cache, cf. lib/cache) :
+ * la vue par défaut de /questions est très fréquentée et ces stats/tendances
+ * évoluent lentement → on ne rejoue pas 7 requêtes (dont des tris sur agrégats)
+ * à chaque visite. Données JSON-safe (aucun Decimal ; averageRating = Float ;
+ * Date révivée par le cache). CLÉ LOCALE-INDÉPENDANTE : les requêtes ne filtrent
+ * pas par langue (la traduction se fait au rendu, via tSpecialty) → une seule
+ * entrée sert FR et AR.
+ */
+function getQaHomeData() {
+  return cachedQuery("qa-home", 600, async () => {
+    const [qCount, docCount, specCount, ansCount, trending, categories, topDoctors] = await Promise.all([
+      prisma.question.count({ where: { status: "PUBLISHED" } }),
+      prisma.doctor.count({ where: { isActive: true, answers: { some: { status: "PUBLISHED" } } } }),
+      prisma.specialty.count({ where: { questions: { some: { status: "PUBLISHED" } } } }),
+      prisma.answer.count({ where: { status: "PUBLISHED" } }),
+      prisma.question.findMany({
+        where: { status: "PUBLISHED" },
+        orderBy: [{ views: "desc" }, { answersCount: "desc" }, { publishedAt: "desc" }],
+        take: 6,
+        select: {
+          slug: true, title: true, titleAr: true, arReviewedAt: true, answersCount: true, views: true, publishedAt: true,
+          specialty: { select: { name: true, slug: true } },
+          answers: {
+            where: { status: "PUBLISHED" },
+            orderBy: [{ isAccepted: "desc" }, { score: "desc" }],
+            take: 1,
+            select: { doctor: { select: { slug: true, prenom: true, nom: true, civilite: true, isVerified: true } } },
+          },
+        },
+      }),
+      prisma.specialty.findMany({
+        where: { questions: { some: { status: "PUBLISHED" } } },
+        select: { name: true, slug: true, _count: { select: { questions: true } } },
+        orderBy: { questions: { _count: "desc" } },
+        take: 8,
+      }),
+      prisma.doctor.findMany({
+        where: { isActive: true, isBlacklisted: false, slug: { not: null }, answers: { some: { status: "PUBLISHED" } } },
+        orderBy: { answers: { _count: "desc" } },
+        take: 4,
+        select: {
+          slug: true, nom: true, prenom: true, civilite: true, avatar: true, isVerified: true,
+          plan: true, planExpiresAt: true, averageRating: true,
+          specialty: { select: { name: true } }, city: { select: { name: true } },
+          _count: { select: { answers: true, reviews: { where: { isPublic: true } } } },
+        },
+      }),
+    ]);
+    return { qCount, docCount, specCount, ansCount, trending, categories, topDoctors };
+  });
+}
+
+/**
  * Homepage de l'espace Questions / Réponses — rendue sur /questions en l'absence
  * de filtre. Sections : hero + recherche, stats réelles, questions tendances,
  * catégories, médecins actifs, « comment ça marche », SEO/FAQ + maillage.
@@ -28,44 +83,7 @@ export async function QaHome({ locale }: { locale: Locale }) {
   const t = getDictionary(locale).qa;
   const nf = locale === "ar" ? "ar-MA" : "fr";
 
-  const [qCount, docCount, specCount, ansCount, trending, categories, topDoctors] = await Promise.all([
-    prisma.question.count({ where: { status: "PUBLISHED" } }),
-    prisma.doctor.count({ where: { isActive: true, answers: { some: { status: "PUBLISHED" } } } }),
-    prisma.specialty.count({ where: { questions: { some: { status: "PUBLISHED" } } } }),
-    prisma.answer.count({ where: { status: "PUBLISHED" } }),
-    prisma.question.findMany({
-      where: { status: "PUBLISHED" },
-      orderBy: [{ views: "desc" }, { answersCount: "desc" }, { publishedAt: "desc" }],
-      take: 6,
-      select: {
-        slug: true, title: true, titleAr: true, arReviewedAt: true, answersCount: true, views: true, publishedAt: true,
-        specialty: { select: { name: true, slug: true } },
-        answers: {
-          where: { status: "PUBLISHED" },
-          orderBy: [{ isAccepted: "desc" }, { score: "desc" }],
-          take: 1,
-          select: { doctor: { select: { slug: true, prenom: true, nom: true, civilite: true, isVerified: true } } },
-        },
-      },
-    }),
-    prisma.specialty.findMany({
-      where: { questions: { some: { status: "PUBLISHED" } } },
-      select: { name: true, slug: true, _count: { select: { questions: true } } },
-      orderBy: { questions: { _count: "desc" } },
-      take: 8,
-    }),
-    prisma.doctor.findMany({
-      where: { isActive: true, isBlacklisted: false, slug: { not: null }, answers: { some: { status: "PUBLISHED" } } },
-      orderBy: { answers: { _count: "desc" } },
-      take: 4,
-      select: {
-        slug: true, nom: true, prenom: true, civilite: true, avatar: true, isVerified: true,
-        plan: true, planExpiresAt: true, averageRating: true,
-        specialty: { select: { name: true } }, city: { select: { name: true } },
-        _count: { select: { answers: true, reviews: { where: { isPublic: true } } } },
-      },
-    }),
-  ]);
+  const { qCount, docCount, specCount, ansCount, trending, categories, topDoctors } = await getQaHomeData();
 
   const faqs = [
     { q: t.faqQ1, a: t.faqA1 },

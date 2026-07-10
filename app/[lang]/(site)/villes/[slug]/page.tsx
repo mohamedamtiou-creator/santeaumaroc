@@ -9,14 +9,13 @@ import { CityIcon } from "@/components/CityIcon";
 import { EssentielBox } from "@/components/EssentielBox";
 import { FaqAccordion } from "@/components/ui/FaqAccordion";
 import { getCityContent, getCityFaqs } from "@/lib/city-content";
-import { getLocale } from "@/lib/i18n-server";
 import { localizedAlternates } from "@/lib/hreflang";
-import { getDictionary } from "@/lib/i18n";
+import { getDictionary, toLocale } from "@/lib/i18n";
 import { tCity, tSpecialty } from "@/lib/specialty-i18n";
 import { isProPlan, isFeaturedActive, hasProAccess } from "@/lib/plan";
 import { processCache } from "@/lib/process-cache";
 
-type Params       = Promise<{ slug: string }>;
+type Params       = Promise<{ lang: string; slug: string }>;
 type SearchParams = Promise<{ specialite?: string; page?: string }>;
 
 const PAGE_SIZE = 15;
@@ -48,7 +47,7 @@ export async function generateMetadata({
   params: Params;
   searchParams: SearchParams;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { lang, slug } = await params;
   const { specialite = "", page: pageStr = "1" } = await searchParams;
   const page = Math.max(1, Number(pageStr) || 1);
   const [c, count] = await Promise.all([
@@ -70,7 +69,7 @@ export async function generateMetadata({
     : `Annuaire médical de ${c.name}. Médecins et spécialistes vérifiés, avis patients et RDV en ligne.`;
 
   const isBase = !specialite && page === 1;
-  const locale = await getLocale();
+  const locale = toLocale(lang);
   return {
     title,
     description,
@@ -103,14 +102,14 @@ export default async function VillePage({
   params: Params;
   searchParams: SearchParams;
 }) {
-  const { slug } = await params;
+  const { lang, slug } = await params;
   const { specialite = "", page: pageStr = "1" } = await searchParams;
   const page = Math.max(1, Number(pageStr) || 1);
 
   const city = await getCity(slug);
   if (!city) notFound();
 
-  const locale = await getLocale();
+  const locale = toLocale(lang);
   const dict = getDictionary(locale);
   const t = dict.directory;
   const content = getCityContent(slug, locale);

@@ -7,16 +7,15 @@ import { Pagination } from "@/components/ui/Pagination";
 import { BlogFaq } from "@/components/blog/BlogFaq";
 import { NewsletterSignup } from "@/components/blog/NewsletterSignup";
 import { categoryIntro, categoryFaq } from "@/lib/blog-category-content";
-import { getLocale } from "@/lib/i18n-server";
 import { localizedAlternates } from "@/lib/hreflang";
-import { getDictionary } from "@/lib/i18n";
+import { getDictionary, toLocale } from "@/lib/i18n";
 
 export const revalidate = 3600;
 
 const PER_PAGE = 9;
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 
-type Params = Promise<{ slug: string }>;
+type Params = Promise<{ lang: string; slug: string }>;
 type SearchParams = Promise<{ page?: string }>;
 
 const POST_SELECT = {
@@ -41,7 +40,7 @@ async function getCategory(slug: string) {
 }
 
 export async function generateMetadata({ params, searchParams }: { params: Params; searchParams: SearchParams }): Promise<Metadata> {
-  const [{ slug }, { page: pageStr }] = await Promise.all([params, searchParams]);
+  const [{ lang, slug }, { page: pageStr }] = await Promise.all([params, searchParams]);
   const cat = await getCategory(slug);
   if (!cat) return { title: "Catégorie introuvable", robots: { index: false } };
 
@@ -51,7 +50,7 @@ export async function generateMetadata({ params, searchParams }: { params: Param
     ? `${cat.description} — articles santé vérifiés par des professionnels au Maroc.`
     : "Articles de santé vérifiés par des professionnels au Maroc.";
 
-  const locale = await getLocale();
+  const locale = toLocale(lang);
   return {
     title: `${cat.name} — Blog Santé Maroc`,
     description,
@@ -66,13 +65,13 @@ export async function generateMetadata({ params, searchParams }: { params: Param
 }
 
 export default async function CategoryPage({ params, searchParams }: { params: Params; searchParams: SearchParams }) {
-  const [{ slug }, { page: pageStr }] = await Promise.all([params, searchParams]);
+  const [{ lang, slug }, { page: pageStr }] = await Promise.all([params, searchParams]);
   const page = Math.max(1, parseInt(pageStr ?? "1", 10));
 
   const cat = await getCategory(slug);
   if (!cat) notFound();
 
-  const locale = await getLocale();
+  const locale = toLocale(lang);
   const tb = getDictionary(locale).blog;
   const dict = getDictionary(locale);
 

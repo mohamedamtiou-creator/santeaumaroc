@@ -5,20 +5,20 @@ import { PostCard, type PostCardData } from "@/components/blog/PostCard";
 import { Pagination } from "@/components/ui/Pagination";
 import { BlogSearch } from "@/components/blog/BlogSearch";
 import { NewsletterSignup } from "@/components/blog/NewsletterSignup";
-import { getLocale } from "@/lib/i18n-server";
 import { localizedAlternates } from "@/lib/hreflang";
-import { getDictionary } from "@/lib/i18n";
+import { getDictionary, toLocale } from "@/lib/i18n";
 
 export const revalidate = 3600;
 
 const PER_PAGE = 9;
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 
+type Params = Promise<{ lang: string }>;
 type SearchParams = Promise<{ page?: string; categorie?: string; q?: string }>;
 
-export async function generateMetadata({ searchParams }: { searchParams: SearchParams }): Promise<Metadata> {
-  const { categorie, q } = await searchParams;
-  const locale = await getLocale();
+export async function generateMetadata({ params, searchParams }: { params: Params; searchParams: SearchParams }): Promise<Metadata> {
+  const [{ lang }, { categorie, q }] = await Promise.all([params, searchParams]);
+  const locale = toLocale(lang);
 
   // Pages de recherche : noindex (contenu mince / dupliqué), canonical vers /blog
   if (q) {
@@ -120,14 +120,12 @@ async function getData(page: number, categorieSlug?: string, q?: string) {
   return { total, posts, categories, featured, totalPublished };
 }
 
-export default async function BlogPage({ searchParams }: { searchParams: SearchParams }) {
-  const { page: pageParam, categorie, q: qRaw } = await searchParams;
+export default async function BlogPage({ params, searchParams }: { params: Params; searchParams: SearchParams }) {
+  const [{ lang }, { page: pageParam, categorie, q: qRaw }] = await Promise.all([params, searchParams]);
   const q = qRaw?.trim() || undefined;
   const page = Math.max(1, parseInt(pageParam ?? "1", 10));
-  const [locale, { total, posts, categories, featured, totalPublished }] = await Promise.all([
-    getLocale(),
-    getData(page, categorie, q),
-  ]);
+  const locale = toLocale(lang);
+  const { total, posts, categories, featured, totalPublished } = await getData(page, categorie, q);
   const dict = getDictionary(locale);
   const tb = dict.blog;
   const totalPages = Math.ceil(total / PER_PAGE);

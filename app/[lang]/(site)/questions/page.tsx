@@ -1,9 +1,8 @@
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
-import { getLocale } from "@/lib/i18n-server";
 import { frenchOnlyAlternates } from "@/lib/hreflang";
-import { getDictionary } from "@/lib/i18n";
+import { getDictionary, toLocale } from "@/lib/i18n";
 import { tSpecialty } from "@/lib/specialty-i18n";
 import { QuestionCard } from "@/components/qa/QuestionCard";
 import { QuestionsInfinite } from "@/components/qa/QuestionsInfinite";
@@ -17,11 +16,12 @@ export const revalidate = 300;
 const PAGE_SIZE = 12;
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 
+type Params = Promise<{ lang: string }>;
 type SearchParams = Promise<{ q?: string; specialite?: string; tri?: string; page?: string }>;
 
-export async function generateMetadata({ searchParams }: { searchParams: SearchParams }): Promise<Metadata> {
-  const { q = "", specialite = "", tri: triRaw } = await searchParams;
-  const locale = await getLocale();
+export async function generateMetadata({ params, searchParams }: { params: Params; searchParams: SearchParams }): Promise<Metadata> {
+  const [{ lang }, { q = "", specialite = "", tri: triRaw }] = await Promise.all([params, searchParams]);
+  const locale = toLocale(lang);
   const t = getDictionary(locale).qa;
   const isFiltered = !!(q || specialite || triRaw);
   // Contenu Q/R français uniquement : on ne déclare pas d'alternative arabe
@@ -38,9 +38,9 @@ export async function generateMetadata({ searchParams }: { searchParams: SearchP
   };
 }
 
-export default async function QuestionsPage({ searchParams }: { searchParams: SearchParams }) {
-  const { q = "", specialite = "", tri: triRaw } = await searchParams;
-  const locale = await getLocale();
+export default async function QuestionsPage({ params, searchParams }: { params: Params; searchParams: SearchParams }) {
+  const [{ lang }, { q = "", specialite = "", tri: triRaw }] = await Promise.all([params, searchParams]);
+  const locale = toLocale(lang);
   const dict = getDictionary(locale);
   const t = dict.qa;
 

@@ -4,10 +4,9 @@ import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { prisma } from "@/lib/prisma";
 import { tryGetSession } from "@/lib/dal";
-import { getLocale } from "@/lib/i18n-server";
 import { localizedAlternates, frenchOnlyAlternates } from "@/lib/hreflang";
 import { qLocalized, aLocalized, isQuestionArReady } from "@/lib/qa-content";
-import { getDictionary } from "@/lib/i18n";
+import { getDictionary, toLocale } from "@/lib/i18n";
 import { tSpecialty } from "@/lib/specialty-i18n";
 import { isProPlan } from "@/lib/plan";
 import { htmlToPlainText } from "@/lib/sanitize-html";
@@ -25,7 +24,7 @@ import { RecommendedDoctors } from "@/components/qa/RecommendedDoctors";
 export const revalidate = 300;
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 
-type Params = Promise<{ slug: string }>;
+type Params = Promise<{ lang: string; slug: string }>;
 
 const getQuestion = cache(async (slug: string) =>
   prisma.question.findUnique({
@@ -58,8 +57,8 @@ const getQuestion = cache(async (slug: string) =>
 );
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const { slug } = await params;
-  const locale = await getLocale();
+  const { lang, slug } = await params;
+  const locale = toLocale(lang);
   const q = await getQuestion(slug);
   if (!q || q.status === "REJECTED") return { title: "Question introuvable", robots: { index: false } };
   if (q.status === "MERGED" && q.mergedIntoId) {
@@ -93,7 +92,7 @@ function Chevron() {
 }
 
 export default async function QuestionDetailPage({ params }: { params: Params }) {
-  const { slug } = await params;
+  const { lang, slug } = await params;
   const q = await getQuestion(slug);
   if (!q) notFound();
 
@@ -104,7 +103,7 @@ export default async function QuestionDetailPage({ params }: { params: Params })
   }
   if (q.status !== "PUBLISHED") notFound();
 
-  const locale = await getLocale();
+  const locale = toLocale(lang);
   const dict = getDictionary(locale);
   const t = dict.qa;
 

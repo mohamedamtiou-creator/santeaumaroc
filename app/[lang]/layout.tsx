@@ -20,6 +20,13 @@ const cairo = Cairo({
   subsets: ["arabic"],
   variable: "--font-arabic",
   display: "optional",
+  // `preload: false` : la @font-face reste déclarée (l'arabe s'affiche toujours,
+  // y compris un mot arabe isolé sur une page FR), mais on n'injecte plus le
+  // <link rel="preload"> systématique. Ce layout [lang] est commun à FR et AR ;
+  // sans ça, Cairo (~40 KB woff2, glyphes arabes) était préchargée sur TOUTES les
+  // pages FR — pur poids réseau gaspillé sur le chemin critique mobile. Le
+  // navigateur ne télécharge Cairo que si un glyphe arabe est réellement rendu.
+  preload: false,
 });
 
 export const viewport: Viewport = {

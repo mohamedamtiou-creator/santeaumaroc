@@ -1,4 +1,3 @@
-import { cache } from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
@@ -11,6 +10,7 @@ import { tryGetSession } from "@/lib/dal";
 import { BookingForm } from "./rdv/_components/BookingForm";
 import { localizedAlternates } from "@/lib/hreflang";
 import { getDictionary, toLocale, type Dictionary } from "@/lib/i18n";
+import { cachedQuery, decToNum } from "@/lib/cache";
 import { ReviewDialog, type ExistingReview, type UserStatus } from "./_components/ReviewDialog";
 import { ClaimButton } from "./_components/ClaimButton";
 import { NotifyButton } from "./_components/NotifyButton";
@@ -22,39 +22,53 @@ import { tConvention, tPayment } from "@/lib/doctor-options";
 
 type Params = Promise<{ lang: string; slug: string }>;
 
-const getDoctor = cache(async (slug: string) => {
-  return prisma.doctor.findUnique({
-    where: { slug },
-    include: {
-      specialty:      { select: { name: true, slug: true } },
-      city:           { select: { name: true, slug: true, region: true } },
-      workingHours:   { orderBy: { dayOfWeek: "asc" } },
-      blockedSlots:   { select: { date: true, time: true } },
-      absences: {
-        select: { startDate: true, endDate: true, allDay: true, startTime: true, endTime: true },
-      },
-      appointments: {
-        where:  { status: { notIn: ["CANCELLED"] } },
-        select: { date: true, time: true },
-      },
-      reviews: {
-        where:   { isPublic: true },
-        orderBy: { createdAt: "desc" },
-        take: 10,
-        include: { patient: { select: { name: true, avatar: true } } },
-      },
-      _count: {
-        select: {
-          reviews: { where: { isPublic: true } },
+// Profil médecin — données STABLES (identité, spécialité, ville, horaires, avis).
+// Mises en cache DURABLE 1 h (Vercel Data Cache, cf. lib/cache) : ~20k fiches sur
+// le chemin SEO principal → on ne rejoue pas cette requête (avis + jointures) à
+// chaque visite. `prix` (Decimal) est converti en `number` : un Decimal ne
+// survit pas à la sérialisation JSON du Data Cache (perd `.toNumber()`).
+// La DISPONIBILITÉ (rendez-vous, créneaux bloqués, absences) est VOLATILE : elle
+// est exclue d'ici et lue à part, non cachée (getDoctorAvailability), pour ne
+// jamais servir un créneau périmé (anti double-réservation).
+const getDoctorProfile = (slug: string) =>
+  cachedQuery(`doctor:${slug}`, 3600, async () => {
+    const doc = await prisma.doctor.findUnique({
+      where: { slug },
+      include: {
+        specialty:    { select: { name: true, slug: true } },
+        city:         { select: { name: true, slug: true, region: true } },
+        workingHours: { orderBy: { dayOfWeek: "asc" } },
+        reviews: {
+          where:   { isPublic: true },
+          orderBy: { createdAt: "desc" },
+          take: 10,
+          include: { patient: { select: { name: true, avatar: true } } },
         },
+        _count: { select: { reviews: { where: { isPublic: true } } } },
       },
+    });
+    return doc ? { ...doc, prix: decToNum(doc.prix) } : null;
+  });
+
+// Disponibilité — VOLATILE, jamais cachée. Lue UNIQUEMENT pour les fiches
+// réservables (Pro) : les 99 % de fiches non réservables ne paient plus la
+// requête « rendez-vous » (allègement vs. l'ancien getDoctor qui la chargeait
+// systématiquement).
+async function getDoctorAvailability(doctorId: string) {
+  const doc = await prisma.doctor.findUnique({
+    where: { id: doctorId },
+    select: {
+      blockedSlots: { select: { date: true, time: true } },
+      absences:     { select: { startDate: true, endDate: true, allDay: true, startTime: true, endTime: true } },
+      appointments: { where: { status: { notIn: ["CANCELLED"] } }, select: { date: true, time: true } },
     },
   });
-});
+  return doc ?? { blockedSlots: [], absences: [], appointments: [] };
+}
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { lang, slug } = await params;
-  const p = await getDoctor(slug);
+  const p = await getDoctorProfile(slug);
   if (!p) return { title: "Praticien introuvable", robots: { index: false } };
   const name = [p.civilite, p.prenom, p.nom].filter(Boolean).join(" ");
   const title = `${name} — ${p.specialty.name} à ${p.city.name}`;
@@ -315,7 +329,7 @@ export default async function PraticienProfilePage({ params }: { params: Params 
   const { lang, slug } = await params;
 
   const [p, session] = await Promise.all([
-    getDoctor(slug),
+    getDoctorProfile(slug),
     tryGetSession(),
   ]);
   if (!p || !p.isActive) notFound();
@@ -449,7 +463,7 @@ export default async function PraticienProfilePage({ params }: { params: Params 
   };
   const activeHours = p.workingHours.filter((wh) => wh.isActive);
   const hasSchedule = activeHours.length > 0;
-  const prix        = p.prix?.toNumber();
+  const prix        = p.prix ?? undefined;
 
   /* ── Statut « Ouvert / Fermé » en temps réel ─────────────
      Calculé sur l'heure de Casablanca (le serveur peut être ailleurs).
@@ -496,15 +510,17 @@ export default async function PraticienProfilePage({ params }: { params: Params 
 
   const slotsByDate: Record<string, string[]> = {};
   if (canBook) {
-    const bookedSlots = p.appointments.map((a) => ({ date: a.date, time: a.time }));
+    // Disponibilité fraîche (hors cache) — uniquement pour les fiches réservables.
+    const { appointments, absences, blockedSlots } = await getDoctorAvailability(p.id);
+    const bookedSlots = appointments.map((a) => ({ date: a.date, time: a.time }));
     const allSlots = generateAvailableSlots(
       bookedSlots,
       p.workingHours,
       p.consultationDuration,
-      p.absences,
+      absences,
       { leadHours: p.bookingLeadHours, maxDays: p.bookingMaxDays },
     );
-    const blockedSet = new Set(p.blockedSlots.map((b) => `${b.date}-${b.time}`));
+    const blockedSet = new Set(blockedSlots.map((b) => `${b.date}-${b.time}`));
     for (const slot of allSlots) {
       if (!slot.available) continue;
       if (blockedSet.has(`${slot.date}-${slot.time}`)) continue;
