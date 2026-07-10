@@ -35,7 +35,7 @@ type Params = { q?: string; specialite?: string; tri?: string; page: number };
  */
 export async function loadMoreQuestions(
   params: Params,
-): Promise<{ items: QaListCard[]; hasMore: boolean }> {
+): Promise<{ items: QaListCard[]; hasMore: boolean; total: number }> {
   const { q = "", specialite = "", tri = "recent" } = params;
   const page = Math.max(1, Number(params.page) || 1);
   const locale = await getLocale();
@@ -103,7 +103,7 @@ export async function loadMoreQuestions(
     };
   });
 
-  return { items, hasMore: page * QA_PAGE_SIZE < total };
+  return { items, hasMore: page * QA_PAGE_SIZE < total, total };
 }
 
 export type QaSimilar = {

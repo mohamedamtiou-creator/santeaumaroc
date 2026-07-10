@@ -18,21 +18,14 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 }
 
 type Params = Promise<{ lang: string }>;
-type SearchParams = Promise<{ q?: string; ville?: string; type?: string; page?: string }>;
 
 const TYPES = ["clinique"];
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 
-export default async function CliniquesPage({
-  params,
-  searchParams,
-}: {
-  params: Params;
-  searchParams: SearchParams;
-}) {
-  const { q = "", ville = "", type = "", page: pageStr = "1" } = await searchParams;
-  const page = Math.max(1, Number(pageStr) || 1);
+// Page STATIQUE : le serveur ne lit plus searchParams (recherche/ville/pagination
+// gérées côté client par EstablishmentList → EstablishmentResults, vues noindex).
+export default async function CliniquesPage({ params }: { params: Params }) {
   const locale = toLocale((await params).lang);
   const t = getDictionary(locale).estab;
   const s = t.schema;
@@ -79,10 +72,6 @@ export default async function CliniquesPage({
       <EstablishmentList
         types={TYPES}
         baseHref="/cliniques"
-        q={q}
-        ville={ville}
-        type={type}
-        page={page}
         locale={locale}
       />
     </div>

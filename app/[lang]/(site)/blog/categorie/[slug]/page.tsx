@@ -1,29 +1,23 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
-import { PostCard, type PostCardData } from "@/components/blog/PostCard";
+import { PostCard } from "@/components/blog/PostCard";
 import { Pagination } from "@/components/ui/Pagination";
+import { BlogResults } from "@/components/blog/BlogResults";
 import { BlogFaq } from "@/components/blog/BlogFaq";
 import { NewsletterSignup } from "@/components/blog/NewsletterSignup";
+import { getBlogPosts, BLOG_PER_PAGE as PER_PAGE } from "@/lib/blog-query";
 import { categoryIntro, categoryFaq } from "@/lib/blog-category-content";
 import { localizedAlternates } from "@/lib/hreflang";
 import { getDictionary, toLocale } from "@/lib/i18n";
 
 export const revalidate = 3600;
 
-const PER_PAGE = 9;
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 
 type Params = Promise<{ lang: string; slug: string }>;
-type SearchParams = Promise<{ page?: string }>;
-
-const POST_SELECT = {
-  title: true, slug: true, excerpt: true, coverImage: true, coverAlt: true,
-  readingTime: true, publishedAt: true,
-  category: { select: { name: true, slug: true, color: true } },
-  author:   { select: { name: true, avatar: true } },
-} as const;
 
 export async function generateStaticParams() {
   // Les catégories sont peu nombreuses (créées par l'admin) ; `take` = simple
@@ -39,13 +33,15 @@ async function getCategory(slug: string) {
   });
 }
 
-export async function generateMetadata({ params, searchParams }: { params: Params; searchParams: SearchParams }): Promise<Metadata> {
-  const [{ lang, slug }, { page: pageStr }] = await Promise.all([params, searchParams]);
+// Page STATIQUE : le serveur ne lit plus searchParams. La page 1 (vue canonique)
+// est pré-rendue = shell SEO ; la pagination bascule côté client (BlogResults →
+// /api/blog/search), sans URL paginées indexées → canonical unique.
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const { lang, slug } = await params;
   const cat = await getCategory(slug);
   if (!cat) return { title: "Catégorie introuvable", robots: { index: false } };
 
-  const page = Math.max(1, parseInt(pageStr ?? "1", 10));
-  const canonical = page > 1 ? `/blog/categorie/${slug}?page=${page}` : `/blog/categorie/${slug}`;
+  const canonical = `/blog/categorie/${slug}`;
   const description = cat.description
     ? `${cat.description} — articles santé vérifiés par des professionnels au Maroc.`
     : "Articles de santé vérifiés par des professionnels au Maroc.";
@@ -64,9 +60,8 @@ export async function generateMetadata({ params, searchParams }: { params: Param
   };
 }
 
-export default async function CategoryPage({ params, searchParams }: { params: Params; searchParams: SearchParams }) {
-  const [{ lang, slug }, { page: pageStr }] = await Promise.all([params, searchParams]);
-  const page = Math.max(1, parseInt(pageStr ?? "1", 10));
+export default async function CategoryPage({ params }: { params: Params }) {
+  const { lang, slug } = await params;
 
   const cat = await getCategory(slug);
   if (!cat) notFound();
@@ -75,15 +70,8 @@ export default async function CategoryPage({ params, searchParams }: { params: P
   const tb = getDictionary(locale).blog;
   const dict = getDictionary(locale);
 
-  const [total, posts, categories] = await Promise.all([
-    prisma.post.count({ where: { status: "PUBLISHED", category: { slug } } }),
-    prisma.post.findMany({
-      where: { status: "PUBLISHED", category: { slug } },
-      orderBy: { publishedAt: "desc" },
-      skip: (page - 1) * PER_PAGE,
-      take: PER_PAGE,
-      select: POST_SELECT,
-    }),
+  const [{ posts, total }, categories] = await Promise.all([
+    getBlogPosts(1, slug),
     prisma.postCategory.findMany({
       orderBy: { name: "asc" },
       select: {
@@ -100,7 +88,7 @@ export default async function CategoryPage({ params, searchParams }: { params: P
 
   const buildUrl = (p: number) => `/blog/categorie/${slug}${p > 1 ? `?page=${p}` : ""}`;
 
-  // JSON-LD : CollectionPage + ItemList + BreadcrumbList
+  // JSON-LD : CollectionPage + ItemList (page 1 canonique) + BreadcrumbList
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -118,7 +106,7 @@ export default async function CategoryPage({ params, searchParams }: { params: P
             "@type": "ItemList",
             "itemListElement": posts.map((p, i) => ({
               "@type": "ListItem",
-              "position": (page - 1) * PER_PAGE + i + 1,
+              "position": i + 1,
               "url": `${BASE}/blog/${p.slug}`,
               "name": p.title,
             })),
@@ -162,22 +150,32 @@ export default async function CategoryPage({ params, searchParams }: { params: P
           </p>
         </header>
 
-        {/* Grille d'articles */}
-        {posts.length === 0 ? (
-          <div className="text-center py-20 text-slate-500">
-            <p className="text-lg font-medium">{tb.emptyTitle}</p>
-            <Link href="/blog" className="mt-4 inline-block text-primary-600 underline text-sm">{tb.emptyLink}</Link>
-          </div>
-        ) : (
-          <>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {posts.map((post) => (
-                <PostCard key={post.slug} post={post as PostCardData} t={tb} locale={locale} />
-              ))}
+        {/* Grille d'articles — page 1 SSR (canonique) ; pages suivantes côté
+            client (BlogResults, vues noindex). <Suspense> requis (useSearchParams). */}
+        {(() => {
+          const gridBlock = posts.length === 0 ? (
+            <div className="text-center py-20 text-slate-500">
+              <p className="text-lg font-medium">{tb.emptyTitle}</p>
+              <Link href="/blog" className="mt-4 inline-block text-primary-600 underline text-sm">{tb.emptyLink}</Link>
             </div>
-            <Pagination page={page} totalPages={totalPages} buildUrl={buildUrl} t={dict.pagination} />
-          </>
-        )}
+          ) : (
+            <>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {posts.map((post) => (
+                  <PostCard key={post.slug} post={post} t={tb} locale={locale} />
+                ))}
+              </div>
+              <Pagination page={1} totalPages={totalPages} buildUrl={buildUrl} t={dict.pagination} />
+            </>
+          );
+          return (
+            <Suspense fallback={gridBlock}>
+              <BlogResults locale={locale} t={tb} paginationT={dict.pagination} fixedCategorie={slug} showSearch={false}>
+                {gridBlock}
+              </BlogResults>
+            </Suspense>
+          );
+        })()}
 
         {/* FAQ catégorie (visible + JSON-LD FAQPage émis par BlogFaq) */}
         {faqItems.length > 0 && (

@@ -1,9 +1,12 @@
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { prisma } from "@/lib/prisma";
+import { processCache } from "@/lib/process-cache";
 import { PraticienCard } from "@/components/PraticienCard";
 import { ListingControls, FILTERABLE_LANGUAGES } from "@/components/ListingControls";
+import { SpecialtyControls, SpecialtyResults as SpecialtyResultsLive } from "@/components/specialites/SpecialtyListing";
 import { Pagination } from "@/components/ui/Pagination";
 import { SpecialtyIcon } from "@/components/SpecialtyIcon";
 import { EssentielBox } from "@/components/EssentielBox";
@@ -11,26 +14,21 @@ import { SpecialtyEditorial } from "@/components/SpecialtyEditorial";
 import { getSpecialtyContent, pluralizeSynonyme } from "@/lib/specialty-content";
 import { getSpecialtyCityContent } from "@/lib/specialty-city-content";
 import { specialtyCityCounts } from "@/lib/specialty-cities";
+import { getSpecialtyDoctors } from "@/lib/specialite-doctors";
+import { PRATICIENS_PAGE_SIZE as PAGE_SIZE } from "@/lib/praticiens-query";
 import { localizedAlternates } from "@/lib/hreflang";
-import { getDictionary, toLocale } from "@/lib/i18n";
+import { getDictionary, toLocale, type Locale, type Dictionary } from "@/lib/i18n";
 import { tSpecialty, tCity } from "@/lib/specialty-i18n";
-import { isProPlan, isFeaturedActive, hasProAccess } from "@/lib/plan";
-import { generateAvailableSlots } from "@/lib/utils";
 
 type Params       = Promise<{ lang: string; slug: string; ville: string }>;
-type SearchParams = Promise<{ page?: string; q?: string; tri?: string; dispo?: string; conv?: string; langue?: string }>;
 
-const PAGE_SIZE = 15;
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
-
-/** Jour de la semaine à l'heure marocaine (convention JS getDay : 0=dimanche). */
-function casablancaWeekday(): number {
-  const wd = new Intl.DateTimeFormat("en-US", { timeZone: "Africa/Casablanca", weekday: "short" }).format(new Date());
-  return ({ Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 } as const)[wd as "Sun"] ?? 0;
-}
 
 /** Date de dernière révision éditoriale (E-E-A-T + signal IA). Stable entre revalidations. */
 const CONTENT_REVIEWED = "2026-06-28";
+
+// Combo ville×spécialité indexable si assez de contenu propre (near-duplicate sinon).
+const MIN_INDEXABLE_DOCTORS = 3;
 
 export const revalidate = 3600;
 
@@ -49,25 +47,27 @@ export async function generateStaticParams() {
   return combos.map((c) => ({ slug: c.specialty.slug, ville: c.city.slug }));
 }
 
-export async function generateMetadata({
-  params,
-  searchParams,
-}: {
-  params: Params;
-  searchParams: SearchParams;
-}): Promise<Metadata> {
-  const { lang, slug, ville } = await params;
-  const { page: pageStr = "1", q = "", tri = "", dispo = "", conv = "", langue = "" } = await searchParams;
-  const page = Math.max(1, Number(pageStr) || 1);
-
-  const [specialty, city, count] = await Promise.all([
+async function getSpecialty(slug: string) {
+  return processCache(`specialite:meta:${slug}`, 3600, () =>
     prisma.specialty.findUnique({ where: { slug } }),
+  );
+}
+async function getCity(ville: string) {
+  return processCache(`ville:meta:${ville}`, 3600, () =>
     prisma.city.findUnique({ where: { slug: ville } }),
-    prisma.doctor.count({
-      where: { isActive: true, specialty: { slug }, city: { slug: ville } },
-    }),
-  ]);
+  );
+}
+function cityCount(slug: string, ville: string) {
+  return processCache(`specialite:count:${slug}:${ville}`, 3600, () =>
+    prisma.doctor.count({ where: { isActive: true, specialty: { slug }, city: { slug: ville } } }),
+  );
+}
 
+// Page STATIQUE : le serveur ne lit plus searchParams (filtres/recherche/tri/
+// pagination gérés côté client, vues noindex). Métadonnées = vue canonique.
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const { lang, slug, ville } = await params;
+  const [specialty, city, count] = await Promise.all([getSpecialty(slug), getCity(ville), cityCount(slug, ville)]);
   if (!specialty || !city) return { title: "Page introuvable", robots: { index: false } };
 
   const content = getSpecialtyContent(slug);
@@ -77,10 +77,8 @@ export async function generateMetadata({
     ? synonyme.charAt(0).toUpperCase() + synonyme.slice(1)
     : specialty.name;
 
-  // Le layout applique déjà « %s | SantéauMaroc » : on n'ajoute PAS la marque ici
-  // (évite le doublon « … | SantéauMaroc | SantéauMaroc »).
+  // Le layout applique déjà « %s | SantéauMaroc » : on n'ajoute PAS la marque ici.
   const title = `${titleName} à ${city.name} — Avis & RDV en ligne`;
-  // OG/Twitter ne passent pas par le template : marque ajoutée explicitement.
   const socialTitle = `${title} | SantéauMaroc`;
 
   const description = count > 0
@@ -91,12 +89,9 @@ export async function generateMetadata({
     : `${titleName} à ${city.name} — annuaire des spécialistes. Profils vérifiés et RDV en ligne.`;
 
   const canonical = `/specialites/${slug}/${ville}`;
-  // Noindex (follow) si : vue filtrée/paginée OU contenu trop mince. Un combo
-  // ville×spécialité avec 0–2 praticiens n'apporte pas assez de valeur propre
-  // pour être indexé (near-duplicate template) — on garde le suivi des liens
-  // pour laisser remonter le jus vers la spécialité / la ville.
-  const MIN_INDEXABLE_DOCTORS = 3;
-  const indexable = page === 1 && !q && !tri && !dispo && !conv && !langue && count >= MIN_INDEXABLE_DOCTORS;
+  // Noindex (follow) si contenu trop mince : un combo ville×spécialité avec 0–2
+  // praticiens n'apporte pas assez de valeur propre pour être indexé.
+  const indexable = count >= MIN_INDEXABLE_DOCTORS;
   const locale = toLocale(lang);
   return {
     title,
@@ -128,27 +123,117 @@ function ChevronLeft() {
   );
 }
 
-/* ── Page ────────────────────────────────────────────────── */
-
-export default async function SpecialiteCityPage({
-  params,
-  searchParams,
+/* ── Streamé : liste des praticiens (vue canonique) + pagination + JSON-LD
+   ItemList ── Isolé sous <Suspense> : requête la plus lourde (findMany +
+   créneaux). La coquille (héros/essentiel/contrôles = LCP) ne l'attend pas.
+   Source UNIQUE partagée avec la route API client (getSpecialtyDoctors, cache
+   durable) → SSR de base et filtrage client strictement cohérents. */
+async function CityResults({
+  slug, ville, page, total, locale, t, tCard, tPagination,
+  specName, cityName, synonyme, synPlural, specialtyName, cityDisplayName, buildUrl,
 }: {
-  params: Params;
-  searchParams: SearchParams;
+  slug: string;
+  ville: string;
+  page: number;
+  total: number;
+  locale: Locale;
+  t: Dictionary["directory"];
+  tCard: Dictionary["card"];
+  tPagination: Dictionary["pagination"];
+  specName: string;
+  cityName: string;
+  synonyme: string;
+  synPlural: string;
+  specialtyName: string;
+  cityDisplayName: string;
+  buildUrl: (p: number) => string;
 }) {
+  const { doctors } = await getSpecialtyDoctors(slug, { ville, page });
+  const totalPages = Math.ceil(total / PAGE_SIZE);
+
+  const itemList = total > 0 && doctors.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${BASE}/specialites/${slug}/${ville}#doctors`,
+    "numberOfItems": total,
+    "itemListElement": doctors.slice(0, 8).map((d, i) => {
+      const reviews = d._count.reviews;
+      return {
+        "@type": "ListItem",
+        "position": i + 1,
+        "item": {
+          "@type": "Physician",
+          "@id": `${BASE}/praticiens/${d.slug}#physician`,
+          "name": [d.civilite, d.prenom, d.nom].filter(Boolean).join(" "),
+          "url": `${BASE}/praticiens/${d.slug}`,
+          "medicalSpecialty": d.specialty.name,
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": d.adresse,
+            "addressLocality": d.city.name,
+            "addressCountry": "MA",
+          },
+          ...(d.langues && d.langues.length > 0 ? { "availableLanguage": d.langues } : {}),
+          ...(d.prix != null ? { "priceRange": `${d.prix} MAD` } : {}),
+          ...(reviews >= 3 && d.averageRating > 0
+            ? {
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": Number(d.averageRating.toFixed(1)),
+                  "reviewCount": reviews,
+                  "bestRating": 5,
+                  "worstRating": 1,
+                },
+              }
+            : {}),
+        },
+      };
+    }),
+  } : null;
+
+  return (
+    <>
+      {itemList && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemList) }} />
+      )}
+
+      {doctors.length === 0 ? (
+        <div className="empty-state">
+          <p className="font-semibold text-slate-700 text-base">
+            {locale === "ar" ? "لا يوجد ممارس." : "Aucun praticien référencé."}
+          </p>
+        </div>
+      ) : (
+        <div className="flex flex-col gap-3">
+          <h2 className="sr-only">
+            {locale === "ar" ? `${specName} ${t.in} ${cityName}` : `${synonyme !== "spécialiste" ? synPlural : specialtyName} à ${cityDisplayName}`}
+          </h2>
+          {doctors.map((d, i) => (
+            <PraticienCard key={d.id} praticien={d} priority={i === 0} hideSpecialty isPro={d.isPro} isFeatured={d.isFeatured} canBookOnline={d.canBookOnline} slots={d.slots} locale={locale} t={tCard} />
+          ))}
+        </div>
+      )}
+
+      <Pagination page={page} totalPages={totalPages} buildUrl={buildUrl} t={tPagination} />
+    </>
+  );
+}
+
+/* ── Page (coquille) ─────────────────────────────────────── */
+
+export default async function SpecialiteCityPage({ params }: { params: Params }) {
   const { lang, slug, ville } = await params;
-  const { page: pageStr = "1", q = "", tri = "", dispo = "", conv = "", langue = "" } = await searchParams;
-  const page = Math.max(1, Number(pageStr) || 1);
-  const query = q.trim();
-  const hasQuery = query.length > 0;
 
-  const [specialty, city] = await Promise.all([
-    prisma.specialty.findUnique({ where: { slug } }),
-    prisma.city.findUnique({ where: { slug: ville } }),
+  // Données de la COQUILLE uniquement (rapides / cachées), en parallèle.
+  const [specialty, city, total, allCities] = await Promise.all([
+    getSpecialty(slug),
+    getCity(ville),
+    cityCount(slug, ville),
+    specialtyCityCounts(slug),
   ]);
-
   if (!specialty || !city) notFound();
+  // La page n'existe que si la combinaison spécialité + ville référence des praticiens.
+  if (total === 0) notFound();
 
   const locale = toLocale(lang);
   const dict = getDictionary(locale);
@@ -156,7 +241,6 @@ export default async function SpecialiteCityPage({
   const content = getSpecialtyContent(slug, locale);
   const { synonyme } = content;
   const synPlural = content.synonymePluriel ?? pluralizeSynonyme(synonyme);
-  const synLower = synonyme !== "spécialiste" ? synonyme : specialty.name.toLowerCase();
   const specName = tSpecialty(specialty.name, locale);
   const cityName = tCity(city.name, locale);
   const titleName = locale === "ar"
@@ -166,111 +250,10 @@ export default async function SpecialiteCityPage({
     : specialty.name;
   const h1Title = locale === "ar" ? `${specName} ${t.in} ${cityName}` : `${titleName} à ${city.name}`;
 
-  const today = casablancaWeekday();
-  const where = {
-    isActive: true,
-    specialty: { slug },
-    city: { slug: ville },
-    ...(dispo === "1" ? { workingHours: { some: { isActive: true, dayOfWeek: today } } } : {}),
-    ...(conv === "1" ? { conventions: { isEmpty: false } } : {}),
-    ...(langue ? { langues: { has: langue } } : {}),
-    ...(hasQuery
-      ? {
-          OR: [
-            { nom:    { contains: query, mode: "insensitive" as const } },
-            { prenom: { contains: query, mode: "insensitive" as const } },
-          ],
-        }
-      : {}),
-  };
-
-  // Tri : pertinence (défaut) · mieux notés · plus d'avis.
-  const orderBy =
-    tri === "note"
-      ? [{ featuredUntil: { sort: "desc" as const, nulls: "last" as const } }, { averageRating: "desc" as const }, { isVerified: "desc" as const }]
-      : tri === "avis"
-      ? [{ featuredUntil: { sort: "desc" as const, nulls: "last" as const } }, { reviewsCount: "desc" as const }, { averageRating: "desc" as const }]
-      : [{ featuredUntil: { sort: "desc" as const, nulls: "last" as const } }, { planActivatedAt: { sort: "desc" as const, nulls: "last" as const } }, { isVerified: "desc" as const }, { averageRating: "desc" as const }];
-
-  const [doctors, total, allCities] = await Promise.all([
-    prisma.doctor.findMany({
-      where,
-      include: {
-        specialty:    { select: { name: true, slug: true } },
-        city:         { select: { name: true, slug: true } },
-        _count:       { select: { reviews: true } },
-        workingHours: { select: { dayOfWeek: true, startTime: true, endTime: true }, where: { isActive: true } },
-      },
-      orderBy,
-      take: PAGE_SIZE,
-      skip: (page - 1) * PAGE_SIZE,
-    }),
-    prisma.doctor.count({ where }),
-    // groupBy agrégé caché (cf. lib/specialty-cities.ts) au lieu d'une sous-requête
-    // corrélée par ville. On exclut la ville courante et on garde le top 8.
-    specialtyCityCounts(slug),
-  ]);
   const otherCities = allCities.filter((c) => c.slug !== ville).slice(0, 8);
 
-  // Filtres qui RESTREIGNENT l'ensemble (le tri seul ne compte pas → contenu riche
-  // et compteur restent valides quand on ne fait que trier).
-  const hasRefine = !!(dispo || conv || langue);
-
-  // La page n'existe que si la combinaison spécialité + ville référence des praticiens.
-  // (Une recherche `q` ou un filtre sans résultat ne déclenche PAS un 404 : état vide.)
-  if (!hasQuery && !hasRefine && total === 0) notFound();
-
-  // Créneaux réservables inline (puces sur la carte). Requête ciblée sur les seules
-  // fiches à accès Pro + horaires → aucun coût quand la page n'en contient aucune
-  // (cas courant : données migrées sans agenda). Fenêtre courte (14 j) : on n'affiche
-  // que les prochaines disponibilités, pas tout l'agenda.
-  const bookableIds = doctors
-    .filter((d) => hasProAccess(d.plan, d.planExpiresAt, d.trialEndsAt) && d.workingHours.length > 0)
-    .map((d) => d.id);
-  const slotsByDoctor: Record<string, { date: string; time: string }[]> = {};
-  if (bookableIds.length > 0) {
-    const sched = await prisma.doctor.findMany({
-      where: { id: { in: bookableIds } },
-      select: {
-        id: true,
-        consultationDuration: true,
-        bookingLeadHours: true,
-        bookingMaxDays: true,
-        workingHours: true,
-        blockedSlots: { select: { date: true, time: true } },
-        absences: { select: { startDate: true, endDate: true, allDay: true, startTime: true, endTime: true } },
-        appointments: { where: { status: { notIn: ["CANCELLED"] } }, select: { date: true, time: true } },
-      },
-    });
-    for (const d of sched) {
-      const booked = d.appointments.map((a) => ({ date: a.date, time: a.time }));
-      const all = generateAvailableSlots(booked, d.workingHours, d.consultationDuration, d.absences, {
-        leadHours: d.bookingLeadHours,
-        maxDays: Math.min(d.bookingMaxDays, 14),
-      });
-      const blockedSet = new Set(d.blockedSlots.map((b) => `${b.date}-${b.time}`));
-      slotsByDoctor[d.id] = all
-        .filter((s) => s.available && !blockedSet.has(`${s.date}-${s.time}`))
-        .slice(0, 4)
-        .map((s) => ({ date: s.date, time: s.time }));
-    }
-  }
-
-  const totalPages = Math.ceil(total / PAGE_SIZE);
-  const buildUrl = (p: number) => {
-    const ps = new URLSearchParams();
-    if (hasQuery) ps.set("q", query);
-    if (tri && tri !== "pertinence") ps.set("tri", tri);
-    if (dispo === "1") ps.set("dispo", "1");
-    if (conv === "1") ps.set("conv", "1");
-    if (langue) ps.set("langue", langue);
-    if (p > 1) ps.set("page", String(p));
-    const qs = ps.toString();
-    return `/specialites/${slug}/${ville}${qs ? `?${qs}` : ""}`;
-  };
-
-  // Contenu riche (éditorial, essentiel, maillage) uniquement sur la vue canonique.
-  const showRich = page === 1 && !hasQuery && !hasRefine;
+  const page = 1;
+  const buildUrl = (p: number) => `/specialites/${slug}/${ville}${p > 1 ? `?page=${p}` : ""}`;
 
   // Date de relecture : override par spécialité (content.reviewed) sinon constante globale.
   const reviewedIso = content.reviewed ?? CONTENT_REVIEWED;
@@ -278,12 +261,11 @@ export default async function SpecialiteCityPage({
     day: "numeric", month: "long", year: "numeric",
   }).format(new Date(reviewedIso));
 
-  // Contenu city-aware. Les spécialités à fort trafic configurées (médecine générale,
-  // cardiologie, pédiatrie…) reçoivent un lead contextualisé (tarif local + ancrage
-  // géographique) et des FAQ propres à la ville → sortent la page du near-duplicate.
-  // Les autres conservent le patron générique (lead + 1 FAQ « comment prendre RDV »).
+  // Contenu city-aware. Les spécialités à fort trafic configurées reçoivent un lead
+  // contextualisé + des FAQ propres à la ville → sortent la page du near-duplicate.
   let lead: string;
   let faqs: { q: string; a: string }[];
+  const synLower = synonyme !== "spécialiste" ? synonyme : specialty.name.toLowerCase();
   const cityEnrichment = getSpecialtyCityContent(slug, ville, cityName, total, locale);
   if (cityEnrichment) {
     lead = cityEnrichment.lead;
@@ -303,6 +285,8 @@ export default async function SpecialiteCityPage({
     faqs = [cityFaq, ...content.faqs];
   }
 
+  // JSON-LD de la coquille : MedicalWebPage (référence l'ItemList émis avec la
+  // liste streamée par @id) + FAQ + fil d'Ariane. Rendu dans le HTML initial.
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -322,47 +306,9 @@ export default async function SpecialiteCityPage({
         "dateModified": reviewedIso,
         "inLanguage": locale === "ar" ? "ar-MA" : "fr-MA",
         "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".essentiel-facts"] },
-        ...(total > 0 && {
-          "mainEntity": {
-            "@type": "ItemList",
-            "numberOfItems": total,
-            "itemListElement": doctors.slice(0, 8).map((d, i) => {
-              const reviews = d._count.reviews;
-              return {
-                "@type": "ListItem",
-                "position": i + 1,
-                "item": {
-                  "@type": "Physician",
-                  "@id": `${BASE}/praticiens/${d.slug}#physician`,
-                  "name": [d.civilite, d.prenom, d.nom].filter(Boolean).join(" "),
-                  "url": `${BASE}/praticiens/${d.slug}`,
-                  "medicalSpecialty": d.specialty.name,
-                  "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": d.adresse,
-                    "addressLocality": d.city.name,
-                    "addressCountry": "MA",
-                  },
-                  ...(d.langues && d.langues.length > 0 ? { "availableLanguage": d.langues } : {}),
-                  ...(d.prix != null ? { "priceRange": `${Number(d.prix)} MAD` } : {}),
-                  ...(reviews >= 3 && d.averageRating > 0
-                    ? {
-                        "aggregateRating": {
-                          "@type": "AggregateRating",
-                          "ratingValue": Number(d.averageRating.toFixed(1)),
-                          "reviewCount": reviews,
-                          "bestRating": 5,
-                          "worstRating": 1,
-                        },
-                      }
-                    : {}),
-                },
-              };
-            }),
-          },
-        }),
+        ...(total > 0 ? { "mainEntity": { "@id": `${BASE}/specialites/${slug}/${ville}#doctors` } } : {}),
       },
-      ...(showRich && faqs.length > 0 ? [{
+      ...(faqs.length > 0 ? [{
         "@type": "FAQPage",
         "mainEntity": faqs.map(({ q, a }) => ({
           "@type": "Question",
@@ -382,6 +328,29 @@ export default async function SpecialiteCityPage({
     ],
   };
 
+  // Liste de base (page 1, canonique) rendue côté serveur : contenu du shell
+  // statique (fallback <Suspense> = HTML prérendu, indexable) ET contenu affiché
+  // tant qu'aucun filtre/recherche n'est actif.
+  const baseList = (
+    <CityResults
+      slug={slug}
+      ville={ville}
+      page={page}
+      total={total}
+      locale={locale}
+      t={t}
+      tCard={dict.card}
+      tPagination={dict.pagination}
+      specName={specName}
+      cityName={cityName}
+      synonyme={synonyme}
+      synPlural={synPlural}
+      specialtyName={specialty.name}
+      cityDisplayName={city.name}
+      buildUrl={buildUrl}
+    />
+  );
+
   return (
     <>
       <script
@@ -390,7 +359,7 @@ export default async function SpecialiteCityPage({
       />
       <div className="page-outer">
 
-        {/* ── Fil d'Ariane (aligné sur le JSON-LD : Accueil → Spécialités → Spécialité → Ville) ── */}
+        {/* ── Fil d'Ariane (aligné sur le JSON-LD) ── */}
         <nav className="flex items-center gap-1.5 text-sm text-slate-500 mb-6 flex-wrap"
           aria-label={t.breadcrumbAria}>
           <Link href="/" className="hover:text-primary-600 transition-colors">
@@ -446,7 +415,7 @@ export default async function SpecialiteCityPage({
         </div>
 
         {/* ── L'essentiel (faits chiffrés — featured snippet / AI Overview) ── */}
-        {showRich && content.essentiel && content.essentiel.length > 0 && (
+        {content.essentiel && content.essentiel.length > 0 && (
           <EssentielBox
             facts={content.essentiel}
             total={total}
@@ -456,70 +425,58 @@ export default async function SpecialiteCityPage({
           />
         )}
 
-        {/* ── Recherche (nom) + tri + affinage (dispo · conventionné · langue) ── */}
+        {/* ── Recherche (nom) + tri + affinage — client (lit les filtres dans
+            l'URL). <Suspense> requis par useSearchParams ; fallback = contrôles
+            sans filtre actif (pas de CLS). ── */}
         <div
           className="bg-white rounded-2xl border border-slate-200 p-4 mb-5"
           style={{ boxShadow: "0 1px 4px 0 rgb(0 0 0 / 0.06)" }}
         >
-          <ListingControls
-            current={{ tri, dispo, conv, langue, ville: "", q: query }}
-            showSearch
-            languages={FILTERABLE_LANGUAGES}
-            locale={locale}
-            t={dict.filters}
-          />
+          <Suspense fallback={
+            <ListingControls
+              current={{ tri: "", dispo: "", conv: "", langue: "", ville: "", q: "" }}
+              languages={FILTERABLE_LANGUAGES}
+              showSearch
+              locale={locale}
+              t={dict.filters}
+            />
+          }>
+            <SpecialtyControls
+              languages={FILTERABLE_LANGUAGES}
+              showSearch
+              locale={locale}
+              t={dict.filters}
+            />
+          </Suspense>
         </div>
 
-        {/* ── Liste praticiens ──────────────────────── */}
-        {doctors.length === 0 ? (
-          <div className="empty-state">
-            <div className="w-16 h-16 rounded-2xl bg-primary-50 flex items-center justify-center">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"
-                className="w-8 h-8 text-primary-300" aria-hidden="true"
-                strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="11" cy="11" r="7" />
-                <path d="m20 20-3.5-3.5" />
-              </svg>
-            </div>
-            <p className="font-semibold text-slate-700 text-base">
-              {hasRefine && !hasQuery
-                ? t.noResultFilters
-                : locale === "ar" ? "لا يوجد ممارس يطابق بحثك." : "Aucun praticien ne correspond à votre recherche."}
-            </p>
-            <Link
-              href={`/specialites/${slug}/${ville}`}
-              className="mt-2 inline-flex items-center gap-2 bg-secondary-600 hover:bg-secondary-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all"
-            >
-              {hasRefine && !hasQuery ? t.clearFilters : t.showAll}
-            </Link>
-          </div>
-        ) : (
-          <div className="flex flex-col gap-3">
-            <h2 className="sr-only">
-              {locale === "ar" ? `${specName} ${t.in} ${cityName}` : `${synonyme !== "spécialiste" ? synPlural : specialty.name} à ${city.name}`}
-            </h2>
-            {doctors.map((d, i) => (
-              <PraticienCard key={d.id} praticien={d} priority={i === 0} hideSpecialty isPro={isProPlan(d.plan, d.planExpiresAt)} isFeatured={isFeaturedActive(d.featuredUntil)} canBookOnline={hasProAccess(d.plan, d.planExpiresAt, d.trialEndsAt)} slots={slotsByDoctor[d.id]} locale={locale} t={dict.card} />
-            ))}
-          </div>
-        )}
-
-        <Pagination page={page} totalPages={totalPages} buildUrl={buildUrl} t={dict.pagination} />
+        {/* ── Résultats — base SSR (fallback = HTML statique SEO) ; le client
+            bascule sur les résultats filtrés/paginés quand l'URL a des params. ── */}
+        <Suspense fallback={baseList}>
+          <SpecialtyResultsLive
+            slug={slug}
+            ville={ville}
+            locale={locale}
+            cardT={dict.card}
+            paginationT={dict.pagination}
+            t={t}
+          >
+            {baseList}
+          </SpecialtyResultsLive>
+        </Suspense>
 
         {/* ── Contenu éditorial city-aware (FR + AR) ── */}
-        {showRich && (
-          <SpecialtyEditorial
-            content={content}
-            synonyme={synonyme}
-            specName={specName}
-            specialtyName={specialty.name}
-            faqs={faqs}
-            locale={locale}
-            t={t}
-            cityName={cityName}
-            lead={lead}
-          />
-        )}
+        <SpecialtyEditorial
+          content={content}
+          synonyme={synonyme}
+          specName={specName}
+          specialtyName={specialty.name}
+          faqs={faqs}
+          locale={locale}
+          t={t}
+          cityName={cityName}
+          lead={lead}
+        />
 
         {/* ── Cross-links retour ────────────────────── */}
         <div className="mt-8 pt-6 border-t border-slate-100 flex flex-wrap gap-4">
@@ -542,7 +499,7 @@ export default async function SpecialiteCityPage({
         </div>
 
         {/* ── Autres villes ─────────────────────────── */}
-        {showRich && otherCities.length > 0 && (
+        {otherCities.length > 0 && (
           <div className="mt-6">
             <h2 className="text-sm font-semibold text-slate-700 mb-3 flex items-center gap-2">
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.75"

@@ -7,14 +7,13 @@ import { frenchOnlyAlternates } from "@/lib/hreflang";
 import { getDictionary, toLocale } from "@/lib/i18n";
 import { tSpecialty } from "@/lib/specialty-i18n";
 import { QuestionCard, type QuestionCardData } from "@/components/qa/QuestionCard";
-import { Pagination } from "@/components/ui/Pagination";
+import { QuestionsInfinite } from "@/components/qa/QuestionsInfinite";
 
 export const revalidate = 600;
 const PAGE_SIZE = 12;
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 
 type Params = Promise<{ lang: string; slug: string }>;
-type SearchParams = Promise<{ page?: string }>;
 
 const getSpecialty = cache(async (slug: string) =>
   prisma.specialty.findUnique({ where: { slug }, select: { id: true, name: true, slug: true } }),
@@ -46,10 +45,12 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   };
 }
 
-export default async function QuestionsBySpecialtyPage({ params, searchParams }: { params: Params; searchParams: SearchParams }) {
+// Page STATIQUE : le serveur ne lit plus searchParams. La page 1 (vue canonique)
+// est pré-rendue = shell SEO ; les pages suivantes sont chargées au défilement
+// côté client (QuestionsInfinite → server action loadMoreQuestions), sans URL
+// paginées → canonical unique vers le hub.
+export default async function QuestionsBySpecialtyPage({ params }: { params: Params }) {
   const { lang, slug } = await params;
-  const { page: pageStr = "1" } = await searchParams;
-  const page = Math.max(1, Number(pageStr) || 1);
 
   const sp = await getSpecialty(slug);
   if (!sp) notFound();
@@ -65,16 +66,13 @@ export default async function QuestionsBySpecialtyPage({ params, searchParams }:
       where,
       orderBy: { publishedAt: "desc" },
       take: PAGE_SIZE,
-      skip: (page - 1) * PAGE_SIZE,
       select: { slug: true, title: true, titleAr: true, arReviewedAt: true, answersCount: true, views: true, publishedAt: true, specialty: { select: { name: true, slug: true } } },
     }),
     prisma.question.count({ where }),
   ]);
   const totalPages = Math.ceil(total / PAGE_SIZE);
 
-  const buildUrl = (p: number) => `/questions/specialite/${slug}${p > 1 ? `?page=${p}` : ""}`;
-
-  const jsonLd = page === 1 ? {
+  const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
@@ -94,11 +92,11 @@ export default async function QuestionsBySpecialtyPage({ params, searchParams }:
         ],
       },
     ],
-  } : null;
+  };
 
   return (
     <div className="page-outer">
-      {jsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
 
       <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-slate-500 mb-5">
         <Link href="/questions" className="hover:text-secondary-600 transition-colors">{t.breadcrumb}</Link>
@@ -124,14 +122,26 @@ export default async function QuestionsBySpecialtyPage({ params, searchParams }:
           <Link href="/questions/poser" className="btn-primary mt-3 text-sm">{t.ask}</Link>
         </div>
       ) : (
-        <div className="flex flex-col gap-3">
-          {questions.map((qq: QuestionCardData) => (
-            <QuestionCard key={qq.slug} q={qq} t={t} locale={locale} />
-          ))}
-        </div>
+        <>
+          <div className="flex flex-col gap-3">
+            {questions.map((qq: QuestionCardData) => (
+              <QuestionCard key={qq.slug} q={qq} t={t} locale={locale} />
+            ))}
+          </div>
+          {/* Pages suivantes chargées au défilement (page 1 ci-dessus = SSR/SEO) */}
+          <QuestionsInfinite
+            q=""
+            specialite={slug}
+            tri="recent"
+            totalPages={totalPages}
+            noAnswerYet={t.noAnswerYet}
+            loadingLabel={t.loading}
+            moreLabel={t.loadMore}
+            answeredByLabel={t.answeredBy}
+            verifiedLabel={t.verifiedBadge}
+          />
+        </>
       )}
-
-      <Pagination page={page} totalPages={totalPages} buildUrl={buildUrl} t={dict.pagination} />
     </div>
   );
 }

@@ -18,17 +18,10 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 }
 
 type Params = Promise<{ lang: string }>;
-type SearchParams = Promise<{ q?: string; ville?: string; page?: string }>;
 
-export default async function LaboratoiresPage({
-  params,
-  searchParams,
-}: {
-  params: Params;
-  searchParams: SearchParams;
-}) {
-  const { q = "", ville = "", page: pageStr = "1" } = await searchParams;
-  const page = Math.max(1, Number(pageStr) || 1);
+// Page STATIQUE : le serveur ne lit plus searchParams (recherche/ville/pagination
+// gérées côté client par EstablishmentList → EstablishmentResults, vues noindex).
+export default async function LaboratoiresPage({ params }: { params: Params }) {
   const locale = toLocale((await params).lang);
   const t = getDictionary(locale).estab;
 
@@ -48,10 +41,6 @@ export default async function LaboratoiresPage({
       <EstablishmentList
         types={["laboratoire"]}
         baseHref="/laboratoires"
-        q={q}
-        ville={ville}
-        type="laboratoire"
-        page={page}
         locale={locale}
       />
     </div>

@@ -7,6 +7,7 @@ import { processCache } from "@/lib/process-cache";
 import { SpecialtyQuestionsSection } from "@/components/qa/SpecialtyQuestionsSection";
 import { PraticienCard } from "@/components/PraticienCard";
 import { ListingControls, FILTERABLE_LANGUAGES } from "@/components/ListingControls";
+import { SpecialtyControls, SpecialtyResults as SpecialtyResultsLive } from "@/components/specialites/SpecialtyListing";
 import { Pagination } from "@/components/ui/Pagination";
 import { SpecialtyIcon } from "@/components/SpecialtyIcon";
 import { EssentielBox } from "@/components/EssentielBox";
@@ -18,19 +19,10 @@ import { localizedAlternates } from "@/lib/hreflang";
 import { tSpecialty, tCity } from "@/lib/specialty-i18n";
 import { specialtyFamily } from "@/lib/specialty-family";
 import { specialtyCityCounts } from "@/lib/specialty-cities";
-import { isProPlan, isFeaturedActive, hasProAccess } from "@/lib/plan";
-import { generateAvailableSlots } from "@/lib/utils";
+import { getSpecialtyDoctors } from "@/lib/specialite-doctors";
+import { PRATICIENS_PAGE_SIZE as PAGE_SIZE } from "@/lib/praticiens-query";
 
 type Params       = Promise<{ lang: string; slug: string }>;
-type SearchParams  = Promise<{ ville?: string; page?: string; tri?: string; dispo?: string; conv?: string; langue?: string }>;
-
-/** Jour de la semaine à l'heure marocaine (convention JS getDay : 0=dimanche). */
-function casablancaWeekday(): number {
-  const wd = new Intl.DateTimeFormat("en-US", { timeZone: "Africa/Casablanca", weekday: "short" }).format(new Date());
-  return ({ Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 } as const)[wd as "Sun"] ?? 0;
-}
-
-const PAGE_SIZE = 15;
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 
 /** Date de dernière révision éditoriale du contenu spécialité (E-E-A-T + signal IA).
@@ -38,6 +30,14 @@ const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 const CONTENT_REVIEWED = "2026-06-28";
 
 export const revalidate = 3600;
+
+// Route dynamique [slug] : sans échantillons de params, l'accès à `params` force
+// le rendu dynamique. On pré-rend toutes les spécialités (hubs indexés, ~100) →
+// pages statiques/ISR servies par le CDN (les filtres restent gérés côté client).
+export async function generateStaticParams() {
+  const specialties = await prisma.specialty.findMany({ select: { slug: true } });
+  return specialties.map((s) => ({ slug: s.slug }));
+}
 
 /** WHERE du listing — partagé par le compteur (coquille) et le findMany (streamé)
  *  pour éviter toute divergence de filtres. */
@@ -52,31 +52,16 @@ function buildWhere(slug: string, f: { ville: string; dispo: string; conv: strin
   };
 }
 
-/** Tri : pertinence (défaut, sponsorisés/vérifiés/notés) · mieux notés · plus d'avis. */
-function buildOrderBy(tri: string) {
-  return tri === "note"
-    ? [{ featuredUntil: { sort: "desc" as const, nulls: "last" as const } }, { averageRating: "desc" as const }, { isVerified: "desc" as const }]
-    : tri === "avis"
-    ? [{ featuredUntil: { sort: "desc" as const, nulls: "last" as const } }, { reviewsCount: "desc" as const }, { averageRating: "desc" as const }]
-    : [{ featuredUntil: { sort: "desc" as const, nulls: "last" as const } }, { planActivatedAt: { sort: "desc" as const, nulls: "last" as const } }, { isVerified: "desc" as const }, { averageRating: "desc" as const }];
-}
-
 async function getSpecialty(slug: string) {
   return processCache(`specialite:meta:${slug}`, 3600, () =>
     prisma.specialty.findUnique({ where: { slug } }),
   );
 }
 
-export async function generateMetadata({
-  params,
-  searchParams,
-}: {
-  params: Params;
-  searchParams: SearchParams;
-}): Promise<Metadata> {
+// Page STATIQUE : le serveur ne lit plus searchParams (filtres/tri/pagination
+// gérés côté client, vues noindex). Métadonnées = vue canonique de base.
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { lang, slug } = await params;
-  const { ville = "", page: pageStr = "1", tri = "", dispo = "", conv = "", langue = "" } = await searchParams;
-  const page = Math.max(1, Number(pageStr) || 1);
   const [s, count] = await Promise.all([
     getSpecialty(slug),
     // Compteur canonique caché (mutualisé avec la coquille de la page).
@@ -106,13 +91,10 @@ export async function generateMetadata({
     ? `${countFmt} ${synPlural} sur SantéauMaroc. Profils vérifiés, avis patients et RDV en ligne.`
     : `Annuaire des ${content.synonymePluriel ?? pluralizeSynonyme(synonyme)} au Maroc. Profils vérifiés, avis patients et RDV en ligne.`;
 
-  // Indexable : uniquement la vue canonique riche (aucun filtre/tri/ville/page>1).
-  const isBase = !ville && page === 1 && !tri && !dispo && !conv && !langue;
   const locale = toLocale(lang);
   return {
     title,
     description,
-    robots: isBase ? { index: true, follow: true } : { index: false, follow: true },
     alternates: localizedAlternates(`/specialites/${slug}`, locale),
     openGraph: {
       title: socialTitle,
@@ -129,37 +111,16 @@ export async function generateMetadata({
   };
 }
 
-/* ── Fallback streaming : squelette des résultats ────────────
-   Réserve la hauteur (anti-CLS) pendant que la liste médecins streame. */
-function ResultsSkeleton() {
-  return (
-    <div className="flex flex-col gap-3" aria-hidden="true">
-      {Array.from({ length: 6 }).map((_, i) => (
-        <div key={i} className="card p-4 sm:p-5 animate-pulse">
-          <div className="flex items-start gap-4">
-            <div className="w-16 h-16 rounded-xl bg-slate-100 shrink-0" />
-            <div className="flex-1 min-w-0 space-y-2.5">
-              <div className="h-4 w-1/2 bg-slate-200 rounded" />
-              <div className="h-3 w-1/3 bg-slate-100 rounded" />
-              <div className="h-3 w-2/3 bg-slate-100 rounded" />
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-/* ── Streamé : liste des praticiens + pagination + JSON-LD ItemList ──
-   Isolé sous <Suspense> : c'est la requête la plus lourde (findMany +
-   créneaux). La coquille (héros/essentiel/contrôles = LCP) ne l'attend pas. */
+/* ── Streamé : liste des praticiens (vue canonique) + pagination + JSON-LD
+   ItemList ── Isolé sous <Suspense> : c'est la requête la plus lourde (findMany
+   + créneaux). La coquille (héros/essentiel/contrôles = LCP) ne l'attend pas.
+   Source de données UNIQUE partagée avec la route API client
+   (getSpecialtyDoctors, cache durable) → aucun fork de requête entre le SSR de
+   base et le filtrage client, et DTO plat JSON-safe (prix Decimal→number). */
 async function SpecialtyResults({
-  cacheKey, where, orderBy, page, total, slug, locale, t, tCard, tPagination,
+  page, total, slug, locale, t, tCard, tPagination,
   hasRefine, ville, activeCityName, specName, synonyme, synPlural, specialtyName, buildUrl,
 }: {
-  cacheKey: string;
-  where: ReturnType<typeof buildWhere>;
-  orderBy: ReturnType<typeof buildOrderBy>;
   page: number;
   total: number;
   slug: string;
@@ -176,56 +137,9 @@ async function SpecialtyResults({
   specialtyName: string;
   buildUrl: (p: number) => string;
 }) {
-  // Requête cache in-process (processCache, PAS unstable_cache : Decimal → JSON casserait).
-  const { doctors, slotsByDoctor } = await processCache(cacheKey, 3600, async () => {
-    const doctors = await prisma.doctor.findMany({
-      where,
-      include: {
-        specialty:    { select: { name: true, slug: true } },
-        city:         { select: { name: true, slug: true } },
-        _count:       { select: { reviews: true } },
-        workingHours: { select: { dayOfWeek: true, startTime: true, endTime: true }, where: { isActive: true } },
-      },
-      orderBy,
-      take: PAGE_SIZE,
-      skip: (page - 1) * PAGE_SIZE,
-    });
-
-    // Créneaux réservables inline (puces sur la carte). Requête ciblée sur les
-    // seules fiches Pro + horaires → coût nul sinon. Fenêtre courte (14 j).
-    const bookableIds = doctors
-      .filter((d) => hasProAccess(d.plan, d.planExpiresAt, d.trialEndsAt) && d.workingHours.length > 0)
-      .map((d) => d.id);
-    const slotsByDoctor: Record<string, { date: string; time: string }[]> = {};
-    if (bookableIds.length > 0) {
-      const sched = await prisma.doctor.findMany({
-        where: { id: { in: bookableIds } },
-        select: {
-          id: true,
-          consultationDuration: true,
-          bookingLeadHours: true,
-          bookingMaxDays: true,
-          workingHours: true,
-          blockedSlots: { select: { date: true, time: true } },
-          absences: { select: { startDate: true, endDate: true, allDay: true, startTime: true, endTime: true } },
-          appointments: { where: { status: { notIn: ["CANCELLED"] } }, select: { date: true, time: true } },
-        },
-      });
-      for (const d of sched) {
-        const booked = d.appointments.map((a) => ({ date: a.date, time: a.time }));
-        const all = generateAvailableSlots(booked, d.workingHours, d.consultationDuration, d.absences, {
-          leadHours: d.bookingLeadHours,
-          maxDays: Math.min(d.bookingMaxDays, 14),
-        });
-        const blockedSet = new Set(d.blockedSlots.map((b) => `${b.date}-${b.time}`));
-        slotsByDoctor[d.id] = all
-          .filter((s) => s.available && !blockedSet.has(`${s.date}-${s.time}`))
-          .slice(0, 4)
-          .map((s) => ({ date: s.date, time: s.time }));
-      }
-    }
-    return { doctors, slotsByDoctor };
-  });
+  // Vue canonique (aucun filtre, page demandée) : même source cachée durable que
+  // la route API client → SSR de base et filtrage client strictement cohérents.
+  const { doctors } = await getSpecialtyDoctors(slug, { page });
 
   const totalPages = Math.ceil(total / PAGE_SIZE);
 
@@ -327,7 +241,7 @@ async function SpecialtyResults({
               : `${synonyme !== "spécialiste" ? synPlural : specialtyName}${activeCityName ? ` à ${activeCityName}` : " au Maroc"}`}
           </h2>
           {doctors.map((d, i) => (
-            <PraticienCard key={d.id} praticien={d} priority={i === 0} hideSpecialty isPro={isProPlan(d.plan, d.planExpiresAt)} isFeatured={isFeaturedActive(d.featuredUntil)} canBookOnline={hasProAccess(d.plan, d.planExpiresAt, d.trialEndsAt)} slots={slotsByDoctor[d.id]} locale={locale} t={tCard} />
+            <PraticienCard key={d.id} praticien={d} priority={i === 0} hideSpecialty isPro={d.isPro} isFeatured={d.isFeatured} canBookOnline={d.canBookOnline} slots={d.slots} locale={locale} t={tCard} />
           ))}
         </div>
       )}
@@ -450,28 +364,19 @@ async function SpecialtyRelated({
    N'attend QUE les données rapides de la coquille (specialty, count, villes).
    Les requêtes lourdes streament via <Suspense>. */
 
-export default async function SpecialitePage({
-  params,
-  searchParams,
-}: {
-  params: Params;
-  searchParams: SearchParams;
-}) {
+export default async function SpecialitePage({ params }: { params: Params }) {
   const { lang, slug } = await params;
-  const { ville = "", page: pageStr = "1", tri = "", dispo = "", conv = "", langue = "" } = await searchParams;
-  const page = Math.max(1, Number(pageStr) || 1);
 
-  const today = casablancaWeekday();
-  const where = buildWhere(slug, { ville, dispo, conv, langue, today });
-  const orderBy = buildOrderBy(tri);
-
-  // Clé de compteur : filtres SANS la page (le total ne dépend pas de la pagination).
-  const countKey = `specialite:count:${slug}:${ville || ""}:${dispo || 0}${conv || 0}:${langue || ""}:${dispo === "1" ? today : "x"}`;
+  // Page STATIQUE : vue canonique de base uniquement (aucun filtre). Les
+  // filtres/tri/pagination sont gérés côté client (SpecialtyResults → API,
+  // vues noindex) → le serveur ne lit jamais searchParams.
+  const where = buildWhere(slug, { ville: "", dispo: "", conv: "", langue: "", today: 0 });
+  const page = 1;
 
   // Données de la COQUILLE uniquement (rapides / cachées), en parallèle.
   const [specialty, total, cities] = await Promise.all([
     getSpecialty(slug),
-    processCache(countKey, 3600, () => prisma.doctor.count({ where })),
+    processCache(`specialite:count:${slug}`, 3600, () => prisma.doctor.count({ where })),
     specialtyCityCounts(slug),
   ]);
   if (!specialty) notFound();
@@ -494,27 +399,38 @@ export default async function SpecialitePage({
 
   const synPlural = content.synonymePluriel ?? pluralizeSynonyme(synonyme);
 
-  // `hasRefine` = filtres qui RESTREIGNENT l'ensemble (dispo/conv/langue) → masquent
-  // le contenu riche (essentiel/éditorial/maillage). Le tri seul ne restreint pas.
-  const hasRefine = !!(dispo || conv || langue);
-  const activeCity = ville ? cities.find(c => c.slug === ville) : null;
-  const activeCityName = activeCity ? tCity(activeCity.name, locale) : null;
-  const showMaillage = !ville && page === 1 && !hasRefine;
+  // Vue canonique de base : aucun filtre → contenu riche (essentiel/éditorial/
+  // maillage) affiché ; aucune ville active.
+  const hasRefine = false;
+  const activeCityName: string | null = null;
+  const showMaillage = true;
 
-  // Clé de cache de la liste médecins (streamée) : inclut la page + le jour.
-  const listCacheKey = `specialite:data:${slug}:${ville || ""}:${page}:${tri || "p"}:${dispo || 0}${conv || 0}:${langue || ""}:${dispo === "1" ? today : "x"}`;
+  const buildUrl = (p: number) => `/specialites/${slug}${p > 1 ? `?page=${p}` : ""}`;
 
-  const buildUrl = (p: number) => {
-    const ps = new URLSearchParams();
-    if (ville) ps.set("ville", ville);
-    if (tri && tri !== "pertinence") ps.set("tri", tri);
-    if (dispo === "1") ps.set("dispo", "1");
-    if (conv === "1") ps.set("conv", "1");
-    if (langue) ps.set("langue", langue);
-    if (p > 1) ps.set("page", String(p));
-    const qs = ps.toString();
-    return `/specialites/${slug}${qs ? `?${qs}` : ""}`;
-  };
+  const controlsCities = cities.map((c) => ({ slug: c.slug, name: locale === "ar" ? tCity(c.name, locale) : c.name }));
+
+  // Liste de base (page 1, sans filtre) rendue côté serveur : sert de contenu au
+  // shell statique (fallback <Suspense> = HTML prérendu, indexable) ET de contenu
+  // affiché tant qu'aucun filtre n'est actif.
+  const baseList = (
+    <SpecialtyResults
+      page={page}
+      total={total}
+      slug={slug}
+      locale={locale}
+      t={t}
+      tCard={dict.card}
+      tPagination={dict.pagination}
+      hasRefine={hasRefine}
+      ville=""
+      activeCityName={activeCityName}
+      specName={specName}
+      synonyme={synonyme}
+      synPlural={synPlural}
+      specialtyName={specialty.name}
+      buildUrl={buildUrl}
+    />
+  );
 
   // Chip « {spécialité} à {ville} » — réutilisée pour les villes en avant et repliées.
   const cityChip = (c: (typeof cities)[number]) => (
@@ -623,19 +539,6 @@ export default async function SpecialitePage({
                     {total.toLocaleString("fr")}
                   </span>{" "}
                   {total !== 1 ? t.pracMany : t.pracOne} {total !== 1 ? t.availableMany : t.availableOne}
-                  {activeCity && (
-                    <>
-                      {" · "}
-                      <span className="font-medium text-slate-600">{tCity(activeCity.name, locale)}</span>
-                      {" "}
-                      <Link
-                        href={`/specialites/${slug}`}
-                        className="text-secondary-600 hover:text-secondary-700 underline underline-offset-2 font-medium"
-                      >
-                        {t.showAll}
-                      </Link>
-                    </>
-                  )}
                 </p>
 
                 {/* Bande de réassurance — signaux de confiance au moment du scan. */}
@@ -657,7 +560,7 @@ export default async function SpecialitePage({
         </div>
 
         {/* ── L'essentiel (faits chiffrés — featured snippet / AI Overview) ── */}
-        {!ville && !hasRefine && content.essentiel && content.essentiel.length > 0 && (
+        {content.essentiel && content.essentiel.length > 0 && (
           <EssentielBox
             facts={content.essentiel}
             total={total}
@@ -667,42 +570,43 @@ export default async function SpecialitePage({
           />
         )}
 
-        {/* ── Tri + affinage (ville · dispo · conventionné · langue) ── */}
+        {/* ── Tri + affinage — client (lit les filtres dans l'URL). <Suspense>
+            requis par useSearchParams en page statique ; fallback = contrôles
+            sans filtre actif (pas de CLS). ── */}
         <div
           className="bg-white rounded-2xl border border-slate-200 p-4 mb-5"
           style={{ boxShadow: "0 1px 4px 0 rgb(0 0 0 / 0.06)" }}
         >
-          <ListingControls
-            current={{ tri, dispo, conv, langue, ville, q: "" }}
-            cities={locale === "ar" ? cities.map((c) => ({ slug: c.slug, name: tCity(c.name, locale) })) : cities.map((c) => ({ slug: c.slug, name: c.name }))}
-            languages={FILTERABLE_LANGUAGES}
-            locale={locale}
-            t={dict.filters}
-          />
+          <Suspense fallback={
+            <ListingControls
+              current={{ tri: "", dispo: "", conv: "", langue: "", ville: "", q: "" }}
+              cities={controlsCities}
+              languages={FILTERABLE_LANGUAGES}
+              locale={locale}
+              t={dict.filters}
+            />
+          }>
+            <SpecialtyControls
+              cities={controlsCities}
+              languages={FILTERABLE_LANGUAGES}
+              locale={locale}
+              t={dict.filters}
+            />
+          </Suspense>
         </div>
 
-        {/* ── Résultats (streamés) ─────────────────── */}
-        <Suspense fallback={<ResultsSkeleton />}>
-          <SpecialtyResults
-            cacheKey={listCacheKey}
-            where={where}
-            orderBy={orderBy}
-            page={page}
-            total={total}
+        {/* ── Résultats — base SSR (fallback = HTML statique SEO) ; le client
+            bascule sur les résultats filtrés/paginés quand l'URL a des params. ── */}
+        <Suspense fallback={baseList}>
+          <SpecialtyResultsLive
             slug={slug}
             locale={locale}
+            cardT={dict.card}
+            paginationT={dict.pagination}
             t={t}
-            tCard={dict.card}
-            tPagination={dict.pagination}
-            hasRefine={hasRefine}
-            ville={ville}
-            activeCityName={activeCityName}
-            specName={specName}
-            synonyme={synonyme}
-            synPlural={synPlural}
-            specialtyName={specialty.name}
-            buildUrl={buildUrl}
-          />
+          >
+            {baseList}
+          </SpecialtyResultsLive>
         </Suspense>
 
         {/* ── Contenu éditorial & FAQ (statique, rendu immédiat) ── */}
