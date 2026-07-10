@@ -5,10 +5,20 @@ const isProd = process.env.NODE_ENV === "production";
 // CAPTCHA (Cloudflare Turnstile) — n'ouvre la CSP que si le CAPTCHA est configuré.
 const turnstile = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ? " https://challenges.cloudflare.com" : "";
 
+// Google AdSense — n'ouvre la CSP aux domaines pub QUE si la pub est activée
+// (NEXT_PUBLIC_ADS_ENABLED=true, cf. lib/ads/config.ts). Tant que la pub est
+// off, la surface d'attaque reste identique à aujourd'hui. `*.googlesyndication.com`
+// couvre pagead2/tpc/safeframe ; adtrafficquality = anti-fraude AdSense récent.
+const adsOn = process.env.NEXT_PUBLIC_ADS_ENABLED === "true";
+const adsScript  = adsOn ? " https://*.googlesyndication.com https://adservice.google.com https://*.googleadservices.com https://*.adtrafficquality.google" : "";
+const adsFrame   = adsOn ? " https://googleads.g.doubleclick.net https://*.googlesyndication.com https://*.adtrafficquality.google" : "";
+const adsImg     = adsOn ? " https://*.googlesyndication.com https://*.g.doubleclick.net https://*.google.com https://*.adtrafficquality.google" : "";
+const adsConnect = adsOn ? " https://*.googlesyndication.com https://*.g.doubleclick.net https://*.google.com https://*.adtrafficquality.google" : "";
+
 // 'unsafe-eval' is required by Next.js HMR in development only
 const scriptSrc = (isProd
   ? "script-src 'self' 'unsafe-inline'"
-  : "script-src 'self' 'unsafe-inline' 'unsafe-eval'") + turnstile;
+  : "script-src 'self' 'unsafe-inline' 'unsafe-eval'") + turnstile + adsScript;
 
 const securityHeaders = [
   // No iframes anywhere — strongest clickjacking protection
@@ -34,12 +44,15 @@ const securityHeaders = [
       scriptSrc,
       "style-src 'self' 'unsafe-inline'",
       // Avatars uploadés (/uploads), data URIs, blobs (previews). Pas de CDN externe.
-      "img-src 'self' data: blob:",
+      "img-src 'self' data: blob:" + adsImg,
       "font-src 'self'",
-      "connect-src 'self'" + turnstile,
+      "connect-src 'self'" + turnstile + adsConnect,
       "media-src 'self'",
       "object-src 'none'",
-      "frame-src" + (turnstile ? turnstile : " 'none'"),
+      // Cadres autorisés = Turnstile et/ou iframes publicitaires AdSense. Ne bascule
+      // sur 'none' que si aucun des deux n'est actif (X-Frame-Options: DENY et
+      // frame-ancestors 'none' continuent d'interdire qu'ON soit embarqué).
+      (turnstile || adsFrame) ? "frame-src" + turnstile + adsFrame : "frame-src 'none'",
       "frame-ancestors 'none'",
       "form-action 'self'",
       "base-uri 'self'",

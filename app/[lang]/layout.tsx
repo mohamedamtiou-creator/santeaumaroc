@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ToastProvider } from "@/components/ui/Toast";
 import { getDictionary, dirOf, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 import { LocaleProvider } from "@/components/i18n/LocaleLink";
+import { AdSenseLoader } from "@/components/ads/AdSenseLoader";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -131,6 +132,9 @@ export default async function RootLayout({
         <LocaleProvider locale={locale}>
           <ToastProvider>{children}</ToastProvider>
         </LocaleProvider>
+        {/* Script AdSense — inerte tant que la pub n'est pas activée (flags OFF).
+            Ne charge un encart que là où un <AdSlot> est monté (pages éditoriales). */}
+        <AdSenseLoader />
       </body>
     </html>
   );
