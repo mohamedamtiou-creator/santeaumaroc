@@ -13,7 +13,7 @@ import { localizedAlternates } from "@/lib/hreflang";
 import { getDictionary, toLocale } from "@/lib/i18n";
 import { tCity, tSpecialty } from "@/lib/specialty-i18n";
 import { isProPlan, isFeaturedActive, hasProAccess } from "@/lib/plan";
-import { processCache } from "@/lib/process-cache";
+import { cachedQuery, decToNum } from "@/lib/cache";
 
 type Params       = Promise<{ lang: string; slug: string }>;
 type SearchParams = Promise<{ specialite?: string; page?: string }>;
@@ -35,7 +35,8 @@ export async function generateStaticParams() {
 }
 
 async function getCity(slug: string) {
-  return processCache(`ville:meta:${slug}`, 3600, () =>
+  // City n'a aucun champ Decimal (lat/lng = Float) → JSON-safe pour le Data Cache.
+  return cachedQuery(`ville:meta:${slug}`, 3600, () =>
     prisma.city.findUnique({ where: { slug } }),
   );
 }
@@ -120,10 +121,13 @@ export default async function VillePage({
     ...(specialite ? { specialty: { slug: specialite } } : {}),
   };
 
-  // Requêtes DB en cache in-process (processCache, PAS unstable_cache : lignes avec
-  // Decimal). Clé = ville + spécialité filtrée + page. Page reste `ƒ` mais rendu
-  // sans aller-retour DB sur requêtes chaudes.
-  const { doctors, total, specialties, totalEstabs } = await processCache(
+  // Requêtes DB en cache DURABLE (Vercel Data Cache, cf. lib/cache) : survit aux
+  // cold starts serverless et se partage entre instances (≠ processCache, mémoire
+  // per-instance perdue à chaque cold start). Clé = ville + spécialité + page.
+  // `prix` (Decimal) est converti en number DANS la fonction cachée : un Decimal
+  // ne survit pas à la sérialisation JSON du Data Cache. Page reste `ƒ`
+  // (searchParams) mais rendue sans aller-retour DB sur requêtes chaudes.
+  const { doctors, total, specialties, totalEstabs } = await cachedQuery(
     `ville:data:${slug}:${specialite || ""}:${page}`,
     3600,
     async () => {
@@ -154,7 +158,14 @@ export default async function VillePage({
           where: { isActive: true, city: { slug } },
         }),
       ]);
-      return { doctors, total, specialties, totalEstabs };
+      // Decimal → number (JSON-safe pour le Data Cache) ; PraticienCard accepte
+      // number | Decimal | null, donc aucun changement côté rendu.
+      return {
+        doctors: doctors.map((d) => ({ ...d, prix: decToNum(d.prix) })),
+        total,
+        specialties,
+        totalEstabs,
+      };
     },
   );
 
