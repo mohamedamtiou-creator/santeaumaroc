@@ -7,12 +7,16 @@ const turnstile = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ? " https://challen
 
 // Google AdSense — n'ouvre la CSP aux domaines pub QUE si la pub est activée
 // (NEXT_PUBLIC_ADS_ENABLED=true, cf. lib/ads/config.ts). Tant que la pub est
-// off, la surface d'attaque reste identique à aujourd'hui. `*.googlesyndication.com`
-// couvre pagead2/tpc/safeframe ; adtrafficquality = anti-fraude AdSense récent.
+// off, la surface d'attaque reste identique à aujourd'hui.
+//  - `*.googlesyndication.com` : pagead2/tpc/safeframe (scripts + iframes d'annonces)
+//  - `*.google.com`            : CMP « Funding Choices » (fundingchoicesmessages…),
+//                                reCAPTCHA (www.google.com/recaptcha), adservice…
+//  - `www.gstatic.com`         : ressources reCAPTCHA du message de consentement
+//  - `*.adtrafficquality.google` : anti-fraude AdSense récent
 const adsOn = process.env.NEXT_PUBLIC_ADS_ENABLED === "true";
-const adsScript  = adsOn ? " https://*.googlesyndication.com https://adservice.google.com https://*.googleadservices.com https://*.adtrafficquality.google" : "";
-const adsFrame   = adsOn ? " https://googleads.g.doubleclick.net https://*.googlesyndication.com https://*.adtrafficquality.google" : "";
-const adsImg     = adsOn ? " https://*.googlesyndication.com https://*.g.doubleclick.net https://*.google.com https://*.adtrafficquality.google" : "";
+const adsScript  = adsOn ? " https://*.googlesyndication.com https://*.google.com https://www.gstatic.com https://*.googleadservices.com https://*.adtrafficquality.google" : "";
+const adsFrame   = adsOn ? " https://googleads.g.doubleclick.net https://*.googlesyndication.com https://*.google.com https://*.adtrafficquality.google" : "";
+const adsImg     = adsOn ? " https://*.googlesyndication.com https://*.g.doubleclick.net https://*.google.com https://www.gstatic.com https://*.adtrafficquality.google" : "";
 const adsConnect = adsOn ? " https://*.googlesyndication.com https://*.g.doubleclick.net https://*.google.com https://*.adtrafficquality.google" : "";
 
 // 'unsafe-eval' is required by Next.js HMR in development only
