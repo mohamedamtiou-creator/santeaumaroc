@@ -71,27 +71,43 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   ]);
   if (!s) return { title: "Spécialité introuvable", robots: { index: false } };
 
-  const content = getSpecialtyContent(slug);
-  const { synonyme } = content;
-  const titleName = synonyme !== "spécialiste"
-    ? synonyme.charAt(0).toUpperCase() + synonyme.slice(1)
-    : s.name;
-  // Titre du document : le layout applique déjà le template « %s | SantéauMaroc »,
-  // donc on n'ajoute PAS la marque ici (évite le doublon « … | SantéauMaroc | SantéauMaroc »).
-  const title = `${titleName} au Maroc — Avis & RDV en ligne`;
-  // OG/Twitter ne passent pas par le template : on ajoute la marque explicitement.
-  const socialTitle = `${title} | SantéauMaroc`;
-
-  const countFmt = count.toLocaleString("fr");
-  const synPlural = count > 1 ? (content.synonymePluriel ?? pluralizeSynonyme(synonyme)) : synonyme;
-  const description = count > 0
-    ? `Consultez ${countFmt} ${synPlural} référencé${count > 1 ? "s" : ""} au Maroc. Avis patients vérifiés, tarifs, horaires et prise de RDV en ligne — 100 % gratuit.`
-    : `Trouvez un ${synonyme} au Maroc. Avis patients vérifiés, tarifs et prise de rendez-vous en ligne — gratuit.`;
-  const ogDescription = count > 0
-    ? `${countFmt} ${synPlural} sur SantéauMaroc. Profils vérifiés, avis patients et RDV en ligne.`
-    : `Annuaire des ${content.synonymePluriel ?? pluralizeSynonyme(synonyme)} au Maroc. Profils vérifiés, avis patients et RDV en ligne.`;
-
   const locale = toLocale(lang);
+  const content = getSpecialtyContent(slug, locale);
+  const { synonyme } = content;
+  const countFmt = count.toLocaleString("fr"); // chiffres latins (usage MA)
+
+  let title: string, socialTitle: string, description: string, ogDescription: string;
+
+  if (locale === "ar") {
+    // Métadonnées arabes : le nom de spécialité vient de tSpecialty (le synonyme
+    // reste FR et n'est pas affiché en AR). Copie marketing alignée sur le corps.
+    const specName = tSpecialty(s.name, "ar");
+    title = `${specName} في المغرب — آراء وحجز المواعيد عبر الإنترنت`;
+    socialTitle = `${title} | SantéauMaroc`;
+    description = count > 0
+      ? `اطّلع على ${countFmt} طبيبًا في تخصّص ${specName} بالمغرب. آراء مرضى موثّقة، الأسعار، أوقات العمل وحجز المواعيد عبر الإنترنت — مجاني 100%.`
+      : `اعثر على طبيب في تخصّص ${specName} بالمغرب. آراء مرضى موثّقة، الأسعار وحجز المواعيد عبر الإنترنت — مجاني.`;
+    ogDescription = count > 0
+      ? `${countFmt} طبيب في تخصّص ${specName} على SantéauMaroc. ملفات موثّقة، آراء مرضى وحجز عبر الإنترنت.`
+      : `دليل أطباء تخصّص ${specName} في المغرب. ملفات موثّقة، آراء مرضى وحجز عبر الإنترنت.`;
+  } else {
+    const titleName = synonyme !== "spécialiste"
+      ? synonyme.charAt(0).toUpperCase() + synonyme.slice(1)
+      : s.name;
+    // Titre du document : le layout applique déjà le template « %s | SantéauMaroc »,
+    // donc on n'ajoute PAS la marque ici (évite le doublon « … | SantéauMaroc | SantéauMaroc »).
+    title = `${titleName} au Maroc — Avis & RDV en ligne`;
+    // OG/Twitter ne passent pas par le template : on ajoute la marque explicitement.
+    socialTitle = `${title} | SantéauMaroc`;
+    const synPlural = count > 1 ? (content.synonymePluriel ?? pluralizeSynonyme(synonyme)) : synonyme;
+    description = count > 0
+      ? `Consultez ${countFmt} ${synPlural} référencé${count > 1 ? "s" : ""} au Maroc. Avis patients vérifiés, tarifs, horaires et prise de RDV en ligne — 100 % gratuit.`
+      : `Trouvez un ${synonyme} au Maroc. Avis patients vérifiés, tarifs et prise de rendez-vous en ligne — gratuit.`;
+    ogDescription = count > 0
+      ? `${countFmt} ${synPlural} sur SantéauMaroc. Profils vérifiés, avis patients et RDV en ligne.`
+      : `Annuaire des ${content.synonymePluriel ?? pluralizeSynonyme(synonyme)} au Maroc. Profils vérifiés, avis patients et RDV en ligne.`;
+  }
+
   return {
     title,
     description,

@@ -17,6 +17,7 @@ import { relatedSpecialty, specialtyCityLinks } from "@/lib/blog-related";
 import { RelatedDoctors } from "@/components/blog/RelatedDoctors";
 import { localizedAlternates } from "@/lib/hreflang";
 import { getDictionary, toLocale, type Dictionary } from "@/lib/i18n";
+import { blogLocalized } from "@/lib/blog-content";
 import { InArticleAds } from "@/components/ads/InArticleAds";
 import { adsActive } from "@/lib/ads/config";
 
@@ -80,10 +81,11 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const post = await getPost(slug);
   if (!post) return { title: "Article introuvable", robots: { index: false } };
 
-  const title       = post.metaTitle || post.title;
-  const description = post.metaDesc  || post.excerpt;
-
   const locale = toLocale(lang);
+  const L = blogLocalized(post, locale);
+  const title       = L.metaTitle || L.title;
+  const description = L.metaDesc  || L.excerpt;
+
   return {
     title,
     description,
@@ -322,6 +324,7 @@ export default async function BlogArticlePage({ params }: { params: Params }) {
     select: {
       title: true, slug: true, excerpt: true, coverImage: true, coverAlt: true,
       readingTime: true, publishedAt: true,
+      titleAr: true, excerptAr: true, arReviewedAt: true, // localisation carte (repli FR)
       category: { select: { name: true, slug: true, color: true } },
       author:   { select: { name: true, avatar: true } },
     },
@@ -329,15 +332,17 @@ export default async function BlogArticlePage({ params }: { params: Params }) {
 
   void incrementViews(slug);
 
-  const headings      = extractHeadings(post.content);
-  const contentHtml   = addHeadingIds(post.content);
+  // Localisation FR/AR (AR servi seulement si arReviewedAt posé — cf lib/blog-content)
+  const L = blogLocalized(post, locale);
+  const headings      = extractHeadings(L.content);
+  const contentHtml   = addHeadingIds(L.content);
   const hasToc        = headings.length >= 2;
   const colorCls      = COLOR_MAP[post.category.color] ?? COLOR_MAP.blue;
   const initial       = post.author.name.charAt(0).toUpperCase();
   const articleUrl    = `${BASE}/blog/${slug}`;
 
-  const takeaways = parseTakeaways(post.keyTakeaways);
-  const faqItems  = parseFaq(post.faqJson);
+  const takeaways = parseTakeaways(L.keyTakeaways);
+  const faqItems  = parseFaq(L.faqJson);
   const relSpec   = relatedSpecialty(slug, post.category.slug);
   const specLabel = relSpec ? (locale === "ar" ? relSpec.labelAr : relSpec.labelFr) : null;
   // Cocon B2B : les articles « Médecins » ciblent les praticiens, pas les patients.
@@ -356,8 +361,8 @@ export default async function BlogArticlePage({ params }: { params: Params }) {
   const articleNode: Record<string, unknown> = {
     "@type": ["Article", "MedicalWebPage"],
     "@id": `${articleUrl}#article`,
-    "headline": post.title,
-    "description": post.excerpt,
+    "headline": L.title,
+    "description": L.excerpt,
     "inLanguage": locale === "ar" ? "ar-MA" : "fr-MA",
     "datePublished": post.publishedAt?.toISOString(),
     "dateModified": post.updatedAt.toISOString(),
@@ -376,10 +381,18 @@ export default async function BlogArticlePage({ params }: { params: Params }) {
     },
     "mainEntityOfPage": { "@type": "WebPage", "@id": articleUrl },
     "articleSection": post.category.name,
-    // `about: MedicalCondition` uniquement si une vraie entité médicale est
-    // renseignée — les articles de parcours / B2B ne sont pas des pathologies.
+    // `about` uniquement si une vraie entité médicale est renseignée (les
+    // articles de parcours / B2B ne sont pas des pathologies). Le @type est
+    // choisi selon la rubrique : symptôme, médicament, examen ou pathologie.
     ...(post.aboutEntity && {
-      "about": { "@type": "MedicalCondition", "name": post.aboutEntity },
+      "about": {
+        "@type":
+          post.category.slug === "symptomes"   ? "MedicalSymptom"
+          : post.category.slug === "medicaments" ? "Drug"
+          : post.category.slug === "examens"     ? "MedicalTest"
+          :                                        "MedicalCondition",
+        "name": post.aboutEntity,
+      },
     }),
     ...(post.reviewedAt && { "lastReviewed": post.reviewedAt.toISOString() }),
     ...(post.reviewedBy && {
@@ -408,7 +421,7 @@ export default async function BlogArticlePage({ params }: { params: Params }) {
           { "@type": "ListItem", "position": 1, "name": "Accueil",    "item": BASE },
           { "@type": "ListItem", "position": 2, "name": "Blog Santé", "item": `${BASE}/blog` },
           { "@type": "ListItem", "position": 3, "name": post.category.name, "item": `${BASE}/blog/categorie/${post.category.slug}` },
-          { "@type": "ListItem", "position": 4, "name": post.title,   "item": articleUrl },
+          { "@type": "ListItem", "position": 4, "name": L.title,      "item": articleUrl },
         ],
       },
     ],
@@ -458,9 +471,9 @@ export default async function BlogArticlePage({ params }: { params: Params }) {
               </div>
 
               <h1 dir="auto" className="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight tracking-tight mb-5">
-                {post.title}
+                {L.title}
               </h1>
-              <p dir="auto" className="text-lg text-slate-600 leading-relaxed mb-6">{post.excerpt}</p>
+              <p dir="auto" className="text-lg text-slate-600 leading-relaxed mb-6">{L.excerpt}</p>
 
               {/* Auteur + relecteur + dates */}
               <div className="flex items-start gap-4 flex-wrap border-t border-slate-100 pt-5">
@@ -613,7 +626,7 @@ export default async function BlogArticlePage({ params }: { params: Params }) {
                   {tb.views.replace("{n}", String(post.views))}
                 </span>
               </div>
-              <ShareButtons title={post.title} url={articleUrl} t={tb} />
+              <ShareButtons title={L.title} url={articleUrl} t={tb} />
             </div>
 
           </article>

@@ -73,6 +73,7 @@ const getLatestPosts = unstable_cache(
         select: {
           title: true, slug: true, excerpt: true, coverImage: true, coverAlt: true,
           readingTime: true, publishedAt: true,
+          titleAr: true, excerptAr: true, arReviewedAt: true, // localisation carte (repli FR)
           category: { select: { name: true, slug: true, color: true } },
           author:   { select: { name: true, avatar: true } },
         },

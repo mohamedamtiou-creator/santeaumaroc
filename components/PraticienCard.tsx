@@ -467,12 +467,12 @@ export function PraticienCard({ praticien: p, priority = false, hideSpecialty = 
               Pro/essai) ; sinon « Appeler » (si numéro composable) + « Voir le profil »
               — plus de cul-de-sac « lien fantôme » sur les fiches non réservables.
               Les actions portent pointer-events-auto, pas le lien-overlay de carte. */}
-          <div className="mt-3 flex items-center gap-2">
+          <div className="mt-3 flex flex-col sm:flex-row sm:items-center gap-2">
             {canBookOnline && bookHref ? (
               <Link
                 href={bookHref}
                 aria-label={`${t.book} — ${fullName}`}
-                className="pointer-events-auto ms-auto inline-flex items-center gap-1.5 h-10 sm:h-9 px-4 rounded-lg bg-primary-600 text-white text-xs sm:text-sm font-semibold hover:bg-primary-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
+                className="pointer-events-auto w-full sm:w-auto sm:ms-auto justify-center inline-flex items-center gap-1.5 h-10 sm:h-9 px-4 rounded-lg bg-primary-600 text-white text-xs sm:text-sm font-semibold whitespace-nowrap hover:bg-primary-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
               >
                 <CalendarIcon />
                 {t.book}
@@ -485,7 +485,7 @@ export function PraticienCard({ praticien: p, priority = false, hideSpecialty = 
                     href={phoneHref}
                     source="listing"
                     ariaLabel={`${t.callAria} ${fullName}`}
-                    className="pointer-events-auto inline-flex items-center gap-1.5 h-10 sm:h-9 px-3.5 rounded-lg border border-secondary-200 text-secondary-700 text-xs sm:text-sm font-semibold hover:bg-secondary-50 hover:border-secondary-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-500 focus-visible:ring-offset-2"
+                    className="pointer-events-auto w-full sm:w-auto justify-center inline-flex items-center gap-1.5 h-10 sm:h-9 px-3.5 rounded-lg border border-secondary-200 text-secondary-700 text-xs sm:text-sm font-semibold whitespace-nowrap hover:bg-secondary-50 hover:border-secondary-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-500 focus-visible:ring-offset-2"
                   >
                     <PhoneIcon />
                     {t.call}
@@ -494,7 +494,7 @@ export function PraticienCard({ praticien: p, priority = false, hideSpecialty = 
                 <Link
                   href={href}
                   aria-label={`${t.viewProfileAria} ${fullName}`}
-                  className="pointer-events-auto ms-auto inline-flex items-center gap-1.5 h-10 sm:h-9 px-4 rounded-lg border border-primary-200 text-primary-700 text-xs sm:text-sm font-semibold hover:bg-primary-50 hover:border-primary-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
+                  className="pointer-events-auto w-full sm:w-auto sm:ms-auto justify-center inline-flex items-center gap-1.5 h-10 sm:h-9 px-4 rounded-lg border border-primary-200 text-primary-700 text-xs sm:text-sm font-semibold whitespace-nowrap hover:bg-primary-50 hover:border-primary-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
                 >
                   {t.viewProfile}
                   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5 shrink-0 rtl:-scale-x-100" aria-hidden="true">

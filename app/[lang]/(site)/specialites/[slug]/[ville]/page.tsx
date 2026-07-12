@@ -70,29 +70,45 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const [specialty, city, count] = await Promise.all([getSpecialty(slug), getCity(ville), cityCount(slug, ville)]);
   if (!specialty || !city) return { title: "Page introuvable", robots: { index: false } };
 
-  const content = getSpecialtyContent(slug);
+  const locale = toLocale(lang);
+  const content = getSpecialtyContent(slug, locale);
   const { synonyme } = content;
-  const synPlural = content.synonymePluriel ?? pluralizeSynonyme(synonyme);
-  const titleName = synonyme !== "spécialiste"
-    ? synonyme.charAt(0).toUpperCase() + synonyme.slice(1)
-    : specialty.name;
+  const countFmt = count.toLocaleString("fr"); // chiffres latins (usage MA)
 
-  // Le layout applique déjà « %s | SantéauMaroc » : on n'ajoute PAS la marque ici.
-  const title = `${titleName} à ${city.name} — Avis & RDV en ligne`;
-  const socialTitle = `${title} | SantéauMaroc`;
+  let title: string, socialTitle: string, description: string, ogDescription: string;
 
-  const description = count > 0
-    ? `Consultez ${count.toLocaleString("fr")} ${count > 1 ? synPlural : synonyme} à ${city.name}. Avis patients vérifiés, tarifs et prise de rendez-vous en ligne — 100 % gratuit.`
-    : `Trouvez un ${synonyme} à ${city.name}. Avis patients vérifiés, tarifs et prise de rendez-vous en ligne — gratuit.`;
-  const ogDescription = count > 0
-    ? `${count.toLocaleString("fr")} ${count > 1 ? synPlural : synonyme} à ${city.name} sur SantéauMaroc. Profils vérifiés et RDV en ligne.`
-    : `${titleName} à ${city.name} — annuaire des spécialistes. Profils vérifiés et RDV en ligne.`;
+  if (locale === "ar") {
+    const specName = tSpecialty(specialty.name, "ar");
+    const cityName = tCity(city.name, "ar");
+    // Le layout applique déjà « %s | SantéauMaroc » : on n'ajoute PAS la marque ici.
+    title = `${specName} في ${cityName} — آراء وحجز المواعيد عبر الإنترنت`;
+    socialTitle = `${title} | SantéauMaroc`;
+    description = count > 0
+      ? `اطّلع على ${countFmt} طبيبًا في تخصّص ${specName} بمدينة ${cityName}. آراء مرضى موثّقة، الأسعار وحجز المواعيد عبر الإنترنت — مجاني 100%.`
+      : `اعثر على طبيب في تخصّص ${specName} بمدينة ${cityName}. آراء مرضى موثّقة، الأسعار وحجز المواعيد عبر الإنترنت — مجاني.`;
+    ogDescription = count > 0
+      ? `${countFmt} طبيب في تخصّص ${specName} بمدينة ${cityName} على SantéauMaroc. ملفات موثّقة وحجز عبر الإنترنت.`
+      : `${specName} بمدينة ${cityName} — دليل الأخصائيين. ملفات موثّقة وحجز عبر الإنترنت.`;
+  } else {
+    const synPlural = content.synonymePluriel ?? pluralizeSynonyme(synonyme);
+    const titleName = synonyme !== "spécialiste"
+      ? synonyme.charAt(0).toUpperCase() + synonyme.slice(1)
+      : specialty.name;
+    // Le layout applique déjà « %s | SantéauMaroc » : on n'ajoute PAS la marque ici.
+    title = `${titleName} à ${city.name} — Avis & RDV en ligne`;
+    socialTitle = `${title} | SantéauMaroc`;
+    description = count > 0
+      ? `Consultez ${countFmt} ${count > 1 ? synPlural : synonyme} à ${city.name}. Avis patients vérifiés, tarifs et prise de rendez-vous en ligne — 100 % gratuit.`
+      : `Trouvez un ${synonyme} à ${city.name}. Avis patients vérifiés, tarifs et prise de rendez-vous en ligne — gratuit.`;
+    ogDescription = count > 0
+      ? `${countFmt} ${count > 1 ? synPlural : synonyme} à ${city.name} sur SantéauMaroc. Profils vérifiés et RDV en ligne.`
+      : `${titleName} à ${city.name} — annuaire des spécialistes. Profils vérifiés et RDV en ligne.`;
+  }
 
   const canonical = `/specialites/${slug}/${ville}`;
   // Noindex (follow) si contenu trop mince : un combo ville×spécialité avec 0–2
   // praticiens n'apporte pas assez de valeur propre pour être indexé.
   const indexable = count >= MIN_INDEXABLE_DOCTORS;
-  const locale = toLocale(lang);
   return {
     title,
     description,

@@ -65,6 +65,102 @@ const securityHeaders = [
   },
 ];
 
+// Alias de spécialités → slug canonique en base. Les patients tapent le terme
+// grand public (« gynécologie », « dentiste », « ORL ») ou le nom de métier
+// (« cardiologue »), mais les spécialités sont enregistrées sous des slugs plus
+// techniques (« gyneco-obstetrique », « chirurgie-dentaire », « oto-rhino-
+// laryngologie »). Sans redirection, ces URL renvoient un 404. Ne JAMAIS mettre
+// ici une clé qui est déjà un slug valide (ex. « sexologie », « radiologie ») :
+// la redirection court-circuiterait la vraie page.
+const specialtyAliases: Record<string, string> = {
+  // Gynécologie
+  "gynecologie": "gyneco-obstetrique",
+  "gynecologue": "gyneco-obstetrique",
+  // ORL
+  "orl": "oto-rhino-laryngologie",
+  // Dentaire
+  "dentiste": "chirurgie-dentaire",
+  "dentaire": "chirurgie-dentaire",
+  // Pédiatrie
+  "pediatre": "pediatrie",
+  // Dermatologie
+  "dermatologue": "dermatologie",
+  // Cardiologie
+  "cardiologue": "cardiologie",
+  // Ophtalmologie
+  "ophtalmologue": "ophtalmologie",
+  "ophtalmologiste": "ophtalmologie",
+  "ophtalmo": "ophtalmologie",
+  "oculiste": "ophtalmologie",
+  // Psychiatrie / psychologie
+  "psychiatre": "psychiatrie",
+  "psychologue": "psychologie",
+  // Radiologie
+  "radiologue": "radiologie",
+  // Rhumatologie
+  "rhumatologue": "rhumatologie",
+  // Neurologie / neurochirurgie
+  "neurologue": "neurologie",
+  "neurochirurgien": "neurochirurgie",
+  // Urologie
+  "urologue": "urologie-et-chirurgie-urologique",
+  "urologie": "urologie-et-chirurgie-urologique",
+  // Gastro-entérologie
+  "gastro-enterologue": "gastro-enterologie",
+  "gastroenterologie": "gastro-enterologie",
+  "gastro": "gastro-enterologie",
+  // Néphrologie
+  "nephrologue": "nephrologie",
+  // Endocrinologie / diabète
+  "endocrinologue": "endocrinologie-et-maladies-metaboliques",
+  "endocrinologie": "endocrinologie-et-maladies-metaboliques",
+  "diabetologue": "endocrinologie-et-maladies-metaboliques",
+  "diabetologie": "endocrinologie-et-maladies-metaboliques",
+  // Pneumologie
+  "pneumologue": "pneumo-phtisiologie",
+  "pneumologie": "pneumo-phtisiologie",
+  // Médecine générale
+  "generaliste": "medecine-generale",
+  "medecin-generaliste": "medecine-generale",
+  // Kinésithérapie
+  "kine": "kinesitherapie",
+  "kinesitherapeute": "kinesitherapie",
+  // Ostéopathie
+  "osteopathe": "osteopathie",
+  // Nutrition / diététique
+  "nutritionniste": "nutrition",
+  "dieteticien": "dietetique",
+  "dieteticienne": "dietetique",
+  // Allergologie / angiologie
+  "allergologue": "allergologie",
+  "angiologue": "angiologie",
+  "phlebologue": "angiologie",
+  // Stomatologie / maxillo-facial
+  "stomatologue": "stomatologie-et-chirurgie-maxillo-faciale",
+  "stomatologie": "stomatologie-et-chirurgie-maxillo-faciale",
+  // Traumatologie / orthopédie
+  "traumatologue": "traumatologie-orthopedie",
+  "traumatologie": "traumatologie-orthopedie",
+  "orthopediste": "traumatologie-orthopedie",
+  "orthopedie": "traumatologie-orthopedie",
+  // Anesthésie-réanimation
+  "anesthesiste": "anesthesie-reanimation",
+  // Orthophonie
+  "orthophoniste": "orthophonie",
+  // Oncologie / cancérologie
+  "oncologue": "oncologie-medicale",
+  "oncologie": "oncologie-medicale",
+  "cancerologue": "cancerologie",
+};
+
+// Génère les redirections 308 pour chaque alias, en FR (/) et AR (/ar).
+const specialtyAliasRedirects = Object.entries(specialtyAliases).flatMap(
+  ([alias, slug]) => [
+    { source: `/specialites/${alias}`,     destination: `/specialites/${slug}`,     permanent: true },
+    { source: `/ar/specialites/${alias}`,  destination: `/ar/specialites/${slug}`,  permanent: true },
+  ],
+);
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
 
@@ -130,6 +226,10 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
+      // Alias de spécialités populaires → slug canonique (FR + AR). Cf.
+      // `specialtyAliases` ci-dessus : évite les 404 sur les termes grand public
+      // et nom de métier (gynécologie, dentiste, ORL, cardiologue…).
+      ...specialtyAliasRedirects,
       // www → non-www canonical redirect (prevents duplicate domain indexing)
       {
         source:      "/:path*",

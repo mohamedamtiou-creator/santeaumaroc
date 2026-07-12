@@ -10,6 +10,7 @@ export const BLOG_PER_PAGE = 9;
 export const POST_CARD_SELECT = {
   title: true, slug: true, excerpt: true, coverImage: true, coverAlt: true,
   readingTime: true, publishedAt: true,
+  titleAr: true, excerptAr: true, arReviewedAt: true, // localisation carte (repli FR)
   category: { select: { name: true, slug: true, color: true } },
   author:   { select: { name: true, avatar: true } },
 } satisfies Prisma.PostSelect;

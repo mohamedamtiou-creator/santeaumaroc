@@ -192,7 +192,7 @@ export async function RelatedDoctors({
         />
       )}
 
-      <div className="flex items-baseline justify-between gap-3 mb-3">
+      <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1.5 sm:gap-3 mb-3">
         <div>
           <h2 id="related-doctors-title" className="font-bold text-slate-900 text-lg">
             {tb.doctorsWidgetTitle}
@@ -201,7 +201,7 @@ export async function RelatedDoctors({
         </div>
         <Link
           href={seeAllHref}
-          className="shrink-0 text-sm font-semibold text-secondary-600 hover:text-secondary-700 whitespace-nowrap"
+          className="shrink-0 text-sm font-semibold text-secondary-600 hover:text-secondary-700"
         >
           {seeAllLabel} →
         </Link>

@@ -26,6 +26,9 @@ export async function generateSitemaps() {
 // et associe les deux versions linguistiques d'une même page.
 const withHreflang = (entries: MetadataRoute.Sitemap): MetadataRoute.Sitemap =>
   entries.map((e) => {
+    // Entrée déjà localisée en amont (ex. questions : hreflang AR conditionnel à
+    // la relecture) → on la respecte, pas de sur-écriture par le défaut bilingue.
+    if (e.alternates) return e;
     const fr = e.url;
     const ar = fr.replace(BASE, `${BASE}/ar`);
     return {
@@ -141,7 +144,7 @@ async function comboEntries(now: Date): Promise<MetadataRoute.Sitemap> {
 }
 
 async function contentEntries(now: Date): Promise<MetadataRoute.Sitemap> {
-  const [establishments, medications, posts, questions] = await Promise.all([
+  const [establishments, medications, posts, postsAr, questions] = await Promise.all([
     prisma.establishment.findMany({
       where: { isActive: true },
       select: { slug: true, type: true, updatedAt: true },
@@ -160,9 +163,19 @@ async function contentEntries(now: Date): Promise<MetadataRoute.Sitemap> {
       orderBy: { publishedAt: "desc" },
       take: MAX_PER_SITEMAP,
     }),
+    // Slugs des articles dont l'AR est réellement servi/indexé (relu), condition
+    // = isBlogArReady (arReviewedAt + contentAr). Requête légère (slug seul) →
+    // on ne tire pas le gros contentAr. Conditionne le hreflang blog ci-dessous.
+    prisma.post.findMany({
+      where: { status: "PUBLISHED", arReviewedAt: { not: null }, contentAr: { not: null } },
+      select: { slug: true },
+      take: MAX_PER_SITEMAP,
+    }),
     prisma.question.findMany({
       where: { status: "PUBLISHED" },
-      select: { slug: true, updatedAt: true, lastAnswerAt: true },
+      // titleAr + arReviewedAt : décident si la variante /ar est servie/indexée
+      // (garde-fou YMYL, cf lib/qa-content) → conditionne le hreflang ci-dessous.
+      select: { slug: true, updatedAt: true, lastAnswerAt: true, titleAr: true, arReviewedAt: true },
       orderBy: { publishedAt: "desc" },
       take: MAX_PER_SITEMAP,
     }),
@@ -174,9 +187,40 @@ async function contentEntries(now: Date): Promise<MetadataRoute.Sitemap> {
     return { url: `${BASE}/${section}/${e.slug}`, lastModified: e.updatedAt, changeFrequency: "monthly" as const, priority: 0.6 };
   });
 
+  const arReadyPosts = new Set(postsAr.map((p) => p.slug));
+
   return [
-    ...posts.map((p) => ({ url: `${BASE}/blog/${p.slug}`, lastModified: p.updatedAt, changeFrequency: "monthly" as const, priority: 0.7 })),
-    ...questions.map((qn) => ({ url: `${BASE}/questions/${qn.slug}`, lastModified: qn.lastAnswerAt ?? qn.updatedAt, changeFrequency: "weekly" as const, priority: 0.7 })),
+    ...posts.map((p) => {
+      const fr = `${BASE}/blog/${p.slug}`;
+      // Alternative arabe annoncée seulement si la traduction est relue (sinon
+      // /ar/blog/… est en noindex, cf lib/blog-content.isBlogArReady).
+      const languages = arReadyPosts.has(p.slug)
+        ? { "fr-MA": fr, "ar-MA": `${BASE}/ar/blog/${p.slug}`, "x-default": fr }
+        : { "fr-MA": fr, "x-default": fr };
+      return {
+        url: fr,
+        lastModified: p.updatedAt,
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+        alternates: { languages },
+      };
+    }),
+    ...questions.map((qn) => {
+      const fr = `${BASE}/questions/${qn.slug}`;
+      // On n'annonce l'alternative arabe que si elle est réellement indexable
+      // (traduction relue) ; sinon /ar/questions/… est en noindex → hreflang FR seul.
+      const arReady = !!qn.titleAr && !!qn.arReviewedAt;
+      const languages = arReady
+        ? { "fr-MA": fr, "ar-MA": `${BASE}/ar/questions/${qn.slug}`, "x-default": fr }
+        : { "fr-MA": fr, "x-default": fr };
+      return {
+        url: fr,
+        lastModified: qn.lastAnswerAt ?? qn.updatedAt,
+        changeFrequency: "weekly" as const,
+        priority: 0.7,
+        alternates: { languages },
+      };
+    }),
     ...establishmentPages,
     ...medications.map((m) => ({ url: `${BASE}/medicaments/${m.slug}`, lastModified: m.updatedAt, changeFrequency: "monthly" as const, priority: 0.5 })),
   ];

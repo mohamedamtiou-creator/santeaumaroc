@@ -1,6 +1,7 @@
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import Image from "next/image";
 import { getDictionary, type Dictionary } from "@/lib/i18n";
+import { blogCardLocalized } from "@/lib/blog-content";
 
 export type PostCardData = {
   title:       string;
@@ -12,6 +13,10 @@ export type PostCardData = {
   publishedAt: Date | null;
   category:    { name: string; slug: string; color: string };
   author:      { name: string; avatar: string | null };
+  // Traduction AR (facultative) : servie sur la carte si le verrou est ouvert.
+  titleAr?:      string | null;
+  excerptAr?:    string | null;
+  arReviewedAt?: Date | string | null;
 };
 
 const COLOR_MAP: Record<string, string> = {
@@ -115,7 +120,9 @@ export function PostCard({
 }) {
   const colorCls = COLOR_MAP[post.category.color] ?? COLOR_MAP.blue;
   const initial  = post.author.name.charAt(0).toUpperCase();
-  const readAria = t.readArticleAria.replace("{title}", post.title);
+  // Localisation FR/AR de la carte (repli FR si verrou fermé — cf lib/blog-content)
+  const { title, excerpt } = blogCardLocalized(post, locale);
+  const readAria = t.readArticleAria.replace("{title}", title);
 
   if (featured) {
     return (
@@ -126,7 +133,7 @@ export function PostCard({
       >
         <div className="aspect-[16/9] md:aspect-auto md:min-h-[240px] relative overflow-hidden">
           {post.coverImage ? (
-            <Image src={post.coverImage} alt={post.coverAlt || post.title} fill priority quality={65} sizes="(max-width: 768px) 100vw, 50vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
+            <Image src={post.coverImage} alt={post.coverAlt || title} fill priority quality={65} sizes="(max-width: 768px) 100vw, 50vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
           ) : (
             <DefaultCover color={post.category.color} />
           )}
@@ -144,9 +151,9 @@ export function PostCard({
             )}
           </div>
           <h2 dir="auto" className="font-extrabold text-slate-900 text-xl sm:text-2xl leading-snug mb-3 group-hover:text-primary-700 transition-colors line-clamp-3">
-            {post.title}
+            {title}
           </h2>
-          <p dir="auto" className="text-slate-500 text-sm leading-relaxed line-clamp-3 mb-5">{post.excerpt}</p>
+          <p dir="auto" className="text-slate-500 text-sm leading-relaxed line-clamp-3 mb-5">{excerpt}</p>
           <div className="flex items-center justify-between">
             <AuthorBadge author={post.author} initial={initial} />
             {post.publishedAt && (
@@ -168,7 +175,7 @@ export function PostCard({
     >
       <div className="aspect-[16/9] relative overflow-hidden">
         {post.coverImage ? (
-          <Image src={post.coverImage} alt={post.coverAlt || post.title} fill quality={65} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px" className="object-cover group-hover:scale-105 transition-transform duration-500" />
+          <Image src={post.coverImage} alt={post.coverAlt || title} fill quality={65} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px" className="object-cover group-hover:scale-105 transition-transform duration-500" />
         ) : (
           <DefaultCover color={post.category.color} />
         )}
@@ -186,9 +193,9 @@ export function PostCard({
           )}
         </div>
         <h3 dir="auto" className="font-bold text-slate-900 text-base leading-snug mb-2 line-clamp-2 group-hover:text-primary-700 transition-colors">
-          {post.title}
+          {title}
         </h3>
-        <p dir="auto" className="text-sm text-slate-500 line-clamp-3 leading-relaxed mb-4 flex-1">{post.excerpt}</p>
+        <p dir="auto" className="text-sm text-slate-500 line-clamp-3 leading-relaxed mb-4 flex-1">{excerpt}</p>
         <div className="flex items-center justify-between pt-4 border-t border-slate-100">
           <AuthorBadge author={post.author} initial={initial} />
           {post.publishedAt && (

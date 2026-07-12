@@ -657,6 +657,16 @@ model Post {
   // Entité médicale réelle pour JSON-LD about (ex. « Diabète de type 2 »),
   // distincte du titre de l'article. Repli sur le titre si vide.
   aboutEntity  String?
+  // Traduction arabe (contenu). Servie/indexée UNIQUEMENT une fois `arReviewedAt`
+  // posé (relecture humaine — garde-fou YMYL). Repli FR si absent. cf lib/blog-content.
+  titleAr        String?
+  excerptAr      String?   @db.Text
+  contentAr      String?   @db.Text
+  metaTitleAr    String?
+  metaDescAr     String?
+  keyTakeawaysAr String?   @db.Text
+  faqJsonAr      String?   @db.Text
+  arReviewedAt   DateTime? // relecture humaine AR validée → autorise l'affichage AR
   // Cocon sémantique : un satellite pointe vers son pilier (guide exhaustif).
   // Le pilier expose ses satellites via la relation inverse.
   pillarId     String?
