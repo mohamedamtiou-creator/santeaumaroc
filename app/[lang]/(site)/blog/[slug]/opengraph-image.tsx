@@ -95,9 +95,9 @@ export default async function Image({ params }: { params: Promise<{ slug: string
       >
         {/* Fond : photo de couverture + voile sombre pour la lisibilité du texte */}
         {cover && (
-          // Rendu par Satori (ImageResponse), pas par le navigateur : next/image
-          // n'y fonctionne pas, <img> est requis. alt inutile (image générée).
-          // eslint-disable-next-line @next/next/no-img-element
+          // Rendu par Satori (ImageResponse), pas par le navigateur : <img> requis
+          // (next/image inopérant). Règles no-img-element/alt-text désactivées pour
+          // ces fichiers d'images générées via eslint.config.mjs.
           <img
             src={cover}
             alt=""
