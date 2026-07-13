@@ -36,9 +36,11 @@ export function DoctorUserProvider({ doctorId, children }: { doctorId: string; c
   const [data, setData] = useState<DoctorUser>(LOGGED_OUT);
 
   useEffect(() => {
-    if (!hasSession) { setData(LOGGED_OUT); return; }
+    // Déconnecté → pas de fetch. La valeur exposée est dérivée en LOGGED_OUT au
+    // rendu (cf. Provider ci-dessous), donc inutile (et interdit par
+    // react-hooks/set-state-in-effect) de réinitialiser l'état ici.
+    if (!hasSession) return;
     let alive = true;
-    setData((d) => ({ ...d, loading: true }));
     fetch(`/api/praticiens/${doctorId}/me`, { cache: "no-store" })
       .then((r) => (r.ok ? r.json() : null))
       .then((d) => {
@@ -58,7 +60,9 @@ export function DoctorUserProvider({ doctorId, children }: { doctorId: string; c
     return () => { alive = false; };
   }, [hasSession, doctorId]);
 
-  return <Ctx.Provider value={data}>{children}</Ctx.Provider>;
+  // Déconnecté → toujours LOGGED_OUT, quelle que soit la dernière donnée chargée
+  // (évite un flash de contenu personnalisé après déconnexion, avant refetch).
+  return <Ctx.Provider value={hasSession ? data : LOGGED_OUT}>{children}</Ctx.Provider>;
 }
 
 /**

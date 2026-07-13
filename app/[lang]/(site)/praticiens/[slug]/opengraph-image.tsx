@@ -331,7 +331,9 @@ export default async function Image({ params }: { params: Params }) {
             <div style={{ display: "flex", padding: "6px", borderRadius: "46px", background: `linear-gradient(135deg, ${EMERALD} 0%, #3b82f6 100%)`, boxShadow: "0 24px 60px rgba(0,0,0,0.35)" }}>
               <div style={{ width: "224px", height: "224px", borderRadius: "40px", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", background: "linear-gradient(160deg, #ffffff 0%, #eaf2ff 100%)" }}>
                 {photo ? (
-                  <img src={photo} width={224} height={224} style={{ width: "224px", height: "224px", objectFit: "cover" }} />
+                  // Rendu par Satori (ImageResponse) : <img> requis, next/image inopérant.
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={photo} alt="" width={224} height={224} style={{ width: "224px", height: "224px", objectFit: "cover" }} />
                 ) : (
                   <span style={{ fontSize: "104px", fontWeight: 800, color: "#143a7d", letterSpacing: "-3px" }}>{initials}</span>
                 )}

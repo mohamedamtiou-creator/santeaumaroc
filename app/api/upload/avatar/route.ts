@@ -88,7 +88,7 @@ export async function POST(req: NextRequest) {
   return NextResponse.json({ url: avatarUrl });
 }
 
-export async function DELETE(req: NextRequest) {
+export async function DELETE() {
   const e = getDictionary(await getLocale()).dashboard.errors;
   const session = await tryGetSession();
   if (!session?.userId || session.role !== "DOCTOR") {

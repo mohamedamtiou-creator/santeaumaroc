@@ -159,9 +159,9 @@ function MedicalDisclaimer({ t }: { t: BlogT }) {
 }
 
 function DoctorCTA({
-  categoryName, t, locale, specialtySlug, specialtyLabel,
+  categoryName, t, specialtySlug, specialtyLabel,
 }: {
-  categoryName: string; t: BlogT; locale: string;
+  categoryName: string; t: BlogT;
   specialtySlug: string | null; specialtyLabel: string | null;
 }) {
   const [pre, post] = t.ctaText.split("{category}");
@@ -610,7 +610,6 @@ export default async function BlogArticlePage({ params }: { params: Params }) {
               <DoctorCTA
                 categoryName={post.category.name}
                 t={tb}
-                locale={locale}
                 specialtySlug={null}
                 specialtyLabel={null}
               />

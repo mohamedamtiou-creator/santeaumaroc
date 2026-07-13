@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { verifySession } from "@/lib/dal";
 import { prisma } from "@/lib/prisma";
@@ -255,7 +256,7 @@ export default async function RendezVousPage({ searchParams }: { searchParams: S
                         {/* Avatar micro */}
                         <div className="w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center shrink-0 overflow-hidden">
                           {doc.avatar
-                            ? <img src={doc.avatar} alt="" className="w-full h-full object-cover" />
+                            ? <Image src={doc.avatar} alt="" width={24} height={24} className="w-full h-full object-cover" />
                             : <span className="text-primary-700 text-[8px] font-bold">{initials}</span>
                           }
                         </div>

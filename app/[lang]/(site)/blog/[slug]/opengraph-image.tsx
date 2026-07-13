@@ -95,8 +95,12 @@ export default async function Image({ params }: { params: Promise<{ slug: string
       >
         {/* Fond : photo de couverture + voile sombre pour la lisibilité du texte */}
         {cover && (
+          // Rendu par Satori (ImageResponse), pas par le navigateur : next/image
+          // n'y fonctionne pas, <img> est requis. alt inutile (image générée).
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={cover}
+            alt=""
             width={1200}
             height={630}
             style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover" }}

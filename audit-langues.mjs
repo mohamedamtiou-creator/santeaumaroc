@@ -1,5 +1,4 @@
 import { chromium } from 'playwright';
-import path from 'path';
 
 const OUT_DIR = 'C:\\Next\\Santeaumaroc\\audit-screenshots';
 const URL = 'http://localhost:3000/praticiens/youssef-benali-3';

@@ -128,15 +128,6 @@ function IconCity() {
   );
 }
 
-function MapPinIcon() {
-  return (
-    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.75" className="w-4.5 h-4.5 text-slate-500 shrink-0" aria-hidden="true">
-      <path d="M10 2C7.24 2 5 4.24 5 7c0 3.94 5 11 5 11s5-7.06 5-11c0-2.76-2.24-5-5-5z"/>
-      <circle cx="10" cy="7" r="2"/>
-    </svg>
-  );
-}
-
 function IconCalendar() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-7 h-7" aria-hidden="true">

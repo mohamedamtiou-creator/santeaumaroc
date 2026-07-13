@@ -190,7 +190,7 @@ async function comboEntries(now: Date): Promise<MetadataRoute.Sitemap> {
   return combos;
 }
 
-async function contentEntries(now: Date): Promise<MetadataRoute.Sitemap> {
+async function contentEntries(): Promise<MetadataRoute.Sitemap> {
   const [establishments, medications, posts, postsAr, questions] = await Promise.all([
     prisma.establishment.findMany({
       where: { isActive: true },
@@ -285,7 +285,7 @@ export default async function sitemap({ id }: { id: Promise<string> }): Promise<
       case "combos":
         return withHreflang(await comboEntries(now));
       case "content":
-        return withHreflang(await contentEntries(now));
+        return withHreflang(await contentEntries());
       case "core":
       default:
         return withHreflang(await coreEntries(now));

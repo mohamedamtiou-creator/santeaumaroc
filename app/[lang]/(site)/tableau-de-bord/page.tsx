@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { verifySession } from "@/lib/dal";
 import { getCurrentUser } from "@/lib/dal";
 import { prisma } from "@/lib/prisma";
@@ -203,7 +204,7 @@ export default async function DashboardPage() {
                   <div className="flex-1 px-3 py-2.5 min-w-0 flex items-center gap-3">
                     <div className="w-7 h-7 rounded-full bg-primary-100 flex items-center justify-center shrink-0 overflow-hidden">
                       {doc.avatar
-                        ? <img src={doc.avatar} alt="" className="w-full h-full object-cover" />
+                        ? <Image src={doc.avatar} alt="" width={28} height={28} className="w-full h-full object-cover" />
                         : <span className="text-primary-700 text-[9px] font-bold">{initials}</span>
                       }
                     </div>
@@ -323,7 +324,7 @@ function NextAppointmentHero({ appt, today, d }: { appt: NonNullable<ApptWithDoc
             <div className="flex items-center gap-2 mb-1">
               <div className="w-7 h-7 rounded-full bg-primary-100 overflow-hidden flex items-center justify-center shrink-0">
                 {doc.avatar
-                  ? <img src={doc.avatar} alt="" className="w-full h-full object-cover" />
+                  ? <Image src={doc.avatar} alt="" width={28} height={28} className="w-full h-full object-cover" />
                   : <span className="text-primary-700 text-[9px] font-bold">{initials}</span>
                 }
               </div>

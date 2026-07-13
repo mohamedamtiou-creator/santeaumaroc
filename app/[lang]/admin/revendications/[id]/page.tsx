@@ -58,9 +58,9 @@ function DocPreview({ doc }: { doc: DocItem }) {
 }
 
 function DocSection({
-  title, docs, dot, missing,
+  title, docs, missing,
 }: {
-  title: string; docs: DocItem[]; dot: string; missing: string;
+  title: string; docs: DocItem[]; missing: string;
 }) {
   return (
     <div>
@@ -219,10 +219,10 @@ export default async function AdminClaimDetailPage({
               Documents justificatifs
             </h2>
 
-            <DocSection title="Pièce d'identité (CIN)" docs={cinDocs}     dot="bg-secondary-500" missing="non fournie" />
-            <DocSection title="Diplôme de médecine"    docs={diplomeDocs} dot="bg-primary-500"   missing="non fourni"  />
+            <DocSection title="Pièce d'identité (CIN)" docs={cinDocs}     missing="non fournie" />
+            <DocSection title="Diplôme de médecine"    docs={diplomeDocs} missing="non fourni"  />
             {autreDocs.length > 0 && (
-              <DocSection title="Autres documents"     docs={autreDocs}   dot="bg-slate-400"     missing=""            />
+              <DocSection title="Autres documents"     docs={autreDocs}   missing=""            />
             )}
 
             {allDocs.length === 0 && (

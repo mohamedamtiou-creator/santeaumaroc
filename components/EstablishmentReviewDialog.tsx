@@ -101,17 +101,20 @@ export function EstablishmentReviewDialog({
   // Lus côté client après hydratation. `isLoggedIn` via le cookie-indice `sm_auth`
   // (useHasSession) ; l'avis existant via l'API, uniquement si connecté.
   const isLoggedIn = useHasSession();
-  const [existingReview, setExistingReview] = useState<EstabExistingReview>(null);
+  const [fetchedReview, setFetchedReview] = useState<EstabExistingReview>(null);
+  // Déconnecté → aucun avis existant, quelle que soit la dernière donnée chargée
+  // (valeur dérivée au rendu, plutôt qu'un setState synchrone dans l'effet).
+  const existingReview = isLoggedIn ? fetchedReview : null;
   const isEdit = !!existingReview;
   const { toast } = useToast();
   const router = useRouter();
 
   useEffect(() => {
-    if (!isLoggedIn) { setExistingReview(null); return; }
+    if (!isLoggedIn) return;
     let alive = true;
     fetch(`/api/etablissements/${establishmentId}/my-review`, { cache: "no-store" })
       .then((r) => (r.ok ? r.json() : null))
-      .then((d) => { if (alive && d) setExistingReview(d.existingReview ?? null); })
+      .then((d) => { if (alive && d) setFetchedReview(d.existingReview ?? null); })
       .catch(() => {});
     return () => { alive = false; };
   }, [isLoggedIn, establishmentId]);

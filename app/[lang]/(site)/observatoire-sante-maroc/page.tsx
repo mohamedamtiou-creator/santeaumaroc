@@ -103,8 +103,6 @@ type Copy = {
   crumb: string;
 };
 
-const nf = (locale: "fr" | "ar") => new Intl.NumberFormat("fr-FR"); // groupes par espace, chiffres latins (FR+AR)
-
 function fill(s: string, vars: Record<string, string>) {
   return s.replace(/\{(\w+)\}/g, (_, k) => vars[k] ?? "");
 }
