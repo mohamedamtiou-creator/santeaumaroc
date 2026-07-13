@@ -3,11 +3,26 @@ import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import { getEstablishmentDetail } from "@/lib/establishments-query";
 import { EstablishmentProfile } from "@/components/EstablishmentProfile";
-import { tryGetSession } from "@/lib/dal";
 import { localizedAlternates } from "@/lib/hreflang";
 import { getDictionary, toLocale } from "@/lib/i18n";
 
 type Params = Promise<{ lang: string; slug: string }>;
+
+// Page STATIQUE / ISR : plus aucune lecture de session dans le rendu (l'avis de
+// l'utilisateur connecté est chargé côté client, cf. EstablishmentReviewDialog).
+// Vu le volume (~6 000 pharmacies), on ne pré-rend au build que les mieux notées ;
+// le reste est généré en ISR à la première visite (dynamicParams par défaut).
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+  const rows = await prisma.establishment.findMany({
+    where: { isActive: true, type: "pharmacie" },
+    select: { slug: true },
+    orderBy: [{ isVerified: "desc" }, { averageRating: "desc" }],
+    take: 800,
+  });
+  return rows.filter((r) => r.slug).map((r) => ({ slug: r.slug! }));
+}
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { lang, slug } = await params;
@@ -34,17 +49,6 @@ export default async function PharmaciePage({ params }: { params: Params }) {
   const establishment = await getEstablishmentDetail(slug);
 
   if (!establishment || !establishment.isActive) notFound();
-
-  // Session + avis existant de l'utilisateur (pour édition / déclencheur adapté).
-  const session = await tryGetSession();
-  const existingReview = session?.userId
-    ? await prisma.establishmentReview
-        .findFirst({
-          where:  { userId: session.userId, establishmentId: establishment.id },
-          select: { note: true, commentaire: true },
-        })
-        .then((r) => (r ? { rating: r.note, comment: r.commentaire } : null))
-    : null;
 
   const locale = toLocale(lang);
   const t = getDictionary(locale).estab;
@@ -120,8 +124,6 @@ export default async function PharmaciePage({ params }: { params: Params }) {
         establishment={establishment}
         listHref="/pharmacies"
         listLabel={listLabel}
-        isLoggedIn={!!session?.userId}
-        existingReview={existingReview}
         locale={locale}
       />
     </>

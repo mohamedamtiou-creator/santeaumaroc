@@ -30,19 +30,76 @@ function normTakeaways(raw: string): string | null {
 }
 
 /** Valide la FAQ JSON [{q,a}] ; vide → null ; format invalide → throw. */
-function normFaq(raw: string): string | null {
+function normFaq(raw: string, label = "FAQ"): string | null {
   const s = raw.trim();
   if (!s) return null;
   let parsed: unknown;
   try {
     parsed = JSON.parse(s);
   } catch {
-    throw new Error("FAQ : JSON invalide. Format attendu : [{ \"q\": \"…\", \"a\": \"…\" }]");
+    throw new Error(`${label} : JSON invalide. Format attendu : [{ "q": "…", "a": "…" }]`);
   }
   if (!Array.isArray(parsed) || !parsed.every((x) => x && typeof x.q === "string" && typeof x.a === "string")) {
-    throw new Error("FAQ : chaque entrée doit contenir « q » et « a » (texte).");
+    throw new Error(`${label} : chaque entrée doit contenir « q » et « a » (texte).`);
   }
   return JSON.stringify(parsed.map((x) => ({ q: x.q.trim(), a: x.a.trim() })));
+}
+
+/** Valide les sources JSON [{label,url,publisher?,year?}] ; vide → null ; invalide → throw. */
+function normSources(raw: string, label = "Sources"): string | null {
+  const s = raw.trim();
+  if (!s) return null;
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(s);
+  } catch {
+    throw new Error(`${label} : JSON invalide. Format attendu : [{ "label": "…", "url": "https://…" }]`);
+  }
+  if (
+    !Array.isArray(parsed) ||
+    !parsed.every((x) => x && typeof x.label === "string" && x.label.trim() && typeof x.url === "string" && x.url.trim())
+  ) {
+    throw new Error(`${label} : chaque entrée doit contenir « label » et « url » (texte non vide).`);
+  }
+  return JSON.stringify(
+    parsed.map((x) => ({
+      label: x.label.trim(),
+      url: x.url.trim(),
+      ...(typeof x.publisher === "string" && x.publisher.trim() ? { publisher: x.publisher.trim() } : {}),
+      ...(x.year != null && String(x.year).trim() ? { year: String(x.year).trim() } : {}),
+    })),
+  );
+}
+
+/** Champ texte AR : trim, vide → null. */
+function orNull(raw: unknown): string | null {
+  const s = ((raw ?? "") as string).trim();
+  return s || null;
+}
+
+/**
+ * Extrait et valide les champs de la version arabe + sources depuis le FormData.
+ * Partagé par createPost/updatePost. `arReviewedAt` n'est renvoyé que si demandé
+ * (garde-fou YMYL : la relecture AR doit être explicitement cochée).
+ */
+function extractArAndSources(formData: FormData) {
+  const contentAr = (formData.get("contentAr") as string | null) ?? "";
+  const markArReviewed = formData.get("markArReviewed") === "true";
+  const unmarkArReviewed = formData.get("unmarkArReviewed") === "true";
+  return {
+    sources:   normSources((formData.get("sources") as string) ?? ""),
+    sourcesAr: normSources((formData.get("sourcesAr") as string) ?? "", "Sources (AR)"),
+    titleAr:        orNull(formData.get("titleAr")),
+    excerptAr:      orNull(formData.get("excerptAr")),
+    contentAr:      contentAr.trim() && contentAr.trim() !== "<p></p>" ? contentAr : null,
+    metaTitleAr:    orNull(formData.get("metaTitleAr")),
+    metaDescAr:     orNull(formData.get("metaDescAr")),
+    keyTakeawaysAr: normTakeaways((formData.get("keyTakeawaysAr") as string) ?? ""),
+    faqJsonAr:      normFaq((formData.get("faqJsonAr") as string) ?? "", "FAQ (AR)"),
+    // Retrait prioritaire → repasse en repli FR (noindex AR) ; sinon coché → relu
+    // maintenant ; sinon on ne touche pas (préserve une relecture antérieure).
+    ...(unmarkArReviewed ? { arReviewedAt: null } : markArReviewed ? { arReviewedAt: new Date() } : {}),
+  };
 }
 
 /** Revalide la page du pilier pour rafraîchir son bloc « Dans ce dossier ». */
@@ -71,10 +128,12 @@ export async function createPost(formData: FormData) {
   const aboutEntity  = (formData.get("aboutEntity") as string).trim() || null;
   const pillarId     = (formData.get("pillarId")    as string).trim() || null;
   const markReviewed = formData.get("markReviewed") === "true";
+  const arAndSources = extractArAndSources(formData);
 
   if (!title || !slug || !excerpt || !content || !categoryId) {
     throw new Error("Champs obligatoires manquants.");
   }
+  // (Le retrait de relecture FR n'a de sens qu'en édition — cf. updatePost.)
 
   await prisma.post.create({
     data: {
@@ -93,6 +152,7 @@ export async function createPost(formData: FormData) {
       faqJson,
       aboutEntity,
       pillarId,
+      ...arAndSources,
       reviewedById: markReviewed ? session.userId : null,
       reviewedAt:   markReviewed ? new Date() : null,
       readingTime: calcReadingTime(content),
@@ -102,6 +162,7 @@ export async function createPost(formData: FormData) {
   });
 
   revalidatePath("/blog");
+  revalidatePath("/ar/blog");
   await revalidatePillar(pillarId);
   revalidatePath("/sitemap.xml");
   redirect("/admin/blog");
@@ -127,6 +188,8 @@ export async function updatePost(id: string, formData: FormData) {
   // Un article ne peut pas être son propre pilier.
   const pillarId     = pillarIdRaw && pillarIdRaw !== id ? pillarIdRaw : null;
   const markReviewed = formData.get("markReviewed") === "true";
+  const unmarkReviewed = formData.get("unmarkReviewed") === "true";
+  const arAndSources = extractArAndSources(formData);
 
   if (!title || !slug || !excerpt || !content || !categoryId) {
     throw new Error("Champs obligatoires manquants.");
@@ -149,14 +212,22 @@ export async function updatePost(id: string, formData: FormData) {
       faqJson,
       aboutEntity,
       pillarId,
-      // Re-vérification médicale : met à jour la date + le relecteur si coché
-      ...(markReviewed && { reviewedById: session.userId, reviewedAt: new Date() }),
+      ...arAndSources,
+      // Relecture médicale FR : retrait prioritaire (repasse en noindex) ; sinon
+      // met à jour la date + le relecteur si coché (rafraîchit aussi lastReviewed).
+      ...(unmarkReviewed
+        ? { reviewedById: null, reviewedAt: null }
+        : markReviewed
+          ? { reviewedById: session.userId, reviewedAt: new Date() }
+          : {}),
       readingTime: calcReadingTime(content),
     },
   });
 
   revalidatePath("/blog");
   revalidatePath(`/blog/${slug}`);
+  revalidatePath("/ar/blog");
+  revalidatePath(`/ar/blog/${slug}`);
   // Rafraîchit le bloc « Dans ce dossier » du pilier rattaché
   await revalidatePillar(pillarId);
   redirect("/admin/blog");

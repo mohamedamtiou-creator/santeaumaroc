@@ -44,6 +44,8 @@ export function Footer({ locale }: { locale: Locale }) {
       links: [
         { href: "/blog",                     label: f.links.blog },
         { href: "/specialites",              label: f.links.specialties },
+        { href: "/symptomes",                label: f.links.symptoms },
+        { href: "/glossaire",                label: f.links.glossary },
         { href: "/sante-darija",             label: f.links.darija },
         { href: "/remboursement-amo-cnss",   label: f.links.reimbursement },
         { href: "/observatoire-sante-maroc", label: f.links.observatory },
@@ -58,6 +60,7 @@ export function Footer({ locale }: { locale: Locale }) {
         { href: "/presse",                    label: f.links.press },
         { href: "/support",                   label: f.links.support },
         { href: "/charte-editoriale",         label: f.links.editorial },
+        { href: "/methodologie",              label: f.links.methodology },
         { href: "/plan-du-site",              label: f.siteMap },
         { href: "/conditions-utilisation",    label: f.links.cgu },
         { href: "/politique-confidentialite", label: f.links.privacy },

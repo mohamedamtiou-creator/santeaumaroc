@@ -208,6 +208,14 @@ export async function editQuestion(state: FormState, formData: FormData): Promis
   const metaDesc = ((formData.get("metaDesc") ?? "") as string).trim();
   const tagsRaw = ((formData.get("tags") ?? "") as string).trim();
   const tags = tagsRaw ? tagsRaw.split(",").map((s) => s.trim()).filter(Boolean).slice(0, 8) : [];
+  // ── Version arabe (traduction relue) ──
+  const titleAr = ((formData.get("titleAr") ?? "") as string).trim();
+  const bodyAr = ((formData.get("bodyAr") ?? "") as string).trim();
+  const aiSummaryAr = ((formData.get("aiSummaryAr") ?? "") as string).trim();
+  const metaTitleAr = ((formData.get("metaTitleAr") ?? "") as string).trim();
+  const metaDescAr = ((formData.get("metaDescAr") ?? "") as string).trim();
+  const markArReviewed = formData.get("markArReviewed") === "true";
+  const unmarkArReviewed = formData.get("unmarkArReviewed") === "true";
 
   if (!id || title.length < 10 || title.length > 200) return { message: "Titre invalide." };
 
@@ -216,12 +224,13 @@ export async function editQuestion(state: FormState, formData: FormData): Promis
 
   await snapshotRevision("QUESTION", id, session.userId, q.title, q.body);
 
-  // Gouvernance « L'essentiel » : éditer le résumé FR à la main rend toute
-  // traduction AR périmée → on l'efface et on ré-horodate (le garde-fou AR
-  // `arReviewedAt >= aiSummaryAt` la retiendra jusqu'à nouvelle relecture).
-  // Résumé vidé → on efface aussi la provenance.
+  // Gouvernance « L'essentiel » : le résumé AR fourni à la main est conservé
+  // (traduction relue). Il reste servi tant que `arReviewedAt >= aiSummaryAt` ;
+  // on ré-horodate donc `aiSummaryAt` à chaque édition du résumé FR pour que la
+  // traduction AR non re-cochée soit tenue à l'écart jusqu'à nouvelle relecture.
+  // Résumé FR vidé → on efface tout (FR + AR + provenance).
   const summaryData = aiSummary
-    ? { aiSummary, aiSummaryAr: null, aiSummaryAt: new Date() }
+    ? { aiSummary, aiSummaryAr: aiSummaryAr || null, aiSummaryAt: new Date() }
     : { aiSummary: null, aiSummaryAr: null, aiSummarySourceAnswerId: null, aiSummaryAt: null };
 
   await prisma.question.update({
@@ -234,11 +243,19 @@ export async function editQuestion(state: FormState, formData: FormData): Promis
       metaTitle: metaTitle || null,
       metaDesc: metaDesc || null,
       tags,
+      titleAr: titleAr || null,
+      bodyAr: bodyAr || null,
+      metaTitleAr: metaTitleAr || null,
+      metaDescAr: metaDescAr || null,
+      // Retrait prioritaire → repli FR (noindex AR) ; sinon coché → relecture AR
+      // validée maintenant (autorise l'affichage/indexation AR).
+      ...(unmarkArReviewed ? { arReviewedAt: null } : markArReviewed ? { arReviewedAt: new Date() } : {}),
     },
   });
   await logQa("QUESTION", id, "EDITED", session.userId);
 
   revalidatePath(`/questions/${q.slug}`);
+  revalidatePath(`/ar/questions/${q.slug}`);
   revalidatePath("/admin/questions");
   return { message: "ok" };
 }

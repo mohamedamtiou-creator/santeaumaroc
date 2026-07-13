@@ -15,6 +15,7 @@ export type BlogArSource = {
   metaDesc: string | null;
   keyTakeaways: string | null;
   faqJson: string | null;
+  sources: string | null;
   coverAlt: string | null;
   titleAr: string | null;
   excerptAr: string | null;
@@ -23,6 +24,7 @@ export type BlogArSource = {
   metaDescAr: string | null;
   keyTakeawaysAr: string | null;
   faqJsonAr: string | null;
+  sourcesAr: string | null;
   arReviewedAt: Date | null;
 };
 
@@ -66,6 +68,7 @@ export function blogLocalized<T extends BlogArSource>(post: T, locale: Locale) {
     metaDesc: pickN(post.metaDescAr, post.metaDesc),
     keyTakeaways: pickN(post.keyTakeawaysAr, post.keyTakeaways),
     faqJson: pickN(post.faqJsonAr, post.faqJson),
+    sources: pickN(post.sourcesAr, post.sources),
     coverAlt: post.coverAlt, // l'alt reste factuel (photo) — non traduit pour l'instant
   };
 }

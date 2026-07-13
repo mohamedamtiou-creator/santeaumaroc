@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { useToast } from "@/components/ui/Toast";
+import { useHasSession } from "@/components/layout/useHasSession";
 import type { Dictionary } from "@/lib/i18n";
 
 type ReviewT = Dictionary["review"];
@@ -19,8 +20,6 @@ type Props = {
   /** Base de route ("/cliniques" | "/pharmacies" | "/laboratoires") pour login + revalidation. */
   basePath: string;
   establishmentName: string;
-  isLoggedIn: boolean;
-  existingReview: EstabExistingReview;
   variant?: "header" | "empty";
   labels: Labels;
   t: ReviewT;
@@ -90,7 +89,7 @@ const EstablishmentReviewForm = dynamic(
 /* ── Composant principal (launcher) ─────────────────────────── */
 
 export function EstablishmentReviewDialog({
-  establishmentId, slug, basePath, establishmentName, isLoggedIn, existingReview,
+  establishmentId, slug, basePath, establishmentName,
   variant = "header", labels, t,
 }: Props) {
   const [isOpen, setIsOpen] = useState(false);
@@ -98,9 +97,24 @@ export function EstablishmentReviewDialog({
   /* Clé de remontage du formulaire (réinitialise useActionState + inputs). En
      STATE (pas ref) : une clé lue en render doit être un state (react-hooks/refs). */
   const [openKey, setOpenKey] = useState(0);
+  // Session + avis existant : SORTIS du rendu serveur (la page détail est statique).
+  // Lus côté client après hydratation. `isLoggedIn` via le cookie-indice `sm_auth`
+  // (useHasSession) ; l'avis existant via l'API, uniquement si connecté.
+  const isLoggedIn = useHasSession();
+  const [existingReview, setExistingReview] = useState<EstabExistingReview>(null);
   const isEdit = !!existingReview;
   const { toast } = useToast();
   const router = useRouter();
+
+  useEffect(() => {
+    if (!isLoggedIn) { setExistingReview(null); return; }
+    let alive = true;
+    fetch(`/api/etablissements/${establishmentId}/my-review`, { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => { if (alive && d) setExistingReview(d.existingReview ?? null); })
+      .catch(() => {});
+    return () => { alive = false; };
+  }, [isLoggedIn, establishmentId]);
 
   const loginUrl = `/connexion?callbackUrl=${encodeURIComponent(`${basePath}/${slug}#avis`)}`;
 

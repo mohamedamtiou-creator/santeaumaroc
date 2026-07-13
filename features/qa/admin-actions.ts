@@ -105,6 +105,42 @@ export async function editQuestionForm(formData: FormData): Promise<void> {
   redirect("/admin/questions");
 }
 
+/**
+ * Édite la traduction arabe d'une réponse (bodyAr) et son verrou de relecture.
+ * `arReviewed=on` → pose `arReviewedAt` (autorise l'affichage AR) ; sinon on ne
+ * le retire pas (préserve une relecture antérieure). bodyAr vide → null.
+ */
+export async function editAnswerArForm(formData: FormData): Promise<void> {
+  const session = await requireAdmin();
+  const id = ((formData.get("id") ?? "") as string).trim();
+  if (!id) return;
+  const bodyAr = ((formData.get("bodyAr") ?? "") as string).trim();
+  const markArReviewed = formData.get("markArReviewed") === "true";
+  const unmarkArReviewed = formData.get("unmarkArReviewed") === "true";
+
+  const answer = await prisma.answer.findUnique({
+    where: { id },
+    select: { question: { select: { slug: true } } },
+  });
+  if (!answer) return;
+
+  await prisma.answer.update({
+    where: { id },
+    data: {
+      bodyAr: bodyAr || null,
+      // Retrait prioritaire → repli FR ; sinon coché → relecture AR validée.
+      ...(unmarkArReviewed ? { arReviewedAt: null } : markArReviewed ? { arReviewedAt: new Date() } : {}),
+    },
+  });
+  await logQa("ANSWER", id, "EDITED", session.userId);
+
+  if (answer.question?.slug) {
+    revalidatePath(`/questions/${answer.question.slug}`);
+    revalidatePath(`/ar/questions/${answer.question.slug}`);
+  }
+  revalidatePath("/admin/questions");
+}
+
 /** Traitement d'un signalement (id + statut). */
 export async function resolveReportForm(formData: FormData): Promise<void> {
   const session = await requireAdmin();

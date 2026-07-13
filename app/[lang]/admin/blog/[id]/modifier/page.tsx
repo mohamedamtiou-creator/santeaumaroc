@@ -17,7 +17,10 @@ export default async function ModifierArticlePage({ params }: { params: Params }
         id: true, title: true, slug: true, excerpt: true, content: true,
         coverImage: true, coverAlt: true, categoryId: true, metaTitle: true, metaDesc: true,
         featured: true, status: true, keyTakeaways: true, faqJson: true,
-        aboutEntity: true, pillarId: true, reviewedAt: true,
+        aboutEntity: true, pillarId: true, reviewedAt: true, sources: true,
+        titleAr: true, excerptAr: true, contentAr: true, metaTitleAr: true,
+        metaDescAr: true, keyTakeawaysAr: true, faqJsonAr: true, sourcesAr: true,
+        arReviewedAt: true,
       },
     }),
     prisma.postCategory.findMany({ orderBy: { name: "asc" } }),
@@ -30,7 +33,11 @@ export default async function ModifierArticlePage({ params }: { params: Params }
 
   if (!post) notFound();
 
-  const postData = { ...post, reviewedAt: post.reviewedAt ? post.reviewedAt.toISOString() : null };
+  const postData = {
+    ...post,
+    reviewedAt:   post.reviewedAt ? post.reviewedAt.toISOString() : null,
+    arReviewedAt: post.arReviewedAt ? post.arReviewedAt.toISOString() : null,
+  };
 
   return (
     <div>

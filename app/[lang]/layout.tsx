@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Cairo } from "next/font/google";
+import { Inter } from "next/font/google";
 import "@/app/globals.css";
 import { notFound } from "next/navigation";
 import { ToastProvider } from "@/components/ui/Toast";
@@ -13,22 +13,13 @@ const inter = Inter({
   display: "optional",
 });
 
-// Police arabe dédiée : Inter ne contient aucun glyphe arabe. Sans elle, tout
-// le texte arabe tombe sur la police système (Tahoma/Geeza Pro/Noto Naskh selon
-// l'OS) — rendu incohérent et souvent peu lisible. Cairo = police arabe web
-// moderne, très lisible. `display: "optional"` (jamais de swap tardif → CLS 0).
-const cairo = Cairo({
-  subsets: ["arabic"],
-  variable: "--font-arabic",
-  display: "optional",
-  // `preload: false` : la @font-face reste déclarée (l'arabe s'affiche toujours,
-  // y compris un mot arabe isolé sur une page FR), mais on n'injecte plus le
-  // <link rel="preload"> systématique. Ce layout [lang] est commun à FR et AR ;
-  // sans ça, Cairo (~40 KB woff2, glyphes arabes) était préchargée sur TOUTES les
-  // pages FR — pur poids réseau gaspillé sur le chemin critique mobile. Le
-  // navigateur ne télécharge Cairo que si un glyphe arabe est réellement rendu.
-  preload: false,
-});
+// Police arabe (Cairo) : AUTO-HÉBERGÉE (`public/fonts/cairo-*.woff2` + @font-face
+// dans globals.css), et NON via next/font. Raison : on veut la PRÉCHARGER
+// uniquement en arabe (voir le <link rel="preload"> conditionnel plus bas), or
+// next/font ne permet pas un preload par-locale (option statique, ce layout étant
+// commun FR+AR). L'auto-hébergement donne une URL stable, préchargeable au besoin,
+// avec `font-display: swap` + repli aux métriques ajustées (« Cairo Fallback »).
+const CAIRO_ARABIC_WOFF2 = "/fonts/cairo-arabic.woff2";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -119,10 +110,17 @@ export default async function RootLayout({
     <html
       lang={locale}
       dir={dirOf(locale)}
-      className={`${inter.variable} ${cairo.variable}`}
+      className={inter.variable}
       data-scroll-behavior="smooth"
     >
       <body>
+        {/* Cairo n'est préchargée QUE en arabe (page arabe → tout le texte est
+            en Cairo, donc chemin critique). En FR, aucun préchargement (Cairo
+            n'y sert qu'à un éventuel mot arabe isolé). React hisse ce <link>
+            dans le <head>. */}
+        {locale === "ar" && (
+          <link rel="preload" href={CAIRO_ARABIC_WOFF2} as="font" type="font/woff2" crossOrigin="anonymous" />
+        )}
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:start-4 focus:z-[9999] focus:bg-white focus:text-primary-700 focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:font-semibold"

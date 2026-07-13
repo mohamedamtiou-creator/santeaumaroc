@@ -11,6 +11,7 @@ import { TableOfContents, extractHeadings, addHeadingIds } from "@/components/bl
 import { KeyTakeaways } from "@/components/blog/KeyTakeaways";
 import { BlogFaq, type FaqItem } from "@/components/blog/BlogFaq";
 import { AuthorBio } from "@/components/blog/AuthorBio";
+import { ArticleSources, parseSources } from "@/components/blog/ArticleSources";
 import { NewsletterSignup } from "@/components/blog/NewsletterSignup";
 import { incrementViews } from "@/features/blog/actions";
 import { relatedSpecialty, specialtyCityLinks } from "@/lib/blog-related";
@@ -343,6 +344,7 @@ export default async function BlogArticlePage({ params }: { params: Params }) {
 
   const takeaways = parseTakeaways(L.keyTakeaways);
   const faqItems  = parseFaq(L.faqJson);
+  const sources   = parseSources(L.sources);
   const relSpec   = relatedSpecialty(slug, post.category.slug);
   const specLabel = relSpec ? (locale === "ar" ? relSpec.labelAr : relSpec.labelFr) : null;
   // Cocon B2B : les articles « Médecins » ciblent les praticiens, pas les patients.
@@ -403,6 +405,16 @@ export default async function BlogArticlePage({ params }: { params: Params }) {
       },
     }),
     ...(post.coverImage && { "image": post.coverImage }),
+    // Références médicales vérifiables → signal E-E-A-T fort + attribution pour
+    // les moteurs IA (ils privilégient les sources qui citent leurs propres sources).
+    ...(sources.length > 0 && {
+      "citation": sources.map((s) => ({
+        "@type": "CreativeWork",
+        "name": s.label,
+        ...(s.publisher && { "publisher": { "@type": "Organization", "name": s.publisher } }),
+        ...(s.url && { "url": s.url }),
+      })),
+    }),
     // Régions les plus « lisibles à voix haute » / extractibles par les IA :
     // le titre et l'encadré « À retenir » (TL;DR placé en tête).
     "speakable": {
@@ -580,6 +592,9 @@ export default async function BlogArticlePage({ params }: { params: Params }) {
 
             {/* FAQ (visible + JSON-LD FAQPage) */}
             <BlogFaq items={faqItems} t={tb} />
+
+            {/* Sources et références médicales (E-E-A-T + JSON-LD citation) */}
+            <ArticleSources items={sources} t={tb} />
 
             {/* Disclaimer médical légal — non pertinent pour les articles médecins */}
             {!isDoctorAudience && <MedicalDisclaimer t={tb} />}

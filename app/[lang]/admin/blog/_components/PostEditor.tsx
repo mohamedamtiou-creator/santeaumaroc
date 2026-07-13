@@ -31,7 +31,24 @@ export type PostData = {
   aboutEntity:  string | null;
   pillarId:     string | null;
   reviewedAt:   string | null;
+  sources:      string | null;
+  // Version arabe (traduction relue) + son verrou d'affichage/indexation.
+  titleAr:        string | null;
+  excerptAr:      string | null;
+  contentAr:      string | null;
+  metaTitleAr:    string | null;
+  metaDescAr:     string | null;
+  keyTakeawaysAr: string | null;
+  faqJsonAr:      string | null;
+  sourcesAr:      string | null;
+  arReviewedAt:   string | null;
 };
+
+/** Reformate un JSON pour l'affichage en textarea (indenté), sinon renvoie brut. */
+function pretty(raw: string | null | undefined): string {
+  if (!raw) return "";
+  try { return JSON.stringify(JSON.parse(raw), null, 2); } catch { return raw; }
+}
 
 function toSlug(str: string) {
   return str
@@ -68,8 +85,22 @@ export function PostEditor({ categories, pillars = [], post }: { categories: Cat
   const [aboutEntity, setAboutEntity] = useState(post?.aboutEntity ?? "");
   const [pillarId,   setPillarId]   = useState(post?.pillarId    ?? "");
   const [markReviewed, setMarkReviewed] = useState(false);
+  const [unmarkReviewed, setUnmarkReviewed] = useState(false);
   const [seoOpen,    setSeoOpen]    = useState(false);
   const [error,      setError]      = useState("");
+  const [sources,    setSources]    = useState(() => pretty(post?.sources));
+  // ── Version arabe ──
+  const [arOpen,        setArOpen]        = useState(false);
+  const [titleAr,       setTitleAr]       = useState(post?.titleAr       ?? "");
+  const [excerptAr,     setExcerptAr]     = useState(post?.excerptAr     ?? "");
+  const [contentAr,     setContentAr]     = useState(post?.contentAr     ?? "");
+  const [metaTitleAr,   setMetaTitleAr]   = useState(post?.metaTitleAr   ?? "");
+  const [metaDescAr,    setMetaDescAr]    = useState(post?.metaDescAr    ?? "");
+  const [takeawaysAr,   setTakeawaysAr]   = useState(post?.keyTakeawaysAr ?? "");
+  const [faqAr,         setFaqAr]         = useState(() => pretty(post?.faqJsonAr));
+  const [sourcesAr,     setSourcesAr]     = useState(() => pretty(post?.sourcesAr));
+  const [markArReviewed, setMarkArReviewed] = useState(false);
+  const [unmarkArReviewed, setUnmarkArReviewed] = useState(false);
 
   // Un article ne peut pas être son propre pilier.
   const pillarChoices = pillars.filter((p) => p.id !== post?.id);
@@ -103,6 +134,19 @@ export function PostEditor({ categories, pillars = [], post }: { categories: Cat
     fd.set("aboutEntity",  aboutEntity.trim());
     fd.set("pillarId",     pillarId);
     fd.set("markReviewed", String(markReviewed));
+    fd.set("unmarkReviewed", String(unmarkReviewed));
+    fd.set("sources",      sources);
+    // Version arabe
+    fd.set("titleAr",        titleAr.trim());
+    fd.set("excerptAr",      excerptAr.trim());
+    fd.set("contentAr",      contentAr);
+    fd.set("metaTitleAr",    metaTitleAr.trim());
+    fd.set("metaDescAr",     metaDescAr.trim());
+    fd.set("keyTakeawaysAr", takeawaysAr);
+    fd.set("faqJsonAr",      faqAr);
+    fd.set("sourcesAr",      sourcesAr);
+    fd.set("markArReviewed", String(markArReviewed));
+    fd.set("unmarkArReviewed", String(unmarkArReviewed));
     fd.set("publish",    String(publish));
 
     start(async () => {
@@ -208,6 +252,14 @@ export function PostEditor({ categories, pillars = [], post }: { categories: Cat
           <p className="text-xs text-slate-500 mt-1">Affichée en accordéon + balisée en FAQPage (rich result Google).</p>
         </div>
 
+        <div>
+          <label className={labelCls}>Sources / références <span className="normal-case font-normal text-slate-500">{`(JSON : [{ "label": "…", "url": "https://…", "publisher": "OMS", "year": "2024" }])`}</span></label>
+          <textarea value={sources} onChange={(e) => setSources(e.target.value)} rows={5}
+            placeholder={`[\n  { "label": "OMS — Diabète", "url": "https://www.who.int/…", "publisher": "OMS", "year": "2024" }\n]`}
+            className={`${inputCls} resize-y font-mono text-xs`} />
+          <p className="text-xs text-slate-500 mt-1">Affichées en pied d’article + balisées <code>citation</code> (E-E-A-T + attribution IA). <code>label</code> et <code>url</code> obligatoires.</p>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className={labelCls}>Entité médicale <span className="normal-case font-normal text-slate-500">(pour le balisage <code>about</code>)</span></label>
@@ -226,15 +278,25 @@ export function PostEditor({ categories, pillars = [], post }: { categories: Cat
         </div>
 
         <label className="flex items-center gap-3 cursor-pointer select-none">
-          <input type="checkbox" checked={markReviewed} onChange={(e) => setMarkReviewed(e.target.checked)}
+          <input type="checkbox" checked={markReviewed} onChange={(e) => { setMarkReviewed(e.target.checked); if (e.target.checked) setUnmarkReviewed(false); }}
             className="w-4 h-4 rounded border-slate-300 text-secondary-600 focus:ring-secondary-500" />
           <span className="text-sm font-medium text-slate-700">
             Marquer comme vérifié médicalement aujourd&apos;hui
             {post?.reviewedAt && (
-              <span className="text-xs text-slate-400 font-normal"> (dernière vérif. enregistrée)</span>
+              <span className="text-xs text-slate-400 font-normal"> (dernière vérif. le {new Date(post.reviewedAt).toLocaleDateString("fr-MA")})</span>
             )}
           </span>
         </label>
+
+        {post?.reviewedAt && (
+          <label className="flex items-center gap-3 cursor-pointer select-none">
+            <input type="checkbox" checked={unmarkReviewed} onChange={(e) => { setUnmarkReviewed(e.target.checked); if (e.target.checked) setMarkReviewed(false); }}
+              className="w-4 h-4 rounded border-slate-300 text-red-600 focus:ring-red-500" />
+            <span className="text-sm font-medium text-red-700">
+              Retirer la relecture médicale <span className="normal-case font-normal text-red-500/80">(l’article repasse en <code>noindex</code>)</span>
+            </span>
+          </label>
+        )}
       </div>
 
       {/* ── SEO ──────────────────────────────────── */}
@@ -268,6 +330,102 @@ export function PostEditor({ categories, pillars = [], post }: { categories: Cat
                 placeholder={excerpt || "Meta description…"} className={`${inputCls} resize-none`} />
               <p className="text-xs text-slate-500 mt-1">{(metaDesc || excerpt).length} / 160 caractères</p>
             </div>
+          </div>
+        )}
+      </div>
+
+      {/* ── Version arabe (العربية) ──────────────── */}
+      <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden">
+        <button
+          type="button"
+          onClick={() => setArOpen(!arOpen)}
+          className="w-full flex items-center justify-between px-6 py-4 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+        >
+          <span className="flex items-center gap-2">
+            <span className="text-base leading-none" aria-hidden="true">🇲🇦</span>
+            Version arabe (العربية)
+            {post?.arReviewedAt ? (
+              <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-secondary-50 text-secondary-700 border border-secondary-200">relue — servie</span>
+            ) : (
+              <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-slate-100 text-slate-500 border border-slate-200">non relue — repli FR</span>
+            )}
+          </span>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className={`w-4 h-4 text-slate-500 transition-transform ${arOpen ? "rotate-180" : ""}`} aria-hidden="true" strokeLinecap="round">
+            <path d="m4 6 4 4 4-4"/>
+          </svg>
+        </button>
+        {arOpen && (
+          <div className="px-6 pb-6 space-y-5 border-t border-slate-100 pt-5" dir="rtl">
+            <p className="text-xs text-slate-500 -mt-1" dir="ltr">
+              Traduction relue de l’article. Servie et indexée en arabe <strong>uniquement</strong> si « Version arabe relue » est cochée ci-dessous ; sinon repli intégral sur le français.
+            </p>
+
+            <div dir="rtl">
+              <label className={labelCls} dir="ltr">Titre (AR)</label>
+              <input type="text" value={titleAr} onChange={(e) => setTitleAr(e.target.value)}
+                placeholder="عنوان المقال" className={inputCls} />
+            </div>
+
+            <div dir="rtl">
+              <label className={labelCls} dir="ltr">Extrait (AR)</label>
+              <textarea value={excerptAr} onChange={(e) => setExcerptAr(e.target.value)} rows={3}
+                placeholder="ملخص قصير" className={`${inputCls} resize-none`} />
+            </div>
+
+            <div dir="rtl">
+              <label className={labelCls} dir="ltr">Contenu (AR)</label>
+              <TiptapEditor content={contentAr} onChange={setContentAr} />
+            </div>
+
+            <div dir="rtl">
+              <label className={labelCls} dir="ltr">À retenir (AR) <span className="normal-case font-normal text-slate-500">(1 point par ligne)</span></label>
+              <textarea value={takeawaysAr} onChange={(e) => setTakeawaysAr(e.target.value)} rows={4}
+                className={`${inputCls} resize-y`} />
+            </div>
+
+            <div dir="ltr">
+              <label className={labelCls}>FAQ (AR) <span className="normal-case font-normal text-slate-500">{`(JSON [{ "q": "…", "a": "…" }])`}</span></label>
+              <textarea value={faqAr} onChange={(e) => setFaqAr(e.target.value)} rows={6}
+                className={`${inputCls} resize-y font-mono text-xs`} dir="ltr" />
+            </div>
+
+            <div dir="ltr">
+              <label className={labelCls}>Sources (AR) <span className="normal-case font-normal text-slate-500">(mêmes URLs, labels traduits)</span></label>
+              <textarea value={sourcesAr} onChange={(e) => setSourcesAr(e.target.value)} rows={5}
+                className={`${inputCls} resize-y font-mono text-xs`} dir="ltr" />
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4" dir="rtl">
+              <div>
+                <label className={labelCls} dir="ltr">Meta titre (AR)</label>
+                <input type="text" value={metaTitleAr} onChange={(e) => setMetaTitleAr(e.target.value)} className={inputCls} />
+              </div>
+              <div>
+                <label className={labelCls} dir="ltr">Meta description (AR)</label>
+                <input type="text" value={metaDescAr} onChange={(e) => setMetaDescAr(e.target.value)} className={inputCls} />
+              </div>
+            </div>
+
+            <label className="flex items-center gap-3 cursor-pointer select-none" dir="ltr">
+              <input type="checkbox" checked={markArReviewed} onChange={(e) => { setMarkArReviewed(e.target.checked); if (e.target.checked) setUnmarkArReviewed(false); }}
+                className="w-4 h-4 rounded border-slate-300 text-secondary-600 focus:ring-secondary-500" />
+              <span className="text-sm font-medium text-slate-700">
+                Version arabe relue → autoriser l’affichage/indexation en arabe
+                {post?.arReviewedAt && (
+                  <span className="text-xs text-slate-400 font-normal"> (déjà relue le {new Date(post.arReviewedAt).toLocaleDateString("fr-MA")})</span>
+                )}
+              </span>
+            </label>
+
+            {post?.arReviewedAt && (
+              <label className="flex items-center gap-3 cursor-pointer select-none" dir="ltr">
+                <input type="checkbox" checked={unmarkArReviewed} onChange={(e) => { setUnmarkArReviewed(e.target.checked); if (e.target.checked) setMarkArReviewed(false); }}
+                  className="w-4 h-4 rounded border-slate-300 text-red-600 focus:ring-red-500" />
+                <span className="text-sm font-medium text-red-700">
+                  Retirer la relecture arabe <span className="normal-case font-normal text-red-500/80">(repli FR, l’arabe repasse en <code>noindex</code>)</span>
+                </span>
+              </label>
+            )}
           </div>
         )}
       </div>

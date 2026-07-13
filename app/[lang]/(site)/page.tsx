@@ -6,7 +6,8 @@ import { unstable_cache } from "next/cache";
 import { prisma } from "@/lib/prisma";
 import { processCache } from "@/lib/process-cache";
 import { MAJOR_CITIES, slugify } from "@/lib/utils";
-import { getDictionary, toLocale, type Dictionary } from "@/lib/i18n";
+import { getDictionary, toLocale, type Dictionary, type Locale } from "@/lib/i18n";
+import { tSpecialty, tCity } from "@/lib/specialty-i18n";
 import { localizedAlternates } from "@/lib/hreflang";
 import { CityIcon } from "@/components/CityIcon";
 
@@ -271,7 +272,7 @@ async function SiteJsonLd() {
 
 /* ── Specialty section (streams separately — aggregation with _count + ORDER BY _count) */
 
-async function SpecialtiesSection({ t }: { t: Dictionary["home"]["specialties"] }) {
+async function SpecialtiesSection({ t, locale }: { t: Dictionary["home"]["specialties"]; locale: Locale }) {
   const specialties = await getTopSpecialties();
   if (specialties.length === 0) return null;
 
@@ -313,7 +314,7 @@ async function SpecialtiesSection({ t }: { t: Dictionary["home"]["specialties"] 
           <Link key={s.id} href={`/specialites/${s.slug}`} className="card p-4 group">
             <SpecialtyIcon name={s.name} />
             <p className="font-semibold text-sm text-slate-800 group-hover:text-secondary-700 transition-colors leading-snug mt-3">
-              {s.name}
+              {tSpecialty(s.name, locale)}
             </p>
             <p className="text-xs text-slate-500 mt-1">
               {s._count.doctors.toLocaleString("fr")}&nbsp;{s._count.doctors !== 1 ? t.pracMany : t.pracOne}
@@ -508,7 +509,7 @@ export default async function HomePage({
           SPÉCIALITÉS (streams — getTopSpecialties is an aggregation)
           ════════════════════════════════════════════════════ */}
       <Suspense fallback={<SpecialtiesFallback />}>
-        <SpecialtiesSection t={h.specialties} />
+        <SpecialtiesSection t={h.specialties} locale={locale} />
       </Suspense>
 
       {/* ════════════════════════════════════════════════════
@@ -594,7 +595,7 @@ export default async function HomePage({
               >
                 <CityIcon name={city} size="sm" />
                 <span className="text-sm font-medium text-slate-700 group-hover:text-secondary-700 transition-colors truncate">
-                  {city}
+                  {tCity(city, locale)}
                 </span>
               </Link>
             ))}

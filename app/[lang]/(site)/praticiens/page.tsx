@@ -6,7 +6,7 @@ import { prisma } from "@/lib/prisma";
 import { processCache } from "@/lib/process-cache";
 import { localizedAlternates } from "@/lib/hreflang";
 import { getDictionary, toLocale, type Locale } from "@/lib/i18n";
-import { tSpecialty } from "@/lib/specialty-i18n";
+import { tSpecialty, tCity } from "@/lib/specialty-i18n";
 import { PraticienCard } from "@/components/PraticienCard";
 import { SearchFilters } from "@/components/SearchFilters";
 import { Pagination } from "@/components/ui/Pagination";
@@ -343,7 +343,7 @@ async function DoctorResults({
               {cities.slice(0, 14).map((c) => (
                 <Link key={c.slug} href={`/villes/${c.slug}`}
                   className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-secondary-50 text-secondary-700 hover:bg-secondary-100 transition-colors">
-                  {c.name}
+                  {tCity(c.name, locale)}
                 </Link>
               ))}
             </div>
@@ -393,6 +393,10 @@ export default async function PraticiensPage({ params }: { params: Params }) {
   const specialtiesT = locale === "ar"
     ? specialties.map((s) => ({ ...s, name: tSpecialty(s.name, locale) }))
     : specialties;
+  // Idem pour les villes (le slug = valeur de l'option reste FR, seul le libellé est traduit).
+  const citiesT = locale === "ar"
+    ? cities.map((c) => ({ ...c, name: tCity(c.name, locale) }))
+    : cities;
 
   // Vue de base (page 1, aucun filtre) rendue côté serveur. Sert à la fois de
   // contenu du shell statique (fallback <Suspense>, donc présent dans le HTML
@@ -418,7 +422,7 @@ export default async function PraticiensPage({ params }: { params: Params }) {
         className="bg-white rounded-2xl border border-slate-200 p-4 mb-5"
         style={{ boxShadow: "0 1px 4px 0 rgb(0 0 0 / 0.06)" }}
       >
-        <SearchFilters specialties={specialtiesT} cities={cities} t={dict.filters} />
+        <SearchFilters specialties={specialtiesT} cities={citiesT} t={dict.filters} />
       </div>
 
       {/* Résultats — <Suspense> requis par useSearchParams en page statique.
@@ -426,7 +430,7 @@ export default async function PraticiensPage({ params }: { params: Params }) {
       <Suspense fallback={baseList}>
         <PraticiensResults
           specialties={specialtiesT}
-          cities={cities}
+          cities={citiesT}
           locale={locale}
           cardT={dict.card}
           paginationT={dict.pagination}

@@ -1,18 +1,16 @@
+"use client";
+
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
-
-type ClaimStatus = "PENDING" | "APPROVED" | "REJECTED" | null;
-type UserRole = "DOCTOR" | "PATIENT" | "ADMIN" | null;
-
-type Props = {
-  doctorSlug:  string;
-  userRole:    UserRole;
-  claimStatus: ClaimStatus;
-  adminNote?:  string | null;
-};
+import { useDoctorUser } from "./DoctorUserContext";
 
 /* Le tunnel « preuve d'abord » gère désormais tous les cas (invité, patient,
- * praticien) sur /revendiquer : un seul lien, plus de détour par /connexion. */
-export function ClaimButton({ doctorSlug, userRole, claimStatus, adminNote }: Props) {
+ * praticien) sur /revendiquer : un seul lien, plus de détour par /connexion.
+ * Rôle + statut de revendication lus côté client (contexte) : la fiche reste
+ * statique/ISR. Par défaut (anonyme) → bouton « Revendiquer ». */
+export function ClaimButton({ doctorSlug }: { doctorSlug: string }) {
+  const { role: userRole, claim } = useDoctorUser();
+  const claimStatus = claim?.status ?? null;
+  const adminNote = claim?.adminNote ?? null;
   const claimUrl = `/praticiens/${doctorSlug}/revendiquer`;
 
   /* Médecin connecté : fiche déjà à lui */

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { useToast } from "@/components/ui/Toast";
+import { useDoctorUser } from "./DoctorUserContext";
 import type { Dictionary } from "@/lib/i18n";
 
 type ReviewT = Dictionary["review"];
@@ -21,8 +22,6 @@ type Props = {
   doctorId: string;
   doctorSlug: string;
   doctorName: string;
-  existingReview: ExistingReview;
-  userStatus: UserStatus;
   variant?: "header" | "empty";
   /** Libellés traduits du bouton déclencheur. */
   labels?: {
@@ -86,8 +85,6 @@ export function ReviewDialog({
   doctorId,
   doctorSlug,
   doctorName,
-  existingReview,
-  userStatus,
   variant = "header",
   labels = {
     leave: "Laisser un avis",
@@ -98,6 +95,9 @@ export function ReviewDialog({
   },
   t,
 }: Props) {
+  // Session + avis existant : sortis du rendu serveur (la fiche est statique/ISR).
+  // Lus côté client via le contexte (fetch unique /api/praticiens/[id]/me).
+  const { existingReview, userStatus } = useDoctorUser();
   const [isOpen, setIsOpen] = useState(false);
   /* Clé incrémentée à chaque ouverture pour forcer le remontage de ReviewForm
      (réinitialise useActionState et les inputs contrôlés). En STATE (pas ref) :

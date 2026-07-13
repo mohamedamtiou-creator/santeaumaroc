@@ -43,6 +43,8 @@ function staticPages(now: Date): MetadataRoute.Sitemap {
     { url: `${BASE}/praticiens`,                lastModified: now, changeFrequency: "daily",   priority: 0.9 },
     { url: `${BASE}/blog`,                      lastModified: now, changeFrequency: "daily",   priority: 0.85 },
     { url: `${BASE}/questions`,                 lastModified: now, changeFrequency: "daily",   priority: 0.85 },
+    { url: `${BASE}/symptomes`,                 lastModified: now, changeFrequency: "weekly",  priority: 0.75 },
+    { url: `${BASE}/glossaire`,                 lastModified: now, changeFrequency: "weekly",  priority: 0.7 },
     { url: `${BASE}/sante-darija`,              lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/specialites`,               lastModified: now, changeFrequency: "weekly",  priority: 0.8 },
     { url: `${BASE}/villes`,                    lastModified: now, changeFrequency: "weekly",  priority: 0.8 },
@@ -60,6 +62,7 @@ function staticPages(now: Date): MetadataRoute.Sitemap {
     { url: `${BASE}/remboursement-amo-cnss`,    lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/observatoire-sante-maroc`,  lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/charte-editoriale`,         lastModified: now, changeFrequency: "yearly",  priority: 0.3 },
+    { url: `${BASE}/methodologie`,              lastModified: now, changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE}/plan-du-site`,              lastModified: now, changeFrequency: "monthly", priority: 0.3 },
     { url: `${BASE}/conditions-utilisation`,    lastModified: now, changeFrequency: "yearly",  priority: 0.2 },
     { url: `${BASE}/politique-confidentialite`, lastModified: now, changeFrequency: "yearly",  priority: 0.2 },
@@ -67,7 +70,7 @@ function staticPages(now: Date): MetadataRoute.Sitemap {
 }
 
 async function coreEntries(now: Date): Promise<MetadataRoute.Sitemap> {
-  const [specialties, cities, postCategories, questionSpecialties] = await Promise.all([
+  const [specialties, cities, postCategories, questionSpecialties, glossary, symptoms] = await Promise.all([
     prisma.specialty.findMany({ select: { slug: true }, orderBy: { order: "asc" } }),
     prisma.city.findMany({ select: { slug: true }, orderBy: { order: "asc" } }),
     prisma.postCategory.findMany({
@@ -80,6 +83,19 @@ async function coreEntries(now: Date): Promise<MetadataRoute.Sitemap> {
       select: { slug: true },
       orderBy: { order: "asc" },
     }),
+    // Termes de glossaire RELUS uniquement (reviewedAt) → cohérence
+    // découverte ↔ indexabilité (les termes non relus sont en noindex).
+    prisma.glossaryTerm.findMany({
+      where: { status: "PUBLISHED", reviewedAt: { not: null } },
+      select: { slug: true, updatedAt: true, arReviewedAt: true },
+      orderBy: { term: "asc" },
+    }),
+    // Symptômes RELUS uniquement (idem glossaire : cohérence découverte ↔ index).
+    prisma.healthTopic.findMany({
+      where: { kind: "SYMPTOM", status: "PUBLISHED", reviewedAt: { not: null } },
+      select: { slug: true, updatedAt: true, arReviewedAt: true },
+      orderBy: { term: "asc" },
+    }),
   ]);
 
   return [
@@ -88,6 +104,37 @@ async function coreEntries(now: Date): Promise<MetadataRoute.Sitemap> {
     ...cities.map((c) => ({ url: `${BASE}/villes/${c.slug}`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 })),
     ...postCategories.map((c) => ({ url: `${BASE}/blog/categorie/${c.slug}`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.75 })),
     ...questionSpecialties.map((s) => ({ url: `${BASE}/questions/specialite/${s.slug}`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.65 })),
+    // hreflang AR déclaré seulement si la traduction du terme est relue (YMYL).
+    ...glossary.map((g) => {
+      const fr = `${BASE}/glossaire/${g.slug}`;
+      const ar = `${BASE}/ar/glossaire/${g.slug}`;
+      return {
+        url: fr,
+        lastModified: g.updatedAt,
+        changeFrequency: "monthly" as const,
+        priority: 0.6,
+        alternates: {
+          languages: g.arReviewedAt
+            ? { "fr-MA": fr, "ar-MA": ar, "x-default": fr }
+            : { "fr-MA": fr, "x-default": fr },
+        },
+      };
+    }),
+    ...symptoms.map((s) => {
+      const fr = `${BASE}/symptomes/${s.slug}`;
+      const ar = `${BASE}/ar/symptomes/${s.slug}`;
+      return {
+        url: fr,
+        lastModified: s.updatedAt,
+        changeFrequency: "monthly" as const,
+        priority: 0.65,
+        alternates: {
+          languages: s.arReviewedAt
+            ? { "fr-MA": fr, "ar-MA": ar, "x-default": fr }
+            : { "fr-MA": fr, "x-default": fr },
+        },
+      };
+    }),
   ];
 }
 

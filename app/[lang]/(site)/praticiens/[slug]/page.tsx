@@ -11,8 +11,9 @@ import { BookingForm } from "./rdv/_components/BookingForm";
 import { localizedAlternates } from "@/lib/hreflang";
 import { getDictionary, toLocale, type Dictionary } from "@/lib/i18n";
 import { cachedQuery, decToNum } from "@/lib/cache";
-import { ReviewDialog, type ExistingReview, type UserStatus } from "./_components/ReviewDialog";
+import { ReviewDialog } from "./_components/ReviewDialog";
 import { ClaimButton } from "./_components/ClaimButton";
+import { DoctorUserProvider, ClaimBannerGate } from "./_components/DoctorUserContext";
 import { NotifyButton } from "./_components/NotifyButton";
 import { CallbackForm } from "./_components/CallbackForm";
 import { PhoneLink } from "@/components/PhoneLink";
@@ -329,57 +330,30 @@ function EmptyReviews({ reviewButton, t }: { reviewButton: React.ReactNode; t: D
 
 /* ── Page ────────────────────────────────────────────────── */
 
+// ISR : les fiches NON réservables ne lisent plus la session au rendu → elles
+// sont mises en cache (rendu à la demande, revalidées toutes les heures). Les
+// fiches réservables lisent la session dans la branche `canBook` (cookies) →
+// rendu DYNAMIQUE, créneaux toujours frais. Pas de `generateStaticParams` :
+// pré-rendre ~20 000 fiches au build serait du gaspillage (ISR à la demande).
+export const revalidate = 3600;
+
 export default async function PraticienProfilePage({ params }: { params: Params }) {
   const { lang, slug } = await params;
 
-  const [p, session] = await Promise.all([
-    getDoctorProfile(slug),
-    tryGetSession(),
-  ]);
+  const p = await getDoctorProfile(slug);
   if (!p || !p.isActive) notFound();
 
   const locale = toLocale(lang);
   const dict = getDictionary(locale);
   const d = dict.doctor;
 
-  /* Déterminer le statut de l'utilisateur courant */
-  const canReview = session?.role === "PATIENT" || session?.role === "ADMIN";
-  const userStatus: UserStatus =
-    !session?.userId ? "not-logged-in" :
-    !canReview       ? "not-patient"   :
-                       "yes";
-
-  const isUnclaimed   = !p.userId;
-  const isDoctorUser  = session?.role === "DOCTOR";
-
-  // Bannière de revendication : affichée sur les fiches migrées (non revendiquées)
-  // ET non vérifiées, pour tout visiteur SAUF un patient connecté (déconnectés,
-  // médecins et admins la voient ; c'est du B2B, sans intérêt pour un patient).
-  const showClaimBanner = isUnclaimed && !p.isVerified && session?.role !== "PATIENT";
-
-  /* Requêtes parallèles selon les droits */
-  let existingReview: ExistingReview = null;
-  let existingClaim: { status: string; adminNote: string | null } | null = null;
-
-  const [reviewResult, claimResult, patientResult] = await Promise.all([
-    userStatus === "yes" && session?.userId
-      ? prisma.review.findUnique({
-          where:  { patientId_doctorId: { patientId: session.userId, doctorId: p.id } },
-          select: { rating: true, comment: true },
-        })
-      : Promise.resolve(null),
-    isUnclaimed && isDoctorUser && session?.userId
-      ? prisma.doctorClaim.findUnique({
-          where:  { doctorId_userId: { doctorId: p.id, userId: session.userId } },
-          select: { status: true, adminNote: true },
-        })
-      : Promise.resolve(null),
-    session?.userId
-      ? prisma.user.findUnique({ where: { id: session.userId }, select: { phone: true } })
-      : Promise.resolve(null),
-  ]);
-  existingReview = reviewResult;
-  existingClaim  = claimResult;
+  const isUnclaimed = !p.userId;
+  // Bannière de revendication : fiches migrées non revendiquées ET non vérifiées.
+  // Sa visibilité « sauf patient connecté » est gérée CÔTÉ CLIENT (ClaimBannerGate) :
+  // aucune lecture de session ici → la fiche reste statique / ISR. Le statut de
+  // l'utilisateur (avis existant, rôle, revendication) est fourni par le contexte
+  // client (DoctorUserProvider → /api/praticiens/[id]/me).
+  const bannerAllowed = isUnclaimed && !p.isVerified;
 
   const fullName   = (p.prenom || p.nom)
     ? formatDoctorName({ civilite: p.civilite, prenom: p.prenom, nom: p.nom })
@@ -510,12 +484,22 @@ export default async function PraticienProfilePage({ params }: { params: Params 
   /* ── Réservation inline ──────────────────────────────────
      Créneaux générés côté serveur, comme la page /rdv dédiée.
      Auth tardive : le compte n'est demandé qu'au moment de confirmer. */
-  const isAuthenticated = !!session?.userId;
-  const needsPhone      = isAuthenticated && !patientResult?.phone;
-  const tRdv            = dict.rdv;
+  const tRdv = dict.rdv;
+  // Auth + téléphone lus UNIQUEMENT pour les fiches réservables (branche canBook) :
+  // cette branche lit la session (cookies) → la fiche réservable est rendue en
+  // DYNAMIQUE, ce qui garde des créneaux FRAIS (invariant anti double-réservation).
+  // Les fiches non réservables ne lisent jamais la session → statiques / ISR.
+  let isAuthenticated = false;
+  let needsPhone = false;
 
   const slotsByDate: Record<string, string[]> = {};
   if (canBook) {
+    const session = await tryGetSession();
+    isAuthenticated = !!session?.userId;
+    if (session?.userId) {
+      const u = await prisma.user.findUnique({ where: { id: session.userId }, select: { phone: true } });
+      needsPhone = !u?.phone;
+    }
     // Disponibilité fraîche (hors cache) — uniquement pour les fiches réservables.
     const { appointments, absences, blockedSlots } = await getDoctorAvailability(p.id);
     const bookedSlots = appointments.map((a) => ({ date: a.date, time: a.time }));
@@ -655,7 +639,7 @@ export default async function PraticienProfilePage({ params }: { params: Params 
   };
 
   return (
-    <>
+    <DoctorUserProvider doctorId={p.id}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
@@ -694,10 +678,11 @@ export default async function PraticienProfilePage({ params }: { params: Params 
 
         {/* ── Bannière revendication ──────────────────────────
             Fiches migrées non revendiquées ET non vérifiées, visibles pour tout
-            visiteur sauf un patient connecté (cf. showClaimBanner). Pour un patient,
+            visiteur sauf un patient connecté (masqué par ClaimBannerGate). Pour un patient,
             c'est un message B2B qui parasite l'intention de prise de rendez-vous ;
             il garde un accès discret via la carte « Vous êtes ce médecin ? » en sidebar. */}
-        {showClaimBanner && (
+        {bannerAllowed && (
+          <ClaimBannerGate>
           <Link
             href={`/praticiens/${slug}/revendiquer`}
             className="group flex items-center gap-4 mb-5 rounded-2xl border border-primary-200 bg-gradient-to-r from-primary-50 to-secondary-50/40 px-4 sm:px-5 py-3.5 hover:border-primary-300 hover:shadow-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
@@ -728,6 +713,7 @@ export default async function PraticienProfilePage({ params }: { params: Params 
               <path d="m6 3 5 5-5 5" />
             </svg>
           </Link>
+          </ClaimBannerGate>
         )}
 
         <div className="grid md:grid-cols-3 gap-5">
@@ -1259,8 +1245,6 @@ export default async function PraticienProfilePage({ params }: { params: Params 
                   doctorId={p.id}
                   doctorSlug={slug}
                   doctorName={fullName}
-                  existingReview={existingReview}
-                  userStatus={userStatus}
                   labels={reviewTrigger}
                   t={dict.review}
                   variant="header"
@@ -1273,8 +1257,6 @@ export default async function PraticienProfilePage({ params }: { params: Params 
                     doctorId={p.id}
                     doctorSlug={slug}
                     doctorName={fullName}
-                    existingReview={existingReview}
-                    userStatus={userStatus}
                     labels={reviewTrigger}
                     t={dict.review}
                     variant="empty"
@@ -1480,12 +1462,7 @@ export default async function PraticienProfilePage({ params }: { params: Params 
                 <p className="text-xs text-slate-500 mb-3 leading-relaxed">
                   {d.claimText}
                 </p>
-                <ClaimButton
-                  doctorSlug={slug}
-                  userRole={(session?.role ?? null) as "DOCTOR" | "PATIENT" | "ADMIN" | null}
-                  claimStatus={(existingClaim?.status ?? null) as "PENDING" | "APPROVED" | "REJECTED" | null}
-                  adminNote={existingClaim?.adminNote}
-                />
+                <ClaimButton doctorSlug={slug} />
               </div>
             )}
 
@@ -1537,6 +1514,6 @@ export default async function PraticienProfilePage({ params }: { params: Params 
         )}
       </div>
       <div className="h-20 md:hidden" aria-hidden="true" />
-    </>
+    </DoctorUserProvider>
   );
 }

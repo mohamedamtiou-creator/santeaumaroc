@@ -1,6 +1,6 @@
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { getDictionary, type Dictionary, type Locale } from "@/lib/i18n";
-import { EstablishmentReviewDialog, type EstabExistingReview } from "@/components/EstablishmentReviewDialog";
+import { EstablishmentReviewDialog } from "@/components/EstablishmentReviewDialog";
 
 type EstabT = Dictionary["estab"];
 
@@ -36,10 +36,6 @@ type Props = {
   establishment: EstablishmentData;
   listHref: string;
   listLabel: string;
-  /** Session : conditionne le déclencheur (ouvrir la modale vs rediriger vers connexion). */
-  isLoggedIn: boolean;
-  /** Avis existant de l'utilisateur connecté sur cet établissement (édition). */
-  existingReview: EstabExistingReview;
   /** Locale portée par l'URL (params.lang) — PAS getLocale() : évite une lecture
    *  d'en-tête/cookie et le bug locale cookie-vs-URL. */
   locale: Locale;
@@ -373,8 +369,6 @@ export async function EstablishmentProfile({
   establishment: e,
   listHref,
   listLabel,
-  isLoggedIn,
-  existingReview,
   locale,
 }: Props) {
   const dict             = getDictionary(locale);
@@ -398,8 +392,6 @@ export async function EstablishmentProfile({
     slug:              e.slug,
     basePath:          listHref,
     establishmentName: e.nom,
-    isLoggedIn,
-    existingReview,
     labels:            reviewLabels,
     t:                 rt,
   };

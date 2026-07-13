@@ -129,6 +129,26 @@ const NAV = [
       </svg>
     ),
   },
+  {
+    href:  "/admin/glossaire",
+    label: "Glossaire",
+    exact: false,
+    icon: (
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.75" className="w-4 h-4 shrink-0" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 3h9a2 2 0 0 1 2 2v12H6a2 2 0 0 0-2 2V3z"/><path d="M4 17a2 2 0 0 1 2-2h9"/>
+      </svg>
+    ),
+  },
+  {
+    href:  "/admin/symptomes",
+    label: "Symptômes",
+    exact: false,
+    icon: (
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.75" className="w-4 h-4 shrink-0" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2 11h3l2-5 3 8 2-5h6"/>
+      </svg>
+    ),
+  },
 ];
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {

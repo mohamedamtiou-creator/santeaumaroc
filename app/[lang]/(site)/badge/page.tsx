@@ -6,6 +6,8 @@ import { decrypt } from "@/lib/session";
 import { toLocale } from "@/lib/i18n";
 import { localizedAlternates } from "@/lib/hreflang";
 import { BadgeSnippet } from "@/components/BadgeSnippet";
+import { formatDoctorName } from "@/lib/utils";
+import { tSpecialty } from "@/lib/specialty-i18n";
 
 type Params = Promise<{ lang: string }>;
 
@@ -136,12 +138,30 @@ export default async function BadgePage({ params }: { params: Params }) {
   // Session lue SANS redirection (page publique) : personnalise si praticien vérifié.
   const session = await decrypt((await cookies()).get("session")?.value);
   let mySlug: string | null = null;
+  // Ancre descriptive du backlink : le badge que le médecin embarque sur son
+  // site pointe vers sa fiche ; un `alt` « Dr X, {spécialité} à {ville} » donne
+  // un texte d'ancre pertinent (bien plus utile en SEO qu'un libellé générique).
+  let myAlt = t.altText;
   if (session?.userId && session.role === "DOCTOR") {
     const d = await prisma.doctor.findUnique({
       where: { userId: session.userId as string },
-      select: { slug: true, isVerified: true, isActive: true },
+      select: {
+        slug: true, isVerified: true, isActive: true,
+        nom: true, prenom: true, civilite: true,
+        specialty: { select: { name: true } },
+        city: { select: { name: true } },
+      },
     });
-    if (d?.isVerified && d.isActive && d.slug) mySlug = d.slug;
+    if (d?.isVerified && d.isActive && d.slug) {
+      mySlug = d.slug;
+      const name = (d.prenom || d.nom) ? formatDoctorName({ civilite: d.civilite, prenom: d.prenom, nom: d.nom }) : "";
+      const spec = tSpecialty(d.specialty.name, locale);
+      myAlt = name
+        ? (locale === "ar"
+            ? `${name}، ${spec} في ${d.city.name} — ${t.altText}`
+            : `${name}, ${spec} à ${d.city.name} — ${t.altText}`)
+        : t.altText;
+    }
   }
 
   const jsonLd = {
@@ -212,7 +232,7 @@ export default async function BadgePage({ params }: { params: Params }) {
               <BadgeSnippet
                 profileUrl={`${BASE}/praticiens/${mySlug}`}
                 badgeUrl={`${BASE}/api/badge/${mySlug}`}
-                altText={t.altText}
+                altText={myAlt}
                 copyLabel={t.copy}
                 copiedLabel={t.copied}
               />
