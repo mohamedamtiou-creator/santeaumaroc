@@ -4,20 +4,24 @@ import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { prisma } from "@/lib/prisma";
 import { tryGetSession } from "@/lib/dal";
 import { getDoctorInitials } from "@/lib/utils";
+import { toLocale, getDictionary, type Dictionary } from "@/lib/i18n";
 import { ClaimWizard } from "./_components/ClaimWizard";
 
-type Params = Promise<{ slug: string }>;
+type Params = Promise<{ lang: string; slug: string }>;
+
+type ClaimDict = Dictionary["claim"];
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const { slug } = await params;
+  const { lang, slug } = await params;
+  const t = getDictionary(toLocale(lang)).claim;
   const doc = await prisma.doctor.findUnique({
     where:  { slug },
     select: { prenom: true, nom: true, civilite: true },
   });
-  if (!doc) return { title: "Praticien introuvable", robots: { index: false, follow: false } };
+  if (!doc) return { title: t.notFoundTitle, robots: { index: false, follow: false } };
   const name = [doc.civilite, doc.prenom, doc.nom].filter(Boolean).join(" ");
   return {
-    title: `Revendiquer la fiche de ${name} — SantéauMaroc`,
+    title: t.metaTitle.replace("{name}", name),
     robots: { index: false, follow: false },
   };
 }
@@ -25,11 +29,12 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 /* ── Écrans d'état (carte centrée) ───────────────────────────── */
 
 function StateCard({
-  tone, title, text, action,
+  tone, title, text, backLabel, action,
 }: {
   tone: "amber" | "primary";
   title: string;
   text: string;
+  backLabel: string;
   action?: React.ReactNode;
 }) {
   const ring = tone === "amber" ? "bg-amber-50 text-amber-500" : "bg-primary-50 text-primary-600";
@@ -38,10 +43,10 @@ function StateCard({
       <div className="max-w-lg mx-auto">
         <Link href="/praticiens" className="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-primary-600 transition-colors mb-6">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2"
-            className="w-4 h-4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            className="w-4 h-4 rtl:-scale-x-100" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M10 3L5 8l5 5" />
           </svg>
-          Retour à l&apos;annuaire
+          {backLabel}
         </Link>
         <div className="card p-8 text-center">
           <div className={`w-14 h-14 rounded-2xl ${ring} flex items-center justify-center mx-auto mb-4`}>
@@ -61,12 +66,8 @@ function StateCard({
 
 /* Écran « dossier reçu » — affiché juste après la soumission (la page se re-rend
  * côté serveur) et à chaque retour sur la page tant que la demande est en attente. */
-function ClaimReceivedScreen() {
-  const steps = [
-    { title: "Dossier reçu", desc: "Vos pièces nous sont parvenues.", done: true },
-    { title: "Vérification par notre équipe", desc: "Sous 24 à 48 h ouvrées.", done: false },
-    { title: "La fiche est à vous", desc: "Vous gérez votre profil et vos rendez-vous.", done: false },
-  ];
+function ClaimReceivedScreen({ t }: { t: ClaimDict }) {
+  const steps = t.timeline.map((s, i) => ({ ...s, done: i === 0 }));
   return (
     <main className="min-h-screen bg-slate-50 py-12 px-4">
       <div className="max-w-lg mx-auto">
@@ -78,9 +79,9 @@ function ClaimReceivedScreen() {
                 <circle cx="12" cy="12" r="10" /><path d="M7.5 12.5l3 3 6-6.5" />
               </svg>
             </div>
-            <h1 className="text-lg font-bold text-slate-900 mb-1.5">Demande envoyée&nbsp;!</h1>
+            <h1 className="text-lg font-bold text-slate-900 mb-1.5">{t.sentTitle}</h1>
             <p className="text-sm text-slate-500 leading-relaxed mb-6">
-              Notre équipe examine votre dossier et vous recevrez un e-mail dès qu&apos;il est traité.
+              {t.sentText}
             </p>
           </div>
 
@@ -108,7 +109,7 @@ function ClaimReceivedScreen() {
           </ol>
 
           <Link href="/praticien/tableau-de-bord" className="btn-primary w-full justify-center">
-            Accéder à mon espace
+            {t.goToSpace}
           </Link>
         </div>
       </div>
@@ -117,7 +118,8 @@ function ClaimReceivedScreen() {
 }
 
 export default async function RevendiquerPage({ params }: { params: Params }) {
-  const { slug } = await params;
+  const { lang, slug } = await params;
+  const t = getDictionary(toLocale(lang)).claim;
 
   const [session, doc] = await Promise.all([
     tryGetSession(),
@@ -147,9 +149,10 @@ export default async function RevendiquerPage({ params }: { params: Params }) {
     return (
       <StateCard
         tone="amber"
-        title="Action indisponible"
-        text="Un compte administrateur ne peut pas revendiquer une fiche médecin."
-        action={<Link href={`/praticiens/${slug}`} className="btn-primary">Retour à la fiche</Link>}
+        title={t.adminBlockedTitle}
+        text={t.adminBlockedText}
+        backLabel={t.backToDirectory}
+        action={<Link href={`/praticiens/${slug}`} className="btn-primary">{t.backToProfile}</Link>}
       />
     );
   }
@@ -177,19 +180,20 @@ export default async function RevendiquerPage({ params }: { params: Params }) {
       return (
         <StateCard
           tone="amber"
-          title="Vous gérez déjà un profil actif"
-          text="Votre compte est déjà associé à un profil médecin publié. Pour toute modification, contactez le support."
-          action={<Link href="/praticien/tableau-de-bord" className="btn-primary">Accéder à mon tableau de bord</Link>}
+          title={t.activeProfileTitle}
+          text={t.activeProfileText}
+          backLabel={t.backToDirectory}
+          action={<Link href="/praticien/tableau-de-bord" className="btn-primary">{t.goToDashboard}</Link>}
         />
       );
     }
 
     /* Demande existante */
     if (existingClaim?.status === "PENDING") {
-      return <ClaimReceivedScreen />;
+      return <ClaimReceivedScreen t={t} />;
     }
     if (existingClaim?.status === "REJECTED") {
-      prevRejection = existingClaim.adminNote ?? "Dossier incomplet ou non conforme.";
+      prevRejection = existingClaim.adminNote ?? t.defaultRejection;
     }
   }
 
@@ -205,21 +209,21 @@ export default async function RevendiquerPage({ params }: { params: Params }) {
           <Link href={`/praticiens/${slug}`}
             className="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-primary-600 transition-colors shrink-0">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2"
-              className="w-4 h-4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              className="w-4 h-4 rtl:-scale-x-100" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M10 3L5 8l5 5" />
             </svg>
-            Retour à la fiche
+            {t.backToProfile}
           </Link>
           <span className="text-slate-200">/</span>
-          <span className="text-sm font-medium text-slate-700 truncate">Revendiquer</span>
+          <span className="text-sm font-medium text-slate-700 truncate">{t.breadcrumb}</span>
         </div>
       </div>
 
       <div className="max-w-5xl mx-auto px-4 py-10">
         <div className="mb-8">
-          <h1 className="text-2xl font-bold text-slate-900 mb-1">Récupérez votre fiche en quelques minutes</h1>
+          <h1 className="text-2xl font-bold text-slate-900 mb-1">{t.pageTitle}</h1>
           <p className="text-slate-500 text-sm">
-            Confirmez votre identité, déposez deux justificatifs, et notre équipe valide sous 24 à 48 h ouvrées.
+            {t.pageSubtitle}
           </p>
         </div>
 
@@ -240,6 +244,7 @@ export default async function RevendiquerPage({ params }: { params: Params }) {
                 }}
                 mode={mode}
                 prevRejection={prevRejection}
+                t={t}
               />
             </div>
           </div>
@@ -247,13 +252,9 @@ export default async function RevendiquerPage({ params }: { params: Params }) {
           {/* Aide */}
           <div className="flex flex-col gap-4">
             <div className="card p-5">
-              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">Documents acceptés</p>
+              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">{t.acceptedDocs}</p>
               <ul className="flex flex-col gap-2 text-sm text-slate-600">
-                {[
-                  "Carte d'identité nationale (CIN)",
-                  "Diplôme de médecine",
-                  "N° d'inscription à l'Ordre National des Médecins",
-                ].map((item) => (
+                {t.acceptedList.map((item) => (
                   <li key={item} className="flex items-start gap-2">
                     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2"
                       className="w-4 h-4 text-secondary-500 shrink-0 mt-px" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -263,7 +264,7 @@ export default async function RevendiquerPage({ params }: { params: Params }) {
                   </li>
                 ))}
               </ul>
-              <p className="text-xs text-slate-500 mt-4 leading-relaxed">Formats : JPG, PNG, PDF · Max 5 Mo par fichier</p>
+              <p className="text-xs text-slate-500 mt-4 leading-relaxed">{t.formatsHint}</p>
             </div>
 
             <div className="flex items-start gap-3 bg-primary-50 border border-primary-100 rounded-xl px-4 py-3 text-sm text-primary-700">
@@ -271,7 +272,7 @@ export default async function RevendiquerPage({ params }: { params: Params }) {
                 className="w-5 h-5 shrink-0 mt-0.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <circle cx="10" cy="10" r="8" /><path d="M10 6v5l3 2" />
               </svg>
-              <span>Traitement sous <strong>24 à 48 h ouvrées</strong> après réception de votre dossier complet.</span>
+              <span>{t.processingPre}<strong>{t.delay}</strong>{t.processingPost}</span>
             </div>
           </div>
         </div>

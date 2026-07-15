@@ -935,6 +935,126 @@ const frDict = {
     },
   },
 
+  claim: {
+    // Métadonnées & chrome de page
+    metaTitle: "Revendiquer la fiche de {name} — SantéauMaroc",
+    notFoundTitle: "Praticien introuvable",
+    backToDirectory: "Retour à l'annuaire",
+    backToProfile: "Retour à la fiche",
+    breadcrumb: "Revendiquer",
+    pageTitle: "Récupérez votre fiche en quelques minutes",
+    pageSubtitle: "Confirmez votre identité, déposez deux justificatifs, et notre équipe valide sous 24 à 48 h ouvrées.",
+
+    // Aide latérale — documents acceptés
+    acceptedDocs: "Documents acceptés",
+    acceptedList: [
+      "Carte d'identité nationale (CIN)",
+      "Diplôme de médecine",
+      "N° d'inscription à l'Ordre National des Médecins",
+    ],
+    formatsHint: "Formats : JPG, PNG, PDF · Max 5 Mo par fichier",
+    processingPre: "Traitement sous ",
+    delay: "24 à 48 h ouvrées",
+    processingPost: " après réception de votre dossier complet.",
+
+    // Écrans d'état
+    adminBlockedTitle: "Action indisponible",
+    adminBlockedText: "Un compte administrateur ne peut pas revendiquer une fiche médecin.",
+    activeProfileTitle: "Vous gérez déjà un profil actif",
+    activeProfileText: "Votre compte est déjà associé à un profil médecin publié. Pour toute modification, contactez le support.",
+    goToDashboard: "Accéder à mon tableau de bord",
+    defaultRejection: "Dossier incomplet ou non conforme.",
+
+    // Écran « demande envoyée »
+    sentTitle: "Demande envoyée !",
+    sentText: "Notre équipe examine votre dossier et vous recevrez un e-mail dès qu'il est traité.",
+    goToSpace: "Accéder à mon espace",
+    timeline: [
+      { title: "Dossier reçu", desc: "Vos pièces nous sont parvenues." },
+      { title: "Vérification par notre équipe", desc: "Sous 24 à 48 h ouvrées." },
+      { title: "La fiche est à vous", desc: "Vous gérez votre profil et vos rendez-vous." },
+    ],
+    emailSentPre: "Un e-mail de confirmation a été envoyé à ",
+    emailSentPost: ". Cliquez le lien pour sécuriser votre compte — ce n'est pas nécessaire pour le traitement de votre dossier.",
+
+    // Étapes (barre de progression)
+    steps: {
+      identity: "Identité",
+      proofs: "Justificatifs",
+      access: "Accès",
+    },
+
+    // Refus précédent
+    prevRejectedTitle: "Demande précédente refusée",
+    prevRejectedHint: "Vous pouvez soumettre un nouveau dossier ci-dessous.",
+
+    // Étape 1 — identité
+    step1Title: "C'est bien vous ?",
+    step1Subtitle: "Confirmez la fiche à récupérer. Vos informations y figurent déjà — rien à ressaisir.",
+    patientConvertNote: "Votre compte sera converti en compte praticien à l'envoi de la demande.",
+    step1Cta: "Oui, c'est moi — continuer",
+
+    // Étape 2 — justificatifs
+    step2Title: "Prouvez que vous êtes ce médecin",
+    step2Subtitle: "Deux pièces suffisent. Elles ne servent qu'à la vérification.",
+
+    // Étape 3 — accès (invité)
+    step3Title: "Créez votre accès",
+    step3Subtitle: "Dernière étape : de quoi vous reconnecter et suivre votre demande.",
+    emailLabel: "Adresse e-mail",
+    emailPlaceholder: "vous@exemple.com",
+    emailExistsPre: "Un compte existe déjà. ",
+    login: "Connectez-vous",
+    emailExistsPost: " pour revendiquer.",
+    passwordLabel: "Mot de passe",
+    passwordPlaceholder: "8 caractères minimum",
+    showPassword: "Afficher le mot de passe",
+    hidePassword: "Masquer le mot de passe",
+    cguPre: "J'accepte les ",
+    cguTerms: "conditions d'utilisation",
+    cguMid: " et la ",
+    cguPrivacy: "politique de confidentialité",
+    cguPost: ".",
+
+    // Boutons communs
+    back: "Retour",
+    continue: "Continuer",
+    submit: "Envoyer ma demande",
+    sending: "Envoi…",
+
+    // Force du mot de passe
+    pwChars: "8 caractères",
+    pwLetter: "1 lettre",
+    pwDigit: "1 chiffre",
+
+    // Messages de validation
+    errFileTooBig: "« {name} » dépasse 5 Mo.",
+    errCinRequired: "La copie de la CIN est obligatoire.",
+    errProof: "Fournissez votre diplôme OU votre numéro d'inscription à l'Ordre.",
+    errEmail: "Saisissez une adresse e-mail valide.",
+    errEmailTaken: "Un compte existe déjà avec cet e-mail.",
+    errPassword: "Mot de passe : 8 caractères minimum, dont un chiffre.",
+    errCgu: "Vous devez accepter les conditions d'utilisation.",
+
+    // Justificatifs (bloc partagé ProofFields)
+    proof: {
+      cinTitle: "Carte d'identité nationale",
+      required: "obligatoire",
+      justifTitle: "Justificatif médical",
+      eitherOr: "l'un OU l'autre",
+      optionA: "Option A — Diplôme de médecine",
+      optionAOptional: "(facultatif si n° Ordre renseigné)",
+      orSep: "OU",
+      optionB: "Option B — N° d'inscription à l'Ordre National des Médecins",
+      ordrePlaceholder: "Ex : 12345",
+      ordreHint: "Votre numéro est vérifié par notre équipe auprès de l'Ordre National des Médecins (CNOM).",
+      messageLabel: "Message (facultatif)",
+      messagePlaceholder: "Précisez votre situation si nécessaire (cabinet, établissement…)",
+      reassurance: "Vos pièces sont confidentielles, réservées à l'équipe de vérification et supprimées une fois votre fiche validée.",
+      upload: { drag: "Glissez ou", browse: "cliquez pour choisir", hint: "JPG, PNG ou PDF · max 5 Mo", removeAria: "Retirer le fichier", uploading: "Envoi…", ko: "Ko" },
+    },
+  },
+
   dates: {
     today: "Aujourd'hui",
     ago: "Il y a",
@@ -3144,6 +3264,113 @@ const dictionaries: Record<Locale, Dictionary> = {
         errName: "أدخل اسمك (حرفان على الأقل).",
         errPhone: "أدخل رقم هاتف صحيح.",
         errServer: "حدث خطأ. يرجى المحاولة مرة أخرى.",
+      },
+    },
+
+    claim: {
+      metaTitle: "المطالبة ببطاقة {name} — صحة بالمغرب",
+      notFoundTitle: "الطبيب غير موجود",
+      backToDirectory: "العودة إلى الدليل",
+      backToProfile: "العودة إلى البطاقة",
+      breadcrumb: "المطالبة بالبطاقة",
+      pageTitle: "استعد بطاقتك في بضع دقائق",
+      pageSubtitle: "أكِّد هويتك، وأرفِق وثيقتين، ويتحقق فريقنا خلال 24 إلى 48 ساعة عمل.",
+
+      acceptedDocs: "الوثائق المقبولة",
+      acceptedList: [
+        "البطاقة الوطنية للتعريف (CIN)",
+        "شهادة الطب",
+        "رقم التسجيل في الهيئة الوطنية للأطباء",
+      ],
+      formatsHint: "الصيغ: JPG أو PNG أو PDF · 5 ميغابايت كحد أقصى لكل ملف",
+      processingPre: "المعالجة خلال ",
+      delay: "24 إلى 48 ساعة عمل",
+      processingPost: " بعد استلام ملفك الكامل.",
+
+      adminBlockedTitle: "الإجراء غير متاح",
+      adminBlockedText: "لا يمكن لحساب مسؤول المطالبة ببطاقة طبيب.",
+      activeProfileTitle: "أنت تدير بالفعل ملفًا نشطًا",
+      activeProfileText: "حسابك مرتبط بالفعل بملف طبيب منشور. لأي تعديل، تواصل مع الدعم.",
+      goToDashboard: "الذهاب إلى لوحة التحكم",
+      defaultRejection: "الملف غير مكتمل أو غير مطابق.",
+
+      sentTitle: "تم إرسال الطلب!",
+      sentText: "يفحص فريقنا ملفك وستتوصل برسالة إلكترونية بمجرد معالجته.",
+      goToSpace: "الذهاب إلى مساحتي",
+      timeline: [
+        { title: "تم استلام الملف", desc: "توصّلنا بوثائقك." },
+        { title: "التحقق من طرف فريقنا", desc: "خلال 24 إلى 48 ساعة عمل." },
+        { title: "البطاقة أصبحت لك", desc: "تتحكم في ملفك ومواعيدك." },
+      ],
+      emailSentPre: "تم إرسال رسالة تأكيد إلى ",
+      emailSentPost: ". انقر على الرابط لتأمين حسابك — هذا غير ضروري لمعالجة ملفك.",
+
+      steps: {
+        identity: "الهوية",
+        proofs: "الوثائق",
+        access: "الولوج",
+      },
+
+      prevRejectedTitle: "تم رفض الطلب السابق",
+      prevRejectedHint: "يمكنك إرسال ملف جديد أدناه.",
+
+      step1Title: "هل هذا أنت فعلاً؟",
+      step1Subtitle: "أكِّد البطاقة المراد استرجاعها. معلوماتك مذكورة فيها مسبقًا — لا حاجة لإعادة إدخالها.",
+      patientConvertNote: "سيتم تحويل حسابك إلى حساب طبيب عند إرسال الطلب.",
+      step1Cta: "نعم، هذا أنا — متابعة",
+
+      step2Title: "أثبِت أنك هذا الطبيب",
+      step2Subtitle: "وثيقتان تكفيان. لا تُستعمَل إلا للتحقق.",
+
+      step3Title: "أنشئ ولوجك",
+      step3Subtitle: "الخطوة الأخيرة: ما يلزم لإعادة الاتصال ومتابعة طلبك.",
+      emailLabel: "البريد الإلكتروني",
+      emailPlaceholder: "vous@exemple.com",
+      emailExistsPre: "يوجد حساب بالفعل. ",
+      login: "سجّل الدخول",
+      emailExistsPost: " للمطالبة بالبطاقة.",
+      passwordLabel: "كلمة المرور",
+      passwordPlaceholder: "8 أحرف على الأقل",
+      showPassword: "إظهار كلمة المرور",
+      hidePassword: "إخفاء كلمة المرور",
+      cguPre: "أوافق على ",
+      cguTerms: "شروط الاستخدام",
+      cguMid: " و",
+      cguPrivacy: "سياسة الخصوصية",
+      cguPost: ".",
+
+      back: "رجوع",
+      continue: "متابعة",
+      submit: "إرسال طلبي",
+      sending: "جارٍ الإرسال…",
+
+      pwChars: "8 أحرف",
+      pwLetter: "حرف واحد",
+      pwDigit: "رقم واحد",
+
+      errFileTooBig: "«{name}» يتجاوز 5 ميغابايت.",
+      errCinRequired: "نسخة البطاقة الوطنية إلزامية.",
+      errProof: "قدِّم شهادتك أو رقم تسجيلك في الهيئة.",
+      errEmail: "أدخل عنوان بريد إلكتروني صحيح.",
+      errEmailTaken: "يوجد حساب بالفعل بهذا البريد الإلكتروني.",
+      errPassword: "كلمة المرور: 8 أحرف على الأقل، منها رقم واحد.",
+      errCgu: "يجب أن توافق على شروط الاستخدام.",
+
+      proof: {
+        cinTitle: "البطاقة الوطنية للتعريف",
+        required: "إلزامي",
+        justifTitle: "وثيقة طبية",
+        eitherOr: "إحداهما أو الأخرى",
+        optionA: "الخيار أ — شهادة الطب",
+        optionAOptional: "(اختياري إذا تم إدخال رقم الهيئة)",
+        orSep: "أو",
+        optionB: "الخيار ب — رقم التسجيل في الهيئة الوطنية للأطباء",
+        ordrePlaceholder: "مثال: 12345",
+        ordreHint: "يتحقق فريقنا من رقمك لدى الهيئة الوطنية للأطباء (CNOM).",
+        messageLabel: "رسالة (اختياري)",
+        messagePlaceholder: "وضِّح وضعيتك عند الاقتضاء (عيادة، مؤسسة…)",
+        reassurance: "وثائقك سرية، مخصصة لفريق التحقق فقط وتُحذف بمجرد المصادقة على بطاقتك.",
+        upload: { drag: "اسحب أو", browse: "انقر للاختيار", hint: "JPG أو PNG أو PDF · 5 ميغابايت كحد أقصى", removeAria: "إزالة الملف", uploading: "جارٍ الإرسال…", ko: "كيلوبايت" },
       },
     },
 

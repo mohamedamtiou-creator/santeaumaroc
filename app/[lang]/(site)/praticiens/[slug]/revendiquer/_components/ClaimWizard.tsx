@@ -6,10 +6,12 @@ import Image from "next/image";
 import { submitClaimFlow, type ClaimFlowState } from "@/features/claims/actions";
 import { useEmailAvailability } from "@/components/auth/useEmailAvailability";
 import { ProofFields, type ProofLabels } from "@/components/documents/ProofFields";
+import type { Dictionary } from "@/lib/i18n";
 
 /* ───────────────────────────────────────────────────────────── */
 
 type Mode = "guest" | "doctor" | "patient";
+type ClaimDict = Dictionary["claim"];
 
 type Props = {
   ficheId:   string;
@@ -24,6 +26,7 @@ type Props = {
   };
   mode:          Mode;
   prevRejection?: string | null;
+  t:             ClaimDict;
 };
 
 type PickedDoc = { file: File; isPdf: boolean };
@@ -51,33 +54,14 @@ function CheckIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
-/* ── Justificatifs : libellés FR du bloc partagé ───────────── */
-
-const PROOF_LABELS: ProofLabels = {
-  cinTitle:        "Carte d'identité nationale",
-  required:        "obligatoire",
-  justifTitle:     "Justificatif médical",
-  eitherOr:        "l'un OU l'autre",
-  optionA:         "Option A — Diplôme de médecine",
-  optionAOptional: "(facultatif si n° Ordre renseigné)",
-  orSep:           "OU",
-  optionB:         "Option B — N° d'inscription à l'Ordre National des Médecins",
-  ordrePlaceholder: "Ex : 12345",
-  ordreHint:       "Votre numéro est vérifié par notre équipe auprès de l'Ordre National des Médecins (CNOM).",
-  messageLabel:    "Message (facultatif)",
-  messagePlaceholder: "Précisez votre situation si nécessaire (cabinet, établissement…)",
-  reassurance:     "Vos pièces sont confidentielles, réservées à l'équipe de vérification et supprimées une fois votre fiche validée.",
-  upload: { drag: "Glissez ou", browse: "cliquez pour choisir", hint: "JPG, PNG ou PDF · max 5 Mo", removeAria: "Retirer le fichier", uploading: "Envoi…", ko: "Ko" },
-};
-
 /* ── Force du mot de passe ─────────────────────────────────── */
 
-function PasswordStrength({ password }: { password: string }) {
+function PasswordStrength({ password, t }: { password: string; t: ClaimDict }) {
   if (!password) return null;
   const checks = [
-    { label: "8 caractères", ok: password.length >= 8 },
-    { label: "1 lettre",     ok: /[a-zA-Z]/.test(password) },
-    { label: "1 chiffre",    ok: /[0-9]/.test(password) },
+    { label: t.pwChars,  ok: password.length >= 8 },
+    { label: t.pwLetter, ok: /[a-zA-Z]/.test(password) },
+    { label: t.pwDigit,  ok: /[0-9]/.test(password) },
   ];
   const score = checks.filter((c) => c.ok).length;
   const bar = score === 3 ? "bg-secondary-500" : score === 2 ? "bg-amber-400" : "bg-red-400";
@@ -125,13 +109,31 @@ function FicheRecap({ fiche }: { fiche: Props["fiche"] }) {
 
 /* ── Composant principal ───────────────────────────────────── */
 
-const STEP_LABELS: Record<Mode, string[]> = {
-  guest:   ["Identité", "Justificatifs", "Accès"],
-  doctor:  ["Identité", "Justificatifs"],
-  patient: ["Identité", "Justificatifs"],
-};
+export function ClaimWizard({ ficheId, ficheSlug, fiche, mode, prevRejection, t }: Props) {
+  /* Libellés du bloc justificatifs partagé (dérivés du dictionnaire). */
+  const PROOF_LABELS: ProofLabels = {
+    cinTitle:           t.proof.cinTitle,
+    required:           t.proof.required,
+    justifTitle:        t.proof.justifTitle,
+    eitherOr:           t.proof.eitherOr,
+    optionA:            t.proof.optionA,
+    optionAOptional:    t.proof.optionAOptional,
+    orSep:              t.proof.orSep,
+    optionB:            t.proof.optionB,
+    ordrePlaceholder:   t.proof.ordrePlaceholder,
+    ordreHint:          t.proof.ordreHint,
+    messageLabel:       t.proof.messageLabel,
+    messagePlaceholder: t.proof.messagePlaceholder,
+    reassurance:        t.proof.reassurance,
+    upload:             t.proof.upload,
+  };
 
-export function ClaimWizard({ ficheId, ficheSlug, fiche, mode, prevRejection }: Props) {
+  const STEP_LABELS: Record<Mode, string[]> = {
+    guest:   [t.steps.identity, t.steps.proofs, t.steps.access],
+    doctor:  [t.steps.identity, t.steps.proofs],
+    patient: [t.steps.identity, t.steps.proofs],
+  };
+
   const labels   = STEP_LABELS[mode];
   const lastStep = labels.length - 1; // index de l'étape de soumission
 
@@ -169,7 +171,7 @@ export function ClaimWizard({ ficheId, ficheSlug, fiche, mode, prevRejection }: 
 
   function pick(setter: (d: PickedDoc | null) => void) {
     return (file: File) => {
-      if (file.size > MAX_SIZE) { setUploadErr(`« ${file.name} » dépasse 5 Mo.`); return; }
+      if (file.size > MAX_SIZE) { setUploadErr(t.errFileTooBig.replace("{name}", file.name)); return; }
       setUploadErr("");
       setClientErr("");
       setter({ file, isPdf: file.type === "application/pdf" });
@@ -177,9 +179,9 @@ export function ClaimWizard({ ficheId, ficheSlug, fiche, mode, prevRejection }: 
   }
 
   function validateProof(): boolean {
-    if (!cin) { setClientErr("La copie de la CIN est obligatoire."); return false; }
+    if (!cin) { setClientErr(t.errCinRequired); return false; }
     if (!diplome && !ordre.trim()) {
-      setClientErr("Fournissez votre diplôme OU votre numéro d'inscription à l'Ordre.");
+      setClientErr(t.errProof);
       return false;
     }
     setClientErr("");
@@ -187,10 +189,10 @@ export function ClaimWizard({ ficheId, ficheSlug, fiche, mode, prevRejection }: 
   }
 
   function validateAccess(): boolean {
-    if (!EMAIL_RE.test(email.trim())) { setClientErr("Saisissez une adresse e-mail valide."); return false; }
-    if (emailCheck.status === "taken") { setClientErr("Un compte existe déjà avec cet e-mail."); return false; }
-    if (password.length < 8 || !/[0-9]/.test(password)) { setClientErr("Mot de passe : 8 caractères minimum, dont un chiffre."); return false; }
-    if (!cgu) { setClientErr("Vous devez accepter les conditions d'utilisation."); return false; }
+    if (!EMAIL_RE.test(email.trim())) { setClientErr(t.errEmail); return false; }
+    if (emailCheck.status === "taken") { setClientErr(t.errEmailTaken); return false; }
+    if (password.length < 8 || !/[0-9]/.test(password)) { setClientErr(t.errPassword); return false; }
+    if (!cgu) { setClientErr(t.errCgu); return false; }
     setClientErr("");
     return true;
   }
@@ -227,11 +229,7 @@ export function ClaimWizard({ ficheId, ficheSlug, fiche, mode, prevRejection }: 
 
   /* ── Écran de succès ─────────────────────────────────────── */
   if (state?.ok) {
-    const timeline = [
-      { title: "Dossier reçu", desc: "Vos pièces nous sont parvenues.", done: true },
-      { title: "Vérification par notre équipe", desc: "Sous 24 à 48 h ouvrées.", done: false },
-      { title: "La fiche est à vous", desc: "Vous gérez votre profil et vos rendez-vous.", done: false },
-    ];
+    const timeline = t.timeline.map((s, i) => ({ ...s, done: i === 0 }));
     return (
       <div className="flex flex-col items-center text-center gap-5 py-6">
         <div className="w-16 h-16 rounded-2xl bg-secondary-50 flex items-center justify-center">
@@ -239,27 +237,27 @@ export function ClaimWizard({ ficheId, ficheSlug, fiche, mode, prevRejection }: 
         </div>
         <div>
           <h2 ref={headingRef} tabIndex={-1} className="text-xl font-bold text-slate-900 outline-none">
-            Demande envoyée !
+            {t.sentTitle}
           </h2>
           <p className="text-sm text-slate-500 mt-1.5 max-w-sm leading-relaxed">
-            Notre équipe examine votre dossier et vous recevrez un e-mail dès qu&apos;il est traité.
+            {t.sentText}
           </p>
         </div>
 
         {/* Chronologie « et après ? » */}
         <ol className="w-full max-w-sm text-start flex flex-col gap-0 mt-1">
-          {timeline.map((t, i) => (
-            <li key={t.title} className="flex gap-3 pb-4 last:pb-0 relative">
+          {timeline.map((s, i) => (
+            <li key={s.title} className="flex gap-3 pb-4 last:pb-0 relative">
               {i < timeline.length - 1 && (
                 <span className="absolute start-[13px] top-7 bottom-0 w-px bg-slate-200" aria-hidden="true" />
               )}
               <span className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 z-10 ${
-                t.done ? "bg-secondary-500 text-white" : "bg-slate-100 text-slate-400 border border-slate-200"}`}>
-                {t.done ? <CheckIcon className="w-3.5 h-3.5" /> : <span className="text-xs font-bold">{i + 1}</span>}
+                s.done ? "bg-secondary-500 text-white" : "bg-slate-100 text-slate-400 border border-slate-200"}`}>
+                {s.done ? <CheckIcon className="w-3.5 h-3.5" /> : <span className="text-xs font-bold">{i + 1}</span>}
               </span>
               <div>
-                <p className="text-sm font-semibold text-slate-800">{t.title}</p>
-                <p className="text-xs text-slate-500">{t.desc}</p>
+                <p className="text-sm font-semibold text-slate-800">{s.title}</p>
+                <p className="text-xs text-slate-500">{s.desc}</p>
               </div>
             </li>
           ))}
@@ -267,13 +265,12 @@ export function ClaimWizard({ ficheId, ficheSlug, fiche, mode, prevRejection }: 
 
         {mode === "guest" && (
           <p className="text-xs text-slate-500 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 max-w-sm leading-relaxed">
-            Un e-mail de confirmation a été envoyé à <strong className="text-slate-700">{email.trim()}</strong>.
-            Cliquez le lien pour sécuriser votre compte — ce n&apos;est pas nécessaire pour le traitement de votre dossier.
+            {t.emailSentPre}<strong className="text-slate-700">{email.trim()}</strong>{t.emailSentPost}
           </p>
         )}
 
         <Link href="/praticien/tableau-de-bord" className="btn-primary px-6 py-2.5">
-          Accéder à mon espace
+          {t.goToSpace}
         </Link>
       </div>
     );
@@ -318,9 +315,9 @@ export function ClaimWizard({ ficheId, ficheSlug, fiche, mode, prevRejection }: 
             <circle cx="8" cy="8" r="7" /><path d="M8 5v4M8 11h.01" />
           </svg>
           <div>
-            <p className="font-semibold text-sm text-red-900">Demande précédente refusée</p>
+            <p className="font-semibold text-sm text-red-900">{t.prevRejectedTitle}</p>
             <p className="text-sm text-slate-700 mt-0.5">{prevRejection}</p>
-            <p className="text-xs text-red-700 mt-1">Vous pouvez soumettre un nouveau dossier ci-dessous.</p>
+            <p className="text-xs text-red-700 mt-1">{t.prevRejectedHint}</p>
           </div>
         </div>
       )}
@@ -330,10 +327,10 @@ export function ClaimWizard({ ficheId, ficheSlug, fiche, mode, prevRejection }: 
         <div className="flex flex-col gap-4">
           <div>
             <h2 ref={headingRef} tabIndex={-1} className="text-lg font-bold text-slate-900 outline-none">
-              C&apos;est bien vous&nbsp;?
+              {t.step1Title}
             </h2>
             <p className="text-sm text-slate-500 mt-0.5">
-              Confirmez la fiche à récupérer. Vos informations y figurent déjà — rien à ressaisir.
+              {t.step1Subtitle}
             </p>
           </div>
 
@@ -345,12 +342,12 @@ export function ClaimWizard({ ficheId, ficheSlug, fiche, mode, prevRejection }: 
                 className="w-4 h-4 text-primary-500 shrink-0 mt-px" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="8" cy="8" r="7" /><path d="M8 5v4M8 11h.01" />
               </svg>
-              <span>Votre compte sera converti en compte praticien à l&apos;envoi de la demande.</span>
+              <span>{t.patientConvertNote}</span>
             </div>
           )}
 
           <button type="button" onClick={handleNext} className="btn-primary w-full py-3 mt-1">
-            Oui, c&apos;est moi — continuer
+            {t.step1Cta}
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2"
               className="w-4 h-4 rtl:-scale-x-100" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round">
               <path d="M6 12l4-4-4-4" />
@@ -364,10 +361,10 @@ export function ClaimWizard({ ficheId, ficheSlug, fiche, mode, prevRejection }: 
         <div className="flex flex-col gap-5">
           <div>
             <h2 ref={headingRef} tabIndex={-1} className="text-lg font-bold text-slate-900 outline-none">
-              Prouvez que vous êtes ce médecin
+              {t.step2Title}
             </h2>
             <p className="text-sm text-slate-500 mt-0.5">
-              Deux pièces suffisent. Elles ne servent qu&apos;à la vérification.
+              {t.step2Subtitle}
             </p>
           </div>
 
@@ -401,13 +398,13 @@ export function ClaimWizard({ ficheId, ficheSlug, fiche, mode, prevRejection }: 
                 className="w-4 h-4 rtl:-scale-x-100" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M10 12L6 8l4-4" />
               </svg>
-              Retour
+              {t.back}
             </button>
             <button type="button" onClick={handleNext} disabled={pending} className="btn-primary flex-1 py-3 disabled:opacity-60">
-              {pending ? <><Spinner /> Envoi…</>
+              {pending ? <><Spinner /> {t.sending}</>
                 : mode === "guest"
-                  ? <>Continuer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 rtl:-scale-x-100" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><path d="M6 12l4-4-4-4" /></svg></>
-                  : "Envoyer ma demande"}
+                  ? <>{t.continue}<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 rtl:-scale-x-100" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><path d="M6 12l4-4-4-4" /></svg></>
+                  : t.submit}
             </button>
           </div>
         </div>
@@ -418,22 +415,22 @@ export function ClaimWizard({ ficheId, ficheSlug, fiche, mode, prevRejection }: 
         <div className="flex flex-col gap-4">
           <div>
             <h2 ref={headingRef} tabIndex={-1} className="text-lg font-bold text-slate-900 outline-none">
-              Créez votre accès
+              {t.step3Title}
             </h2>
             <p className="text-sm text-slate-500 mt-0.5">
-              Dernière étape : de quoi vous reconnecter et suivre votre demande.
+              {t.step3Subtitle}
             </p>
           </div>
 
           {/* E-mail */}
           <div>
-            <label htmlFor="claim-email" className="block text-sm font-medium text-slate-700 mb-1.5">Adresse e-mail</label>
+            <label htmlFor="claim-email" className="block text-sm font-medium text-slate-700 mb-1.5">{t.emailLabel}</label>
             <div className="relative">
               <input id="claim-email" type="email" autoComplete="email" inputMode="email" value={email}
                 onChange={(e) => { setEmail(e.target.value); emailCheck.reset(); if (clientErr) setClientErr(""); }}
                 onBlur={(e) => emailCheck.check(e.target.value)}
                 aria-invalid={emailCheck.status === "taken"}
-                placeholder="vous@exemple.com"
+                placeholder={t.emailPlaceholder}
                 className={`input-field h-11 pe-10 ${emailCheck.status === "taken" ? "border-red-400" : emailCheck.status === "available" ? "border-secondary-400" : ""}`} />
               <span className="absolute end-3 top-1/2 -translate-y-1/2" aria-hidden="true">
                 {emailCheck.status === "checking" && <Spinner className="w-4 h-4 text-slate-400" />}
@@ -442,31 +439,31 @@ export function ClaimWizard({ ficheId, ficheSlug, fiche, mode, prevRejection }: 
             </div>
             {emailCheck.status === "taken" && (
               <p className="mt-1.5 text-xs text-red-600" role="alert">
-                Un compte existe déjà.{" "}
+                {t.emailExistsPre}
                 <Link href={`/connexion?callbackUrl=${encodeURIComponent(`/praticiens/${ficheSlug}/revendiquer`)}`} className="font-semibold underline">
-                  Connectez-vous
-                </Link>{" "}pour revendiquer.
+                  {t.login}
+                </Link>{t.emailExistsPost}
               </p>
             )}
           </div>
 
           {/* Mot de passe */}
           <div>
-            <label htmlFor="claim-pw" className="block text-sm font-medium text-slate-700 mb-1.5">Mot de passe</label>
+            <label htmlFor="claim-pw" className="block text-sm font-medium text-slate-700 mb-1.5">{t.passwordLabel}</label>
             <div className="relative">
               <input id="claim-pw" type={showPw ? "text" : "password"} autoComplete="new-password" value={password}
                 onChange={(e) => { setPassword(e.target.value); if (clientErr) setClientErr(""); }}
-                placeholder="8 caractères minimum"
+                placeholder={t.passwordPlaceholder}
                 className="input-field h-11 pe-10" />
               <button type="button" onClick={() => setShowPw((v) => !v)}
                 className="absolute end-2 top-1/2 -translate-y-1/2 grid place-items-center w-9 h-9 rounded-lg text-slate-500 hover:text-slate-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
-                aria-label={showPw ? "Masquer le mot de passe" : "Afficher le mot de passe"}>
+                aria-label={showPw ? t.hidePassword : t.showPassword}>
                 <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.75" className="w-[18px] h-[18px]" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M2 10s3.2-6 8-6 8 6 8 6-3.2 6-8 6-8-6-8-6z" /><circle cx="10" cy="10" r="2.5" />{showPw && <path d="M3 3l14 14" />}
                 </svg>
               </button>
             </div>
-            <PasswordStrength password={password} />
+            <PasswordStrength password={password} t={t} />
           </div>
 
           {/* CGU */}
@@ -475,9 +472,11 @@ export function ClaimWizard({ ficheId, ficheSlug, fiche, mode, prevRejection }: 
               onChange={(e) => { setCgu(e.target.checked); if (clientErr) setClientErr(""); }}
               className="mt-0.5 w-4 h-4 rounded border-slate-300 text-primary-600 focus:ring-primary-500 shrink-0" />
             <span className="text-xs text-slate-600 leading-relaxed">
-              J&apos;accepte les{" "}
-              <a href="/conditions-utilisation" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline font-medium">conditions d&apos;utilisation</a>{" "}et la{" "}
-              <a href="/politique-confidentialite" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline font-medium">politique de confidentialité</a>.
+              {t.cguPre}
+              <a href="/conditions-utilisation" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline font-medium">{t.cguTerms}</a>
+              {t.cguMid}
+              <a href="/politique-confidentialite" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline font-medium">{t.cguPrivacy}</a>
+              {t.cguPost}
             </span>
           </label>
 
@@ -490,10 +489,10 @@ export function ClaimWizard({ ficheId, ficheSlug, fiche, mode, prevRejection }: 
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 rtl:-scale-x-100" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M10 12L6 8l4-4" />
               </svg>
-              Retour
+              {t.back}
             </button>
             <button type="button" onClick={handleNext} disabled={pending || emailCheck.status === "taken"} className="btn-primary flex-1 py-3 disabled:opacity-60">
-              {pending ? <><Spinner /> Envoi…</> : "Envoyer ma demande"}
+              {pending ? <><Spinner /> {t.sending}</> : t.submit}
             </button>
           </div>
         </div>
