@@ -1,7 +1,8 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, updateTag } from "next/cache";
 import { prisma } from "@/lib/prisma";
+import { invalidateProcessCache } from "@/lib/process-cache";
 import { tryGetSession } from "@/lib/dal";
 import type { FormState } from "@/lib/definitions";
 import { getLocale } from "@/lib/i18n-server";
@@ -270,9 +271,117 @@ export async function submitEstablishmentReview(
     data:  { averageRating: agg._avg.note ?? 0 },
   });
 
-  // Revalide la fiche établissement (route dépend du type : /cliniques, …).
-  if (basePath.startsWith("/") && slug) {
-    revalidatePath(`${basePath}/${slug}`);
+  // Le nouvel avis + la note recalculée doivent apparaître immédiatement. La fiche
+  // est mise en cache par `getEstablishmentDetail` via `cachedQuery` (clé/tag
+  // `establishment:${slug}`) à DEUX niveaux — mêmes purges que la fiche médicament :
+  //  - Data Cache externe (`unstable_cache`) → `updateTag` l'expire aussitôt ;
+  //  - LRU `processCache` interne (globalThis, invisible aux API Next) → purge
+  //    explicite, sinon le rendu suivant re-sert le périmé.
+  // `revalidatePath` rafraîchit en plus le cache routeur de la page.
+  if (slug) {
+    invalidateProcessCache(`establishment:${slug}`);
+    updateTag(`establishment:${slug}`);
+    if (basePath.startsWith("/")) {
+      revalidatePath(`${basePath}/${slug}`);
+    }
+  }
+
+  return { message: "ok" };
+}
+
+/**
+ * Avis sur un médicament (base de données publique du médicament au Maroc).
+ *
+ * Même modèle de confiance que les établissements : aucune « visite » vérifiable,
+ * donc tout utilisateur connecté peut noter. Publication immédiate, un seul avis
+ * par utilisateur et par médicament (modifiable), `isPublic` pour la modération
+ * a posteriori. Rate-limit 5 / 24 h. Nom du compte dénormalisé dans `auteur`.
+ */
+export async function submitMedicationReview(
+  state: FormState,
+  formData: FormData
+): Promise<FormState> {
+  const e = getDictionary(await getLocale()).review.errors;
+
+  const session = await tryGetSession();
+  if (!session?.userId) {
+    return { message: e.notLoggedIn };
+  }
+
+  const medicationId = ((formData.get("medicationId") ?? "") as string).trim();
+  const slug         = ((formData.get("slug")         ?? "") as string).trim();
+  const ratingRaw    = formData.get("rating");
+  const comment      = ((formData.get("comment")      ?? "") as string).trim();
+
+  const rating = Number(ratingRaw);
+  if (!medicationId || isNaN(rating) || rating < 1 || rating > 5) {
+    return { errors: { rating: [e.rating] } };
+  }
+  if (comment.length > 0 && comment.length < 10) {
+    return { errors: { comment: [e.commentMin] } };
+  }
+  if (comment.length > 600) {
+    return { errors: { comment: [e.commentMax] } };
+  }
+
+  const med = await prisma.medication.findUnique({
+    where:  { id: medicationId },
+    select: { id: true, isActive: true },
+  });
+  if (!med || !med.isActive) return { message: e.invalidLink };
+
+  const user = await prisma.user.findUnique({
+    where:  { id: session.userId },
+    select: { name: true },
+  });
+  const auteur = user?.name?.trim() || "Utilisateur";
+
+  const existing = await prisma.medicationReview.findFirst({
+    where:  { userId: session.userId, medicationId },
+    select: { id: true },
+  });
+
+  // Anti-spam : 5 nouveaux avis maximum par 24 h.
+  if (!existing) {
+    const since = new Date(Date.now() - 24 * 60 * 60 * 1000);
+    const recentCount = await prisma.medicationReview.count({
+      where: { userId: session.userId, createdAt: { gte: since } },
+    });
+    if (recentCount >= 5) {
+      return { message: e.rateLimit };
+    }
+  }
+
+  if (existing) {
+    await prisma.medicationReview.update({
+      where: { id: existing.id },
+      data:  { note: rating, commentaire: comment || null, auteur },
+    });
+  } else {
+    await prisma.medicationReview.create({
+      data: {
+        medicationId,
+        userId: session.userId,
+        note:   rating,
+        commentaire: comment || null,
+        auteur,
+        isPublic: true,
+      },
+    });
+  }
+
+  // Le nouvel avis doit apparaître immédiatement (read-your-own-writes). Le détail
+  // est mis en cache par `getMedicationDetail` via `cachedQuery` (clé/tag
+  // `medication:${slug}`) à DEUX niveaux :
+  //  - Data Cache externe (`unstable_cache`) → `updateTag` l'expire aussitôt (le
+  //    prochain rendu attend des données fraîches, sans stale-while-revalidate) ;
+  //  - LRU `processCache` interne (adossé à globalThis, invisible aux API Next) →
+  //    purge explicite obligatoire, sinon le rendu suivant re-sert le périmé.
+  // `revalidatePath` rafraîchit en plus le cache routeur de la page.
+  if (slug) {
+    invalidateProcessCache(`medication:${slug}`);
+    updateTag(`medication:${slug}`);
+    revalidatePath(`/medicaments/${slug}`);
   }
 
   return { message: "ok" };

@@ -51,6 +51,7 @@ model User {
   questionFollows   QuestionFollow[]
   reports           Report[]           @relation("UserReports")
   establishmentReviews EstablishmentReview[] @relation("UserEstablishmentReviews")
+  medicationReviews    MedicationReview[]    @relation("UserMedicationReviews")
 
   @@index([email])
   @@index([role])
@@ -606,12 +607,15 @@ model MedicationReview {
   id           String     @id @default(cuid())
   medicationId String
   medication   Medication @relation(fields: [medicationId], references: [id], onDelete: Cascade)
-  auteur       String
+  userId       String? // null = avis importés (sans compte)
+  user         User?      @relation("UserMedicationReviews", fields: [userId], references: [id], onDelete: SetNull)
+  auteur       String // nom d'auteur dénormalisé
   note         Int
   commentaire  String?
   isPublic     Boolean    @default(true)
   createdAt    DateTime   @default(now())
 
+  @@unique([userId, medicationId]) // un avis par utilisateur et par médicament (les userId NULL restent distincts)
   @@index([medicationId])
   @@map("medication_reviews")
 }

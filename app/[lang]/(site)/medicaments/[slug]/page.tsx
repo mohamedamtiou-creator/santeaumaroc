@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { getMedicationDetail } from "@/lib/medications-query";
 import { localizedAlternates } from "@/lib/hreflang";
-import { toLocale } from "@/lib/i18n";
+import { toLocale, getDictionary } from "@/lib/i18n";
+import { MedicationReviewDialog } from "@/components/MedicationReviewDialog";
 
 type Params = Promise<{ lang: string; slug: string }>;
 
@@ -77,16 +78,6 @@ function PillIcon({ className }: { className?: string }) {
       strokeLinecap="round" strokeLinejoin="round">
       <rect x="3" y="8" width="18" height="8" rx="4"/>
       <line x1="12" y1="8" x2="12" y2="16"/>
-    </svg>
-  );
-}
-
-function WriteIcon() {
-  return (
-    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.75"
-      className="w-4 h-4 shrink-0" aria-hidden="true"
-      strokeLinecap="round" strokeLinejoin="round">
-      <path d="M13.5 3.5a2.121 2.121 0 0 1 3 3L6 17l-4 1 1-4L13.5 3.5z"/>
     </svg>
   );
 }
@@ -233,7 +224,7 @@ function ReviewCard({
   );
 }
 
-function EmptyReviews() {
+function EmptyReviews({ trigger }: { trigger: React.ReactNode }) {
   return (
     <div className="rounded-2xl border-2 border-dashed border-slate-200 bg-white p-8 text-center">
       <div className="w-14 h-14 rounded-2xl bg-amber-50 flex items-center justify-center mx-auto mb-4">
@@ -243,15 +234,10 @@ function EmptyReviews() {
         </svg>
       </div>
       <h3 className="font-semibold text-slate-700 text-sm">Aucun avis pour le moment</h3>
-      <p className="text-xs text-slate-500 mt-1 leading-relaxed max-w-[220px] mx-auto">
+      <p className="text-xs text-slate-500 mt-1 mb-5 leading-relaxed max-w-[220px] mx-auto">
         Partagez votre expérience avec ce médicament pour aider la communauté.
       </p>
-      <button type="button"
-        className="mt-5 inline-flex items-center gap-2 bg-secondary-600 hover:bg-secondary-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-150"
-        style={{ boxShadow: "0 1px 2px 0 rgb(5 150 105 / 0.3)" }}>
-        <WriteIcon />
-        Laisser un avis
-      </button>
+      {trigger}
     </div>
   );
 }
@@ -259,12 +245,28 @@ function EmptyReviews() {
 /* ── Page ────────────────────────────────────────────────── */
 
 export default async function MedicamentPage({ params }: { params: Params }) {
-  const { slug } = await params;
+  const { lang, slug } = await params;
 
   const medication = await getMedicationDetail(slug);
 
   if (!medication || !medication.isActive) notFound();
   const m = medication;
+
+  // Dépôt d'avis : dictionnaire (modale localisée) + libellés des déclencheurs.
+  const rt = getDictionary(toLocale(lang)).review;
+  const reviewDialogProps = {
+    medicationId:   m.id,
+    slug,
+    medicationName: m.nom,
+    labels: {
+      leave:       "Laisser un avis",
+      edit:        "Modifier mon avis",
+      leaveAria:   "Laisser un avis sur ce médicament",
+      editAria:    "Modifier mon avis sur ce médicament",
+      firstPrompt: "Laisser un avis",
+    },
+    t: rt,
+  };
 
   const avgRating = m.reviews.length > 0
     ? m.reviews.reduce((sum, r) => sum + r.note, 0) / m.reviews.length
@@ -582,17 +584,11 @@ export default async function MedicamentPage({ params }: { params: Params }) {
               </span>
             )}
           </h2>
-          <button type="button"
-            className="inline-flex items-center gap-2 bg-secondary-600 hover:bg-secondary-700 active:bg-secondary-800 text-white text-sm font-semibold px-4 py-2.5 rounded-xl transition-all duration-150 shrink-0"
-            style={{ boxShadow: "0 1px 2px 0 rgb(5 150 105 / 0.3)" }}
-            aria-label="Laisser un avis sur ce médicament">
-            <WriteIcon />
-            Laisser un avis
-          </button>
+          <MedicationReviewDialog variant="header" {...reviewDialogProps} />
         </div>
 
         {m.reviews.length === 0 ? (
-          <EmptyReviews />
+          <EmptyReviews trigger={<MedicationReviewDialog variant="empty" {...reviewDialogProps} />} />
         ) : (
           <div className="flex flex-col gap-3">
             <RatingSummary
