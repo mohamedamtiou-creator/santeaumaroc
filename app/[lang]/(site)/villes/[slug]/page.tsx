@@ -45,7 +45,7 @@ async function getCity(slug: string) {
 /** Métadonnées de ville (spécialités + nb d'établissements), cachées 1 h. */
 function getCityMeta(slug: string) {
   return cachedQuery(`ville:meta2:${slug}`, 3600, async () => {
-    const [specialties, totalEstabs] = await Promise.all([
+    const [specialties, totalEstabs, estabsByType] = await Promise.all([
       prisma.specialty.findMany({
         where: { doctors: { some: { isActive: true, city: { slug } } } },
         select: {
@@ -55,8 +55,21 @@ function getCityMeta(slug: string) {
         orderBy: { doctors: { _count: "desc" } },
       }),
       prisma.establishment.count({ where: { isActive: true, city: { slug } } }),
+      prisma.establishment.groupBy({
+        by: ["type"],
+        where: { isActive: true, city: { slug } },
+        _count: { _all: true },
+      }),
     ]);
-    return { specialties, totalEstabs };
+    // Ventilation par section (mêmes règles de bucket que le sitemap).
+    const estabCounts = { cliniques: 0, laboratoires: 0, pharmacies: 0 };
+    for (const g of estabsByType) {
+      const type = (g.type ?? "").toLowerCase();
+      if (type.includes("pharma")) estabCounts.pharmacies += g._count._all;
+      else if (type.includes("labo")) estabCounts.laboratoires += g._count._all;
+      else estabCounts.cliniques += g._count._all;
+    }
+    return { specialties, totalEstabs, estabCounts };
   });
 }
 
@@ -115,7 +128,7 @@ export default async function VillePage({ params }: { params: Params }) {
   ]);
   if (!city) notFound();
 
-  const { specialties, totalEstabs } = meta;
+  const { specialties, totalEstabs, estabCounts } = meta;
   const locale = toLocale(lang);
   const dict = getDictionary(locale);
   const t = dict.directory;
@@ -396,6 +409,32 @@ export default async function VillePage({ params }: { params: Params }) {
               {`${t.faqHeading} — ${cityName}`}
             </h2>
             <FaqAccordion faqs={cityFaqs} />
+          </div>
+        )}
+
+        {/* ── Services de santé (établissements par type + prix) ── */}
+        {(estabCounts.cliniques + estabCounts.laboratoires + estabCounts.pharmacies) > 0 && (
+          <div className="mt-8 pt-6 border-t border-slate-100">
+            <h2 className="text-sm font-semibold text-slate-700 mb-3 flex items-center gap-2">
+              <BuildingIcon className="w-4 h-4 text-primary-400 shrink-0" />
+              {locale === "ar" ? `خدمات صحية في ${cityName}` : `Services de santé à ${city.name}`}
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {[
+                { n: estabCounts.cliniques,    fr: "Cliniques",    ar: "عيادات",  href: `/cliniques?ville=${slug}` },
+                { n: estabCounts.laboratoires, fr: "Laboratoires", ar: "مختبرات", href: `/laboratoires?ville=${slug}` },
+                { n: estabCounts.pharmacies,   fr: "Pharmacies",   ar: "صيدليات", href: `/pharmacies?ville=${slug}` },
+              ].filter((s) => s.n > 0).map((s) => (
+                <Link key={s.href} href={s.href} className="card p-4 flex flex-col hover:border-primary-300 transition-colors">
+                  <span className="text-2xl font-bold text-slate-900 tabular-nums">{s.n.toLocaleString("fr")}</span>
+                  <span className="text-sm text-slate-600" dir="auto">{locale === "ar" ? s.ar : s.fr}</span>
+                </Link>
+              ))}
+              <Link href="/prix" className="card p-4 flex flex-col justify-center hover:border-primary-300 transition-colors">
+                <span className="text-base font-bold text-primary-700" dir="auto">{locale === "ar" ? "الأسعار" : "Prix des soins"}</span>
+                <span className="text-xs text-slate-500 mt-0.5" dir="auto">{locale === "ar" ? "استشارات وفحوصات" : "Consultations & examens"}</span>
+              </Link>
+            </div>
           </div>
         )}
 

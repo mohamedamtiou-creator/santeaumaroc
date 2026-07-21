@@ -5,7 +5,7 @@ import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { prisma } from "@/lib/prisma";
 import { localizedAlternates, frenchOnlyAlternates } from "@/lib/hreflang";
 import { getDictionary, toLocale } from "@/lib/i18n";
-import { topicLocalized, isTopicArReady, isTopicReviewed, parseLines, parseFaq } from "@/lib/health-topic";
+import { treatmentLocalized, isTreatmentArReady, isTreatmentReviewed, parseLines, parseFaq } from "@/lib/treatment";
 import { parseSources, ArticleSources } from "@/components/blog/ArticleSources";
 import { BlogFaq } from "@/components/blog/BlogFaq";
 import { RelatedDoctors } from "@/components/blog/RelatedDoctors";
@@ -17,62 +17,62 @@ const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 type Params = Promise<{ lang: string; slug: string }>;
 
 export async function generateStaticParams() {
-  const topics = await prisma.healthTopic.findMany({ where: { kind: "SYMPTOM", status: "PUBLISHED" }, select: { slug: true } });
-  return topics.map((t) => ({ slug: t.slug }));
+  const treatments = await prisma.treatment.findMany({ where: { status: "PUBLISHED" }, select: { slug: true } });
+  return treatments.map((tr) => ({ slug: tr.slug }));
 }
 
-const getTopic = cache((slug: string) =>
-  prisma.healthTopic.findFirst({
-    where: { slug, kind: "SYMPTOM", status: "PUBLISHED" },
+const getTreatment = cache((slug: string) =>
+  prisma.treatment.findFirst({
+    where: { slug, status: "PUBLISHED" },
     include: { specialty: { select: { slug: true, name: true } } },
   }),
 );
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { lang, slug } = await params;
-  const topic = await getTopic(slug);
-  if (!topic) return { title: "Symptôme introuvable", robots: { index: false } };
+  const treatment = await getTreatment(slug);
+  if (!treatment) return { title: "Traitement introuvable", robots: { index: false } };
 
   const locale = toLocale(lang);
-  const L = topicLocalized(topic, locale);
-  const title = `${L.term} : causes et quand consulter`;
+  const L = treatmentLocalized(treatment, locale);
+  const title = `${L.name} : options, durée et effets`;
   const description = L.shortAnswer.slice(0, 160);
-  const arReady = isTopicArReady(topic);
-  const indexable = isTopicReviewed(topic) && (locale !== "ar" || arReady);
+  const arReady = isTreatmentArReady(treatment);
+  const indexable = isTreatmentReviewed(treatment) && (locale !== "ar" || arReady);
 
   return {
     title,
     description,
-    alternates: arReady ? localizedAlternates(`/symptomes/${slug}`, locale) : frenchOnlyAlternates(`/symptomes/${slug}`),
+    alternates: arReady ? localizedAlternates(`/traitements/${slug}`, locale) : frenchOnlyAlternates(`/traitements/${slug}`),
     ...(indexable ? {} : { robots: { index: false, follow: true } }),
-    openGraph: { title, description, url: `/symptomes/${slug}`, type: "article", locale: L.isArabic ? "ar_MA" : "fr_MA" },
+    openGraph: { title, description, url: `/traitements/${slug}`, type: "article", locale: L.isArabic ? "ar_MA" : "fr_MA" },
   };
 }
 
-export default async function SymptomPage({ params }: { params: Params }) {
+export default async function TreatmentPage({ params }: { params: Params }) {
   const { lang, slug } = await params;
-  const topic = await getTopic(slug);
-  if (!topic) notFound();
+  const treatment = await getTreatment(slug);
+  if (!treatment) notFound();
 
   const locale = toLocale(lang);
   const dict = getDictionary(locale);
-  const t = dict.symptoms;
+  const t = dict.treatments;
   const tb = dict.blog;
-  const L = topicLocalized(topic, locale);
+  const L = treatmentLocalized(treatment, locale);
 
-  const causes = parseLines(L.causes);
+  const options = parseLines(L.options);
+  const sideEffects = parseLines(L.sideEffects);
   const redFlags = parseLines(L.redFlags);
   const faqItems = parseFaq(L.faqJson);
   const sources = parseSources(L.sources);
-  const url = `${locale === "ar" ? `${BASE}/ar` : BASE}/symptomes/${slug}`;
+  const url = `${locale === "ar" ? `${BASE}/ar` : BASE}/traitements/${slug}`;
 
-  // Maillage : articles blog + termes de glossaire liés (titres récupérés).
   const [relatedPosts, relatedTerms] = await Promise.all([
-    topic.relatedSlugs.length
-      ? prisma.post.findMany({ where: { slug: { in: topic.relatedSlugs }, status: "PUBLISHED" }, select: { slug: true, title: true } })
+    treatment.relatedSlugs.length
+      ? prisma.post.findMany({ where: { slug: { in: treatment.relatedSlugs }, status: "PUBLISHED" }, select: { slug: true, title: true } })
       : Promise.resolve([]),
-    topic.glossarySlugs.length
-      ? prisma.glossaryTerm.findMany({ where: { slug: { in: topic.glossarySlugs }, status: "PUBLISHED" }, select: { slug: true, term: true } })
+    treatment.glossarySlugs.length
+      ? prisma.glossaryTerm.findMany({ where: { slug: { in: treatment.glossarySlugs }, status: "PUBLISHED" }, select: { slug: true, term: true } })
       : Promise.resolve([]),
   ]);
 
@@ -82,19 +82,19 @@ export default async function SymptomPage({ params }: { params: Params }) {
       {
         "@type": "MedicalWebPage",
         "@id": `${url}#page`,
-        "name": `${L.term} — ${t.breadcrumb}`,
+        "name": `${L.name} — ${t.breadcrumb}`,
         "description": L.shortAnswer,
         "inLanguage": L.isArabic ? "ar-MA" : "fr-MA",
-        ...(topic.reviewedAt ? {
-          "lastReviewed": new Date(topic.reviewedAt).toISOString().slice(0, 10),
+        ...(treatment.reviewedAt ? {
+          "lastReviewed": new Date(treatment.reviewedAt).toISOString().slice(0, 10),
           "reviewedBy": { "@type": "Organization", "name": "Rédaction médicale SantéauMaroc", "url": BASE },
         } : {}),
         "mainEntity": {
-          "@type": "MedicalSymptom",
-          "name": L.term,
-          ...(topic.synonyms.length > 0 && { "alternateName": topic.synonyms }),
-          ...(causes.length > 0 && { "possibleCause": causes.map((c) => ({ "@type": "MedicalEntity", "name": c })) }),
-          ...(topic.specialty && { "relevantSpecialty": { "@type": "MedicalSpecialty", "name": topic.specialty.name } }),
+          "@type": "MedicalTherapy",
+          "name": L.name,
+          ...(treatment.synonyms.length > 0 && { "alternateName": treatment.synonyms }),
+          ...(treatment.specialty && { "relevantSpecialty": { "@type": "MedicalSpecialty", "name": treatment.specialty.name } }),
+          ...(sideEffects.length > 0 && { "adverseOutcome": sideEffects.map((s) => ({ "@type": "MedicalEntity", "name": s })) }),
         },
         "audience": { "@type": "MedicalAudience", "audienceType": "Patient" },
         ...(sources.length > 0 && {
@@ -106,8 +106,8 @@ export default async function SymptomPage({ params }: { params: Params }) {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": locale === "ar" ? "الرئيسية" : "Accueil", "item": BASE },
-          { "@type": "ListItem", "position": 2, "name": t.breadcrumb, "item": `${locale === "ar" ? `${BASE}/ar` : BASE}/symptomes` },
-          { "@type": "ListItem", "position": 3, "name": L.term, "item": url },
+          { "@type": "ListItem", "position": 2, "name": t.breadcrumb, "item": `${locale === "ar" ? `${BASE}/ar` : BASE}/traitements` },
+          { "@type": "ListItem", "position": 3, "name": L.name, "item": url },
         ],
       },
     ],
@@ -120,13 +120,13 @@ export default async function SymptomPage({ params }: { params: Params }) {
       <main className="page-outer">
         <div className="max-w-2xl mx-auto">
           <nav aria-label={t.breadcrumb} className="text-sm text-slate-500 mb-6">
-            <Link href="/symptomes" className="hover:text-primary-700 font-medium">{t.title}</Link>
+            <Link href="/traitements" className="hover:text-primary-700 font-medium">{t.title}</Link>
           </nav>
 
           <span className="inline-block text-[11px] font-bold uppercase tracking-widest text-primary-600 mb-2">{t.breadcrumb}</span>
-          <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-3" dir="auto">{L.term}</h1>
-          {topic.synonyms.length > 0 && (
-            <p className="text-sm text-slate-500 mb-6" dir="auto"><span className="font-semibold text-slate-600">{t.alsoCalled} :</span> {topic.synonyms.join(" · ")}</p>
+          <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-3" dir="auto">{L.name}</h1>
+          {treatment.synonyms.length > 0 && (
+            <p className="text-sm text-slate-500 mb-6" dir="auto"><span className="font-semibold text-slate-600">{t.alsoCalled} :</span> {treatment.synonyms.join(" · ")}</p>
           )}
 
           {/* En bref — réponse courte (cible speakable / featured snippet) */}
@@ -135,15 +135,38 @@ export default async function SymptomPage({ params }: { params: Params }) {
             <p className="text-lg text-slate-800 leading-relaxed" dir="auto">{L.shortAnswer}</p>
           </div>
 
-          {/* Causes fréquentes */}
-          {causes.length > 0 && (
+          {/* Options de traitement */}
+          {options.length > 0 && (
             <section className="mb-8">
-              <h2 className="text-xl font-bold text-slate-900 mb-3">{t.causesTitle}</h2>
+              <h2 className="text-xl font-bold text-slate-900 mb-3">{t.optionsTitle}</h2>
               <ul className="space-y-2">
-                {causes.map((c, i) => (
+                {options.map((c, i) => (
                   <li key={i} className="flex gap-3 text-slate-700" dir="auto">
                     <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary-400" />
                     <span className="leading-relaxed">{c}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {/* Durée et suivi */}
+          {L.duration && (
+            <section className="mb-8">
+              <h2 className="text-xl font-bold text-slate-900 mb-3">{t.durationTitle}</h2>
+              <p className="text-slate-700 leading-relaxed whitespace-pre-line" dir="auto">{L.duration}</p>
+            </section>
+          )}
+
+          {/* Effets indésirables et précautions — encadré ambre */}
+          {sideEffects.length > 0 && (
+            <section className="mb-8 rounded-2xl border border-amber-200 bg-amber-50/70 p-5 sm:p-6">
+              <h2 className="text-lg font-bold text-amber-800 mb-3">{t.sideEffectsTitle}</h2>
+              <ul className="space-y-2">
+                {sideEffects.map((r, i) => (
+                  <li key={i} className="flex gap-3 text-amber-900" dir="auto">
+                    <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500" />
+                    <span className="leading-relaxed">{r}</span>
                   </li>
                 ))}
               </ul>
@@ -178,19 +201,19 @@ export default async function SymptomPage({ params }: { params: Params }) {
           )}
 
           {/* Quel médecin consulter → conversion */}
-          {topic.specialty && (
+          {treatment.specialty && (
             <section className="mb-8 rounded-2xl border border-primary-100 bg-primary-50/50 p-5 sm:p-6">
               <p className="text-xs font-bold uppercase tracking-widest text-primary-400 mb-2">{t.specialtyTitle}</p>
-              <Link href={`/specialites/${topic.specialty.slug}`} className="inline-flex items-center gap-2 text-base font-semibold text-primary-700 hover:text-primary-800">
+              <Link href={`/specialites/${treatment.specialty.slug}`} className="inline-flex items-center gap-2 text-base font-semibold text-primary-700 hover:text-primary-800">
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 rtl:-scale-x-100" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><path d="m6 3 5 5-5 5" /></svg>
-                {t.specialtyCta.replace("{specialty}", topic.specialty.name)}
+                {t.specialtyCta.replace("{specialty}", treatment.specialty.name)}
               </Link>
             </section>
           )}
 
-          {/* Praticiens réservables de la spécialité (réutilise le widget blog) */}
-          {topic.specialty && (
-            <RelatedDoctors specialtySlug={topic.specialty.slug} specialtyLabel={topic.specialty.name} t={dict.card} tb={tb} locale={locale} />
+          {/* Praticiens réservables de la spécialité */}
+          {treatment.specialty && (
+            <RelatedDoctors specialtySlug={treatment.specialty.slug} specialtyLabel={treatment.specialty.name} t={dict.card} tb={tb} locale={locale} />
           )}
 
           {/* FAQ (rend visible + JSON-LD FAQPage) */}
@@ -200,7 +223,7 @@ export default async function SymptomPage({ params }: { params: Params }) {
           <ArticleSources items={sources} t={tb} />
 
           {/* Signature de relecture éditoriale (honnête : si reviewedAt) + transparence */}
-          <EditorialReviewNote reviewedAt={topic.reviewedAt} locale={locale} tb={tb} />
+          <EditorialReviewNote reviewedAt={treatment.reviewedAt} locale={locale} tb={tb} />
 
           {/* Maillage : articles + glossaire */}
           {relatedPosts.length > 0 && (
@@ -229,7 +252,7 @@ export default async function SymptomPage({ params }: { params: Params }) {
           <p className="text-xs text-slate-400 mt-10 leading-relaxed">{t.disclaimer}</p>
 
           <div className="mt-8 pt-6 border-t border-slate-100">
-            <Link href="/symptomes" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-primary-700">
+            <Link href="/traitements" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-primary-700">
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 rtl:-scale-x-100" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><path d="m10 3-5 5 5 5" /></svg>
               {t.backToList}
             </Link>
