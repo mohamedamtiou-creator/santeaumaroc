@@ -32,24 +32,24 @@ model User {
   createdAt                DateTime  @default(now())
   updatedAt                DateTime  @updatedAt
 
-  appointments      Appointment[]      @relation("PatientAppointments")
-  reviews           Review[]           @relation("PatientReviews")
-  doctorProfile     Doctor?
-  claims            DoctorClaim[]
-  reviewedClaims    DoctorClaim[]      @relation("ClaimReviewer")
-  adminLogs         VerificationLog[]  @relation("VerificationAdmin")
-  supportTickets    SupportTicket[]    @relation("UserSupportTickets")
-  supportReplies    SupportTicket[]    @relation("SupportTicketReplies")
-  authoredPosts     Post[]             @relation("AuthorPosts")
-  reviewedPosts     Post[]             @relation("ReviewerPosts")
-  subscriptionLeads SubscriptionLead[] @relation("UserSubscriptionLeads")
+  appointments         Appointment[]         @relation("PatientAppointments")
+  reviews              Review[]              @relation("PatientReviews")
+  doctorProfile        Doctor?
+  claims               DoctorClaim[]
+  reviewedClaims       DoctorClaim[]         @relation("ClaimReviewer")
+  adminLogs            VerificationLog[]     @relation("VerificationAdmin")
+  supportTickets       SupportTicket[]       @relation("UserSupportTickets")
+  supportReplies       SupportTicket[]       @relation("SupportTicketReplies")
+  authoredPosts        Post[]                @relation("AuthorPosts")
+  reviewedPosts        Post[]                @relation("ReviewerPosts")
+  subscriptionLeads    SubscriptionLead[]    @relation("UserSubscriptionLeads")
   // Espace Questions / Réponses médicales
-  questions         Question[]         @relation("AskedQuestions")
-  answerVotes       AnswerVote[]
-  thanks            Thank[]
-  qaComments        AnswerComment[]    @relation("UserQaComments")
-  questionFollows   QuestionFollow[]
-  reports           Report[]           @relation("UserReports")
+  questions            Question[]            @relation("AskedQuestions")
+  answerVotes          AnswerVote[]
+  thanks               Thank[]
+  qaComments           AnswerComment[]       @relation("UserQaComments")
+  questionFollows      QuestionFollow[]
+  reports              Report[]              @relation("UserReports")
   establishmentReviews EstablishmentReview[] @relation("UserEstablishmentReviews")
   medicationReviews    MedicationReview[]    @relation("UserMedicationReviews")
 
@@ -76,6 +76,8 @@ model Specialty {
   questions      Question[]
   glossaryTerms  GlossaryTerm[]
   healthTopics   HealthTopic[]
+  medicalExams   MedicalExam[]
+  treatments     Treatment[]
 
   @@map("specialties")
 }
@@ -192,7 +194,7 @@ model Establishment {
   avatar        String?
   latitude      Float? // coordonnées de l'établissement (SEO local / schema geo)
   longitude     Float?
-  geoApprox     Boolean @default(false) // true = repli centroïde ville (pas l'adresse exacte)
+  geoApprox     Boolean    @default(false) // true = repli centroïde ville (pas l'adresse exacte)
   cityId        String
   city          City       @relation(fields: [cityId], references: [id])
   specialtyId   String?
@@ -637,56 +639,56 @@ model PostCategory {
 }
 
 model Post {
-  id           String       @id @default(cuid())
-  title        String
-  slug         String       @unique
-  excerpt      String       @db.Text
-  content      String       @db.Text
-  coverImage   String?
-  coverAlt     String? // texte alternatif SEO décrivant l'image de couverture (repli = titre)
-  categoryId   String
-  category     PostCategory @relation(fields: [categoryId], references: [id])
-  authorId     String
-  author       User         @relation("AuthorPosts", fields: [authorId], references: [id])
+  id             String       @id @default(cuid())
+  title          String
+  slug           String       @unique
+  excerpt        String       @db.Text
+  content        String       @db.Text
+  coverImage     String?
+  coverAlt       String? // texte alternatif SEO décrivant l'image de couverture (repli = titre)
+  categoryId     String
+  category       PostCategory @relation(fields: [categoryId], references: [id])
+  authorId       String
+  author         User         @relation("AuthorPosts", fields: [authorId], references: [id])
   // Relecture médicale (E-E-A-T / YMYL)
-  reviewedById String?
-  reviewedBy   User?        @relation("ReviewerPosts", fields: [reviewedById], references: [id], onDelete: SetNull)
-  reviewedAt   DateTime? // date de dernière vérification médicale (= lastReviewed)
-  status       String       @default("DRAFT")
-  publishedAt  DateTime?
-  readingTime  Int?
-  metaTitle    String?
-  metaDesc     String?
+  reviewedById   String?
+  reviewedBy     User?        @relation("ReviewerPosts", fields: [reviewedById], references: [id], onDelete: SetNull)
+  reviewedAt     DateTime? // date de dernière vérification médicale (= lastReviewed)
+  status         String       @default("DRAFT")
+  publishedAt    DateTime?
+  readingTime    Int?
+  metaTitle      String?
+  metaDesc       String?
   // Optimisation GEO / AI Overview
-  keyTakeaways String?      @db.Text // « À retenir » — points clés, 1 par ligne
-  faqJson      String?      @db.Text // FAQ structurée : JSON [{ "q": "...", "a": "..." }]
+  keyTakeaways   String?      @db.Text // « À retenir » — points clés, 1 par ligne
+  faqJson        String?      @db.Text // FAQ structurée : JSON [{ "q": "...", "a": "..." }]
   // Sources / références médicales (E-E-A-T + attribution IA). JSON :
   // [{ "label": "...", "url": "https://...", "publisher"?: "OMS", "year"?: "2024" }]
   // Rendu en pied d'article + JSON-LD `citation`. Repli FR si `sourcesAr` vide.
-  sources      String?      @db.Text
+  sources        String?      @db.Text
   // Entité médicale réelle pour JSON-LD about (ex. « Diabète de type 2 »),
   // distincte du titre de l'article. Repli sur le titre si vide.
-  aboutEntity  String?
+  aboutEntity    String?
   // Traduction arabe (contenu). Servie/indexée UNIQUEMENT une fois `arReviewedAt`
   // posé (relecture humaine — garde-fou YMYL). Repli FR si absent. cf lib/blog-content.
   titleAr        String?
-  excerptAr      String?   @db.Text
-  contentAr      String?   @db.Text
+  excerptAr      String?      @db.Text
+  contentAr      String?      @db.Text
   metaTitleAr    String?
   metaDescAr     String?
-  keyTakeawaysAr String?   @db.Text
-  faqJsonAr      String?   @db.Text
-  sourcesAr      String?   @db.Text // traduction AR des sources (mêmes URLs, labels traduits)
+  keyTakeawaysAr String?      @db.Text
+  faqJsonAr      String?      @db.Text
+  sourcesAr      String?      @db.Text // traduction AR des sources (mêmes URLs, labels traduits)
   arReviewedAt   DateTime? // relecture humaine AR validée → autorise l'affichage AR
   // Cocon sémantique : un satellite pointe vers son pilier (guide exhaustif).
   // Le pilier expose ses satellites via la relation inverse.
-  pillarId     String?
-  pillar       Post?        @relation("Cocon", fields: [pillarId], references: [id], onDelete: SetNull)
-  satellites   Post[]       @relation("Cocon")
-  views        Int          @default(0)
-  featured     Boolean      @default(false)
-  createdAt    DateTime     @default(now())
-  updatedAt    DateTime     @updatedAt
+  pillarId       String?
+  pillar         Post?        @relation("Cocon", fields: [pillarId], references: [id], onDelete: SetNull)
+  satellites     Post[]       @relation("Cocon")
+  views          Int          @default(0)
+  featured       Boolean      @default(false)
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
 
   @@index([status, publishedAt])
   @@index([categoryId, status])
@@ -744,40 +746,142 @@ model GlossaryTerm {
 // ─────────────────────────────────────────
 
 model HealthTopic {
-  id            String     @id @default(cuid())
-  kind          String     @default("SYMPTOM") // SYMPTOM | DISEASE (extension future)
-  term          String // libellé FR (ex. « Mal de tête »)
-  slug          String     @unique
-  shortAnswer   String     @db.Text // réponse courte FR (40-70 mots, extractible IA)
-  causes        String     @db.Text // causes fréquentes, 1 par ligne
-  redFlags      String     @db.Text // signes d'alerte / quand consulter en urgence, 1 par ligne
-  whenToConsult String?    @db.Text // paragraphe « quand consulter » (hors urgence)
-  faqJson       String?    @db.Text // FAQ [{ "q": "...", "a": "..." }]
-  synonyms      String[]   @default([])
-  specialtyId   String?
-  specialty     Specialty? @relation(fields: [specialtyId], references: [id], onDelete: SetNull)
-  relatedSlugs  String[]   @default([]) // slugs d'articles blog piliers liés (maillage)
-  glossarySlugs String[]   @default([]) // slugs de termes de glossaire liés
-  sources       String?    @db.Text // JSON [{label,url,publisher?,year?}]
+  id              String     @id @default(cuid())
+  kind            String     @default("SYMPTOM") // SYMPTOM | DISEASE (extension future)
+  term            String // libellé FR (ex. « Mal de tête »)
+  slug            String     @unique
+  shortAnswer     String     @db.Text // réponse courte FR (40-70 mots, extractible IA)
+  causes          String     @db.Text // causes fréquentes, 1 par ligne
+  redFlags        String     @db.Text // signes d'alerte / quand consulter en urgence, 1 par ligne
+  whenToConsult   String?    @db.Text // paragraphe « quand consulter » (hors urgence)
+  faqJson         String?    @db.Text // FAQ [{ "q": "...", "a": "..." }]
+  synonyms        String[]   @default([])
+  specialtyId     String?
+  specialty       Specialty? @relation(fields: [specialtyId], references: [id], onDelete: SetNull)
+  relatedSlugs    String[]   @default([]) // slugs d'articles blog piliers liés (maillage)
+  glossarySlugs   String[]   @default([]) // slugs de termes de glossaire liés
+  sources         String?    @db.Text // JSON [{label,url,publisher?,year?}]
   // Traduction arabe (relue). Servie/indexée uniquement si `arReviewedAt`. Repli FR.
   termAr          String?
-  shortAnswerAr   String?  @db.Text
-  causesAr        String?  @db.Text
-  redFlagsAr      String?  @db.Text
-  whenToConsultAr String?  @db.Text
-  faqJsonAr       String?  @db.Text
-  sourcesAr       String?  @db.Text
+  shortAnswerAr   String?    @db.Text
+  causesAr        String?    @db.Text
+  redFlagsAr      String?    @db.Text
+  whenToConsultAr String?    @db.Text
+  faqJsonAr       String?    @db.Text
+  sourcesAr       String?    @db.Text
   arReviewedAt    DateTime?
   // Verrou d'indexation FR (YMYL) : `noindex` tant que non relu.
-  reviewedAt    DateTime?
-  status        String     @default("PUBLISHED") // PUBLISHED | DRAFT
-  views         Int        @default(0)
-  createdAt     DateTime   @default(now())
-  updatedAt     DateTime   @updatedAt
+  reviewedAt      DateTime?
+  status          String     @default("PUBLISHED") // PUBLISHED | DRAFT
+  views           Int        @default(0)
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
 
   @@index([kind, status, term])
   @@index([specialtyId, status])
   @@map("health_topics")
+}
+
+// ─────────────────────────────────────────
+// EXAMENS MÉDICAUX — fiches « patient »
+// C'est quoi → indications → déroulé → préparation → durée/prix → précautions →
+// spécialité → FAQ. Format extractible IA (AI Overviews) + fort intent commercial
+// (« prix IRM Casablanca »). Mêmes garde-fous YMYL que le glossaire/symptômes :
+// FR indexé si `reviewedAt`, AR si `arReviewedAt`. Repli FR. cf lib/medical-exam.
+// ─────────────────────────────────────────
+
+model MedicalExam {
+  id              String     @id @default(cuid())
+  name            String // libellé FR (ex. « IRM », « Échographie »)
+  slug            String     @unique
+  category        String     @default("general") // imagerie | biologie | exploration | anatomopathologie | general
+  shortAnswer     String     @db.Text // « c'est quoi » FR (40-70 mots, extractible IA)
+  indications     String     @db.Text // pourquoi le prescrire, 1 par ligne
+  procedure       String     @db.Text // comment ça se passe (déroulé)
+  preparation     String?    @db.Text // à jeun ? consignes préalables ?
+  precautions     String?    @db.Text // contre-indications / précautions, 1 par ligne
+  durationMin     Int? // durée approximative de l'examen (minutes)
+  priceMin        Int? // fourchette de prix indicative au Maroc (MAD)
+  priceMax        Int?
+  reimbursement   String? // remboursement AMO/CNSS (ex. « ~70 % base BR »)
+  faqJson         String?    @db.Text // FAQ [{ "q": "...", "a": "..." }]
+  synonyms        String[]   @default([]) // « aussi appelé » + aide à la recherche
+  specialtyId     String?
+  specialty       Specialty? @relation(fields: [specialtyId], references: [id], onDelete: SetNull)
+  relatedSlugs    String[]   @default([]) // slugs d'articles blog piliers liés (maillage)
+  glossarySlugs   String[]   @default([]) // slugs de termes de glossaire liés
+  sources         String?    @db.Text // JSON [{label,url,publisher?,year?}]
+  // Traduction arabe (relue). Servie/indexée uniquement si `arReviewedAt`. Repli FR.
+  nameAr          String?
+  shortAnswerAr   String?    @db.Text
+  indicationsAr   String?    @db.Text
+  procedureAr     String?    @db.Text
+  preparationAr   String?    @db.Text
+  precautionsAr   String?    @db.Text
+  reimbursementAr String?
+  faqJsonAr       String?    @db.Text
+  sourcesAr       String?    @db.Text
+  arReviewedAt    DateTime?
+  // Verrou d'indexation FR (YMYL) : `noindex` tant que non relu.
+  reviewedAt      DateTime?
+  status          String     @default("PUBLISHED") // PUBLISHED | DRAFT
+  views           Int        @default(0)
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  @@index([category, status])
+  @@index([specialtyId, status])
+  @@index([status, name])
+  @@map("medical_exams")
+}
+
+// ─────────────────────────────────────────
+// TRAITEMENTS — fiches « patient »
+// En bref → options thérapeutiques → durée/suivi → effets/précautions → quand
+// consulter → spécialité → FAQ. Anti-cannibalisation : maille vers les articles
+// piliers plutôt que de les dupliquer. Garde-fous YMYL identiques. cf lib/treatment.
+// ─────────────────────────────────────────
+
+model Treatment {
+  id              String     @id @default(cuid())
+  name            String // libellé FR (ex. « Traitement de l'eczéma »)
+  slug            String     @unique
+  category        String     @default("general") // medicamenteux | chirurgical | fonctionnel | hygiene-de-vie | general
+  shortAnswer     String     @db.Text // « en bref » FR (40-70 mots, extractible IA)
+  options         String     @db.Text // options thérapeutiques, 1 par ligne
+  duration        String?    @db.Text // durée & suivi (paragraphe)
+  sideEffects     String?    @db.Text // effets secondaires / précautions, 1 par ligne
+  redFlags        String?    @db.Text // signes d'alerte / quand consulter en urgence, 1 par ligne
+  whenToConsult   String?    @db.Text // paragraphe « quand consulter » (hors urgence)
+  faqJson         String?    @db.Text // FAQ [{ "q": "...", "a": "..." }]
+  synonyms        String[]   @default([])
+  specialtyId     String?
+  specialty       Specialty? @relation(fields: [specialtyId], references: [id], onDelete: SetNull)
+  relatedSlugs    String[]   @default([]) // slugs d'articles blog piliers liés (maillage)
+  glossarySlugs   String[]   @default([]) // slugs de termes de glossaire liés
+  sources         String?    @db.Text // JSON [{label,url,publisher?,year?}]
+  // Traduction arabe (relue). Servie/indexée uniquement si `arReviewedAt`. Repli FR.
+  nameAr          String?
+  shortAnswerAr   String?    @db.Text
+  optionsAr       String?    @db.Text
+  durationAr      String?    @db.Text
+  sideEffectsAr   String?    @db.Text
+  redFlagsAr      String?    @db.Text
+  whenToConsultAr String?    @db.Text
+  faqJsonAr       String?    @db.Text
+  sourcesAr       String?    @db.Text
+  arReviewedAt    DateTime?
+  // Verrou d'indexation FR (YMYL) : `noindex` tant que non relu.
+  reviewedAt      DateTime?
+  status          String     @default("PUBLISHED") // PUBLISHED | DRAFT
+  views           Int        @default(0)
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  @@index([category, status])
+  @@index([specialtyId, status])
+  @@index([status, name])
+  @@map("treatments")
 }
 
 // ─────────────────────────────────────────
@@ -788,48 +892,48 @@ model HealthTopic {
 // ─────────────────────────────────────────
 
 model Question {
-  id             String     @id @default(cuid())
-  slug           String     @unique
-  title          String // la question, éventuellement reformulée (IA / admin)
-  body           String?    @db.Text // contexte / détails facultatifs
-  status         String     @default("PENDING") // PENDING | PUBLISHED | REJECTED | MERGED
-  askedById      String
-  askedBy        User       @relation("AskedQuestions", fields: [askedById], references: [id], onDelete: Cascade)
-  specialtyId    String?
-  specialty      Specialty? @relation(fields: [specialtyId], references: [id])
-  cityId         String?
-  city           City?      @relation(fields: [cityId], references: [id])
-  tags           String[]   @default([])
-  views          Int        @default(0)
-  isAnonymous    Boolean    @default(false) // masque l'identité du demandeur sur la page publique
-  metaTitle      String?
-  metaDesc       String?
-  aiSummary      String?    @db.Text // « L'essentiel » synthétisé — extraction AI Overviews
+  id                      String     @id @default(cuid())
+  slug                    String     @unique
+  title                   String // la question, éventuellement reformulée (IA / admin)
+  body                    String?    @db.Text // contexte / détails facultatifs
+  status                  String     @default("PENDING") // PENDING | PUBLISHED | REJECTED | MERGED
+  askedById               String
+  askedBy                 User       @relation("AskedQuestions", fields: [askedById], references: [id], onDelete: Cascade)
+  specialtyId             String?
+  specialty               Specialty? @relation(fields: [specialtyId], references: [id])
+  cityId                  String?
+  city                    City?      @relation(fields: [cityId], references: [id])
+  tags                    String[]   @default([])
+  views                   Int        @default(0)
+  isAnonymous             Boolean    @default(false) // masque l'identité du demandeur sur la page publique
+  metaTitle               String?
+  metaDesc                String?
+  aiSummary               String?    @db.Text // « L'essentiel » synthétisé — extraction AI Overviews
   // Gouvernance YMYL : « L'essentiel » est DÉRIVÉ de la réponse acceptée. On trace
   // sa source + son horodatage pour interdire l'affichage d'un résumé orphelin
   // (réponse retirée/dé-acceptée) ou divergent (réponse éditée après génération).
   // cf lib/qa-summary + garde-fou d'affichage page [slug].
   aiSummarySourceAnswerId String? // id de la réponse acceptée d'où provient le résumé
-  aiSummaryAt    DateTime? // date de (re)génération du résumé
+  aiSummaryAt             DateTime? // date de (re)génération du résumé
   // Traduction arabe (contenu). Servie/indexée uniquement une fois `arReviewedAt`
   // posé (relecture humaine — garde-fou YMYL). Fallback FR si absent. cf lib/qa-content.
-  titleAr        String?
-  bodyAr         String?    @db.Text
-  aiSummaryAr    String?    @db.Text
-  metaTitleAr    String?
-  metaDescAr     String?
-  arReviewedAt   DateTime?
-  urgencyLevel   String     @default("NONE") // NONE | ADVICE | URGENT (heuristique / IA)
-  moderationNote String?
+  titleAr                 String?
+  bodyAr                  String?    @db.Text
+  aiSummaryAr             String?    @db.Text
+  metaTitleAr             String?
+  metaDescAr              String?
+  arReviewedAt            DateTime?
+  urgencyLevel            String     @default("NONE") // NONE | ADVICE | URGENT (heuristique / IA)
+  moderationNote          String?
   // Fusion de doublons : la question fusionnée pointe vers sa cible canonique.
-  mergedIntoId   String?
-  mergedInto     Question?  @relation("QuestionMerge", fields: [mergedIntoId], references: [id], onDelete: SetNull)
-  mergedFrom     Question[] @relation("QuestionMerge")
-  answersCount   Int        @default(0) // dénormalisé (perf liste)
-  publishedAt    DateTime?
-  lastAnswerAt   DateTime?
-  createdAt      DateTime   @default(now())
-  updatedAt      DateTime   @updatedAt
+  mergedIntoId            String?
+  mergedInto              Question?  @relation("QuestionMerge", fields: [mergedIntoId], references: [id], onDelete: SetNull)
+  mergedFrom              Question[] @relation("QuestionMerge")
+  answersCount            Int        @default(0) // dénormalisé (perf liste)
+  publishedAt             DateTime?
+  lastAnswerAt            DateTime?
+  createdAt               DateTime   @default(now())
+  updatedAt               DateTime   @updatedAt
 
   answers Answer[]
   follows QuestionFollow[]
@@ -853,22 +957,22 @@ model Question {
 }
 
 model Answer {
-  id          String    @id @default(cuid())
-  questionId  String
-  question    Question  @relation(fields: [questionId], references: [id], onDelete: Cascade)
-  doctorId    String
-  doctor      Doctor    @relation(fields: [doctorId], references: [id], onDelete: Cascade)
-  body        String    @db.Text // HTML (Tiptap) assaini côté serveur
-  bodyAr      String?   @db.Text // traduction arabe (relue) — cf lib/qa-content
+  id           String    @id @default(cuid())
+  questionId   String
+  question     Question  @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  doctorId     String
+  doctor       Doctor    @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+  body         String    @db.Text // HTML (Tiptap) assaini côté serveur
+  bodyAr       String?   @db.Text // traduction arabe (relue) — cf lib/qa-content
   arReviewedAt DateTime? // relecture humaine AR validée
-  status      String    @default("PUBLISHED") // PUBLISHED | PENDING | REMOVED
-  isAccepted  Boolean   @default(false) // « meilleure réponse » (auteur question ou admin)
-  upvotes     Int       @default(0) // dénormalisé
-  thanksCount Int       @default(0) // dénormalisé
-  score       Float     @default(0) // rang calculé (votes + accepted + boost Pro/vérifié − décote temps)
-  editedAt    DateTime?
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  status       String    @default("PUBLISHED") // PUBLISHED | PENDING | REMOVED
+  isAccepted   Boolean   @default(false) // « meilleure réponse » (auteur question ou admin)
+  upvotes      Int       @default(0) // dénormalisé
+  thanksCount  Int       @default(0) // dénormalisé
+  score        Float     @default(0) // rang calculé (votes + accepted + boost Pro/vérifié − décote temps)
+  editedAt     DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
 
   votes    AnswerVote[]
   thanks   Thank[]
@@ -972,9 +1076,9 @@ model QaModerationLog {
 // Historique des modifications (snapshots) pour questions et réponses.
 model QaRevision {
   id            String   @id @default(cuid())
-  entityType    String   // QUESTION | ANSWER
+  entityType    String // QUESTION | ANSWER
   entityId      String
-  editorId      String?  // User.id de l'éditeur (null = système)
+  editorId      String? // User.id de l'éditeur (null = système)
   previousTitle String?
   previousBody  String?  @db.Text
   createdAt     DateTime @default(now())

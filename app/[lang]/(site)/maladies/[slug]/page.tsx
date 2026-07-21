@@ -17,13 +17,13 @@ const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 type Params = Promise<{ lang: string; slug: string }>;
 
 export async function generateStaticParams() {
-  const topics = await prisma.healthTopic.findMany({ where: { kind: "SYMPTOM", status: "PUBLISHED" }, select: { slug: true } });
+  const topics = await prisma.healthTopic.findMany({ where: { kind: "DISEASE", status: "PUBLISHED" }, select: { slug: true } });
   return topics.map((t) => ({ slug: t.slug }));
 }
 
 const getTopic = cache((slug: string) =>
   prisma.healthTopic.findFirst({
-    where: { slug, kind: "SYMPTOM", status: "PUBLISHED" },
+    where: { slug, kind: "DISEASE", status: "PUBLISHED" },
     include: { specialty: { select: { slug: true, name: true } } },
   }),
 );
@@ -31,11 +31,11 @@ const getTopic = cache((slug: string) =>
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { lang, slug } = await params;
   const topic = await getTopic(slug);
-  if (!topic) return { title: "Symptôme introuvable", robots: { index: false } };
+  if (!topic) return { title: "Maladie introuvable", robots: { index: false } };
 
   const locale = toLocale(lang);
   const L = topicLocalized(topic, locale);
-  const title = `${L.term} : causes et quand consulter`;
+  const title = `${L.term} : causes, symptômes et quand consulter`;
   const description = L.shortAnswer.slice(0, 160);
   const arReady = isTopicArReady(topic);
   const indexable = isTopicReviewed(topic) && (locale !== "ar" || arReady);
@@ -43,20 +43,20 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   return {
     title,
     description,
-    alternates: arReady ? localizedAlternates(`/symptomes/${slug}`, locale) : frenchOnlyAlternates(`/symptomes/${slug}`),
+    alternates: arReady ? localizedAlternates(`/maladies/${slug}`, locale) : frenchOnlyAlternates(`/maladies/${slug}`),
     ...(indexable ? {} : { robots: { index: false, follow: true } }),
-    openGraph: { title, description, url: `/symptomes/${slug}`, type: "article", locale: L.isArabic ? "ar_MA" : "fr_MA" },
+    openGraph: { title, description, url: `/maladies/${slug}`, type: "article", locale: L.isArabic ? "ar_MA" : "fr_MA" },
   };
 }
 
-export default async function SymptomPage({ params }: { params: Params }) {
+export default async function MaladiePage({ params }: { params: Params }) {
   const { lang, slug } = await params;
   const topic = await getTopic(slug);
   if (!topic) notFound();
 
   const locale = toLocale(lang);
   const dict = getDictionary(locale);
-  const t = dict.symptoms;
+  const t = dict.diseases;
   const tb = dict.blog;
   const L = topicLocalized(topic, locale);
 
@@ -64,9 +64,8 @@ export default async function SymptomPage({ params }: { params: Params }) {
   const redFlags = parseLines(L.redFlags);
   const faqItems = parseFaq(L.faqJson);
   const sources = parseSources(L.sources);
-  const url = `${locale === "ar" ? `${BASE}/ar` : BASE}/symptomes/${slug}`;
+  const url = `${locale === "ar" ? `${BASE}/ar` : BASE}/maladies/${slug}`;
 
-  // Maillage : articles blog + termes de glossaire liés (titres récupérés).
   const [relatedPosts, relatedTerms] = await Promise.all([
     topic.relatedSlugs.length
       ? prisma.post.findMany({ where: { slug: { in: topic.relatedSlugs }, status: "PUBLISHED" }, select: { slug: true, title: true } })
@@ -90,10 +89,11 @@ export default async function SymptomPage({ params }: { params: Params }) {
           "reviewedBy": { "@type": "Organization", "name": "Rédaction médicale SantéauMaroc", "url": BASE },
         } : {}),
         "mainEntity": {
-          "@type": "MedicalSymptom",
+          "@type": "MedicalCondition",
           "name": L.term,
           ...(topic.synonyms.length > 0 && { "alternateName": topic.synonyms }),
-          ...(causes.length > 0 && { "possibleCause": causes.map((c) => ({ "@type": "MedicalEntity", "name": c })) }),
+          ...(causes.length > 0 && { "cause": causes.map((c) => ({ "@type": "MedicalCause", "name": c })) }),
+          ...(redFlags.length > 0 && { "signOrSymptom": redFlags.map((r) => ({ "@type": "MedicalSignOrSymptom", "name": r })) }),
           ...(topic.specialty && { "relevantSpecialty": { "@type": "MedicalSpecialty", "name": topic.specialty.name } }),
         },
         "audience": { "@type": "MedicalAudience", "audienceType": "Patient" },
@@ -106,7 +106,7 @@ export default async function SymptomPage({ params }: { params: Params }) {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": locale === "ar" ? "الرئيسية" : "Accueil", "item": BASE },
-          { "@type": "ListItem", "position": 2, "name": t.breadcrumb, "item": `${locale === "ar" ? `${BASE}/ar` : BASE}/symptomes` },
+          { "@type": "ListItem", "position": 2, "name": t.breadcrumb, "item": `${locale === "ar" ? `${BASE}/ar` : BASE}/maladies` },
           { "@type": "ListItem", "position": 3, "name": L.term, "item": url },
         ],
       },
@@ -120,7 +120,7 @@ export default async function SymptomPage({ params }: { params: Params }) {
       <main className="page-outer">
         <div className="max-w-2xl mx-auto">
           <nav aria-label={t.breadcrumb} className="text-sm text-slate-500 mb-6">
-            <Link href="/symptomes" className="hover:text-primary-700 font-medium">{t.title}</Link>
+            <Link href="/maladies" className="hover:text-primary-700 font-medium">{t.title}</Link>
           </nav>
 
           <span className="inline-block text-[11px] font-bold uppercase tracking-widest text-primary-600 mb-2">{t.breadcrumb}</span>
@@ -135,7 +135,7 @@ export default async function SymptomPage({ params }: { params: Params }) {
             <p className="text-lg text-slate-800 leading-relaxed" dir="auto">{L.shortAnswer}</p>
           </div>
 
-          {/* Causes fréquentes */}
+          {/* Causes et facteurs de risque */}
           {causes.length > 0 && (
             <section className="mb-8">
               <h2 className="text-xl font-bold text-slate-900 mb-3">{t.causesTitle}</h2>
@@ -188,7 +188,7 @@ export default async function SymptomPage({ params }: { params: Params }) {
             </section>
           )}
 
-          {/* Praticiens réservables de la spécialité (réutilise le widget blog) */}
+          {/* Praticiens réservables de la spécialité */}
           {topic.specialty && (
             <RelatedDoctors specialtySlug={topic.specialty.slug} specialtyLabel={topic.specialty.name} t={dict.card} tb={tb} locale={locale} />
           )}
@@ -229,7 +229,7 @@ export default async function SymptomPage({ params }: { params: Params }) {
           <p className="text-xs text-slate-400 mt-10 leading-relaxed">{t.disclaimer}</p>
 
           <div className="mt-8 pt-6 border-t border-slate-100">
-            <Link href="/symptomes" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-primary-700">
+            <Link href="/maladies" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-primary-700">
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 rtl:-scale-x-100" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><path d="m10 3-5 5 5 5" /></svg>
               {t.backToList}
             </Link>

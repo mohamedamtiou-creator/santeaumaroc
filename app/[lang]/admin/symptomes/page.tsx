@@ -135,7 +135,7 @@ export default async function AdminSymptomesPage({
                     <td className="px-4 py-4">
                       <div className="flex items-center justify-end gap-1">
                         <a
-                          href={`/symptomes/${t.slug}`} target="_blank" rel="noopener noreferrer"
+                          href={`/${t.kind === "DISEASE" ? "maladies" : "symptomes"}/${t.slug}`} target="_blank" rel="noopener noreferrer"
                           className="p-1.5 rounded-lg text-slate-500 hover:text-primary-600 hover:bg-primary-50 transition-colors"
                           title="Voir le hub"
                         >

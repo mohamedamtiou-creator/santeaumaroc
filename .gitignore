@@ -39,6 +39,9 @@ yarn-error.log*
 # ...sauf le modèle documenté (aucun secret) : il DOIT être versionné.
 !.env.example
 
+# exports de données ponctuels (régénérables via scripts/) — non versionnés
+/ar-urls-to-index.txt
+
 # vercel
 .vercel
 

@@ -44,6 +44,10 @@ function staticPages(now: Date): MetadataRoute.Sitemap {
     { url: `${BASE}/blog`,                      lastModified: now, changeFrequency: "daily",   priority: 0.85 },
     { url: `${BASE}/questions`,                 lastModified: now, changeFrequency: "daily",   priority: 0.85 },
     { url: `${BASE}/symptomes`,                 lastModified: now, changeFrequency: "weekly",  priority: 0.75 },
+    { url: `${BASE}/maladies`,                  lastModified: now, changeFrequency: "weekly",  priority: 0.75 },
+    { url: `${BASE}/prix`,                      lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/examens`,                   lastModified: now, changeFrequency: "weekly",  priority: 0.75 },
+    { url: `${BASE}/traitements`,               lastModified: now, changeFrequency: "weekly",  priority: 0.75 },
     { url: `${BASE}/glossaire`,                 lastModified: now, changeFrequency: "weekly",  priority: 0.7 },
     { url: `${BASE}/sante-darija`,              lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/specialites`,               lastModified: now, changeFrequency: "weekly",  priority: 0.8 },
@@ -70,7 +74,7 @@ function staticPages(now: Date): MetadataRoute.Sitemap {
 }
 
 async function coreEntries(now: Date): Promise<MetadataRoute.Sitemap> {
-  const [specialties, cities, postCategories, questionSpecialties, glossary, symptoms] = await Promise.all([
+  const [specialties, cities, postCategories, questionSpecialties, glossary, symptoms, diseases, exams, treatments] = await Promise.all([
     prisma.specialty.findMany({ select: { slug: true }, orderBy: { order: "asc" } }),
     prisma.city.findMany({ select: { slug: true }, orderBy: { order: "asc" } }),
     prisma.postCategory.findMany({
@@ -95,6 +99,24 @@ async function coreEntries(now: Date): Promise<MetadataRoute.Sitemap> {
       where: { kind: "SYMPTOM", status: "PUBLISHED", reviewedAt: { not: null } },
       select: { slug: true, updatedAt: true, arReviewedAt: true },
       orderBy: { term: "asc" },
+    }),
+    // Maladies RELUES uniquement (même modèle HealthTopic, kind DISEASE).
+    prisma.healthTopic.findMany({
+      where: { kind: "DISEASE", status: "PUBLISHED", reviewedAt: { not: null } },
+      select: { slug: true, updatedAt: true, arReviewedAt: true },
+      orderBy: { term: "asc" },
+    }),
+    // Examens RELUS uniquement (cohérence découverte ↔ indexabilité).
+    prisma.medicalExam.findMany({
+      where: { status: "PUBLISHED", reviewedAt: { not: null } },
+      select: { slug: true, updatedAt: true, arReviewedAt: true },
+      orderBy: { name: "asc" },
+    }),
+    // Traitements RELUS uniquement (idem).
+    prisma.treatment.findMany({
+      where: { status: "PUBLISHED", reviewedAt: { not: null } },
+      select: { slug: true, updatedAt: true, arReviewedAt: true },
+      orderBy: { name: "asc" },
     }),
   ]);
 
@@ -130,6 +152,51 @@ async function coreEntries(now: Date): Promise<MetadataRoute.Sitemap> {
         priority: 0.65,
         alternates: {
           languages: s.arReviewedAt
+            ? { "fr-MA": fr, "ar-MA": ar, "x-default": fr }
+            : { "fr-MA": fr, "x-default": fr },
+        },
+      };
+    }),
+    ...diseases.map((d) => {
+      const fr = `${BASE}/maladies/${d.slug}`;
+      const ar = `${BASE}/ar/maladies/${d.slug}`;
+      return {
+        url: fr,
+        lastModified: d.updatedAt,
+        changeFrequency: "monthly" as const,
+        priority: 0.65,
+        alternates: {
+          languages: d.arReviewedAt
+            ? { "fr-MA": fr, "ar-MA": ar, "x-default": fr }
+            : { "fr-MA": fr, "x-default": fr },
+        },
+      };
+    }),
+    ...exams.map((e) => {
+      const fr = `${BASE}/examens/${e.slug}`;
+      const ar = `${BASE}/ar/examens/${e.slug}`;
+      return {
+        url: fr,
+        lastModified: e.updatedAt,
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+        alternates: {
+          languages: e.arReviewedAt
+            ? { "fr-MA": fr, "ar-MA": ar, "x-default": fr }
+            : { "fr-MA": fr, "x-default": fr },
+        },
+      };
+    }),
+    ...treatments.map((tr) => {
+      const fr = `${BASE}/traitements/${tr.slug}`;
+      const ar = `${BASE}/ar/traitements/${tr.slug}`;
+      return {
+        url: fr,
+        lastModified: tr.updatedAt,
+        changeFrequency: "monthly" as const,
+        priority: 0.65,
+        alternates: {
+          languages: tr.arReviewedAt
             ? { "fr-MA": fr, "ar-MA": ar, "x-default": fr }
             : { "fr-MA": fr, "x-default": fr },
         },

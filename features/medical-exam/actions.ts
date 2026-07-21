@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { verifySession } from "@/lib/dal";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { parseLines } from "@/lib/health-topic";
+import { parseLines } from "@/lib/medical-exam";
 
 async function requireAdmin() {
   const session = await verifySession();
@@ -30,21 +30,24 @@ function toSlug(str: string) {
     .trim();
 }
 
-/** Split une saisie « valeurs séparées par des virgules » → tableau unique. */
 function normCsv(raw: string): string[] {
   const seen = new Set<string>();
-  for (const v of raw.split(",").map((s) => s.trim()).filter(Boolean)) {
-    seen.add(v);
-  }
+  for (const v of raw.split(",").map((s) => s.trim()).filter(Boolean)) seen.add(v);
   return [...seen];
 }
 
-/** Liste « 1 item par ligne » re-normalisée (puces tolérées). Vide → "". */
 function normLines(raw: string): string {
   return parseLines(raw).join("\n");
 }
 
-/** Valide la FAQ JSON [{q,a}] ; vide → null ; format invalide → throw. */
+/** Entier positif ou null (durée, prix en MAD). */
+function normInt(raw: string): number | null {
+  const s = (raw ?? "").trim();
+  if (!s) return null;
+  const n = parseInt(s, 10);
+  return Number.isFinite(n) && n >= 0 ? n : null;
+}
+
 function normFaq(raw: string): string | null {
   const s = raw.trim();
   if (!s) return null;
@@ -60,7 +63,6 @@ function normFaq(raw: string): string | null {
   return JSON.stringify(parsed.map((x) => ({ q: x.q.trim(), a: x.a.trim() })));
 }
 
-/** Valide les sources JSON [{label,url,publisher?,year?}] ; vide → null. */
 function normSources(raw: string): string | null {
   const s = raw.trim();
   if (!s) return null;
@@ -84,13 +86,18 @@ function normSources(raw: string): string | null {
 }
 
 function readFields(formData: FormData) {
-  const kind = ((formData.get("kind") ?? "SYMPTOM") as string).trim().toUpperCase();
-  const term = ((formData.get("term") ?? "") as string).trim();
-  const slug = toSlug(((formData.get("slug") ?? "") as string).trim() || term);
+  const name = ((formData.get("name") ?? "") as string).trim();
+  const slug = toSlug(((formData.get("slug") ?? "") as string).trim() || name);
+  const category = ((formData.get("category") ?? "general") as string).trim() || "general";
   const shortAnswer = ((formData.get("shortAnswer") ?? "") as string).trim();
-  const causes = normLines((formData.get("causes") as string) ?? "");
-  const redFlags = normLines((formData.get("redFlags") as string) ?? "");
-  const whenToConsult = ((formData.get("whenToConsult") ?? "") as string).trim() || null;
+  const indications = normLines((formData.get("indications") as string) ?? "");
+  const procedure = normLines((formData.get("procedure") as string) ?? "");
+  const preparation = ((formData.get("preparation") ?? "") as string).trim() || null;
+  const precautions = normLines((formData.get("precautions") as string) ?? "") || null;
+  const durationMin = normInt((formData.get("durationMin") as string) ?? "");
+  const priceMin = normInt((formData.get("priceMin") as string) ?? "");
+  const priceMax = normInt((formData.get("priceMax") as string) ?? "");
+  const reimbursement = ((formData.get("reimbursement") ?? "") as string).trim() || null;
   const faqJson = normFaq((formData.get("faqJson") as string) ?? "");
   const synonyms = normCsv((formData.get("synonyms") as string) ?? "");
   const specialtyId = ((formData.get("specialtyId") ?? "") as string).trim() || null;
@@ -98,47 +105,33 @@ function readFields(formData: FormData) {
   const glossarySlugs = normCsv((formData.get("glossarySlugs") as string) ?? "");
   const sources = normSources((formData.get("sources") as string) ?? "");
 
-  // Version arabe
-  const termAr = ((formData.get("termAr") ?? "") as string).trim() || null;
+  const nameAr = ((formData.get("nameAr") ?? "") as string).trim() || null;
   const shortAnswerAr = ((formData.get("shortAnswerAr") ?? "") as string).trim() || null;
-  const causesArRaw = normLines((formData.get("causesAr") as string) ?? "");
-  const causesAr = causesArRaw || null;
-  const redFlagsArRaw = normLines((formData.get("redFlagsAr") as string) ?? "");
-  const redFlagsAr = redFlagsArRaw || null;
-  const whenToConsultAr = ((formData.get("whenToConsultAr") ?? "") as string).trim() || null;
+  const indicationsAr = normLines((formData.get("indicationsAr") as string) ?? "") || null;
+  const procedureAr = normLines((formData.get("procedureAr") as string) ?? "") || null;
+  const preparationAr = ((formData.get("preparationAr") ?? "") as string).trim() || null;
+  const precautionsAr = normLines((formData.get("precautionsAr") as string) ?? "") || null;
+  const reimbursementAr = ((formData.get("reimbursementAr") ?? "") as string).trim() || null;
   const faqJsonAr = normFaq((formData.get("faqJsonAr") as string) ?? "");
   const sourcesAr = normSources((formData.get("sourcesAr") as string) ?? "");
 
   const status = ((formData.get("status") ?? "PUBLISHED") as string).trim().toUpperCase();
   const publish = formData.get("publish");
 
-  if (!term) throw new Error("Le terme (FR) est obligatoire.");
+  if (!name) throw new Error("Le nom (FR) est obligatoire.");
   if (!slug) throw new Error("Le slug est obligatoire.");
   if (!shortAnswer) throw new Error("La réponse courte est obligatoire.");
+  if (priceMin !== null && priceMax !== null && priceMin > priceMax) {
+    throw new Error("Le prix minimum ne peut pas dépasser le prix maximum.");
+  }
 
   return {
-    kind: kind === "DISEASE" ? "DISEASE" : "SYMPTOM",
-    term,
-    slug,
-    shortAnswer,
-    causes,
-    redFlags,
-    whenToConsult,
-    faqJson,
-    synonyms,
-    specialtyId,
-    relatedSlugs,
-    glossarySlugs,
-    sources,
-    termAr,
-    shortAnswerAr,
-    causesAr,
-    redFlagsAr,
-    whenToConsultAr,
-    faqJsonAr,
-    sourcesAr,
+    name, slug, category, shortAnswer, indications, procedure, preparation, precautions,
+    durationMin, priceMin, priceMax, reimbursement, faqJson, synonyms, specialtyId,
+    relatedSlugs, glossarySlugs, sources,
+    nameAr, shortAnswerAr, indicationsAr, procedureAr, preparationAr, precautionsAr,
+    reimbursementAr, faqJsonAr, sourcesAr,
     status: status === "DRAFT" ? "DRAFT" : "PUBLISHED",
-    // Le bouton « Publier » force PUBLISHED ; « Brouillon » force DRAFT.
     publishOverride: publish === "true" ? "PUBLISHED" : publish === "false" ? "DRAFT" : null,
   };
 }
@@ -147,7 +140,15 @@ function isP2002(e: unknown): boolean {
   return !!e && typeof e === "object" && "code" in e && (e as { code?: string }).code === "P2002";
 }
 
-export async function createTopic(formData: FormData) {
+function revalidateAll(slug: string) {
+  revalidatePath("/examens");
+  revalidatePath(`/examens/${slug}`);
+  revalidatePath("/ar/examens");
+  revalidatePath(`/ar/examens/${slug}`);
+  revalidatePath("/sitemap.xml");
+}
+
+export async function createExam(formData: FormData) {
   await requireAdmin();
   const f = readFields(formData);
   const markReviewed = formData.get("markReviewed") === "true";
@@ -155,28 +156,17 @@ export async function createTopic(formData: FormData) {
   const status = f.publishOverride ?? f.status;
 
   try {
-    await prisma.healthTopic.create({
+    await prisma.medicalExam.create({
       data: {
-        kind: f.kind,
-        term: f.term,
-        slug: f.slug,
-        shortAnswer: f.shortAnswer,
-        causes: f.causes,
-        redFlags: f.redFlags,
-        whenToConsult: f.whenToConsult,
-        faqJson: f.faqJson,
-        synonyms: f.synonyms,
-        specialtyId: f.specialtyId,
-        relatedSlugs: f.relatedSlugs,
-        glossarySlugs: f.glossarySlugs,
-        sources: f.sources,
-        termAr: f.termAr,
-        shortAnswerAr: f.shortAnswerAr,
-        causesAr: f.causesAr,
-        redFlagsAr: f.redFlagsAr,
-        whenToConsultAr: f.whenToConsultAr,
-        faqJsonAr: f.faqJsonAr,
-        sourcesAr: f.sourcesAr,
+        name: f.name, slug: f.slug, category: f.category,
+        shortAnswer: f.shortAnswer, indications: f.indications, procedure: f.procedure,
+        preparation: f.preparation, precautions: f.precautions,
+        durationMin: f.durationMin, priceMin: f.priceMin, priceMax: f.priceMax, reimbursement: f.reimbursement,
+        faqJson: f.faqJson, synonyms: f.synonyms, specialtyId: f.specialtyId,
+        relatedSlugs: f.relatedSlugs, glossarySlugs: f.glossarySlugs, sources: f.sources,
+        nameAr: f.nameAr, shortAnswerAr: f.shortAnswerAr, indicationsAr: f.indicationsAr,
+        procedureAr: f.procedureAr, preparationAr: f.preparationAr, precautionsAr: f.precautionsAr,
+        reimbursementAr: f.reimbursementAr, faqJsonAr: f.faqJsonAr, sourcesAr: f.sourcesAr,
         status,
         reviewedAt: markReviewed ? new Date() : null,
         arReviewedAt: markArReviewed ? new Date() : null,
@@ -187,19 +177,11 @@ export async function createTopic(formData: FormData) {
     throw e;
   }
 
-  revalidatePath("/symptomes");
-  revalidatePath(`/symptomes/${f.slug}`);
-  revalidatePath("/ar/symptomes");
-  revalidatePath(`/ar/symptomes/${f.slug}`);
-  revalidatePath("/maladies");
-  revalidatePath(`/maladies/${f.slug}`);
-  revalidatePath("/ar/maladies");
-  revalidatePath(`/ar/maladies/${f.slug}`);
-  revalidatePath("/sitemap.xml");
-  redirect("/admin/symptomes");
+  revalidateAll(f.slug);
+  redirect("/admin/examens");
 }
 
-export async function updateTopic(id: string, formData: FormData) {
+export async function updateExam(id: string, formData: FormData) {
   await requireAdmin();
   const f = readFields(formData);
   const markReviewed = formData.get("markReviewed") === "true";
@@ -209,31 +191,19 @@ export async function updateTopic(id: string, formData: FormData) {
   const status = f.publishOverride ?? f.status;
 
   try {
-    await prisma.healthTopic.update({
+    await prisma.medicalExam.update({
       where: { id },
       data: {
-        kind: f.kind,
-        term: f.term,
-        slug: f.slug,
-        shortAnswer: f.shortAnswer,
-        causes: f.causes,
-        redFlags: f.redFlags,
-        whenToConsult: f.whenToConsult,
-        faqJson: f.faqJson,
-        synonyms: f.synonyms,
-        specialtyId: f.specialtyId,
-        relatedSlugs: f.relatedSlugs,
-        glossarySlugs: f.glossarySlugs,
-        sources: f.sources,
-        termAr: f.termAr,
-        shortAnswerAr: f.shortAnswerAr,
-        causesAr: f.causesAr,
-        redFlagsAr: f.redFlagsAr,
-        whenToConsultAr: f.whenToConsultAr,
-        faqJsonAr: f.faqJsonAr,
-        sourcesAr: f.sourcesAr,
+        name: f.name, slug: f.slug, category: f.category,
+        shortAnswer: f.shortAnswer, indications: f.indications, procedure: f.procedure,
+        preparation: f.preparation, precautions: f.precautions,
+        durationMin: f.durationMin, priceMin: f.priceMin, priceMax: f.priceMax, reimbursement: f.reimbursement,
+        faqJson: f.faqJson, synonyms: f.synonyms, specialtyId: f.specialtyId,
+        relatedSlugs: f.relatedSlugs, glossarySlugs: f.glossarySlugs, sources: f.sources,
+        nameAr: f.nameAr, shortAnswerAr: f.shortAnswerAr, indicationsAr: f.indicationsAr,
+        procedureAr: f.procedureAr, preparationAr: f.preparationAr, precautionsAr: f.precautionsAr,
+        reimbursementAr: f.reimbursementAr, faqJsonAr: f.faqJsonAr, sourcesAr: f.sourcesAr,
         status,
-        // Re-relecture : retrait prioritaire (repasse en noindex) ; sinon pose la date si cochée.
         ...(unmarkReviewed ? { reviewedAt: null } : markReviewed ? { reviewedAt: new Date() } : {}),
         ...(unmarkArReviewed ? { arReviewedAt: null } : markArReviewed ? { arReviewedAt: new Date() } : {}),
       },
@@ -243,22 +213,13 @@ export async function updateTopic(id: string, formData: FormData) {
     throw e;
   }
 
-  revalidatePath("/symptomes");
-  revalidatePath(`/symptomes/${f.slug}`);
-  revalidatePath("/ar/symptomes");
-  revalidatePath(`/ar/symptomes/${f.slug}`);
-  revalidatePath("/maladies");
-  revalidatePath(`/maladies/${f.slug}`);
-  revalidatePath("/ar/maladies");
-  revalidatePath(`/ar/maladies/${f.slug}`);
-  revalidatePath("/sitemap.xml");
-  redirect("/admin/symptomes");
+  revalidateAll(f.slug);
+  redirect("/admin/examens");
 }
 
-export async function deleteTopic(id: string) {
+export async function deleteExam(id: string) {
   await requireAdmin();
-  await prisma.healthTopic.delete({ where: { id } });
-  revalidatePath("/symptomes");
-  revalidatePath("/maladies");
+  await prisma.medicalExam.delete({ where: { id } });
+  revalidatePath("/examens");
   revalidatePath("/sitemap.xml");
 }

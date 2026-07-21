@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { verifySession } from "@/lib/dal";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { parseLines } from "@/lib/health-topic";
+import { parseLines } from "@/lib/treatment";
 
 async function requireAdmin() {
   const session = await verifySession();
@@ -30,21 +30,16 @@ function toSlug(str: string) {
     .trim();
 }
 
-/** Split une saisie « valeurs séparées par des virgules » → tableau unique. */
 function normCsv(raw: string): string[] {
   const seen = new Set<string>();
-  for (const v of raw.split(",").map((s) => s.trim()).filter(Boolean)) {
-    seen.add(v);
-  }
+  for (const v of raw.split(",").map((s) => s.trim()).filter(Boolean)) seen.add(v);
   return [...seen];
 }
 
-/** Liste « 1 item par ligne » re-normalisée (puces tolérées). Vide → "". */
 function normLines(raw: string): string {
   return parseLines(raw).join("\n");
 }
 
-/** Valide la FAQ JSON [{q,a}] ; vide → null ; format invalide → throw. */
 function normFaq(raw: string): string | null {
   const s = raw.trim();
   if (!s) return null;
@@ -60,7 +55,6 @@ function normFaq(raw: string): string | null {
   return JSON.stringify(parsed.map((x) => ({ q: x.q.trim(), a: x.a.trim() })));
 }
 
-/** Valide les sources JSON [{label,url,publisher?,year?}] ; vide → null. */
 function normSources(raw: string): string | null {
   const s = raw.trim();
   if (!s) return null;
@@ -84,12 +78,14 @@ function normSources(raw: string): string | null {
 }
 
 function readFields(formData: FormData) {
-  const kind = ((formData.get("kind") ?? "SYMPTOM") as string).trim().toUpperCase();
-  const term = ((formData.get("term") ?? "") as string).trim();
-  const slug = toSlug(((formData.get("slug") ?? "") as string).trim() || term);
+  const name = ((formData.get("name") ?? "") as string).trim();
+  const slug = toSlug(((formData.get("slug") ?? "") as string).trim() || name);
+  const category = ((formData.get("category") ?? "general") as string).trim() || "general";
   const shortAnswer = ((formData.get("shortAnswer") ?? "") as string).trim();
-  const causes = normLines((formData.get("causes") as string) ?? "");
-  const redFlags = normLines((formData.get("redFlags") as string) ?? "");
+  const options = normLines((formData.get("options") as string) ?? "");
+  const duration = ((formData.get("duration") ?? "") as string).trim() || null;
+  const sideEffects = normLines((formData.get("sideEffects") as string) ?? "") || null;
+  const redFlags = normLines((formData.get("redFlags") as string) ?? "") || null;
   const whenToConsult = ((formData.get("whenToConsult") ?? "") as string).trim() || null;
   const faqJson = normFaq((formData.get("faqJson") as string) ?? "");
   const synonyms = normCsv((formData.get("synonyms") as string) ?? "");
@@ -98,13 +94,12 @@ function readFields(formData: FormData) {
   const glossarySlugs = normCsv((formData.get("glossarySlugs") as string) ?? "");
   const sources = normSources((formData.get("sources") as string) ?? "");
 
-  // Version arabe
-  const termAr = ((formData.get("termAr") ?? "") as string).trim() || null;
+  const nameAr = ((formData.get("nameAr") ?? "") as string).trim() || null;
   const shortAnswerAr = ((formData.get("shortAnswerAr") ?? "") as string).trim() || null;
-  const causesArRaw = normLines((formData.get("causesAr") as string) ?? "");
-  const causesAr = causesArRaw || null;
-  const redFlagsArRaw = normLines((formData.get("redFlagsAr") as string) ?? "");
-  const redFlagsAr = redFlagsArRaw || null;
+  const optionsAr = normLines((formData.get("optionsAr") as string) ?? "") || null;
+  const durationAr = ((formData.get("durationAr") ?? "") as string).trim() || null;
+  const sideEffectsAr = normLines((formData.get("sideEffectsAr") as string) ?? "") || null;
+  const redFlagsAr = normLines((formData.get("redFlagsAr") as string) ?? "") || null;
   const whenToConsultAr = ((formData.get("whenToConsultAr") ?? "") as string).trim() || null;
   const faqJsonAr = normFaq((formData.get("faqJsonAr") as string) ?? "");
   const sourcesAr = normSources((formData.get("sourcesAr") as string) ?? "");
@@ -112,33 +107,16 @@ function readFields(formData: FormData) {
   const status = ((formData.get("status") ?? "PUBLISHED") as string).trim().toUpperCase();
   const publish = formData.get("publish");
 
-  if (!term) throw new Error("Le terme (FR) est obligatoire.");
+  if (!name) throw new Error("Le nom (FR) est obligatoire.");
   if (!slug) throw new Error("Le slug est obligatoire.");
   if (!shortAnswer) throw new Error("La réponse courte est obligatoire.");
 
   return {
-    kind: kind === "DISEASE" ? "DISEASE" : "SYMPTOM",
-    term,
-    slug,
-    shortAnswer,
-    causes,
-    redFlags,
-    whenToConsult,
-    faqJson,
-    synonyms,
-    specialtyId,
-    relatedSlugs,
-    glossarySlugs,
-    sources,
-    termAr,
-    shortAnswerAr,
-    causesAr,
-    redFlagsAr,
-    whenToConsultAr,
-    faqJsonAr,
-    sourcesAr,
+    name, slug, category, shortAnswer, options, duration, sideEffects, redFlags, whenToConsult,
+    faqJson, synonyms, specialtyId, relatedSlugs, glossarySlugs, sources,
+    nameAr, shortAnswerAr, optionsAr, durationAr, sideEffectsAr, redFlagsAr, whenToConsultAr,
+    faqJsonAr, sourcesAr,
     status: status === "DRAFT" ? "DRAFT" : "PUBLISHED",
-    // Le bouton « Publier » force PUBLISHED ; « Brouillon » force DRAFT.
     publishOverride: publish === "true" ? "PUBLISHED" : publish === "false" ? "DRAFT" : null,
   };
 }
@@ -147,7 +125,15 @@ function isP2002(e: unknown): boolean {
   return !!e && typeof e === "object" && "code" in e && (e as { code?: string }).code === "P2002";
 }
 
-export async function createTopic(formData: FormData) {
+function revalidateAll(slug: string) {
+  revalidatePath("/traitements");
+  revalidatePath(`/traitements/${slug}`);
+  revalidatePath("/ar/traitements");
+  revalidatePath(`/ar/traitements/${slug}`);
+  revalidatePath("/sitemap.xml");
+}
+
+export async function createTreatment(formData: FormData) {
   await requireAdmin();
   const f = readFields(formData);
   const markReviewed = formData.get("markReviewed") === "true";
@@ -155,28 +141,16 @@ export async function createTopic(formData: FormData) {
   const status = f.publishOverride ?? f.status;
 
   try {
-    await prisma.healthTopic.create({
+    await prisma.treatment.create({
       data: {
-        kind: f.kind,
-        term: f.term,
-        slug: f.slug,
-        shortAnswer: f.shortAnswer,
-        causes: f.causes,
-        redFlags: f.redFlags,
-        whenToConsult: f.whenToConsult,
-        faqJson: f.faqJson,
-        synonyms: f.synonyms,
-        specialtyId: f.specialtyId,
-        relatedSlugs: f.relatedSlugs,
-        glossarySlugs: f.glossarySlugs,
-        sources: f.sources,
-        termAr: f.termAr,
-        shortAnswerAr: f.shortAnswerAr,
-        causesAr: f.causesAr,
-        redFlagsAr: f.redFlagsAr,
-        whenToConsultAr: f.whenToConsultAr,
-        faqJsonAr: f.faqJsonAr,
-        sourcesAr: f.sourcesAr,
+        name: f.name, slug: f.slug, category: f.category,
+        shortAnswer: f.shortAnswer, options: f.options, duration: f.duration,
+        sideEffects: f.sideEffects, redFlags: f.redFlags, whenToConsult: f.whenToConsult,
+        faqJson: f.faqJson, synonyms: f.synonyms, specialtyId: f.specialtyId,
+        relatedSlugs: f.relatedSlugs, glossarySlugs: f.glossarySlugs, sources: f.sources,
+        nameAr: f.nameAr, shortAnswerAr: f.shortAnswerAr, optionsAr: f.optionsAr,
+        durationAr: f.durationAr, sideEffectsAr: f.sideEffectsAr, redFlagsAr: f.redFlagsAr,
+        whenToConsultAr: f.whenToConsultAr, faqJsonAr: f.faqJsonAr, sourcesAr: f.sourcesAr,
         status,
         reviewedAt: markReviewed ? new Date() : null,
         arReviewedAt: markArReviewed ? new Date() : null,
@@ -187,19 +161,11 @@ export async function createTopic(formData: FormData) {
     throw e;
   }
 
-  revalidatePath("/symptomes");
-  revalidatePath(`/symptomes/${f.slug}`);
-  revalidatePath("/ar/symptomes");
-  revalidatePath(`/ar/symptomes/${f.slug}`);
-  revalidatePath("/maladies");
-  revalidatePath(`/maladies/${f.slug}`);
-  revalidatePath("/ar/maladies");
-  revalidatePath(`/ar/maladies/${f.slug}`);
-  revalidatePath("/sitemap.xml");
-  redirect("/admin/symptomes");
+  revalidateAll(f.slug);
+  redirect("/admin/traitements");
 }
 
-export async function updateTopic(id: string, formData: FormData) {
+export async function updateTreatment(id: string, formData: FormData) {
   await requireAdmin();
   const f = readFields(formData);
   const markReviewed = formData.get("markReviewed") === "true";
@@ -209,31 +175,18 @@ export async function updateTopic(id: string, formData: FormData) {
   const status = f.publishOverride ?? f.status;
 
   try {
-    await prisma.healthTopic.update({
+    await prisma.treatment.update({
       where: { id },
       data: {
-        kind: f.kind,
-        term: f.term,
-        slug: f.slug,
-        shortAnswer: f.shortAnswer,
-        causes: f.causes,
-        redFlags: f.redFlags,
-        whenToConsult: f.whenToConsult,
-        faqJson: f.faqJson,
-        synonyms: f.synonyms,
-        specialtyId: f.specialtyId,
-        relatedSlugs: f.relatedSlugs,
-        glossarySlugs: f.glossarySlugs,
-        sources: f.sources,
-        termAr: f.termAr,
-        shortAnswerAr: f.shortAnswerAr,
-        causesAr: f.causesAr,
-        redFlagsAr: f.redFlagsAr,
-        whenToConsultAr: f.whenToConsultAr,
-        faqJsonAr: f.faqJsonAr,
-        sourcesAr: f.sourcesAr,
+        name: f.name, slug: f.slug, category: f.category,
+        shortAnswer: f.shortAnswer, options: f.options, duration: f.duration,
+        sideEffects: f.sideEffects, redFlags: f.redFlags, whenToConsult: f.whenToConsult,
+        faqJson: f.faqJson, synonyms: f.synonyms, specialtyId: f.specialtyId,
+        relatedSlugs: f.relatedSlugs, glossarySlugs: f.glossarySlugs, sources: f.sources,
+        nameAr: f.nameAr, shortAnswerAr: f.shortAnswerAr, optionsAr: f.optionsAr,
+        durationAr: f.durationAr, sideEffectsAr: f.sideEffectsAr, redFlagsAr: f.redFlagsAr,
+        whenToConsultAr: f.whenToConsultAr, faqJsonAr: f.faqJsonAr, sourcesAr: f.sourcesAr,
         status,
-        // Re-relecture : retrait prioritaire (repasse en noindex) ; sinon pose la date si cochée.
         ...(unmarkReviewed ? { reviewedAt: null } : markReviewed ? { reviewedAt: new Date() } : {}),
         ...(unmarkArReviewed ? { arReviewedAt: null } : markArReviewed ? { arReviewedAt: new Date() } : {}),
       },
@@ -243,22 +196,13 @@ export async function updateTopic(id: string, formData: FormData) {
     throw e;
   }
 
-  revalidatePath("/symptomes");
-  revalidatePath(`/symptomes/${f.slug}`);
-  revalidatePath("/ar/symptomes");
-  revalidatePath(`/ar/symptomes/${f.slug}`);
-  revalidatePath("/maladies");
-  revalidatePath(`/maladies/${f.slug}`);
-  revalidatePath("/ar/maladies");
-  revalidatePath(`/ar/maladies/${f.slug}`);
-  revalidatePath("/sitemap.xml");
-  redirect("/admin/symptomes");
+  revalidateAll(f.slug);
+  redirect("/admin/traitements");
 }
 
-export async function deleteTopic(id: string) {
+export async function deleteTreatment(id: string) {
   await requireAdmin();
-  await prisma.healthTopic.delete({ where: { id } });
-  revalidatePath("/symptomes");
-  revalidatePath("/maladies");
+  await prisma.treatment.delete({ where: { id } });
+  revalidatePath("/traitements");
   revalidatePath("/sitemap.xml");
 }
