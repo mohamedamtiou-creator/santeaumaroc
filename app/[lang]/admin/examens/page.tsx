@@ -67,7 +67,7 @@ export default async function AdminExamensPage({
 
       {exams.length === 0 ? (
         <div className="text-center py-20 bg-white rounded-2xl border border-slate-200">
-          <p className="text-slate-500 mb-4">Aucun examen pour l'instant.</p>
+          <p className="text-slate-500 mb-4">Aucun examen pour l&rsquo;instant.</p>
           <Link href="/admin/examens/nouveau" className="text-primary-600 underline text-sm">Créer le premier examen</Link>
         </div>
       ) : (

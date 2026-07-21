@@ -225,7 +225,7 @@ export function ExamEditor({ specialties, exam }: { specialties: SpecialtyOption
       <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-5">
         <h2 className="text-sm font-bold text-slate-900">Contenu (français)</h2>
         <div>
-          <label className={labelCls}>Réponse courte * <span className="normal-case font-normal text-slate-500">(« c'est quoi », 40-70 mots, extractible par les IA)</span></label>
+          <label className={labelCls}>Réponse courte * <span className="normal-case font-normal text-slate-500">(« c&rsquo;est quoi », 40-70 mots, extractible par les IA)</span></label>
           <textarea value={shortAnswer} onChange={(e) => setShortAnswer(e.target.value)} rows={3} placeholder="Description concise de l'examen." className={`${inputCls} resize-y`} />
         </div>
         <div>
@@ -254,7 +254,7 @@ export function ExamEditor({ specialties, exam }: { specialties: SpecialtyOption
       <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-5">
         <div>
           <h2 className="text-sm font-bold text-slate-900">Maillage interne</h2>
-          <p className="text-xs text-slate-500 mt-1">Slugs d'articles piliers et de termes de glossaire liés (anti-cannibalisation).</p>
+          <p className="text-xs text-slate-500 mt-1">Slugs d&rsquo;articles piliers et de termes de glossaire liés (anti-cannibalisation).</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
@@ -311,7 +311,7 @@ export function ExamEditor({ specialties, exam }: { specialties: SpecialtyOption
         </div>
         <label className="flex items-center gap-3 cursor-pointer select-none">
           <input type="checkbox" checked={markReviewed} onChange={(e) => { setMarkReviewed(e.target.checked); if (e.target.checked) setUnmarkReviewed(false); }} className="w-4 h-4 rounded border-slate-300 text-secondary-600 focus:ring-secondary-500" />
-          <span className="text-sm font-medium text-slate-700">Marquer comme relu (FR) aujourd'hui — autorise l'indexation{exam?.reviewedAt && <span className="text-xs text-slate-400 font-normal"> (déjà relu)</span>}</span>
+          <span className="text-sm font-medium text-slate-700">Marquer comme relu (FR) aujourd&rsquo;hui — autorise l&rsquo;indexation{exam?.reviewedAt && <span className="text-xs text-slate-400 font-normal"> (déjà relu)</span>}</span>
         </label>
         {exam?.reviewedAt && (
           <label className="flex items-center gap-3 cursor-pointer select-none">
@@ -321,7 +321,7 @@ export function ExamEditor({ specialties, exam }: { specialties: SpecialtyOption
         )}
         <label className="flex items-center gap-3 cursor-pointer select-none">
           <input type="checkbox" checked={markArReviewed} onChange={(e) => { setMarkArReviewed(e.target.checked); if (e.target.checked) setUnmarkArReviewed(false); }} className="w-4 h-4 rounded border-slate-300 text-secondary-600 focus:ring-secondary-500" />
-          <span className="text-sm font-medium text-slate-700">Marquer comme relu (AR) aujourd'hui — autorise l'affichage arabe{exam?.arReviewedAt && <span className="text-xs text-slate-400 font-normal"> (déjà relu)</span>}</span>
+          <span className="text-sm font-medium text-slate-700">Marquer comme relu (AR) aujourd&rsquo;hui — autorise l&rsquo;affichage arabe{exam?.arReviewedAt && <span className="text-xs text-slate-400 font-normal"> (déjà relu)</span>}</span>
         </label>
         {exam?.arReviewedAt && (
           <label className="flex items-center gap-3 cursor-pointer select-none">

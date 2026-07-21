@@ -37,7 +37,7 @@ export default async function ModifierExamenPage({ params }: { params: Params })
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-xl font-bold text-slate-900">Modifier l'examen</h1>
+        <h1 className="text-xl font-bold text-slate-900">Modifier l&rsquo;examen</h1>
         <p className="text-sm text-slate-500 mt-0.5 font-mono">/examens/{exam.slug}</p>
       </div>
       <ExamEditor specialties={specialties} exam={examData} />

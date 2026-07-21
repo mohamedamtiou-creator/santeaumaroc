@@ -172,7 +172,7 @@ export function TreatmentEditor({ specialties, treatment }: { specialties: Speci
           </div>
         </div>
         <div>
-          <label className={labelCls}>Nom * <span className="normal-case font-normal text-slate-500">(ex. « Traitement de l'eczéma »)</span></label>
+          <label className={labelCls}>Nom * <span className="normal-case font-normal text-slate-500">(ex. « Traitement de l&rsquo;eczéma »)</span></label>
           <input type="text" value={name} onChange={(e) => handleNameChange(e.target.value)} placeholder="Nom du traitement" className={inputCls} />
         </div>
         <div>
@@ -208,7 +208,7 @@ export function TreatmentEditor({ specialties, treatment }: { specialties: Speci
           <textarea value={sideEffects} onChange={(e) => setSideEffects(e.target.value)} rows={3} placeholder={"Effet 1\nEffet 2"} className={`${inputCls} resize-y`} />
         </div>
         <div>
-          <label className={labelCls}>Signes d'alerte <span className="normal-case font-normal text-slate-500">(quand consulter en urgence — 1 par ligne)</span></label>
+          <label className={labelCls}>Signes d&rsquo;alerte <span className="normal-case font-normal text-slate-500">(quand consulter en urgence — 1 par ligne)</span></label>
           <textarea value={redFlags} onChange={(e) => setRedFlags(e.target.value)} rows={3} placeholder={"Signe d'alerte 1\nSigne d'alerte 2"} className={`${inputCls} resize-y`} />
         </div>
         <div>
@@ -225,7 +225,7 @@ export function TreatmentEditor({ specialties, treatment }: { specialties: Speci
       <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-5">
         <div>
           <h2 className="text-sm font-bold text-slate-900">Maillage interne</h2>
-          <p className="text-xs text-slate-500 mt-1">Slugs d'articles piliers et de termes de glossaire liés (anti-cannibalisation).</p>
+          <p className="text-xs text-slate-500 mt-1">Slugs d&rsquo;articles piliers et de termes de glossaire liés (anti-cannibalisation).</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
@@ -262,7 +262,7 @@ export function TreatmentEditor({ specialties, treatment }: { specialties: Speci
             <div><label className={labelCls}>Options (AR) <span className="normal-case font-normal text-slate-500">(1 par ligne)</span></label><textarea dir="rtl" value={optionsAr} onChange={(e) => setOptionsAr(e.target.value)} rows={4} className={`${inputCls} resize-y`} /></div>
             <div><label className={labelCls}>Durée et suivi (AR)</label><textarea dir="rtl" value={durationAr} onChange={(e) => setDurationAr(e.target.value)} rows={3} className={`${inputCls} resize-y`} /></div>
             <div><label className={labelCls}>Effets indésirables (AR) <span className="normal-case font-normal text-slate-500">(1 par ligne)</span></label><textarea dir="rtl" value={sideEffectsAr} onChange={(e) => setSideEffectsAr(e.target.value)} rows={3} className={`${inputCls} resize-y`} /></div>
-            <div><label className={labelCls}>Signes d'alerte (AR) <span className="normal-case font-normal text-slate-500">(1 par ligne)</span></label><textarea dir="rtl" value={redFlagsAr} onChange={(e) => setRedFlagsAr(e.target.value)} rows={3} className={`${inputCls} resize-y`} /></div>
+            <div><label className={labelCls}>Signes d&rsquo;alerte (AR) <span className="normal-case font-normal text-slate-500">(1 par ligne)</span></label><textarea dir="rtl" value={redFlagsAr} onChange={(e) => setRedFlagsAr(e.target.value)} rows={3} className={`${inputCls} resize-y`} /></div>
             <div><label className={labelCls}>Quand consulter (AR)</label><textarea dir="rtl" value={whenToConsultAr} onChange={(e) => setWhenToConsultAr(e.target.value)} rows={3} className={`${inputCls} resize-y`} /></div>
             <div><label className={labelCls}>FAQ (AR) <span className="normal-case font-normal text-slate-500">(JSON [{`{ "q", "a" }`}])</span></label><textarea dir="rtl" value={faqJsonAr} onChange={(e) => setFaqJsonAr(e.target.value)} rows={5} className={`${inputCls} resize-y font-mono text-xs`} /></div>
             <div><label className={labelCls}>Sources (AR)</label><textarea dir="rtl" value={sourcesAr} onChange={(e) => setSourcesAr(e.target.value)} rows={4} className={`${inputCls} resize-y font-mono text-xs`} /></div>
@@ -282,7 +282,7 @@ export function TreatmentEditor({ specialties, treatment }: { specialties: Speci
         </div>
         <label className="flex items-center gap-3 cursor-pointer select-none">
           <input type="checkbox" checked={markReviewed} onChange={(e) => { setMarkReviewed(e.target.checked); if (e.target.checked) setUnmarkReviewed(false); }} className="w-4 h-4 rounded border-slate-300 text-secondary-600 focus:ring-secondary-500" />
-          <span className="text-sm font-medium text-slate-700">Marquer comme relu (FR) aujourd'hui — autorise l'indexation{treatment?.reviewedAt && <span className="text-xs text-slate-400 font-normal"> (déjà relu)</span>}</span>
+          <span className="text-sm font-medium text-slate-700">Marquer comme relu (FR) aujourd&rsquo;hui — autorise l&rsquo;indexation{treatment?.reviewedAt && <span className="text-xs text-slate-400 font-normal"> (déjà relu)</span>}</span>
         </label>
         {treatment?.reviewedAt && (
           <label className="flex items-center gap-3 cursor-pointer select-none">
@@ -292,7 +292,7 @@ export function TreatmentEditor({ specialties, treatment }: { specialties: Speci
         )}
         <label className="flex items-center gap-3 cursor-pointer select-none">
           <input type="checkbox" checked={markArReviewed} onChange={(e) => { setMarkArReviewed(e.target.checked); if (e.target.checked) setUnmarkArReviewed(false); }} className="w-4 h-4 rounded border-slate-300 text-secondary-600 focus:ring-secondary-500" />
-          <span className="text-sm font-medium text-slate-700">Marquer comme relu (AR) aujourd'hui — autorise l'affichage arabe{treatment?.arReviewedAt && <span className="text-xs text-slate-400 font-normal"> (déjà relu)</span>}</span>
+          <span className="text-sm font-medium text-slate-700">Marquer comme relu (AR) aujourd&rsquo;hui — autorise l&rsquo;affichage arabe{treatment?.arReviewedAt && <span className="text-xs text-slate-400 font-normal"> (déjà relu)</span>}</span>
         </label>
         {treatment?.arReviewedAt && (
           <label className="flex items-center gap-3 cursor-pointer select-none">
