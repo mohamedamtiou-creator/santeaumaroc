@@ -14,6 +14,7 @@ import { AuthorBio } from "@/components/blog/AuthorBio";
 import { ArticleSources, parseSources } from "@/components/blog/ArticleSources";
 import { NewsletterSignup } from "@/components/blog/NewsletterSignup";
 import { incrementViews } from "@/features/blog/actions";
+import { ArticleViewTracker } from "@/components/blog/ArticleViewTracker";
 import { relatedSpecialty, specialtyCityLinks } from "@/lib/blog-related";
 import { RelatedDoctors } from "@/components/blog/RelatedDoctors";
 import { localizedAlternates } from "@/lib/hreflang";
@@ -445,6 +446,9 @@ export default async function BlogArticlePage({ params }: { params: Params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
+
+      {/* Traçage lecture (analytics auteur) */}
+      <ArticleViewTracker slug={slug} />
 
       {/* Barre de progression de lecture */}
       <ReadingProgress />

@@ -23,6 +23,21 @@ model User {
   credentials              String?   @db.Text // diplômes, expertise (1-2 lignes)
   bio                      String?   @db.Text // biographie courte affichée en bas d'article
   registrationNumber       String? // n° d'inscription à l'ordre (INPE) — optionnel
+  // ── Plateforme contributive « Publier un article » ──
+  // Le rôle peut désormais valoir CONTRIBUTOR (auteur pro) et EDITOR (relecteur médical),
+  // en plus de PATIENT | DOCTOR | ADMIN. cf lib/contributor.ts (constantes + gardes).
+  professionKind           String? // MEDECIN | DENTISTE | PHARMACIEN | PSYCHOLOGUE | NUTRITIONNISTE | KINE | SAGE_FEMME | INFIRMIER | PROFESSEUR | CHERCHEUR | ASSOCIATION | HOPITAL | CLINIQUE
+  authorSlug               String?   @unique // /auteur/[authorSlug] (ex. « dr-ahmed-alaoui »)
+  authorStatus             String    @default("UNVERIFIED") // UNVERIFIED | PENDING | VERIFIED | SUSPENDED
+  university               String? // faculté / institution (académiques)
+  orderName                String? // ordre professionnel (ex. « Ordre National des Médecins »)
+  website                  String?
+  linkedin                 String?
+  cabinetUrl               String? // lien vers la fiche cabinet / établissement
+  authorCityId             String? // ville d'exercice (réutilise City)
+  authorSpecialtyId        String? // spécialité (réutilise Specialty)
+  bioAr                    String?   @db.Text // biographie arabe (servie telle quelle si présente)
+  featuredAuthorUntil      DateTime? // « Auteur du mois » / mise en avant jusqu'à cette date
   isActive                 Boolean   @default(false)
   emailVerified            Boolean   @default(false)
   verificationToken        String?   @unique
@@ -52,9 +67,22 @@ model User {
   reports              Report[]              @relation("UserReports")
   establishmentReviews EstablishmentReview[] @relation("UserEstablishmentReviews")
   medicationReviews    MedicationReview[]    @relation("UserMedicationReviews")
+  // Plateforme contributive
+  authorCity           City?                 @relation("AuthorCity", fields: [authorCityId], references: [id])
+  authorSpecialty      Specialty?            @relation("AuthorSpecialty", fields: [authorSpecialtyId], references: [id])
+  contributorProfile   ContributorProfile?
+  licenses             MedicalLicense[]
+  reviewedLicenses     MedicalLicense[]      @relation("LicenseReviewer")
+  notifications        Notification[]
+  authorBadges         AuthorBadge[]
+  articleRevisions     ArticleRevision[]     @relation("RevisionAuthor")
+  assignedReviews      ReviewAssignment[]    @relation("EditorReviews")
+  editorialEvents      EditorialEvent[]      @relation("EventActor")
 
   @@index([email])
   @@index([role])
+  @@index([authorSlug])
+  @@index([authorStatus])
   @@index([verificationTokenExpiry])
   @@index([resetPasswordTokenExpiry])
   @@map("users")
@@ -78,6 +106,7 @@ model Specialty {
   healthTopics   HealthTopic[]
   medicalExams   MedicalExam[]
   treatments     Treatment[]
+  authoredBy     User[]          @relation("AuthorSpecialty")
 
   @@map("specialties")
 }
@@ -98,6 +127,7 @@ model City {
   doctors        Doctor[]
   establishments Establishment[]
   questions      Question[]
+  authoredBy     User[]          @relation("AuthorCity")
 
   @@map("cities")
 }
@@ -639,56 +669,74 @@ model PostCategory {
 }
 
 model Post {
-  id             String       @id @default(cuid())
-  title          String
-  slug           String       @unique
-  excerpt        String       @db.Text
-  content        String       @db.Text
-  coverImage     String?
-  coverAlt       String? // texte alternatif SEO décrivant l'image de couverture (repli = titre)
-  categoryId     String
-  category       PostCategory @relation(fields: [categoryId], references: [id])
-  authorId       String
-  author         User         @relation("AuthorPosts", fields: [authorId], references: [id])
+  id                 String       @id @default(cuid())
+  title              String
+  slug               String       @unique
+  excerpt            String       @db.Text
+  content            String       @db.Text
+  coverImage         String?
+  coverAlt           String? // texte alternatif SEO décrivant l'image de couverture (repli = titre)
+  categoryId         String
+  category           PostCategory @relation(fields: [categoryId], references: [id])
+  authorId           String
+  author             User         @relation("AuthorPosts", fields: [authorId], references: [id])
   // Relecture médicale (E-E-A-T / YMYL)
-  reviewedById   String?
-  reviewedBy     User?        @relation("ReviewerPosts", fields: [reviewedById], references: [id], onDelete: SetNull)
-  reviewedAt     DateTime? // date de dernière vérification médicale (= lastReviewed)
-  status         String       @default("DRAFT")
-  publishedAt    DateTime?
-  readingTime    Int?
-  metaTitle      String?
-  metaDesc       String?
+  reviewedById       String?
+  reviewedBy         User?        @relation("ReviewerPosts", fields: [reviewedById], references: [id], onDelete: SetNull)
+  reviewedAt         DateTime? // date de dernière vérification médicale (= lastReviewed)
+  status             String       @default("DRAFT")
+  publishedAt        DateTime?
+  readingTime        Int?
+  // ── Gouvernance éditoriale contributive (« Publier un article ») ──
+  // Un article rédigé par un professionnel EST un Post. `status` reste DRAFT|PUBLISHED
+  // (indexation) ; `editorialStatus` porte le workflow de validation humain. cf lib/contributor.ts.
+  editorialStatus    String       @default("DRAFT") // DRAFT | SUBMITTED | IN_REVIEW | CHANGES_REQUESTED | APPROVED | PUBLISHED | ARCHIVED | REJECTED
+  submittedAt        DateTime?
+  qualityScore       Int? // 0–100, agrégé par le contrôle qualité pré-soumission
+  qualityReport      Json? // { plagiat, ia, lisibilite, seo, sources, conformite… }
+  evidenceLevel      String? // RECO_OFFICIELLE | META_ANALYSE | ESSAI | CONSENSUS | AVIS_EXPERT (cf /methodologie)
+  conflictOfInterest String?      @db.Text // déclaration obligatoire avant soumission (« Aucun » accepté)
+  bibliography       String?      @db.Text // références longues (au-delà de `sources[]`)
+  lastUpdatedNote    String? // « Mise à jour : posologie révisée »
+  scheduledFor       DateTime? // publication planifiée (admin)
+  metaTitle          String?
+  metaDesc           String?
   // Optimisation GEO / AI Overview
-  keyTakeaways   String?      @db.Text // « À retenir » — points clés, 1 par ligne
-  faqJson        String?      @db.Text // FAQ structurée : JSON [{ "q": "...", "a": "..." }]
+  keyTakeaways       String?      @db.Text // « À retenir » — points clés, 1 par ligne
+  faqJson            String?      @db.Text // FAQ structurée : JSON [{ "q": "...", "a": "..." }]
   // Sources / références médicales (E-E-A-T + attribution IA). JSON :
   // [{ "label": "...", "url": "https://...", "publisher"?: "OMS", "year"?: "2024" }]
   // Rendu en pied d'article + JSON-LD `citation`. Repli FR si `sourcesAr` vide.
-  sources        String?      @db.Text
+  sources            String?      @db.Text
   // Entité médicale réelle pour JSON-LD about (ex. « Diabète de type 2 »),
   // distincte du titre de l'article. Repli sur le titre si vide.
-  aboutEntity    String?
+  aboutEntity        String?
   // Traduction arabe (contenu). Servie/indexée UNIQUEMENT une fois `arReviewedAt`
   // posé (relecture humaine — garde-fou YMYL). Repli FR si absent. cf lib/blog-content.
-  titleAr        String?
-  excerptAr      String?      @db.Text
-  contentAr      String?      @db.Text
-  metaTitleAr    String?
-  metaDescAr     String?
-  keyTakeawaysAr String?      @db.Text
-  faqJsonAr      String?      @db.Text
-  sourcesAr      String?      @db.Text // traduction AR des sources (mêmes URLs, labels traduits)
-  arReviewedAt   DateTime? // relecture humaine AR validée → autorise l'affichage AR
+  titleAr            String?
+  excerptAr          String?      @db.Text
+  contentAr          String?      @db.Text
+  metaTitleAr        String?
+  metaDescAr         String?
+  keyTakeawaysAr     String?      @db.Text
+  faqJsonAr          String?      @db.Text
+  sourcesAr          String?      @db.Text // traduction AR des sources (mêmes URLs, labels traduits)
+  arReviewedAt       DateTime? // relecture humaine AR validée → autorise l'affichage AR
   // Cocon sémantique : un satellite pointe vers son pilier (guide exhaustif).
   // Le pilier expose ses satellites via la relation inverse.
-  pillarId       String?
-  pillar         Post?        @relation("Cocon", fields: [pillarId], references: [id], onDelete: SetNull)
-  satellites     Post[]       @relation("Cocon")
-  views          Int          @default(0)
-  featured       Boolean      @default(false)
-  createdAt      DateTime     @default(now())
-  updatedAt      DateTime     @updatedAt
+  pillarId           String?
+  pillar             Post?        @relation("Cocon", fields: [pillarId], references: [id], onDelete: SetNull)
+  satellites         Post[]       @relation("Cocon")
+  views              Int          @default(0)
+  featured           Boolean      @default(false)
+  createdAt          DateTime     @default(now())
+  updatedAt          DateTime     @updatedAt
+
+  // Plateforme contributive
+  revisions         ArticleRevision[]
+  reviewAssignments ReviewAssignment[]
+  editorialEvents   EditorialEvent[]
+  analyticsDaily    ArticleAnalytics[]
 
   @@index([status, publishedAt])
   @@index([categoryId, status])
@@ -696,6 +744,10 @@ model Post {
   @@index([authorId])
   @@index([reviewedById])
   @@index([pillarId])
+  // File de modération admin : WHERE editorialStatus ORDER BY submittedAt.
+  @@index([editorialStatus, submittedAt])
+  // Liste « mes articles » de l'auteur, groupée par état éditorial.
+  @@index([authorId, editorialStatus])
   @@map("posts")
 }
 
@@ -1085,4 +1137,165 @@ model QaRevision {
 
   @@index([entityType, entityId, createdAt])
   @@map("qa_revisions")
+}
+
+// ═════════════════════════════════════════════════════════════════════════
+// PLATEFORME CONTRIBUTIVE « PUBLIER UN ARTICLE »
+// Couche posée par-dessus le blog (Post) : identité pro vérifiée, workflow
+// éditorial, page auteur, notifications. cf lib/contributor.ts + features/*.
+// ═════════════════════════════════════════════════════════════════════════
+
+// Profil contributeur (1-1 avec User). Données d'auteur non structurantes pour
+// l'auth — gardées hors de User pour ne pas alourdir le modèle central.
+model ContributorProfile {
+  id             String   @id @default(cuid())
+  userId         String   @unique
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  headline       String? // « Cardiologue · CHU Rabat »
+  yearsPractice  Int?
+  languages      String[] @default([]) // Arabe, Darija, Français…
+  interests      String[] @default([]) // domaines d'expertise (tags SEO page auteur)
+  isOrgAccount   Boolean  @default(false) // hôpital / clinique / association
+  orgLegalName   String? // raison sociale (comptes organisation)
+  followersCount Int      @default(0)
+  totalViews     Int      @default(0) // dénormalisé (somme des vues des articles publiés)
+  articlesCount  Int      @default(0) // dénormalisé (articles publiés)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("contributor_profiles")
+}
+
+// Preuve d'identité professionnelle (Ordre, diplôme, carte pro, RC, statuts).
+// Documents stockés en privé (storage/) et servis via la route admin protégée.
+model MedicalLicense {
+  id           String    @id @default(cuid())
+  userId       String
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  kind         String // ORDRE | DIPLOME | CARTE_PRO | RC | STATUTS | AUTRE
+  ordreNumber  String? // n° d'inscription (INPE) — pour kind = ORDRE
+  documentUrl  String // chemin privé (storage/…)
+  documentName String?
+  status       String    @default("PENDING") // PENDING | APPROVED | REJECTED
+  reviewedById String?
+  reviewer     User?     @relation("LicenseReviewer", fields: [reviewedById], references: [id], onDelete: SetNull)
+  reviewedAt   DateTime?
+  adminNote    String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@index([userId, status])
+  @@index([status, createdAt])
+  @@map("medical_licenses")
+}
+
+// Snapshot figé d'un article à chaque envoi en révision (versioning + diff admin).
+model ArticleRevision {
+  id        String   @id @default(cuid())
+  postId    String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  version   Int
+  snapshot  Json // { title, excerpt, content, …Ar, sources, faqJson… } figés
+  authorId  String
+  author    User     @relation("RevisionAuthor", fields: [authorId], references: [id], onDelete: Cascade)
+  note      String?
+  createdAt DateTime @default(now())
+
+  @@unique([postId, version])
+  @@index([postId, createdAt])
+  @@map("article_revisions")
+}
+
+// Assignation d'un article à un éditeur médical (relecteur) + sa décision.
+model ReviewAssignment {
+  id        String    @id @default(cuid())
+  postId    String
+  post      Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
+  editorId  String
+  editor    User      @relation("EditorReviews", fields: [editorId], references: [id], onDelete: Cascade)
+  status    String    @default("OPEN") // OPEN | DONE
+  decision  String? // APPROVE | CHANGES | REJECT
+  comments  Json? // annotations inline [{ anchor?, text }]
+  decidedAt DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([editorId, status])
+  @@index([postId, createdAt])
+  @@map("review_assignments")
+}
+
+// Journal d'audit immuable des transitions éditoriales (qui, quoi, quand).
+// actorId null = système (publication planifiée, contrôle qualité auto).
+model EditorialEvent {
+  id         String   @id @default(cuid())
+  postId     String
+  post       Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  actorId    String?
+  actor      User?    @relation("EventActor", fields: [actorId], references: [id], onDelete: SetNull)
+  action     String // SUBMITTED | ASSIGNED | APPROVED | CHANGES_REQUESTED | REJECTED | PUBLISHED | SCHEDULED | ARCHIVED | REVISION_SAVED | QUALITY_CHECK
+  fromStatus String?
+  toStatus   String?
+  note       String?
+  createdAt  DateTime @default(now())
+
+  @@index([postId, createdAt])
+  @@map("editorial_events")
+}
+
+// Notification utilisateur (in-app ; les canaux email/WhatsApp sont émis en
+// parallèle par features/notifications/dispatch.ts).
+model Notification {
+  id        String    @id @default(cuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  kind      String // SUBMITTED | APPROVED | REJECTED | CHANGES | PUBLISHED | COMMENT | BADGE | LICENSE_APPROVED | LICENSE_REJECTED
+  title     String
+  body      String?
+  href      String?
+  readAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([userId, readAt, createdAt])
+  @@map("notifications")
+}
+
+// Catalogue des badges (gamification). Attribution auto via features/badges/engine.ts.
+model Badge {
+  id      String        @id @default(cuid())
+  code    String        @unique // VERIFIED | EXPERT | TOP_AUTHOR | VIEWS_100K | ARTICLES_100 | ARTICLES_10
+  label   String
+  labelAr String?
+  icon    String // nom d'icône SVG (design system)
+  authors AuthorBadge[]
+
+  @@map("badges")
+}
+
+model AuthorBadge {
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  badgeId   String
+  badge     Badge    @relation(fields: [badgeId], references: [id], onDelete: Cascade)
+  grantedAt DateTime @default(now())
+
+  @@id([userId, badgeId])
+  @@index([badgeId])
+  @@map("author_badges")
+}
+
+// Rollup quotidien des métriques d'article (dashboard auteur). Vues via
+// sendBeacon /api/track/article-view ; lectures = scroll ≥ 70 %.
+model ArticleAnalytics {
+  id      String   @id @default(cuid())
+  postId  String
+  post    Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  day     DateTime @db.Date
+  views   Int      @default(0)
+  reads   Int      @default(0)
+  avgTime Int      @default(0) // secondes
+  shares  Int      @default(0)
+
+  @@unique([postId, day])
+  @@index([postId, day])
+  @@map("article_analytics")
 }

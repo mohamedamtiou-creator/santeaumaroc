@@ -45,8 +45,10 @@ export async function proxy(request: NextRequest) {
 
   // ── Gardes d'authentification (sur le chemin logique) ───────────────────
   const needsAuthCheck =
+    bare === "/mon-espace" ||
     bare.startsWith("/tableau-de-bord") ||
     bare.startsWith("/praticien/tableau-de-bord") ||
+    bare.startsWith("/espace-auteur") ||
     bare.startsWith("/admin") ||
     bare === "/connexion" ||
     bare === "/inscription";
@@ -63,9 +65,22 @@ export async function proxy(request: NextRequest) {
       return NextResponse.redirect(url);
     };
 
-    if (bare.startsWith("/praticien/tableau-de-bord")) {
+    if (bare === "/mon-espace") {
+      // Hub « Mon espace » : redirection EDGE par rôle (307, jamais pré-rendu).
+      if (!session?.userId) return redirectLogin();
+      const pfx = locale === "ar" ? "/ar" : "";
+      let target = "/tableau-de-bord"; // patient par défaut
+      if (session.role === "ADMIN") target = "/admin";
+      else if (session.role === "EDITOR") target = "/admin/articles";
+      else if (session.role === "DOCTOR") target = "/praticien/tableau-de-bord";
+      else if (session.role === "CONTRIBUTOR") target = "/espace-auteur";
+      return NextResponse.redirect(new URL(pfx + target, request.url));
+    } else if (bare.startsWith("/praticien/tableau-de-bord")) {
       if (!session?.userId) return redirectLogin();
       if (session.role !== "DOCTOR") return NextResponse.redirect(new URL(homeBase === "/" ? "/tableau-de-bord" : "/ar/tableau-de-bord", request.url));
+    } else if (bare.startsWith("/espace-auteur")) {
+      // Garde de login edge ; le contrôle « peut contribuer » reste dans la page.
+      if (!session?.userId) return redirectLogin();
     } else if (bare.startsWith("/tableau-de-bord")) {
       if (!session?.userId) return redirectLogin();
     } else if (bare.startsWith("/admin")) {

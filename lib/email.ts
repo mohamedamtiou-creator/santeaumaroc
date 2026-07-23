@@ -578,6 +578,160 @@ export async function sendDoctorDigestEmail(
   });
 }
 
+/* ──────────────────────────────────────────────
+ * Plateforme contributive « Publier un article »
+ * ────────────────────────────────────────────── */
+
+const AUTHOR_DASH = () => `${process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"}/espace-auteur`;
+
+/** À l'équipe : un article vient d'être soumis à la relecture médicale. */
+export async function sendArticleSubmittedAdminEmail(info: {
+  articleTitle: string;
+  authorName: string;
+  postId: string;
+}) {
+  const url = `${process.env.NEXT_PUBLIC_APP_URL}/admin/articles`;
+  await send({
+    from: FROM,
+    to: ADMIN_TO,
+    subject: `📝 Article à relire — ${info.authorName}`,
+    html: emailLayout(`
+      <h2 style="margin:0 0 8px;color:#1e293b;font-size:20px;font-weight:700;">Nouvel article soumis</h2>
+      <p style="margin:0 0 16px;color:#64748b;font-size:14px;line-height:1.7;">
+        <strong style="color:#1e293b;">${info.authorName}</strong> a soumis l'article
+        <strong>« ${info.articleTitle} »</strong> à la relecture médicale.
+      </p>
+      ${ctaButton(url, "Ouvrir la file de modération")}
+    `),
+  });
+}
+
+/** À l'auteur : décision de l'éditeur (approuvé / corrections / refus). */
+export async function sendArticleDecisionEmail(
+  email: string,
+  name: string,
+  info: { decision: "APPROVE" | "CHANGES" | "REJECT"; articleTitle: string; note?: string | null },
+) {
+  const map = {
+    APPROVE: {
+      subject: `Votre article est approuvé — « ${info.articleTitle} »`,
+      title: "🎉 Article approuvé",
+      intro: "Bonne nouvelle ! Après relecture médicale, votre article est approuvé et sera publié.",
+      color: "#047857",
+      cta: "Voir mon article",
+      noteColor: { bg: "#f0fdf4", border: "#047857", text: "#065f46" },
+    },
+    CHANGES: {
+      subject: `Corrections demandées — « ${info.articleTitle} »`,
+      title: "Corrections demandées",
+      intro: "Notre relecteur a demandé quelques ajustements avant publication. Vous pouvez les appliquer puis re-soumettre.",
+      color: "#2563eb",
+      cta: "Modifier mon article",
+      noteColor: { bg: "#fef9ec", border: "#b8730b", text: "#92610a" },
+    },
+    REJECT: {
+      subject: `Votre article n'a pas été retenu — « ${info.articleTitle} »`,
+      title: "Article non retenu",
+      intro: "Après examen, nous ne pouvons pas publier cet article en l'état.",
+      color: "#2563eb",
+      cta: "Accéder à mon espace",
+      noteColor: { bg: "#fef2f2", border: "#dc2626", text: "#991b1b" },
+    },
+  }[info.decision];
+
+  await send({
+    from: FROM,
+    to: email,
+    subject: map.subject,
+    html: emailLayout(`
+      <h2 style="margin:0 0 8px;color:#1e293b;font-size:20px;font-weight:700;">${map.title}</h2>
+      <p style="margin:0 0 16px;color:#64748b;font-size:14px;line-height:1.7;">
+        Bonjour <strong>${name}</strong>,<br/><br/>${map.intro}
+      </p>
+      ${
+        info.note
+          ? `<div style="background:${map.noteColor.bg};border-left:3px solid ${map.noteColor.border};padding:12px 16px;border-radius:0 8px 8px 0;margin:0 0 20px;">
+        <p style="margin:0;color:${map.noteColor.text};font-size:13px;line-height:1.6;"><strong>Note du relecteur :</strong> ${info.note}</p>
+      </div>`
+          : ""
+      }
+      ${ctaButton(AUTHOR_DASH(), map.cta, map.color)}
+      ${fallbackLink(AUTHOR_DASH())}
+    `),
+  });
+}
+
+/** À l'auteur : son article est en ligne. */
+export async function sendArticleLiveEmail(
+  email: string,
+  name: string,
+  info: { articleTitle: string; slug: string },
+) {
+  const url = `${process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"}/blog/${info.slug}`;
+  await send({
+    from: FROM,
+    to: email,
+    subject: `🚀 Votre article est publié — « ${info.articleTitle} »`,
+    html: emailLayout(`
+      <h2 style="margin:0 0 8px;color:#1e293b;font-size:20px;font-weight:700;">Votre article est en ligne</h2>
+      <p style="margin:0 0 20px;color:#64748b;font-size:14px;line-height:1.7;">
+        Bonjour <strong>${name}</strong>,<br/><br/>
+        Votre article <strong>« ${info.articleTitle} »</strong> est publié et visible par les lecteurs de SantéauMaroc.
+        Partagez-le pour maximiser sa portée.
+      </p>
+      ${ctaButton(url, "Voir mon article", "#047857")}
+      ${fallbackLink(url)}
+    `),
+  });
+}
+
+/** À l'auteur : identité vérifiée (badge « Auteur vérifié ») ou dossier à compléter. */
+export async function sendAuthorVerificationEmail(
+  email: string,
+  name: string,
+  info: { approved: boolean; note?: string | null },
+) {
+  if (info.approved) {
+    await send({
+      from: FROM,
+      to: email,
+      subject: "Vous êtes désormais auteur vérifié — SantéauMaroc",
+      html: emailLayout(`
+        <h2 style="margin:0 0 8px;color:#1e293b;font-size:20px;font-weight:700;">🎉 Auteur vérifié !</h2>
+        <p style="margin:0 0 16px;color:#64748b;font-size:14px;line-height:1.7;">
+          Bonjour <strong>${name}</strong>,<br/><br/>
+          Votre identité professionnelle est <strong style="color:#047857;">vérifiée</strong>. Vous obtenez le badge
+          « Auteur vérifié » et pouvez dès maintenant rédiger et soumettre vos articles.
+        </p>
+        ${ctaButton(`${AUTHOR_DASH()}/articles/nouveau`, "Écrire mon premier article", "#047857")}
+        ${fallbackLink(`${AUTHOR_DASH()}/articles/nouveau`)}
+      `),
+    });
+    return;
+  }
+  await send({
+    from: FROM,
+    to: email,
+    subject: "Vérification auteur — informations complémentaires requises",
+    html: emailLayout(`
+      <h2 style="margin:0 0 8px;color:#1e293b;font-size:20px;font-weight:700;">Dossier à compléter</h2>
+      <p style="margin:0 0 16px;color:#64748b;font-size:14px;line-height:1.7;">
+        Bonjour <strong>${name}</strong>,<br/><br/>
+        Nous n'avons pas pu valider votre dossier d'auteur pour le moment.
+      </p>
+      ${
+        info.note
+          ? `<div style="background:#fef2f2;border-left:3px solid #dc2626;padding:12px 16px;border-radius:6px;margin:0 0 20px;">
+        <p style="margin:0;color:#991b1b;font-size:13px;"><strong>Motif :</strong> ${info.note}</p>
+      </div>`
+          : ""
+      }
+      ${ctaButton(`${AUTHOR_DASH()}/verification`, "Compléter mon dossier", "#2563eb")}
+      ${fallbackLink(`${AUTHOR_DASH()}/verification`)}
+    `),
+  });
+}
+
 /** Notifie le demandeur que sa question a été publiée après relecture. */
 export async function sendQuestionPublishedEmail(
   email: string,

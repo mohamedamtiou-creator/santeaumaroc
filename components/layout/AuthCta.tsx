@@ -21,7 +21,7 @@ export function AuthCta({ t, signupOptions }: Props) {
 
   if (hasSession) {
     return (
-      <Link href="/tableau-de-bord" className="btn-primary text-sm py-2 px-4">
+      <Link href="/mon-espace" className="btn-primary text-sm py-2 px-4">
         {t.mySpace}
       </Link>
     );

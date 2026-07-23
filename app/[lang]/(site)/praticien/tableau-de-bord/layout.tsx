@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
+import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { verifySession } from "@/lib/dal";
 import { prisma } from "@/lib/prisma";
 import { getDoctorInitials } from "@/lib/utils";
@@ -38,6 +39,13 @@ export default async function PraticienDashboardLayout({ children }: { children:
   });
 
   if (!doctor) redirect("/tableau-de-bord");
+
+  // Cas « médecin + auteur » : lien croisé vers l'espace auteur si activé.
+  const authorInfo = await prisma.user.findUnique({
+    where: { id: session.userId },
+    select: { professionKind: true },
+  });
+  const isAuthor = !!authorInfo?.professionKind;
 
   const fullName = [doctor.civilite, doctor.prenom, doctor.nom].filter(Boolean).join(" ");
   const initials = getDoctorInitials(doctor.prenom, doctor.nom);
@@ -86,6 +94,22 @@ export default async function PraticienDashboardLayout({ children }: { children:
           </div>
         </div>
 
+        {/* Cas « médecin + auteur » : accès mobile à l'espace auteur */}
+        {isAuthor && (
+          <Link href="/espace-auteur" className="md:hidden card p-3 mb-4 flex items-center gap-2.5">
+            <span className="w-8 h-8 rounded-lg bg-primary-100 flex items-center justify-center shrink-0" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" className="w-4 h-4 text-primary-600" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M11 2 14 5 6 13H3v-3z" /><path d="M9.5 3.5 12.5 6.5" />
+              </svg>
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="block text-sm font-semibold text-slate-900">Espace auteur</span>
+              <span className="block text-xs text-slate-500">Rédiger &amp; suivre mes articles</span>
+            </span>
+            <span className="text-slate-300 rtl:-scale-x-100" aria-hidden="true">→</span>
+          </Link>
+        )}
+
         {/* ── Desktop : sidebar + contenu ──────────────────────── */}
         <div className="flex gap-6">
           <aside className="hidden md:flex md:flex-col w-60 shrink-0 gap-3">
@@ -122,6 +146,21 @@ export default async function PraticienDashboardLayout({ children }: { children:
                 </div>
               </div>
             </div>
+
+            {/* Cas « médecin + auteur » : accès à l'espace auteur */}
+            {isAuthor && (
+              <Link href="/espace-auteur" className="card p-3 flex items-center gap-2.5 hover:border-primary-200 hover:bg-primary-50/30 transition-colors group">
+                <span className="w-8 h-8 rounded-lg bg-primary-100 flex items-center justify-center shrink-0 group-hover:bg-primary-200 transition-colors" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" className="w-4 h-4 text-primary-600" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M11 2 14 5 6 13H3v-3z" /><path d="M9.5 3.5 12.5 6.5" />
+                  </svg>
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-sm font-semibold text-slate-900 group-hover:text-primary-700 transition-colors">Espace auteur</span>
+                  <span className="block text-xs text-slate-500">Rédiger &amp; suivre mes articles</span>
+                </span>
+              </Link>
+            )}
 
             {/* Nav sidebar */}
             <PraticienNav t={t} />

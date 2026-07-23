@@ -109,6 +109,11 @@ const frDict = {
         darija: "Santé en darija",
         glossary: "Glossaire médical",
         symptoms: "Symptômes",
+        exams: "Examens médicaux",
+        treatments: "Traitements",
+        diseases: "Maladies",
+        prices: "Prix des soins",
+        authors: "Nos auteurs",
       },
       trust: {
         secure: "Données sécurisées",
@@ -123,6 +128,7 @@ const frDict = {
         manageCta: "Déjà référencé ? Gérez votre fiche",
         guideCta: "Lire le guide du médecin",
         badgeCta: "Badge « Vérifié » pour votre site",
+        publishCta: "Publier un article",
       },
       emergency: {
         title: "Urgences médicales — Maroc",
@@ -2553,6 +2559,11 @@ const dictionaries: Record<Locale, Dictionary> = {
         darija: "الصحة بالدارجة",
         glossary: "معجم طبي",
         symptoms: "الأعراض",
+        exams: "الفحوصات الطبية",
+        treatments: "العلاجات",
+        diseases: "الأمراض",
+        prices: "أسعار العلاجات",
+        authors: "كتّابنا",
       },
       trust: {
         secure: "بيانات آمنة",
@@ -2567,6 +2578,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         manageCta: "مُدرَج بالفعل؟ أدِر بطاقتك",
         guideCta: "اقرأ دليل الطبيب",
         badgeCta: "شارة «موثَّق» لموقعك",
+        publishCta: "انشر مقالاً",
       },
       emergency: {
         title: "الطوارئ الطبية — المغرب",

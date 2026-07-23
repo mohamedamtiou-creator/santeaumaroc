@@ -153,7 +153,7 @@ export function MobileMenu({ primaryLinks, signupOptions, t }: Props) {
           <div className="mt-3 pt-3 border-t border-slate-100">
             {isLoggedIn ? (
               <Link
-                href="/tableau-de-bord"
+                href="/mon-espace"
                 className="btn-primary w-full justify-center py-2.5"
               >
                 {t.mySpace}

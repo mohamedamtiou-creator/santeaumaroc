@@ -26,6 +26,14 @@ async function getPendingOrdersCount() {
   return prisma.subscriptionOrder.count({ where: { status: "PENDING" } });
 }
 
+async function getSubmittedArticlesCount() {
+  return prisma.post.count({ where: { editorialStatus: "SUBMITTED" } });
+}
+
+async function getPendingAuthorsCount() {
+  return prisma.user.count({ where: { authorStatus: "PENDING" } });
+}
+
 const NAV = [
   {
     href:  "/admin",
@@ -120,6 +128,26 @@ const NAV = [
     ),
   },
   {
+    href:  "/admin/articles",
+    label: "Articles (contributions)",
+    exact: false,
+    icon: (
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.75" className="w-4 h-4 shrink-0" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M5 3h7l4 4v10H5z"/><path d="M12 3v4h4M8 11h5M8 14h5"/>
+      </svg>
+    ),
+  },
+  {
+    href:  "/admin/auteurs",
+    label: "Auteurs",
+    exact: false,
+    icon: (
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.75" className="w-4 h-4 shrink-0" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="10" cy="6" r="3.5"/><path d="M3.5 17c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/>
+      </svg>
+    ),
+  },
+  {
     href:  "/admin/questions",
     label: "Questions/Réponses",
     exact: false,
@@ -172,11 +200,13 @@ const NAV = [
 ];
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
-  const [pendingCount, openTicketsCount, newLeadsCount, pendingOrdersCount] = await Promise.all([
+  const [pendingCount, openTicketsCount, newLeadsCount, pendingOrdersCount, submittedArticles, pendingAuthors] = await Promise.all([
     getPendingCount(),
     getOpenTicketsCount(),
     getNewLeadsCount(),
     getPendingOrdersCount(),
+    getSubmittedArticlesCount(),
+    getPendingAuthorsCount(),
   ]);
 
   const badgeFor: Record<string, number | undefined> = {
@@ -184,6 +214,8 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     "/admin/support":        openTicketsCount,
     "/admin/abonnements":    newLeadsCount,
     "/admin/paiements":      pendingOrdersCount,
+    "/admin/articles":       submittedArticles,
+    "/admin/auteurs":        pendingAuthors,
   };
 
   const items: AdminNavItem[] = NAV.map((item) => ({

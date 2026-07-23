@@ -43,8 +43,13 @@ export function Footer({ locale }: { locale: Locale }) {
       title: f.cols.health,
       links: [
         { href: "/blog",                     label: f.links.blog },
+        { href: "/auteur",                   label: f.links.authors },
         { href: "/specialites",              label: f.links.specialties },
         { href: "/symptomes",                label: f.links.symptoms },
+        { href: "/maladies",                 label: f.links.diseases },
+        { href: "/examens",                  label: f.links.exams },
+        { href: "/traitements",              label: f.links.treatments },
+        { href: "/prix",                     label: f.links.prices },
         { href: "/glossaire",                label: f.links.glossary },
         { href: "/sante-darija",             label: f.links.darija },
         { href: "/remboursement-amo-cnss",   label: f.links.reimbursement },
@@ -142,6 +147,16 @@ export function Footer({ locale }: { locale: Locale }) {
                   <path d="M11 9v3M9.5 10.5h3" />
                 </svg>
                 {f.practitioner.cta}
+              </Link>
+              {/* Point d'entrée de la plateforme contributive (Publier un article). */}
+              <Link
+                href={localeHref(locale, "/publier-un-article")}
+                className="mt-2 flex items-center gap-1.5 py-1.5 text-xs font-semibold text-secondary-400 hover:text-secondary-300 transition-colors"
+              >
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.75" className="w-3.5 h-3.5 shrink-0" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M11 2 14 5 6 13H3v-3z" /><path d="M9.5 3.5 12.5 6.5" />
+                </svg>
+                {f.practitioner.publishCta}
               </Link>
               {/* py-1.5 → cible tap ≥ 24 px de haut (WCAG 2.2 target-size) ;
                   slate-300 (et non -400) pour un contraste suffisant sur primary-950. */}
