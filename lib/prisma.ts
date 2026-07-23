@@ -8,12 +8,14 @@ import { PrismaPg } from "@prisma/adapter-pg";
 // borne les timeouts pour éviter les connexions zombies et les attentes infinies.
 const CONFIGURED_MAX = Number(process.env.DATABASE_POOL_MAX) || 20;
 
-// Au build (`next build`), Next lance ~1 worker par cœur pour le pré-rendu
+// Au build (`next build`), Next lance plusieurs workers pour le pré-rendu
 // statique, et CHAQUE worker est un process Node distinct avec SON propre pool.
-// Sans pooler PG, `workers × CONFIGURED_MAX` (ex. 12 × 20 = 240) dépasse
-// `max_connections` (~100) → P2037 « too many connections » en plein export.
-// On plafonne donc le pool par process pendant le build (quel que soit l'env)
-// pour borner le total ; le runtime garde le pool complet.
+// Sans pooler PG, `workers × CONFIGURED_MAX` dépasse vite `max_connections`
+// (~100) → soit P2037 « too many connections », soit `ETIMEDOUT` quand Postgres
+// cesse de répondre aux nouvelles connexions TCP, en plein export. On plafonne
+// donc le pool par process pendant le build à 5, ET on borne le nombre de
+// workers à 8 (`experimental.cpus`, cf. next.config.ts) → pic 8 × 5 = 40 < 100.
+// Le runtime garde le pool complet.
 const isBuild = process.env.NEXT_PHASE === "phase-production-build";
 const POOL_MAX = isBuild ? Math.min(CONFIGURED_MAX, 5) : CONFIGURED_MAX;
 

@@ -206,6 +206,22 @@ const nextConfig: NextConfig = {
   // dynamic: 30s — filtered list pages stay cached for back-navigation
   // static: 3600s — SSG pages (specialites, villes) kept in router cache 1 h
   experimental: {
+    // ── Concurrence du pré-rendu statique ↔ pool Postgres au build ──────────
+    // Sans plafond, Next lance 1 worker par cœur (29 sur cette machine) pour
+    // générer les ~6300 pages statiques. CHAQUE worker est un process Node avec
+    // SON propre pool PG (plafonné à 5 au build, cf. lib/prisma.ts) → pic de
+    // 29 × 5 = 145 connexions alors que Postgres n'accepte que `max_connections`
+    // = 100. Postgres finit par ne plus répondre aux nouvelles connexions TCP →
+    // `ETIMEDOUT` sur `prisma.city.findUnique()` / `doctor.count()` et le build
+    // casse. On borne donc les workers à 8 : 8 × 5 = 40 connexions, marge large
+    // sous 100 (et stable quelle que soit la croissance du nombre de pages).
+    cpus: 8,
+    // Un pic transitoire (connexion lente) ne doit pas faire échouer tout le
+    // build : on retente la génération d'une page jusqu'à 2 fois avant d'abandonner.
+    staticGenerationRetryCount: 2,
+    // Borne le nombre de pages générées EN PARALLÈLE par worker : évite qu'un
+    // worker ne réclame d'un coup plus de connexions que son pool (5) n'en offre.
+    staticGenerationMaxConcurrency: 8,
     // 404 global pour les URL ne matchant aucune route. Indispensable ici : le
     // layout racine est porté par un segment dynamique (`app/[lang]`), donc Next
     // ne peut composer un 404 via layout + not-found → `app/global-not-found.tsx`.
