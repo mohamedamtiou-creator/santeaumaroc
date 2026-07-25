@@ -6,7 +6,13 @@ import { PrismaPg } from "@prisma/adapter-pg";
 // serverless, N instances × 10 connexions saturent vite Postgres → on rend `max`
 // tunable par env (le baisser + pooler type PgBouncer en prod serverless), et on
 // borne les timeouts pour éviter les connexions zombies et les attentes infinies.
-const CONFIGURED_MAX = Number(process.env.DATABASE_POOL_MAX) || 20;
+// ⚠️ Parsing robuste : `Number("") || 20` retombait silencieusement sur 20 si la
+// variable était vide / 0 / non numérique (piège fréquent en prod). On n'accepte
+// QUE des entiers > 0, sinon défaut bas adapté au serverless DERRIÈRE un pooler
+// (Neon PgBouncer). Défaut = 3 : assez pour la concurrence Fluid par instance,
+// sans saturer (N instances × 3 reste raisonnable, le pooler multiplexe le reste).
+const _envMax = Number(process.env.DATABASE_POOL_MAX);
+const CONFIGURED_MAX = Number.isInteger(_envMax) && _envMax > 0 ? _envMax : 3;
 
 // Au build (`next build`), Next lance plusieurs workers pour le pré-rendu
 // statique, et CHAQUE worker est un process Node distinct avec SON propre pool.
