@@ -5,10 +5,10 @@
  * Tout est à OFF par défaut : tant qu'on n'active pas explicitement les flags,
  * AUCUN script ni encart n'est chargé (impact zéro sur perf, SEO, conversion).
  *
- * Rappel stratégique (cf. étude d'opportunité) : la pub est cantonnée à
- * l'éditorial (blog, Q/R). Elle ne doit JAMAIS apparaître sur une page qui mène
- * à un rendez-vous (fiches, listes, tunnel, comptes, paiement). C'est garanti
- * en n'appelant `AdSlot`/`InArticleAds` que depuis les pages éditoriales.
+ * Rappel stratégique (cf. étude d'opportunité) : la pub est cantonnée au blog.
+ * Elle ne doit JAMAIS apparaître sur une page qui mène à un rendez-vous ni sur
+ * les Q/R (moteur de leads, retirées volontairement). C'est garanti en
+ * n'appelant `AdSlot`/`InArticleAds` que depuis les pages blog.
  *
  * ⚠️ CSP : le site applique une CSP stricte dans `next.config.ts`. Sans y
  * whitelister les domaines Google Ads, le navigateur bloquera AdSense. Ne le
@@ -25,7 +25,6 @@ export const ADS = {
   /** Activation fine par type de page (déploiement progressif, cf. plan phases). */
   surfaces: {
     blog: process.env.NEXT_PUBLIC_ADS_BLOG === "true",
-    questions: process.env.NEXT_PUBLIC_ADS_QUESTIONS === "true",
   },
 
   /** Slot ID de l'unité « in-article » créée dans le compte AdSense. */
