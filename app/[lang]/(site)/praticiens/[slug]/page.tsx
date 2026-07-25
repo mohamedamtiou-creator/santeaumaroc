@@ -335,7 +335,11 @@ function EmptyReviews({ reviewButton, t }: { reviewButton: React.ReactNode; t: D
 // fiches réservables lisent la session dans la branche `canBook` (cookies) →
 // rendu DYNAMIQUE, créneaux toujours frais. Pas de `generateStaticParams` :
 // pré-rendre ~20 000 fiches au build serait du gaspillage (ISR à la demande).
-export const revalidate = 3600;
+// revalidate à 24 h (et non 1 h) : avec ~20 690 fiches balayées par les crawlers,
+// une fenêtre courte déclenche une tempête de revalidations DB en tâche de fond
+// (cause de « timeout when trying to connect » côté Neon). Le contenu fiche évolue
+// lentement ; les créneaux frais restent servis par la branche dynamique `canBook`.
+export const revalidate = 86400;
 
 export default async function PraticienProfilePage({ params }: { params: Params }) {
   const { lang, slug } = await params;

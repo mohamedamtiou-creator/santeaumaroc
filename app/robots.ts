@@ -27,6 +27,17 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "ClaudeBot", allow: "/", disallow: DISALLOW },
       { userAgent: "CCBot", allow: "/", disallow: DISALLOW }, // Common Crawl — corpus d'entraînement de nombreux LLM
       { userAgent: "Bytespider", allow: "/", disallow: DISALLOW },
+      // Crawlers SEO/marketing agressifs (aucune valeur pour l'indexation Google) :
+      // ils balaient les ~20 690 fiches /praticiens → tempête de revalidations ISR
+      // + connexions DB. Ils HONORENT `Crawl-delay` → on l'impose pour lisser la
+      // charge. Le SEO Google/Bing n'est pas affecté (ces moteurs ignorent crawlDelay).
+      { userAgent: "SemrushBot", allow: "/", disallow: DISALLOW, crawlDelay: 30 },
+      { userAgent: "AhrefsBot", allow: "/", disallow: DISALLOW, crawlDelay: 30 },
+      { userAgent: "MJ12bot", allow: "/", disallow: DISALLOW, crawlDelay: 30 },
+      { userAgent: "DotBot", allow: "/", disallow: DISALLOW, crawlDelay: 30 },
+      { userAgent: "DataForSeoBot", allow: "/", disallow: DISALLOW, crawlDelay: 30 },
+      { userAgent: "BLEXBot", allow: "/", disallow: DISALLOW, crawlDelay: 30 },
+      { userAgent: "PetalBot", allow: "/", disallow: DISALLOW, crawlDelay: 30 },
     ],
     // Sitemap segmenté (generateSitemaps) : Next sert chaque segment à
     // /sitemap/<id>.xml et ne crée pas d'index racine — on déclare donc les
