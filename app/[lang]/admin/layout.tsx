@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { logout } from "@/features/auth/logout";
 import { prisma } from "@/lib/prisma";
 import { AdminNav, AdminMobileNav, type AdminNavItem } from "./_components/AdminNav";
 import { Logo } from "@/components/ui/Logo";
@@ -241,7 +240,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
 
         {/* Logout */}
         <div className="px-2 py-3 border-t border-slate-100">
-          <form action={logout}>
+          <form action="/api/logout" method="post">
             <button type="submit" className="w-full flex items-center gap-2.5 text-sm text-slate-500 hover:text-red-600 hover:bg-red-50 px-3 py-2 rounded-lg transition-colors">
               <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.75" className="w-4 h-4 shrink-0" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M13 3h4v14h-4M9 14l4-4-4-4M13 10H3"/>
