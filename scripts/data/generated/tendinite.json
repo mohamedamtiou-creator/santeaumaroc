@@ -1,0 +1,64 @@
+{
+  "slug": "tendinite",
+  "term": "Tendinite",
+  "kind": "DISEASE",
+  "specialty": "rhumatologie",
+  "synonyms": ["tendinopathie", "inflammation du tendon", "tendinose"],
+  "shortAnswer": "La tendinite est une inflammation d'un tendon, souvent due à un effort répété ou excessif. Elle provoque douleur et gêne au mouvement. Elle guérit généralement bien avec le repos, mais une douleur intense, persistante ou accompagnée de fièvre doit conduire à consulter rapidement.",
+  "causes": [
+    "Mouvements répétitifs ou efforts trop intenses (sport, travail manuel)",
+    "Mauvaise posture ou geste incorrect lors d'une activité physique",
+    "Reprise brutale du sport après une longue période d'inactivité",
+    "Vieillissement des tendons (moins résistants avec l'âge)",
+    "Maladies sous-jacentes comme le diabète ou les rhumatismes inflammatoires",
+    "Port de chaussures inadaptées (pour les tendinites du pied ou du talon)"
+  ],
+  "redFlags": [
+    "Douleur très intense, gonflement important ou peau rouge et chaude au-dessus du tendon",
+    "Fièvre associée à la douleur (risque de tendinite infectieuse)",
+    "Sensation de craquement ou impossibilité totale de bouger le membre",
+    "Douleur persistant depuis plus de 3 à 4 semaines malgré le repos",
+    "Survenue après une chute ou un traumatisme (risque de rupture du tendon)"
+  ],
+  "whenToConsult": "Consultez un médecin si la douleur ne s'améliore pas après quelques jours de repos, ou immédiatement en cas de fièvre, de gonflement important ou de suspicion de rupture.",
+  "faq": [
+    {
+      "q": "Peut-on continuer le sport avec une tendinite ?",
+      "a": "Il est déconseillé de poursuivre l'activité douloureuse, car cela risque d'aggraver la lésion. Le repos relatif est indispensable. La reprise du sport doit se faire progressivement, sur conseil médical, une fois la douleur disparue."
+    },
+    {
+      "q": "Combien de temps dure une tendinite ?",
+      "a": "Une tendinite aiguë guérit en général en 2 à 6 semaines avec un repos adapté. Les formes chroniques (tendinoses) peuvent durer plusieurs mois et nécessitent une prise en charge spécialisée, incluant kinésithérapie et parfois infiltrations."
+    }
+  ],
+  "intentAnswer": "Pour une tendinite, commencez par consulter un médecin généraliste qui posera le diagnostic et orientera le traitement. En cas de douleur persistante ou de forme chronique, il adressera vers un rhumatologue. En cas de suspicion de rupture tendineuse ou de fièvre, rendez-vous aux urgences.",
+  "termAr": "التهاب الوتر",
+  "shortAnswerAr": "التهاب الوتر هو تهيج يصيب الأوتار، غالبًا بسبب حركات متكررة أو مجهود مفرط. يتسبب في ألم وصعوبة في الحركة. يتحسن عادةً بالراحة، لكن الألم الشديد أو المستمر أو المصحوب بحمى يستوجب استشارة طبية عاجلة.",
+  "causesAr": [
+    "الحركات المتكررة أو المجهود المفرط (الرياضة، العمل اليدوي)",
+    "الوضعية الخاطئة أو الحركة غير السليمة أثناء النشاط البدني",
+    "العودة المفاجئة للرياضة بعد فترة توقف طويلة",
+    "تآكل الأوتار الطبيعي مع التقدم في السن",
+    "أمراض مزمنة كالسكري أو الروماتيزم الالتهابي",
+    "ارتداء أحذية غير ملائمة (في حالة التهاب أوتار القدم أو الكعب)"
+  ],
+  "redFlagsAr": [
+    "ألم حاد شديد، تورم كبير أو احمرار وسخونة في منطقة الوتر",
+    "ارتفاع الحرارة مع الألم (احتمال التهاب وتر بسبب عدوى)",
+    "إحساس بالتقطع أو عدم القدرة الكاملة على تحريك الطرف",
+    "استمرار الألم أكثر من 3 إلى 4 أسابيع رغم الراحة",
+    "ظهور الألم عقب سقطة أو إصابة مباشرة (احتمال تمزق الوتر)"
+  ],
+  "whenToConsultAr": "استشر طبيبًا إذا لم يتحسن الألم بعد أيام من الراحة، أو فورًا في حال وجود حمى أو تورم كبير أو اشتباه في تمزق الوتر.",
+  "faqAr": [
+    {
+      "q": "هل يمكن ممارسة الرياضة مع التهاب الوتر؟",
+      "a": "يُنصح بتجنب النشاط الذي يسبب الألم، لأن الاستمرار فيه قد يُفاقم الإصابة. الراحة النسبية ضرورية، والعودة إلى الرياضة يجب أن تكون تدريجية وبتوجيه طبي بعد زوال الألم."
+    },
+    {
+      "q": "كم يستغرق التعافي من التهاب الوتر؟",
+      "a": "يشفى الالتهاب الحاد عادةً في غضون أسبوعين إلى ستة أسابيع مع الراحة المناسبة. أما الحالات المزمنة فقد تستمر عدة أشهر وتستلزم متابعة متخصصة تشمل العلاج الطبيعي وأحيانًا الحقن الموضعية."
+    }
+  ],
+  "intentAnswerAr": "إذا كنت تعاني من التهاب الوتر، ابدأ باستشارة طبيب عام يُشخّص حالتك ويضع خطة العلاج. إذا استمر الألم أو تحوّل إلى شكل مزمن، يُحيلك إلى طبيب روماتولوجي. وفي حال الاشتباه في تمزق الوتر أو ظهور حمى، توجّه فورًا إلى المستعجلات."
+}

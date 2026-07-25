@@ -33,13 +33,19 @@ export function DashHeader({
   action?: React.ReactNode;
 }) {
   return (
-    <header className="flex flex-wrap items-end justify-between gap-3">
-      <div className="min-w-0">
-        <p className="section-eyebrow mb-1">{eyebrow}</p>
-        <h1 className="text-xl sm:text-2xl font-bold text-slate-900">{title}</h1>
-        {subtitle && <p className="text-sm text-slate-500 mt-1 max-w-2xl">{subtitle}</p>}
+    <header>
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div className="min-w-0">
+          <p className="text-[11px] font-bold uppercase tracking-widest text-primary-600 mb-1">{eyebrow}</p>
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight leading-tight">{title}</h1>
+          {subtitle && <p className="text-sm text-slate-500 mt-1.5 max-w-2xl">{subtitle}</p>}
+        </div>
+        {action && <div className="shrink-0">{action}</div>}
       </div>
-      {action && <div className="shrink-0">{action}</div>}
+      <div
+        className="mt-4 h-px bg-gradient-to-r from-primary-200 via-secondary-200/60 to-transparent rtl:bg-gradient-to-l"
+        aria-hidden="true"
+      />
     </header>
   );
 }

@@ -1,0 +1,62 @@
+{
+  "slug": "rosacee",
+  "term": "Rosacée",
+  "kind": "DISEASE",
+  "specialty": "dermatologie",
+  "synonyms": ["couperose", "acné rosacée"],
+  "shortAnswer": "La rosacée est une maladie chronique de la peau du visage qui provoque rougeurs persistantes, vaisseaux apparents et parfois boutons. Elle évolue par poussées. Bénigne dans la plupart des cas, elle nécessite un suivi dermatologue pour éviter les complications oculaires ou la rhinophyma.",
+  "causes": [
+    "Prédisposition génétique et antécédents familiaux",
+    "Réactivité vasculaire exagérée (vasodilatation faciale fréquente)",
+    "Prolifération d'un acarien cutané (Demodex folliculorum)",
+    "Facteurs déclenchants : soleil, chaleur, alcool, épices, stress, effort physique intense",
+    "Perturbation du système immunitaire cutané",
+    "Peau claire et sensible (phototype I-II), plus fréquente chez les femmes entre 30 et 50 ans"
+  ],
+  "redFlags": [
+    "Rougeur et douleur oculaire, sensation de corps étranger ou vision floue (rosacée oculaire)",
+    "Épaississement progressif de la peau du nez (rhinophyma), surtout chez l'homme",
+    "Plaies ou croûtes persistantes sur les zones rouges (à ne pas confondre avec un cancer cutané)",
+    "Poussées très fréquentes malgré un traitement bien suivi"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès l'apparition de rougeurs persistantes du visage accompagnées de bouffées de chaleur ou de boutons récurrents. En cas de symptômes oculaires ou d'aggravation rapide, orientez-vous directement vers un dermatologue.",
+  "faq": [
+    {
+      "q": "La rosacée est-elle contagieuse ?",
+      "a": "Non, la rosacée n'est pas contagieuse. C'est une maladie inflammatoire chronique de la peau, sans transmission possible d'une personne à l'autre."
+    },
+    {
+      "q": "Peut-on contrôler les poussées de rosacée au quotidien ?",
+      "a": "Oui, en identifiant et en évitant vos facteurs déclenchants personnels (soleil, épices, alcool, stress), en utilisant un écran solaire adapté et une crème hydratante douce, et en suivant le traitement prescrit par votre dermatologue."
+    }
+  ],
+  "intentAnswer": "Pour une rosacée, commencez par consulter votre médecin généraliste qui posera le diagnostic et orientera si besoin. Le dermatologue est le spécialiste de référence pour le suivi et le traitement. En cas de gêne visuelle, consultez sans tarder un ophtalmologue ou les urgences.",
+  "termAr": "الوردية (الروزاسيا)",
+  "shortAnswerAr": "الوردية مرض جلدي مزمن يصيب بشرة الوجه، يتسبب في احمرار دائم وظهور أوعية دموية صغيرة وأحياناً حبوب. تتطور على شكل نوبات. تبقى في الغالب حميدة، لكنها تستدعي متابعة طبيب جلدية لتفادي المضاعفات العينية أو تضخم جلد الأنف.",
+  "causesAr": [
+    "الاستعداد الوراثي والتاريخ العائلي",
+    "فرط استجابة الأوعية الدموية وتوسعها المتكرر في الوجه",
+    "تكاثر طفيل دقيق على الجلد (Demodex folliculorum)",
+    "عوامل محفزة: الشمس، الحرارة، الكحول، التوابل الحارة، التوتر، المجهود البدني الشديد",
+    "اضطراب في جهاز المناعة الجلدية",
+    "البشرة الفاتحة الحساسة، أكثر شيوعاً عند النساء بين 30 و50 سنة"
+  ],
+  "redFlagsAr": [
+    "احمرار مؤلم في العينين أو إحساس بجسم غريب أو ضبابية في الرؤية (الوردية العينية)",
+    "سُمك تدريجي في جلد الأنف (rhinophyma)، خاصة عند الرجال",
+    "جروح أو قشور مستمرة فوق المناطق المحمرة (ينبغي استبعاد سرطان الجلد)",
+    "نوبات متكررة جداً رغم العلاج المنتظم"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور ملاحظة احمرار دائم في الوجه مصحوب بهبّات حرارة أو حبوب متكررة. في حال ظهور أعراض عينية أو تفاقم سريع، توجه مباشرة إلى طبيب الجلدية.",
+  "faqAr": [
+    {
+      "q": "هل الوردية معدية؟",
+      "a": "لا، الوردية ليست معدية. فهي مرض التهابي مزمن في الجلد لا يمكن انتقاله من شخص لآخر."
+    },
+    {
+      "q": "هل يمكن التحكم في نوبات الوردية في الحياة اليومية؟",
+      "a": "نعم، وذلك بتحديد عوامل الإثارة الشخصية وتجنبها (الشمس، التوابل، الكحول، التوتر)، واستخدام واقٍ شمسي ملائم وكريم مرطب لطيف، والالتزام بالعلاج الموصوف من طبيب الجلدية."
+    }
+  ],
+  "intentAnswerAr": "لاستشارة طبيب بشأن الوردية، ابدأ بطبيبك العام الذي يشخص الحالة ويحيلك عند الحاجة. طبيب الجلدية هو المختص الأساسي للمتابعة والعلاج. في حال وجود أعراض بصرية، توجه فوراً إلى طبيب العيون أو قسم الطوارئ."
+}

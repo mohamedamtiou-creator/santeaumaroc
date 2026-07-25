@@ -1,0 +1,64 @@
+{
+  "slug": "syndrome-premenstruel",
+  "term": "Syndrome prémenstruel",
+  "kind": "SYMPTOM",
+  "specialty": "gyneco-obstetrique",
+  "synonyms": ["SPM", "tensions prémenstruelles", "syndrome prémenstruel"],
+  "shortAnswer": "Le syndrome prémenstruel regroupe des symptômes physiques et émotionnels (ballonnements, irritabilité, fatigue) survenant dans les jours précédant les règles et disparaissant à leur arrivée. Bénin dans la plupart des cas, il nécessite un avis médical lorsqu'il perturbe la vie quotidienne.",
+  "causes": [
+    "Fluctuations hormonales (œstrogènes et progestérone) en phase lutéale du cycle",
+    "Sensibilité accrue aux variations hormonales affectant les neurotransmetteurs (sérotonine)",
+    "Facteurs génétiques : terrain familial fréquent",
+    "Stress chronique et troubles du sommeil qui amplifient les symptômes",
+    "Alimentation déséquilibrée (excès de sel, sucre, caféine) favorisant la rétention d'eau",
+    "Sédentarité et manque d'activité physique régulière"
+  ],
+  "redFlags": [
+    "Idées noires, pensées suicidaires ou désespoir intense pendant la phase prémenstruelle (TDPM possible)",
+    "Douleurs pelviennes très sévères accompagnées de saignements anormaux",
+    "Symptômes qui ne disparaissent pas après le début des règles ou persistent tout le mois",
+    "Retentissement majeur sur le travail, les relations sociales ou la vie familiale malgré des mesures hygiéno-diététiques",
+    "Apparition soudaine de ces symptômes après 40 ans (à explorer avec un médecin)"
+  ],
+  "whenToConsult": "Consultez votre médecin généraliste si les symptômes perturbent votre quotidien plusieurs cycles de suite. Une orientation vers un gynécologue-obstétricien est recommandée si les troubles sont intenses ou si un trouble dysphorique prémenstruel (TDPM) est suspecté.",
+  "faq": [
+    {
+      "q": "Le syndrome prémenstruel est-il la même chose que le TDPM ?",
+      "a": "Non. Le trouble dysphorique prémenstruel (TDPM) est une forme sévère du SPM, avec des symptômes émotionnels très marqués (dépression, anxiété intense, irritabilité extrême) qui impactent significativement la vie quotidienne. Un médecin peut faire la distinction et proposer une prise en charge adaptée."
+    },
+    {
+      "q": "Quels changements de mode de vie peuvent aider à réduire les symptômes ?",
+      "a": "Une activité physique régulière, la réduction du sel, du sucre et de la caféine, un sommeil suffisant et la gestion du stress (relaxation, yoga) peuvent atténuer les symptômes. Ces mesures ne remplacent pas un avis médical si les troubles sont importants."
+    }
+  ],
+  "intentAnswer": "Pour un syndrome prémenstruel, consultez en premier lieu votre médecin généraliste qui évaluera vos symptômes. Si les troubles sont sévères ou récurrents, il vous orientera vers un gynécologue-obstétricien. En cas de pensées suicidaires ou de douleurs aiguës, rendez-vous aux urgences sans attendre.",
+  "termAr": "متلازمة ما قبل الحيض",
+  "shortAnswerAr": "متلازمة ما قبل الحيض مجموعة من الأعراض الجسدية والنفسية (كالانتفاخ والتوتر والإرهاق) تظهر في الأيام التي تسبق الدورة الشهرية وتزول بمجرد بدئها. تكون في الغالب خفيفة، لكنها تستدعي استشارة طبية حين تؤثر على الحياة اليومية.",
+  "causesAr": [
+    "تقلبات هرمونية (الإستروجين والبروجسترون) في المرحلة الثانية من الدورة الشهرية",
+    "حساسية مفرطة تجاه هذه التغيرات الهرمونية مما يؤثر على الناقلات العصبية كالسيروتونين",
+    "الاستعداد الوراثي: يكثر وجود أفراد من العائلة يعانون من نفس الأعراض",
+    "التوتر المزمن واضطرابات النوم التي تزيد من حدة الأعراض",
+    "نظام غذائي غير متوازن (إفراط في الملح والسكر والكافيين) يُعزز احتباس الماء",
+    "قلة الحركة وغياب النشاط البدني المنتظم"
+  ],
+  "redFlagsAr": [
+    "أفكار سوداء أو أفكار انتحارية أو شعور باليأس الشديد خلال فترة ما قبل الحيض (قد يشير إلى اضطراب عسر الطمث ما قبل الحيضي)",
+    "آلام حوضية شديدة مصحوبة بنزيف غير طبيعي",
+    "أعراض لا تختفي بعد بداية الدورة أو تمتد طوال الشهر",
+    "تأثير كبير على العمل أو العلاقات الاجتماعية أو الحياة الأسرية رغم اتباع نظام حياة صحي",
+    "ظهور هذه الأعراض فجأة بعد سن الأربعين (يستوجب الاستشارة الطبية)"
+  ],
+  "whenToConsultAr": "استشيري طبيبك العام إذا أثرت الأعراض على حياتك اليومية لعدة دورات متتالية. يُنصح بالتوجه إلى طبيب متخصص في أمراض النساء والتوليد إذا كانت الأعراض شديدة أو اشتُبه في وجود اضطراب عسر الطمث ما قبل الحيضي.",
+  "faqAr": [
+    {
+      "q": "هل متلازمة ما قبل الحيض هي نفسها اضطراب عسر الطمث ما قبل الحيضي؟",
+      "a": "لا، اضطراب عسر الطمث ما قبل الحيضي هو الشكل الحاد من المتلازمة، ويتميز بأعراض نفسية وعاطفية شديدة (اكتئاب وقلق حاد وتهيج مفرط) تنعكس بشكل واضح على الحياة اليومية. الطبيب وحده قادر على التمييز بينهما واقتراح العلاج المناسب."
+    },
+    {
+      "q": "هل تغيير نمط الحياة يساعد على تخفيف الأعراض؟",
+      "a": "نعم، ممارسة الرياضة بانتظام، والتقليل من الملح والسكر والكافيين، والنوم الكافي، وإدارة التوتر (كالاسترخاء والتأمل) قد تُخفف الأعراض. غير أن هذه التدابير لا تُغني عن استشارة طبيب إذا كانت الأعراض مزعجة."
+    }
+  ],
+  "intentAnswerAr": "لمتلازمة ما قبل الحيض، ابدئي باستشارة الطبيب العام الذي سيقيّم أعراضك. في حال كانت الأعراض شديدة أو متكررة، سيحيلك إلى طبيب متخصص في أمراض النساء والتوليد. إذا راودتك أفكار انتحارية أو عانيت من آلام حادة، توجهي إلى المستعجلات فوراً."
+}

@@ -1,0 +1,64 @@
+{
+  "slug": "hernie-inguinale",
+  "term": "Hernie inguinale",
+  "kind": "DISEASE",
+  "specialty": "chirurgie-generale",
+  "synonyms": ["hernie de l'aine", "hernie abdominale basse"],
+  "shortAnswer": "La hernie inguinale est la saillie d'une partie de l'intestin ou du tissu abdominal à travers un point faible de la paroi de l'aine. Souvent bénigne et indolore au repos, elle nécessite une consultation si elle grossit, devient douloureuse ou irréductible.",
+  "causes": [
+    "Faiblesse congénitale ou acquise de la paroi musculaire de l'aine",
+    "Efforts répétés (port de charges lourdes, travaux physiques intenses)",
+    "Toux chronique ou éternuements fréquents augmentant la pression abdominale",
+    "Constipation chronique avec poussées répétées",
+    "Surpoids ou obésité favorisant la pression intra-abdominale",
+    "Antécédents de chirurgie abdominale affaiblissant la paroi"
+  ],
+  "redFlags": [
+    "Hernie dure, rouge, chaude et impossible à repousser manuellement (hernie étranglée — urgence chirurgicale)",
+    "Douleur soudaine et intense à l'aine irradiant vers le bas-ventre",
+    "Nausées, vomissements et arrêt des gaz associés à la tuméfaction (occlusion intestinale)",
+    "Fièvre accompagnant une douleur locale non soulagée au repos",
+    "Augmentation rapide du volume de la tuméfaction en quelques heures"
+  ],
+  "whenToConsult": "Consultez un médecin dès que vous remarquez une bosse à l'aine, même indolore, pour évaluer le risque. Rendez-vous aux urgences immédiatement si la hernie devient dure, douloureuse et irréductible.",
+  "faq": [
+    {
+      "q": "La hernie inguinale peut-elle guérir sans chirurgie ?",
+      "a": "Non, la hernie inguinale ne disparaît pas d'elle-même. Le seul traitement curatif est chirurgical. Cependant, le médecin décide du moment de l'opération selon la gêne et le risque d'étranglement. Un suivi régulier est indispensable en attendant."
+    },
+    {
+      "q": "Peut-on pratiquer du sport avec une hernie inguinale ?",
+      "a": "Certaines activités légères peuvent être poursuivies après avis médical, mais les efforts augmentant fortement la pression abdominale (haltérophilie, abdominaux intenses) sont déconseillés. Seul votre médecin ou chirurgien peut vous indiquer les activités compatibles avec votre situation."
+    }
+  ],
+  "intentAnswer": "Pour une hernie inguinale, consultez d'abord votre médecin généraliste qui évaluera la hernie et vous orientera vers un chirurgien général pour décider du traitement. En cas de hernie douloureuse et irréductible, rendez-vous immédiatement aux urgences.",
+  "termAr": "الفتق الإربي",
+  "shortAnswerAr": "الفتق الإربي هو بروز جزء من الأمعاء أو الأنسجة البطنية عبر نقطة ضعف في جدار المغبن (الأربية). غالباً ما يكون حميداً وغير مؤلم في حالة الراحة، لكنه يستوجب استشارة طبية إذا كبر حجمه أو أصبح مؤلماً أو تعذّر إعادته إلى مكانه.",
+  "causesAr": [
+    "ضعف خلقي أو مكتسب في عضلات جدار المغبن",
+    "الجهد المتكرر كحمل الأثقال والأعمال الشاقة",
+    "السعال المزمن أو العطس المتكرر الذي يرفع الضغط داخل البطن",
+    "الإمساك المزمن مع الضغط الشديد عند قضاء الحاجة",
+    "الوزن الزائد أو السمنة التي تزيد الضغط داخل البطن",
+    "التدخلات الجراحية السابقة في البطن التي قد تُضعف الجدار العضلي"
+  ],
+  "redFlagsAr": [
+    "فتق صلب ومحمر ودافئ لا يمكن إعادته يدوياً — حالة طارئة تستدعي التدخل الجراحي الفوري",
+    "ألم مفاجئ وشديد في المغبن يمتد نحو أسفل البطن",
+    "غثيان وقيء وانقطاع الغازات مصحوبة بانتفاخ موضعي (إشارة إلى انسداد معوي)",
+    "ارتفاع في درجة الحرارة مع ألم موضعي لا يخف بالراحة",
+    "تضخم سريع وملحوظ في حجم الفتق خلال ساعات قليلة"
+  ],
+  "whenToConsultAr": "استشر طبيبك فور ملاحظة أي انتفاخ في منطقة المغبن، حتى لو لم يكن مؤلماً، لتقييم الخطر. توجه فوراً إلى المستعجلات إذا أصبح الفتق صلباً ومؤلماً ولا يمكن إعادته.",
+  "faqAr": [
+    {
+      "q": "هل يمكن أن يشفى الفتق الإربي دون جراحة؟",
+      "a": "لا، الفتق الإربي لا يختفي من تلقاء نفسه، والعلاج الشافي الوحيد هو الجراحة. غير أن الطبيب يحدد توقيت التدخل بحسب درجة الإزعاج وخطر الانحبار. المتابعة الطبية المنتظمة ضرورية في انتظار العملية."
+    },
+    {
+      "q": "هل يمكن ممارسة الرياضة مع وجود فتق إربي؟",
+      "a": "يمكن مواصلة بعض الأنشطة الخفيفة بعد استشارة الطبيب، إلا أن التمارين التي ترفع الضغط داخل البطن بشكل كبير كرفع الأثقال وتمارين البطن المكثفة غير مستحسنة. طبيبك أو جراحك وحده يحدد الأنشطة الملائمة لحالتك."
+    }
+  ],
+  "intentAnswerAr": "لاستشارة متخصص في الفتق الإربي، ابدأ بطبيب عام يفحص حالتك ويحيلك إلى جراح عام لتحديد العلاج المناسب. في حال أصبح الفتق مؤلماً وصلباً وتعذّر إعادته، توجه فوراً إلى المستعجلات."
+}

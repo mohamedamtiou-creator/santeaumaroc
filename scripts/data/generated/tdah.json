@@ -1,0 +1,66 @@
+{
+  "slug": "tdah",
+  "term": "TDAH (trouble de l'attention)",
+  "kind": "DISEASE",
+  "specialty": "pediatrie",
+  "synonyms": ["trouble du déficit de l'attention avec ou sans hyperactivité", "hyperactivité", "déficit attentionnel", "TDA", "TDA/H"],
+  "shortAnswer": "Le TDAH est un trouble neurodéveloppemental qui se manifeste par des difficultés d'attention, une impulsivité ou une agitation excessive, apparaissant avant l'âge de 12 ans. Souvent bénin avec une prise en charge adaptée, il nécessite une évaluation spécialisée si les symptômes perturbent la scolarité ou la vie quotidienne.",
+  "causes": [
+    "Facteurs génétiques : le TDAH est souvent héréditaire, plusieurs membres d'une même famille peuvent être touchés",
+    "Déséquilibres dans les circuits cérébraux impliquant la dopamine et la noradrénaline",
+    "Exposition prénatale au tabac, à l'alcool ou à certains toxiques pendant la grossesse",
+    "Prématurité ou faible poids à la naissance",
+    "Facteurs environnementaux (stress familial chronique, carences éducatives sévères) qui peuvent aggraver les symptômes",
+    "Aucune cause liée à une mauvaise éducation ou à la volonté de l'enfant : le TDAH est une condition neurologique"
+  ],
+  "redFlags": [
+    "Échec scolaire sévère ou décrochage avec souffrance manifeste de l'enfant",
+    "Comportements dangereux répétés pour lui-même ou pour autrui (fugues, blessures fréquentes)",
+    "Pensées suicidaires, propos désespérés ou évocateurs d'un désir de mourir : appelez le 15 (SAMU) ou rendez-vous aux urgences sans délai",
+    "Symptômes dépressifs associés, repli sur soi important ou automutilation",
+    "Apparition soudaine des troubles après un traumatisme crânien ou une forte fièvre",
+    "Symptômes présents uniquement à la maison ou uniquement à l'école (peut indiquer une autre cause)"
+  ],
+  "whenToConsult": "Consultez un médecin si les difficultés d'attention ou l'agitation de votre enfant durent depuis plus de six mois et perturbent sa scolarité, ses relations sociales ou sa vie familiale. Ne tardez pas si l'enfant souffre visiblement ou si son entourage est en grande détresse.",
+  "faq": [
+    {
+      "q": "Le TDAH disparaît-il avec l'âge ?",
+      "a": "Les symptômes évoluent souvent avec l'âge : l'hyperactivité motrice tend à diminuer à l'adolescence, mais les difficultés d'attention peuvent persister à l'âge adulte. Un suivi adapté permet à la plupart des personnes touchées de mener une vie épanouie sur le plan scolaire, professionnel et social."
+    },
+    {
+      "q": "Faut-il forcément un traitement médicamenteux pour le TDAH ?",
+      "a": "Non, pas systématiquement. La prise en charge repose d'abord sur un accompagnement éducatif, des aménagements scolaires et un soutien psychologique (thérapie comportementale). La décision d'un traitement complémentaire revient au médecin spécialiste après une évaluation complète, en accord avec la famille."
+    }
+  ],
+  "intentAnswer": "Pour un enfant suspecté de TDAH, commencez par consulter votre médecin généraliste ou pédiatre, qui pourra orienter vers un neuropédiatre ou un pédopsychiatre pour un bilan complet. Si l'enfant présente des comportements dangereux ou une souffrance intense, consultez sans attendre.",
+  "termAr": "اضطراب نقص الانتباه وفرط الحركة (TDAH)",
+  "shortAnswerAr": "اضطراب نقص الانتباه وفرط الحركة هو اضطراب في النمو العصبي يتجلى في صعوبة التركيز والتهور والحركة المفرطة، ويظهر قبل سن الثانية عشرة. غالباً ما يكون قابلاً للتحكم بالمتابعة المناسبة، لكنه يستدعي تقييماً متخصصاً عند تأثيره على الدراسة أو الحياة اليومية.",
+  "causesAr": [
+    "عوامل وراثية: كثيراً ما يكون الاضطراب منتشراً في الأسرة الواحدة",
+    "خلل في مسارات الدماغ المرتبطة بالدوبامين والنورأدرينالين",
+    "التعرض للتدخين أو الكحول أو بعض المواد السامة خلال فترة الحمل",
+    "الولادة المبكرة أو انخفاض الوزن عند الولادة",
+    "عوامل بيئية كالضغط الأسري المزمن أو الحرمان التربوي الشديد التي قد تفاقم الأعراض",
+    "لا علاقة للاضطراب بسوء التربية أو إرادة الطفل، فهو حالة عصبية بيولوجية"
+  ],
+  "redFlagsAr": [
+    "فشل دراسي حاد أو انقطاع عن التعليم مع معاناة واضحة لدى الطفل",
+    "سلوكيات خطيرة ومتكررة تهدد سلامته أو سلامة الآخرين (هروب أو إصابات متكررة)",
+    "أفكار انتحارية أو كلام يعبّر عن رغبة في الموت أو اليأس الشديد: اتصل بخدمات الطوارئ أو توجّه فوراً إلى المستعجلات",
+    "أعراض اكتئابية مصاحبة أو انعزال تام أو إيذاء النفس",
+    "ظهور الأعراض فجأة عقب إصابة في الرأس أو حمى شديدة",
+    "وجود الأعراض في مكان واحد فقط (البيت أو المدرسة) دون الآخر، مما قد يشير إلى سبب آخر"
+  ],
+  "whenToConsultAr": "استشر طبيباً إذا استمرت صعوبات انتباه طفلك أو فرط حركته لأكثر من ستة أشهر وأثّرت على دراسته أو علاقاته الاجتماعية أو حياة الأسرة. لا تتأخر إذا كان الطفل يعاني بوضوح أو كان المحيطون به في ضائقة شديدة.",
+  "faqAr": [
+    {
+      "q": "هل يختفي اضطراب نقص الانتباه مع تقدم العمر؟",
+      "a": "كثيراً ما تتطور الأعراض مع مرور الوقت؛ إذ يميل فرط الحركة إلى التراجع في مرحلة المراهقة، غير أن صعوبات الانتباه قد تستمر حتى مرحلة البلوغ. ومع المتابعة المناسبة، يستطيع معظم المصابين تحقيق نجاح دراسي ومهني وعلاقات اجتماعية سليمة."
+    },
+    {
+      "q": "هل يستلزم علاج اضطراب نقص الانتباه تناول الأدوية بالضرورة؟",
+      "a": "لا، ليس بالضرورة. يرتكز العلاج أولاً على الدعم التربوي والتسهيلات الدراسية والمتابعة النفسية السلوكية. يتخذ قرار أي تدخل إضافي الطبيبُ المختص بعد تقييم شامل وبالتنسيق مع الأسرة."
+    }
+  ],
+  "intentAnswerAr": "إذا كنت تشك في إصابة طفلك باضطراب نقص الانتباه، ابدأ بمراجعة الطبيب العام أو طبيب الأطفال، الذي سيحيلك إلى طبيب أعصاب الأطفال أو طبيب نفس الأطفال لإجراء تقييم شامل. وإن ظهرت سلوكيات خطيرة أو معاناة حادة، فسارع إلى الاستشارة الطبية دون تأخير."
+}

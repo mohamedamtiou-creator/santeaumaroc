@@ -1,0 +1,64 @@
+{
+  "slug": "ongle-incarne",
+  "term": "Ongle incarné",
+  "kind": "DISEASE",
+  "specialty": "dermatologie",
+  "synonyms": ["onychocryptose", "onyxis latéral"],
+  "shortAnswer": "L'ongle incarné survient quand le bord de l'ongle (surtout du gros orteil) pénètre dans la peau adjacente, provoquant douleur, rougeur et parfois infection. Souvent bénin et traitable à domicile, il nécessite un avis médical si la douleur est intense ou si une infection s'installe.",
+  "causes": [
+    "Coupe d'ongles trop courte ou arrondie sur les côtés",
+    "Port de chaussures trop étroites ou pointues comprimant les orteils",
+    "Traumatisme répété (sport, choc) sur l'orteil",
+    "Prédisposition héréditaire à la courbure excessive de l'ongle",
+    "Transpiration excessive des pieds favorisant le ramollissement de la peau",
+    "Mauvaise hygiène des pieds ou soins pédicures mal effectués"
+  ],
+  "redFlags": [
+    "Présence de pus ou d'un écoulement malodorant autour de l'ongle",
+    "Rougeur, chaleur et gonflement s'étendant au-delà de l'orteil (signe d'infection profonde)",
+    "Fièvre associée à la douleur au pied",
+    "Apparition de tissu charnu excessif (bourgeon charnu ou granulome) autour de l'ongle",
+    "Absence d'amélioration après quelques jours de soins locaux, ou aggravation rapide — surtout chez le diabétique ou toute personne présentant des troubles de la circulation sanguine"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste ou un dermatologue si la douleur est intense, si vous observez des signes d'infection (pus, gonflement), ou si vous êtes diabétique ou avez des problèmes de circulation, car le risque de complication est plus élevé.",
+  "faq": [
+    {
+      "q": "Puis-je soigner un ongle incarné moi-même à la maison ?",
+      "a": "Un ongle incarné peu douloureux et sans infection peut être soulagé en trempant le pied dans de l'eau tiède, en gardant l'ongle propre et en portant des chaussures larges. En revanche, évitez de couper vous-même la partie enfoncée, car cela aggrave souvent le problème. Consultez un professionnel si la douleur persiste plus de quelques jours."
+    },
+    {
+      "q": "Quand une intervention chirurgicale est-elle nécessaire ?",
+      "a": "Lorsque l'ongle incarné récidive fréquemment ou que les soins locaux sont insuffisants, un médecin peut proposer une petite intervention (matricectomie partielle) pour retirer définitivement la partie de l'ongle qui s'incarne. Ce geste simple, réalisé sous anesthésie locale, prévient les rechutes."
+    }
+  ],
+  "intentAnswer": "Pour un ongle incarné, commencez par consulter votre médecin généraliste, qui peut traiter la plupart des cas courants. En cas d'infection persistante, de récidives fréquentes ou de doute, il vous orientera vers un dermatologue ou un chirurgien. Si vous êtes diabétique ou si vous observez une infection sévère avec fièvre, rendez-vous en urgence.",
+  "termAr": "الظفر الناشب",
+  "shortAnswerAr": "الظفر الناشب يحدث حين ينغرز حافة الظفر (خاصة إبهام القدم) في الجلد المجاور، مسبِّباً ألماً واحمراراً وأحياناً عدوى. غالباً ما يكون بسيطاً ويمكن علاجه في المنزل، لكنه يستدعي استشارة طبية إذا اشتدّ الألم أو ظهرت علامات التهاب.",
+  "causesAr": [
+    "قص الأظفار بشكل قصير جداً أو تقريب حوافها الجانبية",
+    "ارتداء أحذية ضيقة أو ذات مقدمة مدببة تضغط على أصابع القدم",
+    "إصابات متكررة على الإصبع (رياضة أو صدمات)",
+    "استعداد وراثي لتقوّس الظفر بشكل مفرط",
+    "التعرق الزائد في القدمين مما يُليّن الجلد حول الظفر",
+    "سوء العناية بالأظفار أو إجراء العناية بطريقة خاطئة"
+  ],
+  "redFlagsAr": [
+    "وجود قيح أو إفراز ذو رائحة كريهة حول الظفر",
+    "احمرار وحرارة وتورم يمتدان إلى ما وراء الإصبع (دلالة على عدوى عميقة)",
+    "ارتفاع الحرارة مصحوباً بألم في القدم",
+    "ظهور نسيج لحمي زائد (ورم حبيبي) حول الظفر",
+    "عدم التحسن بعد أيام من العلاج المحلي، أو تفاقم سريع — لا سيما لدى مرضى السكري أو أي شخص يعاني من اضطرابات في الدورة الدموية"
+  ],
+  "whenToConsultAr": "استشر طبيب عام أو طبيب أمراض جلدية إذا كان الألم شديداً، أو لاحظت علامات التهاب (قيح، تورم)، أو كنت مصاباً بالسكري أو لديك مشكلات في الدورة الدموية، إذ يزداد خطر المضاعفات في هذه الحالات.",
+  "faqAr": [
+    {
+      "q": "هل يمكنني علاج الظفر الناشب بنفسي في المنزل؟",
+      "a": "يمكن تخفيف الظفر الناشب البسيط غير المصحوب بالتهاب عن طريق نقع القدم في ماء دافئ، والحرص على النظافة، وارتداء أحذية واسعة. تجنب قص الجزء المنغرز بنفسك لأن ذلك يُفاقم المشكلة في الغالب. استشر طبيباً إذا استمر الألم أكثر من بضعة أيام."
+    },
+    {
+      "q": "متى يصبح التدخل الجراحي ضرورياً؟",
+      "a": "إذا تكرر الظفر الناشب باستمرار أو لم تجدِ العلاجات المحلية نفعاً، قد يقترح الطبيب تدخلاً بسيطاً (استئصال جزئي للمصفوفة) لإزالة الجزء المسبب للمشكلة نهائياً. يُجرى هذا التدخل تحت تخدير موضعي ويحول دون تكرار الحالة."
+    }
+  ],
+  "intentAnswerAr": "لعلاج الظفر الناشب، ابدأ باستشارة طبيب عام يتمكن من معالجة معظم الحالات الشائعة، وإذا استمر الالتهاب أو تكررت الحالة، يحيلك إلى طبيب جلدية أو جراح. أما إذا كنت مصاباً بالسكري أو لاحظت عدوى حادة مع ارتفاع الحرارة، فتوجه إلى الطوارئ فوراً."
+}

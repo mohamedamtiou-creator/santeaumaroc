@@ -1,0 +1,64 @@
+{
+  "slug": "bruxisme",
+  "term": "Bruxisme (grincement de dents)",
+  "kind": "DISEASE",
+  "specialty": "chirurgie-dentaire",
+  "synonyms": ["grincement de dents", "serrement de dents", "parafonction occlusale"],
+  "shortAnswer": "Le bruxisme est le fait de grincer ou serrer les dents, souvent la nuit, sans en avoir conscience. Bénin dans la plupart des cas, il peut user les dents et provoquer des douleurs à la mâchoire. Il mérite une consultation dentaire si les symptômes persistent.",
+  "causes": [
+    "Stress, anxiété ou tension nerveuse chronique",
+    "Troubles du sommeil (apnées, sommeil agité)",
+    "Mauvais alignement dentaire ou problème d'occlusion",
+    "Certains traitements (à évoquer avec votre médecin)",
+    "Consommation excessive de caféine ou de tabac",
+    "Facteurs génétiques (antécédents familiaux)"
+  ],
+  "redFlags": [
+    "Douleurs sévères et persistantes à la mâchoire, aux tempes ou aux oreilles",
+    "Blocage ou craquement important de l'articulation de la mâchoire (ATM)",
+    "Dents très usées, fracturées ou sensibles au chaud/froid",
+    "Maux de tête quotidiens au réveil malgré le repos",
+    "Gonflement visible autour de la mâchoire ou de la joue accompagné de fièvre, de difficultés à avaler ou à respirer — consultez un service d'urgences immédiatement (risque d'infection grave)"
+  ],
+  "whenToConsult": "Consultez un chirurgien-dentiste si vous vous réveillez avec des douleurs à la mâchoire, si votre entourage signale des bruits de grincement la nuit, ou si vos dents semblent s'user. En cas de douleur aiguë ou de blocage de la mâchoire, consultez rapidement. En cas de gonflement avec fièvre ou difficultés à avaler ou à respirer, appelez le 150 (SAMU) ou rendez-vous aux urgences sans délai.",
+  "faq": [
+    {
+      "q": "Le bruxisme peut-il abîmer mes dents de façon permanente ?",
+      "a": "Oui, un bruxisme non traité use progressivement l'émail dentaire, ce qui peut fragiliser les dents et entraîner des sensibilités ou des fractures. Une gouttière occlusale portée la nuit protège les dents et limite cette usure. Plus tôt le diagnostic est posé, moins les dégâts sont importants."
+    },
+    {
+      "q": "Comment savoir si je grince des dents pendant mon sommeil ?",
+      "a": "Les signes les plus fréquents sont des douleurs à la mâchoire ou des maux de tête au réveil, une fatigue musculaire des joues, ou un entourage qui vous signale des bruits nocturnes. Votre dentiste peut également détecter des traces d'usure anormale lors d'un examen de routine."
+    }
+  ],
+  "intentAnswer": "Pour le bruxisme, commencez par consulter votre médecin généraliste, qui pourra évaluer la part liée au stress ou au sommeil. Il vous orientera ensuite vers un chirurgien-dentiste, spécialiste de référence pour la pose d'une gouttière et le suivi dentaire. En cas de douleur aiguë ou de blocage de la mâchoire, consultez rapidement. En cas de gonflement avec fièvre ou difficultés à avaler ou à respirer, rendez-vous aux urgences immédiatement.",
+  "termAr": "صرير الأسنان (الطحن الليلي)",
+  "shortAnswerAr": "صرير الأسنان هو عادة اللاإرادية بطحن الأسنان أو الضغط عليها، وغالبًا ما تحدث أثناء النوم دون أن يشعر بها الشخص. في أغلب الحالات تكون خفيفة، لكنها قد تُسبب تآكل الأسنان وآلام الفك. يُستحسن استشارة طبيب الأسنان عند استمرار الأعراض.",
+  "causesAr": [
+    "التوتر والقلق المزمن والضغط النفسي",
+    "اضطرابات النوم كانقطاع التنفس أثناء النوم",
+    "سوء انتظام الأسنان أو اختلال في الإطباق",
+    "بعض الأدوية (يُستحسن مناقشة ذلك مع الطبيب)",
+    "الإفراط في تناول الكافيين أو التدخين",
+    "عوامل وراثية (وجود حالات مشابهة في العائلة)"
+  ],
+  "redFlagsAr": [
+    "آلام شديدة ومستمرة في الفك أو الصدغ أو الأذن",
+    "تكتل أو طقطقة واضحة في مفصل الفك (ATM)",
+    "أسنان متآكلة بشدة أو متشققة أو حساسة للحرارة والبرودة",
+    "صداع يومي عند الاستيقاظ رغم الراحة الكافية",
+    "تورم ملحوظ حول الفك أو الخد مصحوبٌ بحمى أو صعوبة في البلع أو التنفس — توجّه فورًا إلى المستعجلات (خطر عدوى خطيرة)"
+  ],
+  "whenToConsultAr": "راجع طبيب الأسنان إذا كنت تستيقظ مع آلام في الفك، أو إذا نبّهك أحد أفراد أسرتك لأصوات طحن ليلية، أو إذا لاحظت تآكلًا غير عادي في أسنانك. في حال الألم الحاد أو انقفال الفك، اطلب الرعاية الطبية بسرعة. أما إذا رافق التورمَ حمىً أو صعوبةٌ في البلع أو التنفس، فاتصل بالإسعاف أو توجّه إلى المستعجلات فورًا دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل يمكن لصرير الأسنان أن يُتلف أسناني بشكل دائم؟",
+      "a": "نعم، إذا لم يُعالَج، يُؤدي صرير الأسنان تدريجيًا إلى تآكل مينا الأسنان، مما قد يُضعفها ويُسبب حساسية أو تشققًا. تُساعد الجبيرة الفموية الليلية في حماية الأسنان والحدّ من هذا التآكل. كلما كان التشخيص مبكرًا، قلّت الأضرار."
+    },
+    {
+      "q": "كيف أعرف إذا كنت أطحن أسناني أثناء النوم؟",
+      "a": "أبرز العلامات هي الشعور بآلام الفك أو الصداع عند الاستيقاظ، والشعور بتعب في عضلات الوجه، أو تنبيه أحد المقربين لأصوات ليلية. كما يستطيع طبيب الأسنان اكتشاف آثار التآكل غير الطبيعي خلال الفحص الدوري."
+    }
+  ],
+  "intentAnswerAr": "لمشكلة صرير الأسنان، ابدأ باستشارة طبيبك العام الذي سيُقيّم العلاقة بالتوتر أو اضطرابات النوم، ثم يُحيلك إلى طبيب الأسنان، المختص الأساسي لتركيب الجبيرة الفموية ومتابعة حالة أسنانك. في حال الألم الحاد أو انقفال الفك، اطلب الرعاية الطبية فورًا. وإذا رافق التورمَ حمىً أو صعوبةٌ في البلع أو التنفس، توجّه إلى المستعجلات فورًا."
+}

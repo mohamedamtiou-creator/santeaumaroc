@@ -1,0 +1,64 @@
+{
+  "slug": "entorse",
+  "term": "Entorse",
+  "kind": "DISEASE",
+  "specialty": "traumatologie-orthopedie",
+  "synonyms": ["foulure", "ligament étiré", "torsion articulaire"],
+  "shortAnswer": "Une entorse est une lésion des ligaments d'une articulation, souvent provoquée par un faux mouvement. La plupart des entorses bénignes guérissent avec du repos. En cas de douleur intense, d'impossibilité de poser le pied ou de déformation visible, consultez rapidement.",
+  "causes": [
+    "Faux mouvement ou torsion du pied, de la cheville ou du genou",
+    "Chute ou réception maladroite lors d'un sport",
+    "Accident de la voie publique ou choc direct sur une articulation",
+    "Sol instable ou irrégulier (terrain accidenté, escalier)",
+    "Fatigue musculaire diminuant la protection de l'articulation",
+    "Chaussures inadaptées ou absence d'échauffement avant l'effort"
+  ],
+  "redFlags": [
+    "Douleur très intense rendant tout appui impossible dès le premier instant",
+    "Déformation visible ou craquement net au moment du traumatisme",
+    "Gonflement massif et rapide ou hématome étendu",
+    "Engourdissement, fourmillements ou perte de sensibilité dans le membre",
+    "Persistance de la douleur et de l'instabilité après 48 à 72 heures de repos"
+  ],
+  "whenToConsult": "Consultez un médecin rapidement si vous ne pouvez pas appuyer sur le membre touché ou si la douleur est très sévère ; rendez-vous aux urgences en cas de déformation ou de suspicion de fracture.",
+  "faq": [
+    {
+      "q": "Entorse ou fracture : comment faire la différence ?",
+      "a": "Il est souvent impossible de les distinguer sans radiographie. Si la douleur est très intense, localisée sur l'os, ou si vous ne pouvez absolument pas poser le pied, consultez un médecin sans attendre pour un bilan radiologique."
+    },
+    {
+      "q": "Peut-on traiter une entorse bénigne à la maison ?",
+      "a": "Une entorse légère peut être soulagée par le repos, la surélévation du membre et l'application de glace (protégée par un linge). Cependant, un avis médical reste conseillé pour confirmer l'absence de fracture et recevoir les conseils de rééducation adaptés."
+    }
+  ],
+  "intentAnswer": "Pour une entorse, commencez par consulter un médecin généraliste qui évaluera la gravité et prescrira une radiographie si nécessaire. En cas d'entorse grave ou récidivante, il vous orientera vers un médecin traumatologue-orthopédiste. Rendez-vous aux urgences si la douleur est insupportable ou si le membre est déformé.",
+  "termAr": "التواء (وثء)",
+  "shortAnswerAr": "الالتواء هو إصابة في أربطة المفصل تحدث عادةً جراء حركة خاطئة أو سقوط. تشفى معظم الحالات البسيطة بالراحة. أما إذا كان الألم شديداً أو تعذّر الوقوف على القدم أو ظهر تشوّه واضح، فيجب استشارة طبيب بسرعة.",
+  "causesAr": [
+    "حركة خاطئة أو التواء مفاجئ في الكاحل أو الركبة",
+    "السقوط أو الهبوط الخاطئ أثناء ممارسة الرياضة",
+    "حوادث الطرق أو الاصطدام المباشر بمفصل",
+    "الأرض غير المستوية أو السير على الدرج",
+    "الإرهاق العضلي الذي يُضعف حماية المفصل",
+    "الأحذية غير المناسبة أو غياب الإحماء قبل التمرين"
+  ],
+  "redFlagsAr": [
+    "ألم حاد جداً يمنع الاتكاء على الطرف منذ اللحظة الأولى",
+    "تشوّه مرئي في المفصل أو صوت طقطقة مسموعة لحظة الإصابة",
+    "تورم سريع ومفاجئ أو كدمة واسعة الانتشار",
+    "خدر أو وخز أو فقدان الإحساس في الطرف المصاب",
+    "استمرار الألم وعدم الاستقرار أكثر من 48 إلى 72 ساعة رغم الراحة"
+  ],
+  "whenToConsultAr": "استشر طبيبك في أقرب وقت إذا تعذّر عليك تحميل وزنك على الطرف المصاب أو كان الألم شديداً جداً؛ وتوجّه إلى المستعجلات فوراً عند ظهور أي تشوّه أو الاشتباه في وجود كسر.",
+  "faqAr": [
+    {
+      "q": "كيف أُفرّق بين الالتواء والكسر؟",
+      "a": "يصعب التمييز بينهما دون إجراء صورة شعاعية. إذا كان الألم شديداً وموضعياً على العظم، أو إذا تعذّر الوقوف على القدم تماماً، فاستشر طبيباً فوراً لإجراء التصوير اللازم."
+    },
+    {
+      "q": "هل يمكن علاج الالتواء البسيط في المنزل؟",
+      "a": "يمكن تخفيف الالتواء البسيط بالراحة، ورفع الطرف المصاب، ووضع الثلج المغلّف بقطعة قماش عليه. غير أن استشارة الطبيب تبقى ضرورية للتأكد من غياب الكسر وتلقّي إرشادات إعادة التأهيل المناسبة."
+    }
+  ],
+  "intentAnswerAr": "في حالة الالتواء، ابدأ باستشارة طبيب عام يُقيّم درجة الإصابة ويطلب التصوير الشعاعي إذا لزم الأمر. وفي حال كان الالتواء شديداً أو متكرراً، يُحيلك إلى طبيب متخصص في جراحة العظام والمفاصل. توجّه إلى المستعجلات فوراً إذا كان الألم لا يُحتمل أو ظهر تشوّه في الطرف."
+}

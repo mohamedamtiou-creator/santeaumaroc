@@ -1,0 +1,64 @@
+{
+  "slug": "fibromyalgie",
+  "term": "Fibromyalgie",
+  "kind": "DISEASE",
+  "specialty": "rhumatologie",
+  "synonyms": ["syndrome fibromyalgique", "fibromyositis", "rhumatisme des tissus mous"],
+  "shortAnswer": "La fibromyalgie est une douleur musculaire diffuse et chronique, souvent accompagnée de fatigue et de troubles du sommeil. Dans la plupart des cas elle est invalidante mais non dangereuse ; consultez un médecin si les douleurs persistent plus de trois mois ou altèrent votre quotidien.",
+  "causes": [
+    "Sensibilisation centrale : le système nerveux amplifie anormalement les signaux douloureux",
+    "Facteurs génétiques : antécédents familiaux de douleurs chroniques",
+    "Stress physique ou psychologique intense (traumatisme, deuil, surmenage)",
+    "Troubles du sommeil profond qui perturbent la récupération musculaire",
+    "Infections ou maladies inflammatoires pouvant déclencher le syndrome",
+    "Déséquilibres hormonaux ou neurochimiques (sérotonine, substance P)"
+  ],
+  "redFlags": [
+    "Douleurs articulaires avec gonflement, rougeur ou fièvre (évoque une arthrite inflammatoire à éliminer en urgence)",
+    "Faiblesse musculaire progressive ou perte de sensibilité dans un membre",
+    "Perte de poids inexpliquée importante ou sueurs nocturnes abondantes",
+    "Douleurs brutales et intenses survenant pour la première fois, très différentes des habituelles",
+    "Incontinence urinaire ou anale associée à des douleurs dorsales (signe neurologique grave)"
+  ],
+  "whenToConsult": "Consultez votre médecin généraliste si des douleurs musculaires diffuses persistent depuis plus de trois mois et affectent votre sommeil ou votre vie quotidienne. Un avis rhumatologique est recommandé pour confirmer le diagnostic et éliminer d'autres maladies.",
+  "faq": [
+    {
+      "q": "La fibromyalgie est-elle une maladie grave ou dangereuse ?",
+      "a": "La fibromyalgie n'est pas une maladie inflammatoire, auto-immune ou dégénérative ; elle n'endommage ni les articulations ni les organes. Elle est cependant invalidante et impacte fortement la qualité de vie. Un suivi médical adapté permet de mieux la gérer au quotidien."
+    },
+    {
+      "q": "Quels spécialistes peuvent aider en cas de fibromyalgie au Maroc ?",
+      "a": "Le médecin généraliste est le premier interlocuteur pour orienter le diagnostic. Le rhumatologue confirme le diagnostic et propose une prise en charge globale. Un accompagnement par un médecin de la douleur, un kinésithérapeute ou un psychologue peut compléter le traitement."
+    }
+  ],
+  "intentAnswer": "Pour la fibromyalgie, commencez par consulter votre médecin généraliste qui évaluera vos symptômes et vous orientera si besoin vers un rhumatologue, spécialiste de référence. Si vous présentez des signes d'alerte (gonflement articulaire, fièvre, déficit moteur), rendez-vous rapidement aux urgences.",
+  "termAr": "الفيبروميالجيا",
+  "shortAnswerAr": "الفيبروميالجيا مرض يتميز بآلام عضلية منتشرة ومزمنة، غالباً ما تصاحبها إرهاق شديد واضطرابات في النوم. في معظم الحالات لا يُسبب مضاعفات خطيرة، لكن يُنصح باستشارة الطبيب إذا استمرت الآلام أكثر من ثلاثة أشهر أو أثّرت على حياتك اليومية.",
+  "causesAr": [
+    "تحسس مركزي: يُضخّم الجهاز العصبي إشارات الألم بشكل غير طبيعي",
+    "عوامل وراثية: وجود أفراد من العائلة يعانون من آلام مزمنة",
+    "ضغوط نفسية أو جسدية شديدة كالصدمات أو الإرهاق المتواصل",
+    "اضطرابات النوم العميق التي تُعيق تعافي العضلات",
+    "عدوى أو أمراض التهابية قد تُفجّر ظهور المتلازمة",
+    "اختلالات هرمونية أو عصبية كيميائية"
+  ],
+  "redFlagsAr": [
+    "آلام مفصلية مع تورم أو احمرار أو حمى (يستوجب استبعاد التهاب المفاصل فوراً)",
+    "ضعف عضلي تدريجي أو فقدان الإحساس في أحد الأطراف",
+    "نقص واضح في الوزن دون سبب أو تعرق ليلي غزير",
+    "ألم مفاجئ وشديد مختلف تماماً عن الألم المعتاد",
+    "سلس البول أو البراز مع آلام في الظهر (علامة عصبية خطيرة تستدعي الطوارئ)"
+  ],
+  "whenToConsultAr": "راجع طبيبك العام إذا عانيت من آلام عضلية منتشرة لأكثر من ثلاثة أشهر تؤثر على نومك أو نشاطك اليومي. يُنصح بزيارة طبيب الروماتيزم لتأكيد التشخيص واستبعاد أمراض أخرى.",
+  "faqAr": [
+    {
+      "q": "هل الفيبروميالجيا مرض خطير؟",
+      "a": "الفيبروميالجيا ليست مرضاً التهابياً أو مناعياً أو تنكسياً، ولا تُلحق ضرراً بالمفاصل أو الأعضاء الداخلية. غير أنها قد تكون مُعيقة وتؤثر بشكل كبير على جودة الحياة. المتابعة الطبية المنتظمة تساعد على التعايش معها بشكل أفضل."
+    },
+    {
+      "q": "ما هي التخصصات الطبية التي تُعالج الفيبروميالجيا في المغرب؟",
+      "a": "يبدأ المريض بزيارة الطبيب العام الذي يُقيّم الأعراض ويُحيل إذا لزم الأمر إلى طبيب الروماتيزم المتخصص في هذا المجال. يمكن أن يُكمّل العلاج أخصائي طب الألم أو المعالج الفيزيائي أو أخصائي نفسي."
+    }
+  ],
+  "intentAnswerAr": "لمعرفة الطبيب المناسب لعلاج الفيبروميالجيا، ابدأ بزيارة طبيبك العام الذي سيُقيّم حالتك ويُحيلك عند الحاجة إلى طبيب روماتيزم المتخصص. إذا ظهرت عليك علامات تحذيرية كتورم المفاصل أو الحمى أو ضعف الأطراف، توجّه فوراً إلى قسم الطوارئ."
+}

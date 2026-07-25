@@ -1,0 +1,64 @@
+{
+  "slug": "retinopathie-diabetique",
+  "term": "Rétinopathie diabétique",
+  "kind": "DISEASE",
+  "specialty": "ophtalmologie",
+  "synonyms": ["complication oculaire du diabète", "atteinte rétinienne diabétique"],
+  "shortAnswer": "La rétinopathie diabétique est une atteinte des vaisseaux de la rétine causée par un diabète mal contrôlé. Longtemps silencieuse, elle peut entraîner une perte de vision grave. Un suivi ophtalmologique régulier est indispensable pour tout diabétique.",
+  "causes": [
+    "Diabète de type 1 ou de type 2 mal équilibré sur le long terme",
+    "Hyperglycémie chronique qui fragilise les petits vaisseaux de la rétine",
+    "Hypertension artérielle associée au diabète, qui aggrave les lésions",
+    "Ancienneté du diabète : le risque augmente avec les années",
+    "Tabagisme, qui accélère la détérioration des vaisseaux sanguins",
+    "Facteurs génétiques et prédisposition familiale"
+  ],
+  "redFlags": [
+    "Baisse soudaine ou progressive de la vision dans un ou les deux yeux",
+    "Apparition de taches noires, de « mouches volantes » ou de voile devant les yeux",
+    "Vision déformée ou floue au centre du champ visuel",
+    "Perception d'éclairs lumineux ou de flashes",
+    "Perte totale ou partielle de la vision (urgence ophtalmologique immédiate)"
+  ],
+  "whenToConsult": "Tout diabétique doit consulter un ophtalmologue au moins une fois par an pour un examen du fond d'œil, même sans symptôme. En cas de trouble visuel soudain, consultez en urgence.",
+  "faq": [
+    {
+      "q": "La rétinopathie diabétique peut-elle évoluer sans douleur ni signe visible ?",
+      "a": "Oui, c'est précisément ce qui la rend dangereuse. Aux stades précoces, elle ne provoque aucune douleur et la vision peut sembler normale. C'est pourquoi le dépistage annuel par fond d'œil est essentiel pour tous les diabétiques, même ceux qui « voient bien »."
+    },
+    {
+      "q": "Un bon contrôle du diabète peut-il protéger les yeux ?",
+      "a": "Oui. Maintenir une glycémie stable, contrôler la tension artérielle et adopter une hygiène de vie saine ralentissent significativement la progression de la maladie. Le suivi médical régulier (diabétologue + ophtalmologue) est la meilleure protection contre les complications graves."
+    }
+  ],
+  "intentAnswer": "Pour la rétinopathie diabétique, consultez d'abord votre médecin généraliste ou diabétologue pour équilibrer votre diabète, puis un ophtalmologue pour l'examen du fond d'œil. En cas de baisse soudaine de la vision, rendez-vous aux urgences ophtalmologiques sans délai.",
+  "termAr": "اعتلال الشبكية السكري",
+  "shortAnswerAr": "اعتلال الشبكية السكري هو تلف في أوعية شبكية العين ناجم عن مرض السكري غير المُتحكَّم فيه. يظل صامتاً في بدايته، لكنه قد يُفضي إلى فقدان البصر. المتابعة الدورية عند طبيب العيون ضرورة لكل مريض سكري.",
+  "causesAr": [
+    "مرض السكري من النوع الأول أو الثاني غير المُوازَن على المدى البعيد",
+    "ارتفاع السكر في الدم بشكل مزمن مما يُضعف الأوعية الدقيقة في الشبكية",
+    "ارتفاع ضغط الدم المرافق للسكري الذي يُفاقم الأضرار",
+    "طول مدة الإصابة بالسكري: تزداد المخاطر مع مرور السنوات",
+    "التدخين الذي يُسرّع تدهور الأوعية الدموية",
+    "العوامل الوراثية والاستعداد العائلي"
+  ],
+  "redFlagsAr": [
+    "تراجع مفاجئ أو تدريجي في حدة البصر في إحدى العينين أو كلتيهما",
+    "ظهور بقع سوداء أو أجسام عائمة أو ضبابية أمام العين",
+    "تشوه أو ضبابية في مركز مجال الرؤية",
+    "رؤية ومضات أو أضواء مفاجئة",
+    "فقدان جزئي أو كلي للبصر (حالة طارئة تستوجب استشارة فورية)"
+  ],
+  "whenToConsultAr": "يجب على كل مريض سكري إجراء فحص قاع العين لدى طبيب العيون مرة واحدة على الأقل سنوياً، حتى في غياب أي أعراض. وفي حال حدوث اضطراب مفاجئ في الرؤية، يُستشار الطبيب على وجه الاستعجال.",
+  "faqAr": [
+    {
+      "q": "هل يمكن أن يتطور اعتلال الشبكية السكري دون ألم أو أعراض واضحة؟",
+      "a": "نعم، وهذا تحديداً ما يجعله خطيراً. في مراحله الأولى لا يُسبب أي ألم وقد تبدو الرؤية طبيعية. لذا يُعدّ الفحص السنوي لقاع العين ضرورياً لجميع مرضى السكري، حتى من لا يشكون من أي اضطراب بصري."
+    },
+    {
+      "q": "هل يمكن للتحكم الجيد في السكري أن يحمي العينين؟",
+      "a": "نعم. الحفاظ على مستويات سكر مستقرة، وضبط ضغط الدم، واتباع نمط حياة صحي يُبطّئ تطور المرض بشكل ملحوظ. المتابعة الطبية المنتظمة مع أخصائي السكري وطبيب العيون هي أفضل وسيلة للوقاية من المضاعفات الخطيرة."
+    }
+  ],
+  "intentAnswerAr": "لاعتلال الشبكية السكري، استشر أولاً طبيبك العام أو أخصائي السكري لضبط مرض السكري، ثم طبيب العيون لإجراء فحص قاع العين. في حال تراجع البصر فجأة، توجّه فوراً إلى قسم طوارئ العيون دون تأخير."
+}

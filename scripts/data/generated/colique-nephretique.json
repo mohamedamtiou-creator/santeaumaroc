@@ -1,0 +1,64 @@
+{
+  "slug": "colique-nephretique",
+  "term": "Colique néphrétique",
+  "kind": "SYMPTOM",
+  "specialty": "urologie-et-chirurgie-urologique",
+  "synonyms": ["crise rénale", "lithiase urinaire douloureuse", "douleur rénale aiguë"],
+  "shortAnswer": "La colique néphrétique est une douleur lombaire très intense, souvent en crises, causée le plus souvent par un calcul (pierre) qui bloque le rein ou l'uretère. Elle nécessite une consultation rapide ; certains signes imposent les urgences immédiatement.",
+  "causes": [
+    "Calcul rénal (lithiase urinaire) bloquant l'uretère",
+    "Infection urinaire haute (pyélonéphrite) pouvant mimer ou compliquer la douleur",
+    "Caillot sanguin dans les voies urinaires",
+    "Sténose (rétrécissement) de l'uretère d'origine congénitale ou cicatricielle",
+    "Tumeur comprimant les voies urinaires",
+    "Déshydratation favorisant la formation de calculs et les crises"
+  ],
+  "redFlags": [
+    "Fièvre supérieure à 38,5 °C associée à la douleur (risque d'infection grave du rein — urgence absolue)",
+    "Frissons intenses, état de choc ou confusion mentale (urgence absolue)",
+    "Absence totale d'urine depuis plusieurs heures (blocage des deux reins ou rein unique fonctionnel)",
+    "Vomissements répétés empêchant toute alimentation ou hydratation par voie orale",
+    "Sang dans les urines abondant accompagné d'une douleur très sévère"
+  ],
+  "whenToConsult": "Consultez un médecin rapidement dès la première crise pour confirmer le diagnostic par échographie ou scanner. Rendez-vous aux urgences sans délai si vous avez de la fièvre, des frissons, si vous n'urinez plus ou si des vomissements répétés vous empêchent de boire.",
+  "faq": [
+    {
+      "q": "Peut-on éviter les récidives de colique néphrétique ?",
+      "a": "Oui, en grande partie. Boire suffisamment d'eau tout au long de la journée (objectif : urines claires) est la mesure la plus efficace. Votre médecin pourra analyser le calcul expulsé et adapter des conseils alimentaires personnalisés pour réduire le risque de rechute."
+    },
+    {
+      "q": "Le calcul part-il toujours seul ou faut-il toujours une opération ?",
+      "a": "Dans de nombreux cas, un petit calcul s'élimine spontanément dans les urines avec une bonne hydratation. Des calculs plus volumineux ou bloqués peuvent nécessiter un traitement spécialisé (ondes de choc, intervention endoscopique). C'est l'urologue qui évalue la prise en charge selon la taille et la localisation du calcul."
+    }
+  ],
+  "intentAnswer": "En premier recours, consultez votre médecin généraliste qui peut confirmer le diagnostic et orienter. L'urologue est le spécialiste de référence pour la prise en charge des calculs rénaux et des coliques néphrétiques récidivantes. En cas de fièvre, frissons, absence d'urine ou vomissements empêchant de boire, rendez-vous aux urgences sans attendre.",
+  "termAr": "المغص الكلوي",
+  "shortAnswerAr": "المغص الكلوي ألم شديد في منطقة أسفل الظهر يأتي على شكل نوبات، وغالباً ما يكون سببه حصاة (حجر) تسد الكلية أو الحالب. يستوجب استشارة طبية سريعة، وبعض الأعراض تستدعي التوجه فوراً للطوارئ.",
+  "causesAr": [
+    "حصاة كلوية (تحصٍّ بولي) تسد الحالب",
+    "التهاب المسالك البولية العلوية (التهاب الحويضة والكلية) الذي قد يُشابه المغص أو يُعقّده",
+    "جلطة دموية في المسالك البولية",
+    "تضيّق الحالب بسبب عيب خلقي أو ندبة",
+    "ورم يضغط على المسالك البولية",
+    "الجفاف الذي يُعزز تكوّن الحصوات ويُحفّز النوبات"
+  ],
+  "redFlagsAr": [
+    "حمى تتجاوز 38,5 درجة مئوية مع الألم (خطر التهاب حاد وخيم في الكلية — حالة طارئة للغاية)",
+    "قشعريرة شديدة أو تدهور في الوعي أو صدمة (حالة طارئة للغاية)",
+    "انعدام البول تماماً لعدة ساعات (انسداد الكليتين أو كلية وحيدة وظيفياً)",
+    "قيء متكرر يمنع أي تناول للطعام أو الشراب عن طريق الفم",
+    "دم غزير في البول مصحوب بألم شديد جداً"
+  ],
+  "whenToConsultAr": "استشر طبيبك في أقرب وقت ممكن عند أول نوبة لتأكيد التشخيص عبر الموجات الصوتية أو الأشعة المقطعية. توجّه إلى الطوارئ فوراً إذا كانت لديك حمى أو قشعريرة أو توقف البول أو قيء متكرر يمنعك من الشرب.",
+  "faqAr": [
+    {
+      "q": "هل يمكن تجنب تكرار نوبات المغص الكلوي؟",
+      "a": "نعم، إلى حدٍّ بعيد. شرب كميات كافية من الماء طوال اليوم (بحيث يكون البول فاتح اللون) هو أفضل إجراء وقائي. يمكن لطبيبك تحليل الحصاة المُطرحة وتقديم إرشادات غذائية مخصصة لتقليل خطر الانتكاس."
+    },
+    {
+      "q": "هل تخرج الحصاة دائماً وحدها أم أن الجراحة ضرورية دائماً؟",
+      "a": "في كثير من الحالات، تخرج الحصاة الصغيرة تلقائياً مع البول عند الإكثار من السوائل. أما الحصوات الأكبر أو المتعسرة فقد تستلزم علاجاً متخصصاً كتفتيت الحصى بالموجات أو التدخل بالمنظار. يُقيّم أخصائي المسالك البولية العلاج المناسب بحسب حجم الحصاة وموضعها."
+    }
+  ],
+  "intentAnswerAr": "في المرحلة الأولى، تواصل مع طبيبك العام الذي يستطيع تأكيد التشخيص والإحالة المناسبة. أخصائي المسالك البولية هو المرجع الأساسي لعلاج الحصوات الكلوية ونوبات المغص المتكررة. وفي حال ظهور الحمى أو القشعريرة أو توقف البول أو قيء يمنعك من الشرب، اذهب إلى الطوارئ دون تأخير."
+}

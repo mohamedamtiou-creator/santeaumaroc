@@ -1,0 +1,66 @@
+{
+  "slug": "pancreatite",
+  "term": "Pancréatite",
+  "kind": "DISEASE",
+  "specialty": "gastro-enterologie",
+  "synonyms": ["inflammation du pancréas", "pancréatite aiguë", "pancréatite chronique"],
+  "shortAnswer": "La pancréatite est une inflammation du pancréas, glande digestive essentielle. La forme légère guérit souvent en quelques jours avec du repos et une hydratation adaptée. Une douleur abdominale violente, persistante ou accompagnée de fièvre nécessite une consultation urgente.",
+  "causes": [
+    "Calculs biliaires bloquant le canal pancréatique (cause la plus fréquente au Maroc)",
+    "Consommation excessive et répétée d'alcool",
+    "Triglycérides très élevés dans le sang (hypertriglycéridémie)",
+    "Certains médicaments ou traumatismes abdominaux",
+    "Infections virales (oreillons, hépatites) ou parasitaires",
+    "Cause inexpliquée dans certains cas (pancréatite idiopathique)"
+  ],
+  "redFlags": [
+    "Douleur abdominale haute très intense, irradiant dans le dos, ne cédant pas au repos",
+    "Fièvre élevée, frissons ou état général très altéré",
+    "Vomissements incoercibles empêchant toute alimentation ou hydratation",
+    "Ventre dur, gonflé et douloureux à la palpation (défense abdominale)",
+    "Jaunisse (peau ou yeux jaunes) associée à la douleur",
+    "Signes de choc : pâleur, sueurs froides, pouls rapide, faiblesse soudaine ou perte de connaissance"
+  ],
+  "whenToConsult": "Consultez un médecin dès l'apparition d'une douleur abdominale haute persistante, surtout après un repas copieux ou gras. Appelez les urgences immédiatement si la douleur est intense ou accompagnée de fièvre et de vomissements répétés.",
+  "faq": [
+    {
+      "q": "Peut-on manger normalement après une pancréatite aiguë ?",
+      "a": "Non, la reprise alimentaire doit être progressive et surveillée par un médecin. On commence généralement par de l'eau, puis des liquides clairs, avant de réintroduire une alimentation légère et peu grasse. Votre médecin vous guidera selon l'évolution de votre état."
+    },
+    {
+      "q": "La pancréatite peut-elle devenir chronique ?",
+      "a": "Oui, des épisodes répétés ou une cause non traitée (comme la consommation d'alcool ou des calculs biliaires récidivants) peuvent conduire à une pancréatite chronique, qui abîme progressivement le pancréas. Un suivi régulier chez un gastro-entérologue est indispensable pour éviter cette évolution."
+    }
+  ],
+  "intentAnswer": "Pour une pancréatite, consultez d'abord votre médecin généraliste qui orientera le bilan initial. Il vous adressera à un gastro-entérologue pour le suivi et la recherche de la cause. En cas de douleur intense, fièvre ou vomissements sévères, rendez-vous directement aux urgences sans attendre.",
+  "termAr": "التهاب البنكرياس",
+  "shortAnswerAr": "التهاب البنكرياس هو التهاب يصيب غدة البنكرياس المسؤولة عن الهضم. في الحالات الخفيفة، يتحسن الوضع عادةً خلال أيام مع الراحة وشرب السوائل الكافية. أما الألم الشديد المستمر أو المصحوب بحمى، فيستوجب استشارة طبية عاجلة.",
+  "causesAr": [
+    "حصوات المرارة التي تسد قناة البنكرياس (السبب الأكثر شيوعاً في المغرب)",
+    "الإفراط في تناول الكحول بشكل متكرر",
+    "ارتفاع شديد في مستوى الدهون الثلاثية في الدم",
+    "بعض الأدوية أو الإصابات في منطقة البطن",
+    "عدوى فيروسية كالنكاف أو التهاب الكبد، أو طفيلية",
+    "أسباب غير معروفة في بعض الحالات (التهاب بنكرياس مجهول السبب)"
+  ],
+  "redFlagsAr": [
+    "ألم شديد في أعلى البطن يمتد إلى الظهر ولا يخف بالراحة",
+    "حمى مرتفعة مع قشعريرة أو تدهور ملحوظ في الحالة العامة",
+    "قيء متواصل يمنع الأكل أو الشرب",
+    "بطن متصلب ومنتفخ ومؤلم عند اللمس",
+    "اصفرار الجلد أو بياض العينين مصحوباً بالألم",
+    "علامات الصدمة: شحوب الوجه، تعرق بارد، سرعة النبض، ضعف مفاجئ أو فقدان الوعي"
+  ],
+  "whenToConsultAr": "استشر طبيبك فور ظهور ألم مستمر في أعلى البطن، خاصةً بعد وجبة دسمة. اتصل بالإسعاف فوراً إذا كان الألم شديداً أو مصحوباً بحمى وقيء متكرر.",
+  "faqAr": [
+    {
+      "q": "هل يمكن العودة إلى الأكل بشكل طبيعي بعد نوبة التهاب البنكرياس الحاد؟",
+      "a": "لا، يجب إعادة إدخال الطعام تدريجياً تحت إشراف طبي. تبدأ عادةً بالماء ثم السوائل الخفيفة قبل العودة إلى وجبات سهلة وقليلة الدهون. طبيبك هو من يحدد التوقيت المناسب بحسب تطور حالتك."
+    },
+    {
+      "q": "هل يمكن أن يتحول التهاب البنكرياس إلى مزمن؟",
+      "a": "نعم، تكرار النوبات أو عدم معالجة السبب الأصلي كحصوات المرارة أو تناول الكحول قد يؤدي إلى التهاب بنكرياس مزمن يضر بالغدة تدريجياً. لذلك يُعدّ المتابعة المنتظمة مع طبيب الجهاز الهضمي أمراً ضرورياً."
+    }
+  ],
+  "intentAnswerAr": "في حالة التهاب البنكرياس، ابدأ باستشارة طبيبك العام الذي سيوجه الفحوصات الأولية ويحيلك إلى أخصائي الجهاز الهضمي لمتابعة الحالة وتحديد سببها. في حال الألم الشديد أو الحمى أو القيء المتكرر، اتجه مباشرةً إلى قسم الطوارئ دون تأخير."
+}

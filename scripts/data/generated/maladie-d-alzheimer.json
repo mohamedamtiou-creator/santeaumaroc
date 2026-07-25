@@ -1,0 +1,66 @@
+{
+  "slug": "maladie-d-alzheimer",
+  "term": "Maladie d'Alzheimer",
+  "kind": "DISEASE",
+  "specialty": "neurologie",
+  "synonyms": ["Alzheimer", "démence dégénérative", "démence sénile", "maladie neurodégénérative"],
+  "shortAnswer": "La maladie d'Alzheimer est une maladie du cerveau qui altère progressivement la mémoire, le raisonnement et l'autonomie. Les oublis bénins du quotidien sont normaux avec l'âge, mais des pertes de mémoire répétées perturbant la vie quotidienne nécessitent une consultation médicale rapide.",
+  "causes": [
+    "Accumulation anormale de protéines dans le cerveau (plaques amyloïdes et dégénérescences neurofibrillaires)",
+    "Avancée en âge : le risque augmente significativement après 65 ans",
+    "Antécédents familiaux : certaines formes rares sont liées à des mutations génétiques héréditaires",
+    "Facteurs vasculaires : hypertension artérielle, diabète et cholestérol mal contrôlés",
+    "Mode de vie sédentaire, isolement social et faible stimulation intellectuelle au long cours",
+    "Traumatismes crâniens répétés augmentant le risque à long terme"
+  ],
+  "redFlags": [
+    "Oublis fréquents d'événements récents importants (rendez-vous, noms de proches, conversations) qui se répètent",
+    "Désorientation dans des lieux familiers ou confusion sur la date, le mois ou l'année",
+    "Difficulté soudaine à accomplir des tâches habituelles (cuisine, paiement, utilisation d'appareils courants)",
+    "Changements de personnalité marqués : agitation, agressivité, dépression ou retrait social inhabituel",
+    "Fugues ou épisodes de déambulation nocturne avec risque de se perdre",
+    "Confusion brutale soudaine, agitation violente ou perte de connaissance : appelez le 15 ou rendez-vous immédiatement aux urgences"
+  ],
+  "whenToConsult": "Consultez votre médecin généraliste dès l'apparition de pertes de mémoire répétées ou de troubles du comportement inhabituels chez vous ou un proche. En cas de confusion brutale, désorientation sévère ou fugue, rendez-vous aux urgences sans délai.",
+  "faq": [
+    {
+      "q": "La maladie d'Alzheimer est-elle héréditaire ?",
+      "a": "Dans la grande majorité des cas, Alzheimer n'est pas directement héréditaire. Avoir un parent atteint augmente légèrement le risque, mais ne signifie pas que vous développerez la maladie. Des formes familiales très rares existent avant 65 ans ; si vous êtes concerné, un médecin peut vous orienter vers un conseil génétique."
+    },
+    {
+      "q": "Peut-on prévenir ou ralentir la maladie d'Alzheimer ?",
+      "a": "Aucun traitement ne guérit Alzheimer à ce jour, mais certains facteurs de mode de vie semblent protecteurs : activité physique régulière, alimentation équilibrée, stimulation intellectuelle et sociale, contrôle de la pression artérielle et du diabète. Un diagnostic précoce permet de mieux accompagner le patient et sa famille."
+    }
+  ],
+  "intentAnswer": "Pour la maladie d'Alzheimer, consultez d'abord votre médecin généraliste, qui évaluera la mémoire et orientera vers un neurologue ou un gériatre pour bilan approfondi et suivi. En cas de confusion brutale, fugue ou agitation sévère, appelez le 15 ou rendez-vous aux urgences.",
+  "termAr": "مرض ألزهايمر",
+  "shortAnswerAr": "مرض ألزهايمر هو مرض يصيب الدماغ ويؤثر تدريجياً على الذاكرة والتفكير والاستقلالية. النسيان البسيط المرتبط بالعمر أمر طبيعي، غير أن فقدان الذاكرة المتكرر الذي يعيق الحياة اليومية يستوجب استشارة طبية في أقرب وقت.",
+  "causesAr": [
+    "تراكم بروتينات غير طبيعية في الدماغ (اللويحات النشوانية والتشابكات العصبية الليفية)",
+    "التقدم في السن: يرتفع الخطر بشكل ملحوظ بعد سن 65 عاماً",
+    "الاستعداد العائلي: بعض الأشكال النادرة مرتبطة بطفرات جينية وراثية",
+    "عوامل وعائية: ارتفاع ضغط الدم، السكري وارتفاع الكوليسترول غير المضبوط",
+    "الخمول الجسدي والعزلة الاجتماعية وضعف التحفيز الذهني على المدى الطويل",
+    "الإصابات المتكررة في الرأس التي تزيد من الخطر على المدى البعيد"
+  ],
+  "redFlagsAr": [
+    "نسيان متكرر لأحداث حديثة مهمة كالمواعيد وأسماء الأقارب والمحادثات",
+    "التوهان في أماكن مألوفة أو الارتباك في التاريخ والشهر والسنة",
+    "صعوبة مفاجئة في أداء المهام اليومية المعتادة كالطهي أو التسوق أو استخدام الأجهزة",
+    "تغيرات واضحة في الشخصية: تهيج أو عدوانية أو اكتئاب أو انعزال غير معتاد",
+    "نوبات التجوال الليلي أو الخروج من المنزل مع خطر الضياع في الخارج",
+    "ارتباك حاد مفاجئ أو هياج شديد أو فقدان الوعي: اتصل بالإسعاف أو توجه فوراً إلى قسم الطوارئ"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور ملاحظة فقدان متكرر للذاكرة أو تغيرات سلوكية غير مألوفة لديك أو لدى أحد أفراد عائلتك. في حال حدوث ارتباك مفاجئ حاد أو توهان شديد أو خروج من المنزل دون وعي بالمحيط، توجه فوراً إلى قسم الطوارئ.",
+  "faqAr": [
+    {
+      "q": "هل مرض ألزهايمر وراثي؟",
+      "a": "في الغالبية العظمى من الحالات، لا يُعدّ ألزهايمر وراثياً بشكل مباشر. وجود أحد الوالدين مصاباً يرفع الخطر قليلاً، لكنه لا يعني بالضرورة الإصابة بالمرض. أشكال عائلية نادرة قد تظهر قبل سن 65؛ إن كنت في هذه الحالة، يمكن لطبيبك إرشادك إلى استشارة جينية متخصصة."
+    },
+    {
+      "q": "هل يمكن الوقاية من مرض ألزهايمر أو إبطاء تطوره؟",
+      "a": "لا يوجد علاج شافٍ لألزهايمر حتى الآن، لكن بعض العوامل قد تساهم في الحماية منه: ممارسة النشاط البدني بانتظام، اتباع نظام غذائي متوازن، التحفيز الذهني والاجتماعي، والسيطرة على ضغط الدم والسكري. يتيح التشخيص المبكر متابعة أفضل للمريض وأسرته."
+    }
+  ],
+  "intentAnswerAr": "لمرض ألزهايمر، ابدأ باستشارة طبيبك العام الذي سيقيّم الذاكرة ويحيلك إلى طبيب أعصاب أو طبيب جيرياتري لإجراء فحص شامل ومتابعة دقيقة. في حال الارتباك المفاجئ أو التجوال أو الهياج الشديد، اتصل بالإسعاف أو توجه فوراً إلى المستعجلات."
+}

@@ -1,0 +1,66 @@
+{
+  "slug": "jaunisse",
+  "term": "Jaunisse (ictère)",
+  "kind": "SYMPTOM",
+  "specialty": "gastro-enterologie",
+  "synonyms": ["ictère", "peau jaune", "yeux jaunes", "coloration jaune"],
+  "shortAnswer": "La jaunisse est une coloration jaune de la peau et du blanc des yeux due à l'accumulation de bilirubine dans le sang. Elle peut être bénigne (ictère du nouveau-né transitoire) ou signaler une maladie du foie, des voies biliaires ou du sang nécessitant un avis médical rapide.",
+  "causes": [
+    "Maladies du foie : hépatite virale (A, B, C), hépatite alcoolique ou médicamenteuse",
+    "Obstruction des voies biliaires : calculs biliaires, tumeur du pancréas ou des voies biliaires",
+    "Destruction accélérée des globules rouges (anémie hémolytique, paludisme)",
+    "Cirrhose hépatique liée à l'alcool ou à une hépatite chronique",
+    "Ictère du nouveau-né physiologique (fréquent, généralement transitoire dans les premiers jours de vie)",
+    "Syndrome de Gilbert : anomalie bénigne et héréditaire du métabolisme de la bilirubine"
+  ],
+  "redFlags": [
+    "Jaunisse d'apparition brutale accompagnée de fièvre élevée, de frissons ou de douleurs intenses dans le ventre",
+    "Selles décolorées (blanches ou grises) et urines très foncées (couleur thé)",
+    "Confusion mentale, somnolence excessive ou saignements inhabituels",
+    "Jaunisse qui s'aggrave rapidement en quelques heures ou quelques jours",
+    "Nouveau-né avec jaunisse intense persistant au-delà du 7e jour ou associée à une mauvaise prise de poids",
+    "Jaunisse survenant pendant la grossesse : urgence obstétricale absolue, appelez le 15 ou rendez-vous immédiatement aux urgences"
+  ],
+  "whenToConsult": "Toute jaunisse chez un adulte doit être évaluée par un médecin sans délai, même en l'absence d'autres symptômes. Rendez-vous aux urgences immédiatement si la jaunisse s'accompagne de fièvre, de douleurs abdominales sévères, de confusion, chez un nouveau-né présentant une coloration intense, ou chez une femme enceinte (urgence absolue).",
+  "faq": [
+    {
+      "q": "La jaunisse est-elle toujours grave ?",
+      "a": "Non, certaines formes sont bénignes, comme l'ictère physiologique du nouveau-né ou le syndrome de Gilbert. Cependant, toute jaunisse chez un adulte mérite une évaluation médicale rapide car elle peut révéler une maladie du foie ou des voies biliaires nécessitant un traitement."
+    },
+    {
+      "q": "Quels examens le médecin va-t-il prescrire ?",
+      "a": "Le médecin commencera généralement par des analyses de sang (bilan hépatique, bilirubine, NFS) et une échographie abdominale pour identifier la cause de la jaunisse. Des examens complémentaires comme une IRM ou une endoscopie peuvent être nécessaires selon les résultats."
+    }
+  ],
+  "intentAnswer": "Pour une jaunisse, consultez d'abord un médecin généraliste qui réalisera un bilan initial (prise de sang, échographie). Il vous orientera selon les résultats vers un gastro-entérologue ou hépatologue. En cas de fièvre, douleurs abdominales sévères, confusion ou grossesse, rendez-vous directement aux urgences.",
+  "termAr": "اليرقان (الصفار)",
+  "shortAnswerAr": "اليرقان هو اصفرار الجلد وبياض العينين بسبب تراكم البيليروبين في الدم. قد يكون عابراً وغير خطير عند المولود الجديد، لكنه قد يشير أيضاً إلى مرض في الكبد أو القنوات الصفراوية أو الدم، ويستوجب استشارة طبية سريعة.",
+  "causesAr": [
+    "أمراض الكبد: التهاب الكبد الفيروسي (أ، ب، ج) أو الكحولي أو الناجم عن الأدوية",
+    "انسداد القنوات الصفراوية بسبب حصوات المرارة أو أورام البنكرياس أو القنوات الصفراوية",
+    "تكسر مفرط لكريات الدم الحمراء (فقر الدم الانحلالي، الملاريا)",
+    "تليف الكبد الناتج عن الكحول أو التهاب الكبد المزمن",
+    "اليرقان الفسيولوجي عند المولود الجديد (شائع وعادةً مؤقت في الأيام الأولى)",
+    "متلازمة جيلبير: اضطراب وراثي حميد في استقلاب البيليروبين"
+  ],
+  "redFlagsAr": [
+    "اصفرار مفاجئ مصحوب بحمى شديدة أو قشعريرة أو آلام حادة في البطن",
+    "براز أبيض أو رمادي اللون مع بول داكن جداً (لون الشاي)",
+    "تشوش ذهني أو نعاس مفرط أو نزيف غير مبرر",
+    "اصفرار يتفاقم بسرعة خلال ساعات أو أيام قليلة",
+    "اصفرار شديد عند المولود يستمر لأكثر من 7 أيام أو يترافق مع ضعف في الرضاعة",
+    "اليرقان خلال الحمل: حالة طوارئ توليدية مطلقة، توجه فوراً إلى المستعجلات"
+  ],
+  "whenToConsultAr": "يجب على أي بالغ يلاحظ اصفراراً في جلده أو عينيه مراجعة الطبيب دون تأخير، حتى في غياب أعراض أخرى. اذهب إلى المستعجلات فوراً إذا اقترن اليرقان بالحمى أو آلام شديدة في البطن أو ارتباك ذهني، أو عند المولود الجديد حين يكون الاصفرار حاداً، أو في حالة الحمل (طوارئ مطلقة).",
+  "faqAr": [
+    {
+      "q": "هل اليرقان خطير دائماً؟",
+      "a": "لا، بعض أشكاله حميدة كاليرقان الفسيولوجي عند المولود الجديد أو متلازمة جيلبير. غير أن أي اصفرار عند البالغ يستدعي تقييماً طبياً سريعاً، لأنه قد يكشف عن مرض في الكبد أو القنوات الصفراوية يحتاج إلى علاج."
+    },
+    {
+      "q": "ما الفحوصات التي سيطلبها الطبيب؟",
+      "a": "يبدأ الطبيب عادةً بتحاليل الدم (وظائف الكبد، البيليروبين، صورة الدم الكاملة) وتصوير بالموجات فوق الصوتية للبطن لتحديد السبب. وقد تلزم فحوصات إضافية كالرنين المغناطيسي أو التنظير بحسب النتائج."
+    }
+  ],
+  "intentAnswerAr": "لاستشارة طبيب بشأن اليرقان، ابدأ بطبيب عام يُجري الفحوصات الأولية، ثم يُحيلك إذا لزم الأمر إلى أخصائي أمراض الجهاز الهضمي والكبد. في حال وجود حمى أو آلام شديدة في البطن أو ارتباك ذهني أو حمل، توجه مباشرة إلى المستعجلات."
+}

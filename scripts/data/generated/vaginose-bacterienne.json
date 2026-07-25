@@ -1,0 +1,64 @@
+{
+  "slug": "vaginose-bacterienne",
+  "term": "Vaginose bactérienne",
+  "kind": "DISEASE",
+  "specialty": "gyneco-obstetrique",
+  "synonyms": ["vaginose", "déséquilibre de la flore vaginale", "flore de Döderlein perturbée"],
+  "shortAnswer": "La vaginose bactérienne est un déséquilibre de la flore vaginale normale, fréquent et souvent bénin. Elle se manifeste surtout par des pertes blanchâtres ou grisâtres à odeur de poisson. Elle n'est pas une IST mais nécessite une consultation pour confirmation et prise en charge adaptée.",
+  "causes": [
+    "Déséquilibre de la flore vaginale (diminution des lactobacilles protecteurs)",
+    "Toilettes intimes excessives ou avec des produits inadaptés (douches vaginales)",
+    "Changement fréquent de partenaires sexuels",
+    "Utilisation de dispositifs intra-utérins (stérilet)",
+    "Tabagisme",
+    "Période de grossesse ou de changements hormonaux"
+  ],
+  "redFlags": [
+    "Pertes vaginales accompagnées de fièvre ou de frissons",
+    "Douleurs pelviennes ou abdominales intenses",
+    "Survenue pendant la grossesse (risque d'accouchement prématuré)",
+    "Pertes malodorantes persistantes malgré un traitement antérieur",
+    "Saignements anormaux en dehors des règles"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste ou un gynécologue si vous constatez des pertes inhabituelles, une odeur persistante ou une gêne locale. Une consultation est indispensable pendant la grossesse, même en l'absence de symptômes douloureux.",
+  "faq": [
+    {
+      "q": "La vaginose bactérienne est-elle contagieuse ou sexuellement transmissible ?",
+      "a": "La vaginose bactérienne n'est pas classée parmi les infections sexuellement transmissibles, mais les rapports sexuels peuvent en perturber l'équilibre de la flore vaginale. Elle n'est pas transmise à un partenaire masculin, mais un changement fréquent de partenaires peut favoriser son apparition."
+    },
+    {
+      "q": "Peut-on confondre la vaginose avec une mycose vaginale ?",
+      "a": "Oui, les deux peuvent provoquer des pertes vaginales anormales, mais elles sont différentes. La vaginose se caractérise plutôt par des pertes grisâtres et une odeur de poisson, tandis que la mycose provoque davantage des démangeaisons et des pertes blanchâtres épaisses. Seul un professionnel de santé peut poser le bon diagnostic."
+    }
+  ],
+  "intentAnswer": "Pour une vaginose bactérienne, consultez d'abord votre médecin généraliste, qui peut orienter le diagnostic. Un gynécologue est le spécialiste de référence pour confirmer et traiter cette affection. En cas de fièvre, de douleurs pelviennes intenses ou de grossesse, consultez sans délai, éventuellement aux urgences.",
+  "termAr": "التهاب المهبل الجرثومي",
+  "shortAnswerAr": "التهاب المهبل الجرثومي هو اختلال في توازن البكتيريا الطبيعية في المهبل، وهو شائع وغالباً غير خطير. يتجلى في إفرازات بيضاء أو رمادية ذات رائحة كريهة. لا يُعدّ عدوى جنسية، لكن يستوجب استشارة الطبيب للتأكد من التشخيص والعلاج المناسب.",
+  "causesAr": [
+    "اختلال في توازن البكتيريا المهبلية الطبيعية (نقص في العصيات اللبنية الواقية)",
+    "الغسيل المهبلي المفرط أو استخدام منتجات غير ملائمة",
+    "تعدد الشركاء الجنسيين",
+    "استخدام اللولب داخل الرحم",
+    "التدخين",
+    "الحمل أو التغيرات الهرمونية"
+  ],
+  "redFlagsAr": [
+    "إفرازات مهبلية مصحوبة بحمى أو قشعريرة",
+    "آلام شديدة في الحوض أو البطن",
+    "ظهور الأعراض خلال فترة الحمل (خطر الولادة المبكرة)",
+    "استمرار الرائحة الكريهة رغم العلاج السابق",
+    "نزيف غير طبيعي خارج فترة الدورة الشهرية"
+  ],
+  "whenToConsultAr": "استشيري طبيبك العام أو طبيب أمراض النساء إذا لاحظت إفرازات غير معتادة، أو رائحة مستمرة، أو أي إزعاج في المنطقة التناسلية. الاستشارة الطبية ضرورية أثناء الحمل حتى في غياب الألم.",
+  "faqAr": [
+    {
+      "q": "هل التهاب المهبل الجرثومي معدٍ أو منقول جنسياً؟",
+      "a": "لا يُصنَّف التهاب المهبل الجرثومي ضمن الأمراض المنقولة جنسياً، غير أن ممارسة العلاقات الجنسية قد تؤثر على توازن البكتيريا المهبلية. لا ينتقل إلى الشريك الذكر، لكن تعدد الشركاء قد يُسهم في ظهوره."
+    },
+    {
+      "q": "هل يمكن الخلط بين التهاب المهبل الجرثومي والتهاب المهبل الفطري؟",
+      "a": "نعم، كلاهما يسبب إفرازات مهبلية غير طبيعية، لكنهما مختلفان. يتميز الجرثومي بإفرازات رمادية ورائحة كريهة، بينما يسبب الفطري حكة أكثر وإفرازات بيضاء كثيفة. التشخيص الدقيق لا يتم إلا من قِبل مختص."
+    }
+  ],
+  "intentAnswerAr": "لعلاج التهاب المهبل الجرثومي، يُنصح باستشارة الطبيب العام أولاً للتوجيه الأولي، ثم طبيب أمراض النساء باعتباره المختص المرجعي لتأكيد التشخيص والعلاج. في حال وجود حمى أو آلام حوضية شديدة أو أثناء الحمل، توجهي إلى الطوارئ دون تأخير."
+}

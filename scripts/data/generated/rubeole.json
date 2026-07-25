@@ -1,0 +1,66 @@
+{
+  "slug": "rubeole",
+  "term": "Rubéole",
+  "kind": "DISEASE",
+  "specialty": "pediatrie",
+  "synonyms": ["rougeole allemande", "troisième maladie"],
+  "shortAnswer": "La rubéole est une infection virale contagieuse, généralement bénigne chez l'enfant (éruption rose légère, fièvre modérée). Elle devient préoccupante chez la femme enceinte non immunisée car elle peut provoquer de graves malformations fœtales. La vaccination ROR la prévient efficacement.",
+  "causes": [
+    "Virus rubivirus transmis par voie aérienne (toux, éternuements)",
+    "Contact direct avec les sécrétions nasales ou pharyngées d'une personne infectée",
+    "Absence ou insuffisance de vaccination (vaccin ROR)",
+    "Épidémies collectives (crèches, écoles) favorisant la circulation virale",
+    "Période d'incubation de 14 à 21 jours avant l'apparition des symptômes",
+    "Contagiosité élevée : de 7 jours avant à 7 jours après le début de l'éruption"
+  ],
+  "redFlags": [
+    "Femme enceinte exposée ou présentant une éruption (risque de rubéole congénitale — consultez en urgence)",
+    "Fièvre élevée persistante ou convulsions chez l'enfant",
+    "Raideur de la nuque, confusion ou troubles de la conscience (méningite ou encéphalite possible)",
+    "Apparition de petites taches rouges ou violacées sous la peau (purpura), saignements inhabituels ou ecchymoses multiples sans traumatisme (thrombocytopénie possible)",
+    "Douleurs articulaires importantes ou gonflement des articulations",
+    "Éruption cutanée intense avec altération nette de l'état général"
+  ],
+  "whenToConsult": "Consultez un médecin dès l'apparition d'une éruption associée à de la fièvre, surtout si vous êtes enceinte ou au contact d'une femme enceinte. Rendez-vous aux urgences immédiatement en cas de raideur de la nuque, de convulsions, de trouble de la conscience ou de saignements inhabituels.",
+  "faq": [
+    {
+      "q": "Mon enfant peut-il aller à l'école s'il a la rubéole ?",
+      "a": "Non. L'enfant est contagieux plusieurs jours avant et après l'éruption. Il doit rester à la maison jusqu'à disparition des symptômes (généralement 5 à 7 jours après le début de l'éruption). Prévenez l'établissement scolaire afin d'alerter les familles, notamment celles de femmes enceintes."
+    },
+    {
+      "q": "La rubéole est-elle dangereuse pendant la grossesse ?",
+      "a": "Oui, particulièrement au premier trimestre. Une rubéole contractée en début de grossesse peut entraîner de graves malformations cardiaques, oculaires ou auditives chez le bébé (syndrome de rubéole congénitale). La vaccination avant la grossesse est la meilleure protection. Si vous êtes enceinte et avez été exposée, consultez votre médecin ou gynécologue en urgence."
+    }
+  ],
+  "intentAnswer": "Pour la rubéole, consultez d'abord votre médecin généraliste ou pédiatre : il confirme le diagnostic et surveille l'évolution. En cas de doute pendant la grossesse, votre gynécologue-obstétricien est indispensable. Rendez-vous aux urgences si une raideur de la nuque, des convulsions, une altération de conscience ou des saignements inhabituels surviennent.",
+  "termAr": "الحصبة الألمانية",
+  "shortAnswerAr": "الحصبة الألمانية عدوى فيروسية معدية، وعادةً ما تكون خفيفة عند الأطفال (طفح وردي خفيف وحمى معتدلة). غير أنها تشكّل خطراً حقيقياً على المرأة الحامل غير المحصّنة، إذ قد تسبب تشوهات خلقية خطيرة للجنين. يقي منها لقاح الحصبة والنكاف والحصبة الألمانية (ROR) بفعالية.",
+  "causesAr": [
+    "فيروس روبيفيروس ينتقل عبر الهواء (السعال والعطس)",
+    "التلامس المباشر مع إفرازات الأنف أو الحلق لشخص مصاب",
+    "غياب التطعيم أو عدم اكتماله (لقاح ROR)",
+    "الأوبئة الجماعية في الحضانات والمدارس مما يسهّل انتشار الفيروس",
+    "فترة حضانة تتراوح بين 14 و21 يوماً قبل ظهور الأعراض",
+    "عدوى عالية: من 7 أيام قبل إلى 7 أيام بعد بدء الطفح الجلدي"
+  ],
+  "redFlagsAr": [
+    "امرأة حامل تعرضت للعدوى أو ظهر عليها طفح (خطر الحصبة الألمانية الخلقية — استشيري الطبيب فوراً)",
+    "حمى مرتفعة مستمرة أو تشنجات عند الطفل",
+    "تصلب الرقبة أو ارتباك ذهني أو اضطراب الوعي (احتمال التهاب السحايا أو التهاب الدماغ)",
+    "ظهور بقع حمراء أو بنفسجية صغيرة تحت الجلد (فرفرية)، أو نزيف غير مبرر، أو كدمات متعددة دون إصابة (احتمال نقص الصفائح الدموية)",
+    "آلام مفصلية شديدة أو تورم المفاصل",
+    "طفح جلدي حاد مع تدهور واضح في الحالة العامة"
+  ],
+  "whenToConsultAr": "استشر الطبيب فور ظهور طفح جلدي مصحوب بحمى، خاصةً إن كنتِ حاملاً أو على تماس مع امرأة حامل. توجّه إلى قسم الطوارئ فوراً في حال تصلب الرقبة أو التشنجات أو اضطراب الوعي أو أي نزيف غير مبرر.",
+  "faqAr": [
+    {
+      "q": "هل يمكن لطفلي الذهاب إلى المدرسة إذا أُصيب بالحصبة الألمانية؟",
+      "a": "لا. يكون الطفل معدياً قبل أيام من ظهور الطفح وبعده، لذا يجب أن يبقى في المنزل حتى تختفي الأعراض (عادةً بعد 5 إلى 7 أيام من بدء الطفح). أخبر المدرسة لتحذير الأسر، ولا سيما العائلات التي تضم حوامل."
+    },
+    {
+      "q": "هل الحصبة الألمانية خطيرة أثناء الحمل؟",
+      "a": "نعم، خاصةً في الأشهر الثلاثة الأولى. يمكن أن تُسبب عدوى الحصبة الألمانية خلال بداية الحمل تشوهات خلقية خطيرة في القلب أو العينين أو الأذنين عند الجنين (متلازمة الحصبة الألمانية الخلقية). التطعيم قبل الحمل هو أفضل وسيلة للوقاية. إن كنتِ حاملاً وتعرضتِ للعدوى، استشيري طبيبك أو طبيب النساء والتوليد على الفور."
+    }
+  ],
+  "intentAnswerAr": "للحصبة الألمانية، ابدأ باستشارة طبيبك العام أو طبيب الأطفال لتأكيد التشخيص ومتابعة الحالة. إن كنتِ حاملاً، فإن طبيب أمراض النساء والتوليد ضروري. توجّه إلى الطوارئ فوراً عند ظهور تصلب الرقبة أو التشنجات أو اضطراب في الوعي أو أي نزيف غير مبرر."
+}

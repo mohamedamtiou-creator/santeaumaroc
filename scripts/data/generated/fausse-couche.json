@@ -1,0 +1,64 @@
+{
+  "slug": "fausse-couche",
+  "term": "Fausse couche",
+  "kind": "DISEASE",
+  "specialty": "gyneco-obstetrique",
+  "synonyms": ["avortement spontané", "fausse couche spontanée", "FCS", "perte de grossesse"],
+  "shortAnswer": "La fausse couche est une interruption spontanée de grossesse avant 22 semaines. Elle touche environ 15 à 20 % des grossesses reconnues. Souvent liée à une anomalie chromosomique, elle ne signifie pas que la grossesse suivante sera compromise. Tout saignement abondant en début de grossesse doit être évalué rapidement.",
+  "causes": [
+    "Anomalie chromosomique de l'embryon (cause la plus fréquente, souvent aléatoire)",
+    "Insuffisance hormonale ou problème de la muqueuse utérine",
+    "Malformations utérines (cloison, fibromes, béance cervicale)",
+    "Infections ou maladies maternelles non contrôlées (diabète, thyroïde, etc.)",
+    "Facteurs immunologiques (syndrome des antiphospholipides)",
+    "Facteurs de risque liés à l'âge maternel avancé ou aux antécédents de fausses couches à répétition"
+  ],
+  "redFlags": [
+    "Saignements vaginaux abondants (plus que des règles normales) ou avec des caillots importants",
+    "Douleurs pelviennes ou abdominales très intenses et persistantes",
+    "Fièvre supérieure à 38 °C avec frissons ou écoulements malodorants (risque d'infection)",
+    "Sensation de malaise intense, vertiges ou évanouissement (risque hémorragique)",
+    "Douleur en épaule ou à l'abdomen associée à des saignements (évoque une grossesse extra-utérine)"
+  ],
+  "whenToConsult": "Consultez rapidement un médecin ou une sage-femme dès l'apparition de saignements ou de douleurs en cours de grossesse. En cas de signes d'alerte (saignement abondant, fièvre, malaise), rendez-vous en urgence sans attendre.",
+  "faq": [
+    {
+      "q": "Une fausse couche signifie-t-elle que je ne pourrai plus avoir d'enfant ?",
+      "a": "Non, dans la grande majorité des cas, une fausse couche unique n'affecte pas les chances de grossesse future. La plupart des femmes ayant vécu une fausse couche mènent une grossesse ultérieure à terme. C'est uniquement en cas de fausses couches à répétition (trois ou plus) qu'un bilan médical approfondi est recommandé."
+    },
+    {
+      "q": "Combien de temps faut-il attendre avant de retenter une grossesse après une fausse couche ?",
+      "a": "Il n'y a pas de règle universelle. Votre médecin ou gynécologue est le mieux placé pour vous conseiller selon votre situation. Sur le plan physique, un cycle menstruel normal doit généralement revenir. Sur le plan émotionnel, prenez le temps nécessaire : le deuil d'une grossesse est une épreuve réelle qui mérite d'être accompagnée."
+    }
+  ],
+  "intentAnswer": "Pour une fausse couche ou des saignements en début de grossesse, consultez en priorité votre médecin généraliste ou votre sage-femme qui orientera la prise en charge. Le spécialiste de référence est le gynécologue-obstétricien. En cas de saignement abondant, de fièvre ou de malaise, rendez-vous aux urgences sans délai.",
+  "termAr": "الإجهاض التلقائي",
+  "shortAnswerAr": "الإجهاض التلقائي هو انقطاع الحمل من تلقاء نفسه قبل الأسبوع الثاني والعشرين. يحدث في نحو 15 إلى 20 بالمئة من حالات الحمل. غالبًا ما يكون سببه خللًا في الكروموسومات، ولا يعني أن الحمل التالي سيكون مستحيلًا. أي نزيف غزير خلال الأشهر الأولى من الحمل يستوجب تقييمًا طبيًا عاجلًا.",
+  "causesAr": [
+    "خلل في كروموسومات الجنين، وهو السبب الأكثر شيوعًا وغالبًا ما يكون عشوائيًا",
+    "قصور هرموني أو خلل في بطانة الرحم",
+    "تشوهات في شكل الرحم كالحاجز الرحمي أو الأورام الليفية أو قصور عنق الرحم",
+    "عدوى أو أمراض مزمنة غير متوازنة لدى الأم كالسكري وأمراض الغدة الدرقية",
+    "اضطرابات مناعية كمتلازمة أجسام مضادة للدهون الفوسفورية",
+    "عوامل خطر مرتبطة بتقدم سن الأم أو تكرار الإجهاض في السوابق"
+  ],
+  "redFlagsAr": [
+    "نزيف مهبلي غزير يفوق الدورة الشهرية العادية أو مصحوب بجلطات كبيرة",
+    "آلام حوضية أو بطنية شديدة ومستمرة",
+    "حمى تتجاوز 38 درجة مئوية مع قشعريرة أو إفرازات كريهة الرائحة، مما يشير إلى خطر العدوى",
+    "إحساس بالإغماء أو الدوار أو وهن شديد مما قد يدل على نزيف داخلي",
+    "ألم في الكتف أو البطن مع نزيف، وهو ما قد يشير إلى حمل خارج الرحم"
+  ],
+  "whenToConsultAr": "استشيري طبيبك أو قابلتك في أقرب وقت عند ظهور أي نزيف أو ألم في بداية الحمل. وفي حال وجود علامات تحذيرية كنزيف غزير أو حمى أو إغماء، توجهي فورًا إلى قسم الطوارئ دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل يعني الإجهاض التلقائي أنني لن أستطيع الحمل مستقبلًا؟",
+      "a": "لا، في الغالب لا يؤثر الإجهاض الأول على فرص الحمل مستقبلًا. تنجح معظم النساء اللواتي مررن بإجهاض في حمل لاحق سليم. ولا يُستدعى إجراء فحوصات تخصصية إلا عند تكرار الإجهاض ثلاث مرات أو أكثر."
+    },
+    {
+      "q": "كم من الوقت يجب الانتظار قبل محاولة الحمل مجددًا بعد الإجهاض؟",
+      "a": "لا توجد قاعدة موحدة لذلك، وطبيبك أو طبيبة النساء في أفضل وضع لإرشادك وفق حالتك الخاصة. جسديًا، يُستحسن عادةً انتظار عودة الدورة الشهرية الطبيعية. ونفسيًا، خذي الوقت الذي تحتاجينه، إذ يُعدّ فقدان الحمل تجربة مؤلمة تستحق الدعم والمرافقة."
+    }
+  ],
+  "intentAnswerAr": "عند حدوث الإجهاض التلقائي أو ظهور نزيف في بداية الحمل، تواصلي أولًا مع طبيبك العام أو القابلة التي ستوجهك إلى الخطوات اللازمة. المختص المرجعي هو طبيب أمراض النساء والتوليد. وفي حال النزيف الغزير أو الحمى أو الإغماء، توجهي إلى الطوارئ فورًا."
+}

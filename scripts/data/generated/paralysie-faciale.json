@@ -1,0 +1,64 @@
+{
+  "slug": "paralysie-faciale",
+  "term": "Paralysie faciale",
+  "kind": "SYMPTOM",
+  "specialty": "neurologie",
+  "synonyms": ["paralysie de Bell", "prosoplégie", "facial drop", "déviation de la bouche"],
+  "shortAnswer": "La paralysie faciale est la perte partielle ou totale de la mobilité des muscles d'un côté du visage. Elle peut être bénigne (paralysie de Bell, récupération en quelques semaines) ou signaler une urgence grave comme un AVC. Consultez sans délai si elle survient brutalement.",
+  "causes": [
+    "Paralysie de Bell (cause idiopathique la plus fréquente, souvent d'origine virale)",
+    "Accident vasculaire cérébral (AVC) ou accident ischémique transitoire (AIT)",
+    "Zona auriculaire (syndrome de Ramsay Hunt)",
+    "Traumatisme crânien ou fracture du rocher",
+    "Tumeur de la parotide ou du nerf facial",
+    "Infection grave (otite, méningite bactérienne)"
+  ],
+  "redFlags": [
+    "Apparition brutale, surtout accompagnée de troubles de la parole, faiblesse du bras ou de la jambe : appeler le 15 immédiatement (suspicion d'AVC)",
+    "Paralysie associée à une forte fièvre, raideur de la nuque ou maux de tête intenses (suspicion de méningite)",
+    "Douleurs vives dans ou autour de l'oreille avec éruption de vésicules",
+    "Trouble de la vision ou de la déglutition accompagnant la paralysie",
+    "Absence de toute amélioration après 3 semaines ou aggravation progressive"
+  ],
+  "whenToConsult": "Toute paralysie faciale doit être évaluée par un médecin le jour même, même si elle semble légère. En cas d'apparition brutale associée à d'autres symptômes neurologiques, appelez le 15 (SAMU) sans attendre.",
+  "faq": [
+    {
+      "q": "La paralysie de Bell guérit-elle seule ?",
+      "a": "Dans la majorité des cas, la paralysie de Bell se récupère spontanément en quelques semaines à quelques mois. Cependant, un suivi médical est indispensable pour confirmer le diagnostic, protéger l'œil (risque de sécheresse) et décider d'un traitement adapté."
+    },
+    {
+      "q": "Comment distinguer une paralysie faciale bénigne d'un AVC ?",
+      "a": "Lors d'un AVC, la paralysie touche généralement la partie inférieure du visage (bouche déviée) et s'accompagne d'autres signes : trouble de la parole, faiblesse d'un bras ou d'une jambe, perte d'équilibre. La paralysie de Bell touche tout un côté du visage, y compris le front. Devant le moindre doute, appelez le 15."
+    }
+  ],
+  "intentAnswer": "Pour une paralysie faciale, consultez d'abord votre médecin généraliste qui orientera vers un neurologue ou un ORL selon la cause suspectée. Si la paralysie est brutale et accompagnée d'autres signes neurologiques, rendez-vous aux urgences ou appelez le 15 immédiatement.",
+  "termAr": "شلل الوجه",
+  "shortAnswerAr": "شلل الوجه هو فقدان جزئي أو كلي للحركة في عضلات أحد جانبَي الوجه. قد يكون حميداً (شلل بِيل الذي يتعافى منه المريض في غضون أسابيع) أو يُنبئ بحالة خطيرة كالسكتة الدماغية. استشر الطبيب فوراً عند ظهوره بشكل مفاجئ.",
+  "causesAr": [
+    "شلل بِيل (السبب الأكثر شيوعاً، غالباً ذو منشأ فيروسي)",
+    "السكتة الدماغية أو نوبة نقص التروية العابرة",
+    "الحلأ النطاقي الأذني (متلازمة رامزي هانت)",
+    "إصابة في الرأس أو كسر في قاعدة الجمجمة",
+    "ورم في الغدة النكفية أو على مسار العصب الوجهي",
+    "عدوى خطيرة (التهاب الأذن الوسطى، التهاب السحايا الجرثومي)"
+  ],
+  "redFlagsAr": [
+    "ظهور مفاجئ مصحوب بصعوبة في الكلام أو ضعف في الذراع أو الساق: اتصل بالإسعاف (15) فوراً (اشتباه بسكتة دماغية)",
+    "شلل مع حمى شديدة وتيبس في الرقبة أو صداع حاد (اشتباه بالتهاب السحايا)",
+    "ألم حاد في الأذن أو حولها مع ظهور بثور جلدية",
+    "اضطراب في الرؤية أو صعوبة في البلع مصاحبان للشلل",
+    "غياب أي تحسن بعد ثلاثة أسابيع أو تفاقم الأعراض تدريجياً"
+  ],
+  "whenToConsultAr": "يجب تقييم أي شلل وجهي من قِبَل طبيب في نفس اليوم، حتى وإن بدا خفيفاً. في حال الظهور المفاجئ المصحوب بأعراض عصبية أخرى، اتصل بالإسعاف (15) دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل يتعافى شلل بِيل من تلقاء نفسه؟",
+      "a": "في معظم الحالات، يتعافى المرضى من شلل بِيل تلقائياً خلال أسابيع إلى أشهر. غير أن المتابعة الطبية ضرورية لتأكيد التشخيص، وحماية العين من الجفاف، وتحديد العلاج المناسب."
+    },
+    {
+      "q": "كيف أميز بين شلل الوجه الحميد والسكتة الدماغية؟",
+      "a": "في السكتة الدماغية، يصيب الشلل عادةً الجزء السفلي من الوجه (انحراف الفم) ويترافق مع أعراض أخرى كاضطراب الكلام وضعف في الذراع أو الساق وفقدان التوازن. أما شلل بِيل فيشمل كامل جانب الوجه بما فيه الجبهة. عند أدنى شك، اتصل بالإسعاف على الرقم 15."
+    }
+  ],
+  "intentAnswerAr": "عند الإصابة بشلل الوجه، ابدأ بزيارة طبيب عام يُحيلك إلى طبيب أعصاب أو طبيب أنف وأذن وحنجرة حسب السبب المشتبه به. إذا كان الشلل مفاجئاً ومصحوباً بأعراض عصبية أخرى، اتجه فوراً إلى المستعجلات أو اتصل بالرقم 15."
+}

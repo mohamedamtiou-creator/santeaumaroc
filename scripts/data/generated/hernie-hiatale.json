@@ -1,0 +1,64 @@
+{
+  "slug": "hernie-hiatale",
+  "term": "Hernie hiatale",
+  "kind": "DISEASE",
+  "specialty": "gastro-enterologie",
+  "synonyms": ["hernie de l'estomac", "hernie du hiatus œsophagien"],
+  "shortAnswer": "La hernie hiatale survient quand une partie de l'estomac remonte dans la poitrine à travers le diaphragme. Elle est souvent bénigne et asymptomatique. Elle peut provoquer des brûlures d'estomac ou des régurgitations. Consultez si les symptômes deviennent fréquents ou intenses.",
+  "causes": [
+    "Affaiblissement du diaphragme lié à l'âge",
+    "Surpoids ou obésité augmentant la pression abdominale",
+    "Efforts répétés (toux chronique, constipation, port de charges lourdes)",
+    "Grossesse et pression sur l'abdomen",
+    "Prédisposition familiale ou morphologique",
+    "Antécédents de chirurgie abdominale ou traumatisme"
+  ],
+  "redFlags": [
+    "Douleur thoracique intense ou soudaine pouvant ressembler à une crise cardiaque",
+    "Difficulté à avaler (dysphagie) qui s'aggrave rapidement",
+    "Vomissements de sang ou selles noires (saignement digestif)",
+    "Blocage total des aliments avec incapacité à avaler ou à vomir",
+    "Perte de poids inexpliquée et rapide"
+  ],
+  "whenToConsult": "Consultez un médecin si vous ressentez des brûlures d'estomac fréquentes, des régurgitations ou une gêne lors de la déglutition. En cas de douleur thoracique soudaine, de vomissements de sang ou de difficulté totale à avaler, rendez-vous immédiatement aux urgences.",
+  "faq": [
+    {
+      "q": "Peut-on vivre normalement avec une hernie hiatale ?",
+      "a": "Oui, la plupart des hernies hiatales sont de petite taille et ne nécessitent pas d'intervention chirurgicale. Des mesures simples — fractionner les repas, éviter de s'allonger après avoir mangé, limiter les aliments acides — suffisent souvent à soulager l'inconfort. Un suivi médical régulier est cependant recommandé."
+    },
+    {
+      "q": "La hernie hiatale peut-elle se compliquer ?",
+      "a": "Rarement, une hernie volumineuse peut se coincer (hernie étranglée) ou provoquer un reflux gastro-œsophagien sévère avec inflammation de l'œsophage. Ces complications nécessitent une consultation rapide ou une intervention chirurgicale. Un gastro-entérologue évaluera le risque lors de l'endoscopie digestive."
+    }
+  ],
+  "intentAnswer": "Pour une hernie hiatale, commencez par votre médecin généraliste qui posera le diagnostic et orientera vers un gastro-entérologue pour une endoscopie ou un bilan approfondi. En cas de douleur thoracique soudaine, de vomissements de sang ou de blocage à la déglutition, rendez-vous en urgence sans attendre.",
+  "termAr": "الفتق الحجابي",
+  "shortAnswerAr": "يحدث الفتق الحجابي عندما يرتفع جزء من المعدة إلى الصدر عبر ثقبة في الحجاب الحاجز. كثيراً ما يكون خفيفاً ودون أعراض، لكنه قد يسبب حرقة أو ارتداد الحمض. استشر الطبيب إذا أصبحت الأعراض متكررة أو شديدة.",
+  "causesAr": [
+    "ضعف الحجاب الحاجز المرتبط بالتقدم في السن",
+    "الوزن الزائد أو السمنة التي ترفع الضغط على البطن",
+    "المجهودات المتكررة كالسعال المزمن والإمساك وحمل الأثقال",
+    "الحمل وما يسببه من ضغط على البطن",
+    "الاستعداد الوراثي أو التشريحي",
+    "السوابق الجراحية في البطن أو الصدمات"
+  ],
+  "redFlagsAr": [
+    "ألم شديد ومفاجئ في الصدر يشبه أحياناً النوبة القلبية",
+    "صعوبة متصاعدة في البلع تتفاقم بسرعة",
+    "تقيؤ دم أو براز أسود يدل على نزيف هضمي",
+    "عدم القدرة التامة على البلع أو التقيؤ بسبب انسداد كامل",
+    "فقدان الوزن السريع غير المبرر"
+  ],
+  "whenToConsultAr": "استشر طبيبك إذا عانيت من حرقة متكررة أو ارتداد حمضي أو إحساس بصعوبة عند البلع. أما في حالة ألم صدري مفاجئ أو تقيؤ دم أو عدم القدرة على البلع، فتوجه فوراً إلى المستعجلات.",
+  "faqAr": [
+    {
+      "q": "هل يمكن العيش بشكل طبيعي مع الفتق الحجابي؟",
+      "a": "نعم، معظم حالات الفتق الحجابي صغيرة الحجم ولا تستدعي تدخلاً جراحياً. يكفي في الغالب تقسيم الوجبات وتجنب الاستلقاء مباشرة بعد الأكل والابتعاد عن الأطعمة الحامضة. غير أن المتابعة الدورية مع الطبيب ضرورية."
+    },
+    {
+      "q": "هل يمكن أن يتعقد الفتق الحجابي؟",
+      "a": "نادراً ما تحدث مضاعفات، لكن الفتق الكبير قد ينحبس أو يسبب ارتداداً حمضياً شديداً مع التهاب في المريء. هذه الحالات تستوجب استشارة عاجلة أو تدخلاً جراحياً. سيقيّم طبيب الجهاز الهضمي الخطر عبر التنظير الداخلي."
+    }
+  ],
+  "intentAnswerAr": "إذا كنت تتساءل عن أي طبيب تستشير لفتق حجابي، فابدأ بطبيب عام يشخص حالتك ويحيلك عند الحاجة إلى طبيب الجهاز الهضمي لإجراء تنظير أو فحوصات معمّقة. وفي حال ألم صدري مفاجئ أو تقيؤ دم أو عدم القدرة على البلع، توجه فوراً إلى المستعجلات."
+}

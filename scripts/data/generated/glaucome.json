@@ -1,0 +1,64 @@
+{
+  "slug": "glaucome",
+  "term": "Glaucome",
+  "kind": "DISEASE",
+  "specialty": "ophtalmologie",
+  "synonyms": ["glaucome chronique", "glaucome à angle ouvert", "glaucome à angle fermé", "pression oculaire élevée"],
+  "shortAnswer": "Le glaucome est une maladie de l'œil qui abîme progressivement le nerf optique, souvent à cause d'une pression trop élevée à l'intérieur de l'œil. Il évolue silencieusement pendant des années. Sans dépistage ni traitement, il peut conduire à une perte définitive de la vision.",
+  "causes": [
+    "Augmentation de la pression à l'intérieur de l'œil (hypertension oculaire)",
+    "Antécédents familiaux de glaucome (risque héréditaire)",
+    "Âge avancé (risque accru après 40 ans)",
+    "Myopie forte ou hypermétropie marquée",
+    "Certaines maladies générales comme le diabète ou l'hypertension artérielle",
+    "Usage prolongé de corticoïdes (collyres, comprimés ou crèmes)"
+  ],
+  "redFlags": [
+    "Douleur intense et soudaine dans un œil accompagnée de rougeur et de baisse de vision : urgence ophtalmologique immédiate",
+    "Vision floue brutale avec des halos colorés autour des lumières : consultez en urgence",
+    "Maux de tête violents associés à des nausées et à une vision trouble : urgence ophtalmologique",
+    "Rétrécissement rapide ou inexpliqué du champ de vision en quelques jours : consultez en urgence",
+    "Perte progressive du champ visuel sur les côtés (vision en tunnel) : consultez un ophtalmologue sans tarder, même sans douleur"
+  ],
+  "whenToConsult": "Consultez un ophtalmologue pour un bilan régulier de la pression oculaire et du nerf optique, surtout si vous avez plus de 40 ans ou des antécédents familiaux. En cas de douleur oculaire soudaine, de baisse brutale de la vision ou de halos autour des lumières, rendez-vous en urgence ophtalmologique sans attendre.",
+  "faq": [
+    {
+      "q": "Le glaucome fait-il mal ?",
+      "a": "Dans la forme la plus courante (glaucome chronique à angle ouvert), il n'y a aucune douleur et aucun symptôme visible pendant de longues années. C'est pourquoi le dépistage régulier chez l'ophtalmologue est essentiel, notamment après 40 ans ou si vous avez de la famille atteinte."
+    },
+    {
+      "q": "Peut-on guérir du glaucome ?",
+      "a": "Le glaucome ne se guérit pas, mais il se contrôle très efficacement. Les traitements disponibles (collyres, laser ou chirurgie selon les cas) permettent de stabiliser la pression oculaire et de préserver la vision. Plus le diagnostic est précoce, meilleures sont les chances d'éviter une perte visuelle significative."
+    }
+  ],
+  "intentAnswer": "Pour un glaucome, consultez d'abord un médecin généraliste qui pourra vous orienter. Le spécialiste incontournable est l'ophtalmologue, seul habilité à mesurer la pression oculaire et à examiner le nerf optique. En cas de douleur oculaire brutale, de baisse soudaine de la vision ou de halos colorés, rendez-vous immédiatement aux urgences ophtalmologiques.",
+  "termAr": "الجلوكوما (الماء الأزرق)",
+  "shortAnswerAr": "الجلوكوما مرض يصيب العصب البصري في العين، وغالباً ما يكون بسبب ارتفاع الضغط داخل العين. يتطور ببطء وبدون أعراض واضحة لسنوات طويلة. بدون كشف مبكر وعلاج مناسب، قد يؤدي إلى فقدان دائم للبصر.",
+  "causesAr": [
+    "ارتفاع ضغط السائل داخل العين (ضغط العين المرتفع)",
+    "وجود أفراد في العائلة مصابون بالجلوكوما (عامل وراثي)",
+    "التقدم في السن، خاصة بعد سن الأربعين",
+    "قصر النظر الشديد أو مد البصر الواضح",
+    "بعض الأمراض المزمنة كالسكري وارتفاع ضغط الدم",
+    "الاستخدام المطوّل للكورتيكوستيرويدات (قطرات، حبوب أو كريمات)"
+  ],
+  "redFlagsAr": [
+    "ألم مفاجئ وحاد في العين مع احمرار وتعكّر في الرؤية: حالة طارئة تستوجب التوجه فوراً إلى طوارئ طب العيون",
+    "ضبابية مفاجئة في الرؤية مع ظهور هالات ملوّنة حول مصادر الضوء: توجه فوراً للطوارئ",
+    "صداع شديد مصحوب بغثيان وتشوش في البصر: طارئ طب عيون",
+    "تضيّق سريع أو غير مفسَّر في مجال الرؤية خلال أيام: توجه للطوارئ بسرعة",
+    "ضيق تدريجي في مجال الرؤية الجانبية (رؤية نفقية): راجع طبيب العيون في أقرب وقت حتى في غياب الألم"
+  ],
+  "whenToConsultAr": "راجع طبيب العيون بانتظام لقياس ضغط العين وفحص العصب البصري، خاصة إذا كنت تجاوزت الأربعين أو لديك تاريخ عائلي مع المرض. في حال حدوث ألم مفاجئ في العين أو تراجع حاد في البصر أو ظهور هالات حول الأضواء، توجه فوراً إلى طوارئ العيون دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل الجلوكوما مؤلمة؟",
+      "a": "في الشكل الأكثر شيوعاً (الجلوكوما المزمنة مفتوحة الزاوية)، لا يشعر المريض بأي ألم ولا توجد أعراض واضحة لسنوات طويلة. لهذا السبب يُعدّ الكشف المبكر والمنتظم عند طبيب العيون أمراً ضرورياً، خاصة بعد سن الأربعين أو عند وجود تاريخ عائلي."
+    },
+    {
+      "q": "هل يمكن الشفاء من الجلوكوما؟",
+      "a": "لا يوجد علاج شافٍ للجلوكوما، لكن يمكن التحكم فيها بفعالية كبيرة. تساعد العلاجات المتاحة (قطرات العين، الليزر أو الجراحة حسب الحالة) على تثبيت ضغط العين والحفاظ على البصر. كلما كان التشخيص مبكراً، كانت فرص تجنب فقدان البصر أكبر."
+    }
+  ],
+  "intentAnswerAr": "في حالة الجلوكوما، يمكن البدء باستشارة طبيب عام الذي سيحيلك إلى المختص. الطبيب المعالج الأساسي هو طبيب العيون (طبيب أمراض العيون)، وهو الوحيد القادر على قياس ضغط العين وفحص العصب البصري. في حال الألم المفاجئ في العين أو التراجع الحاد في الرؤية أو ظهور هالات ملوّنة، اذهب فوراً إلى طوارئ العيون."
+}

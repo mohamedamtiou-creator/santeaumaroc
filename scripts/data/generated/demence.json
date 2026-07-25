@@ -1,0 +1,64 @@
+{
+  "slug": "demence",
+  "term": "Démence",
+  "kind": "DISEASE",
+  "specialty": "geriatrie",
+  "synonyms": ["maladie d'Alzheimer", "trouble neurocognitif majeur", "perte cognitive progressive"],
+  "shortAnswer": "La démence est une perte progressive des fonctions cognitives (mémoire, raisonnement, orientation) qui perturbe la vie quotidienne. Elle touche surtout les personnes âgées. Une consultation médicale est indispensable dès les premiers signes, car un bilan précoce permet un meilleur accompagnement.",
+  "causes": [
+    "Maladie d'Alzheimer (cause la plus fréquente, liée à des lésions cérébrales progressives)",
+    "Démence vasculaire (séquelles d'accidents vasculaires cérébraux répétés)",
+    "Démence à corps de Lewy (dépôts anormaux de protéines dans les cellules nerveuses)",
+    "Démence fronto-temporale (atteinte des lobes frontaux et temporaux du cerveau)",
+    "Facteurs de risque : âge avancé, antécédents familiaux, hypertension, diabète, sédentarité",
+    "Certaines causes sont partiellement réversibles : carences (B12), hypothyroïdie, dépression sévère"
+  ],
+  "redFlags": [
+    "Désorientation soudaine dans un lieu familier ou confusion aiguë (signe d'urgence : consultez les urgences sans attendre)",
+    "Trouble du comportement brutal : agitation, agressivité ou apathie marquée apparaissant rapidement",
+    "Chutes répétées ou traumatisme crânien chez une personne déjà démente (urgence : rendez-vous aux urgences immédiatement)",
+    "Perte de la capacité à s'alimenter, à se laver ou à reconnaître ses proches",
+    "Hallucinations ou idées délirantes (croire que des personnes veulent lui faire du mal)"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès l'apparition de troubles de mémoire répétés ou d'une désorientation qui inquiète l'entourage. Plus le bilan est fait tôt, plus la prise en charge est efficace. En cas de confusion brutale soudaine, de chute avec traumatisme crânien, d'agitation sévère ou de déambulation nocturne dangereuse, rendez-vous aux urgences sans délai.",
+  "faq": [
+    {
+      "q": "La démence est-elle inévitable avec l'âge ?",
+      "a": "Non. Les oublis bénins font partie du vieillissement normal, mais la démence est une maladie, pas une fatalité. Certains facteurs de risque sont modifiables : activité physique régulière, alimentation équilibrée, contrôle de la tension artérielle et stimulation intellectuelle réduisent le risque."
+    },
+    {
+      "q": "Comment aider un proche atteint de démence au quotidien au Maroc ?",
+      "a": "Un suivi régulier chez un gériatre ou un neurologue est essentiel. Des associations de soutien aux aidants existent dans les grandes villes. Aménager l'environnement (supprimer les obstacles, indiquer les pièces), maintenir une routine et solliciter un travailleur social peuvent grandement soulager la famille."
+    }
+  ],
+  "intentAnswer": "Pour une suspicion de démence, commencez par un médecin généraliste qui orientera vers un gériatre ou un neurologue pour un bilan complet. En cas de confusion soudaine, de chutes répétées, de traumatisme crânien ou de trouble du comportement brutal, rendez-vous aux urgences sans attendre.",
+  "termAr": "الخرف",
+  "shortAnswerAr": "الخرف مرضٌ يُسبّب تدهوراً تدريجياً في الوظائف الذهنية كالذاكرة والتفكير والتوجه، مما يؤثر على الحياة اليومية. يُصيب غالباً كبار السن. استشارة الطبيب فور ظهور الأعراض الأولى أمرٌ ضروري لأن التشخيص المبكر يُحسّن جودة الرعاية.",
+  "causesAr": [
+    "مرض ألزهايمر (الأكثر شيوعاً، ناجمٌ عن تلف تدريجي في خلايا الدماغ)",
+    "الخرف الوعائي (تراكم آثار جلطات دماغية صغيرة متكررة)",
+    "خرف أجسام ليوي (تراكم بروتينات غير طبيعية في الخلايا العصبية)",
+    "الخرف الجبهي الصدغي (تأثر الفصوص الأمامية والصدغية من الدماغ)",
+    "عوامل الخطر: التقدم في السن، التاريخ العائلي، ارتفاع ضغط الدم، السكري، قلة الحركة",
+    "بعض الأسباب قابلة للعلاج جزئياً: نقص فيتامين ب12، قصور الغدة الدرقية، الاكتئاب الحاد"
+  ],
+  "redFlagsAr": [
+    "تشوش مفاجئ في الاتجاه داخل أماكن مألوفة أو ارتباك ذهني حاد (علامة طوارئ: توجّه فوراً إلى المستعجلات)",
+    "تغيّر مفاجئ في السلوك: هياج أو عدوانية أو انعزال شديد يظهر فجأة",
+    "سقطات متكررة أو إصابة في الرأس لدى مريض الخرف (طوارئ: توجّه فوراً إلى قسم الطوارئ)",
+    "عجز عن تناول الطعام أو العناية بالنفس أو التعرف على الأقارب",
+    "هلوسات أو أفكار وهمية كالاعتقاد بأن أحداً يريد إيذاءه"
+  ],
+  "whenToConsultAr": "راجع طبيبك العام فور ملاحظة نسيان متكرر أو تشوش في الاتجاه يُقلق المحيطين. كلما تم التقييم مبكراً، كانت الرعاية والمتابعة أكثر فاعلية. في حال حدوث ارتباك مفاجئ حاد أو سقوط مع إصابة في الرأس أو هياج شديد أو تجوال ليلي خطير، توجّه فوراً إلى قسم الطوارئ دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل الخرف حتمي مع التقدم في السن؟",
+      "a": "لا. النسيان البسيط جزءٌ طبيعي من الشيخوخة، أما الخرف فهو مرض وليس قدراً محتوماً. عوامل كثيرة يمكن التحكم فيها مثل ممارسة الرياضة والتغذية المتوازنة وضبط ضغط الدم والنشاط الذهني، وهي تُقلّل من الخطر."
+    },
+    {
+      "q": "كيف يمكن مساعدة مريض الخرف في حياته اليومية بالمغرب؟",
+      "a": "المتابعة المنتظمة لدى طبيب الشيخوخة أو طبيب الأعصاب ضرورية. تهيئة البيئة المنزلية وإزالة العوائق والحفاظ على روتين يومي ثابت يُساعد كثيراً. كما يُنصح بالتواصل مع المختصين الاجتماعيين لتخفيف العبء عن مقدمي الرعاية."
+    }
+  ],
+  "intentAnswerAr": "عند الاشتباه بالخرف، ابدأ بزيارة الطبيب العام الذي سيحيلك إلى طبيب الشيخوخة أو طبيب الأعصاب لإجراء تقييم شامل. أما في حالات الارتباك المفاجئ أو السقوط المتكرر أو إصابة الرأس أو تغيّر السلوك بصورة حادة، فتوجّه إلى طوارئ المستشفى فوراً."
+}

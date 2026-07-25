@@ -1,0 +1,64 @@
+{
+  "slug": "oxyurose",
+  "term": "Oxyurose (vers intestinaux)",
+  "kind": "DISEASE",
+  "specialty": "pediatrie",
+  "synonyms": ["entérobiose", "oxyures", "vers intestinaux", "pinworms"],
+  "shortAnswer": "L'oxyurose est une infection intestinale bénigne causée par de petits vers (oxyures). Elle provoque surtout des démangeaisons anales nocturnes. Très fréquente chez l'enfant, elle se traite facilement. Consultez un médecin pour confirmer le diagnostic et traiter toute la famille.",
+  "causes": [
+    "Ingestion d'œufs d'oxyures (Enterobius vermicularis) par contact main-bouche, souvent après avoir touché des surfaces ou objets contaminés",
+    "Grattage de la zone anale puis portage des doigts à la bouche (auto-réinfection très fréquente chez l'enfant)",
+    "Contact direct avec un enfant ou adulte infecté dans la famille ou à l'école",
+    "Partage de linge de lit, serviettes ou sous-vêtements contaminés",
+    "Hygiène des mains insuffisante après les toilettes ou avant les repas",
+    "Milieu collectif (crèche, école maternelle) favorisant la transmission entre enfants"
+  ],
+  "redFlags": [
+    "Douleurs abdominales intenses ou persistantes, surtout si accompagnées de fièvre",
+    "Perte de poids inexpliquée ou arrêt de la prise de poids chez l'enfant",
+    "Sang dans les selles ou selles anormalement pâles ou noires",
+    "Symptômes qui persistent ou s'aggravent après traitement bien conduit",
+    "Signes chez un nourrisson de moins de 6 mois : consultez rapidement sans attendre"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste ou un pédiatre dès que vous suspectez une oxyurose chez votre enfant ou un membre de la famille, afin d'obtenir un traitement adapté et des conseils pour éviter la réinfection. Un traitement simultané de tout le foyer est généralement recommandé.",
+  "faq": [
+    {
+      "q": "Comment savoir si mon enfant a des oxyures ?",
+      "a": "Le signe le plus caractéristique est des démangeaisons anales intenses, surtout la nuit, qui perturbent le sommeil. On peut parfois apercevoir de petits vers blancs fins (2 à 13 mm) autour de l'anus ou dans les selles. Une irritabilité, des troubles du sommeil ou des douleurs abdominales légères peuvent aussi apparaître. Consultez un médecin pour confirmer, car d'autres affections peuvent ressembler à l'oxyurose."
+    },
+    {
+      "q": "Quelles mesures d'hygiène adopter pour éviter la contagion dans la famille ?",
+      "a": "Lavez les mains soigneusement et fréquemment, notamment après les toilettes et avant les repas. Coupez les ongles courts. Lavez quotidiennement les sous-vêtements et le linge de lit à haute température. Évitez de secouer la literie pour ne pas disperser les œufs. Ces mesures, combinées au traitement prescrit par le médecin, aident à rompre le cycle de transmission."
+    }
+  ],
+  "intentAnswer": "Pour une oxyurose (vers intestinaux), consultez d'abord votre médecin généraliste, qui peut confirmer le diagnostic et orienter le traitement de toute la famille. Chez l'enfant, un pédiatre est le spécialiste de référence. En cas de douleurs abdominales intenses, fièvre ou saignement, rendez-vous aux urgences sans attendre.",
+  "termAr": "داء الأوكسيور (الديدان المعوية)",
+  "shortAnswerAr": "داء الأوكسيور عدوى معوية حميدة تسببها ديدان صغيرة (الأوكسيور). يتجلى أساسًا في حكة شرجية مزعجة في الليل، وهو شائع جدًا عند الأطفال ويُعالَج بسهولة. استشر طبيبًا لتأكيد التشخيص وعلاج جميع أفراد الأسرة.",
+  "causesAr": [
+    "ابتلاع بيض الأوكسيور عن طريق اليدين الملوثتين أو ملامسة أسطح وأدوات مُلوَّثة ثم وضع اليد في الفم",
+    "حك منطقة الشرج ثم نقل البيض إلى الفم مما يُسبب إعادة الإصابة المتكررة لدى الأطفال",
+    "الاحتكاك المباشر بطفل أو شخص مصاب في المنزل أو المدرسة",
+    "مشاركة الفراش أو المناشف أو الملابس الداخلية الملوثة",
+    "عدم غسل اليدين جيدًا بعد قضاء الحاجة أو قبل الأكل",
+    "الأماكن الجماعية كالحضانات والمدارس التي تسهل انتقال العدوى بين الأطفال"
+  ],
+  "redFlagsAr": [
+    "آلام في البطن شديدة أو مستمرة، خاصة إذا رافقتها حمى",
+    "فقدان الوزن غير المبرر أو توقف نمو الطفل",
+    "دم في البراز أو براز شديد الشحوب أو داكن اللون",
+    "استمرار الأعراض أو تفاقمها رغم العلاج الصحيح",
+    "ظهور الأعراض لدى رضيع دون ستة أشهر: استشر طبيبًا فورًا"
+  ],
+  "whenToConsultAr": "استشر طبيبًا عامًا أو طبيب أطفال فور اشتباهك بإصابة طفلك أو أحد أفراد أسرتك بداء الأوكسيور، للحصول على العلاج المناسب ونصائح الوقاية من الإصابة مجددًا. يُنصح عادةً بعلاج جميع أفراد الأسرة في آنٍ واحد.",
+  "faqAr": [
+    {
+      "q": "كيف أعرف إذا كان طفلي مصابًا بالأوكسيور؟",
+      "a": "أبرز العلامات هي حكة شديدة حول فتحة الشرج تشتد ليلًا وتُقلق نوم الطفل. قد تلاحظ أحيانًا ديدانًا صغيرة بيضاء (بين 2 و13 مم) حول الشرج أو في البراز. وقد تظهر أيضًا توترية وقلة نوم وآلام خفيفة في البطن. راجع طبيبًا لتأكيد التشخيص، إذ قد تشبه هذه الأعراض حالات أخرى."
+    },
+    {
+      "q": "ما إجراءات النظافة التي تمنع العدوى داخل الأسرة؟",
+      "a": "اغسل اليدين بعناية بعد قضاء الحاجة وقبل الأكل، واحرص على قص الأظافر قصيرة. اغسل الملابس الداخلية والفراش يوميًا بالماء الساخن، وتجنب نفض الأغطية حتى لا تتطاير البيض. هذه الإجراءات، مع العلاج الذي يصفه الطبيب، تساعد على قطع دورة العدوى."
+    }
+  ],
+  "intentAnswerAr": "لداء الأوكسيور (الديدان المعوية)، ابدأ بزيارة طبيبك العام الذي يُقيّم الحالة ويوجه علاج الأسرة بأكملها. لدى الأطفال، يُعدّ طبيب الأطفال المرجع الأساسي. وإذا ظهرت آلام بطنية حادة أو حمى أو دم في البراز، توجه إلى المستعجلات دون تأخير."
+}

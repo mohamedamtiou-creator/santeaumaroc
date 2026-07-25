@@ -1,0 +1,68 @@
+{
+  "slug": "toux-chez-l-enfant",
+  "term": "Toux chez l'enfant",
+  "kind": "SYMPTOM",
+  "specialty": "pediatrie",
+  "synonyms": ["toux infantile", "toux du nourrisson", "toux grasse enfant", "toux sèche enfant"],
+  "shortAnswer": "La toux est un réflexe naturel qui aide l'enfant à dégager ses voies respiratoires. Elle est souvent bénigne lors d'un rhume ou d'une bronchite légère. Elle devient préoccupante si elle s'accompagne d'une gêne respiratoire, d'une forte fièvre ou dure plus de trois semaines.",
+  "causes": [
+    "Infection virale des voies respiratoires supérieures (rhume, rhinopharyngite)",
+    "Bronchite aiguë ou bronchiolite (surtout chez le nourrisson)",
+    "Asthme ou hyperréactivité bronchique",
+    "Allergie respiratoire (pollens, acariens, animaux)",
+    "Corps étranger inhalé accidentellement",
+    "Coqueluche ou autre infection bactérienne"
+  ],
+  "redFlags": [
+    "Difficultés respiratoires visibles : battement des ailes du nez, tirage sous-costal ou entre les côtes",
+    "Lèvres ou ongles bleutés (cyanose)",
+    "Stridor (sifflement aigu à l'inspiration) évocateur d'une laryngite obstructive — urgence immédiate",
+    "Pauses respiratoires (apnées), notamment chez le nourrisson de moins de 3 mois atteint de bronchiolite",
+    "Toux survenue brutalement après avoir mis un objet en bouche (suspicion de corps étranger)",
+    "Fièvre élevée persistante accompagnée d'une respiration rapide",
+    "Toux quinteuse avec reprise bruyante de la respiration (« chant du coq »), évocatrice de coqueluche"
+  ],
+  "whenToConsult": "Consultez un médecin si la toux dure plus de 10 jours, s'accompagne de fièvre persistante, de difficultés à respirer ou à s'alimenter. En cas de détresse respiratoire, de stridor, de pauses respiratoires ou de suspicion de corps étranger, rendez-vous immédiatement aux urgences.",
+  "faq": [
+    {
+      "q": "Faut-il s'inquiéter si mon enfant tousse la nuit ?",
+      "a": "Une toux nocturne isolée, sans détresse respiratoire, est souvent liée au mucus qui s'écoule vers la gorge en position allongée. Si elle revient régulièrement, surtout à l'effort ou au contact d'allergènes, parlez-en à votre pédiatre car l'asthme est fréquemment en cause chez l'enfant."
+    },
+    {
+      "q": "La toux de mon bébé est-elle contagieuse ?",
+      "a": "Cela dépend de la cause. Une toux due à un virus (rhume, bronchiolite) est contagieuse par les gouttelettes. En cas de coqueluche, la contagiosité est très élevée. Pour limiter la transmission, lavez-vous les mains régulièrement et évitez le contact du nourrisson avec des personnes malades."
+    }
+  ],
+  "intentAnswer": "Pour une toux chez l'enfant, consultez d'abord le médecin généraliste ou le pédiatre de famille. Si la toux est persistante ou récidivante, le pédiatre est le spécialiste de référence. En cas de difficultés respiratoires, de stridor, de cyanose ou de suspicion de corps étranger, rendez-vous directement aux urgences pédiatriques.",
+  "termAr": "السعال عند الأطفال",
+  "shortAnswerAr": "السعال منعكس طبيعي يساعد الطفل على تنظيف مجاري تنفسه. غالباً ما يكون عارضاً بسيطاً مصاحباً للزكام أو التهاب الشعب الهوائية الخفيف. يستدعي القلق إذا رافقته صعوبة في التنفس أو حمى شديدة أو استمر أكثر من ثلاثة أسابيع.",
+  "causesAr": [
+    "عدوى فيروسية في الجهاز التنفسي العلوي (زكام، التهاب البلعوم الأنفي)",
+    "التهاب الشعب الهوائية الحاد أو التهاب القصيبات (خاصة عند الرضع)",
+    "الربو أو فرط حساسية الشعب الهوائية",
+    "الحساسية التنفسية (حبوب اللقاح، عث الغبار، الحيوانات)",
+    "استنشاق جسم غريب بشكل عرضي",
+    "السعال الديكي أو عدوى بكتيرية أخرى"
+  ],
+  "redFlagsAr": [
+    "صعوبة واضحة في التنفس: رفرفة أجنحة الأنف أو تقعر الفضاء بين الأضلاع",
+    "ازرقاق الشفتين أو الأظافر",
+    "صرير حنجري (صوت صفير حاد عند الشهيق) يوحي بالتهاب الحنجرة الانسدادي — حالة طارئة فورية",
+    "توقف التنفس (انقطاع النفس)، خاصة عند الرضع دون الثلاثة أشهر المصابين بالتهاب القصيبات",
+    "سعال مفاجئ بعد وضع شيء في الفم (احتمال دخول جسم غريب)",
+    "حمى مرتفعة مستمرة مع تسارع في التنفس",
+    "نوبات سعال متتالية مع صوت صفير عند الشهيق (يوحي بالسعال الديكي)"
+  ],
+  "whenToConsultAr": "استشيروا الطبيب إذا استمر السعال أكثر من 10 أيام، أو رافقته حمى متواصلة أو صعوبة في التنفس أو الأكل. في حالة ضيق تنفسي حاد أو صرير حنجري أو انقطاع نفس أو اشتباه بدخول جسم غريب، توجهوا فوراً إلى المستعجلات.",
+  "faqAr": [
+    {
+      "q": "هل يجب أن أقلق إذا كان طفلي يسعل ليلاً؟",
+      "a": "السعال الليلي المنعزل دون ضيق تنفسي غالباً مرتبط بتدفق المخاط نحو الحلق عند الاستلقاء. إذا تكرر بانتظام، خاصة عند المجهود أو التعرض لمثيرات الحساسية، فأخبروا طبيب الأطفال لأن الربو سبب شائع عند الأطفال."
+    },
+    {
+      "q": "هل سعال طفلي الرضيع معدٍ؟",
+      "a": "يعتمد ذلك على السبب. السعال الناتج عن فيروس (زكام، التهاب قصيبات) ينتقل عبر القطيرات. أما السعال الديكي فشديد العدوى. للحد من الانتقال، اغسلوا أيديكم باستمرار وتجنبوا تقريب الرضيع من المرضى."
+    }
+  ],
+  "intentAnswerAr": "للسعال عند الطفل، استشيروا أولاً الطبيب العام أو طبيب الأطفال المعتاد. إذا كان السعال متكرراً أو مزمناً، فطبيب الأطفال هو المرجع المناسب. في حال ضيق تنفسي حاد أو صرير حنجري أو ازرقاق أو اشتباه بجسم غريب، توجهوا مباشرة إلى مستعجلات الأطفال."
+}

@@ -1,0 +1,64 @@
+{
+  "slug": "pied-d-athlete",
+  "term": "Pied d'athlète (mycose des pieds)",
+  "kind": "DISEASE",
+  "specialty": "dermatologie",
+  "synonyms": ["tinea pedis", "mycose des pieds", "dermatophytose plantaire", "champignon des pieds"],
+  "shortAnswer": "Le pied d'athlète est une infection fongique de la peau du pied, souvent bénigne, qui provoque démangeaisons, desquamation et odeur. Elle se traite bien si prise en charge tôt. Consultez si la lésion s'étend, suinte ou ne guérit pas en deux semaines.",
+  "causes": [
+    "Contact avec des sols humides contaminés (piscines, douches collectives, hammam)",
+    "Port de chaussures fermées et non respirantes favorisant la transpiration",
+    "Pied maintenu humide trop longtemps (mauvais séchage entre les orteils)",
+    "Contact direct avec une personne ou un objet contaminé (serviette, tapis de bain)",
+    "Système immunitaire affaibli (diabète, traitement immunosuppresseur)",
+    "Ongles infectés par des champignons (onychomycose) servant de réservoir"
+  ],
+  "redFlags": [
+    "Rougeur, chaleur, gonflement ou trainée rouge remontant vers la cheville (signe d'infection bactérienne surajoutée)",
+    "Plaie ouverte, suintement jaune ou pus entre les orteils",
+    "Fièvre accompagnant les lésions du pied",
+    "Extension rapide de l'infection malgré un traitement de plus de deux semaines",
+    "Terrain diabétique ou immunodéprimé : toute lésion du pied nécessite une consultation rapide"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si les symptômes persistent plus de deux semaines ou s'aggravent malgré les mesures d'hygiène. En cas de fièvre, de plaie ouverte ou chez un patient diabétique, consultez sans délai.",
+  "faq": [
+    {
+      "q": "Le pied d'athlète est-il contagieux ?",
+      "a": "Oui, il se transmet par contact avec des surfaces contaminées (sol de piscine, douches, serviettes partagées). Évitez de marcher pieds nus dans les lieux publics humides et ne partagez pas vos affaires de toilette pour protéger votre entourage."
+    },
+    {
+      "q": "Peut-on prévenir le pied d'athlète ?",
+      "a": "Oui : séchez soigneusement les espaces entre les orteils après chaque bain, portez des sandales dans les vestiaires et piscines, changez de chaussettes quotidiennement et privilégiez des chaussures aérées. Ces habitudes simples réduisent fortement le risque de récidive."
+    }
+  ],
+  "intentAnswer": "Pour un pied d'athlète, commencez par consulter un médecin généraliste qui peut poser le diagnostic et orienter le traitement. En cas de lésions persistantes, étendues ou récidivantes, un dermatologue est le spécialiste de référence. Si une infection bactérienne est suspectée (fièvre, plaie, trainée rouge), rendez-vous aux urgences sans attendre.",
+  "termAr": "قدم الرياضي (فطريات القدم)",
+  "shortAnswerAr": "قدم الرياضي عدوى فطرية تصيب جلد القدم، وغالبًا ما تكون خفيفة، تسبب حكة وتقشرًا ورائحة. تستجيب للعلاج إذا شُخِّصت مبكرًا. استشر الطبيب إذا امتدت الإصابة أو أفرزت إفرازات أو لم تتحسن خلال أسبوعين.",
+  "causesAr": [
+    "ملامسة الأسطح الرطبة الملوثة كالمسابح والحمامات المشتركة والحمام الشعبي",
+    "ارتداء أحذية مغلقة وغير مسامية تُحبس فيها الرطوبة",
+    "إبقاء القدم رطبة لفترة طويلة نتيجة عدم التجفيف الجيد بين الأصابع",
+    "الاتصال المباشر بشخص مصاب أو بأدواته كالمنشفة وسجادة الحمام",
+    "ضعف المناعة (مرض السكري أو العلاج المثبط للمناعة)",
+    "الأظافر المصابة بالفطريات التي تُشكّل خزانًا دائمًا للعدوى"
+  ],
+  "redFlagsAr": [
+    "احمرار أو دفء أو تورم أو خط أحمر يمتد نحو الكاحل (دليل على التهاب جرثومي مضاف)",
+    "جرح مفتوح أو إفراز أصفر أو قيح بين أصابع القدم",
+    "ارتفاع الحرارة مع الآفات الجلدية في القدم",
+    "انتشار سريع للعدوى رغم العلاج لأكثر من أسبوعين",
+    "مريض مصاب بالسكري أو ضعف المناعة: أي جرح في القدم يستوجب استشارة طبية عاجلة"
+  ],
+  "whenToConsultAr": "استشر طبيبًا عامًا إذا استمرت الأعراض أكثر من أسبوعين أو ازدادت سوءًا رغم العناية بالنظافة. في حالة الحمى أو وجود جرح مفتوح أو لدى مريض السكري، اطلب الرعاية الطبية دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل قدم الرياضي معدية؟",
+      "a": "نعم، تنتقل بالتلامس مع الأسطح الملوثة كأرضيات المسابح والحمامات والمناشف المشتركة. تجنّب المشي حافيًا في الأماكن العامة الرطبة، ولا تتشارك أدوات النظافة الشخصية حمايةً لمن حولك."
+    },
+    {
+      "q": "كيف يمكن الوقاية من قدم الرياضي؟",
+      "a": "جفّف الفراغات بين أصابع القدم جيدًا بعد الاستحمام، وارتدِ صندلًا في غرف تغيير الملابس والمسابح، وغيّر الجوارب يوميًا، وفضّل الأحذية المسامية. هذه العادات البسيطة تقلّل خطر الإصابة والانتكاس بشكل ملحوظ."
+    }
+  ],
+  "intentAnswerAr": "لعلاج قدم الرياضي، ابدأ باستشارة طبيب عام يمكنه تشخيص الحالة والتوجيه المناسب. إذا كانت الإصابة متكررة أو واسعة الانتشار، فإن طبيب الأمراض الجلدية هو المختص المرجعي. أما إذا اشتُبه في وجود التهاب جرثومي (حمى، جرح، خط أحمر)، فاذهب إلى المستعجلات فورًا."
+}

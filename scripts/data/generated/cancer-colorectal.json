@@ -1,0 +1,66 @@
+{
+  "slug": "cancer-colorectal",
+  "term": "Cancer colorectal",
+  "kind": "DISEASE",
+  "specialty": "oncologie-medicale",
+  "synonyms": ["cancer du côlon", "cancer du rectum", "cancer du gros intestin"],
+  "shortAnswer": "Le cancer colorectal est une tumeur maligne qui se développe dans le côlon ou le rectum. Il évolue souvent lentement à partir de polypes bénins. Dépisté tôt, il se traite avec de bons résultats. Tout saignement rectal ou changement persistant du transit après 45 ans doit être signalé à un médecin.",
+  "causes": [
+    "Présence de polypes adénomateux dans le côlon (lésions précancéreuses)",
+    "Antécédents personnels ou familiaux de cancer colorectal ou de polypes",
+    "Alimentation pauvre en fibres, riche en viandes rouges et charcuteries",
+    "Sédentarité, surpoids et obésité",
+    "Maladies inflammatoires chroniques de l'intestin (rectocolite, maladie de Crohn)",
+    "Tabagisme et consommation excessive d'alcool"
+  ],
+  "redFlags": [
+    "Sang rouge vif ou noirâtre dans les selles, même en petite quantité",
+    "Modification persistante du transit intestinal (diarrhée ou constipation inhabituelles depuis plusieurs semaines)",
+    "Douleurs abdominales persistantes ou crampes inexpliquées",
+    "Perte de poids inexpliquée et fatigue intense sans cause apparente",
+    "Sensation d'évacuation incomplète après les selles (ténesme)",
+    "Arrêt brutal des matières et des gaz, ballonnement intense et vomissements : urgence chirurgicale immédiate (occlusion intestinale), appelez le 15 ou rendez-vous aux urgences sans délai"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès que vous remarquez du sang dans les selles, un changement du transit persistant plus de deux à trois semaines, ou une fatigue inexpliquée. Ne tardez pas : un dépistage précoce améliore considérablement les chances de guérison.",
+  "faq": [
+    {
+      "q": "À partir de quel âge faut-il se faire dépister au Maroc ?",
+      "a": "Le dépistage est recommandé à partir de 45 ans pour les personnes sans facteur de risque particulier. En cas d'antécédents familiaux de cancer colorectal ou de polypes, la surveillance peut commencer plus tôt, selon l'avis de votre médecin. Le dépistage repose généralement sur une coloscopie ou un test de recherche de sang dans les selles."
+    },
+    {
+      "q": "Le cancer colorectal est-il héréditaire ?",
+      "a": "Dans la majorité des cas, il est sporadique (sans lien génétique direct). Cependant, environ 20 à 30 % des cancers colorectaux surviennent dans un contexte familial, et quelques rares formes sont liées à des mutations génétiques héréditaires (comme la polypose familiale ou le syndrome de Lynch). Si plusieurs membres proches de votre famille sont touchés, signalez-le à votre médecin pour une surveillance adaptée."
+    }
+  ],
+  "intentAnswer": "Pour un cancer colorectal, consultez d'abord votre médecin généraliste, qui orientera vers un gastro-entérologue pour la coloscopie et, si nécessaire, vers un oncologue médical pour la prise en charge thérapeutique. En cas de saignements abondants ou de douleurs intenses, rendez-vous aux urgences sans attendre.",
+  "termAr": "سرطان القولون والمستقيم",
+  "shortAnswerAr": "سرطان القولون والمستقيم هو ورم خبيث يتطور في القولون أو المستقيم، غالبًا بشكل تدريجي انطلاقًا من أورام حميدة صغيرة تُسمى الأورام الغدية. عند اكتشافه مبكرًا، تكون نتائج العلاج جيدة جدًا. أي نزيف شرجي أو تغيّر مستمر في الإخراج بعد سن 45 يستوجب استشارة طبيب.",
+  "causesAr": [
+    "وجود أورام غدية (بوليبات) في القولون كآفات سابقة للسرطان",
+    "سوابق شخصية أو عائلية لسرطان القولون أو البوليبات",
+    "نظام غذائي فقير بالألياف وغني باللحوم الحمراء ومنتجات اللحوم المصنّعة",
+    "قلة الحركة والوزن الزائد والسمنة",
+    "الأمراض الالتهابية المزمنة للأمعاء كالتهاب القولون التقرحي وداء كرون",
+    "التدخين والإفراط في تناول الكحول"
+  ],
+  "redFlagsAr": [
+    "وجود دم أحمر فاتح أو داكن في البراز ولو بكميات صغيرة",
+    "تغيّر مستمر في عادات الإخراج كإسهال أو إمساك غير معتاد يمتد لأسابيع",
+    "آلام بطنية مستمرة أو تقلصات لا سبب واضح لها",
+    "فقدان الوزن غير المبرر مع إرهاق شديد دون سبب ظاهر",
+    "الشعور بعدم اكتمال التبرز بعد قضاء الحاجة",
+    "توقف مفاجئ تام عن التبرز وخروج الغازات مع انتفاخ شديد وقيء: حالة طارئة جراحية (انسداد معوي)، اتصل بالإسعاف فوراً أو توجه إلى المستعجلات"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور ملاحظة أي دم في البراز أو تغيّر في الإخراج يستمر أكثر من أسبوعين إلى ثلاثة أسابيع، أو عند الشعور بتعب غير مبرر. لا تتأخر في الاستشارة، فالكشف المبكر يرفع فرص الشفاء بشكل كبير.",
+  "faqAr": [
+    {
+      "q": "من أي عمر يُنصح بالفحص الدوري للكشف المبكر في المغرب؟",
+      "a": "يُوصى بالفحص الدوري ابتداءً من سن 45 عامًا للأشخاص الذين لا تتوفر لديهم عوامل خطر خاصة. في حال وجود سوابق عائلية لسرطان القولون أو البوليبات، قد تبدأ المتابعة في وقت أبكر بناءً على توجيه الطبيب. يعتمد الفحص عادةً على تنظير القولون أو اختبار الكشف عن الدم الخفي في البراز."
+    },
+    {
+      "q": "هل سرطان القولون والمستقيم وراثي؟",
+      "a": "في معظم الحالات يكون عشوائيًا بلا ارتباط وراثي مباشر. غير أن نحو 20 إلى 30 بالمئة من الحالات تحدث في سياق عائلي، وثمة أشكال نادرة مرتبطة بطفرات جينية وراثية كداء السلائل العائلي أو متلازمة لينش. إن كان عدة أفراد من عائلتك المقربة مصابين بهذا السرطان، فأبلغ طبيبك لوضع برنامج متابعة مناسب."
+    }
+  ],
+  "intentAnswerAr": "عند الشك في سرطان القولون والمستقيم، ابدأ باستشارة طبيبك العام الذي سيحيلك إلى طبيب الجهاز الهضمي لإجراء تنظير القولون، ثم إلى طبيب أورام متخصص عند الحاجة للعلاج. في حال النزيف الشديد أو الألم الحاد، توجّه إلى قسم المستعجلات فورًا."
+}

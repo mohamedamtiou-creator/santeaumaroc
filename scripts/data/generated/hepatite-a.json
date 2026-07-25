@@ -1,0 +1,64 @@
+{
+  "slug": "hepatite-a",
+  "term": "Hépatite A",
+  "kind": "DISEASE",
+  "specialty": "maladies-infectieuses",
+  "synonyms": ["jaunisse infectieuse", "hépatite épidémique"],
+  "shortAnswer": "L'hépatite A est une infection virale du foie transmise par l'eau ou les aliments contaminés. Elle guérit spontanément dans la majorité des cas. Consultez rapidement en cas de jaunisse intense, de confusion mentale ou de fatigue extrême, qui peuvent signaler une forme grave.",
+  "causes": [
+    "Consommation d'eau non traitée ou contaminée par des matières fécales",
+    "Ingestion de fruits de mer crus (huîtres, moules) provenant d'eaux polluées",
+    "Fruits et légumes crus mal lavés ou irrigués avec de l'eau contaminée",
+    "Contact direct avec une personne infectée (mains non lavées)",
+    "Manque d'hygiène des mains après passage aux toilettes",
+    "Séjour dans des zones à faible niveau sanitaire sans précautions adaptées"
+  ],
+  "redFlags": [
+    "Jaunisse (peau et yeux jaunes) qui s'intensifie rapidement",
+    "Confusion mentale, somnolence excessive ou comportement inhabituel (signe d'atteinte hépatique grave)",
+    "Douleurs abdominales très intenses, notamment sous les côtes droites",
+    "Vomissements incoercibles empêchant toute alimentation ou hydratation",
+    "Urines très foncées (couleur thé) associées à des selles décolorées (blanc ou gris)"
+  ],
+  "whenToConsult": "Consultez un médecin dès l'apparition de symptômes évocateurs : fièvre, nausées, fatigue inhabituelle ou jaunisse. En présence de l'un des signes d'alerte ci-dessus, rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "L'hépatite A est-elle courante au Maroc ?",
+      "a": "Oui, l'hépatite A reste présente au Maroc, principalement dans les zones où l'accès à l'eau potable et à l'assainissement est limité. Les enfants et les adultes non vaccinés sont les plus exposés. Une vaccination préventive est disponible et recommandée pour les personnes à risque."
+    },
+    {
+      "q": "Comment éviter de contaminer son entourage quand on a l'hépatite A ?",
+      "a": "Le virus est excrété dans les selles pendant plusieurs semaines. Lavez-vous soigneusement les mains après chaque passage aux toilettes et avant de préparer des repas. Évitez de préparer de la nourriture pour autrui pendant la phase aiguë. Votre médecin vous indiquera la durée de contagiosité et les précautions à respecter."
+    }
+  ],
+  "intentAnswer": "Pour une hépatite A, consultez en premier lieu votre médecin généraliste, qui posera le diagnostic et assurera le suivi. Il peut vous orienter vers un médecin infectiologue ou un hépatologue si la forme est sévère. En cas de jaunisse intense, confusion ou douleurs abdominales violentes, rendez-vous directement aux urgences.",
+  "termAr": "التهاب الكبد A",
+  "shortAnswerAr": "التهاب الكبد A عدوى فيروسية تصيب الكبد وتنتقل عبر الماء أو الطعام الملوث. يتعافى معظم المرضى من تلقاء أنفسهم. استشر الطبيب فوراً في حال ظهور يرقان حاد أو تشوش ذهني أو إرهاق شديد، إذ قد تدل هذه الأعراض على مضاعفات خطيرة.",
+  "causesAr": [
+    "شرب مياه غير معالجة أو ملوثة بالبراز",
+    "تناول المأكولات البحرية النيئة (كالمحار) من مياه ملوثة",
+    "الفواكه والخضروات النيئة التي لم تُغسل جيداً أو رُويت بمياه ملوثة",
+    "الاحتكاك المباشر بشخص مصاب دون غسل اليدين",
+    "إهمال نظافة اليدين بعد استخدام المرحاض",
+    "الإقامة في مناطق تفتقر إلى الصرف الصحي الجيد دون اتخاذ احتياطات كافية"
+  ],
+  "redFlagsAr": [
+    "اصفرار متسارع في الجلد وبياض العينين (يرقان حاد)",
+    "تشوش ذهني أو نعاس مفرط أو تصرفات غير معتادة (قد يدل على قصور كبدي خطير)",
+    "آلام شديدة في البطن خاصةً أسفل الأضلاع اليمنى",
+    "قيء متواصل يمنع الأكل أو الشرب",
+    "بول داكن جداً (كلون الشاي) مع براز فاتح اللون أو رمادي"
+  ],
+  "whenToConsultAr": "راجع طبيبك فور ظهور أعراض مشبوهة كالحمى والغثيان والتعب غير المعتاد أو الاصفرار. وإذا لاحظت أياً من علامات التحذير المذكورة أعلاه، توجه إلى قسم الطوارئ دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل التهاب الكبد A شائع في المغرب؟",
+      "a": "نعم، لا يزال التهاب الكبد A موجوداً في المغرب، خاصةً في المناطق التي يكون فيها الوصول إلى مياه الشرب النظيفة والصرف الصحي محدوداً. الأطفال والبالغون غير المطعمين هم الأكثر عرضة للإصابة. يتوفر لقاح وقائي فعّال يُوصى به للفئات المعرضة للخطر."
+    },
+    {
+      "q": "كيف أتجنب نقل العدوى إلى المقربين عند إصابتي بالتهاب الكبد A؟",
+      "a": "يُطرح الفيروس في البراز لعدة أسابيع. اغسل يديك جيداً بعد كل استخدام للمرحاض وقبل تحضير الطعام. تجنب إعداد وجبات للآخرين خلال مرحلة المرض الحادة. سيوضح لك طبيبك مدة العدوى والاحتياطات الواجب اتخاذها."
+    }
+  ],
+  "intentAnswerAr": "لالتهاب الكبد A، يُستحسن استشارة الطبيب العام أولاً لإجراء التشخيص ومتابعة الحالة. قد يحيلك إلى طبيب متخصص في الأمراض المعدية أو أمراض الكبد في حال تطورت الأعراض. وإذا ظهر يرقان حاد أو تشوش ذهني أو آلام بطنية شديدة، توجه مباشرةً إلى قسم الطوارئ."
+}

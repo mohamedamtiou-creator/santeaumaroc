@@ -134,6 +134,10 @@ const COPY: Record<"fr" | "ar", Copy> = {
         links: [
           { href: "/blog", label: "Blog santé", desc: "Articles de prévention et de vulgarisation, relus médicalement." },
           { href: "/questions", label: "Questions / Réponses", desc: "Posez vos questions ; des médecins vérifiés y répondent." },
+          { href: "/quel-medecin-pour", label: "Quel médecin consulter ?", desc: "Trouvez le bon spécialiste selon votre symptôme ou votre situation." },
+          { href: "/comment-traiter", label: "Comment traiter ?", desc: "Le parcours de soins et le bon interlocuteur selon votre problème de santé." },
+          { href: "/prevenir", label: "Comment prévenir ?", desc: "Ce qui aide à réduire le risque et le rôle du dépistage." },
+          { href: "/quand-consulter", label: "Quand consulter un spécialiste ?", desc: "Motifs de consultation et signes d'alerte, spécialité par spécialité." },
           { href: "/symptomes", label: "Symptômes", desc: "Reconnaître un symptôme, ses causes possibles et quand consulter au Maroc." },
           { href: "/maladies", label: "Maladies", desc: "Causes, signes d'alerte et bon spécialiste à consulter pour les maladies courantes." },
           { href: "/examens", label: "Examens médicaux", desc: "Comprendre les examens et analyses : déroulé, indications et prix indicatifs." },
@@ -153,6 +157,7 @@ const COPY: Record<"fr" | "ar", Copy> = {
           { href: "/inscription-praticien", label: "Inscription praticien", desc: "Créer votre fiche et développer votre cabinet en ligne." },
           { href: "/gerer-ma-fiche", label: "Gérer ma fiche", desc: "Revendiquer et mettre à jour votre fiche existante." },
           { href: "/guide-du-medecin", label: "Guide du médecin", desc: "Votre cabinet en ligne en 10 minutes, étape par étape." },
+          { href: "/devenir-auteur", label: "Devenir auteur", desc: "Professionnels de santé : publiez des articles vérifiés sur SantéauMaroc." },
           { href: "/badge", label: "Badge vérifié", desc: "En quoi consiste la vérification et comment l'obtenir." },
           { href: "/tarifs", label: "Tarifs & abonnements", desc: "Nos offres pour les praticiens, du gratuit au Premium." },
         ],
@@ -174,6 +179,7 @@ const COPY: Record<"fr" | "ar", Copy> = {
         title: "Confiance & mentions légales",
         links: [
           { href: "/charte-editoriale", label: "Charte éditoriale & transparence", desc: "Comment nous produisons et vérifions nos contenus." },
+          { href: "/methodologie", label: "Méthodologie & sources", desc: "Nos niveaux de preuve et la façon dont nous vérifions l'information santé." },
           { href: "/conditions-utilisation", label: "Conditions d'utilisation", desc: "Les règles d'usage de la plateforme." },
           { href: "/politique-confidentialite", label: "Politique de confidentialité", desc: "Comment vos données sont protégées." },
         ],
@@ -227,6 +233,10 @@ const COPY: Record<"fr" | "ar", Copy> = {
         links: [
           { href: "/blog", label: "مدوّنة الصحة", desc: "مقالات وقائية وتبسيطية، مُراجَعة طبياً." },
           { href: "/questions", label: "الأسئلة والأجوبة", desc: "اطرح أسئلتك، ويجيب عنها أطباء مُوثَّقون." },
+          { href: "/quel-medecin-pour", label: "أي طبيب تستشير؟", desc: "اعثر على الأخصائي المناسب حسب العَرَض أو حالتك." },
+          { href: "/comment-traiter", label: "كيف يُعالَج؟", desc: "مسار العلاج والمُحاوِر المناسب حسب مشكلتك الصحية." },
+          { href: "/prevenir", label: "كيف نقي؟", desc: "ما يساعد على تقليل الخطر ودور الكشف المبكر." },
+          { href: "/quand-consulter", label: "متى تستشير أخصائياً؟", desc: "أسباب الاستشارة وعلامات الإنذار، تخصّصاً تخصّصاً." },
           { href: "/symptomes", label: "الأعراض", desc: "التعرّف على عرض، أسبابه المحتملة ومتى تستشير في المغرب." },
           { href: "/maladies", label: "الأمراض", desc: "الأسباب وعلامات الإنذار والأخصائي المناسب للأمراض الشائعة." },
           { href: "/examens", label: "الفحوصات الطبية", desc: "فهم الفحوصات والتحاليل: سيرها، دواعيها والأسعار الإرشادية." },
@@ -246,6 +256,7 @@ const COPY: Record<"fr" | "ar", Copy> = {
           { href: "/inscription-praticien", label: "تسجيل الطبيب", desc: "أنشئ بطاقتك وطوّر عيادتك على الإنترنت." },
           { href: "/gerer-ma-fiche", label: "إدارة بطاقتي", desc: "المطالبة ببطاقتك القائمة وتحديثها." },
           { href: "/guide-du-medecin", label: "دليل الطبيب", desc: "عيادتك على الإنترنت في 10 دقائق، خطوة بخطوة." },
+          { href: "/devenir-auteur", label: "كن مؤلّفاً", desc: "لمهنيي الصحة: انشر مقالات موثوقة على «الصحة في المغرب»." },
           { href: "/badge", label: "علامة موثَّق", desc: "ما هي عملية التوثيق وكيفية الحصول عليها." },
           { href: "/tarifs", label: "الأسعار والاشتراكات", desc: "عروضنا للأطباء، من المجاني إلى بريميوم." },
         ],
@@ -267,6 +278,7 @@ const COPY: Record<"fr" | "ar", Copy> = {
         title: "الثقة والإشعارات القانونية",
         links: [
           { href: "/charte-editoriale", label: "الميثاق التحريري والشفافية", desc: "كيف ننتج محتوانا ونتحقق منه." },
+          { href: "/methodologie", label: "المنهجية والمصادر", desc: "مستويات الإثبات وكيف نتحقق من المعلومة الصحية." },
           { href: "/conditions-utilisation", label: "شروط الاستعمال", desc: "قواعد استخدام المنصّة." },
           { href: "/politique-confidentialite", label: "سياسة الخصوصية", desc: "كيف تُحمى بياناتك." },
         ],
@@ -288,6 +300,7 @@ export default async function PlanDuSitePage({ params }: { params: Promise<{ lan
   const locale = toLocale((await params).lang) === "ar" ? "ar" : "fr";
   const t = COPY[locale];
   const inLang = locale === "ar" ? "ar-MA" : "fr-MA";
+  const totalPages = t.groups.reduce((s, g) => s + g.links.length, 0);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -350,13 +363,25 @@ export default async function PlanDuSitePage({ params }: { params: Promise<{ lan
             {t.heroTitle}
           </h1>
           <p className="text-white/75 text-lg leading-relaxed max-w-2xl">{t.heroSubtitle}</p>
-          <p className="mt-6 text-sm text-white/60">
+
+          <div className="mt-7 flex flex-wrap items-center gap-2.5">
+            <span className="badge-trust">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.75" className="w-3.5 h-3.5" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><path d="M2.5 3h11M2.5 8h11M2.5 13h7" /></svg>
+              {t.pagesLabel(totalPages)}
+            </span>
+            <span className="badge-trust">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.75" className="w-3.5 h-3.5" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="5" height="5" rx="1" /><rect x="9" y="2" width="5" height="5" rx="1" /><rect x="2" y="9" width="5" height="5" rx="1" /><rect x="9" y="9" width="5" height="5" rx="1" /></svg>
+              {t.groups.length} {t.tocLabel}
+            </span>
+          </div>
+
+          <p className="mt-5 text-sm text-white/60">
             {t.updatedLabel} : <time dateTime={LAST_UPDATED_ISO}>{t.updatedHuman}</time>
           </p>
         </div>
       </div>
 
-      <main className="page-outer">
+      <div className="page-outer">
         {/* ── Sommaire (ancres profondes + éligibilité sitelinks) ── */}
         <nav aria-label={t.tocLabel} className="mb-10 rounded-xl border border-slate-200 bg-slate-50/70 p-5">
           <p className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3">{t.tocLabel}</p>
@@ -463,7 +488,7 @@ export default async function PlanDuSitePage({ params }: { params: Promise<{ lan
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </>
   );
 }

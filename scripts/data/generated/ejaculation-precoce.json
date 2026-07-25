@@ -1,0 +1,64 @@
+{
+  "slug": "ejaculation-precoce",
+  "term": "Éjaculation précoce",
+  "kind": "DISEASE",
+  "specialty": "sexologie",
+  "synonyms": ["éjaculation rapide", "éjaculation prématurée"],
+  "shortAnswer": "L'éjaculation précoce survient lorsque l'éjaculation se produit très rapidement, avant ou peu après la pénétration, de façon répétée et involontaire. Occasionnelle, elle est souvent bénigne ; persistante avec souffrance ou évitement des rapports, elle mérite une consultation.",
+  "causes": [
+    "Anxiété de performance ou stress émotionnel",
+    "Sensibilité pénienne élevée (facteur physiologique)",
+    "Problèmes relationnels ou conflits de couple",
+    "Manque d'expérience ou longues périodes d'abstinence",
+    "Facteurs hormonaux ou neurologiques (dans de rares cas)",
+    "Antécédents de troubles urinaires ou prostatiques"
+  ],
+  "redFlags": [
+    "Douleur ou brûlure lors de l'éjaculation",
+    "Sang dans le sperme (hémospermie)",
+    "Troubles urinaires associés (difficulté à uriner, jet faible)",
+    "Apparition brutale après des années de rapports normaux",
+    "Détresse psychologique sévère ou évitement total des relations intimes"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste ou un sexologue si le problème est répété, vous cause de la détresse ou affecte votre relation de couple. En cas de douleur, sang dans le sperme ou troubles urinaires, consultez rapidement.",
+  "faq": [
+    {
+      "q": "L'éjaculation précoce peut-elle être traitée efficacement ?",
+      "a": "Oui, dans la grande majorité des cas, des approches comportementales (techniques de contrôle), un accompagnement sexologique et parfois un suivi médical permettent d'améliorer significativement la situation. Il est important de consulter plutôt que de subir en silence."
+    },
+    {
+      "q": "Est-ce que l'éjaculation précoce touche beaucoup d'hommes ?",
+      "a": "C'est l'un des troubles sexuels masculins les plus fréquents, touchant de nombreux hommes à tout âge. La honte ne doit pas retarder la consultation : les professionnels de santé sont formés pour aborder ce sujet avec discrétion."
+    }
+  ],
+  "intentAnswer": "Pour l'éjaculation précoce, commencez par consulter votre médecin généraliste, qui peut évaluer une cause médicale et vous orienter. Le spécialiste de référence est le sexologue (ou urologue selon le contexte). Si vous ressentez une douleur, du sang dans le sperme ou des troubles urinaires, consultez rapidement.",
+  "termAr": "القذف المبكر",
+  "shortAnswerAr": "القذف المبكر هو حدوث القذف بسرعة كبيرة، قبل الإيلاج أو بُعيده مباشرة، بصفة متكررة وغير إرادية. إذا كان عرضياً فهو في الغالب غير خطير، أما إذا كان مستمراً مع معاناة نفسية أو تجنب العلاقة الحميمة، فيستوجب استشارة طبية.",
+  "causesAr": [
+    "القلق من الأداء الجنسي أو التوتر النفسي",
+    "فرط حساسية القضيب (عامل فسيولوجي)",
+    "مشكلات في العلاقة الزوجية أو توترات عاطفية",
+    "قلة الخبرة أو فترات انقطاع طويلة عن العلاقة الحميمة",
+    "عوامل هرمونية أو عصبية في حالات نادرة",
+    "سوابق اضطرابات بولية أو بروستاتية"
+  ],
+  "redFlagsAr": [
+    "ألم أو حرقة عند القذف",
+    "وجود دم في السائل المنوي (تدمي السائل المنوي)",
+    "اضطرابات بولية مصاحبة (صعوبة في التبول أو ضعف الدفق)",
+    "ظهور المشكلة فجأة بعد سنوات من العلاقات الطبيعية",
+    "ضائقة نفسية حادة أو تجنب كلي للعلاقة الحميمة"
+  ],
+  "whenToConsultAr": "استشر طبيب العائلة أو أخصائي الصحة الجنسية إذا كانت المشكلة متكررة وتسبب لك ضيقاً أو تؤثر على علاقتك الزوجية. وفي حال الألم أو وجود دم في السائل المنوي أو اضطرابات بولية، بادر إلى الاستشارة الطبية دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل يمكن علاج القذف المبكر بفعالية؟",
+      "a": "نعم، في الغالبية العظمى من الحالات، تُحقق الأساليب السلوكية (تقنيات التحكم) والمتابعة مع أخصائي الصحة الجنسية تحسناً ملحوظاً. من الضروري استشارة متخصص بدلاً من الصمت على المشكلة."
+    },
+    {
+      "q": "هل القذف المبكر شائع بين الرجال؟",
+      "a": "يُعدّ من أكثر الاضطرابات الجنسية شيوعاً عند الرجال في مختلف الأعمار. لا ينبغي للخجل أن يؤخر الاستشارة الطبية، إذ يتعامل المختصون مع هذا الموضوع بكل سرية واحترافية."
+    }
+  ],
+  "intentAnswerAr": "للقذف المبكر، ابدأ باستشارة طبيب العائلة الذي يُقيّم الأسباب الطبية المحتملة ويحيلك عند الحاجة. المختص المرجعي هو أخصائي الصحة الجنسية (الجنسولوجيا) أو أخصائي المسالك البولية حسب الحالة. وإن رافق الأمرَ ألمٌ أو دم في السائل المنوي أو اضطرابات بولية، فاستشر طبيباً في أقرب وقت."
+}

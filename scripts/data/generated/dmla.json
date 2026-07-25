@@ -1,0 +1,64 @@
+{
+  "slug": "dmla",
+  "term": "Dégénérescence maculaire (DMLA)",
+  "kind": "DISEASE",
+  "specialty": "ophtalmologie",
+  "synonyms": ["DMLA", "dégénérescence maculaire liée à l'âge", "maculopathie liée à l'âge", "AMD"],
+  "shortAnswer": "La DMLA est une maladie de la rétine centrale (macula) qui altère progressivement la vision nette, surtout après 50 ans. La forme sèche évolue lentement ; la forme humide peut provoquer une perte de vision rapide et nécessite une consultation ophtalmologique urgente.",
+  "causes": [
+    "Vieillissement naturel de la rétine (principal facteur, après 50 ans)",
+    "Tabagisme actif ou passif prolongé",
+    "Prédisposition génétique et antécédents familiaux de DMLA",
+    "Exposition excessive et répétée à la lumière solaire sans protection oculaire",
+    "Hypertension artérielle et maladies cardiovasculaires mal contrôlées",
+    "Alimentation pauvre en antioxydants et en acides gras oméga-3"
+  ],
+  "redFlags": [
+    "Apparition soudaine d'une tache sombre ou d'un voile central dans le champ visuel",
+    "Déformation brusque des lignes droites (portes, carreaux) qui paraissent ondulées ou courbes",
+    "Baisse rapide de la vision en quelques jours ou heures",
+    "Vision floue centrale brutale avec conservation des bords du champ visuel",
+    "Apparition soudaine de flashs lumineux ou de points noirs fixes"
+  ],
+  "whenToConsult": "Consultez un ophtalmologue dès que vous remarquez une baisse de la vision centrale, une déformation des lignes ou des difficultés à lire. En cas de changement brutal de la vision, rendez-vous en urgence aux urgences ophtalmologiques sans attendre.",
+  "faq": [
+    {
+      "q": "La DMLA peut-elle rendre complètement aveugle ?",
+      "a": "La DMLA atteint la vision centrale (lire, reconnaître les visages) mais préserve en général la vision périphérique. Une cécité totale est rare, mais sans prise en charge, la perte de la vision centrale peut être sévère et irréversible, d'où l'importance d'un suivi ophtalmologique régulier dès 50 ans."
+    },
+    {
+      "q": "Comment surveiller soi-même l'évolution de la DMLA à la maison ?",
+      "a": "La grille d'Amsler est un outil simple : regardez d'un œil à la fois le centre d'un quadrillage à bout de bras. Si les lignes vous semblent déformées, ondulées ou si une zone vous paraît floue ou manquante, signalez-le rapidement à votre ophtalmologue. Ce test ne remplace pas un bilan médical."
+    }
+  ],
+  "intentAnswer": "Pour la DMLA, commencez par votre médecin généraliste qui peut orienter le bilan initial. Le spécialiste indispensable est l'ophtalmologue, seul habilité à examiner la rétine et à proposer un suivi adapté. En cas de perte de vision brutale, rendez-vous immédiatement aux urgences ophtalmologiques.",
+  "termAr": "الضمور البقعي المرتبط بالعمر (DMLA)",
+  "shortAnswerAr": "الضمور البقعي هو مرض يصيب مركز الشبكية (البقعة الصفراء) ويؤثر تدريجياً على حدة الرؤية المركزية، خاصةً بعد سن الخمسين. الشكل الجاف يتطور ببطء، أما الشكل الرطب فقد يُسبب فقدان البصر بسرعة ويستوجب استشارة طبيب العيون في أقرب وقت.",
+  "causesAr": [
+    "التقدم في السن وشيخوخة الشبكية الطبيعية (العامل الرئيسي، بعد سن الخمسين)",
+    "التدخين النشط أو السلبي لفترات طويلة",
+    "الاستعداد الوراثي ووجود حالات مماثلة في الأسرة",
+    "التعرض المفرط والمتكرر لأشعة الشمس دون حماية للعينين",
+    "ارتفاع ضغط الدم وأمراض القلب والأوعية الدموية غير المُعالجة",
+    "نظام غذائي فقير بمضادات الأكسدة وأحماض أوميغا-3 الدهنية"
+  ],
+  "redFlagsAr": [
+    "ظهور مفاجئ لبقعة داكنة أو ضبابية في مركز المجال البصري",
+    "تشوه مفاجئ في الخطوط المستقيمة (الأبواب، البلاط) التي تبدو متموجة أو منحنية",
+    "تراجع سريع في حدة البصر خلال أيام أو ساعات",
+    "ضبابية مفاجئة في الرؤية المركزية مع بقاء الرؤية الجانبية",
+    "ظهور وميض ضوئي مفاجئ أو نقاط سوداء ثابتة في المجال البصري"
+  ],
+  "whenToConsultAr": "استشر طبيب العيون فور ملاحظة أي تراجع في الرؤية المركزية أو تشوه في الخطوط أو صعوبة في القراءة. في حال حدوث تغيير مفاجئ في البصر، توجه فوراً إلى مستعجلات طب العيون دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل يمكن أن يُسبب الضمور البقعي العمى التام؟",
+      "a": "يُصيب الضمور البقعي الرؤية المركزية (القراءة، التعرف على الوجوه) مع الحفاظ عموماً على الرؤية المحيطية. العمى الكامل نادر، لكن دون متابعة طبية، قد يكون فقدان الرؤية المركزية شديداً وغير قابل للعكس، مما يجعل المتابعة المنتظمة مع طبيب العيون ضرورية ابتداءً من سن الخمسين."
+    },
+    {
+      "q": "كيف يمكن متابعة تطور الضمور البقعي في المنزل؟",
+      "a": "شبكة أمسلر أداة بسيطة للمراقبة الذاتية: انظر بعين واحدة إلى مركز شبكة مربعات على مسافة الذراع. إذا بدت الخطوط متموجة أو كانت هناك منطقة ضبابية أو مفقودة، أبلغ طبيب العيون فوراً. هذا الاختبار لا يُغني عن الفحص الطبي المتخصص."
+    }
+  ],
+  "intentAnswerAr": "في حالة الضمور البقعي، يمكن البدء بزيارة الطبيب العام الذي يُوجهك لإجراء الفحوصات الأولية. الاختصاصي الأساسي هو طبيب العيون، وهو الوحيد القادر على فحص الشبكية وتقديم المتابعة المناسبة. في حال فقدان البصر المفاجئ، توجه فوراً إلى مستعجلات طب العيون."
+}

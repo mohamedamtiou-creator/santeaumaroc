@@ -1,0 +1,66 @@
+{
+  "slug": "douleur-au-cou",
+  "term": "Douleur au cou (cervicalgie)",
+  "kind": "SYMPTOM",
+  "specialty": "traumatologie-orthopedie",
+  "synonyms": ["cervicalgie", "torticolis", "douleur cervicale", "raideur du cou"],
+  "shortAnswer": "La cervicalgie est une douleur localisée dans la nuque ou le cou, souvent bénigne et liée à une mauvaise posture ou à une tension musculaire. Elle devient préoccupante si elle s'accompagne de fièvre, de maux de tête violents ou de fourmillements dans les bras.",
+  "causes": [
+    "Mauvaise posture prolongée (travail sur écran, téléphone)",
+    "Contracture ou tension musculaire due au stress ou à la fatigue",
+    "Arthrose cervicale (usure des vertèbres du cou)",
+    "Torticolis aigu après un faux mouvement ou une nuit en mauvaise position",
+    "Traumatisme ou coup du lapin (accident de voiture, chute)",
+    "Hernie discale cervicale comprimant un nerf"
+  ],
+  "redFlags": [
+    "Douleur au cou avec forte fièvre, maux de tête intenses et raideur de la nuque (suspicion de méningite)",
+    "Fourmillements, engourdissements ou faiblesse dans les bras ou les mains",
+    "Douleur au cou associée à des vertiges, une vision double ou des troubles de l'équilibre (risque de dissection de l'artère vertébrale)",
+    "Douleur survenant après un traumatisme (chute, accident)",
+    "Difficultés à avaler, à respirer ou à parler associées à la douleur",
+    "Douleur nocturne persistante qui réveille sans cause apparente"
+  ],
+  "whenToConsult": "Consultez un médecin si la douleur dure plus de quelques jours sans amélioration, limite vos mouvements quotidiens ou s'accompagne de l'un des signes d'alerte ci-dessus. En cas de fièvre élevée avec raideur de la nuque, de vertiges soudains ou de troubles de la vision, rendez-vous aux urgences sans délai.",
+  "faq": [
+    {
+      "q": "Peut-on soulager une cervicalgie à domicile ?",
+      "a": "Le repos relatif, l'application de chaleur douce sur la nuque et des étirements légers peuvent aider en cas de douleur bénigne. Évitez de garder le cou immobile trop longtemps. Si la douleur persiste au-delà de 48 à 72 heures ou s'intensifie, consultez un professionnel de santé."
+    },
+    {
+      "q": "La cervicalgie peut-elle provoquer des maux de tête ?",
+      "a": "Oui, certaines douleurs cervicales irradient vers la tête et donnent des céphalées dites cervicogéniques. C'est fréquent en cas de contracture musculaire ou d'arthrose cervicale. Un médecin peut confirmer l'origine et orienter vers la prise en charge appropriée."
+    }
+  ],
+  "intentAnswer": "Pour une douleur au cou, commencez par consulter votre médecin généraliste, qui évaluera la cause et vous orientera si besoin vers un spécialiste en traumatologie-orthopédie, un rhumatologue ou un kinésithérapeute. En cas de fièvre, de fourmillements dans les bras, de vertiges ou d'un traumatisme, rendez-vous aux urgences.",
+  "termAr": "ألم الرقبة (داء الفقرات العنقية)",
+  "shortAnswerAr": "ألم الرقبة هو وجع يصيب منطقة العنق أو القفا، وغالباً ما يكون حميداً ناتجاً عن وضعية خاطئة أو توتر عضلي. يستوجب الانتباه حين يترافق مع حمى، أو صداع شديد، أو تنميل في الذراعين.",
+  "causesAr": [
+    "وضعية جلوس خاطئة لفترات طويلة أمام الشاشة أو أثناء استخدام الهاتف",
+    "تشنج أو توتر عضلي ناجم عن الإجهاد أو التعب",
+    "هشاشة الفقرات العنقية (التهاب المفاصل التنكسي في منطقة العنق)",
+    "التواء حاد في الرقبة بعد حركة مفاجئة أو النوم بوضع غير مريح",
+    "رضّة أو إصابة في الرقبة (حادث سيارة أو سقوط)",
+    "انزلاق غضروفي في الفقرات العنقية يضغط على العصب"
+  ],
+  "redFlagsAr": [
+    "ألم في الرقبة مع حمى شديدة وصداع حاد وتيبس القفا (يُشتبه بالتهاب السحايا)",
+    "تنميل أو خدر أو ضعف في الذراعين أو اليدين",
+    "ألم في الرقبة مصحوب بدوار ورؤية مزدوجة أو اضطراب في التوازن (احتمال انشقاق الشريان الفقري)",
+    "ألم عقب إصابة مباشرة (سقوط أو حادث)",
+    "صعوبة في البلع أو التنفس أو الكلام مصحوبة بالألم",
+    "ألم ليلي مستمر يوقظ من النوم دون سبب واضح"
+  ],
+  "whenToConsultAr": "استشر طبيبك إذا استمر الألم أكثر من بضعة أيام دون تحسن، أو أعاق حركتك اليومية، أو صاحبه أي علامة تحذيرية مذكورة أعلاه. في حالة وجود حمى مرتفعة مع تيبس الرقبة، أو دوار مفاجئ، أو اضطراب في الرؤية، توجه إلى المستعجلات فوراً.",
+  "faqAr": [
+    {
+      "q": "هل يمكن تخفيف ألم الرقبة في المنزل؟",
+      "a": "يمكن الاستعانة بالراحة النسبية وتطبيق الحرارة اللطيفة على الرقبة وبعض التمارين الخفيفة في حالات الألم البسيط. تجنب تثبيت الرقبة دون حراك لفترات طويلة. إذا استمر الألم أكثر من 48 إلى 72 ساعة أو ازداد سوءاً، استشر أحد مختصي الصحة."
+    },
+    {
+      "q": "هل يمكن أن يسبب ألم الرقبة صداعاً؟",
+      "a": "نعم، قد يمتد ألم الرقبة إلى الرأس مسبباً ما يُعرف بالصداع العنقي المنشأ، وهو شائع في حالات التشنج العضلي أو التهاب الفقرات التنكسي. يمكن للطبيب تحديد السبب والإحالة إلى العلاج المناسب."
+    }
+  ],
+  "intentAnswerAr": "في حالة ألم الرقبة، ابدأ بزيارة طبيبك العام الذي سيقيّم الحالة ويحيلك عند الحاجة إلى أخصائي في جراحة العظام والمفاصل أو روماتولوجيا أو العلاج الطبيعي. في حالة وجود حمى أو تنميل في الذراعين أو دوار مفاجئ أو إصابة مباشرة، توجه إلى المستعجلات."
+}

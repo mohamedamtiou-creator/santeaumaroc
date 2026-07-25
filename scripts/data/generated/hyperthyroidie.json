@@ -1,0 +1,64 @@
+{
+  "slug": "hyperthyroidie",
+  "term": "Hyperthyroïdie",
+  "kind": "DISEASE",
+  "specialty": "endocrinologie-et-maladies-metaboliques",
+  "synonyms": ["thyroïde hyperactive", "suractivité thyroïdienne", "thyrotoxicose"],
+  "shortAnswer": "L'hyperthyroïdie est une production excessive d'hormones thyroïdiennes qui accélère le fonctionnement de l'organisme. Souvent bénigne et traitable, elle peut devenir sérieuse si elle provoque des palpitations importantes, une perte de poids rapide ou des troubles du rythme cardiaque.",
+  "causes": [
+    "Maladie de Basedow (cause auto-immune la plus fréquente)",
+    "Nodule(s) thyroïdien(s) hyperfonctionnel(s) (adénome toxique, goitre multinodulaire)",
+    "Thyroïdite (inflammation transitoire de la thyroïde, parfois après une grossesse)",
+    "Apport excessif en iode (certains aliments, produits de contraste radiologiques)",
+    "Prise excessive d'hormones thyroïdiennes (iatrogène)",
+    "Plus rarement, tumeur hypophysaire sécrétant de la TSH"
+  ],
+  "redFlags": [
+    "Palpitations rapides ou irrégulières, douleur thoracique ou sensation d'oppression",
+    "Essoufflement au repos ou à l'effort minimal",
+    "Confusion, agitation intense, fièvre élevée (crise thyrotoxique — urgence vitale)",
+    "Perte de connaissance ou malaise brutal",
+    "Exophtalmie (yeux qui ressortent) avec douleur oculaire ou baisse de la vue"
+  ],
+  "whenToConsult": "Consultez un médecin sans tarder si vous ressentez des palpitations persistantes, une perte de poids inexpliquée, une nervosité excessive ou une fatigue inhabituelle. En cas de fièvre élevée avec agitation ou trouble du rythme cardiaque, rendez-vous immédiatement aux urgences.",
+  "faq": [
+    {
+      "q": "L'hyperthyroïdie est-elle grave ?",
+      "a": "Dans la majorité des cas, elle se traite efficacement et sans séquelles grâce à un suivi médical adapté. Cependant, non diagnostiquée ou mal suivie, elle peut entraîner des complications cardiaques ou osseuses. Un bilan sanguin (TSH, T4) suffit à la détecter."
+    },
+    {
+      "q": "Peut-on avoir une hyperthyroïdie sans s'en rendre compte ?",
+      "a": "Oui, certaines formes sont peu symptomatiques, surtout chez les personnes âgées. Les signes peuvent être discrets : légère accélération du cœur, fatigue, irritabilité. C'est pourquoi un dépistage par prise de sang est recommandé en cas de doute ou de facteurs de risque (antécédents familiaux, maladie auto-immune)."
+    }
+  ],
+  "intentAnswer": "Pour une hyperthyroïdie, commencez par consulter votre médecin généraliste qui prescrira un bilan sanguin (TSH, T4). Il vous orientera ensuite vers un endocrinologue pour le diagnostic précis et la prise en charge. En cas de palpitations sévères, fièvre ou confusion, rendez-vous directement aux urgences.",
+  "termAr": "فرط نشاط الغدة الدرقية",
+  "shortAnswerAr": "فرط نشاط الغدة الدرقية هو حالة تُنتج فيها الغدة الدرقية كميات زائدة من الهرمونات، مما يُسرّع وظائف الجسم. غالبًا ما يكون قابلاً للعلاج، لكنه يستدعي الانتباه عند ظهور خفقان القلب، أو فقدان الوزن المتسارع، أو اضطرابات في النبض.",
+  "causesAr": [
+    "مرض غريفز (السبب المناعي الذاتي الأكثر شيوعًا)",
+    "عقيدات درقية مفرطة النشاط (الورم الحميد السام أو تضخم الغدة متعدد العقيدات)",
+    "التهاب الغدة الدرقية (التهاب مؤقت، قد يحدث بعد الولادة)",
+    "الإفراط في تناول اليود (بعض الأطعمة أو مواد التباين الإشعاعي)",
+    "الجرعات المفرطة من هرمونات الغدة الدرقية (ناجمة عن العلاج)",
+    "نادرًا: ورم في الغدة النخامية يُفرز هرمون TSH"
+  ],
+  "redFlagsAr": [
+    "خفقان سريع أو غير منتظم، ألم في الصدر أو شعور بالضغط",
+    "ضيق في التنفس حتى في وضع الراحة أو عند مجهود بسيط",
+    "ارتباك ذهني، هياج شديد، حُمّى مرتفعة (أزمة درقية — حالة طارئة)",
+    "إغماء مفاجئ أو فقدان الوعي",
+    "جحوظ العينين مع ألم أو تراجع في حدة البصر"
+  ],
+  "whenToConsultAr": "استشر طبيبًا في أقرب وقت إذا عانيت من خفقان مستمر، أو فقدان وزن غير مبرر، أو توتر مفرط، أو تعب غير اعتيادي. وفي حال ظهور حُمّى مرتفعة مع هياج أو اضطراب في ضربات القلب، توجه فورًا إلى قسم المستعجلات.",
+  "faqAr": [
+    {
+      "q": "هل فرط نشاط الغدة الدرقية خطير؟",
+      "a": "في معظم الحالات، يمكن علاجه بفعالية ودون مضاعفات بفضل المتابعة الطبية المناسبة. غير أنه إذا لم يُشخَّص أو لم يُتابَع بشكل صحيح، قد يُفضي إلى مضاعفات قلبية أو عظمية. يكفي إجراء تحليل للدم (TSH وT4) للكشف عنه."
+    },
+    {
+      "q": "هل يمكن الإصابة بفرط نشاط الغدة الدرقية دون أعراض واضحة؟",
+      "a": "نعم، تظهر بعض الحالات بأعراض خفيفة، خاصة لدى كبار السن، كتسارع طفيف في ضربات القلب، أو تعب، أو انفعال زائد. لذلك يُنصح بإجراء فحص دم في حال وجود شك أو عوامل خطر، كالتاريخ العائلي أو أمراض المناعة الذاتية."
+    }
+  ],
+  "intentAnswerAr": "إذا كنت تشك في الإصابة بفرط نشاط الغدة الدرقية، ابدأ بزيارة طبيب عام يصف لك تحاليل الدم اللازمة (TSH وT4)، ثم يُحيلك إلى أخصائي الغدد الصماء للتشخيص الدقيق والعلاج المناسب. وفي حال خفقان شديد أو حُمّى أو ارتباك، توجه مباشرة إلى المستعجلات."
+}

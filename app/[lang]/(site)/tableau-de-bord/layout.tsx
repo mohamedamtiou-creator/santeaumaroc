@@ -82,8 +82,8 @@ export default async function DashboardLayout({ children }: { children: React.Re
           <DashboardNav t={t} />
         </aside>
 
-        {/* Contenu principal */}
-        <main className="flex-1 min-w-0">{children}</main>
+        {/* Contenu principal (le layout (site) fournit déjà le <main> — pas de 2ᵉ landmark) */}
+        <div className="flex-1 min-w-0">{children}</div>
       </div>
     </div>
   );

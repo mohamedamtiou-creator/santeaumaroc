@@ -103,8 +103,8 @@ export default async function PraticienDashboardLayout({ children }: { children:
               </svg>
             </span>
             <span className="min-w-0 flex-1">
-              <span className="block text-sm font-semibold text-slate-900">Espace auteur</span>
-              <span className="block text-xs text-slate-500">Rédiger &amp; suivre mes articles</span>
+              <span className="block text-sm font-semibold text-slate-900">{t.praticien.authorSpaceTitle}</span>
+              <span className="block text-xs text-slate-500">{t.praticien.authorSpaceDesc}</span>
             </span>
             <span className="text-slate-300 rtl:-scale-x-100" aria-hidden="true">→</span>
           </Link>
@@ -156,8 +156,8 @@ export default async function PraticienDashboardLayout({ children }: { children:
                   </svg>
                 </span>
                 <span className="min-w-0">
-                  <span className="block text-sm font-semibold text-slate-900 group-hover:text-primary-700 transition-colors">Espace auteur</span>
-                  <span className="block text-xs text-slate-500">Rédiger &amp; suivre mes articles</span>
+                  <span className="block text-sm font-semibold text-slate-900 group-hover:text-primary-700 transition-colors">{t.praticien.authorSpaceTitle}</span>
+                  <span className="block text-xs text-slate-500">{t.praticien.authorSpaceDesc}</span>
                 </span>
               </Link>
             )}
@@ -166,7 +166,7 @@ export default async function PraticienDashboardLayout({ children }: { children:
             <PraticienNav t={t} />
           </aside>
 
-          <main className="flex-1 min-w-0">{children}</main>
+          <div className="flex-1 min-w-0">{children}</div>
         </div>
       </div>
 

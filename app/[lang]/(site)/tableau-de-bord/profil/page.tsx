@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getCurrentUser } from "@/lib/dal";
 import { ProfileForm } from "./_components/ProfileForm";
 import { PasswordForm } from "./_components/PasswordForm";
+import { DashboardHeader } from "../_components/DashboardHeader";
 import { getLocale } from "@/lib/i18n-server";
 import { getDictionary } from "@/lib/i18n";
 
@@ -34,12 +35,7 @@ export default async function ProfilPage() {
 
   return (
     <div className="flex flex-col gap-5">
-      <header>
-        <p className="section-eyebrow mb-0.5">{t.eyebrow}</p>
-        <h1 className="text-xl font-bold text-slate-900">{t.profileTitle}</h1>
-        <div className="mt-3 h-px"
-          style={{ background: "linear-gradient(90deg, #bfdbfe 0%, #a7f3d0 60%, transparent 100%)" }} />
-      </header>
+      <DashboardHeader eyebrow={t.eyebrow} title={t.profileTitle} />
 
       {/* Informations personnelles */}
       <div className="card p-5 sm:p-6">

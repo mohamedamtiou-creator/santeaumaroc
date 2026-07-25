@@ -1,0 +1,64 @@
+{
+  "slug": "pneumonie",
+  "term": "Pneumonie",
+  "kind": "DISEASE",
+  "specialty": "pneumo-phtisiologie",
+  "synonyms": ["infection pulmonaire", "pneumopathie infectieuse", "inflammation du poumon"],
+  "shortAnswer": "La pneumonie est une infection des poumons, souvent bactérienne ou virale. Elle peut être bénigne chez l'adulte jeune en bonne santé, mais devient sérieuse chez les enfants en bas âge, les personnes âgées ou immunodéprimées. Une prise en charge médicale rapide est indispensable.",
+  "causes": [
+    "Bactéries (notamment Streptococcus pneumoniae, le pneumocoque)",
+    "Virus (grippe, virus respiratoire syncytial, SARS-CoV-2)",
+    "Mycoplasmes et autres germes atypiques",
+    "Champignons (plus rares, surtout chez les personnes immunodéprimées)",
+    "Inhalation de liquide ou de corps étranger (pneumonie d'aspiration)",
+    "Affaiblissement des défenses immunitaires (diabète, chimiothérapie, grand âge)"
+  ],
+  "redFlags": [
+    "Difficultés respiratoires sévères ou sensation d'étouffement",
+    "Lèvres ou ongles bleutés (cyanose)",
+    "Confusion, somnolence ou perte de connaissance",
+    "Fièvre très élevée (plus de 39,5 °C) ne cédant pas ou accompagnée de frissons intenses",
+    "Douleur thoracique vive à chaque inspiration"
+  ],
+  "whenToConsult": "Consultez un médecin sans délai si vous présentez fièvre, toux persistante et essoufflement. En cas de signes d'alarme (difficultés respiratoires, cyanose, confusion), appelez immédiatement le 15 ou rendez-vous aux urgences.",
+  "faq": [
+    {
+      "q": "La pneumonie est-elle contagieuse ?",
+      "a": "Les germes responsables (bactéries ou virus) peuvent se transmettre par voie aérienne ou par contact. Cependant, la pneumonie elle-même ne se transmet pas forcément : tout dépend de l'état immunitaire de la personne exposée. Des mesures d'hygiène simples (lavage des mains, tousser dans le coude) réduisent le risque de transmission."
+    },
+    {
+      "q": "Y a-t-il un vaccin contre la pneumonie au Maroc ?",
+      "a": "Oui. Le vaccin antipneumococcique protège contre les formes graves dues au pneumocoque. Il est recommandé pour les nourrissons, les personnes âgées de plus de 65 ans et celles souffrant de maladies chroniques (diabète, insuffisance respiratoire, etc.). Parlez-en à votre médecin pour savoir si vous êtes concerné."
+    }
+  ],
+  "intentAnswer": "Pour une pneumonie, consultez d'abord un médecin généraliste qui orientera votre prise en charge. En cas de forme sévère ou de doute, il vous adressera à un pneumologue (spécialiste pneumo-phtisiologie). Si vous présentez des difficultés respiratoires, une cyanose ou une confusion, rendez-vous directement aux urgences.",
+  "termAr": "التهاب الرئة",
+  "shortAnswerAr": "التهاب الرئة هو عدوى تصيب أنسجة الرئة، وقد تكون جرثومية أو فيروسية. تكون عادةً خفيفة لدى الشباب الأصحاء، لكنها قد تصبح خطيرة عند الأطفال الصغار والمسنين وضعيفي المناعة. لا بد من التشخيص الطبي السريع.",
+  "causesAr": [
+    "جراثيم بكتيرية (خاصة المكورات الرئوية)",
+    "فيروسات (الإنفلونزا، الفيروس التنفسي المخلوي، كوفيد-19)",
+    "ميكوبلازما وجراثيم غير نمطية",
+    "فطريات (نادرة، وتصيب أساساً ضعيفي المناعة)",
+    "استنشاق سائل أو جسم غريب (التهاب رئة استنشاقي)",
+    "ضعف المناعة بسبب مرض مزمن كالسكري أو العلاج الكيماوي أو الشيخوخة"
+  ],
+  "redFlagsAr": [
+    "صعوبة شديدة في التنفس أو الشعور بالاختناق",
+    "ازرقاق الشفتين أو الأظافر",
+    "ارتباك ذهني أو نعاس شديد أو فقدان الوعي",
+    "حمى مرتفعة جداً (فوق 39.5 درجة) لا تتراجع أو مصحوبة بقشعريرة شديدة",
+    "ألم حاد في الصدر يزداد مع كل شهيق"
+  ],
+  "whenToConsultAr": "استشر طبيبك فوراً إذا عانيت من حمى وسعال مستمر وضيق في التنفس. وإذا ظهرت أعراض خطيرة كصعوبة التنفس أو ازرقاق الشفتين أو الارتباك، اتصل بالإسعاف أو توجه مباشرة إلى المستعجلات.",
+  "faqAr": [
+    {
+      "q": "هل التهاب الرئة معدٍ؟",
+      "a": "الجراثيم المسببة للمرض قد تنتقل عبر الهواء أو اللمس، لكن الإصابة بالالتهاب تعتمد على مناعة الشخص المعرَّض. تساعد إجراءات النظافة البسيطة كغسل اليدين والعطس في الكوع على تقليل خطر انتقال العدوى."
+    },
+    {
+      "q": "هل يتوفر لقاح ضد التهاب الرئة في المغرب؟",
+      "a": "نعم، يوفر اللقاح المضاد للمكورات الرئوية حماية من الأشكال الخطيرة للمرض. يُنصح به للرضع والأشخاص فوق 65 سنة وأصحاب الأمراض المزمنة كالسكري أو القصور التنفسي. استشر طبيبك لمعرفة ما إذا كنت مؤهلاً للتلقيح."
+    }
+  ],
+  "intentAnswerAr": "في حالة التهاب الرئة، ابدأ بزيارة طبيب عام يقيّم حالتك ويوجهك. عند الحاجة، يحيلك إلى طبيب متخصص في أمراض الرئة والسل. وإذا عانيت من صعوبة في التنفس أو ازرقاق أو ارتباك، توجه فوراً إلى المستعجلات."
+}

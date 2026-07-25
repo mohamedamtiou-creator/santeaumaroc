@@ -1,0 +1,66 @@
+{
+  "slug": "troubles-de-la-coagulation",
+  "term": "Troubles de la coagulation",
+  "kind": "DISEASE",
+  "specialty": "hematologie",
+  "synonyms": ["trouble hémostatique", "coagulopathie", "anomalie de la coagulation sanguine"],
+  "shortAnswer": "Les troubles de la coagulation désignent une mauvaise capacité du sang à former des caillots. Ils peuvent provoquer des saignements excessifs ou, à l'inverse, des caillots dangereux. Certaines formes sont bénignes ; d'autres nécessitent une prise en charge médicale urgente.",
+  "causes": [
+    "Maladies héréditaires comme l'hémophilie ou la maladie de Willebrand",
+    "Maladies du foie réduisant la production des protéines de coagulation",
+    "Carences en vitamine K ou en certaines vitamines",
+    "Maladies auto-immunes attaquant les plaquettes ou les facteurs de coagulation",
+    "Effets secondaires de certains traitements médicaux prescrits",
+    "Infections sévères ou cancers affectant le système sanguin"
+  ],
+  "redFlags": [
+    "Saignement abondant et incontrôlable suite à une blessure mineure ou sans cause apparente",
+    "Sang dans les urines (couleur rosée ou rouge) ou dans les selles (noires ou rouges)",
+    "Hématomes volumineux, spontanés, ou douloureux sans traumatisme",
+    "Difficulté à respirer, douleur thoracique ou jambe gonflée et douloureuse (suspicion de caillot)",
+    "Saignement après une intervention chirurgicale ou un accouchement ne s'arrêtant pas",
+    "Maux de tête soudains et violents, troubles de la vision, confusion, faiblesse ou engourdissement d'un membre, difficultés à parler (signes pouvant indiquer une hémorragie cérébrale — appeler le SAMU immédiatement)"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste en cas de saignements inhabituels, de bleus fréquents ou d'antécédents familiaux de troubles de la coagulation. Rendez-vous aux urgences immédiatement si un saignement ne s'arrête pas ou si vous suspectez un caillot.",
+  "faq": [
+    {
+      "q": "Comment savoir si j'ai un trouble de la coagulation ?",
+      "a": "Les signes fréquents sont des saignements prolongés après une coupure, des hématomes fréquents sans raison apparente, des saignements de nez répétés ou des règles très abondantes. Un bilan sanguin prescrit par votre médecin permet de détecter une anomalie."
+    },
+    {
+      "q": "Les troubles de la coagulation sont-ils héréditaires ?",
+      "a": "Certains troubles, comme l'hémophilie ou la maladie de Willebrand, sont en effet héréditaires. Si un membre de votre famille est concerné, signalez-le à votre médecin afin qu'il évalue si un dépistage est utile pour vous."
+    }
+  ],
+  "intentAnswer": "Pour un trouble de la coagulation, consultez d'abord votre médecin généraliste qui prescrira un bilan sanguin. Il vous orientera si besoin vers un hématologue, spécialiste du sang. En cas de saignement incontrôlable ou de suspicion de caillot, rendez-vous immédiatement aux urgences.",
+  "termAr": "اضطرابات التخثر الدموي",
+  "shortAnswerAr": "اضطرابات التخثر هي حالات يفقد فيها الدم قدرته الطبيعية على التجلط، مما قد يؤدي إلى نزيف مفرط أو تكوّن جلطات خطيرة. بعض الحالات خفيفة، غير أن بعضها الآخر يستدعي رعاية طبية عاجلة.",
+  "causesAr": [
+    "أمراض وراثية مثل الهيموفيليا وداء فون ويليبراند",
+    "أمراض الكبد التي تقلل من إنتاج بروتينات التخثر",
+    "نقص فيتامين K أو بعض الفيتامينات الأساسية",
+    "أمراض المناعة الذاتية التي تؤثر على الصفائح الدموية أو عوامل التخثر",
+    "الآثار الجانبية لبعض العلاجات الطبية الموصوفة",
+    "الإصابات الحادة أو السرطانات المؤثرة على الجهاز الدموي"
+  ],
+  "redFlagsAr": [
+    "نزيف غزير لا يمكن إيقافه بعد جرح بسيط أو دون سبب واضح",
+    "وجود دم في البول (لون وردي أو أحمر) أو في البراز (لون أسود أو أحمر)",
+    "كدمات كبيرة أو مؤلمة تظهر تلقائياً دون أي إصابة",
+    "صعوبة في التنفس أو ألم في الصدر أو تورم مؤلم في الساق (احتمال جلطة)",
+    "نزيف لا يتوقف بعد عملية جراحية أو الولادة",
+    "صداع مفاجئ وشديد، أو اضطرابات في الرؤية، أو تشوش ذهني، أو ضعف وتنميل في أحد الأطراف، أو صعوبة في الكلام (قد تشير إلى نزيف دماغي — اتصل بالإسعاف فوراً)"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام عند ملاحظة نزيف غير عادي أو ظهور كدمات متكررة أو وجود أمراض مماثلة في العائلة. توجه فوراً إلى المستعجلات إذا لم يتوقف النزيف أو إذا كنت تشك في وجود جلطة دموية.",
+  "faqAr": [
+    {
+      "q": "كيف أعرف إذا كنت أعاني من اضطراب في التخثر؟",
+      "a": "تشمل العلامات الشائعة: استمرار النزيف طويلاً بعد جرح بسيط، وتكرار الكدمات دون سبب، ونزيف الأنف المتكرر، أو الدورة الشهرية الغزيرة جداً. يستطيع طبيبك تشخيص ذلك عن طريق تحليل دم بسيط."
+    },
+    {
+      "q": "هل اضطرابات التخثر وراثية؟",
+      "a": "بعض هذه الاضطرابات، كالهيموفيليا وداء فون ويليبراند، وراثية بالفعل. إذا كان أحد أفراد عائلتك مصاباً بها، فأخبر طبيبك حتى يقيّم ما إذا كان الفحص المبكر ضرورياً لك."
+    }
+  ],
+  "intentAnswerAr": "في حال الاشتباه باضطراب في التخثر، ابدأ باستشارة طبيبك العام الذي سيطلب التحاليل اللازمة. سيحولك عند الحاجة إلى طبيب متخصص في أمراض الدم (هيماتولوجي). أما في حالة النزيف الشديد أو الاشتباه في جلطة، فتوجه فوراً إلى المستعجلات."
+}

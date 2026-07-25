@@ -1,0 +1,64 @@
+{
+  "slug": "trouble-obsessionnel-compulsif",
+  "term": "Trouble obsessionnel compulsif (TOC)",
+  "kind": "DISEASE",
+  "specialty": "psychiatrie",
+  "synonyms": ["TOC", "obsessions-compulsions", "trouble anxieux obsessionnel"],
+  "shortAnswer": "Le TOC est un trouble anxieux caractérisé par des pensées intrusives répétées (obsessions) et des comportements rituels incontrôlables (compulsions). Bénin quand occasionnel et bien toléré ; à prendre en charge quand les rituels envahissent le quotidien, le travail ou les relations.",
+  "causes": [
+    "Facteurs génétiques et antécédents familiaux de TOC ou de troubles anxieux",
+    "Dysfonctionnement de certains circuits cérébraux (notamment les voies impliquant la sérotonine)",
+    "Événements de vie stressants ou traumatismes psychologiques",
+    "Personnalité perfectionniste ou hypersensible à l'incertitude",
+    "Infections streptococciques dans l'enfance (syndrome PANDAS, rare)",
+    "Comorbidités psychiatriques comme la dépression ou les phobies"
+  ],
+  "redFlags": [
+    "Rituels durant plusieurs heures par jour, rendant impossible le travail ou la scolarité",
+    "Pensées intrusives de se faire du mal ou de faire du mal à autrui — rendez-vous immédiatement aux urgences",
+    "Isolement social total ou incapacité à quitter le domicile",
+    "Dépression sévère associée avec idées suicidaires — rendez-vous immédiatement aux urgences",
+    "Apparition brutale de symptômes intenses, surtout chez l'enfant"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès que les obsessions ou compulsions prennent plus d'une heure par jour ou perturbent votre vie quotidienne. Ne tardez pas si vous ressentez une détresse intense ou des pensées menaçantes pour votre sécurité.",
+  "faq": [
+    {
+      "q": "Le TOC est-il une maladie grave dont on ne guérit jamais ?",
+      "a": "Le TOC est une maladie chronique, mais elle répond bien à une prise en charge adaptée. Avec un suivi psychiatrique et une thérapie comportementale (TCC), de nombreuses personnes retrouvent une qualité de vie satisfaisante. L'objectif est de réduire significativement les symptômes, pas nécessairement de les éliminer totalement."
+    },
+    {
+      "q": "Mon enfant effectue des rituels répétitifs : est-ce forcément un TOC ?",
+      "a": "Les rituels sont fréquents chez les jeunes enfants et souvent normaux. Ils deviennent préoccupants s'ils durent longtemps, provoquent une grande angoisse ou empêchent l'enfant de faire ses activités habituelles. Consultez un pédiatre ou un psychiatre de l'enfant pour un avis professionnel."
+    }
+  ],
+  "intentAnswer": "Pour un TOC, commencez par consulter votre médecin généraliste qui orientera vers un psychiatre, spécialiste de référence pour le diagnostic et le suivi. Un psychologue formé aux thérapies comportementales et cognitives (TCC) peut compléter la prise en charge. En cas de pensées suicidaires ou de danger immédiat, rendez-vous aux urgences.",
+  "termAr": "اضطراب الوسواس القهري (OCD)",
+  "shortAnswerAr": "الوسواس القهري اضطراب قلقي يتميّز بأفكار متكررة لا يمكن السيطرة عليها (وساوس) وسلوكيات طقوسية إلزامية (أفعال قهرية). يكون خفيفاً حين يبقى نادراً ومحتملاً، لكنه يستدعي التدخل متى أصبحت الطقوس تعطّل الحياة اليومية والعمل والعلاقات.",
+  "causesAr": [
+    "عوامل وراثية وتاريخ عائلي من الوسواس القهري أو اضطرابات القلق",
+    "خلل في بعض الدوائر العصبية بالدماغ، خاصة المرتبطة بالسيروتونين",
+    "أحداث مجهِدة أو صدمات نفسية",
+    "شخصية كمالية أو شديدة الحساسية تجاه الغموض وعدم اليقين",
+    "التهابات بكتيرية (العقديات) في مرحلة الطفولة في حالات نادرة",
+    "اضطرابات نفسية مصاحبة كالاكتئاب أو الرهاب"
+  ],
+  "redFlagsAr": [
+    "طقوس تستغرق عدة ساعات يومياً تُعيق العمل أو الدراسة",
+    "أفكار تطفّلية بإيذاء النفس أو الآخرين — اتجه فوراً إلى قسم الطوارئ",
+    "عزلة اجتماعية كاملة أو عجز تام عن مغادرة المنزل",
+    "اكتئاب حاد مصحوب بأفكار انتحارية — اتجه فوراً إلى قسم الطوارئ",
+    "ظهور مفاجئ لأعراض حادة، خاصة عند الأطفال"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور ملاحظة أن الوساوس أو الأفعال القهرية تستغرق أكثر من ساعة يومياً أو تؤثر على حياتك اليومية. لا تتأخر إذا كنت تعاني من ضيق شديد أو أفكار تهدد سلامتك.",
+  "faqAr": [
+    {
+      "q": "هل الوسواس القهري مرض خطير لا شفاء منه؟",
+      "a": "الوسواس القهري مرض مزمن، لكنه يستجيب جيداً للعلاج المناسب. مع المتابعة النفسية والعلاج السلوكي المعرفي (CBT)، يستعيد كثير من الأشخاص جودة حياة مُرضية. الهدف هو تخفيف الأعراض بشكل ملحوظ وليس بالضرورة القضاء عليها كلياً."
+    },
+    {
+      "q": "طفلي يؤدي طقوساً متكررة، هل هذا بالضرورة وسواس قهري؟",
+      "a": "الطقوس شائعة عند الأطفال الصغار وغالباً طبيعية. تصبح مثيرة للقلق إذا استمرت طويلاً أو سببت انزعاجاً شديداً أو أعاقت الأنشطة اليومية. استشر طبيب الأطفال أو طبيباً نفسياً متخصصاً في الطفولة للحصول على تقييم دقيق."
+    }
+  ],
+  "intentAnswerAr": "في حالة الوسواس القهري، ابدأ باستشارة الطبيب العام الذي سيحيلك إلى طبيب نفسي، وهو المرجع الأساسي للتشخيص والمتابعة. يمكن لعالم النفس المتخصص في العلاج السلوكي المعرفي أن يكمّل خطة العلاج. عند وجود أفكار انتحارية أو خطر وشيك، اتجه فوراً إلى قسم الطوارئ."
+}

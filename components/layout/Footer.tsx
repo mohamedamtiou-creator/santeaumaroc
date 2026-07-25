@@ -20,6 +20,8 @@ export function Footer({ locale }: { locale: Locale }) {
   const f = dict.footer;
   const year = new Date().getFullYear();
 
+  // Colonnes équilibrées : les 4 angles d'orientation ont leur propre colonne
+  // « Guides santé » (cœur du cocon SEO), l'éditorial va dans « S'informer ».
   const columns = [
     {
       title: f.cols.findCare,
@@ -40,19 +42,27 @@ export function Footer({ locale }: { locale: Locale }) {
       ],
     },
     {
-      title: f.cols.health,
+      title: f.cols.guides,
+      links: [
+        { href: "/symptomes",         label: f.links.symptoms },
+        { href: "/maladies",          label: f.links.diseases },
+        { href: "/quel-medecin-pour", label: f.links.intent },
+        { href: "/comment-traiter",   label: f.links.treat },
+        { href: "/prevenir",          label: f.links.prevent },
+        { href: "/quand-consulter",   label: f.links.whenToConsult },
+        { href: "/examens",           label: f.links.exams },
+        { href: "/traitements",       label: f.links.treatments },
+      ],
+    },
+    {
+      title: f.cols.learn,
       links: [
         { href: "/blog",                     label: f.links.blog },
         { href: "/auteur",                   label: f.links.authors },
-        { href: "/specialites",              label: f.links.specialties },
-        { href: "/symptomes",                label: f.links.symptoms },
-        { href: "/maladies",                 label: f.links.diseases },
-        { href: "/examens",                  label: f.links.exams },
-        { href: "/traitements",              label: f.links.treatments },
-        { href: "/prix",                     label: f.links.prices },
         { href: "/glossaire",                label: f.links.glossary },
-        { href: "/sante-darija",             label: f.links.darija },
+        { href: "/prix",                     label: f.links.prices },
         { href: "/remboursement-amo-cnss",   label: f.links.reimbursement },
+        { href: "/sante-darija",             label: f.links.darija },
         { href: "/observatoire-sante-maroc", label: f.links.observatory },
       ],
     },
@@ -66,7 +76,6 @@ export function Footer({ locale }: { locale: Locale }) {
         { href: "/support",                   label: f.links.support },
         { href: "/charte-editoriale",         label: f.links.editorial },
         { href: "/methodologie",              label: f.links.methodology },
-        { href: "/plan-du-site",              label: f.siteMap },
         { href: "/conditions-utilisation",    label: f.links.cgu },
         { href: "/politique-confidentialite", label: f.links.privacy },
       ],
@@ -117,7 +126,7 @@ export function Footer({ locale }: { locale: Locale }) {
 
       {/* ── Contenu principal ─────────────────────────── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-10">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,17rem)_1fr]">
 
           {/* Marque */}
           <div>
@@ -181,26 +190,28 @@ export function Footer({ locale }: { locale: Locale }) {
             </div>
           </div>
 
-          {/* Colonnes de liens */}
-          {columns.map((col) => (
-            <div key={col.title}>
-              <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">
-                {col.title}
-              </h3>
-              <ul className="space-y-2.5 text-sm">
-                {col.links.map((link) => (
-                  <li key={`${col.title}-${link.href}-${link.label}`}>
-                    <Link
-                      href={localeHref(locale, link.href)}
-                      className="hover:text-secondary-400 transition-colors duration-150"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* Colonnes de liens — grille responsive dédiée (2 → 3 → 5 colonnes) */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-8">
+            {columns.map((col) => (
+              <nav key={col.title} aria-label={col.title}>
+                <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">
+                  {col.title}
+                </h3>
+                <ul className="space-y-2.5 text-sm">
+                  {col.links.map((link) => (
+                    <li key={`${col.title}-${link.href}-${link.label}`}>
+                      <Link
+                        href={localeHref(locale, link.href)}
+                        className="inline-block py-0.5 hover:text-secondary-400 transition-colors duration-150"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ))}
+          </div>
         </div>
 
         {/* ── Numéros d'urgence ─────────────────────────── */}

@@ -1,0 +1,64 @@
+{
+  "slug": "ulcere-gastrique",
+  "term": "Ulcère gastrique",
+  "kind": "DISEASE",
+  "specialty": "gastro-enterologie",
+  "synonyms": ["ulcère de l'estomac", "ulcère peptique", "ulcus gastrique"],
+  "shortAnswer": "L'ulcère gastrique est une plaie de la paroi de l'estomac. Il provoque souvent des douleurs à l'estomac après les repas. Beaucoup de cas se soignent bien avec un suivi médical, mais une douleur brutale, des vomissements de sang ou des selles noires nécessitent une consultation urgente.",
+  "causes": [
+    "Infection par la bactérie Helicobacter pylori (cause la plus fréquente)",
+    "Prise prolongée de certains anti-inflammatoires ou antidouleurs",
+    "Stress intense ou maladies graves (ulcère de stress)",
+    "Tabagisme et consommation excessive d'alcool",
+    "Alimentation très épicée ou irrégulière favorisant l'acidité",
+    "Facteurs génétiques (antécédents familiaux d'ulcère)"
+  ],
+  "redFlags": [
+    "Vomissements de sang ou matières ressemblant à du marc de café",
+    "Selles noires, goudronneuses ou présence de sang rouge dans les selles",
+    "Douleur abdominale soudaine et très intense (ventre « en planche »)",
+    "Perte de poids rapide et inexpliquée avec fatigue importante",
+    "Vomissements répétés après chaque repas ou sensation de blocage à l'estomac"
+  ],
+  "whenToConsult": "Consultez un médecin dès l'apparition de douleurs à l'estomac persistantes, de brûlures récurrentes ou de digestion difficile. En cas de signes d'alerte (sang, douleur brutale), rendez-vous immédiatement aux urgences.",
+  "faq": [
+    {
+      "q": "L'ulcère gastrique peut-il guérir complètement ?",
+      "a": "Oui, dans la majorité des cas, un ulcère gastrique se cicatrise bien avec un traitement médical adapté et un suivi régulier. L'éradication de la bactérie Helicobacter pylori, lorsqu'elle est en cause, réduit considérablement les risques de récidive. Il est important de respecter le suivi prescrit par votre médecin."
+    },
+    {
+      "q": "Quels aliments faut-il éviter en cas d'ulcère gastrique ?",
+      "a": "Il est généralement conseillé d'éviter les plats très épicés, les boissons alcoolisées, le café en excès et les repas irréguliers qui stimulent l'acidité gastrique. Chaque personne réagit différemment : votre médecin ou un diététicien peut vous guider selon votre situation personnelle."
+    }
+  ],
+  "intentAnswer": "Pour un ulcère gastrique, consultez d'abord votre médecin généraliste qui fera le bilan initial et vous orientera si nécessaire vers un gastro-entérologue pour une endoscopie et un suivi spécialisé. En cas de vomissements de sang, selles noires ou douleur abdominale brutale, rendez-vous immédiatement aux urgences.",
+  "termAr": "قرحة المعدة",
+  "shortAnswerAr": "قرحة المعدة هي جرح في جدار المعدة، يسبب في الغالب آلاماً بعد الأكل. كثير من الحالات تتحسن مع المتابعة الطبية، غير أن الألم المفاجئ الشديد أو التقيؤ بالدم أو البراز الأسود تستوجب استشارة طبية عاجلة.",
+  "causesAr": [
+    "العدوى بجرثومة المعدة هيليكوباكتر بيلوري (السبب الأكثر شيوعاً)",
+    "الاستخدام المطوّل لبعض مسكنات الألم ومضادات الالتهاب",
+    "الضغط النفسي الشديد أو الأمراض الحادة (قرحة الإجهاد)",
+    "التدخين والإفراط في تناول الكحول",
+    "الأكل الحار المفرط أو عدم انتظام وجبات الطعام مما يزيد حموضة المعدة",
+    "العوامل الوراثية (وجود حالات مشابهة في العائلة)"
+  ],
+  "redFlagsAr": [
+    "التقيؤ بالدم أو بمادة تشبه تفل القهوة",
+    "البراز الأسود اللزج أو وجود دم أحمر في البراز",
+    "ألم بطني مفاجئ وشديد جداً (بطن كالخشب)",
+    "فقدان الوزن السريع غير المبرر مصحوباً بإرهاق شديد",
+    "تقيؤ متكرر بعد كل وجبة أو إحساس بانسداد في المعدة"
+  ],
+  "whenToConsultAr": "استشر طبيبك عند ظهور آلام متكررة في المعدة أو حرقة مستمرة أو صعوبة في الهضم. وفي حال ظهور أي علامة تحذيرية كالدم أو الألم المفاجئ الحاد، توجه فوراً إلى المستعجلات.",
+  "faqAr": [
+    {
+      "q": "هل يمكن الشفاء التام من قرحة المعدة؟",
+      "a": "نعم، في معظم الحالات تلتئم قرحة المعدة بشكل جيد مع العلاج الطبي المناسب والمتابعة المنتظمة. والقضاء على جرثومة هيليكوباكتر بيلوري حين تكون سبباً يقلل من خطر التكرار بشكل كبير، لذا من المهم الالتزام بما يوصي به الطبيب."
+    },
+    {
+      "q": "ما الأطعمة التي ينبغي تجنبها عند الإصابة بقرحة المعدة؟",
+      "a": "يُنصح عموماً بتجنب الأطعمة الحارة جداً، والمشروبات الكحولية، والإفراط في القهوة، وعدم انتظام مواعيد الأكل التي تزيد من إفراز حمض المعدة. ولأن كل حالة تختلف عن غيرها، يمكن لطبيبك أو اختصاصي التغذية توجيهك بحسب وضعك الصحي."
+    }
+  ],
+  "intentAnswerAr": "لاستشارة طبيب متخصص في قرحة المعدة، ابدأ بطبيب عام يُجري التقييم الأولي ويُحيلك عند الحاجة إلى طبيب الجهاز الهضمي لإجراء التنظير الداخلي والمتابعة المتخصصة. وإذا ظهرت عليك علامات تحذيرية كتقيؤ الدم أو البراز الأسود أو ألم حاد مفاجئ، فتوجه فوراً إلى المستعجلات."
+}

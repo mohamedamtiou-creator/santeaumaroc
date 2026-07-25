@@ -1,0 +1,64 @@
+{
+  "slug": "nez-bouche",
+  "term": "Nez bouché",
+  "kind": "SYMPTOM",
+  "specialty": "oto-rhino-laryngologie",
+  "synonyms": ["obstruction nasale", "congestion nasale", "nez obstrué"],
+  "shortAnswer": "Le nez bouché est une obstruction du passage de l'air dans une ou les deux narines, souvent bénigne (rhume, allergie saisonnière). Il devient préoccupant s'il persiste plusieurs semaines, s'accompagne de saignements, de douleurs faciales intenses ou de troubles visuels.",
+  "causes": [
+    "Infection virale (rhume, grippe, rhinovirus)",
+    "Rhinite allergique (pollens, acariens, poils d'animaux)",
+    "Sinusite bactérienne ou chronique",
+    "Déviation de la cloison nasale (cause anatomique)",
+    "Polypes nasaux (excroissances bénignes dans les fosses nasales)",
+    "Irritants environnementaux (pollution, tabac, air sec)"
+  ],
+  "redFlags": [
+    "Obstruction unilatérale persistante (plus de 4 semaines) sans cause évidente",
+    "Saignements de nez fréquents ou abondants accompagnant le blocage",
+    "Douleurs faciales ou céphalées intenses et persistantes",
+    "Troubles de la vision ou gonflement autour de l'œil",
+    "Fièvre élevée avec douleur intense à la base du nez ou au front"
+  ],
+  "whenToConsult": "Consultez un médecin si le nez bouché dure plus de 10 jours, s'aggrave progressivement, ou s'accompagne de l'un des signes d'alerte ci-dessus. En cas de gonflement de l'œil ou de confusion, rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "Peut-on dormir avec un nez bouché sans risque ?",
+      "a": "Un nez bouché passager gêne le sommeil mais n'est généralement pas dangereux. Relever légèrement la tête peut aider. Si la gêne est quotidienne et chronique, une consultation s'impose pour en chercher la cause et éviter des complications comme l'otite ou l'apnée du sommeil."
+    },
+    {
+      "q": "Un nez bouché en permanence peut-il cacher quelque chose de grave ?",
+      "a": "Dans la grande majorité des cas, une obstruction nasale chronique est due à une allergie, une déviation de cloison ou des polypes — des causes traitables. Plus rarement, une obstruction d'un seul côté persistante peut nécessiter un bilan ORL approfondi pour écarter une cause moins fréquente. Ne tardez pas à consulter."
+    }
+  ],
+  "intentAnswer": "Pour un nez bouché, commencez par consulter un médecin généraliste qui évaluera la cause (infection, allergie, anatomie) et orientera vers un ORL si besoin d'un bilan approfondi ou d'un geste spécialisé. En cas de gonflement de l'œil ou de forte fièvre, rendez-vous aux urgences.",
+  "termAr": "انسداد الأنف",
+  "shortAnswerAr": "انسداد الأنف هو صعوبة مرور الهواء عبر إحدى فتحتَي الأنف أو كلتيهما، وهو غالبًا حالة عارضة وغير خطيرة كالزكام أو الحساسية الموسمية. يستوجب الانتباه إذا استمر أسابيع، أو صاحَبه نزيف أو آلام شديدة في الوجه أو اضطراب في الرؤية.",
+  "causesAr": [
+    "التهاب فيروسي (الزكام، الإنفلونزا)",
+    "التهاب الأنف التحسسي (حبوب اللقاح، العث، وبر الحيوانات)",
+    "التهاب الجيوب الأنفية البكتيري أو المزمن",
+    "انحراف الحاجز الأنفي (سبب تشريحي)",
+    "الأورام الحميدة (السليلات) داخل الأنف",
+    "مهيجات بيئية (تلوث، تدخين، جفاف الهواء)"
+  ],
+  "redFlagsAr": [
+    "انسداد في جهة واحدة فقط يستمر أكثر من أربعة أسابيع دون سبب واضح",
+    "نزيف متكرر أو غزير من الأنف مصحوب بالانسداد",
+    "آلام شديدة ومستمرة في الوجه أو الرأس",
+    "اضطراب في الرؤية أو تورم حول العين",
+    "حمى مرتفعة مع ألم حاد في قاعدة الأنف أو الجبهة"
+  ],
+  "whenToConsultAr": "راجع الطبيب إذا استمر انسداد الأنف أكثر من عشرة أيام، أو ازداد سوءًا تدريجيًا، أو رافقه أحد علامات الخطر المذكورة. في حالة تورم حول العين أو الارتباك الذهني، توجه إلى قسم الطوارئ فورًا.",
+  "faqAr": [
+    {
+      "q": "هل يمكن النوم مع انسداد الأنف دون خطر؟",
+      "a": "الانسداد العارض يُزعج النوم لكنه عادةً غير خطير. رفع الرأس قليلًا قد يُخفف الأعراض. أما إن كان الانسداد يوميًا ومزمنًا، فيجب استشارة الطبيب لمعرفة السبب وتجنب مضاعفات كالتهاب الأذن الوسطى أو توقف التنفس أثناء النوم."
+    },
+    {
+      "q": "هل يمكن أن يخفي الانسداد المزمن حالةً خطيرة؟",
+      "a": "في معظم الحالات يعود الانسداد المزمن إلى الحساسية أو انحراف الحاجز الأنفي أو السليلات — وكلها قابلة للعلاج. نادرًا، قد يستدعي الانسداد المستمر في جهة واحدة فقط فحصًا أنفيًا أذنيًا متخصصًا. لا تتأخر في استشارة الطبيب."
+    }
+  ],
+  "intentAnswerAr": "لانسداد الأنف، ابدأ بالطبيب العام الذي سيقيّم السبب (عدوى، حساسية، أو تشريح) ويُحيلك إلى طبيب الأنف والأذن والحنجرة عند الحاجة لفحص متخصص أو تدخل علاجي. في حالة تورم العين أو الحمى الشديدة، اتجه إلى الطوارئ مباشرة."
+}

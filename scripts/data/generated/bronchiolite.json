@@ -1,0 +1,66 @@
+{
+  "slug": "bronchiolite",
+  "term": "Bronchiolite",
+  "kind": "DISEASE",
+  "specialty": "pediatrie",
+  "synonyms": ["infection respiratoire du nourrisson", "bronchiolite aiguë du nourrisson", "RSV bronchiolite"],
+  "shortAnswer": "La bronchiolite est une infection virale des petites bronches qui touche surtout les nourrissons de moins de 2 ans. Elle provoque toux, sifflement et difficultés à respirer. Souvent bénigne, elle nécessite une surveillance attentive car elle peut devenir grave chez le tout-petit.",
+  "causes": [
+    "Virus respiratoire syncytial (VRS) : cause la grande majorité des cas",
+    "Autres virus respiratoires : rhinovirus, métapneumovirus, adénovirus",
+    "Transmission par les sécrétions nasales ou les mains contaminées",
+    "Exposition à la fumée de tabac : facteur aggravant",
+    "Fréquentation d'une crèche ou d'un environnement collectif en période hivernale",
+    "Prématurité ou cardiopathie congénitale : augmentent le risque de forme sévère"
+  ],
+  "redFlags": [
+    "Fréquence respiratoire très élevée, respiration rapide et superficielle",
+    "Tirage intercostal ou sous-costal visible (creusement entre les côtes à chaque inspiration)",
+    "Cyanose (lèvres ou ongles bleutés) ou teint grisâtre/pâle",
+    "Pauses respiratoires (apnées) : le bébé s'arrête de respirer plusieurs secondes — urgence immédiate",
+    "Refus de s'alimenter ou prise de moins de la moitié des biberons habituels",
+    "Nourrisson de moins de 6 semaines ou prématuré avec signes respiratoires"
+  ],
+  "whenToConsult": "Consultez un médecin dès les premiers signes de difficultés respiratoires chez un nourrisson. En cas de signe d'alarme, rendez-vous immédiatement aux urgences pédiatriques sans attendre.",
+  "faq": [
+    {
+      "q": "La bronchiolite est-elle contagieuse et comment la prévenir ?",
+      "a": "Oui, elle est très contagieuse par contact avec les sécrétions nasales ou les mains. Pour la prévenir : lavage des mains fréquent, éviter le contact avec des personnes enrhumées, ne pas exposer le bébé à la fumée de tabac et limiter les rassemblements en période hivernale."
+    },
+    {
+      "q": "Combien de temps dure une bronchiolite et faut-il hospitaliser l'enfant ?",
+      "a": "Une bronchiolite dure en général 7 à 14 jours. La plupart des cas se traitent à domicile avec une surveillance attentive. L'hospitalisation est nécessaire uniquement si l'enfant présente des difficultés respiratoires importantes, une mauvaise prise alimentaire ou des facteurs de risque."
+    }
+  ],
+  "intentAnswer": "Pour une bronchiolite chez un nourrisson, consultez d'abord votre médecin généraliste ou pédiatre. Le pédiatre est le spécialiste de référence pour les enfants. En cas de difficultés respiratoires importantes, de refus d'alimentation, de teint bleuté ou de pauses respiratoires, rendez-vous sans délai aux urgences pédiatriques.",
+  "termAr": "التهاب القصيبات",
+  "shortAnswerAr": "التهاب القصيبات هو عدوى فيروسية تصيب القصيبات الهوائية الصغيرة، وتطال بصفة رئيسية الرضع دون سن السنتين. يتجلى بالسعال وصعوبة التنفس وأزيز في الصدر. غالباً ما يكون خفيفاً، لكنه يستوجب المتابعة الدقيقة لأنه قد يتحول إلى حالة خطيرة عند الرضع الصغار جداً.",
+  "causesAr": [
+    "فيروس الجهاز التنفسي المخلوي (RSV): المسبب الرئيسي لغالبية الحالات",
+    "فيروسات تنفسية أخرى: فيروس الأنف، الميتانيوموفيروس، الفيروس الغدي",
+    "الانتقال عبر الإفرازات الأنفية أو الأيدي الملوثة",
+    "التعرض لدخان التبغ: عامل مُفاقِم للحالة",
+    "الالتحاق بالحضانة أو التواجد في أماكن جماعية خلال موسم البرد",
+    "الولادة المبكرة أو وجود عيب خلقي في القلب: يزيدان من خطر تطور الحالة إلى شكل حاد"
+  ],
+  "redFlagsAr": [
+    "سرعة تنفس مرتفعة جداً مع ضحالة الشهيق",
+    "انسحاب ما بين الأضلاع أو أسفلها عند كل شهيق (تقعر واضح في الصدر)",
+    "زرقة الشفتين أو الأظافر أو شحوب اللون أو رمادية البشرة",
+    "انقطاع التنفس (نوبات توقف التنفس): توقف الرضيع عن التنفس لعدة ثوانٍ — حالة طارئة تستوجب الذهاب الفوري إلى المستشفى",
+    "رفض الرضاعة أو عدم تناول ما يزيد على نصف الحصة المعتادة",
+    "رضيع أقل من ستة أسابيع أو مولود قبل الأوان مع أعراض تنفسية"
+  ],
+  "whenToConsultAr": "استشر طبيباً فور ظهور أي صعوبة في التنفس عند رضيعك. وإن لاحظت أياً من علامات الخطر، توجه فوراً إلى مستعجلات طب الأطفال دون أي تأخير.",
+  "faqAr": [
+    {
+      "q": "هل التهاب القصيبات معدٍ وكيف يمكن الوقاية منه؟",
+      "a": "نعم، هو معدٍ للغاية عبر الإفرازات الأنفية أو الأيدي الملوثة. للوقاية منه: الغسيل المتكرر لليدين، وتجنب ملامسة الأشخاص المصابين بالزكام، وإبعاد الرضيع عن دخان التبغ، والحد من التجمعات خلال موسم الشتاء."
+    },
+    {
+      "q": "كم تستمر الإصابة بالتهاب القصيبات وهل يستلزم الدخول إلى المستشفى؟",
+      "a": "تمتد الإصابة عادةً من سبعة إلى أربعة عشر يوماً. تُعالَج معظم الحالات في المنزل مع متابعة حثيثة. أما الدخول إلى المستشفى فلا يكون ضرورياً إلا إذا عانى الطفل من صعوبات تنفسية حادة، أو ضعف في التغذية، أو توفرت لديه عوامل خطر."
+    }
+  ],
+  "intentAnswerAr": "في حالة التهاب القصيبات عند رضيع، يُنصح بزيارة الطبيب العام أو طبيب الأطفال أولاً. وطبيب الأطفال هو المرجع الطبي المتخصص في هذه الحالات. أما إذا ظهرت صعوبات تنفسية واضحة، أو رفض الرضاعة، أو تحول لون الشفتين إلى الأزرق، أو انقطاع التنفس، فتوجه فوراً إلى مستعجلات طب الأطفال."
+}

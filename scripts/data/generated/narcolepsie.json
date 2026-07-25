@@ -1,0 +1,64 @@
+{
+  "slug": "narcolepsie",
+  "term": "Narcolepsie",
+  "kind": "DISEASE",
+  "specialty": "pathologie-du-sommeil-et-de-la-vigilance",
+  "synonyms": ["maladie de Gélineau", "hypersomnie narcoleptique", "narcolepsie-cataplexie"],
+  "shortAnswer": "La narcolepsie est une maladie neurologique chronique qui provoque des accès de sommeil incontrôlables en pleine journée. Elle n'est pas dangereuse en soi, mais peut devenir sérieuse si des endormissements surviennent au volant ou dans des situations à risque : consultez un médecin.",
+  "causes": [
+    "Destruction des neurones producteurs d'hypocrétine (orexine), une substance cérébrale régulatrice du sommeil",
+    "Mécanisme auto-immun probable : le système immunitaire attaque certaines cellules cérébrales",
+    "Facteurs génétiques : certains variants HLA (HLA-DQB1*06:02) fortement associés à la maladie",
+    "Possibles déclencheurs infectieux ou environnementaux chez des personnes génétiquement prédisposées",
+    "Formes secondaires rares liées à des tumeurs, AVC ou maladies touchant l'hypothalamus",
+    "Début souvent à l'adolescence ou chez le jeune adulte, sans cause déclenchante identifiable"
+  ],
+  "redFlags": [
+    "Endormissement soudain au volant ou lors d'une activité dangereuse (noyade, chute)",
+    "Cataplexie sévère : chutes brutales avec perte totale du tonus musculaire déclenchées par une émotion forte",
+    "Paralysies du sommeil très fréquentes ou prolongées causant une détresse importante",
+    "Hallucinations hypnagogiques intenses ou confondues avec une psychose",
+    "Altération majeure de la vie quotidienne, scolaire ou professionnelle malgré un sommeil de nuit suffisant"
+  ],
+  "whenToConsult": "Consultez votre médecin généraliste dès que vous ressentez des accès de somnolence incontrôlables dans la journée, surtout s'ils s'accompagnent de chutes ou de faiblesse musculaire soudaine. Il vous orientera vers un spécialiste du sommeil pour un bilan adapté.",
+  "faq": [
+    {
+      "q": "La narcolepsie peut-elle être confondue avec d'autres maladies ?",
+      "a": "Oui, souvent. Les accès de somnolence peuvent être attribués à tort à de la dépression, à un manque de sommeil ou à l'épilepsie. Un bilan spécialisé (enregistrement du sommeil, test de latence d'endormissement) est nécessaire pour poser le bon diagnostic."
+    },
+    {
+      "q": "Peut-on vivre normalement avec la narcolepsie ?",
+      "a": "Avec un suivi médical adapté, beaucoup de personnes narcoleptiques mènent une vie active. Des aménagements simples (siestes programmées, organisation du quotidien) et un traitement personnalisé permettent de réduire considérablement l'impact de la maladie."
+    }
+  ],
+  "intentAnswer": "Pour la narcolepsie, commencez par consulter votre médecin généraliste qui évaluera vos symptômes et vous adressera à un médecin spécialiste du sommeil (somnologue ou neurologue). En cas d'endormissement brutal au volant ou de chutes soudaines, consultez en urgence.",
+  "termAr": "النوم القهري",
+  "shortAnswerAr": "النوم القهري (الناركوليبسيا) مرض عصبي مزمن يُسبب نوبات نوم مفاجئة لا يمكن مقاومتها خلال النهار. لا يُشكّل خطراً في حد ذاته، لكنه قد يكون خطيراً إن حدثت النوبات أثناء القيادة. استشر طبيبك عند أي شك.",
+  "causesAr": [
+    "تلف الخلايا العصبية المُنتِجة للهيبوكريتين (الأوريكسين)، وهي مادة دماغية تنظم اليقظة والنوم",
+    "آلية مناعية ذاتية محتملة: يهاجم الجهاز المناعي خلايا دماغية معينة",
+    "عوامل وراثية: ارتباط قوي بمتغيرات جينية معينة (HLA-DQB1*06:02)",
+    "عوامل بيئية أو معدية مُحتملة لدى الأشخاص ذوي الاستعداد الوراثي",
+    "أشكال نادرة مرتبطة بأورام أو سكتات دماغية تمس منطقة تحت المهاد",
+    "يبدأ المرض في الغالب خلال مرحلة المراهقة أو عند الشباب"
+  ],
+  "redFlagsAr": [
+    "النوم المفاجئ أثناء القيادة أو في أنشطة خطيرة (السباحة، العمل على الأجهزة...)",
+    "الجمدة (الكاتابلكسي) الشديدة: سقوط مفاجئ مع فقدان كامل لقوة العضلات عند الانفعال",
+    "شلل النوم المتكرر أو المطوّل المصحوب بضائقة نفسية شديدة",
+    "هلاوس حسية شديدة عند النوم أو الاستيقاظ يصعب تمييزها عن الواقع",
+    "تأثير بالغ على الحياة اليومية أو الدراسة أو العمل رغم كفاية النوم الليلي"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور ملاحظتك نوبات نعاس مفاجئة لا يمكن السيطرة عليها خلال النهار، خاصة إن رافقها سقوط أو ضعف عضلي مفاجئ. سيُحيلك إلى أخصائي النوم لإجراء الفحوصات اللازمة.",
+  "faqAr": [
+    {
+      "q": "هل يمكن الخلط بين النوم القهري وأمراض أخرى؟",
+      "a": "نعم، كثيراً ما يُخطأ في تشخيصه بسبب تشابه الأعراض مع الاكتئاب أو الحرمان من النوم أو الصرع. يتطلب التشخيص الصحيح إجراء تقييم متخصص يشمل تسجيل النوم واختبار زمن الكمون."
+    },
+    {
+      "q": "هل يمكن العيش بشكل طبيعي مع النوم القهري؟",
+      "a": "نعم، مع المتابعة الطبية المناسبة، يستطيع كثير من المرضى ممارسة حياتهم بشكل فاعل. إجراء قيلولات منتظمة، وتنظيم اليوم، والالتزام بخطة العلاج تُساهم بشكل كبير في تحسين الحالة."
+    }
+  ],
+  "intentAnswerAr": "لمعالجة النوم القهري، ابدأ بالطبيب العام الذي سيقيّم حالتك ويُحيلك إلى طبيب متخصص في اضطرابات النوم (أخصائي النوم أو أخصائي الأعصاب). في حال النوم المفاجئ أثناء القيادة أو السقوط المباغت، توجّه إلى المستعجلات فوراً."
+}

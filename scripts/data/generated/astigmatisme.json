@@ -1,0 +1,64 @@
+{
+  "slug": "astigmatisme",
+  "term": "Astigmatisme",
+  "kind": "DISEASE",
+  "specialty": "ophtalmologie",
+  "synonyms": ["trouble de la vision", "défaut de courbure cornéenne", "vision floue de loin et de près"],
+  "shortAnswer": "L'astigmatisme est un défaut de courbure de la cornée ou du cristallin qui provoque une vision floue ou déformée à toutes les distances. Souvent bénin et corrigeable par des lunettes ou lentilles, il nécessite un avis médical si les symptômes perturbent la vie quotidienne ou chez l'enfant.",
+  "causes": [
+    "Courbure irrégulière de la cornée (forme ovale plutôt que sphérique) — cause la plus fréquente",
+    "Déformation du cristallin à l'intérieur de l'œil",
+    "Facteur héréditaire ou génétique familial",
+    "Kératocône : amincissement progressif et déformation de la cornée",
+    "Séquelles d'une chirurgie oculaire ou d'une blessure à l'œil",
+    "Association fréquente avec la myopie ou l'hypermétropie"
+  ],
+  "redFlags": [
+    "Vision très floue soudaine ou perte brutale d'une partie du champ visuel",
+    "Douleur oculaire intense ou œil rouge persistant",
+    "Céphalées sévères accompagnées de troubles visuels",
+    "Chez l'enfant : strabisme, plissement des yeux ou difficultés scolaires inexpliquées",
+    "Déformation progressive et rapide de la vision malgré une correction portée"
+  ],
+  "whenToConsult": "Consultez un ophtalmologue si vous ressentez une vision floue ou déformée persistante, des maux de tête fréquents après lecture ou travail sur écran, ou si votre enfant semble avoir du mal à voir clairement. En cas de symptômes brutaux ou douloureux, consultez en urgence.",
+  "faq": [
+    {
+      "q": "L'astigmatisme peut-il être corrigé sans chirurgie ?",
+      "a": "Oui, dans la grande majorité des cas, des lunettes ou des lentilles de contact adaptées corrigent efficacement l'astigmatisme et restituent une vision nette. La chirurgie réfractive (laser) est une option envisageable à l'âge adulte, après stabilisation, sur avis de l'ophtalmologue."
+    },
+    {
+      "q": "L'astigmatisme chez l'enfant est-il grave ?",
+      "a": "Non, à condition qu'il soit dépisté et corrigé tôt. Un astigmatisme non corrigé chez l'enfant peut entraîner une amblyopie (« œil paresseux »). Un bilan ophtalmologique avant l'entrée à l'école est recommandé pour tous les enfants."
+    }
+  ],
+  "intentAnswer": "Pour l'astigmatisme, commencez par un médecin généraliste qui peut orienter le diagnostic. Le spécialiste de référence est l'ophtalmologue, seul habilité à prescrire la correction adaptée. En cas de perte de vision soudaine ou de douleur oculaire intense, rendez-vous en urgence ophtalmologique.",
+  "termAr": "اللابؤرية",
+  "shortAnswerAr": "اللابؤرية هي عيب في انحناء القرنية أو العدسة يُسبب رؤية ضبابية أو مشوهة على جميع المسافات. غالباً ما تكون حالة خفيفة قابلة للتصحيح بالنظارات أو العدسات اللاصقة، وتستوجب استشارة طبية إذا أثرت على الحياة اليومية أو لدى الأطفال.",
+  "causesAr": [
+    "عدم انتظام انحناء القرنية (شكل بيضاوي بدلاً من الكروي) — السبب الأكثر شيوعاً",
+    "تشوه في العدسة داخل العين",
+    "عامل وراثي أو استعداد عائلي",
+    "القرنية المخروطية: ترقق تدريجي وتشوه في القرنية",
+    "مضاعفات جراحة العين أو إصابة في العين",
+    "اقتران متكرر مع قِصَر النظر أو طول النظر"
+  ],
+  "redFlagsAr": [
+    "ضبابية حادة ومفاجئة في الرؤية أو فقدان مفاجئ لجزء من مجال البصر",
+    "ألم شديد في العين أو احمرار مستمر",
+    "صداع حاد مصحوب باضطرابات بصرية",
+    "عند الطفل: حول، أو تغميض العينين باستمرار، أو صعوبات دراسية غير مبررة",
+    "تشوه متسارع في الرؤية رغم ارتداء التصحيح البصري"
+  ],
+  "whenToConsultAr": "استشيروا طبيب العيون عند الشعور برؤية ضبابية أو مشوهة مستمرة، أو صداع متكرر بعد القراءة أو استخدام الشاشات، أو إذا لاحظتم صعوبة في رؤية طفلكم. في حالة الأعراض المفاجئة أو المؤلمة، توجهوا فوراً إلى طوارئ طب العيون.",
+  "faqAr": [
+    {
+      "q": "هل يمكن تصحيح اللابؤرية دون جراحة؟",
+      "a": "نعم، في الغالبية العظمى من الحالات، تُصحح اللابؤرية بفعالية بالنظارات الطبية أو العدسات اللاصقة المناسبة. أما الجراحة بالليزر فهي خيار ممكن للبالغين بعد استقرار الحالة، بناءً على رأي طبيب العيون."
+    },
+    {
+      "q": "هل اللابؤرية خطيرة عند الأطفال؟",
+      "a": "لا، بشرط اكتشافها وتصحيحها مبكراً. فإذا تُركت دون علاج، قد تؤدي إلى كسل العين (الغمش). لذلك يُنصح بإجراء فحص بصري لجميع الأطفال قبل دخول المدرسة."
+    }
+  ],
+  "intentAnswerAr": "للابؤرية، ابدأ بزيارة الطبيب العام الذي يُوجهك للتشخيص المناسب. المختص المرجعي هو طبيب العيون (الأخصائي في طب وجراحة العيون)، وهو الوحيد المؤهل لوصف التصحيح البصري الملائم. في حالة فقدان الرؤية المفاجئ أو الألم الشديد في العين، توجه فوراً إلى مستعجلات العيون."
+}

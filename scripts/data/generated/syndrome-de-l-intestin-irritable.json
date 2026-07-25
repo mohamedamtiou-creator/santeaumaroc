@@ -1,0 +1,68 @@
+{
+  "slug": "syndrome-de-l-intestin-irritable",
+  "term": "Syndrome de l'intestin irritable",
+  "kind": "DISEASE",
+  "specialty": "gastro-enterologie",
+  "synonyms": ["colopathie fonctionnelle", "côlon irritable", "SII"],
+  "shortAnswer": "Le syndrome de l'intestin irritable est un trouble digestif chronique associant douleurs abdominales, ballonnements et troubles du transit (diarrhée, constipation ou alternance des deux), sans lésion organique décelable. Il est bénin mais gênant ; il nécessite une prise en charge médicale si les symptômes s'aggravent ou persistent.",
+  "causes": [
+    "Hypersensibilité viscérale : le côlon réagit de façon exagérée aux stimuli normaux",
+    "Stress et anxiété chroniques, troubles émotionnels",
+    "Alimentation déséquilibrée (aliments fermentescibles, graisses, caféine, alcool)",
+    "Antécédent de gastro-entérite infectieuse (SII post-infectieux)",
+    "Dysbiose intestinale (déséquilibre du microbiote)",
+    "Facteurs hormonaux (symptômes souvent plus intenses chez la femme autour des règles)"
+  ],
+  "redFlags": [
+    "Sang dans les selles ou selles noires (méléna)",
+    "Amaigrissement inexpliqué et rapide",
+    "Fièvre persistante associée aux douleurs abdominales",
+    "Douleurs nocturnes intenses qui réveillent régulièrement",
+    "Apparition des symptômes après 50 ans sans bilan préalable",
+    "Signes d'anémie : fatigue extrême, pâleur, essoufflement",
+    "Antécédents familiaux de cancer colorectal ou de maladie inflammatoire chronique de l'intestin (MICI)"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si les troubles digestifs durent plus de quelques semaines, altèrent votre qualité de vie ou s'accompagnent de l'un des signes d'alerte ci-dessus. Ne tardez pas si vous constatez du sang dans les selles, une perte de poids inexpliquée ou des signes d'anémie.",
+  "faq": [
+    {
+      "q": "Le syndrome de l'intestin irritable est-il dangereux ?",
+      "a": "Non, il ne provoque pas de lésions graves et n'augmente pas le risque de cancer. Il est cependant chronique et peut affecter significativement la qualité de vie. Un suivi médical permet d'écarter d'autres maladies et d'adapter la prise en charge (hygiène de vie, alimentation, gestion du stress)."
+    },
+    {
+      "q": "Quels aliments faut-il éviter en cas de côlon irritable ?",
+      "a": "Les recommandations varient selon les personnes. En général, il est conseillé de limiter les aliments riches en sucres fermentescibles (légumineuses, certains fruits, lactose), les graisses en excès, la caféine et l'alcool. Un diététicien ou un gastro-entérologue peut établir un plan alimentaire personnalisé adapté à votre situation."
+    }
+  ],
+  "intentAnswer": "Pour le syndrome de l'intestin irritable, commencez par consulter votre médecin généraliste, qui réalisera un premier bilan et pourra vous orienter vers un gastro-entérologue si nécessaire. En présence de sang dans les selles, d'amaigrissement, de signes d'anémie ou de douleurs intenses, rendez-vous rapidement aux urgences.",
+  "termAr": "متلازمة القولون العصبي",
+  "shortAnswerAr": "متلازمة القولون العصبي اضطراب هضمي مزمن يتجلى في آلام البطن والانتفاخ واضطرابات الهضم (إسهال أو إمساك أو تناوب بينهما) دون وجود أي تلف عضوي. الحالة حميدة في الغالب لكنها مزعجة، وتستدعي متابعة طبية عند تفاقم الأعراض أو استمرارها.",
+  "causesAr": [
+    "فرط الحساسية الحشوية: استجابة مبالغ فيها من القولون للمحفزات الاعتيادية",
+    "التوتر والقلق المزمنان والضغوط النفسية",
+    "النظام الغذائي غير المتوازن (الأطعمة المُخمِّرة، الدهون، الكافيين، الكحول)",
+    "سوابق التهاب معدي معوي بكتيري أو فيروسي (متلازمة القولون العصبي ما بعد العدوى)",
+    "خلل في توازن البكتيريا النافعة في الأمعاء (عسر التكاثر الحيوي)",
+    "عوامل هرمونية (تزداد الأعراض في الغالب عند المرأة خلال فترة الدورة الشهرية)"
+  ],
+  "redFlagsAr": [
+    "وجود دم في البراز أو براز أسود داكن",
+    "فقدان الوزن السريع وغير المبرر",
+    "حمى مستمرة مصحوبة بآلام في البطن",
+    "آلام ليلية شديدة تُوقظ المريض بشكل متكرر",
+    "ظهور الأعراض لأول مرة بعد سن الخمسين دون إجراء فحوصات مسبقة",
+    "علامات فقر الدم (الأنيميا): إرهاق شديد، شحوب، ضيق في التنفس",
+    "سوابق عائلية لسرطان القولون والمستقيم أو أمراض التهابية مزمنة في الأمعاء (مثل داء كرون أو التهاب القولون التقرحي)"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام إذا استمرت اضطرابات الهضم أكثر من بضعة أسابيع أو أثّرت على جودة حياتك أو اقترنت بأحد علامات الخطر المذكورة أعلاه. لا تتأخر في طلب الرعاية الطبية إذا لاحظت دماً في البراز أو فقداناً غير مبرر للوزن أو علامات فقر الدم.",
+  "faqAr": [
+    {
+      "q": "هل متلازمة القولون العصبي خطيرة؟",
+      "a": "لا، فهي لا تُسبب تلفاً عضوياً خطيراً ولا ترفع خطر الإصابة بالسرطان. غير أنها مزمنة وقد تؤثر تأثيراً ملحوظاً على جودة الحياة. المتابعة الطبية ضرورية لاستبعاد أمراض أخرى ووضع خطة علاج مناسبة (نمط حياة صحي، تغذية سليمة، إدارة التوتر)."
+    },
+    {
+      "q": "ما الأطعمة التي يُنصح بتجنبها عند الإصابة بالقولون العصبي؟",
+      "a": "تتفاوت التوصيات من شخص لآخر. يُنصح عموماً بتقليل الأطعمة الغنية بالسكريات القابلة للتخمر (البقوليات، بعض الفواكه، اللاكتوز)، والدهون الزائدة، والكافيين، والكحول. يستطيع أخصائي التغذية أو طبيب الجهاز الهضمي إعداد خطة غذائية مخصصة تناسب وضعك."
+    }
+  ],
+  "intentAnswerAr": "إذا كنت تتساءل عن الطبيب المناسب لمتلازمة القولون العصبي، فابدأ بالطبيب العام الذي سيُجري الفحص الأولي ويحيلك عند الحاجة إلى طبيب متخصص في الجهاز الهضمي. في حال وجود دم في البراز أو فقدان للوزن أو علامات فقر الدم أو آلام شديدة، توجّه فوراً إلى قسم الطوارئ."
+}

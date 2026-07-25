@@ -1,0 +1,66 @@
+{
+  "slug": "douleur-au-sein",
+  "term": "Douleur au sein",
+  "kind": "SYMPTOM",
+  "specialty": "gyneco-obstetrique",
+  "synonyms": ["mastalgie", "mastodynie", "sensibilité mammaire", "tension mammaire"],
+  "shortAnswer": "La douleur au sein (mastalgie) est fréquente et souvent bénigne, liée au cycle hormonal. Elle devient préoccupante si elle est localisée, persistante, accompagnée d'une bosse ou de modifications cutanées. Une consultation médicale permet d'écarter toute cause sérieuse.",
+  "causes": [
+    "Variations hormonales liées au cycle menstruel (tension prémenstruelle)",
+    "Grossesse ou allaitement (engorgement, crevasses)",
+    "Kystes ou fibroadénomes bénins du sein",
+    "Port de soutien-gorge inadapté ou effort musculaire intense",
+    "Mastite (infection du sein, surtout en période d'allaitement)",
+    "Plus rarement, tumeur mammaire nécessitant une évaluation médicale"
+  ],
+  "redFlags": [
+    "Bosse ou nodule dur, indolore ou douloureux, à la palpation",
+    "Modification de la peau du sein : rougeur, peau d'orange, rétraction",
+    "Écoulement mamelonnaire spontané, surtout sanglant ou clair",
+    "Douleur localisée persistante, unilatérale, sans lien avec le cycle",
+    "Ganglions gonflés sous l'aisselle ou au niveau du cou",
+    "Fièvre avec rougeur, chaleur et gonflement du sein : évoque un abcès mammaire nécessitant une consultation urgente"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si la douleur est persistante (plus de deux semaines), localisée, ou associée à l'un des signes d'alerte ci-dessus. Ne retardez pas la consultation si vous percevez une anomalie à l'autopalpation.",
+  "faq": [
+    {
+      "q": "La douleur au sein peut-elle être un signe de cancer ?",
+      "a": "Dans la grande majorité des cas, la mastalgie est bénigne et liée aux hormones. Le cancer du sein est rarement douloureux à un stade précoce. Cependant, toute douleur inhabituelle associée à une bosse, un écoulement ou une modification cutanée doit être évaluée par un médecin sans tarder."
+    },
+    {
+      "q": "Faut-il faire une échographie ou une mammographie en cas de douleur au sein ?",
+      "a": "Cela dépend de votre âge, de vos antécédents et de la nature de la douleur. C'est le médecin qui décide des examens appropriés. Une échographie est souvent privilégiée chez les femmes jeunes, tandis que la mammographie est recommandée à partir de 40 ans ou en cas de facteur de risque."
+    }
+  ],
+  "intentAnswer": "Pour une douleur au sein, commencez par consulter un médecin généraliste qui orientera vers un gynécologue ou un sénologue si nécessaire. En cas de bosse suspecte, d'écoulement sanglant ou de modifications cutanées, consultez rapidement. Rendez-vous aux urgences si la douleur est intense et soudaine, ou si elle s'accompagne de fièvre et de rougeur évoquant un abcès.",
+  "termAr": "ألم الثدي",
+  "shortAnswerAr": "ألم الثدي (الألم الثديي) شائع في أغلب الأحيان ويرتبط بالتقلبات الهرمونية، وغالباً ما يكون حميداً. يستوجب الانتباه إذا كان موضعياً أو مستمراً أو مصحوباً بكتلة أو تغيرات في الجلد. الاستشارة الطبية ضرورية لاستبعاد أي سبب خطير.",
+  "causesAr": [
+    "التقلبات الهرمونية المرتبطة بالدورة الشهرية (توتر ما قبل الحيض)",
+    "الحمل أو الرضاعة الطبيعية (احتقان الثدي أو تشققات الحلمة)",
+    "الأكياس أو الأورام الليفية الغدية الحميدة في الثدي",
+    "ارتداء حمالة صدر غير مناسبة أو بذل مجهود عضلي مفرط",
+    "التهاب الثدي (عدوى بكتيرية، خاصة أثناء الرضاعة)",
+    "نادراً، ورم في الثدي يستوجب التقييم الطبي"
+  ],
+  "redFlagsAr": [
+    "كتلة أو عقدة صلبة عند الجس، مؤلمة أو غير مؤلمة",
+    "تغيرات في جلد الثدي: احمرار، قشرة البرتقال، أو انسحاب الجلد",
+    "إفراز تلقائي من الحلمة، خاصة إذا كان دموياً أو شفافاً",
+    "ألم موضعي مستمر في جانب واحد لا علاقة له بالدورة الشهرية",
+    "تضخم الغدد الليمفاوية تحت الإبط أو في منطقة الرقبة",
+    "ارتفاع الحرارة مع احمرار الثدي وسخونته وتورمه: يوحي بخراج في الثدي يستوجب استشارة طارئة"
+  ],
+  "whenToConsultAr": "استشيري طبيبك العام إذا استمر الألم أكثر من أسبوعين، أو كان موضعياً، أو ترافق مع أي من علامات التحذير المذكورة. لا تتأخري في الاستشارة إذا لاحظتِ أي شيء غير طبيعي عند فحص الثدي ذاتياً.",
+  "faqAr": [
+    {
+      "q": "هل يمكن أن يكون ألم الثدي علامة على سرطان الثدي؟",
+      "a": "في الغالبية العظمى من الحالات، يكون الألم الثديي حميداً ومرتبطاً بالهرمونات. سرطان الثدي نادراً ما يسبب ألماً في مراحله المبكرة. غير أن أي ألم غير معتاد مصحوب بكتلة أو إفراز أو تغيرات جلدية يستوجب الفحص الطبي دون تأخير."
+    },
+    {
+      "q": "هل يجب إجراء تصوير بالموجات فوق الصوتية أو تصوير الثدي الشعاعي عند الشعور بألم في الثدي؟",
+      "a": "يعتمد ذلك على عمرك وتاريخك الصحي وطبيعة الألم. الطبيب هو من يحدد الفحوصات المناسبة. يُفضل التصوير بالموجات فوق الصوتية للنساء الأصغر سناً، بينما يُوصى بالتصوير الشعاعي للثدي ابتداءً من سن الأربعين أو في حالة وجود عوامل خطر."
+    }
+  ],
+  "intentAnswerAr": "لألم الثدي، ابدئي باستشارة الطبيب العام الذي سيحيلك إلى طبيب أمراض النساء أو أخصائي الثدي عند الحاجة. إذا لاحظتِ كتلة مريبة أو إفرازاً دموياً أو تغيرات جلدية، فاستشيري الطبيب في أقرب وقت. توجهي إلى المستعجلات في حال كان الألم شديداً ومفاجئاً أو ترافق مع ارتفاع الحرارة واحمرار الثدي مما يوحي بخراج."
+}

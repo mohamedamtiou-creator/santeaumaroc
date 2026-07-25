@@ -1,0 +1,64 @@
+{
+  "slug": "impetigo",
+  "term": "Impétigo",
+  "kind": "DISEASE",
+  "specialty": "dermatologie",
+  "synonyms": ["impétigo contagieux", "impétigo bulleux", "impétigo croûteux"],
+  "shortAnswer": "L'impétigo est une infection cutanée bactérienne superficielle très contagieuse, fréquente chez l'enfant. Il se manifeste par des plaques rouges puis des croûtes jaunâtres ou des bulles. Généralement bénin, il nécessite un avis médical rapide pour éviter la contagion et prévenir les complications.",
+  "causes": [
+    "Bactéries du groupe streptocoque ou staphylocoque dorés pénétrant via une peau lésée",
+    "Petites plaies, égratignures, piqûres d'insectes ou eczéma qui fragilisent la barrière cutanée",
+    "Contact direct avec une personne infectée ou avec des objets contaminés (serviettes, vêtements)",
+    "Chaleur et humidité favorisant la prolifération bactérienne",
+    "Mauvaise hygiène ou surpopulation dans les environnements collectifs (crèches, écoles)",
+    "Système immunitaire affaibli ou malnutrition augmentant la susceptibilité"
+  ],
+  "redFlags": [
+    "Fièvre élevée, frissons ou altération de l'état général associés aux lésions cutanées",
+    "Extension rapide des plaques sur une grande surface du corps en quelques heures",
+    "Gonflement du visage, des paupières ou des ganglions importants autour des lésions",
+    "Urine de couleur foncée (brun-rouge) après un impétigo, pouvant signer une atteinte rénale",
+    "Lésions qui ne guérissent pas après plusieurs jours de traitement bien conduit"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès l'apparition des premières lésions suspectes, surtout chez l'enfant, afin d'obtenir un traitement adapté et de limiter la contagion dans l'entourage.",
+  "faq": [
+    {
+      "q": "L'impétigo est-il très contagieux ? Faut-il garder l'enfant à la maison ?",
+      "a": "Oui, l'impétigo est très contagieux par contact direct avec les lésions ou les objets touchés. Il est recommandé de tenir l'enfant à l'écart de la crèche ou de l'école jusqu'à ce que les lésions soient couvertes et que le médecin confirme la non-contagiosité, généralement après 48 heures de traitement."
+    },
+    {
+      "q": "L'impétigo peut-il laisser des cicatrices ?",
+      "a": "Dans la plupart des cas, l'impétigo guérit sans laisser de cicatrices si le traitement est suivi correctement et si l'enfant évite de gratter les croûtes. En cas de grattage répété ou de complications, de légères marques peuvent subsister temporairement avant de disparaître."
+    }
+  ],
+  "intentAnswer": "Pour un impétigo, consultez d'abord votre médecin généraliste, qui pose le diagnostic et prescrit le traitement approprié. En cas de lésions étendues, récidivantes ou résistantes, il orientera vers un dermatologue. Si une fièvre élevée ou des complications surviennent, rendez-vous aux urgences sans attendre.",
+  "termAr": "القوباء (الإمبيتيغو)",
+  "shortAnswerAr": "القوباء عدوى جلدية بكتيرية سطحية شديدة العدوى، شائعة عند الأطفال. تظهر على شكل بقع حمراء تتحول إلى قشور صفراء أو فقاعات. تكون في الغالب خفيفة، لكنها تستوجب استشارة طبية مبكرة لتجنب انتقال العدوى ومنع المضاعفات.",
+  "causesAr": [
+    "بكتيريا المكورات العقدية أو العنقودية الذهبية التي تخترق الجلد عبر جروح صغيرة",
+    "الخدوش أو لسعات الحشرات أو الإكزيما التي تُضعف الحاجز الجلدي",
+    "الاتصال المباشر بشخص مصاب أو بأغراض ملوثة كالمناشف والملابس",
+    "الحرارة والرطوبة اللتان تساعدان على تكاثر البكتيريا",
+    "رداءة النظافة أو الاكتظاظ في الأماكن الجماعية كالحضانات والمدارس",
+    "ضعف المناعة أو سوء التغذية مما يزيد من قابلية الإصابة"
+  ],
+  "redFlagsAr": [
+    "حمى مرتفعة أو قشعريرة أو تدهور الحالة العامة مع الآفات الجلدية",
+    "انتشار سريع للبقع على مساحة واسعة من الجسم في غضون ساعات",
+    "تورم الوجه أو الجفنين أو تضخم ملحوظ في الغدد الليمفاوية قرب الآفات",
+    "تحول لون البول إلى البني الداكن بعد الإصابة بالقوباء، مما قد يدل على تأثر الكلى",
+    "استمرار الآفات دون تحسن بعد أيام من العلاج المناسب"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور ظهور الآفات الجلدية المشبوهة، خاصة عند الأطفال، للحصول على العلاج المناسب والحد من انتشار العدوى في محيط الأسرة.",
+  "faqAr": [
+    {
+      "q": "هل القوباء معدية جداً؟ هل يجب إبقاء الطفل في المنزل؟",
+      "a": "نعم، القوباء شديدة العدوى عن طريق الاتصال المباشر بالآفات أو بالأشياء الملامسة لها. يُنصح بإبقاء الطفل بعيداً عن الحضانة أو المدرسة حتى تُغطى الآفات وتتلاشى العدوى، وهو ما يتأكده الطبيب عادةً بعد 48 ساعة من بدء العلاج."
+    },
+    {
+      "q": "هل تترك القوباء ندوباً على الجلد؟",
+      "a": "في معظم الحالات، تشفى القوباء دون ترك ندوب إذا اتُّبع العلاج بشكل صحيح وتجنّب الطفل حكّ القشور. في حال الحكّ المستمر أو حدوث مضاعفات، قد تظهر آثار خفيفة مؤقتة تزول تدريجياً."
+    }
+  ],
+  "intentAnswerAr": "لعلاج القوباء، ابدأ باستشارة الطبيب العام الذي يشخص الحالة ويصف العلاج المناسب. إذا كانت الآفات واسعة أو متكررة أو مقاومة للعلاج، يُحيلك إلى طبيب الجلدية. وفي حال ظهور حمى مرتفعة أو مضاعفات، اذهب إلى المستعجلات دون تأخير."
+}

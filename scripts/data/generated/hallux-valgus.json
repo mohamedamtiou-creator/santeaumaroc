@@ -1,0 +1,66 @@
+{
+  "slug": "hallux-valgus",
+  "term": "Hallux valgus (oignon)",
+  "kind": "DISEASE",
+  "specialty": "traumatologie-orthopedie",
+  "synonyms": ["oignon du pied", "déformation du gros orteil", "bunion"],
+  "shortAnswer": "L'hallux valgus est une déviation progressive du gros orteil vers les autres orteils, formant une saillie osseuse douloureuse à la base. Souvent bénin et lentement évolutif, il devient préoccupant en cas de douleur intense, de gêne à la marche ou de déformation rapide.",
+  "causes": [
+    "Prédisposition héréditaire (pied plat, avant-pied large)",
+    "Port prolongé de chaussures étroites ou à talons hauts",
+    "Surcharge pondérale augmentant la pression sur l'avant-pied",
+    "Laxité ligamentaire ou hyperlaxité articulaire",
+    "Certaines maladies rhumatismales (polyarthrite rhumatoïde)",
+    "Vieillissement des structures articulaires et tendineuses du pied"
+  ],
+  "redFlags": [
+    "Douleur vive et permanente empêchant la marche ou le port de chaussures normales",
+    "Rougeur, chaleur ou gonflement importants autour de la saillie (risque de bursite infectée)",
+    "Plaie ou ulcération sur la bosse osseuse, notamment chez le patient diabétique",
+    "Fièvre, rougeur qui s'étend rapidement ou stries rouges le long du pied : signes d'infection grave nécessitant les urgences sans délai",
+    "Déformation rapide ou apparition d'une paralysie/insensibilité des orteils",
+    "Déformation associée des autres orteils (orteils en griffe) compromettant l'équilibre"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès que l'hallux valgus provoque une douleur régulière, une gêne à la marche ou une difficulté à se chausser. Un avis spécialisé en traumatologie-orthopédie est recommandé si la déformation s'aggrave ou si un traitement chirurgical est envisagé.",
+  "faq": [
+    {
+      "q": "L'hallux valgus peut-il guérir sans opération ?",
+      "a": "Les traitements non chirurgicaux (orthèses, semelles adaptées, chaussures larges, kinésithérapie) soulagent la douleur et ralentissent l'évolution, mais ne corrigent pas la déformation osseuse. L'opération est envisagée uniquement en cas de douleur invalidante ou de déformation importante, après avis d'un spécialiste."
+    },
+    {
+      "q": "Quels types de chaussures faut-il privilégier en cas d'hallux valgus ?",
+      "a": "Il est conseillé de porter des chaussures larges à l'avant, avec un talon bas (moins de 3 cm) et une semelle souple. Évitez les chaussures pointues ou trop serrées qui aggravent la déformation et augmentent la douleur."
+    }
+  ],
+  "intentAnswer": "Pour un hallux valgus, commencez par consulter votre médecin généraliste qui évaluera la déformation et vous orientera si nécessaire. Le spécialiste de référence est le chirurgien orthopédiste ou traumatologue. En cas de plaie infectée, douleur aiguë soudaine ou complications chez un patient diabétique, consultez en urgence.",
+  "termAr": "إبهام القدم المنحرف (الناتئ العظمي)",
+  "shortAnswerAr": "إبهام القدم المنحرف هو انحراف تدريجي لإبهام القدم نحو الأصابع الأخرى، مما يُفرز نتوءاً عظمياً مؤلماً عند قاعدته. غالباً ما يكون خفيفاً وبطيء التطور، لكنه يستدعي الانتباه عند ظهور ألم شديد أو صعوبة في المشي أو تشوه متسارع.",
+  "causesAr": [
+    "الاستعداد الوراثي (القدم المسطحة أو العريضة في الأمام)",
+    "ارتداء أحذية ضيقة أو ذات كعب عالٍ لفترات طويلة",
+    "زيادة الوزن التي تُضاعف الضغط على مقدمة القدم",
+    "ارتخاء الأربطة أو فرط مرونة المفاصل",
+    "بعض أمراض الروماتيزم كالتهاب المفاصل الروماتويدي",
+    "التقدم في السن وتدهور البنى المفصلية والأوترية للقدم"
+  ],
+  "redFlagsAr": [
+    "ألم حاد ومستمر يمنع المشي أو ارتداء الأحذية العادية",
+    "احمرار أو سخونة أو تورم شديد حول النتوء العظمي (احتمال التهاب الجراب المعدي)",
+    "جرح أو تقرح فوق النتوء، لا سيما عند مرضى السكري",
+    "حمى أو احمرار يمتد بسرعة أو خطوط حمراء على طول القدم: علامات عدوى خطيرة تستوجب التوجه فوراً إلى الطوارئ",
+    "تشوه سريع أو ظهور تنميل أو ضعف في الأصابع",
+    "تشوه مصاحب للأصابع الأخرى (أصابع مطرقية) يُخل بالتوازن"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور ظهور ألم متكرر أو صعوبة في المشي أو تعذّر ارتداء الحذاء بسبب إبهام القدم المنحرف. يُنصح بمراجعة طبيب متخصص في جراحة العظام إذا ازداد التشوه أو بات التدخل الجراحي مطروحاً.",
+  "faqAr": [
+    {
+      "q": "هل يمكن علاج إبهام القدم المنحرف دون جراحة؟",
+      "a": "تُساعد العلاجات غير الجراحية كالدعامات التقويمية والنعال المناسبة والأحذية الواسعة والعلاج الطبيعي على تخفيف الألم وإبطاء تطور الحالة، إلا أنها لا تصحح التشوه العظمي. تُقترح الجراحة فقط عند وجود ألم شديد أو تشوه كبير، وبعد استشارة الطبيب المتخصص."
+    },
+    {
+      "q": "ما نوع الأحذية الأنسب لمن يعاني من إبهام القدم المنحرف؟",
+      "a": "يُستحسن ارتداء أحذية واسعة عند الأصابع، ذات كعب منخفض (أقل من 3 سم) ونعل مرن. تجنب الأحذية الضيقة أو المدببة التي تُفاقم التشوه وتزيد الألم."
+    }
+  ],
+  "intentAnswerAr": "في حالة إبهام القدم المنحرف، ابدأ بزيارة طبيبك العام الذي سيقيّم التشوه ويحيلك عند الحاجة إلى الاختصاصي المناسب. المرجع التخصصي هو جراح العظام والمفاصل. أما في حال وجود جرح متعفن أو ألم حاد مفاجئ أو مضاعفات لدى مريض السكري، فتوجه إلى الطوارئ فوراً."
+}

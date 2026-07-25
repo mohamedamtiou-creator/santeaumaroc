@@ -1,0 +1,66 @@
+{
+  "slug": "absence-de-regles",
+  "term": "Absence de règles (aménorrhée)",
+  "kind": "SYMPTOM",
+  "specialty": "gyneco-obstetrique",
+  "synonyms": ["aménorrhée", "règles absentes", "absence de menstruations", "retard de règles prolongé"],
+  "shortAnswer": "L'aménorrhée désigne l'absence de règles pendant au moins 3 mois chez une femme qui avait des cycles normaux, ou l'absence de premières règles avant 16 ans. Elle est souvent bénigne (grossesse, stress, sport intense), mais peut signaler un trouble hormonal ou une maladie à traiter.",
+  "causes": [
+    "Grossesse (première cause à éliminer)",
+    "Stress intense ou choc émotionnel",
+    "Amaigrissement rapide, troubles alimentaires (anorexie) ou sport de haut niveau",
+    "Dérèglement hormonal : syndrome des ovaires polykystiques (SOPK), troubles thyroïdiens",
+    "Arrêt d'une contraception hormonale (pilule, implant, stérilet hormonal)",
+    "Ménopause précoce ou insuffisance ovarienne prématurée"
+  ],
+  "redFlags": [
+    "Douleur pelvienne intense ou brutale (possible grossesse extra-utérine)",
+    "Saignement anormal accompagnant l'absence de règles",
+    "Perte de poids rapide et involontaire, fatigue extrême",
+    "Écoulement de lait en dehors d'un allaitement (galactorrhée) associé à des maux de tête ou troubles visuels",
+    "Absence de premières règles à 16 ans ou plus chez une adolescente",
+    "Apparition soudaine de pilosité excessive (visage, corps), d'une voix plus grave ou d'autres signes de virilisation (possible tumeur sécrétant des androgènes)"
+  ],
+  "whenToConsult": "Consultez un médecin si vos règles sont absentes depuis plus de 3 mois sans cause évidente (grossesse, ménopause connue), ou dès que l'un des signes d'alerte ci-dessus apparaît. Un bilan hormonal et une échographie permettront d'identifier la cause.",
+  "faq": [
+    {
+      "q": "Un test de grossesse négatif suffit-il à expliquer l'absence de règles ?",
+      "a": "Non. Un test négatif élimine une grossesse courante, mais il existe de nombreuses autres causes (hormonales, nutritionnelles, liées au stress). Si vos règles restent absentes plus de 3 mois malgré un test négatif, consultez un médecin pour un bilan complet."
+    },
+    {
+      "q": "L'aménorrhée peut-elle affecter la fertilité ?",
+      "a": "Oui, selon la cause. Une aménorrhée liée à un dérèglement hormonal peut temporairement empêcher l'ovulation. Mais dans la majorité des cas, une prise en charge adaptée permet de retrouver des cycles normaux et une fertilité préservée. Parlez-en à votre médecin ou gynécologue."
+    }
+  ],
+  "intentAnswer": "Pour une absence de règles, commencez par consulter votre médecin généraliste qui prescrira un test de grossesse et un bilan hormonal de base. Il vous orientera ensuite vers un gynécologue-obstétricien pour un suivi spécialisé. En cas de douleur pelvienne brutale ou de signes d'alerte, rendez-vous aux urgences sans attendre.",
+  "termAr": "غياب الدورة الشهرية (انقطاع الطمث)",
+  "shortAnswerAr": "انقطاع الطمث هو غياب الدورة الشهرية لمدة ثلاثة أشهر أو أكثر لدى امرأة كانت دورتها منتظمة، أو عدم ظهور الدورة الأولى قبل سن السادسة عشرة. قد يكون السبب بسيطاً كالحمل أو التوتر الشديد، لكنه قد يشير أيضاً إلى اضطراب هرموني يستوجب المتابعة الطبية.",
+  "causesAr": [
+    "الحمل (أول سبب يجب استبعاده)",
+    "التوتر النفسي الشديد أو الصدمة العاطفية",
+    "فقدان الوزن السريع أو اضطرابات الأكل (كفقدان الشهية العصبي) أو ممارسة الرياضة المكثفة",
+    "اضطراب هرموني: متلازمة المبيض المتعدد الكيسات، أو مشاكل الغدة الدرقية",
+    "التوقف عن استخدام وسائل منع الحمل الهرمونية (الحبوب، الكبسولة، اللولب الهرموني)",
+    "انقطاع الطمث المبكر أو قصور المبيض المبكر"
+  ],
+  "redFlagsAr": [
+    "ألم حوضي مفاجئ وشديد (قد يدل على حمل خارج الرحم)",
+    "نزيف غير طبيعي مصاحب لغياب الدورة الشهرية",
+    "فقدان وزن سريع وغير مبرر مع إرهاق شديد",
+    "إفراز حليب من الثدي دون رضاعة مصحوباً بصداع أو اضطرابات في الرؤية",
+    "عدم ظهور الدورة الأولى في سن السادسة عشرة أو ما بعدها عند المراهقة",
+    "ظهور مفاجئ لشعر زائد في الوجه أو الجسم، أو تغيّر في الصوت، أو علامات ذكورية أخرى (قد يشير إلى ورم مُفرِز للهرمونات الذكرية)"
+  ],
+  "whenToConsultAr": "استشيري طبيبك إذا غابت دورتك الشهرية أكثر من ثلاثة أشهر دون سبب واضح كالحمل أو انقطاع الطمث المعروف، أو فور ظهور أي علامة تحذيرية مذكورة أعلاه. يمكن للفحص الهرموني والسونار تحديد السبب.",
+  "faqAr": [
+    {
+      "q": "هل يكفي اختبار الحمل السلبي لتفسير غياب الدورة الشهرية؟",
+      "a": "لا. النتيجة السلبية تستبعد الحمل الشائع، لكن هناك أسباباً أخرى كثيرة هرمونية أو غذائية أو مرتبطة بالتوتر. إذا استمر غياب الدورة لأكثر من ثلاثة أشهر رغم النتيجة السلبية، استشيري طبيبك لإجراء فحص شامل."
+    },
+    {
+      "q": "هل يمكن أن يؤثر انقطاع الطمث على الخصوبة؟",
+      "a": "نعم، وذلك يعتمد على السبب. قد يمنع الاضطراب الهرموني الإباضة مؤقتاً، لكن في أغلب الحالات تعود الدورة وتُحفظ الخصوبة بعد العلاج المناسب. تحدثي مع طبيبك أو طبيبة أمراض النساء."
+    }
+  ],
+  "intentAnswerAr": "عند غياب الدورة الشهرية، ابدئي بزيارة طبيب عام يطلب اختبار الحمل وتحاليل هرمونية أولية، ثم يحيلك إلى طبيب متخصص في أمراض النساء والتوليد للمتابعة الدقيقة. في حال ظهور ألم حوضي مفاجئ أو أي علامة خطر، توجهي فوراً إلى المستعجلات."
+}

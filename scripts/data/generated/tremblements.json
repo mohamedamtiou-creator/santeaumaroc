@@ -1,0 +1,66 @@
+{
+  "slug": "tremblements",
+  "term": "Tremblements",
+  "kind": "SYMPTOM",
+  "specialty": "neurologie",
+  "synonyms": ["tremblement essentiel", "tremblement de repos", "tremblement d'action", "tremblement postural", "secousses involontaires"],
+  "shortAnswer": "Les tremblements sont des oscillations involontaires et rythmiques d'une partie du corps, le plus souvent les mains. Souvent bénins (stress, café, froid), ils peuvent signaler une maladie neurologique ou un problème thyroïdien si persistants, progressifs ou accompagnés d'autres symptômes.",
+  "causes": [
+    "Tremblement essentiel bénin (héréditaire, aggravé par l'action)",
+    "Stress, anxiété intense ou fatigue excessive",
+    "Consommation excessive de café ou d'autres stimulants",
+    "Hyperthyroïdie (glande thyroïde hyperactive)",
+    "Maladie de Parkinson ou autres maladies neurodégénératives",
+    "Sevrage alcoolique ou prise de certaines substances"
+  ],
+  "redFlags": [
+    "Tremblement soudain et brutal, notamment d'un seul côté du corps",
+    "Tremblement accompagné de troubles de l'équilibre, de la marche ou de chutes",
+    "Tremblement avec difficultés à avaler, parler ou mouvements rigides",
+    "Apparition chez un enfant ou un adolescent sans cause évidente",
+    "Tremblement associé à une confusion mentale ou une perte de conscience",
+    "Tremblement accompagné de fièvre élevée (possible signe de méningite ou d'encéphalite — urgence vitale)"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si les tremblements persistent, s'aggravent ou perturbent les gestes quotidiens. Rendez-vous aux urgences immédiatement si le tremblement est soudain, unilatéral ou accompagné de troubles neurologiques comme la confusion, la chute, la difficulté à parler ou une fièvre élevée.",
+  "faq": [
+    {
+      "q": "Le tremblement des mains est-il toujours signe d'une maladie grave ?",
+      "a": "Non, la majorité des tremblements des mains sont bénins. Le tremblement essentiel, très fréquent, est souvent héréditaire et n'évolue pas vers une maladie grave. Le stress, le café ou le manque de sommeil peuvent aussi en être la cause. Seul un médecin peut identifier l'origine exacte."
+    },
+    {
+      "q": "Quelle est la différence entre le tremblement de Parkinson et le tremblement essentiel ?",
+      "a": "Le tremblement de Parkinson survient surtout au repos et s'accompagne d'autres signes comme la raideur ou la lenteur des mouvements. Le tremblement essentiel apparaît plutôt lors d'un geste ou d'une action. Un neurologue peut les distinguer par un examen clinique."
+    }
+  ],
+  "intentAnswer": "Pour des tremblements, commencez par consulter votre médecin généraliste, qui pourra orienter vers un neurologue en cas de besoin, notamment pour évaluer un tremblement essentiel, parkinsonien ou d'origine neurologique. Si les tremblements sont soudains, s'accompagnent de chute, de confusion, de fièvre élevée ou de paralysie, rendez-vous aux urgences sans attendre.",
+  "termAr": "الرعاش",
+  "shortAnswerAr": "الرعاش هو اهتزازات لا إرادية ومنتظمة تصيب جزءًا من الجسم، وغالبًا ما تكون في اليدين. كثيرًا ما يكون حميدًا ومرتبطًا بالتوتر أو الكافيين أو البرد، لكنه قد يشير إلى مرض عصبي أو خلل في الغدة الدرقية إذا كان مستمرًا أو متصاعدًا أو مصحوبًا بأعراض أخرى.",
+  "causesAr": [
+    "الرعاش الأساسي الحميد (وراثي، يزداد عند الحركة)",
+    "التوتر الشديد أو القلق أو الإرهاق المفرط",
+    "الإفراط في تناول القهوة أو المنبهات الأخرى",
+    "فرط نشاط الغدة الدرقية",
+    "مرض باركنسون أو أمراض تنكسية عصبية أخرى",
+    "الانسحاب من الكحول أو تعاطي بعض المواد"
+  ],
+  "redFlagsAr": [
+    "رعاش مفاجئ وحاد، خاصة إذا أصاب جانبًا واحدًا من الجسم",
+    "رعاش مصحوب باضطراب في التوازن أو المشي أو سقوط متكرر",
+    "رعاش مع صعوبة في البلع أو الكلام أو تيبّس في الحركات",
+    "ظهوره عند طفل أو مراهق دون سبب واضح",
+    "رعاش مقترن بتشوش ذهني أو فقدان وعي",
+    "رعاش مصحوب بحمى شديدة (علامة محتملة على التهاب السحايا أو التهاب الدماغ — حالة طارئة)"
+  ],
+  "whenToConsultAr": "استشر طبيبًا عامًا إذا استمر الرعاش أو تفاقم أو أعاق قيامك بالأنشطة اليومية. توجّه فورًا إلى المستعجلات إذا كان الرعاش مفاجئًا أو يصيب جانبًا واحدًا أو صاحبه اضطرابات عصبية كالتشوش أو صعوبة الكلام أو السقوط أو الحمى الشديدة.",
+  "faqAr": [
+    {
+      "q": "هل رعاش اليدين يعني دائمًا وجود مرض خطير؟",
+      "a": "لا، معظم حالات رعاش اليدين حميدة. الرعاش الأساسي شائع جدًا وغالبًا ما يكون وراثيًا ولا يتطور إلى مرض خطير. يمكن أن يكون التوتر أو القهوة أو قلة النوم سببًا أيضًا. الطبيب وحده يمكنه تحديد المصدر الدقيق."
+    },
+    {
+      "q": "ما الفرق بين رعاش باركنسون والرعاش الأساسي؟",
+      "a": "رعاش باركنسون يظهر عادةً أثناء الراحة ويصاحبه تيبّس وبطء في الحركة. أما الرعاش الأساسي فيبرز عند القيام بحركة أو إجراء عمل ما. يستطيع طبيب الأعصاب التمييز بينهما من خلال الفحص السريري."
+    }
+  ],
+  "intentAnswerAr": "في حال المعاناة من الرعاش، يُنصح بالبدء بزيارة الطبيب العام الذي يُحيل عند الحاجة إلى أخصائي الأعصاب، لا سيما لتقييم الرعاش الأساسي أو رعاش باركنسون أو ذاك ذي الأصل العصبي. أما إذا كان الرعاش مفاجئًا ومصحوبًا بسقوط أو تشوش أو حمى شديدة أو شلل، فتوجّه إلى المستعجلات فورًا."
+}

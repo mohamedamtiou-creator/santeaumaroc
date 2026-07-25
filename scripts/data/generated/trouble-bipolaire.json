@@ -1,0 +1,64 @@
+{
+  "slug": "trouble-bipolaire",
+  "term": "Trouble bipolaire",
+  "kind": "DISEASE",
+  "specialty": "psychiatrie",
+  "synonyms": ["maladie bipolaire", "psychose maniaco-dépressive", "trouble maniaco-dépressif"],
+  "shortAnswer": "Le trouble bipolaire est une maladie psychiatrique caractérisée par des alternances entre des épisodes d'euphorie intense (manie) et de dépression profonde. Entre ces phases, la personne peut fonctionner normalement. Il nécessite un suivi médical spécialisé et ne doit jamais être géré seul.",
+  "causes": [
+    "Facteurs génétiques et héréditaires (risque plus élevé si un parent proche est atteint)",
+    "Déséquilibres neurochimiques au niveau du cerveau",
+    "Stress intense ou événements de vie traumatisants",
+    "Consommation de substances psychoactives (alcool, drogues)",
+    "Troubles du sommeil prolongés ou perturbations du rythme biologique",
+    "Facteurs hormonaux ou maladies médicales sous-jacentes"
+  ],
+  "redFlags": [
+    "Idées suicidaires, menaces de se faire du mal ou comportements auto-destructeurs",
+    "Épisode maniaque sévère : absence totale de sommeil, dépenses inconsidérées, comportement sexuel inhabituel ou agressivité",
+    "Perte de contact avec la réalité : hallucinations, délires ou confusion grave",
+    "Dépression profonde avec incapacité totale à fonctionner (ne plus se lever, refus de manger)",
+    "Comportements dangereux pour soi ou pour les autres nécessitant une intervention immédiate"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès que vous observez des changements marqués d'humeur qui durent plusieurs jours et perturbent la vie quotidienne. Un avis psychiatrique est indispensable pour confirmer le diagnostic et mettre en place un suivi adapté.",
+  "faq": [
+    {
+      "q": "Le trouble bipolaire est-il une maladie chronique que l'on garde toute sa vie ?",
+      "a": "Oui, le trouble bipolaire est généralement une maladie chronique qui évolue par épisodes tout au long de la vie. Cependant, avec un suivi psychiatrique régulier et un traitement adapté, de nombreuses personnes mènent une vie épanouie et stable entre les épisodes."
+    },
+    {
+      "q": "Comment aider un proche atteint de trouble bipolaire au Maroc ?",
+      "a": "Encouragez-le à consulter un psychiatre sans tarder et accompagnez-le si possible à ses rendez-vous. Évitez de minimiser ses symptômes. Informez-vous sur la maladie pour mieux comprendre ses comportements. En cas de crise grave, n'hésitez pas à contacter les urgences ou à vous rendre dans un hôpital psychiatrique."
+    }
+  ],
+  "intentAnswer": "Pour un trouble bipolaire, consultez d'abord un médecin généraliste qui pourra orienter vers un psychiatre, le spécialiste de référence pour le diagnostic et le suivi. En cas de crise aiguë (idées suicidaires, comportement dangereux), rendez-vous immédiatement aux urgences ou dans un hôpital psychiatrique.",
+  "termAr": "الاضطراب ثنائي القطب",
+  "shortAnswerAr": "الاضطراب ثنائي القطب مرض نفسي يتميز بتناوب بين نوبات من الانتعاش المفرط (الهوس) ونوبات من الاكتئاب الشديد. بين هذه المراحل، قد يعيش الشخص بشكل طبيعي. يستلزم هذا المرض متابعة طبية متخصصة ولا ينبغي أبدًا التعامل معه دون مساعدة متخصص.",
+  "causesAr": [
+    "عوامل وراثية وجينية (خطر أعلى عند وجود قريب مصاب بالمرض)",
+    "اختلالات في الكيمياء العصبية للدماغ",
+    "ضغوط نفسية حادة أو أحداث صادمة في الحياة",
+    "تعاطي المواد المخدرة أو الكحول",
+    "اضطرابات النوم المزمنة أو اختلال في الإيقاع البيولوجي",
+    "عوامل هرمونية أو أمراض جسدية كامنة"
+  ],
+  "redFlagsAr": [
+    "أفكار انتحارية أو تهديدات بإيذاء النفس أو سلوكيات تدميرية",
+    "نوبة هوس حادة: غياب تام للنوم، إنفاق مفرط، سلوك جنسي غير مألوف أو عدوانية شديدة",
+    "انفصال عن الواقع: هلوسات، أوهام أو ارتباك شديد",
+    "اكتئاب عميق مع عجز تام عن الأداء اليومي (رفض النهوض أو الأكل)",
+    "سلوكيات خطيرة تهدد سلامة الشخص أو الآخرين وتستوجب تدخلًا فوريًا"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور ملاحظة تقلبات مزاجية حادة تستمر لأيام وتؤثر على الحياة اليومية. الاستشارة النفسية ضرورية لتأكيد التشخيص ووضع خطة متابعة ملائمة.",
+  "faqAr": [
+    {
+      "q": "هل الاضطراب ثنائي القطب مرض مزمن يستمر مدى الحياة؟",
+      "a": "نعم، يُعدّ الاضطراب ثنائي القطب في الغالب مرضًا مزمنًا يتطور عبر نوبات متقطعة طوال الحياة. غير أن المتابعة النفسية المنتظمة والعلاج المناسب يُمكّنان كثيرًا من المرضى من العيش بشكل متوازن ومستقر بين النوبات."
+    },
+    {
+      "q": "كيف أساعد شخصًا قريبًا مصابًا بالاضطراب ثنائي القطب في المغرب؟",
+      "a": "شجّعه على استشارة طبيب نفسي في أقرب وقت وارافقه إذا أمكن. تجنب التهوين من أعراضه. اطّلع على المرض لفهم سلوكياته بشكل أفضل. في حال حدوث أزمة حادة، اتصل بخدمات الطوارئ أو توجه فورًا إلى أقرب مستشفى يضم قسمًا للطب النفسي."
+    }
+  ],
+  "intentAnswerAr": "للاضطراب ثنائي القطب، ابدأ بزيارة طبيب عام يحيلك إلى طبيب نفسي المختص بالتشخيص والمتابعة. في حال الأزمة الحادة (أفكار انتحارية أو سلوك خطير)، توجه فورًا إلى قسم الطوارئ أو المستشفى النفسي."
+}

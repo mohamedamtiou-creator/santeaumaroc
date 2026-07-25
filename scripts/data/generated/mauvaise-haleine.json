@@ -1,0 +1,64 @@
+{
+  "slug": "mauvaise-haleine",
+  "term": "Mauvaise haleine",
+  "kind": "SYMPTOM",
+  "specialty": "chirurgie-dentaire",
+  "synonyms": ["halitose", "fétidité de l'haleine", "odeur buccale"],
+  "shortAnswer": "La mauvaise haleine (halitose) est une odeur désagréable persistante de la bouche. Elle est le plus souvent bénigne et liée à l'hygiène bucco-dentaire ou à l'alimentation. Consultez si elle persiste malgré une bonne hygiène, car elle peut révéler une cause dentaire ou médicale à traiter.",
+  "causes": [
+    "Mauvaise hygiène bucco-dentaire (dépôts de plaque, tartre, résidus alimentaires)",
+    "Caries dentaires ou abcès dentaires",
+    "Gingivite ou parodontite (maladie des gencives)",
+    "Bouche sèche (xérostomie) favorisant la prolifération bactérienne",
+    "Alimentation (ail, oignon, certaines épices) et tabac",
+    "Affections ORL (sinusite chronique, angine, amygdales cryptiques) ou digestives (reflux gastro-œsophagien)"
+  ],
+  "redFlags": [
+    "Mauvaise haleine accompagnée de saignement des gencives important ou de douleurs dentaires intenses",
+    "Goût métallique ou purulent persistant dans la bouche (possible abcès)",
+    "Fièvre associée à une douleur à la gorge ou au visage gonflé (risque d'infection profonde — rendez-vous aux urgences sans attendre)",
+    "Haleine de type fruité ou acétoné, surtout chez une personne diabétique connue : urgence médicale, appelez le SAMU ou rendez-vous immédiatement aux urgences",
+    "Haleine persistante chez un enfant malgré une bonne hygiène : peut indiquer un corps étranger nasal"
+  ],
+  "whenToConsult": "Consultez votre dentiste si la mauvaise haleine persiste plus de quelques jours malgré une bonne hygiène bucco-dentaire. Voyez un médecin généraliste si elle s'accompagne de signes généraux (fièvre, douleur, gonflement) ou si aucune cause dentaire n'est retrouvée.",
+  "faq": [
+    {
+      "q": "L'hygiène bucco-dentaire seule suffit-elle à éliminer la mauvaise haleine ?",
+      "a": "Dans la majorité des cas, un brossage régulier des dents et de la langue, l'utilisation du fil dentaire et un détartrage chez le dentiste suffisent à corriger l'halitose. Si elle persiste malgré ces mesures, une cause médicale sous-jacente doit être recherchée par un professionnel de santé."
+    },
+    {
+      "q": "Les bains de bouche sont-ils efficaces contre la mauvaise haleine ?",
+      "a": "Les bains de bouche peuvent masquer temporairement les odeurs, mais ils ne traitent pas la cause. Seul un soin adapté de la cause réelle (tartre, carie, maladie des gencives, infection ORL…) permet une amélioration durable. L'avis d'un dentiste reste indispensable."
+    }
+  ],
+  "intentAnswer": "Pour une mauvaise haleine persistante, consultez d'abord votre dentiste : c'est lui qui identifie et traite les causes bucco-dentaires les plus fréquentes. Un médecin généraliste prend le relais si la cause est ORL ou digestive. En cas de fièvre, de gonflement du visage ou d'haleine acétonée, rendez-vous aux urgences sans attendre.",
+  "termAr": "رائحة الفم الكريهة",
+  "shortAnswerAr": "رائحة الفم الكريهة (التنفس الكريه) هي رائحة غير مستحبة تصدر بشكل مستمر من الفم. في أغلب الأحيان تكون بسيطة وترتبط بنظافة الأسنان أو نوع الطعام. استشر طبيبك إذا استمرت رغم العناية الجيدة بالفم، لأنها قد تشير إلى سبب يستوجب العلاج.",
+  "causesAr": [
+    "ضعف نظافة الفم والأسنان (تراكم البكتيريا والجير وبقايا الطعام)",
+    "تسوس الأسنان أو خراج الأسنان",
+    "التهاب اللثة أو أمراض دواعم الأسنان",
+    "جفاف الفم الذي يُعزز نمو البكتيريا",
+    "الأطعمة ذات الرائحة القوية (الثوم، البصل، التوابل) والتدخين",
+    "أمراض الأنف والأذن والحنجرة (التهاب الجيوب المزمن، التهاب الحلق، اللوزتان الخبيّتان) أو ارتجاع المريء"
+  ],
+  "redFlagsAr": [
+    "رائحة الفم مصحوبة بنزيف لثوي غزير أو ألم شديد في الأسنان",
+    "طعم معدني أو قيحي مستمر في الفم (قد يدل على خراج)",
+    "حمى مع ألم في الحلق أو تورم في الوجه (خطر عدوى عميقة — اذهب إلى الطوارئ فورًا)",
+    "رائحة فاكهة أو أسيتون في النفس لدى شخص مصاب بالسكري: حالة طارئة، اتصل بالإسعاف أو اذهب إلى الطوارئ فورًا",
+    "رائحة فم مستمرة عند طفل رغم العناية الجيدة بأسنانه: قد تشير إلى جسم غريب في الأنف"
+  ],
+  "whenToConsultAr": "راجع طبيب الأسنان إذا استمرت رائحة الفم لأكثر من بضعة أيام رغم العناية اليومية بالفم والأسنان. استشر طبيبًا عامًا إذا رافقتها أعراض عامة كالحمى أو الألم أو التورم، أو إذا لم يُعثر على سبب سني.",
+  "faqAr": [
+    {
+      "q": "هل تكفي نظافة الفم وحدها للقضاء على رائحة الفم الكريهة؟",
+      "a": "في معظم الحالات، يكفي تفريش الأسنان واللسان بانتظام واستخدام خيط الأسنان وإزالة الجير لدى طبيب الأسنان للتخلص من الرائحة. إذا استمرت رغم ذلك، وجب البحث عن سبب طبي كامن من قِبَل متخصص."
+    },
+    {
+      "q": "هل غسولات الفم فعّالة ضد رائحة الفم الكريهة؟",
+      "a": "قد تُخفف غسولات الفم الرائحة مؤقتًا، لكنها لا تعالج السبب الحقيقي. لا يتحقق التحسن الدائم إلا بعلاج الأسباب الأصلية كالجير أو التسوس أو أمراض اللثة أو العدوى. استشارة طبيب الأسنان ضرورية."
+    }
+  ],
+  "intentAnswerAr": "في حالة رائحة الفم الكريهة المستمرة، ابدأ بزيارة طبيب الأسنان الذي يشخص الأسباب المتعلقة بالفم والأسنان ويعالجها. ينتقل دور الطبيب العام إذا كان السبب في الأنف أو الجهاز الهضمي. في حالة وجود حمى أو تورم في الوجه أو رائحة الأسيتون في النفس، توجه إلى قسم الطوارئ فورًا."
+}

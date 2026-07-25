@@ -1,0 +1,64 @@
+{
+  "slug": "infertilite-masculine",
+  "term": "Infertilité masculine",
+  "kind": "DISEASE",
+  "specialty": "andrologie",
+  "synonyms": ["stérilité masculine", "hypofertilité masculine", "infertilité du couple côté homme"],
+  "shortAnswer": "L'infertilité masculine désigne l'incapacité d'un homme à concevoir un enfant après 12 mois de rapports non protégés réguliers. Elle est souvent discrète et sans symptôme apparent. Elle peut être liée à une anomalie du sperme, hormonale ou anatomique, et nécessite un bilan médical pour en identifier la cause.",
+  "causes": [
+    "Anomalies du sperme : faible nombre de spermatozoïdes (oligospermie), mobilité réduite (asthénospermie) ou formes anormales (tératospermie)",
+    "Varicocèle : dilatation des veines du testicule qui élève la température locale et altère la production de spermatozoïdes",
+    "Obstruction des voies séminales (canal déférent, épididyme) empêchant le transport des spermatozoïdes",
+    "Déséquilibre hormonal : déficit en testostérone ou en hormones hypophysaires (FSH, LH) affectant la production de sperme",
+    "Antécédents d'infections génitales (oreillons avec orchite, chlamydia, gonorrhée) ou de cryptorchidie (testicule non descendu)",
+    "Facteurs de mode de vie : tabac, alcool, exposition à la chaleur excessive, stress chronique ou obésité"
+  ],
+  "redFlags": [
+    "Douleur testiculaire soudaine ou persistante, gonflement ou masse palpable sur un testicule (à explorer en urgence pour éliminer une torsion ou une tumeur)",
+    "Absence totale d'éjaculation ou éjaculation rétrograde (liquide séminal remontant dans la vessie)",
+    "Symptômes évoquant un problème hormonal grave : gynécomastie (développement de tissu mammaire chez l'homme), fatigue intense, prise de poids rapide",
+    "Antécédent de cancer ou de chimiothérapie/radiothérapie pouvant affecter la fertilité de façon durable",
+    "Infertilité persistant au-delà de 12 mois (ou 6 mois si l'un des partenaires a plus de 35 ans) sans consultation médicale"
+  ],
+  "whenToConsult": "Consultez votre médecin généraliste après 12 mois de rapports réguliers sans contraception et sans grossesse (ou après 6 mois si vous avez plus de 35 ans ou des antécédents médicaux). Il réalisera un premier bilan et vous orientera vers un andrologue ou un urologue spécialisé en fertilité masculine.",
+  "faq": [
+    {
+      "q": "Un spermogramme normal signifie-t-il que je suis fertile ?",
+      "a": "Un spermogramme normal est rassurant, mais il ne garantit pas à lui seul la fertilité : d'autres facteurs (qualité de l'ADN des spermatozoïdes, problèmes hormonaux, facteurs féminins) peuvent être en cause. Si la grossesse ne survient pas, un bilan complet du couple reste nécessaire."
+    },
+    {
+      "q": "L'infertilité masculine est-elle toujours définitive ?",
+      "a": "Non, la majorité des causes d'infertilité masculine sont traitables ou contournables. Une varicocèle peut être opérée, un déséquilibre hormonal peut être corrigé, et des techniques d'assistance médicale à la procréation (AMP) permettent souvent d'obtenir une grossesse même en cas de sperme très altéré."
+    }
+  ],
+  "intentAnswer": "Pour un problème d'infertilité masculine, commencez par votre médecin généraliste qui prescrira un spermogramme et un bilan hormonal de base. Il vous adressera ensuite à un andrologue ou un urologue spécialisé en fertilité. En cas de douleur testiculaire aiguë, consultez les urgences sans délai.",
+  "termAr": "العقم عند الرجل",
+  "shortAnswerAr": "العقم عند الرجل هو عدم قدرة الرجل على الإنجاب بعد اثني عشر شهرًا من العلاقات الزوجية المنتظمة دون استخدام وسائل منع الحمل. غالبًا لا تظهر له أعراض واضحة، وقد يكون سببه خللًا في الحيوانات المنوية أو اضطرابًا هرمونيًا أو تشريحيًا، ويستوجب تقييمًا طبيًا دقيقًا.",
+  "causesAr": [
+    "اضطرابات في الحيوانات المنوية: قلة العدد (قلة الحيوانات المنوية)، أو ضعف الحركة، أو تشوه في الشكل",
+    "دوالي الخصية: توسع في أوردة الخصية يرفع درجة الحرارة المحلية ويؤثر سلبًا على إنتاج الحيوانات المنوية",
+    "انسداد القنوات التناسلية (القناة الدافقة أو البربخ) مما يعيق انتقال الحيوانات المنوية",
+    "خلل هرموني: نقص في هرمون التستوستيرون أو هرمونات الغدة النخامية (FSH، LH) المؤثرة في إنتاج السائل المنوي",
+    "التهابات تناسلية سابقة (كالنكاف المصحوب بالتهاب الخصية، أو الكلاميديا، أو السيلان) أو سوء نزول الخصية في مرحلة الطفولة",
+    "عوامل مرتبطة بنمط الحياة: التدخين، وتناول الكحول، والتعرض المفرط للحرارة، والإجهاد المزمن، والسمنة"
+  ],
+  "redFlagsAr": [
+    "ألم مفاجئ أو مستمر في الخصية، أو انتفاخ أو كتلة ملموسة (يستوجب فحصًا عاجلًا لاستبعاد الالتواء أو ورم خصية)",
+    "غياب تام للقذف أو وجود قذف رجعي (عودة السائل المنوي إلى المثانة)",
+    "أعراض توحي بخلل هرموني شديد: تضخم الثدي عند الرجل، أو إرهاق شديد، أو زيادة مفاجئة في الوزن",
+    "تاريخ سابق للإصابة بالسرطان أو تلقي العلاج الكيميائي أو الإشعاعي مما قد يؤثر على الخصوبة بشكل دائم",
+    "استمرار العقم لأكثر من اثني عشر شهرًا (أو ستة أشهر إذا تجاوز أحد الزوجين 35 عامًا) دون استشارة طبية"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام بعد اثني عشر شهرًا من العلاقات الزوجية المنتظمة دون حمل، أو بعد ستة أشهر إذا كنت تتجاوز الخامسة والثلاثين أو لديك أمراض سابقة. سيجري لك التحاليل الأولية ثم يُحيلك إلى طبيب متخصص في أمراض الذكورة أو الجراحة البولية.",
+  "faqAr": [
+    {
+      "q": "هل يعني تحليل السائل المنوي الطبيعي أنني قادر على الإنجاب؟",
+      "a": "تحليل السائل المنوي الطبيعي مطمئن، لكنه لا يضمن الخصوبة بمفرده؛ إذ قد توجد عوامل أخرى كجودة الحمض النووي للحيوانات المنوية، أو اضطرابات هرمونية، أو عوامل مرتبطة بالزوجة. وفي حال عدم حدوث الحمل، يظل الفحص الشامل للزوجين ضرورة."
+    },
+    {
+      "q": "هل العقم عند الرجل دائمًا نهائي؟",
+      "a": "لا، فمعظم أسباب العقم عند الرجل قابلة للعلاج أو الالتفاف عليها. يمكن معالجة دوالي الخصية جراحيًا، وتصحيح الخلل الهرموني طبيًا، كما تتيح تقنيات الإخصاب الاصطناعي تحقيق الحمل حتى في حالات ضعف السائل المنوي الشديد."
+    }
+  ],
+  "intentAnswerAr": "إذا كنت تعاني من مشكلة في الخصوبة، ابدأ بزيارة طبيبك العام الذي سيطلب تحليل السائل المنوي وفحص الهرمونات، ثم يُحيلك إلى طبيب متخصص في أمراض الذكورة. وفي حال حدوث ألم مفاجئ في الخصية، توجه إلى قسم الطوارئ فورًا."
+}

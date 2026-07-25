@@ -1,0 +1,64 @@
+{
+  "slug": "oreillons",
+  "term": "Oreillons",
+  "kind": "DISEASE",
+  "specialty": "pediatrie",
+  "synonyms": ["parotidite épidémique", "ourlite"],
+  "shortAnswer": "Les oreillons sont une infection virale contagieuse qui provoque un gonflement douloureux des glandes salivaires, surtout chez l'enfant. Souvent bénins et guérissant spontanément en une à deux semaines, ils peuvent entraîner des complications graves chez l'adolescent ou l'adulte non vacciné.",
+  "causes": [
+    "Virus ourlien (paramyxovirus), transmis par la salive et les gouttelettes respiratoires",
+    "Contact direct avec une personne infectée, même avant l'apparition des symptômes",
+    "Absence ou incomplétude du vaccin ROR (rougeole-oreillons-rubéole)",
+    "Collectivités fermées (écoles, internats, casernes) favorisant la transmission",
+    "Épidémies saisonnières, plus fréquentes en hiver et au printemps",
+    "Immunité insuffisante chez les personnes n'ayant pas eu la maladie ni le vaccin"
+  ],
+  "redFlags": [
+    "Raideur de la nuque, maux de tête intenses ou vomissements répétés (risque de méningite)",
+    "Douleur testiculaire soudaine chez l'adolescent ou l'homme adulte (orchite)",
+    "Perte d'audition brutale ou acouphènes persistants",
+    "Fièvre très élevée (au-delà de 39,5 °C) ne cédant pas après 48 heures",
+    "Douleur abdominale sévère (risque de pancréatite)"
+  ],
+  "whenToConsult": "Consultez un médecin dès l'apparition d'un gonflement des joues ou de la mâchoire chez un enfant ou un adulte non vacciné. En cas de symptôme d'alerte (nuque raide, douleur testiculaire, perte auditive), rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "Les oreillons sont-ils encore fréquents au Maroc malgré la vaccination ?",
+      "a": "La vaccination ROR a fortement réduit les cas, mais des épidémies localisées surviennent encore, notamment dans les communautés où la couverture vaccinale est incomplète. Vérifiez le carnet de santé de votre enfant et consultez votre médecin si les deux doses n'ont pas été administrées."
+    },
+    {
+      "q": "Peut-on attraper les oreillons une deuxième fois ?",
+      "a": "Une primo-infection confère en général une immunité durable. Cependant, de rares réinfections ou cas post-vaccinaux existent. Si un gonflement parotidien récidive, consultez un médecin pour éliminer une autre cause (kyste, infection bactérienne, calcul salivaire)."
+    }
+  ],
+  "intentAnswer": "Pour les oreillons, consultez en premier lieu un médecin généraliste ou un pédiatre, qui posera le diagnostic et surveillera l'évolution. En cas de complication (méningite, orchite, surdité), une hospitalisation avec avis spécialisé (infectiologue, ORL, urologue) sera organisée. Rendez-vous aux urgences si des signes d'alerte apparaissent.",
+  "termAr": "النكاف",
+  "shortAnswerAr": "النكاف مرض فيروسي معدٍ يسبب تورماً مؤلماً في الغدد اللعابية، ويصيب الأطفال بصفة خاصة. يتعافى معظم المرضى من تلقاء أنفسهم في غضون أسبوع إلى أسبوعين، غير أنه قد يُفضي إلى مضاعفات خطيرة لدى المراهقين والبالغين غير الملقَّحين.",
+  "causesAr": [
+    "فيروس النكاف (من عائلة الفيروسات المخاطية)، ينتقل عبر اللعاب والرذاذ التنفسي",
+    "الاتصال المباشر بشخص مصاب، حتى قبل ظهور الأعراض عليه",
+    "غياب تطعيم الحصبة-النكاف-الحصبة الألمانية (ROR) أو عدم اكتماله",
+    "الأماكن المغلقة والمزدحمة كالمدارس والثكنات التي تُسهّل انتشار العدوى",
+    "الأوبئة الموسمية الأكثر شيوعاً في فصلَي الشتاء والربيع",
+    "ضعف المناعة لدى من لم يصابوا بالمرض ولم يتلقوا اللقاح"
+  ],
+  "redFlagsAr": [
+    "تصلب الرقبة أو صداع شديد أو قيء متكرر (خطر التهاب السحايا)",
+    "ألم مفاجئ في الخصية لدى المراهق أو الرجل البالغ (التهاب البربخ والخصية)",
+    "فقدان مفاجئ للسمع أو طنين مستمر في الأذن",
+    "ارتفاع شديد في درجة الحرارة يتجاوز 39.5 درجة مئوية ولا يتراجع خلال 48 ساعة",
+    "ألم بطني حاد (خطر التهاب البنكرياس)"
+  ],
+  "whenToConsultAr": "استشر طبيباً فور ظهور تورم في الخدين أو الفك لدى طفل أو بالغ غير ملقَّح. وفي حال ظهور أي علامة تحذيرية كتصلب الرقبة أو ألم الخصية أو فقدان السمع، توجه فوراً إلى قسم الطوارئ دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل لا يزال النكاف شائعاً بالمغرب رغم التطعيم؟",
+      "a": "أدّى لقاح ROR إلى تراجع ملحوظ في عدد الحالات، إلا أن بؤراً وبائية محلية لا تزال تظهر في المجتمعات ذات التغطية التطعيمية المنخفضة. تحقق من دفتر التطعيمات الخاص بطفلك واستشر طبيبك إذا لم تُعطَ الجرعتان."
+    },
+    {
+      "q": "هل يمكن الإصابة بالنكاف مرة ثانية؟",
+      "a": "تمنح الإصابة الأولى في الغالب مناعةً طويلة الأمد، غير أن حالات نادرة من إعادة الإصابة أو الإصابة بعد التطعيم موثَّقة. إذا تكرر تورم الغدة النكفية، استشر الطبيب لاستبعاد أسباب أخرى كالكيس أو العدوى البكتيرية أو حصوات القناة اللعابية."
+    }
+  ],
+  "intentAnswerAr": "في حالة النكاف، يُنصح بمراجعة طبيب عام أو طبيب أطفال في البداية ليتولى التشخيص ومتابعة الحالة. وعند ظهور مضاعفات كالتهاب السحايا أو الخصية أو الصمم، قد يستدعي الأمر الاستشفاء وإحالة المريض إلى أخصائي (طب معدٍ، أنف وأذن وحنجرة، مسالك بولية). توجه فوراً إلى الطوارئ إذا ظهرت أي علامة تحذيرية."
+}

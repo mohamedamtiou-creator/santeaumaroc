@@ -1,0 +1,64 @@
+{
+  "slug": "uveite",
+  "term": "Uvéite",
+  "kind": "DISEASE",
+  "specialty": "ophtalmologie",
+  "synonyms": ["inflammation de l'uvée", "iritis", "cyclite", "choroïdite"],
+  "shortAnswer": "L'uvéite est une inflammation de l'uvée, la couche intermédiaire de l'œil. Elle provoque un œil rouge douloureux avec baisse de vision. Bénigne si prise en charge tôt, elle peut devenir grave et menacer la vue si elle est négligée ou récidivante.",
+  "causes": [
+    "Maladies auto-immunes (spondylarthrite, sarcoïdose, lupus…)",
+    "Infections bactériennes ou virales (tuberculose, herpès, toxoplasmose…)",
+    "Traumatisme oculaire",
+    "Maladies inflammatoires intestinales (Crohn, rectocolite)",
+    "Cause inconnue (uvéite idiopathique, la plus fréquente)",
+    "Rarement : certains médicaments ou maladies rhumatismales"
+  ],
+  "redFlags": [
+    "Douleur oculaire intense et soudaine avec rougeur",
+    "Baisse brutale ou voilée de la vision",
+    "Forte sensibilité à la lumière (photophobie) accompagnée de larmoiement",
+    "Vision floue avec des « mouches volantes » nombreuses et nouvelles",
+    "Œil rouge sans amélioration après 24-48 heures"
+  ],
+  "whenToConsult": "Consultez un ophtalmologue dès l'apparition d'un œil rouge douloureux avec baisse de vision ou photophobie. En cas de douleur intense ou de perte visuelle brutale, rendez-vous aux urgences ophtalmologiques sans délai.",
+  "faq": [
+    {
+      "q": "L'uvéite peut-elle entraîner une perte de la vue ?",
+      "a": "Oui, si elle n'est pas traitée rapidement ou si elle récidive souvent, l'uvéite peut provoquer des complications sérieuses (glaucome, cataracte, décollement de rétine) pouvant altérer durablement la vision. Un suivi régulier chez l'ophtalmologue est indispensable."
+    },
+    {
+      "q": "L'uvéite peut-elle revenir après guérison ?",
+      "a": "Oui, les récidives sont fréquentes, surtout lorsque l'uvéite est liée à une maladie auto-immune sous-jacente. Il est important de traiter la cause et de respecter le suivi médical pour réduire le risque de rechute et de séquelles visuelles."
+    }
+  ],
+  "intentAnswer": "Pour une uvéite, commencez par consulter un médecin généraliste qui peut orienter le bilan. Mais l'avis d'un ophtalmologue est indispensable et urgent. En cas de douleur intense, de baisse brutale de vision ou de photophobie sévère, rendez-vous directement aux urgences ophtalmologiques.",
+  "termAr": "التهاب العنبية",
+  "shortAnswerAr": "التهاب العنبية هو التهاب يصيب الطبقة الوسطى من العين، ويتجلى بالاحمرار والألم وضعف البصر. يكون خفيفاً إذا عولج مبكراً، لكنه قد يُهدد البصر في حال الإهمال أو التكرار.",
+  "causesAr": [
+    "أمراض المناعة الذاتية (التهاب الفقار، الساركويد، الذئبة الحمراء…)",
+    "العدوى البكتيرية أو الفيروسية (السل، الهرپس، داء المقوسات…)",
+    "إصابة أو رضح في العين",
+    "أمراض التهابية معوية (مرض كرون، التهاب القولون التقرحي)",
+    "مجهولة السبب (النوع الأكثر شيوعاً)",
+    "نادراً: بعض الأدوية أو الأمراض الروماتيزمية"
+  ],
+  "redFlagsAr": [
+    "ألم شديد ومفاجئ في العين مع احمرار",
+    "تدهور مفاجئ أو ضبابي في الرؤية",
+    "حساسية مفرطة للضوء مصحوبة بدموع غزيرة",
+    "رؤية ضبابية مع ظهور بقع أو نقاط طائرة جديدة وكثيرة",
+    "عين حمراء لا تتحسن خلال 24 إلى 48 ساعة"
+  ],
+  "whenToConsultAr": "استشر طبيب العيون فور ظهور احمرار مؤلم مع ضعف في البصر أو حساسية للضوء. في حالة الألم الشديد أو فقدان الرؤية المفاجئ، توجّه فوراً إلى مستعجلات طب العيون دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل يمكن أن يؤدي التهاب العنبية إلى فقدان البصر؟",
+      "a": "نعم، إذا لم يُعالَج في الوقت المناسب أو تكرر كثيراً، قد يُفضي إلى مضاعفات خطيرة كالزرق والساد وانفصال الشبكية، مما قد يُضعف البصر بشكل دائم. لذلك تُعدّ المتابعة المنتظمة مع طبيب العيون ضرورةً لا خياراً."
+    },
+    {
+      "q": "هل يمكن أن يعود التهاب العنبية بعد الشفاء؟",
+      "a": "نعم، التكرار شائع خاصةً حين يرتبط الالتهاب بمرض مناعي ذاتي كامن. من الضروري علاج السبب الأصلي والالتزام بالمتابعة الطبية للحد من احتمال الانتكاسة وتفادي المضاعفات البصرية."
+    }
+  ],
+  "intentAnswerAr": "لاستشارة طبيب بخصوص التهاب العنبية، يمكن البدء بطبيب عام للتقييم الأولي، غير أن الفحص لدى طبيب عيون متخصص ضروري وعاجل. في حال وجود ألم شديد أو فقدان مفاجئ في البصر أو حساسية قوية للضوء، توجّه مباشرةً إلى مستعجلات طب العيون."
+}

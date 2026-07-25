@@ -1,0 +1,68 @@
+{
+  "slug": "hernie-discale",
+  "term": "Hernie discale",
+  "kind": "DISEASE",
+  "specialty": "traumatologie-orthopedie",
+  "synonyms": ["protrusion discale", "discopathie", "sciatique discale", "lombalgie discale"],
+  "shortAnswer": "Une hernie discale survient quand le noyau d'un disque vertébral dépasse et comprime un nerf. Elle provoque souvent des douleurs dans le dos irradiant vers un membre. Dans la plupart des cas elle guérit avec du repos et de la kinésithérapie ; elle devient urgente si elle touche la moelle ou les nerfs de la vessie.",
+  "causes": [
+    "Dégénérescence naturelle des disques liée à l'âge",
+    "Effort de soulèvement avec mauvaise posture (geste brusque, port de charges lourdes)",
+    "Travail sédentaire prolongé ou posture assise répétée avec flexion du tronc",
+    "Surpoids ou obésité augmentant la pression sur les disques lombaires",
+    "Traumatisme du dos (accident, chute, sport de contact)",
+    "Facteurs génétiques prédisposant à la faiblesse du tissu discal"
+  ],
+  "redFlags": [
+    "Perte de contrôle des urines ou des selles (urgence chirurgicale immédiate)",
+    "Faiblesse ou paralysie progressive d'une jambe ou d'un bras",
+    "Engourdissement dans la région du périnée ou des organes génitaux (syndrome de la queue de cheval)",
+    "Douleur nocturne intense réveillant la nuit, non soulagée par le repos (évoquer fracture pathologique ou tumeur)",
+    "Douleur dorsale chez une personne avec antécédent de cancer (risque de métastase vertébrale)",
+    "Douleur intense ne cédant pas après plusieurs semaines de traitement médical",
+    "Fièvre associée aux douleurs dorsales (évoquer une infection vertébrale)"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si la douleur dure plus de quelques jours, irradie dans un membre ou s'accompagne de fourmillements. Rendez-vous aux urgences sans attendre en cas de perte de contrôle de la vessie, des selles ou de faiblesse musculaire rapide.",
+  "faq": [
+    {
+      "q": "Est-ce qu'une hernie discale guérit toujours sans opération ?",
+      "a": "Dans la grande majorité des cas (plus de 80 %), la hernie régresse spontanément en quelques semaines à quelques mois grâce au repos relatif et à la kinésithérapie. L'intervention chirurgicale n'est envisagée qu'en cas d'échec du traitement prolongé ou devant des signes neurologiques graves. Seul votre médecin peut évaluer la situation et décider de la prise en charge adaptée."
+    },
+    {
+      "q": "Peut-on continuer à travailler avec une hernie discale ?",
+      "a": "Souvent oui, en adaptant les postures et en évitant le port de charges lourdes. Votre médecin évaluera si un arrêt temporaire est nécessaire selon la sévérité des symptômes et votre activité professionnelle. La reprise progressive et la rééducation sont généralement recommandées."
+    }
+  ],
+  "intentAnswer": "Pour une hernie discale, commencez par votre médecin généraliste qui orientera le diagnostic et prescrira la kinésithérapie. Si les symptômes persistent ou en cas de douleurs irradiant dans un membre, il vous adressera à un traumatologue-orthopédiste ou un neurochirurgien. Appelez le 15 ou allez aux urgences si vous perdez le contrôle de la vessie ou des selles.",
+  "termAr": "الفتق القرصي",
+  "shortAnswerAr": "الفتق القرصي يحدث حين يخرج نواة أحد الأقراص الفقرية ويضغط على عصب قريب، مما يسبب آلاماً في الظهر تمتد أحياناً إلى الأطراف. في أغلب الحالات يتحسن مع الراحة والعلاج الطبيعي، لكنه يصبح حالة طارئة إذا أثّر على المثانة أو أحدث شللاً.",
+  "causesAr": [
+    "تآكل الأقراص الفقرية الطبيعي مع التقدم في السن",
+    "رفع الأثقال بطريقة خاطئة أو التعرض لجهد مفاجئ",
+    "الجلوس لفترات طويلة في وضعيات خاطئة أو العمل المكتبي المستمر",
+    "زيادة الوزن التي تزيد الضغط على الأقراص القطنية",
+    "إصابة مباشرة في العمود الفقري جراء حادث أو سقطة",
+    "عوامل وراثية تجعل أنسجة الأقراص أكثر هشاشة"
+  ],
+  "redFlagsAr": [
+    "فقدان السيطرة على التبول أو التبرز (حالة طارئة تستوجب التدخل الفوري)",
+    "ضعف أو شلل تدريجي في إحدى الساقين أو الذراعين",
+    "تنميل في منطقة العجان أو الأعضاء التناسلية (متلازمة ذيل الفرس)",
+    "ألم ليلي شديد يوقظ من النوم ولا يخف بالراحة (يستدعي استبعاد كسر مرضي أو ورم)",
+    "ألم في الظهر لدى شخص لديه سابقة سرطان (خطر انتشار ورمي للفقرات)",
+    "ألم شديد لا يستجيب للعلاج بعد عدة أسابيع",
+    "حمى مصاحبة لآلام الظهر (تستدعي استبعاد عدوى فقرية)"
+  ],
+  "whenToConsultAr": "راجع طبيبك العام إذا استمر الألم أكثر من بضعة أيام أو امتد إلى أحد الأطراف أو رافقته تنملات. توجه فوراً إلى المستعجلات إذا فقدت السيطرة على المثانة أو الأمعاء أو لاحظت ضعفاً عضلياً متسارعاً.",
+  "faqAr": [
+    {
+      "q": "هل يُشفى الفتق القرصي دائماً دون جراحة؟",
+      "a": "في غالبية الحالات (أكثر من 80٪)، يتراجع الفتق تلقائياً خلال أسابيع إلى أشهر بفضل الراحة النسبية والعلاج الطبيعي. لا يُلجأ إلى الجراحة إلا عند فشل العلاج المطوّل أو ظهور أعراض عصبية خطيرة. طبيبك وحده يستطيع تقييم وضعك وتحديد الخطة العلاجية المناسبة."
+    },
+    {
+      "q": "هل يمكن مواصلة العمل مع وجود فتق قرصي؟",
+      "a": "في أغلب الأحيان نعم، شرط تعديل الأوضاع وتجنب حمل الأثقال. سيقيّم طبيبك مدى الحاجة إلى توقف مؤقت عن العمل حسب شدة الأعراض وطبيعة مهنتك، ويُنصح عادةً بالعودة التدريجية وبرنامج إعادة التأهيل."
+    }
+  ],
+  "intentAnswerAr": "إذا كنت تعاني من فتق قرصي، ابدأ بزيارة طبيبك العام الذي سيوجه التشخيص ويصف العلاج الطبيعي. إذا استمرت الأعراض أو امتد الألم إلى الأطراف، سيحيلك إلى أخصائي جراحة العظام والمفاصل أو جراح الأعصاب. اذهب فوراً إلى المستعجلات إذا فقدت السيطرة على المثانة أو الأمعاء."
+}

@@ -1,0 +1,66 @@
+{
+  "slug": "syndrome-des-jambes-sans-repos",
+  "term": "Syndrome des jambes sans repos",
+  "kind": "DISEASE",
+  "specialty": "neurologie",
+  "synonyms": ["maladie de Willis-Ekbom", "impatiences musculaires nocturnes", "SJSR"],
+  "shortAnswer": "Besoin irrépressible de bouger les jambes, surtout la nuit, accompagné de sensations désagréables (picotements, tiraillements). Souvent bénin mais gênant pour le sommeil. Consultez si les symptômes perturbent vos nuits ou s'aggravent progressivement.",
+  "causes": [
+    "Origine idiopathique (cause inconnue) dans la majorité des cas, avec probable composante génétique",
+    "Carence en fer ou en ferritine, fréquente au Maroc",
+    "Insuffisance rénale chronique (dialyse notamment)",
+    "Grossesse, surtout au troisième trimestre",
+    "Neuropathies périphériques (diabète, alcool, etc.)",
+    "Certains médicaments (antihistaminiques, antidépresseurs) peuvent aggraver ou déclencher les symptômes"
+  ],
+  "redFlags": [
+    "Symptômes sévères empêchant tout sommeil et survenant aussi en journée",
+    "Apparition brutale et rapide aggravation en quelques jours",
+    "Association avec des douleurs intenses, une faiblesse musculaire ou une paralysie",
+    "Présence de sang dans les urines ou signes d'insuffisance rénale (gonflement, fatigue extrême)",
+    "Symptômes survenant chez un enfant ou chez une femme enceinte avec anémie sévère",
+    "Jambe gonflée, rouge, chaude et douloureuse d'un seul côté : signe possible de phlébite (thrombose veineuse profonde) — urgence médicale immédiate"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si les symptômes perturbent régulièrement votre sommeil ou votre qualité de vie. Un bilan sanguin simple (fer, ferritine) peut identifier une cause traitable rapidement.",
+  "faq": [
+    {
+      "q": "Le syndrome des jambes sans repos est-il une maladie grave ?",
+      "a": "Dans la grande majorité des cas, il n'est pas dangereux mais peut fortement altérer la qualité du sommeil et donc la santé générale. Il est important de consulter pour en identifier la cause, car une carence en fer ou une autre maladie sous-jacente peut être en jeu."
+    },
+    {
+      "q": "Peut-on soulager les symptômes sans médicament ?",
+      "a": "Oui, certaines mesures aident : bouger les jambes, prendre un bain chaud ou froid, éviter la caféine et l'alcool le soir, maintenir des horaires de sommeil réguliers et pratiquer une activité physique modérée en journée. Un médecin peut guider vers des solutions adaptées à votre situation."
+    }
+  ],
+  "intentAnswer": "Pour le syndrome des jambes sans repos, commencez par un médecin généraliste qui prescrira un bilan sanguin de base (fer, ferritine, bilan rénal). Si les symptômes persistent ou s'aggravent, il vous orientera vers un neurologue. En cas de symptômes sévères soudains, consultez en urgence.",
+  "termAr": "متلازمة تململ الساقين",
+  "shortAnswerAr": "حاجة ملحّة للتحرك لا يمكن مقاومتها، خاصةً في الليل، مصحوبة بإحساسات مزعجة كالتنميل أو الشدّ في الساقين. غالباً غير خطيرة لكنها تُعكّر النوم. استشر طبيباً إذا تكررت الأعراض أو تفاقمت.",
+  "causesAr": [
+    "سبب مجهول في أغلب الحالات مع احتمال وراثي",
+    "نقص الحديد أو الفيريتين، وهو شائع في المغرب",
+    "الفشل الكلوي المزمن، خاصةً لدى مرضى الغسيل الكلوي",
+    "الحمل، ولا سيما في الثلث الثالث",
+    "اعتلال الأعصاب الطرفية (السكري، الكحول وغيرها)",
+    "بعض الأدوية كمضادات الهيستامين ومضادات الاكتئاب قد تُسبّب الأعراض أو تُفاقمها"
+  ],
+  "redFlagsAr": [
+    "أعراض شديدة تمنع النوم كلياً وتظهر أيضاً خلال النهار",
+    "ظهور مفاجئ مع تدهور سريع خلال أيام قليلة",
+    "اقتران الأعراض بألم حاد أو ضعف عضلي أو شلل",
+    "وجود دم في البول أو علامات فشل كلوي (تورم، إرهاق شديد)",
+    "ظهور الأعراض عند طفل أو امرأة حامل تعاني من فقر دم حاد",
+    "ساق واحدة متورمة وحمراء ودافئة ومؤلمة: علامة محتملة على تجلط الأوردة العميقة — حالة طارئة تستوجب الرعاية الفورية"
+  ],
+  "whenToConsultAr": "راجع طبيبك العام إذا كانت الأعراض تُخلّ بنومك أو بجودة حياتك بانتظام. فحص دم بسيط (الحديد والفيريتين) يمكن أن يكشف سبباً قابلاً للعلاج بسرعة.",
+  "faqAr": [
+    {
+      "q": "هل متلازمة تململ الساقين مرض خطير؟",
+      "a": "في الغالب لا تشكّل خطراً جسيماً، لكنها تُضرّ بجودة النوم وتؤثر على الصحة العامة. المهم استشارة الطبيب للكشف عن السبب، إذ قد يكون نقص الحديد أو مرض آخر كامناً وراءها."
+    },
+    {
+      "q": "هل يمكن تخفيف الأعراض دون دواء؟",
+      "a": "نعم، ثمة تدابير تساعد: تحريك الساقين، الاستحمام بماء دافئ أو بارد، تجنّب الكافيين والكحول مساءً، الحفاظ على مواعيد نوم منتظمة، وممارسة نشاط بدني معتدل خلال النهار. طبيبك سيرشدك إلى الحلول المناسبة لحالتك."
+    }
+  ],
+  "intentAnswerAr": "لمتلازمة تململ الساقين، ابدأ بزيارة طبيب عام يطلب تحاليل أساسية (الحديد والفيريتين ووظائف الكلى). إن استمرت الأعراض أو اشتدّت، يُحيلك إلى طبيب أعصاب متخصص. في حال الأعراض الشديدة المفاجئة، اطلب الرعاية الطارئة فوراً."
+}

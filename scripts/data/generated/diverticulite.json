@@ -1,0 +1,68 @@
+{
+  "slug": "diverticulite",
+  "term": "Diverticulite",
+  "kind": "DISEASE",
+  "specialty": "gastro-enterologie",
+  "synonyms": ["inflammation des diverticules", "diverticulose infectée"],
+  "shortAnswer": "La diverticulite est l'inflammation ou l'infection de petites poches (diverticules) formées sur la paroi du côlon. Une crise légère peut être traitée médicalement, mais certains signes imposent une consultation urgente pour éviter des complications graves.",
+  "causes": [
+    "Alimentation pauvre en fibres favorisant la constipation et la pression sur le côlon",
+    "Âge avancé (les diverticules se forment surtout après 50 ans)",
+    "Sédentarité et manque d'activité physique",
+    "Obésité augmentant la pression abdominale",
+    "Tabagisme, facteur de risque reconnu",
+    "Prise prolongée de certains anti-inflammatoires (à évoquer avec le médecin)"
+  ],
+  "redFlags": [
+    "Douleur abdominale intense et brutale, notamment dans le bas-ventre gauche, qui ne cède pas",
+    "Fièvre élevée (supérieure à 38,5 °C) accompagnée de frissons",
+    "Ventre dur, gonflé et douloureux au toucher (signe de péritonite possible)",
+    "Saignement rectal abondant ou rouge vif dans les selles",
+    "Vomissements persistants avec incapacité à s'alimenter ou à s'hydrater",
+    "Arrêt total des selles et des gaz (signe possible d'occlusion intestinale, urgence chirurgicale)",
+    "Signes de choc : pâleur, sueurs froides, pouls rapide, grande faiblesse ou confusion — appelez le 15 ou le 150 immédiatement"
+  ],
+  "whenToConsult": "Consultez votre médecin dès les premières douleurs abdominales persistantes ou en cas de fièvre. Rendez-vous aux urgences immédiatement si la douleur est très intense, si le ventre est dur, en cas de saignement rectal, d'arrêt des selles et des gaz, ou de signes de choc (pâleur, pouls rapide, confusion).",
+  "faq": [
+    {
+      "q": "La diverticulite est-elle contagieuse ou héréditaire ?",
+      "a": "Non, la diverticulite n'est ni contagieuse ni strictement héréditaire. Elle résulte surtout du mode de vie (alimentation, sédentarité) et du vieillissement naturel du côlon. Adopter une alimentation riche en fibres aide à réduire le risque."
+    },
+    {
+      "q": "Peut-on éviter les récidives après une première crise de diverticulite ?",
+      "a": "Oui, en grande partie. Une alimentation riche en légumes, fruits et céréales complètes, associée à une bonne hydratation et à l'activité physique régulière, diminue significativement le risque de nouvelles crises. Votre médecin ou gastro-entérologue vous guidera sur les habitudes à adopter."
+    }
+  ],
+  "intentAnswer": "Pour une diverticulite, consultez d'abord votre médecin généraliste qui évaluera la gravité et orientera si nécessaire vers un gastro-entérologue pour un bilan complet (coloscopie, scanner). En cas de douleur intense, de fièvre élevée, de saignement rectal, d'arrêt des selles et des gaz, ou de signes de choc, rendez-vous directement aux urgences.",
+  "termAr": "التهاب الرتوج",
+  "shortAnswerAr": "التهاب الرتوج هو التهاب أو عدوى في جيوب صغيرة تتشكل على جدار القولون. قد تكون النوبة الخفيفة قابلة للعلاج طبياً، غير أن بعض الأعراض تستوجب استشارة طارئة فورية لتجنب مضاعفات خطيرة.",
+  "causesAr": [
+    "نظام غذائي فقير بالألياف يؤدي إلى الإمساك وزيادة الضغط على القولون",
+    "التقدم في السن، إذ تتشكل الرتوج في الغالب بعد سن الخمسين",
+    "قلة الحركة وانعدام النشاط البدني",
+    "السمنة التي تزيد الضغط على منطقة البطن",
+    "التدخين الذي يُعدّ عاملاً معروفاً للخطر",
+    "الاستخدام المطوّل لبعض مضادات الالتهاب، وهو أمر ينبغي مناقشته مع الطبيب"
+  ],
+  "redFlagsAr": [
+    "ألم بطني حاد ومفاجئ، خاصة في الجانب الأيسر السفلي من البطن، لا يزول",
+    "ارتفاع الحرارة فوق 38.5 درجة مئوية مع قشعريرة",
+    "بطن متصلب ومنتفخ ومؤلم عند اللمس، مما قد يشير إلى التهاب الصفاق",
+    "نزيف مستقيمي غزير أو دم أحمر في البراز",
+    "قيء متواصل مع عجز عن الأكل أو الشرب",
+    "توقف تام عن التبرز وخروج الغازات، وهو علامة محتملة على انسداد معوي يستوجب تدخلاً جراحياً",
+    "علامات الصدمة: شحوب، تعرق بارد، نبض سريع، وهن شديد أو ارتباك — اتصل بالإسعاف فوراً"
+  ],
+  "whenToConsultAr": "استشر طبيبك فور ظهور آلام بطنية مستمرة أو في حالة ارتفاع الحرارة. توجه إلى المستعجلات فوراً إذا كان الألم شديداً أو كان البطن متصلباً، أو في حالة نزيف مستقيمي، أو توقف البراز والغازات، أو ظهور علامات الصدمة كالشحوب والنبض السريع والارتباك.",
+  "faqAr": [
+    {
+      "q": "هل التهاب الرتوج معدٍ أو وراثي؟",
+      "a": "لا، التهاب الرتوج ليس معدياً ولا وراثياً بالمعنى الدقيق. يرتبط أساساً بنمط الحياة كالتغذية وقلة الحركة وبالتقدم في السن. اعتماد نظام غذائي غني بالألياف يساعد في تقليل خطر الإصابة."
+    },
+    {
+      "q": "هل يمكن تجنب تكرار نوبات التهاب الرتوج بعد الأولى؟",
+      "a": "نعم، إلى حد بعيد. الإكثار من تناول الخضار والفواكه والحبوب الكاملة مع شرب الماء بانتظام وممارسة النشاط البدني يقلل بشكل ملحوظ من احتمال تكرار النوبات. سيرشدك طبيبك أو طبيب الجهاز الهضمي إلى أنسب العادات الصحية."
+    }
+  ],
+  "intentAnswerAr": "في حالة التهاب الرتوج، ابدأ باستشارة طبيبك العام الذي سيقيّم خطورة الحالة ويحيلك عند الحاجة إلى طبيب متخصص في الجهاز الهضمي لإجراء فحوصات كالتنظير أو التصوير بالأشعة. أما إذا كان الألم شديداً أو الحرارة مرتفعة أو ظهر نزيف مستقيمي أو توقف البراز والغازات أو علامات الصدمة، فتوجه مباشرة إلى المستعجلات."
+}

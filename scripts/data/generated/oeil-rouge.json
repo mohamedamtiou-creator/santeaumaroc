@@ -1,0 +1,64 @@
+{
+  "slug": "oeil-rouge",
+  "term": "Œil rouge",
+  "kind": "SYMPTOM",
+  "specialty": "ophtalmologie",
+  "synonyms": ["rougeur oculaire", "hyperhémie conjonctivale", "œil injecté"],
+  "shortAnswer": "L'œil rouge désigne une rougeur visible du blanc de l'œil, souvent bénigne (allergie, fatigue, conjonctivite). Elle peut aussi signaler une urgence ophtalmologique si elle s'accompagne de douleur intense, baisse de vision ou traumatisme. Un avis médical est recommandé dès le doute.",
+  "causes": [
+    "Conjonctivite virale ou bactérienne (infection fréquente, souvent contagieuse)",
+    "Allergie (pollen, poussière, animaux domestiques)",
+    "Sécheresse oculaire ou irritation par fumée, chlore ou lentilles de contact",
+    "Corps étranger dans l'œil ou traumatisme",
+    "Glaucome aigu par fermeture de l'angle (urgence)",
+    "Uvéite ou inflammation interne de l'œil"
+  ],
+  "redFlags": [
+    "Douleur intense dans ou autour de l'œil",
+    "Baisse soudaine ou trouble de la vision",
+    "Sensibilité importante à la lumière (photophobie)",
+    "Traumatisme oculaire ou projection d'un produit chimique",
+    "Rougeur unilatérale accompagnée de nausées ou de maux de tête violents"
+  ],
+  "whenToConsult": "Consultez un médecin rapidement si la rougeur dure plus de 48 heures, s'accompagne de douleur, de sécrétions abondantes ou d'une gêne visuelle. En cas de traumatisme ou de baisse de vision soudaine, rendez-vous aux urgences ophtalmologiques sans attendre.",
+  "faq": [
+    {
+      "q": "Un œil rouge est-il toujours contagieux ?",
+      "a": "Non. Seules certaines conjonctivites virales ou bactériennes sont contagieuses. Les rougeurs dues à une allergie, une sécheresse ou une irritation ne se transmettent pas. Un médecin peut vous aider à distinguer les causes."
+    },
+    {
+      "q": "Peut-on continuer à porter des lentilles de contact avec un œil rouge ?",
+      "a": "Il est fortement déconseillé de porter des lentilles tant que l'œil est rouge ou irrité. Cela peut aggraver l'inflammation et favoriser une infection. Reprenez le port uniquement après avis médical et disparition des symptômes."
+    }
+  ],
+  "intentAnswer": "Pour un œil rouge sans gravité, commencez par consulter un médecin généraliste qui pourra orienter vers un ophtalmologue si nécessaire. En cas de douleur intense, de baisse de vision soudaine ou de traumatisme, rendez-vous directement aux urgences ophtalmologiques.",
+  "termAr": "عين حمراء",
+  "shortAnswerAr": "العين الحمراء هي احمرار مرئي في بياض العين، وغالباً ما يكون سبباً بسيطاً كالحساسية أو التعب أو التهاب الملتحمة. غير أنها قد تكون علامة على حالة طارئة إذا رافقها ألم شديد أو تغير في الرؤية أو إصابة. يُنصح باستشارة طبيب عند الشك.",
+  "causesAr": [
+    "التهاب الملتحمة الفيروسي أو البكتيري (شائع وقد يكون معدياً)",
+    "الحساسية (حبوب اللقاح، الغبار، الحيوانات الأليفة)",
+    "جفاف العين أو تهيجها بسبب الدخان أو الكلور أو العدسات اللاصقة",
+    "جسم غريب في العين أو إصابة مباشرة",
+    "الزرق الحاد بانغلاق الزاوية (حالة طارئة)",
+    "التهاب العنبية أو الالتهاب الداخلي للعين"
+  ],
+  "redFlagsAr": [
+    "ألم شديد داخل العين أو حولها",
+    "تدهور مفاجئ أو ضبابية في الرؤية",
+    "حساسية مفرطة للضوء (رهاب الضوء)",
+    "إصابة في العين أو تعرضها لمادة كيميائية",
+    "احمرار في عين واحدة مصحوب بغثيان أو صداع شديد"
+  ],
+  "whenToConsultAr": "استشر طبيباً بسرعة إذا استمر الاحمرار أكثر من 48 ساعة أو رافقه ألم أو إفرازات غزيرة أو اضطراب في الرؤية. في حالة الإصابة أو فقدان الرؤية المفاجئ، توجه فوراً إلى مستعجلات طب العيون.",
+  "faqAr": [
+    {
+      "q": "هل العين الحمراء معدية دائماً؟",
+      "a": "لا. فقط بعض أشكال التهاب الملتحمة الفيروسي أو البكتيري تكون معدية. أما الاحمرار الناجم عن الحساسية أو الجفاف أو التهيج فلا ينتقل من شخص لآخر. يمكن للطبيب مساعدتك في تحديد السبب."
+    },
+    {
+      "q": "هل يمكن الاستمرار في ارتداء العدسات اللاصقة مع وجود عين حمراء؟",
+      "a": "يُنصح بشدة بتجنب ارتداء العدسات اللاصقة طالما العين حمراء أو متهيجة، لأن ذلك قد يزيد الالتهاب ويرفع خطر الإصابة بالعدوى. استأنف ارتداءها فقط بعد استشارة طبيب وزوال الأعراض."
+    }
+  ],
+  "intentAnswerAr": "في حالة احمرار العين دون أعراض خطيرة، ابدأ باستشارة طبيب عام الذي سيحيلك إلى طبيب عيون عند الحاجة. أما في حالة الألم الشديد أو فقدان الرؤية المفاجئ أو الإصابة، فتوجه مباشرة إلى مستعجلات طب العيون."
+}

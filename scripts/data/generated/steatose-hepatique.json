@@ -1,0 +1,64 @@
+{
+  "slug": "steatose-hepatique",
+  "term": "Stéatose hépatique (foie gras)",
+  "kind": "DISEASE",
+  "specialty": "gastro-enterologie",
+  "synonyms": ["foie gras", "NAFLD", "NASH", "stéatohépatite non alcoolique", "maladie du foie gras"],
+  "shortAnswer": "La stéatose hépatique est une accumulation de graisse dans le foie. Dans sa forme simple, elle est souvent bénigne et réversible. Elle devient préoccupante si elle évolue vers une inflammation (NASH) ou une cirrhose, d'où l'importance d'un suivi médical régulier.",
+  "causes": [
+    "Excès de poids ou obésité abdominale",
+    "Diabète de type 2 ou résistance à l'insuline",
+    "Alimentation riche en sucres rapides et en graisses saturées",
+    "Consommation excessive d'alcool",
+    "Certains médicaments ou suppléments pris sur de longues périodes",
+    "Prédisposition génétique ou antécédents familiaux de maladies hépatiques"
+  ],
+  "redFlags": [
+    "Jaunisse (peau ou yeux jaunes) ou urines très foncées",
+    "Douleur intense ou gonflement du ventre, surtout en haut à droite",
+    "Vomissements de sang ou selles noires",
+    "Fatigue extrême soudaine, confusion mentale ou jambes très gonflées",
+    "Perte de poids rapide et inexpliquée"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si vous présentez des facteurs de risque (surpoids, diabète, fatigue persistante). Si l'un des signes d'alerte ci-dessus apparaît, rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "La stéatose hépatique peut-elle guérir complètement ?",
+      "a": "Oui, dans la plupart des cas, une stéatose simple peut régresser grâce à des changements de mode de vie : alimentation équilibrée, activité physique régulière et perte de poids progressive. Un suivi médical permet de s'assurer que le foie récupère bien."
+    },
+    {
+      "q": "La stéatose hépatique donne-t-elle toujours des symptômes ?",
+      "a": "Non, la stéatose est souvent silencieuse et découverte par hasard lors d'une échographie ou d'une prise de sang. C'est pourquoi un bilan médical régulier est recommandé, surtout en cas de surpoids, de diabète ou d'antécédents familiaux."
+    }
+  ],
+  "intentAnswer": "Pour une stéatose hépatique, consultez d'abord un médecin généraliste qui prescrira un bilan sanguin et une échographie. En cas de complications ou de formes sévères, il vous orientera vers un gastro-entérologue ou hépatologue. En présence de signes d'alerte (jaunisse, douleur abdominale intense), rendez-vous aux urgences.",
+  "termAr": "الكبد الدهني (تَنَكُّس دهني كبدي)",
+  "shortAnswerAr": "الكبد الدهني هو تراكم الدهون داخل خلايا الكبد. في حالته البسيطة يكون غالباً حميداً وقابلاً للتراجع. غير أنه قد يتطور إلى التهاب أو تليف إذا أُهمل، لذا يستوجب متابعة طبية منتظمة.",
+  "causesAr": [
+    "زيادة الوزن أو السمنة، ولا سيما في منطقة البطن",
+    "داء السكري من النوع الثاني أو مقاومة الأنسولين",
+    "النظام الغذائي الغني بالسكريات السريعة والدهون المشبعة",
+    "الإفراط في تناول الكحول",
+    "بعض الأدوية أو المكملات الغذائية عند تناولها لفترات طويلة",
+    "الاستعداد الوراثي أو وجود سوابق عائلية لأمراض الكبد"
+  ],
+  "redFlagsAr": [
+    "اليرقان (اصفرار الجلد أو بياض العينين) أو داكنة البول بشكل غير معتاد",
+    "ألم شديد أو انتفاخ في البطن، خاصةً في الجهة اليمنى العلوية",
+    "تقيؤ دم أو براز أسود القوام",
+    "تعب مفاجئ وشديد، أو ارتباك ذهني، أو انتفاخ ملحوظ في الساقين",
+    "فقدان وزن سريع غير مبرر"
+  ],
+  "whenToConsultAr": "راجع طبيبك العام إذا كنت تعاني من عوامل الخطر كالسمنة أو السكري أو التعب المستمر. وإذا ظهر أي من علامات الخطر المذكورة، فتوجه فوراً إلى خدمات الطوارئ دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل يمكن أن يشفى الكبد الدهني تماماً؟",
+      "a": "نعم، في أغلب الحالات يمكن أن يتراجع الكبد الدهني البسيط من خلال تغيير نمط الحياة، كاتباع نظام غذائي متوازن وممارسة النشاط البدني وخسارة الوزن تدريجياً. والمتابعة الطبية ضرورية للتحقق من تعافي الكبد بشكل صحيح."
+    },
+    {
+      "q": "هل يسبب الكبد الدهني أعراضاً دائماً؟",
+      "a": "لا، كثيراً ما يكون الكبد الدهني صامتاً ويُكتشف بالصدفة خلال تحليل للدم أو تصوير بالموجات فوق الصوتية. لذلك يُنصح بإجراء فحص طبي دوري، خاصةً في حالة زيادة الوزن أو السكري أو الأمراض الكبدية العائلية."
+    }
+  ],
+  "intentAnswerAr": "في حالة الكبد الدهني، ابدأ بزيارة طبيبك العام الذي سيطلب تحاليل الدم وفحصاً بالموجات فوق الصوتية. وإذا استدعت الحالة ذلك، سيحيلك إلى طبيب متخصص في أمراض الجهاز الهضمي أو الكبد. أما إذا ظهرت علامات خطر كاليرقان أو الألم الشديد في البطن، فتوجه فوراً إلى الطوارئ."
+}

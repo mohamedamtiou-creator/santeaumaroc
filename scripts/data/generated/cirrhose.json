@@ -1,0 +1,64 @@
+{
+  "slug": "cirrhose",
+  "term": "Cirrhose du foie",
+  "kind": "DISEASE",
+  "specialty": "gastro-enterologie",
+  "synonyms": ["cirrhose hépatique", "fibrose du foie", "insuffisance hépatique chronique"],
+  "shortAnswer": "La cirrhose est une cicatrisation progressive du foie qui altère son fonctionnement. Au stade précoce, elle peut rester silencieuse des années. Certains signes — jaunisse, ventre gonflé, confusion — nécessitent une consultation rapide chez un médecin.",
+  "causes": [
+    "Consommation excessive et prolongée d'alcool (cause la plus fréquente au Maroc)",
+    "Hépatites virales chroniques B et C non traitées",
+    "Stéatose hépatique non alcoolique (foie gras lié à l'obésité ou au diabète)",
+    "Maladies auto-immunes du foie (hépatite auto-immune, cholangite biliaire primitive)",
+    "Maladies héréditaires (hémochromatose, maladie de Wilson)",
+    "Prise prolongée de certains médicaments hépatotoxiques sans surveillance médicale"
+  ],
+  "redFlags": [
+    "Jaunisse (peau ou yeux jaunes) apparaissant ou s'aggravant rapidement",
+    "Gonflement important du ventre (ascite) ou des jambes",
+    "Confusion mentale, somnolence excessive ou comportement inhabituel (encéphalopathie)",
+    "Vomissements de sang ou selles noires et poisseuses (hémorragie digestive)",
+    "Fièvre avec douleur abdominale chez une personne déjà atteinte de cirrhose"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès que vous avez des facteurs de risque (alcool, hépatite chronique, foie gras) ou des symptômes persistants comme la fatigue intense ou l'ictère. En présence de l'un des signes d'alerte ci-dessus, rendez-vous aux urgences sans délai.",
+  "faq": [
+    {
+      "q": "La cirrhose est-elle réversible ?",
+      "a": "Au stade précoce (fibrose légère), certaines causes peuvent être traitées pour stopper ou ralentir l'évolution — par exemple, arrêter l'alcool ou traiter une hépatite virale. La cicatrisation avancée est en revanche irréversible. Un suivi médical régulier permet de prévenir les complications et de détecter tôt tout signe de dégradation."
+    },
+    {
+      "q": "Peut-on vivre normalement avec une cirrhose ?",
+      "a": "Avec un suivi gastro-entérologique rigoureux, une alimentation adaptée, l'arrêt total de l'alcool et le traitement de la cause sous-jacente, de nombreuses personnes maintiennent une qualité de vie satisfaisante pendant des années. Votre médecin adaptera le suivi selon le stade de la maladie."
+    }
+  ],
+  "intentAnswer": "Pour une cirrhose du foie, commencez par consulter votre médecin généraliste, qui orientera vers un gastro-entérologue ou hépatologue pour bilan et suivi spécialisé. Si vous présentez des signes graves (saignement digestif, confusion, jaunisse soudaine), rendez-vous immédiatement aux urgences.",
+  "termAr": "تليف الكبد",
+  "shortAnswerAr": "تليف الكبد هو تندّب تدريجي في أنسجة الكبد يُضعف وظائفه. قد يبقى صامتاً لسنوات في مراحله الأولى. غير أن أعراضاً كاليرقان وانتفاخ البطن والتشوش الذهني تستوجب استشارة طبية عاجلة.",
+  "causesAr": [
+    "الإفراط في تناول الكحول لفترات طويلة (السبب الأكثر شيوعاً في المغرب)",
+    "التهاب الكبد الفيروسي المزمن B وC غير المُعالَج",
+    "الكبد الدهني غير الكحولي المرتبط بالسمنة أو السكري",
+    "أمراض الكبد المناعية الذاتية (التهاب الكبد المناعي، التهاب القنوات الصفراوية الأولي)",
+    "الأمراض الوراثية كداء ترسّب الأصبغة الدموية ومرض ويلسون",
+    "تناول بعض الأدوية السامة للكبد لفترات طويلة دون إشراف طبي"
+  ],
+  "redFlagsAr": [
+    "اليرقان (اصفرار الجلد أو بياض العينين) المتصاعد أو المفاجئ",
+    "انتفاخ شديد في البطن (الاستسقاء) أو في الساقين",
+    "تشوش ذهني أو نعاس مفرط أو تغيّر في السلوك (اعتلال الدماغ الكبدي)",
+    "قيء مصحوب بدم أو براز أسود قطراني (نزيف هضمي)",
+    "حمى مع ألم في البطن لدى شخص مصاب بتليف الكبد"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور ظهور عوامل الخطر (الكحول، التهاب الكبد المزمن، الكبد الدهني) أو أعراض مستمرة كالتعب الشديد أو اليرقان. وإذا لاحظت أياً من علامات الخطر أعلاه، فاتجه إلى أقرب مستعجلات فوراً دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل يمكن عكس تليف الكبد؟",
+      "a": "في المراحل الأولى، يمكن لعلاج السبب الجذري — كالإقلاع عن الكحول أو معالجة التهاب الكبد الفيروسي — أن يوقف تطور المرض أو يُبطئه. أما التليف المتقدم فيظل غير قابل للشفاء التام. لذلك تُعدّ المتابعة الطبية المنتظمة ضرورية للوقاية من المضاعفات."
+    },
+    {
+      "q": "هل يمكن العيش بشكل طبيعي مع تليف الكبد؟",
+      "a": "مع متابعة منتظمة لدى طبيب الجهاز الهضمي، واتباع نظام غذائي ملائم، والامتناع التام عن الكحول وعلاج المسبب، يحافظ كثير من المرضى على نوعية حياة جيدة لسنوات. يحدد طبيبك برنامج المتابعة المناسب وفق درجة التليف."
+    }
+  ],
+  "intentAnswerAr": "لاستشارة طبيب حول تليف الكبد، ابدأ بطبيب عام يُحيلك إلى أخصائي في أمراض الجهاز الهضمي والكبد لإجراء الفحوصات والمتابعة المتخصصة. وفي حال ظهور أعراض خطيرة كنزيف هضمي أو تشوش ذهني أو اصفرار مفاجئ، توجّه فوراً إلى المستعجلات."
+}

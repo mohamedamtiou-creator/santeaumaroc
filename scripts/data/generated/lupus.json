@@ -1,0 +1,64 @@
+{
+  "slug": "lupus",
+  "term": "Lupus",
+  "kind": "DISEASE",
+  "specialty": "medecine-interne",
+  "synonyms": ["lupus érythémateux systémique", "LES", "lupus discoïde"],
+  "shortAnswer": "Le lupus est une maladie auto-immune chronique où le système immunitaire attaque les propres tissus du corps. D'évolution variable — parfois légère, parfois sévère —, il peut toucher la peau, les articulations et des organes vitaux. Un suivi médical spécialisé est indispensable. Certains signes exigent une consultation en urgence.",
+  "causes": [
+    "Dérèglement du système immunitaire (maladie auto-immune)",
+    "Facteurs génétiques et antécédents familiaux",
+    "Facteurs hormonaux (plus fréquent chez les femmes en âge de procréer)",
+    "Exposition prolongée au soleil pouvant déclencher des poussées",
+    "Certaines infections virales comme déclencheurs",
+    "Stress physique ou émotionnel intense"
+  ],
+  "redFlags": [
+    "Douleur thoracique ou essoufflement soudain (atteinte cardiaque, pulmonaire ou embolie possible)",
+    "Sang dans les urines ou gonflement important des jambes (atteinte rénale)",
+    "Convulsions, confusion soudaine ou déficit neurologique brutal (accident vasculaire possible)",
+    "Fièvre élevée avec état général très dégradé",
+    "Douleur ou gonflement brutal d'un membre (thrombose liée au syndrome des antiphospholipides)"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès l'apparition d'éruptions cutanées inexpliquées, de fatigue prolongée ou de douleurs articulaires persistantes. En cas de signes d'alerte, rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "Le lupus est-il contagieux ?",
+      "a": "Non, le lupus n'est absolument pas contagieux. C'est une maladie auto-immune, ce qui signifie qu'elle résulte d'un dérèglement interne du système immunitaire et ne peut pas se transmettre d'une personne à une autre."
+    },
+    {
+      "q": "Peut-on mener une vie normale avec un lupus ?",
+      "a": "Avec un suivi médical régulier et un traitement adapté par un spécialiste, de nombreuses personnes atteintes de lupus mènent une vie active. L'évitement du soleil, la gestion du stress et le respect des consultations sont essentiels pour limiter les poussées. L'évolution reste cependant variable selon les individus, d'où l'importance d'un suivi spécialisé."
+    }
+  ],
+  "intentAnswer": "Pour le lupus, consultez d'abord votre médecin généraliste qui orientera vers un interniste ou un rhumatologue, spécialistes des maladies auto-immunes. En cas de douleur thoracique, de sang dans les urines, de signes neurologiques ou de douleur brutale d'un membre, rendez-vous immédiatement aux urgences.",
+  "termAr": "الذئبة الحمراء",
+  "shortAnswerAr": "الذئبة الحمراء مرض مناعي مزمن يهاجم فيه جهاز المناعة أنسجة الجسم نفسه. تتفاوت شدّته بين خفيفة وحادة، وقد يمسّ الجلد والمفاصل والأعضاء الحيوية. المتابعة الطبية المتخصصة ضرورية. بعض الأعراض تستوجب الذهاب إلى المستعجلات فوراً.",
+  "causesAr": [
+    "اضطراب في جهاز المناعة يجعله يهاجم أنسجة الجسم",
+    "عوامل وراثية واستعداد عائلي",
+    "عوامل هرمونية (أكثر شيوعاً عند النساء في سن الإنجاب)",
+    "التعرض المطوّل لأشعة الشمس مما قد يُحفّز نوبات المرض",
+    "بعض الفيروسات كعوامل مُحفِّزة",
+    "الإجهاد الجسدي أو النفسي الشديد"
+  ],
+  "redFlagsAr": [
+    "ألم في الصدر أو ضيق مفاجئ في التنفس (قد يشير إلى مضاعفات قلبية أو رئوية أو جلطة رئوية)",
+    "دم في البول أو تورم شديد في الساقين (قد يدل على إصابة الكلى)",
+    "تشنجات أو ارتباك مفاجئ أو عجز عصبي حاد (قد يشير إلى سكتة دماغية)",
+    "حمى مرتفعة مع تدهور ملحوظ في الحالة العامة",
+    "ألم أو تورم مفاجئ في أحد الأطراف (تخثّر مرتبط بمتلازمة أضداد الفوسفوليبيد)"
+  ],
+  "whenToConsultAr": "استشر طبيب عام عند ظهور طفح جلدي غير مبرر، أو تعب مزمن، أو آلام مفصلية متواصلة. وفي حال ظهور أي علامة خطر، توجّه إلى المستعجلات فوراً دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل الذئبة الحمراء معدية؟",
+      "a": "لا، الذئبة الحمراء ليست معدية إطلاقاً. إنها مرض مناعي ذاتي ينشأ من داخل الجسم نتيجة خلل في جهاز المناعة، ولا يمكن أن تنتقل من شخص إلى آخر."
+    },
+    {
+      "q": "هل يمكن العيش بشكل طبيعي مع مرض الذئبة؟",
+      "a": "مع المتابعة الطبية المنتظمة والعلاج المناسب من قِبَل أخصائي، يتمكن كثير من المصابين من العيش حياة فاعلة. تجنّب الشمس، وإدارة التوتر، والالتزام بالمواعيد الطبية ضرورية للحدّ من النوبات. غير أن التطور يبقى متفاوتاً من شخص لآخر، مما يجعل المتابعة المتخصصة أمراً أساسياً."
+    }
+  ],
+  "intentAnswerAr": "لمرض الذئبة الحمراء، ابدأ بزيارة طبيب عام يحيلك إلى أخصائي الطب الداخلي أو أمراض الروماتيزم، المتخصصَين في أمراض المناعة الذاتية. وفي حال ألم الصدر أو دم في البول أو أعراض عصبية أو ألم مفاجئ في أحد الأطراف، اذهب إلى المستعجلات فوراً."
+}

@@ -1,0 +1,64 @@
+{
+  "slug": "dent-de-sagesse",
+  "term": "Douleur de dent de sagesse",
+  "kind": "SYMPTOM",
+  "specialty": "chirurgie-dentaire",
+  "synonyms": ["douleur dentaire postérieure", "poussée dentaire adulte", "troisième molaire douloureuse", "péricoronarite"],
+  "shortAnswer": "La douleur de dent de sagesse survient quand la troisième molaire peine à percer. Souvent bénigne et passagère, elle peut devenir sérieuse en cas d'infection, de blocage ou de compression des dents voisines. Une consultation dentaire est recommandée.",
+  "causes": [
+    "Éruption incomplète ou difficile de la dent (dent incluse ou semi-incluse)",
+    "Manque de place dans la mâchoire entraînant une poussée douloureuse",
+    "Inflammation de la gencive autour de la dent (péricoronarite)",
+    "Infection bactérienne sous le capuchon de gencive recouvrant la dent",
+    "Carie de la dent de sagesse ou d'une dent adjacente comprimée",
+    "Kyste ou complications de l'inclusion dentaire"
+  ],
+  "redFlags": [
+    "Gonflement important de la joue, du cou ou sous la mâchoire",
+    "Trismus (difficultés à ouvrir la bouche) ou douleur qui irradie vers l'oreille ou le cou",
+    "Fièvre associée à la douleur dentaire",
+    "Pus ou mauvaise odeur persistante dans la bouche malgré l'hygiène",
+    "Difficulté à avaler ou à respirer"
+  ],
+  "whenToConsult": "Consultez un chirurgien-dentiste dès que la douleur dure plus de deux jours, s'intensifie ou s'accompagne de gonflement. En cas de fièvre, de trismus ou de difficulté à avaler, rendez-vous en urgence.",
+  "faq": [
+    {
+      "q": "Faut-il toujours extraire une dent de sagesse douloureuse ?",
+      "a": "Pas nécessairement. Le dentiste évalue par radiographie si la dent a de la place pour sortir correctement. Si elle est bien positionnée et ne cause pas de complication, une surveillance suffit parfois. L'extraction est recommandée en cas d'inclusion, d'infections répétées ou de compression des dents voisines."
+    },
+    {
+      "q": "Combien de temps dure la douleur de poussée d'une dent de sagesse ?",
+      "a": "Une poussée sans complication dure généralement quelques jours à deux semaines. Si la douleur persiste au-delà de deux semaines ou revient régulièrement, une consultation s'impose pour écarter une infection ou une inclusion problématique."
+    }
+  ],
+  "intentAnswer": "Pour une douleur de dent de sagesse, consultez en premier lieu un chirurgien-dentiste, qui réalisera une radiographie et décidera du traitement. Un médecin généraliste peut orienter en attendant. En cas de gonflement, fièvre ou difficulté à avaler, rendez-vous aux urgences sans délai.",
+  "termAr": "ألم ضرس العقل",
+  "shortAnswerAr": "ألم ضرس العقل يحدث عند صعوبة بزوغ الضرس الثالث. في الغالب يكون مؤقتاً وغير خطير، لكنه قد يتطور إلى عدوى أو ضغط على الأسنان المجاورة. يُنصح بزيارة طبيب الأسنان في كل الأحوال.",
+  "causesAr": [
+    "بزوغ جزئي أو صعب للضرس (ضرس محجوز أو شبه محجوز)",
+    "ضيق الفك مما يسبب ضغطاً وألماً عند محاولة الضرس للنمو",
+    "التهاب اللثة المحيطة بالضرس (التهاب الغطاء اللثوي)",
+    "عدوى بكتيرية تحت الغطاء اللثوي المغطي للضرس",
+    "تسوس في ضرس العقل أو في الضرس المجاور المضغوط",
+    "كيس أو مضاعفات ناجمة عن احتجاز الضرس في العظم"
+  ],
+  "redFlagsAr": [
+    "تورم ملحوظ في الخد أو الرقبة أو تحت الفك",
+    "صعوبة في فتح الفم أو ألم يمتد نحو الأذن أو الرقبة",
+    "حمى مصاحبة لألم الأسنان",
+    "قيح أو رائحة كريهة مستمرة في الفم رغم العناية بالنظافة",
+    "صعوبة في البلع أو التنفس"
+  ],
+  "whenToConsultAr": "راجع طبيب الأسنان إذا استمر الألم أكثر من يومين أو اشتد أو رافقه تورم. أما إذا ظهرت الحمى أو صعوبة في فتح الفم أو البلع، فتوجّه إلى طوارئ المستشفى فوراً.",
+  "faqAr": [
+    {
+      "q": "هل يجب دائماً خلع ضرس العقل المؤلم؟",
+      "a": "ليس بالضرورة. يقيّم طبيب الأسنان عبر الأشعة ما إذا كان هناك مساحة كافية لبزوغ الضرس بشكل سليم. إن كان وضعه جيداً ولم يسبب مضاعفات، فقد تكفي المراقبة. أما إذا كان محجوزاً أو سبّب التهابات متكررة أو ضغطاً على الأسنان المجاورة، فيُوصى بالخلع."
+    },
+    {
+      "q": "كم يدوم ألم بزوغ ضرس العقل عادةً؟",
+      "a": "عادةً يستمر الألم البسيط من أيام إلى أسبوعين. إذا امتد الألم أكثر من أسبوعين أو تكرر، وجب الاستشارة للتأكد من غياب عدوى أو احتجاز إشكالي للضرس."
+    }
+  ],
+  "intentAnswerAr": "لألم ضرس العقل، ابدأ بزيارة طبيب الأسنان الذي سيجري الأشعة اللازمة ويقرر العلاج المناسب. يمكن للطبيب العام الإحالة في البداية. في حال ظهور تورم أو حمى أو صعوبة في البلع، توجّه فوراً إلى المستعجلات."
+}

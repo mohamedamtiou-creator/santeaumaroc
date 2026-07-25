@@ -1,0 +1,64 @@
+{
+  "slug": "nevralgie-du-trijumeau",
+  "term": "Névralgie du trijumeau",
+  "kind": "DISEASE",
+  "specialty": "neurologie",
+  "synonyms": ["névralgie faciale", "tic douloureux de la face", "prosopalgie"],
+  "shortAnswer": "La névralgie du trijumeau est une douleur faciale intense, fulgurante, survenant par décharges électriques brèves sur un côté du visage. Elle est souvent déclenchée par des gestes anodins (manger, parler). Bénigne dans sa forme classique, elle nécessite un suivi médical pour soulager et écarter une cause grave.",
+  "causes": [
+    "Compression du nerf trijumeau par un vaisseau sanguin au niveau du cerveau (cause la plus fréquente)",
+    "Sclérose en plaques, qui peut endommager la gaine du nerf",
+    "Tumeur ou kyste exerçant une pression sur le nerf",
+    "Traumatisme facial ou chirurgie dentaire ayant lésé le nerf",
+    "Zona ophtalmique ou facial (infection virale du nerf)",
+    "Rarement, cause inconnue (forme idiopathique)"
+  ],
+  "redFlags": [
+    "Douleur faciale associée à une faiblesse, un engourdissement ou une paralysie d'un côté du visage ou du corps",
+    "Troubles de la vision, de l'audition ou de l'équilibre accompagnant la douleur",
+    "Fièvre élevée, raideur de la nuque ou éruption cutanée avec la douleur (évoquer une méningite ou un zona)",
+    "Douleur progressive et permanente, sans intervalle libre, chez un sujet jeune (moins de 40 ans)",
+    "Perte de poids inexpliquée ou signes généraux associés évoquant une cause tumorale"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès la première crise de douleur faciale intense pour bénéficier d'un bilan adapté. En cas de signes d'alerte (paralysie, troubles visuels, fièvre), rendez-vous aux urgences sans délai.",
+  "faq": [
+    {
+      "q": "La névralgie du trijumeau peut-elle guérir définitivement ?",
+      "a": "Il n'existe pas de guérison garantie, mais de nombreux traitements permettent de contrôler les crises efficacement. Dans certains cas, une intervention chirurgicale (décompression vasculaire) peut supprimer la douleur durablement. Votre neurologue évaluera la meilleure option selon votre situation."
+    },
+    {
+      "q": "Les soins dentaires peuvent-ils provoquer ou aggraver la névralgie du trijumeau ?",
+      "a": "Oui, les actes dentaires (extraction, soins) peuvent déclencher une crise car le nerf trijumeau innerve aussi les dents et les gencives. Il est essentiel d'informer votre dentiste de votre diagnostic afin qu'il adapte la prise en charge et coordonne au besoin avec votre neurologue."
+    }
+  ],
+  "intentAnswer": "Pour une névralgie du trijumeau, consultez d'abord votre médecin généraliste qui orientera vers un neurologue, spécialiste des douleurs nerveuses faciales. Une IRM cérébrale sera souvent prescrite. En cas de paralysie faciale, de fièvre ou de troubles visuels brutaux, rendez-vous immédiatement aux urgences.",
+  "termAr": "ألم العصب الثلاثي التوائم",
+  "shortAnswerAr": "ألم العصب الثلاثي التوائم حالة تتميز بنوبات مفاجئة من الألم الشديد في أحد جانبي الوجه، يشبه الصعقة الكهربائية، وقد يُثيره مجرد الأكل أو الكلام. في الغالب لا يشكّل خطراً مباشراً، لكنه يستوجب متابعة طبية لتحديد السبب وتخفيف الألم.",
+  "causesAr": [
+    "ضغط أحد الأوعية الدموية على العصب الثلاثي عند قاعدة الدماغ (السبب الأكثر شيوعاً)",
+    "التصلب المتعدد الذي يتلف غمد العصب",
+    "وجود ورم أو كيس يضغط على العصب",
+    "إصابة الوجه أو تدخل طب الأسنان الذي يؤذي العصب",
+    "الحلأ النطاقي (الهربس) في منطقة الوجه أو العين",
+    "في حالات نادرة، لا يُعرف السبب (شكل مجهول المنشأ)"
+  ],
+  "redFlagsAr": [
+    "ألم الوجه المصحوب بضعف أو تنميل أو شلل في أحد جانبي الوجه أو الجسم",
+    "اضطرابات في الرؤية أو السمع أو التوازن ترافق الألم",
+    "حمى شديدة مع تيبس الرقبة أو طفح جلدي (قد تدل على التهاب السحايا أو الهربس)",
+    "ألم متصاعد ودائم دون انقطاع لدى شخص دون الأربعين من العمر",
+    "فقدان الوزن غير المبرر أو أعراض عامة تستدعي استبعاد ورم"
+  ],
+  "whenToConsultAr": "راجع طبيبك العام فور ظهور أول نوبة ألم حاد في الوجه للحصول على التقييم المناسب. وإذا ظهرت أعراض تحذيرية كالشلل أو اضطراب الرؤية أو الحمى، توجّه إلى المستعجلات فوراً دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل يمكن الشفاء التام من ألم العصب الثلاثي التوائم؟",
+      "a": "لا يوجد علاج مضمون للشفاء الكامل، غير أن العلاجات المتاحة تُمكّن من السيطرة على النوبات بشكل فعّال. وفي بعض الحالات، قد يُسهم التدخل الجراحي (رفع الضغط عن العصب) في تخفيف الألم لفترات طويلة. يُحدد طبيب الأعصاب الخيار الأنسب بحسب وضعك الصحي."
+    },
+    {
+      "q": "هل يمكن لعلاج الأسنان أن يُفاقم ألم العصب الثلاثي التوائم؟",
+      "a": "نعم، قد تُثير التدخلات السنية كالخلع أو الحشو نوبات ألم، إذ يمتد العصب الثلاثي إلى الأسنان واللثة. لذا، أخبر طبيب أسنانك بتشخيصك كي يُكيّف العلاج وينسق عند الحاجة مع طبيب الأعصاب."
+    }
+  ],
+  "intentAnswerAr": "لألم العصب الثلاثي التوائم، ابدأ بزيارة طبيبك العام الذي سيُحيلك إلى طبيب الأعصاب المختص بآلام الوجه العصبية. وكثيراً ما يُوصى بإجراء صورة بالرنين المغناطيسي للدماغ. وإذا ظهر شلل مفاجئ أو اضطراب في الرؤية أو حمى، اتجه إلى المستعجلات فوراً."
+}

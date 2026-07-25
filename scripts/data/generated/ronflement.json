@@ -1,0 +1,64 @@
+{
+  "slug": "ronflement",
+  "term": "Ronflement",
+  "kind": "SYMPTOM",
+  "specialty": "oto-rhino-laryngologie",
+  "synonyms": ["ronflement nocturne", "apnée du sommeil légère", "ronchopathie"],
+  "shortAnswer": "Le ronflement est un bruit produit pendant le sommeil par la vibration des tissus mous de la gorge. Souvent bénin et lié à la position ou au surpoids, il peut signaler un trouble respiratoire sérieux s'il s'accompagne de pauses respiratoires ou de fatigue excessive.",
+  "causes": [
+    "Obstruction nasale (déviation de la cloison, polypes, rhinite chronique)",
+    "Excès de poids entraînant un rétrécissement des voies aériennes",
+    "Consommation d'alcool ou de somnifères qui relâchent les muscles du pharynx",
+    "Position de sommeil sur le dos favorisant la chute de la langue",
+    "Hypertrophie des amygdales ou des végétations (surtout chez l'enfant)",
+    "Anatomie particulière du palais mou ou de la luette allongée"
+  ],
+  "redFlags": [
+    "Pauses respiratoires observées par l'entourage pendant le sommeil",
+    "Somnolence excessive et incontrôlable en journée malgré une nuit longue",
+    "Maux de tête matinaux répétés et sensation de sommeil non réparateur",
+    "Troubles de la concentration, irritabilité ou problèmes de mémoire persistants",
+    "Étouffements ou réveils brutaux avec sensation d'étouffement"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si le ronflement est fréquent ou signalé comme très fort par votre entourage. Une consultation urgente s'impose si des pauses respiratoires ou une somnolence diurne intense sont présentes.",
+  "faq": [
+    {
+      "q": "Le ronflement est-il toujours lié à une apnée du sommeil ?",
+      "a": "Non, le ronflement peut être simple et bénin, sans apnée. Mais lorsqu'il s'accompagne de pauses respiratoires, de fatigue ou de somnolence diurne, un bilan pour dépister un syndrome d'apnées obstructives du sommeil (SAOS) est indispensable."
+    },
+    {
+      "q": "Quels changements de mode de vie peuvent réduire le ronflement ?",
+      "a": "Perdre du poids si nécessaire, dormir sur le côté plutôt que sur le dos, éviter l'alcool le soir et arrêter le tabac sont des mesures qui réduisent souvent le ronflement. Un médecin peut orienter vers des solutions adaptées selon la cause."
+    }
+  ],
+  "intentAnswer": "Pour un ronflement, consultez d'abord votre médecin généraliste qui évaluera la situation et pourra vous orienter. En cas de pauses respiratoires, de somnolence diurne ou d'étouffements nocturnes, une consultation chez un oto-rhino-laryngologiste (ORL) ou un spécialiste du sommeil est recommandée. Rendez-vous aux urgences si vous présentez des difficultés respiratoires aiguës.",
+  "termAr": "الشخير",
+  "shortAnswerAr": "الشخير هو صوت يحدث أثناء النوم بسبب اهتزاز أنسجة الحلق. غالبًا ما يكون بسيطًا ومرتبطًا بوضعية النوم أو زيادة الوزن، لكنه قد يشير إلى اضطراب تنفسي خطير إذا رافقته توقفات في التنفس أو تعب مفرط خلال النهار.",
+  "causesAr": [
+    "انسداد الأنف (انحراف الحاجز الأنفي، الزوائد الأنفية، التهاب مزمن)",
+    "زيادة الوزن التي تؤدي إلى تضيق مجرى الهواء",
+    "تناول الكحول أو المنومات التي ترخي عضلات الحلق",
+    "النوم على الظهر مما يسبب سقوط اللسان للخلف",
+    "تضخم اللوزتين أو الغدد (خاصة عند الأطفال)",
+    "خصوصية تشريحية في الحنك الرخو أو اللهاة الطويلة"
+  ],
+  "redFlagsAr": [
+    "توقفات في التنفس يلاحظها المقربون أثناء النوم",
+    "نعاس شديد ومستمر خلال النهار رغم ساعات نوم كافية",
+    "صداع صباحي متكرر وإحساس بنوم غير مريح",
+    "صعوبة في التركيز أو تهيج أو مشاكل في الذاكرة",
+    "الاستيقاظ المفاجئ مع الإحساس بالاختناق"
+  ],
+  "whenToConsultAr": "استشر طبيبًا عامًا إذا كان الشخير متكررًا أو شديدًا وأزعج المقربين. استشارة عاجلة ضرورية إذا رافق الشخيرَ توقفاتٌ في التنفس أو نعاس مفرط خلال النهار.",
+  "faqAr": [
+    {
+      "q": "هل الشخير مرتبط دائمًا بانقطاع التنفس أثناء النوم؟",
+      "a": "لا، قد يكون الشخير بسيطًا وغير خطير. لكن إذا اقترن بتوقفات في التنفس أو تعب مزمن أو نعاس نهاري، فمن الضروري إجراء فحص للكشف عن متلازمة انقطاع التنفس الانسدادي أثناء النوم."
+    },
+    {
+      "q": "ما التغييرات اليومية التي تساعد على تخفيف الشخير؟",
+      "a": "إنقاص الوزن عند الحاجة، والنوم على الجانب بدلًا من الظهر، وتجنب الكحول مساءً، والإقلاع عن التدخين كلها تساهم في تخفيف الشخير. يمكن لطبيبك توجيهك نحو الحلول المناسبة حسب السبب."
+    }
+  ],
+  "intentAnswerAr": "لمشكلة الشخير، ابدأ بزيارة طبيبك العام الذي سيقيّم الوضع ويحيلك عند الحاجة. إذا رافق الشخيرَ توقفاتٌ في التنفس أو نعاس شديد أو اختناق ليلي، فاستشر طبيب أنف وأذن وحنجرة (ORL) أو متخصصًا في اضطرابات النوم. توجّه إلى المستعجلات فورًا عند أي صعوبة تنفسية حادة."
+}

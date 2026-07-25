@@ -1,0 +1,66 @@
+{
+  "slug": "prostatite",
+  "term": "Prostatite",
+  "kind": "DISEASE",
+  "specialty": "urologie-et-chirurgie-urologique",
+  "synonyms": ["infection de la prostate", "inflammation de la prostate", "prostatite bactérienne", "prostatite chronique"],
+  "shortAnswer": "La prostatite est une inflammation de la prostate, glande masculine située sous la vessie. Elle peut être aiguë (infection bactérienne soudaine) ou chronique. La forme aiguë nécessite une consultation urgente ; la forme chronique, un suivi médical régulier.",
+  "causes": [
+    "Infection bactérienne (bactéries urinaires remontant vers la prostate)",
+    "Infection sexuellement transmissible non traitée",
+    "Sondage urinaire ou geste médical récent sur les voies urinaires",
+    "Hypertrophie bénigne de la prostate favorisant la stase urinaire",
+    "Cause non infectieuse ou inflammatoire (prostatite chronique sans germe identifié)",
+    "Facteurs de risque : rapports non protégés, infections urinaires à répétition, immunodépression"
+  ],
+  "redFlags": [
+    "Fièvre élevée (> 38,5 °C) avec frissons et douleurs pelviennes intenses",
+    "Impossibilité totale d'uriner (rétention urinaire aiguë)",
+    "Sang dans les urines (hématurie) associé à des douleurs",
+    "Douleurs vives irradiant vers le bas-ventre, le périnée ou le rectum",
+    "État général très altéré : confusion, hypotension, pouls rapide (signes de sepsis)",
+    "Aggravation rapide des symptômes malgré la prise en charge initiale (risque d'abcès prostatique)"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès l'apparition de brûlures urinaires, de fièvre ou de douleurs pelviennes persistantes. En cas de fièvre élevée avec impossibilité d'uriner, rendez-vous aux urgences sans délai.",
+  "faq": [
+    {
+      "q": "La prostatite est-elle contagieuse ou liée à l'activité sexuelle ?",
+      "a": "La prostatite bactérienne n'est pas directement contagieuse, mais certaines infections sexuellement transmissibles peuvent en être la cause. Un bilan IST peut être recommandé par votre médecin selon le contexte."
+    },
+    {
+      "q": "Peut-on confondre la prostatite avec une simple infection urinaire ?",
+      "a": "Les symptômes se ressemblent (brûlures, envies fréquentes d'uriner), mais la prostatite s'accompagne souvent de fièvre et de douleurs pelviennes plus intenses. Seul un examen médical avec analyse d'urine permet de les distinguer."
+    }
+  ],
+  "intentAnswer": "Pour une prostatite, consultez d'abord votre médecin généraliste qui pourra demander une analyse d'urine et orienter vers un urologue si nécessaire. En cas de fièvre élevée ou d'impossibilité d'uriner, rendez-vous directement aux urgences.",
+  "termAr": "التهاب البروستاتا",
+  "shortAnswerAr": "التهاب البروستاتا هو التهاب في الغدة البروستاتية الموجودة أسفل المثانة عند الرجال. قد يكون حاداً بسبب عدوى بكتيرية مفاجئة، أو مزمناً. الشكل الحاد يستوجب استشارة طبية عاجلة، والمزمن يحتاج متابعة منتظمة.",
+  "causesAr": [
+    "عدوى بكتيرية تنتقل من المسالك البولية إلى البروستاتا",
+    "عدوى منقولة جنسياً لم تُعالَج في الوقت المناسب",
+    "إجراء طبي على المسالك البولية كالقسطرة",
+    "تضخم البروستاتا الحميد الذي يُعيق تدفق البول",
+    "التهاب غير معدٍ أو مجهول السبب (التهاب البروستاتا المزمن بدون جراثيم)",
+    "عوامل خطر: علاقات جنسية غير محمية، عدوى بولية متكررة، ضعف المناعة"
+  ],
+  "redFlagsAr": [
+    "حمى مرتفعة (أكثر من 38.5 درجة) مع قشعريرة وآلام شديدة في الحوض",
+    "عجز تام عن التبول (احتباس بولي حاد)",
+    "وجود دم في البول (بيلة دموية) مع ألم",
+    "آلام حادة تمتد نحو أسفل البطن أو العجان أو المستقيم",
+    "تدهور الحالة العامة: ارتباك أو انخفاض ضغط الدم أو سرعة القلب (علامات الإنتان)",
+    "تفاقم الأعراض بسرعة رغم تلقي العلاج الأولي (خطر خراج البروستاتا)"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور ظهور حرقة في التبول أو حمى أو آلام متواصلة في الحوض. أما في حالة الحمى الشديدة أو تعذُّر التبول، فتوجَّه إلى قسم الاستعجالات فوراً.",
+  "faqAr": [
+    {
+      "q": "هل التهاب البروستاتا معدٍ أو مرتبط بالنشاط الجنسي؟",
+      "a": "التهاب البروستاتا البكتيري ليس معدياً بشكل مباشر، غير أن بعض الأمراض المنقولة جنسياً قد تكون سبباً له. قد يوصي طبيبك بإجراء فحص للكشف عن هذه الأمراض حسب سياقك الصحي."
+    },
+    {
+      "q": "هل يمكن الخلط بين التهاب البروستاتا والتهاب المسالك البولية؟",
+      "a": "الأعراض متشابهة كالحرقة وكثرة التبول، لكن التهاب البروستاتا يصاحبه في الغالب حمى وآلام حوضية أشد. التمييز بينهما يتطلب فحصاً طبياً وتحليل البول."
+    }
+  ],
+  "intentAnswerAr": "في حالة التهاب البروستاتا، يُستحسن استشارة الطبيب العام أولاً ليطلب تحليل البول ويُحيلك إلى طبيب المسالك البولية عند الحاجة. وإذا كنت تعاني من حمى شديدة أو تعذُّر في التبول، فتوجَّه مباشرة إلى الاستعجالات."
+}

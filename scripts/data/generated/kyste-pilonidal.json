@@ -1,0 +1,64 @@
+{
+  "slug": "kyste-pilonidal",
+  "term": "Kyste pilonidal",
+  "kind": "DISEASE",
+  "specialty": "chirurgie-generale",
+  "synonyms": ["sinus pilonidal", "fistule sacro-coccygienne", "kyste sacro-coccygien"],
+  "shortAnswer": "Le kyste pilonidal est une cavité infectée au niveau du sillon interfessier, souvent due à des poils incarnés. Bénin mais récidivant, il peut devenir un abcès douloureux nécessitant une intervention chirurgicale. Une douleur vive, de la fièvre ou un écoulement purulent imposent une consultation rapide.",
+  "causes": [
+    "Poils incarnés qui pénètrent sous la peau au niveau du sillon fessier",
+    "Frottements répétés et pression prolongée en position assise (métiers sédentaires, longs trajets en voiture)",
+    "Pilosité abondante et peau grasse, favorisant l'obstruction des follicules pileux",
+    "Surpoids ou obésité, qui accentuent les frictions dans le sillon interfessier",
+    "Hygiène locale insuffisante favorisant l'accumulation de bactéries",
+    "Facteurs génétiques : certaines personnes sont constitutionnellement plus prédisposées"
+  ],
+  "redFlags": [
+    "Douleur soudaine, intense et pulsatile au niveau du coccyx ou du sillon fessier",
+    "Fièvre supérieure à 38,5 °C associée à un gonflement local rouge et chaud (signe d'abcès)",
+    "Écoulement purulent ou malodorant persistant, signe de fistule active",
+    "Rougeur s'étendant rapidement autour de la lésion avec douleur disproportionnée, peau noirâtre ou crépitante : signes d'une infection nécrosante grave (fasciite nécrosante / gangrène de Fournier) — urgence chirurgicale absolue, appelez le 15 ou rendez-vous immédiatement aux urgences",
+    "Récidive multiple malgré des traitements antérieurs, nécessitant une prise en charge chirurgicale définitive"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès l'apparition d'une grosseur douloureuse ou d'un écoulement dans le sillon fessier. En cas d'abcès (douleur intense, fièvre, rougeur étendue), rendez-vous rapidement aux urgences ou chez un chirurgien.",
+  "faq": [
+    {
+      "q": "Le kyste pilonidal guérit-il seul, sans opération ?",
+      "a": "Dans de rares cas, un kyste pilonidal non infecté et de petite taille peut rester stable, mais il ne guérit pratiquement jamais de lui-même. Sans traitement, il risque de s'infecter et de former un abcès. La chirurgie reste le seul traitement définitif pour éviter les récidives."
+    },
+    {
+      "q": "Comment éviter une récidive après traitement ?",
+      "a": "Pour limiter les récidives, il est conseillé de maintenir une hygiène rigoureuse de la zone, de retirer régulièrement les poils du sillon fessier (épilation ou rasage), d'éviter les longues périodes en position assise et, en cas de surpoids, de chercher à maintenir un poids santé. Suivez scrupuleusement les conseils de votre chirurgien après l'opération."
+    }
+  ],
+  "intentAnswer": "Pour un kyste pilonidal, consultez d'abord votre médecin généraliste, qui évaluera la lésion et vous orientera. Le spécialiste de référence est le chirurgien général ou viscéral, qui réalise l'exérèse chirurgicale. En cas d'abcès avec fièvre ou douleur intense, rendez-vous directement aux urgences.",
+  "termAr": "الكيس الشعري (الجيب الشعري)",
+  "shortAnswerAr": "الكيس الشعري هو تجويف مصاب تحت الجلد في منطقة العجان، يحدث غالبًا بسبب أشعار منغرزة. يكون في العادة حميدًا لكنه يميل إلى التكرار، وقد يتحول إلى خراج مؤلم يستوجب التدخل الجراحي. الألم الشديد المفاجئ أو الحمى أو خروج صديد تستدعي استشارة طبية عاجلة.",
+  "causesAr": [
+    "أشعار منغرزة تخترق الجلد في منطقة الأخدود بين الأليتين",
+    "الاحتكاك المستمر والضغط الناجم عن الجلوس لفترات طويلة (العمل المكتبي، قيادة السيارة)",
+    "كثرة الشعر والبشرة الدهنية مما يعرقل حويصلات الشعر",
+    "الوزن الزائد أو السمنة التي تزيد الاحتكاك في منطقة العجان",
+    "قلة النظافة المحلية مما يُهيئ البيئة للبكتيريا",
+    "الاستعداد الوراثي لدى بعض الأشخاص"
+  ],
+  "redFlagsAr": [
+    "ألم مفاجئ شديد نابض في منطقة العصعص أو بين الأليتين",
+    "حمى تتجاوز 38.5 درجة مئوية مصحوبة بتورم محلي أحمر وساخن (علامة خراج)",
+    "خروج صديد أو إفرازات كريهة الرائحة بشكل مستمر دليل على ناسور نشط",
+    "احمرار ينتشر بسرعة حول الكيس مع ألم شديد غير متناسب أو جلد داكن أو طقطقة عند الضغط : علامات التهاب لفافي نخري خطير (غنغرينا فورنييه) — حالة طوارئ جراحية، اتصل بالإسعاف أو اتجه فوراً إلى المستعجلات",
+    "تكرار الإصابة رغم العلاجات السابقة مما يستوجب تدخلاً جراحياً نهائياً"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام عند ظهور تورم مؤلم أو إفرازات في منطقة الأخدود بين الأليتين. في حالة الخراج (ألم حاد، حمى، احمرار واسع)، اتجه فوراً إلى قسم الطوارئ أو الجراح.",
+  "faqAr": [
+    {
+      "q": "هل يمكن أن يشفى الكيس الشعري من تلقاء نفسه دون عملية جراحية؟",
+      "a": "نادراً ما يستقر الكيس الشعري غير المصاب دون تدهور، وفي الغالب لا يشفى وحده. فإذا تُرك دون علاج، فقد يتحول إلى خراج. الجراحة هي العلاج الوحيد الذي يقضي على الكيس نهائياً ويحدّ من تكراره."
+    },
+    {
+      "q": "كيف أتجنب عودة الكيس الشعري بعد العلاج؟",
+      "a": "للحدّ من التكرار، يُنصح بالعناية الجيدة بنظافة المنطقة، وإزالة الشعر بانتظام (بالحلاقة أو التخلص الكامل منه)، وتجنّب الجلوس لفترات طويلة، والحفاظ على وزن صحي عند الحاجة. اتبع تعليمات جراحك بدقة بعد العملية."
+    }
+  ],
+  "intentAnswerAr": "للكيس الشعري، ابدأ باستشارة طبيبك العام الذي سيقيّم الحالة ويحيلك عند الحاجة. المختص المرجعي هو جراح عام أو جراح الجهاز الهضمي الذي يجري استئصال الكيس. في حال ظهور خراج مع حمى أو ألم شديد، توجّه مباشرة إلى قسم الطوارئ."
+}

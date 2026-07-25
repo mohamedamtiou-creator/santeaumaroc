@@ -1,0 +1,64 @@
+{
+  "slug": "erysipele",
+  "term": "Érysipèle",
+  "kind": "DISEASE",
+  "specialty": "dermatologie",
+  "synonyms": ["dermite streptococcique", "érysipèle de la jambe", "cellulite infectieuse superficielle"],
+  "shortAnswer": "L'érysipèle est une infection bactérienne de la peau, le plus souvent au niveau de la jambe, causant une rougeur chaude et douloureuse avec fièvre. Bénin s'il est traité rapidement, il peut devenir grave si les signes d'alarme sont ignorés.",
+  "causes": [
+    "Bactérie streptocoque introduite par une petite plaie, coupure ou fissure cutanée",
+    "Porte d'entrée : mycose entre les orteils, égratignure, piqûre d'insecte, ulcère de jambe",
+    "Mauvaise circulation veineuse ou lymphatique des membres inférieurs",
+    "Obésité, qui fragilise la peau et favorise les infections",
+    "Diabète, qui réduit les défenses immunitaires locales",
+    "Récidives fréquentes chez les personnes ayant déjà eu un érysipèle"
+  ],
+  "redFlags": [
+    "Fièvre très élevée (plus de 39 °C) avec frissons intenses ou confusion mentale",
+    "Rougeur qui s'étend rapidement en quelques heures malgré le traitement",
+    "Apparition de cloques, de zones noirâtres ou de peau qui se nécrose",
+    "Douleur brutale et intense, hors de proportion avec l'aspect de la peau",
+    "Signes de sepsis : pouls rapide, respiration difficile, chute de tension"
+  ],
+  "whenToConsult": "Consultez un médecin le jour même si vous observez une plaque rouge chaude et douloureuse accompagnée de fièvre. En cas de signes d'alarme, rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "L'érysipèle est-il contagieux ?",
+      "a": "Non, l'érysipèle n'est pas contagieux d'une personne à l'autre. C'est une infection provoquée par des bactéries qui pénètrent à travers une blessure cutanée propre à chacun. Toutefois, il faut traiter la porte d'entrée (mycose, plaie) pour éviter les récidives."
+    },
+    {
+      "q": "Peut-on prévenir les récidives d'érysipèle ?",
+      "a": "Oui, en grande partie. Il est important de traiter les mycoses des pieds, d'hydrater la peau pour éviter les fissures, de porter des bas de contention si une insuffisance veineuse est présente, et de contrôler un diabète ou une obésité. Votre médecin peut évaluer si une prévention médicamenteuse au long cours est nécessaire."
+    }
+  ],
+  "intentAnswer": "Pour un érysipèle, consultez en premier lieu votre médecin généraliste, qui posera le diagnostic et orientera la prise en charge. Un dermatologue peut être sollicité en cas de doute diagnostique ou de récidives fréquentes. En présence de signes d'alarme (fièvre élevée, extension rapide, peau noircie), rendez-vous immédiatement aux urgences.",
+  "termAr": "الحمرة الجلدية",
+  "shortAnswerAr": "الحمرة الجلدية عدوى بكتيرية تصيب الجلد، غالباً في الساق، وتسبب احمراراً حاراً ومؤلماً مصحوباً بحمى. تكون غير خطيرة إذا عولجت باكراً، لكنها قد تتفاقم إذا أُهملت علامات التحذير.",
+  "causesAr": [
+    "بكتيريا المكورات العقدية تدخل عبر جرح صغير أو شق في الجلد",
+    "مداخل للعدوى: فطريات بين أصابع القدم، خدش، لسعة حشرة، قرحة في الساق",
+    "ضعف الدورة الوريدية أو اللمفاوية في الأطراف السفلية",
+    "السمنة التي تُضعف الجلد وتُهيئ للإصابة بالعدوى",
+    "داء السكري الذي يُقلل من المناعة الموضعية",
+    "التكرار الشائع لدى الأشخاص الذين سبق لهم الإصابة بالحمرة الجلدية"
+  ],
+  "redFlagsAr": [
+    "حمى مرتفعة جداً (أكثر من 39 درجة) مع قشعريرة شديدة أو تشوش ذهني",
+    "انتشار الاحمرار بسرعة خلال ساعات رغم العلاج",
+    "ظهور بثور أو مناطق داكنة أو نخر في الجلد",
+    "ألم مفاجئ وشديد لا يتناسب مع مظهر الجلد",
+    "علامات تسمم الدم: تسارع النبض وصعوبة التنفس وانخفاض ضغط الدم"
+  ],
+  "whenToConsultAr": "استشر طبيبك في نفس اليوم إذا لاحظت بقعة حمراء دافئة ومؤلمة مصحوبة بحمى. وفي حال ظهور أي علامة تحذيرية، توجه فوراً إلى قسم الطوارئ دون انتظار.",
+  "faqAr": [
+    {
+      "q": "هل الحمرة الجلدية معدية؟",
+      "a": "لا، الحمرة الجلدية ليست معدية من شخص لآخر. فهي عدوى تنشأ عن بكتيريا تدخل من خلال جرح خاص بالشخص المصاب. غير أنه يجب علاج مصدر الدخول كالفطريات أو الجروح لتجنب تكرار الإصابة."
+    },
+    {
+      "q": "هل يمكن الوقاية من تكرار الحمرة الجلدية؟",
+      "a": "نعم، إلى حد بعيد. يُنصح بعلاج فطريات القدم، وترطيب الجلد لتجنب التشققات، وارتداء جوارب ضاغطة عند وجود قصور وريدي، والسيطرة على السكري أو السمنة. يمكن لطبيبك تقييم الحاجة إلى علاج وقائي طويل الأمد."
+    }
+  ],
+  "intentAnswerAr": "للحمرة الجلدية، تَوجَّه أولاً إلى طبيب عام يقيّم حالتك ويضع خطة العلاج. يمكن استشارة طبيب جلدية في حالة الشك في التشخيص أو عند تكرار الإصابات. وإذا ظهرت علامات تحذيرية كحمى شديدة أو انتشار سريع أو اسوداد الجلد، فاذهب فوراً إلى المستعجلات."
+}

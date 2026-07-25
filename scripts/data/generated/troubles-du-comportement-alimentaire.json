@@ -1,0 +1,64 @@
+{
+  "slug": "troubles-du-comportement-alimentaire",
+  "term": "Troubles du comportement alimentaire",
+  "kind": "DISEASE",
+  "specialty": "psychiatrie",
+  "synonyms": ["anorexie", "boulimie", "hyperphagie", "TCA"],
+  "shortAnswer": "Les troubles du comportement alimentaire (TCA) regroupent des rapports anormaux à la nourriture — restriction sévère, crises de suralimentation ou compensations excessives. Bénins en apparence au début, ils peuvent devenir graves et nécessitent une prise en charge médicale dès les premiers signes.",
+  "causes": [
+    "Facteurs psychologiques : faible estime de soi, perfectionnisme, anxiété ou dépression sous-jacente",
+    "Pressions sociales et culturelles liées à l'image corporelle et aux standards de beauté",
+    "Antécédents de traumatismes, abus ou événements de vie difficiles",
+    "Prédisposition génétique et familiale aux troubles psychiatriques",
+    "Régimes restrictifs répétés déclenchant un cycle restriction-compulsion",
+    "Transitions de vie stressantes (adolescence, deuil, rupture)"
+  ],
+  "redFlags": [
+    "Perte de poids très rapide ou au contraire prise de poids incontrôlée avec détresse intense",
+    "Évanouissements, vertiges, palpitations ou irrégularités du rythme cardiaque",
+    "Arrêt des règles (aménorrhée) chez la femme ou signes de dénutrition sévère",
+    "Vomissements répétés, utilisation de laxatifs ou comportements purgatifs réguliers",
+    "Isolement social total, refus absolu de manger ou pensées suicidaires associées"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès que les préoccupations autour de la nourriture ou du poids perturbent la vie quotidienne ou durent plus de quelques semaines. Ne pas attendre l'aggravation.",
+  "faq": [
+    {
+      "q": "Les troubles du comportement alimentaire touchent-ils uniquement les adolescentes ?",
+      "a": "Non. Même s'ils sont plus fréquents chez les jeunes femmes, les TCA peuvent toucher toutes les tranches d'âge, les hommes et les femmes. Ils restent souvent dissimulés et sous-diagnostiqués chez les garçons et les adultes."
+    },
+    {
+      "q": "Peut-on guérir d'un trouble du comportement alimentaire ?",
+      "a": "Oui, avec une prise en charge adaptée — médicale, nutritionnelle et psychologique — la guérison est possible, même si le chemin peut être long. Plus la prise en charge est précoce, meilleures sont les chances de récupération complète."
+    }
+  ],
+  "intentAnswer": "Pour un trouble du comportement alimentaire, commencez par consulter votre médecin généraliste qui évaluera votre état physique et vous orientera. Le spécialiste de référence est le psychiatre ou un psychologue clinicien formé aux TCA, souvent en équipe pluridisciplinaire avec un nutritionniste. En cas de signes graves (malaise, perte de poids extrême, pensées suicidaires), rendez-vous aux urgences sans attendre.",
+  "termAr": "اضطرابات الأكل",
+  "shortAnswerAr": "اضطرابات الأكل هي علاقات غير طبيعية بالغذاء، كالتقييد الشديد أو نوبات الشراهة أو التعويضات المفرطة. قد تبدو بسيطة في البداية، لكنها قد تصبح خطيرة وتستوجب متابعة طبية عند ظهور أول الأعراض.",
+  "causesAr": [
+    "عوامل نفسية: تدني احترام الذات، الكمالية المفرطة، القلق أو الاكتئاب",
+    "الضغوط الاجتماعية والثقافية المرتبطة بصورة الجسم ومعايير الجمال",
+    "تاريخ من الصدمات أو الإساءة أو الأحداث الحياتية الصعبة",
+    "الاستعداد الوراثي والعائلي للاضطرابات النفسية",
+    "الأنظمة الغذائية التقييدية المتكررة التي تُطلق دوامة التقييد والانتكاسة",
+    "تحولات حياتية مجهدة كالمراهقة أو الحداد أو الانفصال"
+  ],
+  "redFlagsAr": [
+    "فقدان سريع للوزن أو زيادة مفرطة مصحوبة بضائقة نفسية حادة",
+    "الإغماء والدوخة أو خفقان القلب وعدم انتظام ضربات القلب",
+    "انقطاع الدورة الشهرية لدى المرأة أو علامات سوء التغذية الحاد",
+    "القيء المتكرر أو استخدام المسهلات أو السلوكيات التطهيرية المنتظمة",
+    "العزلة الاجتماعية التامة أو الرفض المطلق للطعام أو ظهور أفكار انتحارية"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور ملاحظة أن الهواجس المتعلقة بالطعام أو الوزن تؤثر على الحياة اليومية أو تمتد لأكثر من بضعة أسابيع، دون انتظار تفاقم الأعراض.",
+  "faqAr": [
+    {
+      "q": "هل تصيب اضطرابات الأكل المراهقات فقط؟",
+      "a": "لا. رغم شيوعها أكثر لدى النساء الشابات، فإنها يمكن أن تطال جميع الأعمار والجنسين. وغالبًا ما تُخفى هذه الاضطرابات وتُشخَّص بشكل ناقص عند الشباب والرجال والبالغين."
+    },
+    {
+      "q": "هل يمكن الشفاء من اضطرابات الأكل؟",
+      "a": "نعم، مع الرعاية المناسبة الشاملة للجانب الطبي والتغذوي والنفسي، يكون الشفاء ممكنًا. كلما كانت المتابعة مبكرة، كانت فرص الشفاء الكامل أكبر."
+    }
+  ],
+  "intentAnswerAr": "إذا كنت تعاني من اضطراب في الأكل، ابدأ باستشارة طبيبك العام الذي سيقيّم حالتك الجسدية ويحيلك للمختص. الطبيب المرجعي هو الطبيب النفسي أو الأخصائي النفسي المتخصص في اضطرابات الأكل، في إطار فريق متعدد التخصصات يشمل أخصائي التغذية. في حالة ظهور أعراض خطيرة كالإغماء أو فقدان وزن حاد أو أفكار انتحارية، توجه فورًا إلى المستعجلات."
+}

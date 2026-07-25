@@ -3,7 +3,7 @@
 import bcrypt from "bcryptjs";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
-import { createSession, deleteSession } from "@/lib/session";
+import { createSession } from "@/lib/session";
 import {
   makeLoginSchema,
   makeRegisterSchema,
@@ -202,11 +202,6 @@ export async function loginInline(state: FormState, formData: FormData): Promise
   const result = await authenticateCore(formData);
   if (!result.ok) return result.state;
   return { message: "ok" };
-}
-
-export async function logout() {
-  await deleteSession();
-  redirect("/");
 }
 
 export async function verifyEmail(token: string): Promise<{ success: boolean; error?: string }> {

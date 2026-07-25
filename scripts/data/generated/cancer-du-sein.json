@@ -1,0 +1,66 @@
+{
+  "slug": "cancer-du-sein",
+  "term": "Cancer du sein",
+  "kind": "DISEASE",
+  "specialty": "oncologie-medicale",
+  "synonyms": ["tumeur mammaire", "carcinome mammaire", "néoplasme du sein", "sein cancéreux"],
+  "shortAnswer": "Le cancer du sein est une tumeur maligne qui se développe dans le tissu mammaire. Détecté tôt, il se traite avec de bons résultats. Il devient urgent de consulter dès l'apparition d'une bosse, d'un écoulement sanglant ou d'une modification de la peau du sein.",
+  "causes": [
+    "Facteurs hormonaux : puberté précoce, ménopause tardive, traitements hormonaux prolongés",
+    "Antécédents familiaux de cancer du sein ou mutations génétiques (BRCA1, BRCA2)",
+    "Âge avancé : le risque augmente nettement après 50 ans",
+    "Mode de vie : sédentarité, surpoids après la ménopause, consommation d'alcool",
+    "Première grossesse tardive ou absence d'allaitement",
+    "Antécédents personnels de lésions mammaires précancéreuses"
+  ],
+  "redFlags": [
+    "Bosse ou épaississement inhabituels dans le sein ou l'aisselle, même indolores",
+    "Rougeur, chaleur et gonflement rapides du sein (en quelques jours à semaines) avec aspect « peau d'orange » : consultez sans attendre — peut indiquer un carcinome inflammatoire",
+    "Modification de la peau du sein : rétraction, ulcération ou aspect « peau d'orange » d'apparition progressive",
+    "Écoulement mamelonnaire spontané, surtout s'il est sanglant ou clair unilatéral",
+    "Rétraction ou déformation récente du mamelon",
+    "Ganglions durs et gonflés persistants sous l'aisselle ou au niveau du cou"
+  ],
+  "whenToConsult": "Consultez sans attendre un médecin généraliste dès que vous remarquez l'un des signes d'alerte ci-dessus ou une anomalie à l'autopalpation. En cas de rougeur et gonflement rapides du sein, consultez en urgence le jour même. Un dépistage régulier (mammographie à partir de 40–50 ans selon les facteurs de risque) est fortement recommandé, même en l'absence de symptômes.",
+  "faq": [
+    {
+      "q": "À partir de quel âge et à quelle fréquence doit-on faire une mammographie au Maroc ?",
+      "a": "Les recommandations générales préconisent une mammographie tous les deux ans à partir de 50 ans pour les personnes sans facteur de risque particulier. En cas d'antécédents familiaux de cancer du sein ou d'autres facteurs de risque, le médecin peut conseiller un suivi plus précoce et plus rapproché. Parlez-en à votre médecin généraliste ou gynécologue."
+    },
+    {
+      "q": "Une bosse dans le sein signifie-t-elle forcément un cancer ?",
+      "a": "Non. La grande majorité des bosses mammaires sont bénignes (kystes, fibroadénomes). Cependant, toute bosse nouvelle ou inhabituellement ferme doit être évaluée par un médecin rapidement, car seul un examen clinique et des examens d'imagerie (échographie, mammographie) permettent d'établir un diagnostic fiable."
+    }
+  ],
+  "intentAnswer": "Pour toute anomalie mammaire, consultez d'abord un médecin généraliste qui vous orientera vers un gynécologue ou un oncologue médical pour le bilan spécialisé. En cas de bosse suspecte, d'écoulement sanglant ou de modification cutanée rapide (rougeur soudaine, gonflement en quelques jours), consultez en urgence le jour même. Rendez-vous aux urgences si vous constatez des signes généraux inquiétants (fièvre, douleur osseuse intense, difficultés respiratoires).",
+  "termAr": "سرطان الثدي",
+  "shortAnswerAr": "سرطان الثدي ورم خبيث ينشأ في الأنسجة الثديية. عند اكتشافه مبكراً، تكون نتائج العلاج جيدة. يستوجب الاستشارة الطبية الفورية ظهور أي كتلة أو إفراز دموي من الحلمة أو تغيرات في جلد الثدي.",
+  "causesAr": [
+    "عوامل هرمونية: بلوغ مبكر، سن يأس متأخر، أو علاجات هرمونية مطوّلة",
+    "التاريخ العائلي لسرطان الثدي أو وجود طفرات جينية (BRCA1، BRCA2)",
+    "التقدم في السن: يرتفع الخطر بشكل ملحوظ بعد سن الخمسين",
+    "نمط الحياة: قلة الحركة، زيادة الوزن بعد انقطاع الطمث، تناول الكحول",
+    "الحمل الأول في سن متأخرة أو عدم الرضاعة الطبيعية",
+    "وجود آفات ثديية سابقة ذات طابع قبل سرطاني"
+  ],
+  "redFlagsAr": [
+    "كتلة أو سماكة غير مألوفة في الثدي أو الإبط، حتى لو كانت غير مؤلمة",
+    "احمرار وتورم وسخونة سريعة في الثدي (خلال أيام إلى أسابيع) مع مظهر قشرة البرتقال: استشر الطبيب فوراً — قد يدل على سرطان الثدي الالتهابي",
+    "تغيرات تدريجية في جلد الثدي: انسحاب، تقرح، أو مظهر قشرة البرتقال",
+    "إفراز تلقائي من الحلمة، خاصة إذا كان دموياً أو شفافاً من جانب واحد",
+    "انسحاب الحلمة أو تشوّهها بشكل مستجد",
+    "تضخم غدد ليمفاوية صلبة ومستمرة تحت الإبط أو في الرقبة"
+  ],
+  "whenToConsultAr": "راجع طبيبك العام فور ملاحظة أي من علامات التحذير أعلاه أو أي شيء غير طبيعي عند الفحص الذاتي للثدي. في حالة احمرار وتورم الثدي السريع، توجه إلى الطبيب في نفس اليوم. يُوصى بالفحص الدوري بالتصوير الشعاعي (ماموغرافيا) ابتداءً من سن الأربعين إلى الخمسين حسب عوامل الخطر، حتى في غياب الأعراض.",
+  "faqAr": [
+    {
+      "q": "من أي سن وبأي تكرار يجب إجراء تصوير الثدي الشعاعي في المغرب؟",
+      "a": "تنصح الإرشادات العامة بإجراء تصوير الثدي الشعاعي كل عامين ابتداءً من سن الخمسين للأشخاص الذين لا يملكون عوامل خطر خاصة. في حالة وجود تاريخ عائلي لسرطان الثدي أو عوامل خطر أخرى، قد يوصي الطبيب بالبدء مبكراً وبمتابعة أكثر انتظاماً. استشر طبيبك العام أو طبيب أمراض النساء."
+    },
+    {
+      "q": "هل كل كتلة في الثدي تعني وجود سرطان؟",
+      "a": "لا. الغالبية العظمى من الكتل الثديية حميدة (أكياس، أورام ليفية غدية). غير أن أي كتلة جديدة أو صلبة بشكل غير معتاد يجب تقييمها من قِبل الطبيب في أقرب وقت، إذ يعتمد التشخيص الدقيق على الفحص السريري والتصوير الطبي (الموجات فوق الصوتية والتصوير الشعاعي)."
+    }
+  ],
+  "intentAnswerAr": "عند ملاحظة أي شيء غير طبيعي في الثدي، ابدأ باستشارة الطبيب العام الذي سيحيلك إلى طبيب أمراض النساء أو أخصائي الأورام لإجراء الفحوصات اللازمة. إذا لاحظت كتلة مريبة أو إفرازاً دموياً أو احمراراً وتورماً سريعاً في الثدي (خلال أيام)، فاستشر الطبيب في نفس اليوم. توجه إلى المستعجلات في حال ظهور أعراض عامة مقلقة (حمى، ألم عظمي شديد، صعوبة في التنفس)."
+}

@@ -1,0 +1,64 @@
+{
+  "slug": "maladie-de-parkinson",
+  "term": "Maladie de Parkinson",
+  "kind": "DISEASE",
+  "specialty": "neurologie",
+  "synonyms": ["Parkinson", "syndrome parkinsonien", "tremblement essentiel parkinsonien"],
+  "shortAnswer": "La maladie de Parkinson est une maladie neurologique chronique qui affecte les mouvements, provoquant tremblements, raideur musculaire et lenteur. Elle évolue lentement et se gère sur le long terme. Consultez un médecin dès l'apparition de tremblements persistants ou d'une perte d'équilibre inhabituelle.",
+  "causes": [
+    "Dégénérescence progressive des neurones producteurs de dopamine dans le cerveau",
+    "Facteurs génétiques : certaines mutations héréditaires augmentent le risque",
+    "Facteurs environnementaux : exposition prolongée à certains pesticides ou toxines",
+    "Vieillissement : le risque augmente significativement après 60 ans",
+    "Antécédents de traumatismes crâniens répétés",
+    "Combinaison de prédispositions génétiques et de facteurs déclencheurs environnementaux"
+  ],
+  "redFlags": [
+    "Chutes répétées ou perte soudaine de l'équilibre avec risque de blessure grave",
+    "Difficultés importantes à avaler pouvant entraîner des fausses routes ou une pneumonie d'aspiration",
+    "Confusion mentale soudaine, hallucinations ou comportement inhabituel",
+    "Blocage total des mouvements (freezing) empêchant toute autonomie",
+    "Douleurs thoraciques ou difficultés respiratoires soudaines : appelez le 15 ou rendez-vous immédiatement aux urgences"
+  ],
+  "whenToConsult": "Consultez votre médecin généraliste dès que vous remarquez des tremblements au repos, une raideur des membres ou une lenteur inhabituelle dans vos gestes quotidiens. Une prise en charge précoce permet de mieux gérer l'évolution de la maladie.",
+  "faq": [
+    {
+      "q": "La maladie de Parkinson est-elle héréditaire ?",
+      "a": "Dans la majorité des cas, la maladie de Parkinson n'est pas directement héréditaire. Seul un faible pourcentage de cas est lié à des mutations génétiques identifiées. Avoir un parent atteint augmente légèrement le risque, mais ne signifie pas que la maladie se transmettra systématiquement."
+    },
+    {
+      "q": "Peut-on continuer à travailler et mener une vie normale avec la maladie de Parkinson ?",
+      "a": "Oui, surtout aux stades précoces. Avec un suivi médical régulier et une prise en charge adaptée incluant kinésithérapie et orthophonie, de nombreux patients maintiennent une bonne qualité de vie pendant plusieurs années. L'adaptation du rythme de vie et l'entourage jouent un rôle essentiel."
+    }
+  ],
+  "intentAnswer": "Pour la maladie de Parkinson, consultez d'abord votre médecin généraliste qui évaluera vos symptômes et vous orientera vers un neurologue, spécialiste de référence pour le diagnostic et le suivi. En cas de chutes graves, de difficultés à avaler ou de confusion soudaine, rendez-vous aux urgences sans attendre.",
+  "termAr": "مرض باركنسون",
+  "shortAnswerAr": "مرض باركنسون مرض عصبي مزمن يؤثر على الحركة، ويتجلى في الرعاش وتصلب العضلات وبطء الحركة. يتطور ببطء ويُدار على المدى البعيد. استشر طبيبك عند ظهور رعاش مستمر أو اضطراب في التوازن.",
+  "causesAr": [
+    "تدهور تدريجي للخلايا العصبية المنتجة للدوبامين في الدماغ",
+    "عوامل وراثية: بعض الطفرات الجينية ترفع من خطر الإصابة",
+    "عوامل بيئية: التعرض المطول لبعض المبيدات الحشرية أو المواد السامة",
+    "التقدم في العمر: يرتفع الخطر بشكل ملحوظ بعد سن الستين",
+    "التاريخ الطبي لإصابات متكررة في الرأس",
+    "تضافر الاستعداد الوراثي مع عوامل بيئية مُحفِّزة"
+  ],
+  "redFlagsAr": [
+    "السقوط المتكرر أو فقدان التوازن المفاجئ مع خطر الإصابة",
+    "صعوبات بالغة في البلع قد تؤدي إلى دخول الطعام للرئتين أو الإصابة بالتهاب رئوي استنشاقي",
+    "ارتباك ذهني مفاجئ أو هلوسة أو تغير غير مألوف في السلوك",
+    "تجمد كامل في الحركة يحول دون أي استقلالية في الحياة اليومية",
+    "آلام في الصدر أو صعوبة في التنفس المفاجئة: اتصل بالإسعاف أو توجه فوراً إلى قسم الطوارئ"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور ملاحظة رعاش أثناء الراحة، أو تصلب في الأطراف، أو بطء غير معتاد في الحركات اليومية. التشخيص المبكر يساعد على التحكم في تطور المرض بشكل أفضل.",
+  "faqAr": [
+    {
+      "q": "هل مرض باركنسون وراثي؟",
+      "a": "في غالبية الحالات، لا يُعدّ مرض باركنسون وراثياً بشكل مباشر. نسبة ضئيلة فقط من الحالات مرتبطة بطفرات جينية محددة. وجود أحد أفراد العائلة مصاباً يرفع الخطر قليلاً، لكنه لا يعني بالضرورة انتقال المرض."
+    },
+    {
+      "q": "هل يمكن مواصلة العمل وعيش حياة طبيعية مع مرض باركنسون؟",
+      "a": "نعم، لا سيما في المراحل الأولى. مع المتابعة الطبية المنتظمة وبرنامج علاجي شامل يتضمن العلاج الطبيعي وعلاج النطق، يحافظ كثير من المرضى على جودة حياة جيدة لسنوات. الدعم الأسري وتكيّف إيقاع الحياة اليومية عاملان محوريان."
+    }
+  ],
+  "intentAnswerAr": "لمرض باركنسون، ابدأ بزيارة طبيبك العام الذي سيقيّم أعراضك ويحيلك إلى طبيب الأعصاب، المختص المرجعي في تشخيص هذا المرض ومتابعته. في حال السقوط الخطير أو صعوبة البلع أو الارتباك المفاجئ، توجه إلى قسم الطوارئ فوراً."
+}

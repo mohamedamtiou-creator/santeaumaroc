@@ -1,0 +1,66 @@
+{
+  "slug": "fasciite-plantaire",
+  "term": "Fasciite plantaire (épine calcanéenne)",
+  "kind": "DISEASE",
+  "specialty": "rhumatologie",
+  "synonyms": ["épine calcanéenne", "talalgie plantaire", "plantar fasciitis", "douleur du talon", "aponévrosite plantaire"],
+  "shortAnswer": "La fasciite plantaire est une inflammation du tissu fibreux situé sous le pied, entre le talon et les orteils. Elle provoque une douleur vive au talon, surtout le matin au lever. Dans la majorité des cas, elle est bénigne et s'améliore avec le repos et les soins adaptés, mais une douleur intense ou persistante justifie une consultation.",
+  "causes": [
+    "Station debout ou marche prolongée sur des surfaces dures",
+    "Surpoids ou prise de poids rapide augmentant la pression sur le pied",
+    "Chaussures inadaptées, sans soutien de la voûte plantaire",
+    "Pied plat ou creux (anomalie de la forme du pied)",
+    "Pratique sportive intensive (course à pied, sports de saut)",
+    "Contracture ou raideur des muscles du mollet et du tendon d'Achille"
+  ],
+  "redFlags": [
+    "Douleur sévère, invalidante, empêchant toute mise en charge du pied",
+    "Gonflement important, chaleur ou rougeur autour du talon (peut évoquer une infection ou une fracture)",
+    "Fièvre associée à la douleur au pied (évoque une infection grave : consulter en urgence)",
+    "Douleur nocturne intense au repos, sans rapport avec la marche",
+    "Engourdissements ou fourmillements dans le pied ou la jambe (compression nerveuse possible)",
+    "Absence d'amélioration après plusieurs semaines de repos et de soins"
+  ],
+  "whenToConsult": "Consultez un médecin si la douleur au talon persiste plus de quelques semaines, si elle devient très handicapante, ou si elle s'accompagne de l'un des signes d'alerte ci-dessus. Ne tardez pas en cas de gonflement brutal, de fièvre ou de douleur nocturne intense.",
+  "faq": [
+    {
+      "q": "La fasciite plantaire guérit-elle toute seule ?",
+      "a": "Dans beaucoup de cas, oui : le repos, le port de semelles adaptées et des exercices d'étirement permettent une amélioration en quelques semaines à quelques mois. Cependant, sans prise en charge, la douleur peut devenir chronique. Un professionnel de santé peut guider le traitement et éviter cette évolution."
+    },
+    {
+      "q": "Quelle différence entre fasciite plantaire et épine calcanéenne ?",
+      "a": "L'épine calcanéenne est une excroissance osseuse visible à la radiographie, qui peut accompagner la fasciite plantaire, mais elle n'en est pas toujours la cause directe de la douleur. On peut avoir une épine sans douleur, ou une fasciite sans épine visible. C'est l'inflammation du fascia qui est responsable de la douleur dans la majorité des cas."
+    }
+  ],
+  "intentAnswer": "Pour une douleur au talon évoquant une fasciite plantaire, consultez d'abord votre médecin généraliste, qui posera le diagnostic et orientera vers un rhumatologue ou un médecin du sport si nécessaire. Un podologue peut également aider pour les semelles. En cas de gonflement brutal, de fièvre ou de douleur intense invalidante, rendez-vous aux urgences.",
+  "termAr": "التهاب اللفافة الأخمصية (شوكة العقب)",
+  "shortAnswerAr": "التهاب اللفافة الأخمصية هو التهاب في النسيج الليفي أسفل القدم، بين الكعب وأصابع القدم. يُسبب ألماً حاداً في الكعب، خاصةً عند الاستيقاظ صباحاً. في أغلب الحالات يكون غير خطير ويتحسن بالراحة والعناية المناسبة، لكن الألم الشديد أو المستمر يستوجب استشارة طبية.",
+  "causesAr": [
+    "الوقوف أو المشي لفترات طويلة على أسطح صلبة",
+    "زيادة الوزن أو اكتسابه بسرعة مما يرفع الضغط على القدم",
+    "الأحذية غير الملائمة التي تفتقر إلى دعم القوس الأخمصي",
+    "القدم المسطحة أو المقعرة (تشوه في شكل القدم)",
+    "ممارسة الرياضة بشكل مكثف كالجري أو رياضات القفز",
+    "تقلص عضلات الساق وتصلب وتر أخيل"
+  ],
+  "redFlagsAr": [
+    "ألم شديد ومُعيق يمنع الوقوف أو المشي",
+    "تورم ملحوظ أو احمرار وسخونة حول الكعب (قد يشير إلى عدوى أو كسر)",
+    "ارتفاع الحرارة (حمى) مع ألم القدم (يُشير إلى عدوى خطيرة: استشر فوراً)",
+    "ألم ليلي حاد أثناء الراحة لا علاقة له بالمشي",
+    "تخدر أو وخز في القدم أو الساق (قد يعني ضغطاً على العصب)",
+    "عدم التحسن بعد أسابيع عدة من الراحة والعناية"
+  ],
+  "whenToConsultAr": "استشر طبيبك إذا استمر ألم الكعب لأسابيع، أو أصبح مُعيقاً جداً، أو اقترن بأحد علامات التحذير أعلاه. لا تتأخر في حالة تورم مفاجئ أو حمى أو ألم ليلي شديد.",
+  "faqAr": [
+    {
+      "q": "هل يشفى التهاب اللفافة الأخمصية من تلقاء نفسه؟",
+      "a": "في كثير من الحالات نعم؛ إذ تُساعد الراحة وارتداء نعل طبي مناسب وتمارين التمدد على التحسن خلال أسابيع أو أشهر. غير أن إهمال العلاج قد يُحوّل الألم إلى مزمن. يمكن لأخصائي الصحة أن يرشدك نحو العلاج المناسب ويحول دون هذا التطور."
+    },
+    {
+      "q": "ما الفرق بين التهاب اللفافة الأخمصية وشوكة العقب؟",
+      "a": "شوكة العقب هي نتوء عظمي يظهر في الأشعة السينية وقد يرافق التهاب اللفافة الأخمصية، لكنه ليس دائماً السبب المباشر للألم. فقد يكون الشخص مصاباً بالشوكة دون ألم، أو بالتهاب دون شوكة. الالتهاب في اللفافة هو المسؤول عن الألم في معظم الحالات."
+    }
+  ],
+  "intentAnswerAr": "لألم الكعب الذي يوحي بالتهاب اللفافة الأخمصية، ابدأ بزيارة طبيبك العام الذي يُشخّص الحالة ويحيلك عند الحاجة إلى طبيب الروماتيزم أو طب الرياضة. كما يمكن للأخصائي في طب الأقدام المساعدة في النعل الطبي. في حالة تورم مفاجئ أو حمى أو ألم شديد مُعيق، توجه إلى المستعجلات."
+}

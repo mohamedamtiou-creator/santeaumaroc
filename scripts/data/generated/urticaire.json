@@ -1,0 +1,64 @@
+{
+  "slug": "urticaire",
+  "term": "Urticaire",
+  "kind": "DISEASE",
+  "specialty": "dermatologie",
+  "synonyms": ["plaques rouges qui démangent", "allergie cutanée", "urticaire aiguë", "urticaire chronique"],
+  "shortAnswer": "L'urticaire est une réaction cutanée caractérisée par des plaques rouges et gonflées qui démangent intensément. Elle est souvent bénigne et passagère, mais peut signaler une allergie grave si elle s'accompagne d'un gonflement du visage, d'une difficulté à respirer ou d'un malaise.",
+  "causes": [
+    "Réaction allergique à un aliment (fruits de mer, arachides, fruits exotiques)",
+    "Prise d'un médicament (antibiotiques, anti-inflammatoires, aspirine)",
+    "Contact avec un allergène (latex, plantes, produits cosmétiques)",
+    "Piqûre d'insecte (guêpe, abeille, moustique)",
+    "Infection virale ou bactérienne (grippe, angine)",
+    "Stress émotionnel intense, chaleur, froid ou effort physique"
+  ],
+  "redFlags": [
+    "Gonflement du visage, des lèvres, de la langue ou de la gorge (œdème de Quincke)",
+    "Difficulté à respirer, sensation d'étouffement ou voix enrouée",
+    "Malaise général, vertiges, chute de tension ou perte de conscience",
+    "Urticaire généralisée survenant après une piqûre d'insecte ou une injection",
+    "Plaques qui persistent depuis plus de 6 semaines"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès les premières poussées pour identifier la cause. Appelez le 15 ou rendez-vous aux urgences immédiatement si l'urticaire s'accompagne d'un gonflement du visage, d'une difficulté à avaler ou à respirer.",
+  "faq": [
+    {
+      "q": "L'urticaire est-elle contagieuse ?",
+      "a": "Non, l'urticaire n'est pas contagieuse. Elle résulte d'une réaction de votre propre système immunitaire à un facteur déclenchant (allergène, médicament, infection). Vous ne pouvez pas la transmettre à une autre personne par contact."
+    },
+    {
+      "q": "Que faire en attendant la consultation médicale ?",
+      "a": "Évitez de vous gratter pour ne pas aggraver les lésions. Appliquez des compresses fraîches sur les zones atteintes pour soulager les démangeaisons. Notez ce que vous avez mangé, pris comme médicament ou touché dans les heures précédentes pour aider le médecin à identifier la cause."
+    }
+  ],
+  "intentAnswer": "Pour une urticaire, consultez d'abord un médecin généraliste qui évaluera la cause et orientera le traitement. Si les poussées sont fréquentes ou chroniques, il vous adressera à un dermatologue ou un allergologue. En cas de gonflement du visage ou de gêne respiratoire, appelez le 15 ou rendez-vous aux urgences sans délai.",
+  "termAr": "الشرى (الأرتيكاريا)",
+  "shortAnswerAr": "الشرى طفح جلدي مميز يظهر على شكل بقع حمراء منتفخة مصحوبة بحكة شديدة. غالباً ما يكون عارضاً وغير خطير، لكنه قد يُنبه إلى حساسية حادة إذا اقترن بتورم الوجه أو صعوبة في التنفس أو إغماء.",
+  "causesAr": [
+    "تفاعل تحسسي تجاه طعام معين (مأكولات بحرية، فول سوداني، فواكه غريبة)",
+    "تناول دواء معين (مضادات حيوية، مضادات التهاب، أسبرين)",
+    "ملامسة مادة مثيرة للحساسية (لاتكس، نباتات، مستحضرات تجميل)",
+    "لسعة حشرة (دبور، نحلة، بعوضة)",
+    "عدوى فيروسية أو بكتيرية (إنفلونزا، التهاب الحلق)",
+    "توتر نفسي حاد، أو التعرض للحرارة أو البرودة أو المجهود البدني"
+  ],
+  "redFlagsAr": [
+    "تورم الوجه أو الشفتين أو اللسان أو الحلق (وذمة كوينكي)",
+    "صعوبة في التنفس أو الشعور بالاختناق أو بحة الصوت",
+    "دوار أو إغماء أو انخفاض ضغط الدم الحاد أو فقدان الوعي",
+    "انتشار الطفح بسرعة بعد لسعة حشرة أو حقنة",
+    "استمرار الطفح أكثر من ستة أسابيع"
+  ],
+  "whenToConsultAr": "راجع طبيبك العام عند أول نوبة من الشرى لتحديد السبب. اتصل بالإسعاف أو توجه إلى المستعجلات فوراً إذا رافق الطفحَ تورمٌ في الوجه أو صعوبة في البلع أو التنفس.",
+  "faqAr": [
+    {
+      "q": "هل الشرى معدٍ؟",
+      "a": "لا، الشرى ليس معدياً على الإطلاق. فهو ناتج عن رد فعل جهازك المناعي الخاص تجاه عامل مثير (مادة مسببة للحساسية، دواء، عدوى)، ولا يمكن أن ينتقل إلى شخص آخر عن طريق الملامسة."
+    },
+    {
+      "q": "ماذا أفعل في انتظار موعد الطبيب؟",
+      "a": "تجنب حك الجلد حتى لا تتفاقم الحالة. ضع كمادات باردة على المناطق المصابة لتخفيف الحكة. دوّن ما تناولته من طعام أو دواء أو ما لامسته في الساعات السابقة، لأن ذلك يساعد الطبيب على تحديد المسبب."
+    }
+  ],
+  "intentAnswerAr": "عند الإصابة بالشرى، ابدأ باستشارة طبيب عام يقيّم الحالة ويحدد طريقة العلاج المناسبة. إذا كانت النوبات متكررة أو مزمنة، قد يحيلك إلى طبيب الجلدية أو أخصائي الحساسية. أما إذا ظهر تورم في الوجه أو صعوبة في التنفس، فاتصل بالإسعاف أو اذهب إلى المستعجلات دون تأخير."
+}

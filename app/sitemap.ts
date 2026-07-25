@@ -44,6 +44,10 @@ function staticPages(now: Date): MetadataRoute.Sitemap {
     { url: `${BASE}/blog`,                      lastModified: now, changeFrequency: "daily",   priority: 0.85 },
     { url: `${BASE}/questions`,                 lastModified: now, changeFrequency: "daily",   priority: 0.85 },
     { url: `${BASE}/symptomes`,                 lastModified: now, changeFrequency: "weekly",  priority: 0.75 },
+    { url: `${BASE}/quel-medecin-pour`,         lastModified: now, changeFrequency: "weekly",  priority: 0.7 },
+    { url: `${BASE}/comment-traiter`,           lastModified: now, changeFrequency: "weekly",  priority: 0.7 },
+    { url: `${BASE}/prevenir`,                  lastModified: now, changeFrequency: "weekly",  priority: 0.7 },
+    { url: `${BASE}/quand-consulter`,           lastModified: now, changeFrequency: "weekly",  priority: 0.7 },
     { url: `${BASE}/maladies`,                  lastModified: now, changeFrequency: "weekly",  priority: 0.75 },
     { url: `${BASE}/prix`,                      lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/examens`,                   lastModified: now, changeFrequency: "weekly",  priority: 0.75 },
@@ -74,7 +78,7 @@ function staticPages(now: Date): MetadataRoute.Sitemap {
 }
 
 async function coreEntries(now: Date): Promise<MetadataRoute.Sitemap> {
-  const [specialties, cities, postCategories, questionSpecialties, glossary, symptoms, diseases, exams, treatments] = await Promise.all([
+  const [specialties, cities, postCategories, questionSpecialties, glossary, symptoms, diseases, exams, treatments, intents, treatmentPages, preventionPages, guides] = await Promise.all([
     prisma.specialty.findMany({ select: { slug: true }, orderBy: { order: "asc" } }),
     prisma.city.findMany({ select: { slug: true }, orderBy: { order: "asc" } }),
     prisma.postCategory.findMany({
@@ -117,6 +121,31 @@ async function coreEntries(now: Date): Promise<MetadataRoute.Sitemap> {
       where: { status: "PUBLISHED", reviewedAt: { not: null } },
       select: { slug: true, updatedAt: true, arReviewedAt: true },
       orderBy: { name: "asc" },
+    }),
+    // Pages intention « quel médecin pour X ? » — indexables sous le verrou YMYL
+    // du topic (reviewedAt). hreflang AR conditionné à la relecture AR du topic.
+    prisma.healthTopic.findMany({
+      where: { intentSlug: { not: null }, status: "PUBLISHED", reviewedAt: { not: null } },
+      select: { intentSlug: true, updatedAt: true, arReviewedAt: true },
+      orderBy: { term: "asc" },
+    }),
+    // Pages « comment traiter X ? » — angle traitement adossé au topic. Indexable
+    // sous le verrou YMYL du topic ; hreflang AR conditionné à sa relecture AR.
+    prisma.healthTopic.findMany({
+      where: { treatmentSummary: { not: null }, status: "PUBLISHED", reviewedAt: { not: null } },
+      select: { slug: true, updatedAt: true, arReviewedAt: true },
+      orderBy: { term: "asc" },
+    }),
+    // Pages « comment prévenir X ? » — angle prévention adossé au topic.
+    prisma.healthTopic.findMany({
+      where: { preventionSummary: { not: null }, status: "PUBLISHED", reviewedAt: { not: null } },
+      select: { slug: true, updatedAt: true, arReviewedAt: true },
+      orderBy: { term: "asc" },
+    }),
+    // Guides « quand consulter un [spécialité] ? » — RELUS uniquement.
+    prisma.specialtyGuide.findMany({
+      where: { status: "PUBLISHED", reviewedAt: { not: null } },
+      select: { updatedAt: true, arReviewedAt: true, specialty: { select: { slug: true } } },
     }),
   ]);
 
@@ -197,6 +226,67 @@ async function coreEntries(now: Date): Promise<MetadataRoute.Sitemap> {
         priority: 0.65,
         alternates: {
           languages: tr.arReviewedAt
+            ? { "fr-MA": fr, "ar-MA": ar, "x-default": fr }
+            : { "fr-MA": fr, "x-default": fr },
+        },
+      };
+    }),
+    ...intents.flatMap((it) => {
+      if (!it.intentSlug) return [];
+      const fr = `${BASE}/quel-medecin-pour/${it.intentSlug}`;
+      const ar = `${BASE}/ar/quel-medecin-pour/${it.intentSlug}`;
+      return [{
+        url: fr,
+        lastModified: it.updatedAt,
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+        alternates: {
+          languages: it.arReviewedAt
+            ? { "fr-MA": fr, "ar-MA": ar, "x-default": fr }
+            : { "fr-MA": fr, "x-default": fr },
+        },
+      }];
+    }),
+    ...treatmentPages.map((tp) => {
+      const fr = `${BASE}/comment-traiter/${tp.slug}`;
+      const ar = `${BASE}/ar/comment-traiter/${tp.slug}`;
+      return {
+        url: fr,
+        lastModified: tp.updatedAt,
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+        alternates: {
+          languages: tp.arReviewedAt
+            ? { "fr-MA": fr, "ar-MA": ar, "x-default": fr }
+            : { "fr-MA": fr, "x-default": fr },
+        },
+      };
+    }),
+    ...preventionPages.map((pp) => {
+      const fr = `${BASE}/prevenir/${pp.slug}`;
+      const ar = `${BASE}/ar/prevenir/${pp.slug}`;
+      return {
+        url: fr,
+        lastModified: pp.updatedAt,
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+        alternates: {
+          languages: pp.arReviewedAt
+            ? { "fr-MA": fr, "ar-MA": ar, "x-default": fr }
+            : { "fr-MA": fr, "x-default": fr },
+        },
+      };
+    }),
+    ...guides.map((g) => {
+      const fr = `${BASE}/quand-consulter/${g.specialty.slug}`;
+      const ar = `${BASE}/ar/quand-consulter/${g.specialty.slug}`;
+      return {
+        url: fr,
+        lastModified: g.updatedAt,
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+        alternates: {
+          languages: g.arReviewedAt
             ? { "fr-MA": fr, "ar-MA": ar, "x-default": fr }
             : { "fr-MA": fr, "x-default": fr },
         },

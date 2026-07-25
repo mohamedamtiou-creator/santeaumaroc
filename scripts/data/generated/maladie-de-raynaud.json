@@ -1,0 +1,66 @@
+{
+  "slug": "maladie-de-raynaud",
+  "term": "Maladie de Raynaud",
+  "kind": "DISEASE",
+  "specialty": "angiologie",
+  "synonyms": ["syndrome de Raynaud", "phénomène de Raynaud", "acrosyndrome vasculaire"],
+  "shortAnswer": "La maladie de Raynaud est une réaction exagérée des vaisseaux des doigts ou orteils au froid ou au stress : ils se contractent brutalement, provoquant une décoloration (blanc, bleu, rouge). Souvent bénigne, elle devient préoccupante si elle est asymétrique, douloureuse ou accompagnée d'autres symptômes.",
+  "causes": [
+    "Forme primaire (idiopathique) : hypersensibilité vasculaire au froid ou aux émotions, sans maladie sous-jacente identifiée",
+    "Maladies auto-immunes (sclérodermie, lupus, polyarthrite rhumatoïde)",
+    "Utilisation prolongée d'outils vibrants (syndrome des doigts blancs)",
+    "Certains médicaments vasoconstricteurs (bêtabloquants, décongestionnants, contraceptifs) — ne jamais arrêter un traitement sans avis médical",
+    "Tabagisme et exposition prolongée au froid",
+    "Athérosclérose ou autres maladies des artères périphériques"
+  ],
+  "redFlags": [
+    "Doigt qui reste froid, bleu ou violet de façon prolongée sans récupérer à la chaleur (ischémie digitale aiguë : urgence)",
+    "Plaies, ulcères ou nécrose au bout des doigts qui ne guérissent pas",
+    "Crises asymétriques (un seul doigt ou un seul côté du corps touché)",
+    "Douleurs intenses, persistantes même à température normale",
+    "Apparition après 40 ans sans facteur déclenchant évident",
+    "Association avec d'autres signes : fatigue inexpliquée, douleurs articulaires, éruption cutanée"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si les crises sont fréquentes, gênantes ou survenues récemment. Consultez en urgence en cas de plaie qui ne cicatrise pas, de douleur intense ou de doigt froid et bleu persistant.",
+  "faq": [
+    {
+      "q": "La maladie de Raynaud est-elle dangereuse ?",
+      "a": "Dans sa forme primaire, elle est rarement dangereuse et reste gérable avec des précautions contre le froid. Elle devient plus sérieuse si elle est secondaire à une maladie auto-immune ou artérielle : dans ce cas, un suivi médical régulier est indispensable pour éviter les complications comme les ulcères des doigts."
+    },
+    {
+      "q": "Peut-on améliorer les crises sans traitement médicamenteux ?",
+      "a": "Oui, plusieurs mesures aident : porter des gants dès les premiers froids, éviter les écarts brusques de température, arrêter le tabac, gérer le stress et réchauffer progressivement les membres atteints. Ces précautions réduisent la fréquence et l'intensité des crises pour la majorité des patients. Tout ajustement de traitement doit être décidé avec un médecin."
+    }
+  ],
+  "intentAnswer": "Pour la maladie de Raynaud, commencez par votre médecin généraliste qui orientera vers un angiologue (spécialiste des vaisseaux) ou un rhumatologue selon la cause suspectée. En cas de plaie, de douleur intense ou de doigt qui reste bleu et froid, rendez-vous aux urgences sans attendre.",
+  "termAr": "مرض رينو",
+  "shortAnswerAr": "مرض رينو هو تقلّص مفاجئ في أوعية الأصابع أو أصابع القدم عند التعرض للبرد أو التوتر، مما يُسبب تغير لونها إلى الأبيض ثم الأزرق ثم الأحمر. غالباً ما يكون حميداً، لكنه يستدعي التنبّه إذا كان غير متماثل أو مؤلماً أو مصحوباً بأعراض أخرى.",
+  "causesAr": [
+    "الشكل الأولي (مجهول السبب): فرط حساسية الأوعية للبرد أو الانفعالات دون مرض مُحدَّد",
+    "أمراض المناعة الذاتية (تصلب الجلد، الذئبة الحمراء، التهاب المفاصل الرثياني)",
+    "الاستخدام المطوّل للأدوات الاهتزازية (متلازمة الأصابع البيضاء)",
+    "بعض الأدوية المُضيِّقة للأوعية (حاصرات بيتا، مزيلات الاحتقان، موانع الحمل) — لا تتوقف عن أي دواء دون استشارة طبيب",
+    "التدخين والتعرض المزمن للبرد",
+    "تصلب الشرايين أو أمراض الشرايين الطرفية"
+  ],
+  "redFlagsAr": [
+    "إصبع يبقى بارداً أو أزرق أو بنفسجياً لفترة طويلة دون أن يتعافى بالتدفئة (نقص تروية حاد: حالة طارئة)",
+    "جروح أو تقرحات أو موت الأنسجة في أطراف الأصابع لا تلتئم",
+    "نوبات غير متماثلة تصيب إصبعاً واحداً أو جانباً واحداً فقط",
+    "آلام شديدة ومستمرة حتى في درجات الحرارة العادية",
+    "ظهور المرض بعد سن الأربعين دون سبب واضح",
+    "اقتران الأعراض بتعب غير مبرر أو آلام مفصلية أو طفح جلدي"
+  ],
+  "whenToConsultAr": "استشر طبيباً عاماً إذا كانت النوبات متكررة أو مزعجة أو ظهرت حديثاً. توجّه إلى الطوارئ فوراً في حال وجود جرح لا يلتئم، أو ألم شديد، أو إصبع يبقى بارداً وأزرق اللون.",
+  "faqAr": [
+    {
+      "q": "هل مرض رينو خطير؟",
+      "a": "في شكله الأولي نادراً ما يكون خطيراً ويمكن التحكم فيه باتخاذ احتياطات ضد البرد. أما إذا كان ثانوياً لمرض مناعي أو وعائي، فيصبح أكثر خطورة ويستلزم متابعة طبية منتظمة لتجنب مضاعفات كتقرحات الأصابع."
+    },
+    {
+      "q": "هل يمكن تخفيف النوبات دون أدوية؟",
+      "a": "نعم، تُساهم عدة إجراءات في تحسين الحالة: ارتداء القفازات عند أول برودة، وتجنّب التغيرات المفاجئة في الحرارة، والإقلاع عن التدخين، وإدارة التوتر، وتدفئة الأطراف المصابة تدريجياً. تُقلل هذه الاحتياطات من تكرار النوبات وحدّتها لدى غالبية المرضى. وأي تعديل في الأدوية يجب أن يتم بمشورة الطبيب."
+    }
+  ],
+  "intentAnswerAr": "لمرض رينو، ابدأ بزيارة الطبيب العام الذي سيحيلك إلى طبيب الأوعية الدموية (أنجيولوجيست) أو طبيب الروماتيزما حسب السبب المشتبه به. وإذا كان لديك جرح أو ألم شديد أو إصبع يبقى بارداً وأزرق، توجّه إلى المستعجلات دون تأخير."
+}

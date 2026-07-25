@@ -1,0 +1,64 @@
+{
+  "slug": "mastite",
+  "term": "Mastite (allaitement)",
+  "kind": "DISEASE",
+  "specialty": "gyneco-obstetrique",
+  "synonyms": ["infection du sein", "engorgement infecté", "inflammation mammaire", "mastite puerpérale"],
+  "shortAnswer": "La mastite est une inflammation douloureuse du sein survenant le plus souvent pendant l'allaitement. Elle guérit généralement bien avec un suivi médical précoce. Consultez rapidement si de la fièvre, une rougeur ou une douleur intense apparaissent : un abcès peut se former sans traitement.",
+  "causes": [
+    "Stagnation du lait dans un canal galactophore bloqué (engorgement mal vidangé)",
+    "Germes cutanés (souvent staphylocoques) pénétrant par une crevasse ou une fissure du mamelon",
+    "Tétées trop espacées ou arrêt brutal de l'allaitement",
+    "Mauvaise prise du sein par le bébé, entraînant une vidange incomplète",
+    "Fatigue maternelle importante affaiblissant les défenses immunitaires",
+    "Soutien-gorge trop serré comprimant les canaux lactifères"
+  ],
+  "redFlags": [
+    "Fièvre élevée (≥ 38,5 °C) persistant plus de 24 heures malgré le repos",
+    "Zone rouge, chaude et très douloureuse du sein qui s'étend ou se durcit en boule (abcès possible)",
+    "Écoulement de pus par le mamelon",
+    "Frissons, état général très altéré, confusion, perte de connaissance ou malaise important",
+    "Absence d'amélioration après 48 heures de suivi médical en cours"
+  ],
+  "whenToConsult": "Consultez votre médecin généraliste ou une sage-femme dès l'apparition de rougeur, chaleur ou fièvre au niveau du sein pendant l'allaitement, sans attendre. En cas de fièvre élevée, de boule douloureuse ou d'état général dégradé, rendez-vous aux urgences sans délai.",
+  "faq": [
+    {
+      "q": "Puis-je continuer à allaiter si j'ai une mastite ?",
+      "a": "Dans la plupart des cas, oui. Poursuivre l'allaitement ou le tirage aide à vider le sein et accélère la guérison. Votre médecin ou sage-femme vous guidera selon votre situation ; ne prenez pas de décision seule sans avis professionnel."
+    },
+    {
+      "q": "Comment prévenir la mastite pendant l'allaitement ?",
+      "a": "Veillez à une bonne prise du sein par le bébé, allaitez fréquemment et alternez les positions. Soignez rapidement les crevasses et évitez les soutiens-gorge trop serrés. Une sage-femme peut vous accompagner pour corriger la technique de tétée."
+    }
+  ],
+  "intentAnswer": "Pour une mastite liée à l'allaitement, consultez en premier votre médecin généraliste ou une sage-femme. Si une complication est suspectée (abcès, fièvre persistante), vous serez orientée vers un gynécologue-obstétricien. En cas de fièvre élevée, de boule douloureuse ou d'état général alarmant, rendez-vous aux urgences.",
+  "termAr": "التهاب الثدي (أثناء الرضاعة)",
+  "shortAnswerAr": "التهاب الثدي هو التهاب مؤلم يصيب الثدي غالبًا خلال فترة الرضاعة الطبيعية. يتعافى معظم النساء بشكل جيد عند تلقي الرعاية الطبية في وقت مبكر. استشيري طبيبك فورًا عند ظهور حمى أو احمرار أو ألم شديد، لأن خراجًا قد يتشكل بدون علاج.",
+  "causesAr": [
+    "ركود الحليب في قناة محلبية مسدودة بسبب الاحتقان غير المُفرَّغ جيدًا",
+    "بكتيريا جلدية (غالبًا المكورات العنقودية) تدخل عبر تشقق أو جرح في الحلمة",
+    "تباعد الرضعات أو التوقف المفاجئ عن الإرضاع",
+    "إمساك الطفل للثدي بشكل غير صحيح مما يُعيق إفراغه الكامل",
+    "إرهاق شديد لدى الأم يُضعف مناعتها",
+    "ضغط حمالة الصدر الضيقة على قنوات الحليب"
+  ],
+  "redFlagsAr": [
+    "حمى مرتفعة (38.5 درجة مئوية أو أكثر) تستمر أكثر من 24 ساعة رغم الراحة",
+    "منطقة من الثدي حمراء ودافئة ومؤلمة جدًا تتمدد أو تتصلب كتلةً (يُشتبه في خراج)",
+    "خروج قيح من الحلمة",
+    "قشعريرة أو تدهور ملحوظ في الحالة العامة أو ارتباك أو إغماء",
+    "عدم التحسن بعد 48 ساعة من المتابعة الطبية"
+  ],
+  "whenToConsultAr": "راجعي طبيبك العام أو القابلة فور ظهور احمرار أو دفء أو حمى في الثدي أثناء الرضاعة، دون انتظار. وفي حال الحمى الشديدة أو ظهور كتلة مؤلمة أو تدهور الحالة العامة، اذهبي إلى قسم الطوارئ فورًا.",
+  "faqAr": [
+    {
+      "q": "هل يمكنني الاستمرار في الرضاعة الطبيعية إذا أصبت بالتهاب الثدي؟",
+      "a": "في معظم الحالات، نعم. الاستمرار في الإرضاع أو شفط الحليب يساعد على تفريغ الثدي وتسريع الشفاء. اتبعي توجيهات طبيبك أو القابلة بحسب وضعك، ولا تتخذي أي قرار بمفردك دون استشارة متخصص."
+    },
+    {
+      "q": "كيف يمكن الوقاية من التهاب الثدي أثناء الرضاعة؟",
+      "a": "احرصي على إمساك الطفل للثدي بشكل صحيح، وأرضعي بانتظام مع تغيير أوضاع الإرضاع. عالجي تشققات الحلمة بسرعة وتجنبي حمالات الصدر الضيقة. يمكن للقابلة مساعدتك على تصحيح تقنية الرضاعة."
+    }
+  ],
+  "intentAnswerAr": "لعلاج التهاب الثدي أثناء الرضاعة، راجعي في البداية طبيبك العام أو القابلة. إذا اشتُبه في وجود مضاعفات كالخراج أو الحمى المستمرة، ستُحالين إلى طبيب متخصص في أمراض النساء والتوليد. وفي حال الحمى الشديدة أو ظهور كتلة مؤلمة أو تدهور حالك العام، اتجهي فورًا إلى قسم الطوارئ."
+}

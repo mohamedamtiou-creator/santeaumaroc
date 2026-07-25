@@ -1,0 +1,64 @@
+{
+  "slug": "burn-out",
+  "term": "Burn-out (épuisement professionnel)",
+  "kind": "DISEASE",
+  "specialty": "psychologie",
+  "synonyms": ["épuisement professionnel", "syndrome d'épuisement au travail", "burnout"],
+  "shortAnswer": "Le burn-out est un épuisement profond — physique, émotionnel et mental — causé par un stress professionnel prolongé. Il ne disparaît pas seul : une évaluation médicale est recommandée dès que l'épuisement persiste plusieurs semaines et retentit sur le travail, le sommeil ou les relations.",
+  "causes": [
+    "Charge de travail excessive et chronique sans temps de récupération suffisant",
+    "Manque de reconnaissance ou sentiment d'injustice au travail",
+    "Perte de sens ou conflit entre les valeurs personnelles et celles de l'entreprise",
+    "Isolement professionnel, mauvais climat d'équipe ou harcèlement",
+    "Difficultés à poser des limites et tendance au perfectionnisme",
+    "Cumul de responsabilités familiales et professionnelles (double charge)"
+  ],
+  "redFlags": [
+    "Idées de désespoir, de fuite ou pensées suicidaires : contacter immédiatement un médecin ou le 141 (SAMU)",
+    "Incapacité totale à se lever, à s'alimenter ou à prendre soin de soi depuis plusieurs jours",
+    "Confusion mentale soudaine, crise d'angoisse intense avec douleur thoracique ou difficultés à respirer",
+    "Symptômes physiques inexpliqués sévères (palpitations, vertiges persistants, douleurs diffuses invalidantes)",
+    "Isolement total et refus de tout contact, même avec les proches"
+  ],
+  "whenToConsult": "Consultez votre médecin généraliste dès que l'épuisement dure plus de deux semaines et retentit sur votre travail, votre sommeil ou vos relations. N'attendez pas d'être en crise.",
+  "faq": [
+    {
+      "q": "Le burn-out est-il une vraie maladie reconnue ?",
+      "a": "Oui, le burn-out est reconnu par l'OMS comme un syndrome lié au travail (CIM-11). Au Maroc, il peut justifier un arrêt de travail prescrit par un médecin. Il ne disparaît pas seul : une prise en charge médicale et, souvent, psychologique est nécessaire."
+    },
+    {
+      "q": "Comment distinguer une fatigue normale du burn-out ?",
+      "a": "La fatigue normale disparaît après le repos ou les vacances. Le burn-out persiste malgré le repos : on se réveille épuisé, on ressent une indifférence ou un cynisme envers le travail, et les petites tâches deviennent écrasantes. Si cela dure plusieurs semaines, consultez un médecin."
+    }
+  ],
+  "intentAnswer": "Pour un burn-out, commencez par votre médecin généraliste : il évalue votre état, peut prescrire un arrêt de travail et vous orienter vers un psychologue ou un psychiatre. Si vous avez des pensées suicidaires ou une détresse sévère, rendez-vous aux urgences ou appelez le 141.",
+  "termAr": "الإرهاق المهني (البيرن آوت)",
+  "shortAnswerAr": "الإرهاق المهني هو استنزاف عميق — جسدي وعاطفي وذهني — ناجم عن ضغط مستمر في العمل. لا يزول من تلقاء نفسه: يُنصح بالتقييم الطبي فور استمرار الإرهاق لأسابيع مع تأثيره على العمل أو النوم أو العلاقات.",
+  "causesAr": [
+    "عبء عمل مفرط ومستمر دون وقت كافٍ للتعافي",
+    "غياب التقدير أو الشعور بالظلم في بيئة العمل",
+    "فقدان المعنى أو التعارض بين القيم الشخصية ومتطلبات العمل",
+    "العزلة المهنية أو التوتر داخل الفريق أو التحرش في مكان العمل",
+    "صعوبة وضع حدود والميل نحو الكمالية المفرطة",
+    "ازدواجية الأعباء المهنية والعائلية"
+  ],
+  "redFlagsAr": [
+    "أفكار باليأس أو الهروب أو التفكير في الانتحار: اتصل فوراً بطبيب أو الرقم 141 (SAMU)",
+    "عجز تام عن النهوض من الفراش أو الأكل أو الاعتناء بالنفس لأيام متتالية",
+    "تشوش ذهني مفاجئ أو نوبة قلق حادة مصحوبة بألم في الصدر أو صعوبة في التنفس",
+    "أعراض جسدية شديدة لا تفسير لها: خفقان، دوار مستمر، آلام منتشرة تعيق الحركة",
+    "عزلة تامة ورفض أي تواصل حتى مع المقربين"
+  ],
+  "whenToConsultAr": "راجع طبيبك العام فور استمرار الإرهاق أكثر من أسبوعين وتأثيره على عملك أو نومك أو علاقاتك. لا تنتظر حتى تصل إلى أزمة.",
+  "faqAr": [
+    {
+      "q": "هل الإرهاق المهني مرض حقيقي معترف به؟",
+      "a": "نعم، تعترف منظمة الصحة العالمية بالإرهاق المهني بوصفه متلازمة مرتبطة بالعمل (ICD-11). في المغرب، يمكن أن يستوجب إجازة مرضية يصفها الطبيب. ولا يزول من تلقاء نفسه، بل يستلزم رعاية طبية وغالباً دعماً نفسياً."
+    },
+    {
+      "q": "كيف أميز بين التعب العادي والإرهاق المهني؟",
+      "a": "التعب العادي يزول بعد الراحة أو الإجازة. أما الإرهاق المهني فيبقى رغم الراحة: تستيقظ منهكاً، وتشعر باللامبالاة أو السلبية تجاه العمل، وتبدو أبسط المهام مرهقة. إذا امتد ذلك لأسابيع، استشر طبيبك."
+    }
+  ],
+  "intentAnswerAr": "في حالة الإرهاق المهني، ابدأ بطبيبك العام: يقيّم حالتك، ويمكنه وصف إجازة مرضية وإحالتك إلى طبيب نفسي أو معالج نفسي. إذا راودتك أفكار انتحارية أو شعرت بضائقة شديدة، توجه فوراً إلى المستعجلات أو اتصل بالرقم 141."
+}

@@ -1,0 +1,66 @@
+{
+  "slug": "addiction",
+  "term": "Addiction (dépendance)",
+  "kind": "DISEASE",
+  "specialty": "addictologie-clinique",
+  "synonyms": ["dépendance", "addiction comportementale", "substance use disorder", "dépendance à l'alcool", "dépendance aux drogues"],
+  "shortAnswer": "L'addiction est une dépendance compulsive à une substance (alcool, tabac, drogues) ou à un comportement (jeu, écrans), malgré des conséquences négatives. Elle devient préoccupante lorsqu'elle perturbe la vie quotidienne, les relations ou la santé physique.",
+  "causes": [
+    "Facteurs génétiques et antécédents familiaux de dépendance",
+    "Troubles psychologiques sous-jacents (anxiété, dépression, traumatismes)",
+    "Environnement social défavorable ou pression des pairs",
+    "Exposition précoce aux substances pendant l'adolescence",
+    "Stress chronique ou situations de vie difficiles",
+    "Facteurs neurobiologiques affectant le circuit de la récompense cérébrale"
+  ],
+  "redFlags": [
+    "Incapacité totale à arrêter malgré une volonté affirmée et des tentatives répétées",
+    "Symptômes de sevrage physiques intenses (tremblements, convulsions, sueurs abondantes) — appelez le 141 (SAMU) ou rendez-vous aux urgences",
+    "Delirium tremens : confusion soudaine, hallucinations, fièvre lors d'un sevrage alcoolique — urgence vitale, appelez le 141",
+    "Comportements violents ou dangereux liés à la consommation",
+    "Idées suicidaires ou automutilation associées à la dépendance — contactez immédiatement un médecin ou le 141",
+    "Overdose suspectée ou perte de connaissance — appelez le 141 (SAMU) immédiatement"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès que la consommation d'une substance ou un comportement échappe à votre contrôle et retentit sur votre santé, vos relations ou votre travail. Ne pas attendre d'avoir « touché le fond » pour demander de l'aide.",
+  "faq": [
+    {
+      "q": "L'addiction est-elle une maladie ou un manque de volonté ?",
+      "a": "L'addiction est reconnue comme une maladie chronique du cerveau, et non un simple manque de volonté. Elle modifie durablement le fonctionnement des circuits cérébraux de la récompense et du contrôle. Une prise en charge médicale et psychologique est efficace et possible à tout stade."
+    },
+    {
+      "q": "Peut-on se rétablir d'une addiction au Maroc ?",
+      "a": "Oui. Des centres spécialisés en addictologie existent dans plusieurs villes marocaines, notamment via les hôpitaux psychiatriques et les associations agréées. Un suivi médical, une thérapie comportementale et un accompagnement social permettent d'atteindre et maintenir l'abstinence ou une consommation contrôlée."
+    }
+  ],
+  "intentAnswer": "Pour une addiction, consultez d'abord votre médecin généraliste qui évaluera la situation et pourra orienter vers un addictologue ou un psychiatre spécialisé. En cas de crise aiguë, de convulsions, de delirium tremens (confusion, hallucinations lors d'un sevrage alcoolique), d'overdose ou de comportement dangereux, appelez le 141 (SAMU) ou rendez-vous immédiatement aux urgences.",
+  "termAr": "الإدمان (الاعتماد)",
+  "shortAnswerAr": "الإدمان هو اعتماد قهري على مادة (كالكحول أو التبغ أو المخدرات) أو سلوك (كالقمار أو الشاشات)، رغم عواقبه السلبية. يصبح مثيرًا للقلق حين يؤثر على الحياة اليومية أو العلاقات أو الصحة الجسدية.",
+  "causesAr": [
+    "العوامل الوراثية والتاريخ العائلي للإدمان",
+    "اضطرابات نفسية كامنة كالقلق أو الاكتئاب أو الصدمات النفسية",
+    "البيئة الاجتماعية السلبية أو ضغط الأقران",
+    "التعرض المبكر للمواد المخدرة في مرحلة المراهقة",
+    "الضغوط المزمنة أو الظروف الحياتية الصعبة",
+    "عوامل عصبية تؤثر على دائرة المكافأة في الدماغ"
+  ],
+  "redFlagsAr": [
+    "العجز التام عن الإقلاع رغم الإرادة والمحاولات المتكررة",
+    "أعراض انسحاب جسدية حادة كالارتعاش أو التشنجات أو التعرق الشديد — اتصل بـ 141 (SAMU) أو توجه للطوارئ",
+    "هذيان الانسحاب: ارتباك مفاجئ وهلوسة وحمى عند إيقاف الكحول — حالة طارئة تهدد الحياة، اتصل بـ 141 فوراً",
+    "سلوكيات عنيفة أو خطيرة مرتبطة بالاستهلاك",
+    "أفكار انتحارية أو إيذاء الذات مرتبطة بالإدمان — تواصل فوراً مع طبيب أو اتصل بـ 141",
+    "الاشتباه بجرعة زائدة أو فقدان الوعي — اتصل بـ 141 (SAMU) فوراً"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور شعورك بأن استهلاك مادة ما أو سلوكًا معينًا بات خارجًا عن سيطرتك ويؤثر على صحتك أو علاقاتك أو عملك. لا تنتظر الوصول إلى الحضيض لطلب المساعدة.",
+  "faqAr": [
+    {
+      "q": "هل الإدمان مرض أم ضعف في الإرادة؟",
+      "a": "الإدمان مرض مزمن معترف به يصيب الدماغ، وليس مجرد ضعف في الإرادة. إذ يغير بشكل دائم طريقة عمل دوائر المكافأة والتحكم في الدماغ. والعلاج الطبي والنفسي فعّال ومتاح في جميع مراحله."
+    },
+    {
+      "q": "هل يمكن التعافي من الإدمان في المغرب؟",
+      "a": "نعم. تتوفر مراكز متخصصة في معالجة الإدمان في مدن مغربية عدة، لا سيما عبر المستشفيات النفسية والجمعيات المعتمدة. ويُتيح المتابعة الطبية والعلاج السلوكي والدعم الاجتماعي تحقيق الامتناع والحفاظ عليه أو الوصول إلى استهلاك متحكم فيه."
+    }
+  ],
+  "intentAnswerAr": "في حالة الإدمان، ابدأ باستشارة طبيبك العام الذي سيقيّم وضعك ويحيلك إلى طبيب متخصص في الإدمان أو طبيب نفسي. وفي حال الأزمات الحادة أو التشنجات أو هذيان الانسحاب الكحولي (ارتباك وهلوسة) أو الجرعة الزائدة أو الخطر الجسدي، اتصل بـ 141 (SAMU) أو توجه فورًا إلى قسم الطوارئ."
+}

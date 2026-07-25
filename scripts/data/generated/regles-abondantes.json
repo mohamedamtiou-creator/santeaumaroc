@@ -1,0 +1,64 @@
+{
+  "slug": "regles-abondantes",
+  "term": "Règles abondantes (ménorragie)",
+  "kind": "SYMPTOM",
+  "specialty": "gyneco-obstetrique",
+  "synonyms": ["ménorragie", "hyperménorrhée", "saignements menstruels abondants", "règles trop longues"],
+  "shortAnswer": "Les règles abondantes (ménorragie) désignent des saignements menstruels excessifs qui durent plus de 7 jours ou nécessitent de changer de protection très souvent. Souvent bénignes, elles peuvent cacher une cause traitable et doivent être évaluées par un médecin si elles gênent la vie quotidienne.",
+  "causes": [
+    "Déséquilibre hormonal (cycles anovulatoires fréquents à l'adolescence ou à la préménopause)",
+    "Fibromes utérins (myomes bénins de l'utérus)",
+    "Polypes de l'endomètre (petites excroissances bénignes)",
+    "Endométriose ou adénomyose (tissu utérin hors place)",
+    "Troubles de la coagulation (maladie de von Willebrand, thrombopénie)",
+    "Dispositif intra-utérin (stérilet au cuivre) ou prise de certains médicaments anticoagulants"
+  ],
+  "redFlags": [
+    "Saignements si abondants qu'il faut changer de protection toutes les heures pendant plusieurs heures consécutives",
+    "Vertiges, pâleur intense, essoufflement ou palpitations pouvant indiquer une anémie sévère",
+    "Fièvre associée aux saignements (risque d'infection)",
+    "Saignements survenant en dehors des règles ou après la ménopause",
+    "Douleurs pelviennes très intenses ou soudaines accompagnant les saignements"
+  ],
+  "whenToConsult": "Consultez votre médecin généraliste dès que vos règles perturbent votre quotidien, nécessitent plus de 6 protections par jour ou durent plus de 7 jours. En cas de saignement très abondant avec malaise, rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "Comment savoir si mes règles sont vraiment trop abondantes ?",
+      "a": "On parle de ménorragie lorsque vous devez changer de protection (serviette ou tampon) toutes les deux heures ou moins, lorsque vous passez des caillots de sang de grande taille (plus de 2-3 cm), ou que vos règles durent plus de 7 jours. Si vous ressentez une fatigue inhabituelle ou des vertiges, une anémie est possible et mérite une prise de sang."
+    },
+    {
+      "q": "Les règles abondantes peuvent-elles disparaître seules ?",
+      "a": "Parfois oui, notamment chez l'adolescente ou en préménopause où les cycles se régularisent naturellement. Mais dans de nombreux cas, une cause sous-jacente (fibrome, trouble hormonal, trouble de la coagulation) nécessite un traitement. Seul un bilan médical permettra de le savoir et d'éviter une anémie chronique."
+    }
+  ],
+  "intentAnswer": "Pour des règles abondantes, consultez d'abord votre médecin généraliste qui prescrira un bilan sanguin et une échographie. Il vous orientera vers un gynécologue-obstétricien pour un examen approfondi et un traitement adapté. Si les saignements sont très intenses avec malaise ou vertiges, rendez-vous directement aux urgences.",
+  "termAr": "الدورة الشهرية الغزيرة (فرط الطمث)",
+  "shortAnswerAr": "الدورة الشهرية الغزيرة هي نزيف حيض مفرط يستمر أكثر من 7 أيام أو يستلزم تغيير الفوط الصحية بشكل متكرر جداً. غالباً ما تكون حالة قابلة للعلاج، لكنها قد تخفي سبباً يستوجب استشارة طبيب إذا أثّرت على الحياة اليومية.",
+  "causesAr": [
+    "اختلال هرموني (دورات بدون إباضة، شائعة في سن المراهقة وما قبل انقطاع الطمث)",
+    "الأورام الليفية الرحمية (أورام حميدة في الرحم)",
+    "السلائل الرحمية (نتوءات صغيرة حميدة في بطانة الرحم)",
+    "بطانة الرحم المهاجرة (الإندومتريوز) أو الغدي الرحمي",
+    "اضطرابات التخثر (مثل مرض فون ويليبراند أو قلة الصفائح الدموية)",
+    "اللولب النحاسي داخل الرحم أو تناول بعض الأدوية المضادة للتخثر"
+  ],
+  "redFlagsAr": [
+    "نزيف شديد يستلزم تغيير الفوط كل ساعة لعدة ساعات متتالية",
+    "دوخة، شحوب شديد، ضيق تنفس أو خفقان قلب قد تدل على فقر الدم الحاد",
+    "حمى مصاحبة للنزيف (خطر الإصابة بعدوى)",
+    "نزيف بين الدورات أو بعد انقطاع الطمث",
+    "آلام حوضية شديدة أو مفاجئة مصاحبة للنزيف"
+  ],
+  "whenToConsultAr": "راجعي طبيبك العام فور شعورك بأن الدورة تؤثر على حياتك اليومية، أو إذا احتجت إلى أكثر من 6 فوط يومياً أو استمر النزيف أكثر من 7 أيام. في حال نزيف غزير مصحوب بإغماء أو دوار شديد، توجّهي فوراً إلى المستعجلات.",
+  "faqAr": [
+    {
+      "q": "كيف أعرف إن كانت دورتي غزيرة فعلاً؟",
+      "a": "يُعدّ الحيض غزيراً حين تضطرين لتغيير الفوط كل ساعتين أو أقل، أو حين تلاحظين جلطات دموية كبيرة (أكبر من 2-3 سم)، أو إذا استمر النزيف أكثر من 7 أيام. إن شعرت بتعب غير معتاد أو دوار، فقد يدل ذلك على فقر الدم وتستوجب الحالة تحليل دم."
+    },
+    {
+      "q": "هل يمكن أن تتحسن الدورة الغزيرة من تلقاء نفسها؟",
+      "a": "أحياناً نعم، لا سيما لدى المراهقات أو مع اقتراب سن انقطاع الطمث حيث تنتظم الدورات تلقائياً. لكن في كثير من الحالات يكون هناك سبب كامن كالأورام الليفية أو الاختلال الهرموني يحتاج علاجاً. الفحص الطبي وحده يحدد ذلك ويُجنّبك فقر الدم المزمن."
+    }
+  ],
+  "intentAnswerAr": "لمعالجة الدورة الشهرية الغزيرة، ابدئي باستشارة الطبيب العام الذي سيطلب تحاليل دم وصورة بالأمواج فوق الصوتية، ثم يُحيلك إلى طبيب أمراض النساء والتوليد لإجراء فحص متخصص وتلقّي العلاج المناسب. في حال نزيف حاد مصحوب بدوار أو إغماء، اذهبي مباشرة إلى المستعجلات."
+}

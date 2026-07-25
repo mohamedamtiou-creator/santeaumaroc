@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { localizedAlternates } from "@/lib/hreflang";
-import { toLocale } from "@/lib/i18n";
+import { toLocale, getDictionary } from "@/lib/i18n";
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 
@@ -203,6 +203,8 @@ const COPY: Record<"fr" | "ar", Copy> = {
 export default async function CharteEditorialePage({ params }: { params: Promise<{ lang: string }> }) {
   const locale = toLocale((await params).lang) === "ar" ? "ar" : "fr";
   const t = COPY[locale];
+  const chips = getDictionary(locale).healthHub;
+  const tocLabel = locale === "ar" ? "في هذه الصفحة" : "Sur cette page";
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -252,24 +254,34 @@ export default async function CharteEditorialePage({ params }: { params: Promise
             {t.heroTitle}
           </h1>
           <p className="text-white/75 text-lg leading-relaxed">{t.heroSubtitle}</p>
-          <p className="mt-6 text-sm text-white/60">
+
+          <div className="mt-7 flex flex-wrap items-center gap-2.5">
+            <span className="badge-trust">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.75" className="w-3.5 h-3.5" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><path d="M8 1.5 2.5 3.8v3.4c0 3.2 2.3 5.4 5.5 6.3 3.2-.9 5.5-3.1 5.5-6.3V3.8L8 1.5z" /><path d="m5.8 8 1.6 1.6L10.4 6" /></svg>
+              {chips.verified}
+            </span>
+            <Link href="/methodologie" className="badge-trust hover:bg-white hover:text-primary-900 transition-colors">
+              {chips.methodology}
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" className="w-3 h-3 rtl:-scale-x-100" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><path d="m4 2 4 4-4 4" /></svg>
+            </Link>
+          </div>
+
+          <p className="mt-5 text-sm text-white/60">
             {t.updatedLabel} : <time dateTime={LAST_UPDATED_ISO}>{t.updatedHuman}</time>
           </p>
         </div>
       </div>
 
-      <main className="page-outer">
-        <div className="max-w-3xl mx-auto">
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:py-10">
+        <div className="grid lg:grid-cols-[16rem_minmax(0,1fr)] gap-8 items-start">
 
-          {/* ── Sommaire (ancres profondes + éligibilité sitelinks) ── */}
-          <nav aria-label={locale === "ar" ? "في هذه الصفحة" : "Sur cette page"} className="mb-10 rounded-xl border border-slate-200 bg-slate-50/70 p-5">
-            <p className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3">
-              {locale === "ar" ? "في هذه الصفحة" : "Sur cette page"}
-            </p>
-            <ol className="grid sm:grid-cols-2 gap-x-6 gap-y-1.5">
+          {/* ── Sommaire — sticky en aside (desktop), en tête (mobile) ── */}
+          <nav aria-label={tocLabel} className="lg:sticky lg:top-20 rounded-2xl border border-slate-200 bg-slate-50/70 p-5">
+            <p className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3">{tocLabel}</p>
+            <ol className="space-y-1.5">
               {t.sections.map((s, i) => (
                 <li key={i}>
-                  <a href={`#s-${i + 1}`} className="text-sm text-primary-600 hover:text-primary-700 hover:underline leading-relaxed">
+                  <a href={`#s-${i + 1}`} className="block text-sm text-slate-600 hover:text-primary-700 hover:underline leading-relaxed rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2">
                     {s.title}
                   </a>
                 </li>
@@ -277,44 +289,46 @@ export default async function CharteEditorialePage({ params }: { params: Promise
             </ol>
           </nav>
 
-          {t.sections.map((s, i) => (
-            <section key={i} id={`s-${i + 1}`} className="mb-10 scroll-mt-24">
-              <h2 className="text-xl font-bold text-slate-900 mb-3">{s.title}</h2>
-              {s.paragraphs.map((p, j) => (
-                <p key={j} className="text-slate-600 leading-relaxed mb-3">{p}</p>
-              ))}
-              {s.items && (
-                <ul className="mt-2 space-y-2">
-                  {s.items.map((it, k) => (
-                    <li key={k} className="flex gap-2.5 text-sm text-slate-700 leading-relaxed">
-                      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.25"
-                        className="w-4 h-4 mt-1 shrink-0 text-secondary-600 rtl:-scale-x-100" aria-hidden="true"
-                        strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M3 8.5l3.5 3.5L13 5" />
-                      </svg>
-                      <span>{it}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </section>
-          ))}
+          <div className="min-w-0">
+            {t.sections.map((s, i) => (
+              <section key={i} id={`s-${i + 1}`} className="mb-10 scroll-mt-24">
+                <h2 className="text-xl font-bold text-slate-900 mb-3">{s.title}</h2>
+                {s.paragraphs.map((p, j) => (
+                  <p key={j} className="text-slate-600 leading-relaxed mb-3">{p}</p>
+                ))}
+                {s.items && (
+                  <ul className="mt-2 space-y-2">
+                    {s.items.map((it, k) => (
+                      <li key={k} className="flex gap-2.5 text-sm text-slate-700 leading-relaxed">
+                        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.25"
+                          className="w-4 h-4 mt-1 shrink-0 text-secondary-600 rtl:-scale-x-100" aria-hidden="true"
+                          strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M3 8.5l3.5 3.5L13 5" />
+                        </svg>
+                        <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            ))}
 
-          {/* ── CTA contact ──────────────────────────────── */}
-          <section>
-            <div
-              className="rounded-2xl p-8 sm:p-10 text-center relative overflow-hidden"
-              style={{ background: "linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 58%, #047857 100%)" }}
-            >
-              <div className="relative">
-                <h2 className="text-xl sm:text-2xl font-bold text-white mb-3">{t.contactTitle}</h2>
-                <p className="text-white/75 text-sm mb-7 max-w-md mx-auto leading-relaxed">{t.contactDesc}</p>
-                <Link href="/contact" className="btn-ghost-white px-8 py-3">{t.contactBtn}</Link>
+            {/* ── CTA contact ──────────────────────────────── */}
+            <section>
+              <div
+                className="rounded-2xl p-8 sm:p-10 text-center relative overflow-hidden"
+                style={{ background: "linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 58%, #047857 100%)" }}
+              >
+                <div className="relative">
+                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-3">{t.contactTitle}</h2>
+                  <p className="text-white/75 text-sm mb-7 max-w-md mx-auto leading-relaxed">{t.contactDesc}</p>
+                  <Link href="/contact" className="btn-ghost-white px-8 py-3">{t.contactBtn}</Link>
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          </div>
         </div>
-      </main>
+      </div>
     </>
   );
 }

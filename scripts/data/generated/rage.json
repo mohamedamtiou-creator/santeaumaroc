@@ -1,0 +1,68 @@
+{
+  "slug": "rage",
+  "term": "Rage (morsure animale)",
+  "kind": "DISEASE",
+  "specialty": "maladies-infectieuses",
+  "synonyms": ["morsure de chien", "morsure animale", "virus rabique", "hydrophobie"],
+  "shortAnswer": "La rage est une infection virale mortelle transmise par la morsure d'un animal infecté (chien, chat, chauve-souris). Au Maroc, toute morsure animale est une urgence médicale : consultez immédiatement, même si la plaie semble bénigne.",
+  "causes": [
+    "Morsure ou griffure d'un chien enragé ou suspect (cause principale au Maroc)",
+    "Contact avec la salive d'un animal infecté sur une plaie ou une muqueuse",
+    "Morsure de chat, renard, chauve-souris ou autre mammifère porteur du virus",
+    "Léchage d'une plaie ouverte par un animal potentiellement infecté",
+    "Absence ou retard de vaccination antirabique après exposition",
+    "Contact avec un animal errant ou au comportement anormal"
+  ],
+  "redFlags": [
+    "Morsure profonde, multiple ou au visage, cou ou mains — urgence immédiate",
+    "Animal errant, inconnu, sauvage ou au comportement anormal (agressivité soudaine, bave excessive) — ne pas attendre",
+    "Animal mordeur tué, disparu ou non observable : impossible d'en suivre l'état — urgence immédiate",
+    "Exposition à une chauve-souris (même sans plaie visible) : le risque rabique justifie une consultation d'urgence",
+    "Apparition de fièvre, maux de tête, douleurs ou picotements autour de la plaie",
+    "Difficulté à avaler, sensation d'étouffement à la vue de l'eau (hydrophobie)",
+    "Confusion, agitation ou paralysie progressive — stade avancé, urgence absolue"
+  ],
+  "whenToConsult": "Toute morsure ou griffure d'animal doit être prise en charge dans les plus brefs délais aux urgences ou dans un centre antirabique. Ne pas attendre l'apparition de symptômes : une fois déclarée, la rage est quasi systématiquement fatale.",
+  "faq": [
+    {
+      "q": "Que faire immédiatement après une morsure de chien au Maroc ?",
+      "a": "Lavez abondamment la plaie à l'eau courante et au savon pendant au moins 15 minutes, puis rendez-vous immédiatement aux urgences ou au centre antirabique le plus proche. Ne perdez pas de temps : le traitement préventif est efficace s'il est commencé rapidement après l'exposition."
+    },
+    {
+      "q": "La rage peut-elle être traitée une fois les symptômes apparus ?",
+      "a": "Malheureusement, une fois les symptômes neurologiques installés, la rage est quasi systématiquement fatale. C'est pourquoi la prise en charge doit être immédiate après toute morsure suspecte, avant l'apparition de tout signe clinique."
+    }
+  ],
+  "intentAnswer": "Après une morsure animale, rendez-vous sans délai aux urgences hospitalières ou à un centre antirabique. Un médecin généraliste peut orienter, mais c'est le spécialiste en maladies infectieuses qui supervise le traitement préventif. N'attendez aucun symptôme pour consulter.",
+  "termAr": "داء الكلب (عضة حيوان)",
+  "shortAnswerAr": "داء الكلب عدوى فيروسية قاتلة تنتقل عبر عضة حيوان مصاب كالكلب أو القط أو الخفاش. في المغرب، كل عضة حيوان تُعدّ حالة طارئة: تَوَجَّه فوراً للطوارئ حتى لو بَدَا الجرح بسيطاً.",
+  "causesAr": [
+    "عضة أو خدش من كلب مصاب أو مشتبه به (السبب الرئيسي في المغرب)",
+    "تلامس لعاب حيوان مصاب مع جرح مفتوح أو أغشية مخاطية",
+    "عضة قط أو ثعلب أو خفاش أو أي ثدييات حاملة للفيروس",
+    "لعق حيوان مصاب لجرح مفتوح",
+    "غياب التطعيم الوقائي أو التأخر فيه بعد التعرض للعضة",
+    "تلامس مع حيوان ضال أو يُبدي سلوكاً غير طبيعي"
+  ],
+  "redFlagsAr": [
+    "عضة عميقة أو متعددة أو في الوجه أو الرقبة أو اليدين — حالة طارئة فورية",
+    "الحيوان ضال أو مجهول أو بري أو يُبدي سلوكاً عدوانياً مفاجئاً أو تسيلاً مفرطاً للعاب — لا تتأخر",
+    "الحيوان العاضّ قُتل أو فرّ أو يتعذّر مراقبة حالته: خطر داء الكلب قائم — توجّه فوراً للطوارئ",
+    "التعرض لخفاش (حتى وإن لم تظهر جرح واضح): يستوجب استشارة طارئة لاحتمال الإصابة",
+    "ظهور حمى أو صداع أو ألم أو وخز حول موضع العضة",
+    "صعوبة في البلع أو خوف مرضي من الماء (رُهاب الماء)",
+    "تشوش ذهني أو هياج أو شلل تدريجي — مرحلة متقدمة، طوارئ قصوى"
+  ],
+  "whenToConsultAr": "يجب معالجة أي عضة أو خدش من حيوان في أقرب وقت ممكن في قسم الطوارئ أو مركز مكافحة داء الكلب. لا تنتظر ظهور الأعراض: بمجرد إعلان المرض يكون مآله مميتاً في الغالب.",
+  "faqAr": [
+    {
+      "q": "ماذا أفعل فوراً بعد عضة كلب في المغرب؟",
+      "a": "اغسل الجرح فوراً بالماء الجاري والصابون مدة لا تقل عن 15 دقيقة، ثم توجه على الفور إلى الطوارئ أو أقرب مركز لمكافحة داء الكلب. لا تضيع الوقت: العلاج الوقائي فعّال إذا بدأ مبكراً بعد التعرض للعضة."
+    },
+    {
+      "q": "هل يمكن علاج داء الكلب بعد ظهور الأعراض؟",
+      "a": "للأسف، بمجرد ظهور الأعراض العصبية يكون داء الكلب شبه مميت في جميع الحالات. لهذا السبب يجب التدخل الطبي الفوري بعد أي عضة مشتبه بها، قبل ظهور أي علامة سريرية."
+    }
+  ],
+  "intentAnswerAr": "بعد أي عضة حيوان، توجه فوراً إلى طوارئ المستشفى أو مركز مكافحة داء الكلب. يمكن للطبيب العام توجيهك، لكن متخصص الأمراض المعدية هو من يشرف على العلاج الوقائي. لا تنتظر ظهور أي أعراض قبل الاستشارة."
+}

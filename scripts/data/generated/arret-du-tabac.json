@@ -1,0 +1,64 @@
+{
+  "slug": "arret-du-tabac",
+  "term": "Arrêt du tabac (sevrage tabagique)",
+  "kind": "SYMPTOM",
+  "specialty": "tabacologie",
+  "synonyms": ["sevrage tabagique", "quit smoking", "désaccoutumance au tabac", "arrêt du tabac"],
+  "shortAnswer": "Le sevrage tabagique désigne l'ensemble des symptômes physiques et psychologiques qui surviennent lors de l'arrêt du tabac. Irritabilité, envie intense de fumer et troubles du sommeil sont fréquents et passagers. Ces manifestations sont gérables avec un accompagnement adapté.",
+  "causes": [
+    "Dépendance physique à la nicotine : le cerveau réclame sa dose habituelle",
+    "Dépendance psychologique et comportementale (gestes associés au tabac)",
+    "Anxiété ou stress amplifiant l'envie de fumer",
+    "Entourage fumeur rendant l'abstinence plus difficile",
+    "Antécédents de tentatives d'arrêt infructueuses fragilisant la confiance",
+    "Troubles de l'humeur préexistants (dépression, anxiété) aggravés au sevrage"
+  ],
+  "redFlags": [
+    "Dépression sévère, idées noires ou pensées suicidaires apparaissant après l'arrêt — appelez le 141 (SAMU) ou rendez-vous immédiatement aux urgences",
+    "Agitation ou confusion importante perturbant la vie quotidienne",
+    "Convulsions ou perte de connaissance (rares, mais nécessitent une urgence immédiate — appelez le 141)",
+    "Douleur thoracique, palpitations ou essoufflement inhabituels survenant à l'arrêt",
+    "Aggravation rapide d'une maladie chronique (asthme, BPCO) après l'arrêt"
+  ],
+  "whenToConsult": "Consultez un médecin dès que vous envisagez d'arrêter de fumer : un accompagnement adapté multiplie vos chances de succès. En cas de pensées suicidaires ou de symptômes psychiatriques sévères après l'arrêt, appelez le 141 (SAMU) ou rendez-vous aux urgences sans attendre. En cas de douleur thoracique ou de palpitations inhabituelles, consultez en urgence.",
+  "faq": [
+    {
+      "q": "Combien de temps durent les symptômes du sevrage tabagique ?",
+      "a": "Les symptômes physiques du sevrage (envies intenses, irritabilité, troubles du sommeil) sont généralement les plus intenses dans les deux premières semaines et s'atténuent progressivement en quatre à huit semaines. La dépendance psychologique peut persister plus longtemps, d'où l'intérêt d'un suivi prolongé."
+    },
+    {
+      "q": "Existe-t-il des aides au sevrage disponibles au Maroc ?",
+      "a": "Oui. Des consultations de tabacologie sont disponibles dans plusieurs hôpitaux et centres de santé marocains. Votre médecin généraliste peut aussi vous orienter et vous proposer un accompagnement personnalisé. Il est préférable de ne pas tenter l'arrêt seul si vous avez une forte dépendance."
+    }
+  ],
+  "intentAnswer": "Pour arrêter de fumer, commencez par consulter votre médecin généraliste qui évaluera votre dépendance et vous orientera. Un tabacologue peut assurer un suivi spécialisé. En cas de pensées suicidaires ou de symptômes psychiatriques sévères après l'arrêt, appelez le 141 (SAMU) ou rendez-vous aux urgences sans attendre.",
+  "termAr": "الإقلاع عن التدخين (سحب النيكوتين)",
+  "shortAnswerAr": "الإقلاع عن التدخين هو مجموعة الأعراض الجسدية والنفسية التي تظهر عند التوقف عن التدخين. تشمل التوتر والرغبة الشديدة في التدخين واضطرابات النوم، وهي عابرة وقابلة للتحكم فيها بمساعدة متخصص.",
+  "causesAr": [
+    "الاعتماد الجسدي على النيكوتين: يطالب الدماغ بجرعته المعتادة",
+    "الاعتماد النفسي والسلوكي المرتبط بعادات التدخين اليومية",
+    "التوتر والقلق اللذان يزيدان من الرغبة في التدخين",
+    "المحيط الاجتماعي المدخن الذي يجعل الامتناع أكثر صعوبة",
+    "محاولات إقلاع سابقة فاشلة تضعف الثقة بالنفس",
+    "اضطرابات المزاج الموجودة مسبقاً كالاكتئاب والقلق التي قد تتفاقم عند التوقف"
+  ],
+  "redFlagsAr": [
+    "اكتئاب حاد أو أفكار سوداء أو أفكار انتحارية تظهر بعد التوقف عن التدخين — اتصل بـ 141 (SAMU) أو توجّه فوراً إلى الطوارئ",
+    "اضطراب أو ارتباك شديد يؤثر على الحياة اليومية",
+    "تشنجات أو فقدان الوعي (نادر، لكنه يستوجب التوجه الفوري للطوارئ — اتصل بـ 141)",
+    "ألم في الصدر أو خفقان أو ضيق في التنفس غير معتاد بعد الإقلاع",
+    "تدهور سريع لمرض مزمن كالربو أو مرض الانسداد الرئوي المزمن بعد التوقف"
+  ],
+  "whenToConsultAr": "استشر طبيبك فور تفكيرك في الإقلاع عن التدخين؛ فالمرافقة المتخصصة تضاعف فرص النجاح. وإذا راودتك أفكار انتحارية أو ظهرت أعراض نفسية حادة بعد التوقف، اتصل فوراً بـ 141 (SAMU) أو توجّه إلى الطوارئ دون انتظار. وفي حال ألم الصدر أو الخفقان غير المعتاد، استشر طبيباً في أقرب وقت.",
+  "faqAr": [
+    {
+      "q": "كم من الوقت تستمر أعراض سحب النيكوتين؟",
+      "a": "تكون الأعراض الجسدية (الرغبة الشديدة، والتوتر، واضطرابات النوم) في أشدها خلال الأسبوعين الأولين، ثم تتراجع تدريجياً في غضون أربعة إلى ثمانية أسابيع. أما الاعتماد النفسي فقد يستمر أطول، مما يجعل المتابعة المطولة مع متخصص أمراً مفيداً."
+    },
+    {
+      "q": "هل توجد مساعدات للإقلاع عن التدخين في المغرب؟",
+      "a": "نعم، تتوفر عيادات الإقلاع عن التدخين في عدد من المستشفيات والمراكز الصحية المغربية. يمكن لطبيبك العام أيضاً توجيهك وتقديم مرافقة شخصية مناسبة. يُنصح بعدم محاولة الإقلاع بمفردك إذا كانت لديك إدمان شديد."
+    }
+  ],
+  "intentAnswerAr": "للإقلاع عن التدخين، ابدأ بزيارة طبيبك العام الذي سيقيّم درجة اعتمادك ويوجهك إلى المتخصص المناسب. يمكن لأخصائي الإقلاع عن التدخين (طبيب تباكولوجي) تقديم متابعة متخصصة. وفي حال ظهور أفكار انتحارية أو أعراض نفسية حادة بعد الإقلاع، اتصل بـ 141 (SAMU) أو توجه فوراً إلى المستعجلات."
+}

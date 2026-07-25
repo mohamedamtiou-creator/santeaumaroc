@@ -1,0 +1,64 @@
+{
+  "slug": "proteinurie",
+  "term": "Protéinurie (protéines dans les urines)",
+  "kind": "SYMPTOM",
+  "specialty": "nephrologie",
+  "synonyms": ["protéines dans les urines", "albumine dans les urines", "albuminurie"],
+  "shortAnswer": "La protéinurie désigne la présence anormale de protéines dans les urines. En petite quantité et de façon passagère, elle peut être bénigne (effort intense, fièvre). Persistante ou abondante, elle signale souvent une atteinte rénale ou une maladie générale qui nécessite un avis médical.",
+  "causes": [
+    "Maladie rénale chronique (glomérulonéphrite, syndrome néphrotique)",
+    "Diabète sucré avec atteinte des reins (néphropathie diabétique)",
+    "Hypertension artérielle mal contrôlée",
+    "Infections urinaires ou rénales (pyélonéphrite)",
+    "Effort physique intense ou fièvre élevée (protéinurie transitoire bénigne)",
+    "Maladies systémiques : lupus, amylose, myélome multiple"
+  ],
+  "redFlags": [
+    "Urines mousseuses ou très troubles de façon persistante",
+    "Gonflement des paupières, du visage, des chevilles ou du ventre (œdèmes)",
+    "Tension artérielle très élevée associée à des maux de tête ou troubles visuels",
+    "Diminution importante du volume des urines ou urines foncées",
+    "Fatigue extrême, nausées ou perte d'appétit inexpliquées"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès que vous observez des urines régulièrement mousseuses ou si un bilan urinaire révèle des protéines. Ne tardez pas si vous souffrez de diabète ou d'hypertension, car un dépistage régulier de la protéinurie est indispensable.",
+  "faq": [
+    {
+      "q": "Comment sait-on qu'on a de la protéinurie ?",
+      "a": "Le plus souvent, la protéinurie ne provoque aucun symptôme visible au début. Elle est découverte lors d'une analyse d'urines (bandelette urinaire ou ECBU) réalisée en consultation ou lors d'un bilan de suivi. Des urines anormalement mousseuses peuvent parfois être le premier signe remarqué."
+    },
+    {
+      "q": "La protéinurie est-elle toujours grave ?",
+      "a": "Non, une protéinurie légère et passagère après un effort intense ou une fièvre est en général sans danger. En revanche, une protéinurie persistante ou importante doit toujours être explorée par un médecin, car elle peut révéler une maladie rénale ou générale qui se traite d'autant mieux qu'elle est détectée tôt."
+    }
+  ],
+  "intentAnswer": "Pour une protéinurie, commencez par consulter votre médecin généraliste qui prescrira les analyses d'urines adaptées. Si la protéinurie est confirmée ou persistante, il vous adressera à un néphrologue (spécialiste des reins). En cas d'œdèmes importants, de tension très élevée ou de baisse du volume urinaire, rendez-vous aux urgences.",
+  "termAr": "بروتينية البول (وجود بروتينات في البول)",
+  "shortAnswerAr": "البروتينية تعني وجود كمية غير طبيعية من البروتينات في البول. في كميات صغيرة وبشكل عابر بعد مجهود شديد أو حمّى، قد تكون غير خطيرة. أما إذا استمرت أو كانت بكميات كبيرة، فقد تشير إلى مشكلة في الكلى وتستوجب استشارة طبية.",
+  "causesAr": [
+    "أمراض الكلى المزمنة (التهاب الكبيبات، المتلازمة الكلائية)",
+    "داء السكري مع إصابة الكلى (اعتلال الكلية السكري)",
+    "ارتفاع ضغط الدم غير المُسيطَر عليه",
+    "التهابات المسالك البولية أو الكلى (التهاب الحويضة والكلية)",
+    "مجهود بدني شديد أو حمّى مرتفعة (بروتينية عابرة وغير خطيرة)",
+    "أمراض جهازية: الذئبة الحمراء، الداء النشواني، الورم النقوي المتعدد"
+  ],
+  "redFlagsAr": [
+    "بول رغوي أو عكر بشكل متكرر ومستمر",
+    "تورم في الجفنين أو الوجه أو الكاحلين أو البطن",
+    "ارتفاع شديد في ضغط الدم مع صداع أو اضطرابات في الرؤية",
+    "انخفاض ملحوظ في كمية البول أو بول داكن اللون",
+    "إرهاق شديد أو غثيان أو فقدان الشهية دون سبب واضح"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور ملاحظة بول رغوي بصفة منتظمة أو عند اكتشاف وجود بروتينات في تحليل البول. إذا كنت تعاني من السكري أو ارتفاع ضغط الدم، فالفحص الدوري للبروتينية ضروري ولا يجب إهماله.",
+  "faqAr": [
+    {
+      "q": "كيف يمكن معرفة وجود بروتينية في البول؟",
+      "a": "في الغالب لا تسبب البروتينية أي أعراض واضحة في البداية، وتُكتشف عادةً عبر تحليل البول (شريط الاختبار أو فحص البول الكامل) خلال الكشف الطبي أو المتابعة الدورية. وقد يكون البول الرغوي أحياناً أول علامة يلاحظها المريض."
+    },
+    {
+      "q": "هل البروتينية في البول خطيرة دائماً؟",
+      "a": "لا، فالبروتينية الخفيفة والعابرة بعد مجهود شديد أو حمّى عادةً ما تكون غير ضارة. لكن إذا استمرت أو كانت بكميات كبيرة، وجب فحصها من قِبَل الطبيب، إذ قد تكشف عن مرض في الكلى أو مرض عام يستجيب للعلاج بشكل أفضل كلما اكتُشف مبكراً."
+    }
+  ],
+  "intentAnswerAr": "لفحص البروتينية في البول، ابدأ باستشارة طبيبك العام الذي سيصف لك التحاليل اللازمة. إذا تأكدت البروتينية أو استمرت، سيحيلك إلى طبيب الكلى (أخصائي أمراض الكلى). في حال ظهور تورمات شديدة أو ارتفاع حاد في الضغط أو انقطاع البول، توجه فوراً إلى المستعجلات."
+}

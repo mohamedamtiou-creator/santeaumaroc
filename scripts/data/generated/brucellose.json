@@ -1,0 +1,66 @@
+{
+  "slug": "brucellose",
+  "term": "Brucellose (fièvre de Malte)",
+  "kind": "DISEASE",
+  "specialty": "maladies-infectieuses",
+  "synonyms": ["fièvre de Malte", "fièvre méditerranéenne", "mélitococcie"],
+  "shortAnswer": "La brucellose est une infection bactérienne transmise à l'humain par des animaux (bovins, caprins, ovins), souvent via le lait cru ou les fromages non pasteurisés. Bénigne au début, elle peut devenir grave si elle n'est pas traitée : consultez un médecin dès les premiers symptômes persistants.",
+  "causes": [
+    "Consommation de lait cru ou de produits laitiers non pasteurisés (fromage beldi, raïb) contaminés",
+    "Contact direct avec des animaux infectés (bovins, chèvres, moutons, chameaux) ou leurs déjections",
+    "Exposition professionnelle : éleveurs, vétérinaires, bouchers, personnels d'abattoir",
+    "Ingestion de viande insuffisamment cuite provenant d'animaux infectés",
+    "Transmission par inhalation de poussières ou aérosols contaminés dans les étables",
+    "Rarement, transmission par voie cutanée (plaie en contact avec un animal malade)"
+  ],
+  "redFlags": [
+    "Fièvre élevée persistante (plus de 38,5 °C) pendant plusieurs semaines, avec sueurs nocturnes abondantes",
+    "Douleurs articulaires ou dorsales intenses, surtout au niveau de la colonne vertébrale (spondylodiscite possible)",
+    "Maux de tête violents, raideur de la nuque ou confusion (atteinte neurologique à écarter d'urgence)",
+    "Douleurs abdominales sévères ou jaunisse (atteinte hépatique)",
+    "Palpitations, essoufflement ou douleur thoracique (endocardite brucellienne, urgence vitale)",
+    "Apparition de la maladie chez une femme enceinte (risque de fausse couche ou d'accouchement prématuré)"
+  ],
+  "whenToConsult": "Consultez votre médecin sans attendre si vous présentez une fièvre inexpliquée persistante, des sueurs nocturnes et des douleurs articulaires, surtout après consommation de produits laitiers non pasteurisés ou contact avec des animaux d'élevage. En cas de symptômes neurologiques, cardiaques (palpitations, douleur thoracique) ou de fièvre très élevée, rendez-vous aux urgences.",
+  "faq": [
+    {
+      "q": "Peut-on attraper la brucellose en mangeant du fromage artisanal marocain ?",
+      "a": "Oui, c'est l'une des principales voies de contamination au Maroc. Les fromages artisanaux (beldi) et le lait cru non pasteurisé peuvent contenir la bactérie Brucella si l'animal producteur est infecté. La pasteurisation élimine ce risque : privilégiez les produits laitiers industriels pasteurisés ou faites bouillir le lait avant consommation."
+    },
+    {
+      "q": "La brucellose guérit-elle toute seule ?",
+      "a": "Non, la brucellose ne guérit généralement pas sans traitement médical. Sans prise en charge, elle peut évoluer vers une forme chronique ou entraîner des complications graves (atteinte osseuse, cardiaque ou neurologique). Un médecin établira le diagnostic par des analyses de sang et orientera vers un traitement adapté."
+    }
+  ],
+  "intentAnswer": "Pour une suspicion de brucellose, consultez en premier lieu un médecin généraliste qui prescrira les analyses nécessaires (sérologie). Il vous orientera si besoin vers un spécialiste en maladies infectieuses. En cas de fièvre très élevée, de symptômes neurologiques, de palpitations ou de douleur thoracique, ou de grossesse, rendez-vous directement aux urgences.",
+  "termAr": "داء البروسيلا (حمى مالطا)",
+  "shortAnswerAr": "داء البروسيلا عدوى بكتيرية تنتقل من الحيوانات إلى الإنسان، غالباً عبر الحليب غير المبستر أو مشتقاته. يبدو أحياناً خفيفاً في البداية، لكنه قد يتطور ويسبب مضاعفات خطيرة إن لم يُعالج. استشر طبيباً فور ظهور أعراض مستمرة غير مفسَّرة.",
+  "causesAr": [
+    "شرب الحليب الخام أو تناول منتجات الألبان غير المبسترة (الجبن البلدي، الرايب) الملوثة بالبكتيريا",
+    "الاحتكاك المباشر بالحيوانات المصابة كالأبقار والماعز والأغنام والإبل أو إفرازاتها",
+    "التعرض المهني: المربون والبياطرة والجزارون وعمال المسالخ",
+    "تناول اللحوم غير المطهوة جيداً من حيوانات مصابة",
+    "استنشاق الغبار أو الرذاذ الملوث في الأماكن التي تُربى فيها الحيوانات",
+    "الانتقال عبر الجلد عند وجود جروح مفتوحة ملامسة لحيوان مريض (نادر)"
+  ],
+  "redFlagsAr": [
+    "حمى مرتفعة مستمرة (أكثر من 38.5 درجة) تمتد لأسابيع مصحوبة بتعرق ليلي غزير",
+    "آلام شديدة في المفاصل أو العمود الفقري قد تشير إلى التهاب الفقرات",
+    "صداع حاد أو تصلب في الرقبة أو اضطراب في الوعي (يستوجب تقييماً عاجلاً في المستشفى)",
+    "آلام بطنية شديدة أو اصفرار الجلد والعينين (علامات تضرر الكبد)",
+    "خفقان القلب أو ضيق التنفس أو ألم في الصدر (التهاب الشغاف البروسيلي، حالة طارئة تهدد الحياة)",
+    "ظهور الأعراض لدى امرأة حامل (خطر الإجهاض أو الولادة المبكرة)"
+  ],
+  "whenToConsultAr": "استشر طبيبك فوراً إذا عانيت من حمى مستمرة غير مفسَّرة وتعرق ليلي وآلام في المفاصل، لا سيما بعد تناول منتجات ألبان غير مبسترة أو الاحتكاك بالحيوانات. وفي حال ظهور أعراض عصبية أو قلبية (خفقان، ألم صدري) أو ارتفاع شديد في الحرارة، توجه مباشرة إلى المستعجلات.",
+  "faqAr": [
+    {
+      "q": "هل يمكن الإصابة بداء البروسيلا من تناول الجبن البلدي المغربي؟",
+      "a": "نعم، يُعدّ ذلك من أبرز طرق العدوى في المغرب. قد يحتوي الجبن البلدي والحليب الخام على بكتيريا البروسيلا إن كان الحيوان مصاباً. تقضي البسترة على هذا الخطر، لذا احرص على اختيار منتجات الألبان الصناعية المبسترة أو اغلِ الحليب قبل شربه."
+    },
+    {
+      "q": "هل يشفى داء البروسيلا من تلقاء نفسه دون علاج؟",
+      "a": "لا، في الغالب لا يشفى داء البروسيلا دون علاج طبي. وبدون تدخل مناسب، قد يتحول إلى شكل مزمن أو يُفضي إلى مضاعفات خطيرة كإصابة العظام أو القلب أو الجهاز العصبي. يضع الطبيب التشخيص عبر تحاليل الدم ويحدد العلاج الملائم."
+    }
+  ],
+  "intentAnswerAr": "عند الاشتباه في داء البروسيلا، ابدأ بزيارة طبيب عام يطلب التحاليل اللازمة (اختبارات مصلية). وإن دعت الحاجة، يُحيلك إلى أخصائي في الأمراض المعدية. في حال ارتفاع الحرارة الشديد أو ظهور أعراض عصبية أو قلبية أو أثناء الحمل، توجه مباشرة إلى المستعجلات."
+}

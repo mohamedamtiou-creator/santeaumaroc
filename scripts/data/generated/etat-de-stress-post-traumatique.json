@@ -1,0 +1,64 @@
+{
+  "slug": "etat-de-stress-post-traumatique",
+  "term": "État de stress post-traumatique (ESPT)",
+  "kind": "DISEASE",
+  "specialty": "psychiatrie",
+  "synonyms": ["ESPT", "PTSD", "trouble stress post-traumatique", "névrose traumatique"],
+  "shortAnswer": "L'ESPT est un trouble psychologique qui survient après un événement traumatisant (accident grave, violence, catastrophe). Il se manifeste par des reviviscences intenses, des cauchemars et une hypervigilance. Une prise en charge spécialisée est nécessaire dès que les symptômes durent plus de quelques semaines.",
+  "causes": [
+    "Exposition directe à un événement traumatisant : accident grave, agression physique ou sexuelle, catastrophe naturelle",
+    "Témoin d'un événement violent ou de la mort d'une personne proche",
+    "Vécu de guerre, de torture ou de déplacement forcé",
+    "Annonce d'une maladie grave ou d'un décès brutal d'un proche",
+    "Répétition de traumatismes dans l'enfance (maltraitance, abus)",
+    "Facteurs de vulnérabilité : antécédents psychiatriques, manque de soutien social, exposition prolongée au stress"
+  ],
+  "redFlags": [
+    "Pensées récurrentes de se faire du mal ou de mettre fin à ses jours",
+    "Incapacité totale à assurer les activités du quotidien depuis plusieurs semaines",
+    "Comportements dangereux ou agressifs incontrôlables envers soi-même ou les autres",
+    "Consommation soudaine et importante d'alcool ou de substances pour « tenir »",
+    "Déconnexion complète de la réalité : confusion, hallucinations, désorientation"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès que les cauchemars, reviviscences ou évitements durent plus d'un mois et perturbent votre vie quotidienne. N'attendez pas si vous ressentez des idées de suicide ou une détresse très intense.",
+  "faq": [
+    {
+      "q": "L'ESPT peut-il apparaître longtemps après le traumatisme ?",
+      "a": "Oui, l'ESPT peut se déclarer plusieurs mois, voire des années après l'événement traumatisant. Un stress ou une situation rappelant le trauma peut déclencher les symptômes tardivement. Il n'est jamais trop tard pour consulter et bénéficier d'un accompagnement."
+    },
+    {
+      "q": "Quels types de traitement existent pour l'ESPT ?",
+      "a": "La prise en charge repose principalement sur des psychothérapies spécialisées (comme la thérapie EMDR ou les thérapies cognitivo-comportementales centrées sur le trauma), souvent combinées à un suivi médical. Un psychiatre ou un psychologue clinicien établira le programme adapté à chaque situation."
+    }
+  ],
+  "intentAnswer": "Pour un état de stress post-traumatique, consultez d'abord votre médecin généraliste, qui pourra vous orienter vers un psychiatre ou un psychologue spécialisé en trauma. En cas de pensées suicidaires ou de détresse sévère, rendez-vous sans attendre aux urgences ou appelez le SAMU (15).",
+  "termAr": "اضطراب ما بعد الصدمة (PTSD)",
+  "shortAnswerAr": "اضطراب ما بعد الصدمة هو اضطراب نفسي يحدث عقب تعرض الشخص لحادثة صادمة كحادث خطير أو عنف أو كارثة. يتجلى في استرجاع مؤلم للذكريات، وكوابيس، وتيقظ مستمر. يستلزم الرعاية المتخصصة إذا امتدت الأعراض لأكثر من بضعة أسابيع.",
+  "causesAr": [
+    "التعرض المباشر لحدث صادم: حادث خطير، اعتداء جسدي أو جنسي، كارثة طبيعية",
+    "مشاهدة حادثة عنيفة أو وفاة شخص مقرب",
+    "تجربة الحرب أو التعذيب أو النزوح القسري",
+    "تلقي خبر مفاجئ عن مرض خطير أو وفاة مفاجئة لقريب",
+    "تكرار الصدمات في مرحلة الطفولة كالإساءة والإهمال",
+    "عوامل الهشاشة: أمراض نفسية سابقة، غياب الدعم الاجتماعي، التعرض المطوّل للضغط النفسي"
+  ],
+  "redFlagsAr": [
+    "أفكار متكررة عن إيذاء النفس أو الرغبة في إنهاء الحياة",
+    "العجز التام عن ممارسة الأنشطة اليومية لأسابيع متواصلة",
+    "سلوكيات عدوانية أو خطيرة لا يمكن السيطرة عليها تجاه النفس أو الآخرين",
+    "اللجوء المفاجئ والمفرط إلى الكحول أو المواد المخدرة للتكيف مع الضغط",
+    "الانفصال عن الواقع: ارتباك، هلاوس، تشوش ذهني حاد"
+  ],
+  "whenToConsultAr": "راجع طبيبك العام فور ملاحظة كوابيس أو استرجاع للذكريات المؤلمة أو سلوكيات تجنب تستمر أكثر من شهر وتؤثر على حياتك اليومية. لا تنتظر إذا كنت تعاني أفكاراً انتحارية أو ضائقة نفسية حادة.",
+  "faqAr": [
+    {
+      "q": "هل يمكن أن يظهر اضطراب ما بعد الصدمة بعد وقت طويل من الحادثة؟",
+      "a": "نعم، قد يظهر هذا الاضطراب بعد أشهر أو حتى سنوات من الحادثة الصادمة. قد تُطلق عليه مواقف معينة تذكّر بالصدمة. لا يوجد وقت متأخر للتشاور مع متخصص والاستفادة من الدعم النفسي المناسب."
+    },
+    {
+      "q": "ما أنواع العلاج المتاحة لاضطراب ما بعد الصدمة؟",
+      "a": "يرتكز العلاج أساساً على العلاج النفسي المتخصص كعلاج EMDR والعلاج المعرفي السلوكي الموجه للصدمة، وغالباً ما يُدمج بمتابعة طبية. يضع الطبيب النفسي أو الأخصائي النفسي الإكلينيكي برنامج العلاج المناسب لكل حالة."
+    }
+  ],
+  "intentAnswerAr": "لاضطراب ما بعد الصدمة، ابدأ بزيارة طبيبك العام الذي يحيلك إلى طبيب نفسي أو أخصائي نفسي متخصص في الصدمات. في حال ظهور أفكار انتحارية أو ضائقة حادة، توجه فوراً إلى قسم الطوارئ أو اتصل بالإسعاف على الرقم 15."
+}

@@ -1,0 +1,64 @@
+{
+  "slug": "kyste-ovarien",
+  "term": "Kyste ovarien",
+  "kind": "DISEASE",
+  "specialty": "gyneco-obstetrique",
+  "synonyms": ["kyste de l'ovaire", "masse ovarienne", "kyste folliculaire", "kyste fonctionnel"],
+  "shortAnswer": "Un kyste ovarien est une poche remplie de liquide qui se forme sur ou dans l'ovaire. La plupart sont bénins et disparaissent spontanément. Il faut consulter rapidement en cas de douleur abdominale intense, de fièvre ou de ballonnement persistant.",
+  "causes": [
+    "Kyste fonctionnel : follicule qui ne se rompt pas correctement lors de l'ovulation (cause la plus fréquente)",
+    "Endométriose : présence de tissu utérin en dehors de l'utérus formant un kyste (endométriome)",
+    "Syndrome des ovaires polykystiques (SOPK) : multiple petits kystes liés à un déséquilibre hormonal",
+    "Kyste dermoïde (tératome) : kyste congénital contenant des tissus variés",
+    "Kyste de corps jaune : formation après l'ovulation qui persiste plus longtemps que prévu",
+    "Tumeur ovarienne bénigne ou, plus rarement, maligne"
+  ],
+  "redFlags": [
+    "Douleur abdominale ou pelvienne soudaine et intense (possibilité de torsion ou rupture)",
+    "Fièvre associée à des douleurs pelviennes",
+    "Saignements vaginaux anormaux ou absences de règles inexpliquées",
+    "Ventre gonflé, sentiment de satiété rapide ou difficultés à uriner",
+    "Perte de poids inexpliquée ou fatigue importante persistante"
+  ],
+  "whenToConsult": "Consultez un médecin si vous ressentez une douleur pelvienne inhabituelle, des irrégularités menstruelles ou si un kyste a déjà été détecté à l'échographie. En cas de douleur brutale et intense, rendez-vous en urgence.",
+  "faq": [
+    {
+      "q": "Un kyste ovarien peut-il disparaître tout seul ?",
+      "a": "Oui, la majorité des kystes fonctionnels (folliculaires ou du corps jaune) se résorbent naturellement en 1 à 3 cycles menstruels sans traitement. Votre médecin surveillera l'évolution par échographie avant de décider d'une intervention."
+    },
+    {
+      "q": "Le kyste ovarien peut-il affecter la fertilité ?",
+      "a": "La plupart des kystes simples n'affectent pas la fertilité. En revanche, certains kystes liés à l'endométriose ou au SOPK peuvent réduire les chances de grossesse. Une prise en charge par un gynécologue permet d'évaluer l'impact réel et d'envisager un traitement adapté."
+    }
+  ],
+  "intentAnswer": "Pour un kyste ovarien, commencez par consulter votre médecin généraliste qui orientera vers un gynécologue-obstétricien pour une échographie pelvienne et un suivi adapté. En cas de douleur abdominale soudaine et intense, rendez-vous immédiatement aux urgences.",
+  "termAr": "كيس المبيض",
+  "shortAnswerAr": "كيس المبيض عبارة عن تجويف مملوء بسائل يتشكل على المبيض أو داخله. معظم الأكياس حميدة وتختفي من تلقاء نفسها. يجب استشارة الطبيب فوراً عند الشعور بألم حاد في البطن، أو حمى، أو انتفاخ مستمر.",
+  "causesAr": [
+    "الكيس الوظيفي: بصيلة لا تنفجر بشكل طبيعي أثناء الإباضة (الأكثر شيوعاً)",
+    "بطانة الرحم المهاجرة (الانتباذ البطاني الرحمي): وجود نسيج رحمي خارج الرحم يُكوّن كيساً",
+    "متلازمة المبيض متعدد الكيسات: أكياس صغيرة متعددة مرتبطة بخلل هرموني",
+    "الكيس الجلداني (التيراتوما): كيس خلقي يحتوي على أنسجة متنوعة",
+    "كيس الجسم الأصفر: يتشكل بعد الإباضة ويبقى أطول من المعتاد",
+    "ورم المبيض الحميد أو، في حالات نادرة، الخبيث"
+  ],
+  "redFlagsAr": [
+    "ألم مفاجئ وشديد في البطن أو الحوض (قد يدل على التواء الكيس أو تمزقه)",
+    "حمى مصحوبة بآلام في الحوض",
+    "نزيف مهبلي غير طبيعي أو انقطاع الدورة الشهرية بدون سبب واضح",
+    "انتفاخ في البطن أو الشعور بالامتلاء السريع أو صعوبة في التبول",
+    "فقدان الوزن غير المبرر أو التعب الشديد المستمر"
+  ],
+  "whenToConsultAr": "استشيري طبيبك عند الشعور بألم حوضي غير معتاد، أو اضطرابات في الدورة الشهرية، أو إذا سبق اكتشاف كيس بالتصوير بالأمواج فوق الصوتية. في حال ألم مفاجئ وشديد، توجهي فوراً إلى قسم الطوارئ.",
+  "faqAr": [
+    {
+      "q": "هل يمكن أن يختفي كيس المبيض من تلقاء نفسه؟",
+      "a": "نعم، تختفي معظم الأكياس الوظيفية تلقائياً خلال دورة إلى ثلاث دورات شهرية دون علاج. سيتابع طبيبك تطور الكيس بالأمواج فوق الصوتية قبل البت في الحاجة إلى أي تدخل."
+    },
+    {
+      "q": "هل يؤثر كيس المبيض على الخصوبة؟",
+      "a": "لا تؤثر معظم الأكياس البسيطة على الخصوبة. غير أن بعض الأكياس المرتبطة ببطانة الرحم المهاجرة أو متلازمة المبيض متعدد الكيسات قد تُقلل من فرص الحمل. يتيح متابعة طبيب نسائي تقييم الوضع الدقيق واقتراح العلاج المناسب."
+    }
+  ],
+  "intentAnswerAr": "لاستشارة متخصص بشأن كيس المبيض، ابدئي بزيارة طبيب عام يحيلك إلى طبيب نسائي-توليدي لإجراء سونار للحوض ومتابعة ملائمة. في حال الشعور بألم حاد ومفاجئ في البطن، توجهي فوراً إلى قسم الطوارئ."
+}

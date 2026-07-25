@@ -1,0 +1,62 @@
+{
+  "slug": "endometriose",
+  "term": "Endométriose",
+  "kind": "DISEASE",
+  "specialty": "gyneco-obstetrique",
+  "synonyms": ["endométriose pelvienne", "adénomyose externe", "implants endométriaux"],
+  "shortAnswer": "L'endométriose est une maladie gynécologique chronique où du tissu semblable à la muqueuse utérine se développe en dehors de l'utérus. Elle provoque des douleurs pelviennes, surtout pendant les règles. Un suivi médical est indispensable, même si les symptômes varient d'une femme à l'autre.",
+  "causes": [
+    "Facteurs génétiques et héréditaires (risque accru si un membre de la famille est touché)",
+    "Reflux menstruel : du sang remonte vers les trompes et la cavité pelvienne",
+    "Dérèglement du système immunitaire qui ne détruit pas les cellules déplacées",
+    "Déséquilibres hormonaux, notamment une exposition prolongée aux œstrogènes",
+    "Facteurs environnementaux encore à l'étude (perturbateurs endocriniens)"
+  ],
+  "redFlags": [
+    "Douleurs pelviennes très intenses empêchant toute activité quotidienne ou scolaire/professionnelle",
+    "Saignements abondants ou en dehors des règles inhabituels",
+    "Douleurs lors des rapports sexuels persistantes et invalidantes",
+    "Difficultés à concevoir après plusieurs mois de tentatives sans contraception",
+    "Douleur abdominale aiguë soudaine (peut signaler une rupture de kyste ovarien)"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès que des douleurs menstruelles intenses, récurrentes ou invalidantes apparaissent. Ne considérez pas ces douleurs comme normales : un bilan précoce permet une prise en charge adaptée.",
+  "faq": [
+    {
+      "q": "L'endométriose empêche-t-elle toujours d'avoir des enfants ?",
+      "a": "Non, pas nécessairement. De nombreuses femmes atteintes d'endométriose parviennent à concevoir naturellement. Cependant, la maladie peut réduire la fertilité dans certains cas. Un suivi gynécologique spécialisé permet d'évaluer la situation et d'envisager les options adaptées à chaque femme."
+    },
+    {
+      "q": "L'endométriose se guérit-elle définitivement ?",
+      "a": "Il n'existe pas de guérison définitive à ce jour, mais la maladie se gère efficacement grâce à un suivi médical régulier. Les traitements visent à soulager les douleurs, préserver la fertilité et améliorer la qualité de vie. La ménopause naturelle entraîne souvent une amélioration des symptômes."
+    }
+  ],
+  "intentAnswer": "Pour l'endométriose, commencez par consulter votre médecin généraliste qui pourra vous orienter. Le spécialiste de référence est le gynécologue-obstétricien. En cas de douleur pelvienne aiguë soudaine ou de saignement anormal important, rendez-vous aux urgences sans attendre.",
+  "termAr": "بطانة الرحم المهاجرة",
+  "shortAnswerAr": "بطانة الرحم المهاجرة مرض نسائي مزمن تنمو فيه أنسجة مشابهة لبطانة الرحم خارج الرحم. يسبب آلاماً في الحوض تشتد عادةً أثناء الدورة الشهرية. المتابعة الطبية ضرورية حتى وإن تفاوتت الأعراض من امرأة إلى أخرى.",
+  "causesAr": [
+    "العوامل الوراثية: يرتفع الخطر إذا كانت إحدى قريبات المرأة مصابة بالمرض",
+    "الجزر الحيضي العكسي: تدفق الدم نحو قناتَي فالوب والتجويف الحوضي",
+    "خلل في جهاز المناعة الذي لا يتخلص من الخلايا المنتقلة",
+    "اضطرابات هرمونية، لا سيما الإفراط في التعرض لهرمون الإستروجين",
+    "عوامل بيئية قيد الدراسة، منها المواد الكيميائية المُعطِّلة للغدد الصماء"
+  ],
+  "redFlagsAr": [
+    "آلام حوضية شديدة تحول دون ممارسة الأنشطة اليومية أو العمل",
+    "نزيف غزير أو نزيف خارج أوقات الدورة الشهرية المعتادة",
+    "ألم متكرر ومُقعِد خلال العلاقة الزوجية",
+    "صعوبة في الحمل بعد أشهر عدة من المحاولة دون استخدام موانع الحمل",
+    "ألم بطني حاد ومفاجئ قد يدل على تمزق كيس المبيض"
+  ],
+  "whenToConsultAr": "راجعي طبيبك العام فور ظهور آلام شديدة أو متكررة خلال الدورة الشهرية. لا تعتبري هذه الآلام طبيعية؛ إذ يتيح التقييم المبكر علاجاً أنسب وأسرع.",
+  "faqAr": [
+    {
+      "q": "هل تمنع بطانة الرحم المهاجرة الإنجاب دائماً؟",
+      "a": "لا، ليس بالضرورة. كثيرات من النساء المصابات يحملن بشكل طبيعي. غير أن المرض قد يُقلل الخصوبة في بعض الحالات. المتابعة مع طبيب متخصص تُمكّن من تقييم الوضع واستكشاف الخيارات المناسبة لكل حالة."
+    },
+    {
+      "q": "هل يُشفى من بطانة الرحم المهاجرة نهائياً؟",
+      "a": "لا يوجد علاج نهائي حتى الآن، لكن المرض يمكن التعايش معه بفضل المتابعة الطبية المنتظمة. تهدف العلاجات إلى تخفيف الألم والحفاظ على الخصوبة وتحسين جودة الحياة. وكثيراً ما تتحسن الأعراض بعد انقطاع الطمث."
+    }
+  ],
+  "intentAnswerAr": "في حالة بطانة الرحم المهاجرة، ابدئي بزيارة طبيبك العام الذي سيُحيلك إلى المختص. الطبيب المرجعي هو أخصائي أمراض النساء والتوليد. وفي حال ظهور ألم حوضي حاد مفاجئ أو نزيف غير معتاد وغزير، توجهي إلى المستعجلات فوراً."
+}

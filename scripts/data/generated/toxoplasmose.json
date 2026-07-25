@@ -1,0 +1,64 @@
+{
+  "slug": "toxoplasmose",
+  "term": "Toxoplasmose",
+  "kind": "DISEASE",
+  "specialty": "maladies-infectieuses",
+  "synonyms": ["infection à Toxoplasma gondii", "toxo"],
+  "shortAnswer": "La toxoplasmose est une infection parasitaire le plus souvent bénigne chez l'adulte en bonne santé. Chez la femme enceinte, une primo-infection peut être grave pour le fœtus : un dépistage régulier pendant la grossesse est indispensable pour agir rapidement si besoin.",
+  "causes": [
+    "Consommation de viande crue ou insuffisamment cuite (agneau, bœuf, porc) contenant des kystes parasitaires",
+    "Contact avec les selles de chat infecté (litière, terre de jardin)",
+    "Ingestion de légumes, fruits ou eau souillés par des oocystes parasitaires",
+    "Transmission de la mère au fœtus lors d'une primo-infection pendant la grossesse (voie transplacentaire)",
+    "Manipulation de terre sans gants (jardinage, agriculture) suivie d'un contact main-bouche",
+    "Consommation de charcuteries ou produits à base de viande crue"
+  ],
+  "redFlags": [
+    "Fièvre persistante avec ganglions enflés chez une femme enceinte non immunisée",
+    "Résultat sérologique positif pour la première fois pendant la grossesse (primo-infection confirmée)",
+    "Anomalies détectées à l'échographie fœtale (hydrocéphalie, calcifications cérébrales, retard de croissance)",
+    "Baisse brutale de la vision ou taches dans le champ visuel (atteinte oculaire possible)",
+    "Signes neurologiques (maux de tête intenses, confusion) chez une personne immunodéprimée"
+  ],
+  "whenToConsult": "Toute femme enceinte doit effectuer le dépistage sérologique dès le début de la grossesse et le renouveler selon les recommandations du médecin. En cas de sérologie positive récente ou de doute, consultez sans délai votre médecin ou gynécologue. Si vous êtes immunodéprimé(e) (traitement immunosuppresseur, VIH, chimiothérapie) et ressentez des maux de tête intenses, une confusion ou des troubles visuels soudains, rendez-vous immédiatement aux urgences.",
+  "faq": [
+    {
+      "q": "Suis-je immunisée contre la toxoplasmose si j'ai déjà été infectée avant la grossesse ?",
+      "a": "Oui, si votre sérologie montre des anticorps anciens (IgG positifs, IgM négatifs), vous êtes généralement protégée et le risque de transmission au fœtus est très faible. Votre médecin interprètera les résultats et vous guidera sur la surveillance nécessaire."
+    },
+    {
+      "q": "Comment se protéger de la toxoplasmose pendant la grossesse ?",
+      "a": "Évitez la viande crue ou saignante, lavez soigneusement les fruits et légumes, portez des gants pour jardiner ou manipuler la litière du chat, et lavez-vous bien les mains avant de manger. Ces précautions simples réduisent très efficacement le risque."
+    }
+  ],
+  "intentAnswer": "Pour la toxoplasmose en grossesse, consultez d'abord votre médecin généraliste ou votre gynécologue-obstétricien, qui prescrira le dépistage sérologique adapté. En cas de primo-infection confirmée, vous serez orientée vers un infectiologue et un suivi échographique renforcé. Rendez-vous aux urgences en cas d'anomalie échographique fœtale ou de signes neurologiques.",
+  "termAr": "داء المقوسات",
+  "shortAnswerAr": "داء المقوسات عدوى طفيلية تكون في الغالب خفيفة لدى البالغين الأصحاء. أما خلال الحمل، فقد تكون الإصابة الأولى خطيرة على الجنين؛ لذا يُعدّ الفحص المنتظم طوال فترة الحمل ضرورياً للتدخل السريع عند الحاجة.",
+  "causesAr": [
+    "تناول اللحوم النيئة أو غير المطهوة جيداً (الضأن، البقر، الخنزير) التي تحتوي على أكياس الطفيل",
+    "ملامسة براز القطط المصابة عند تنظيف العلبة الرملية أو التربة",
+    "تناول الخضروات أو الفواكه أو الماء الملوثة بالبويضات الطفيلية",
+    "انتقال العدوى من الأم إلى الجنين عبر المشيمة في حالة الإصابة الأولى أثناء الحمل",
+    "التعامل مع التربة دون قفازات (الحدائق والزراعة) ثم لمس الفم",
+    "تناول اللحوم المعالجة أو منتجات اللحوم النيئة"
+  ],
+  "redFlagsAr": [
+    "حمى مستمرة مع انتفاخ الغدد الليمفاوية لدى امرأة حامل غير محصّنة",
+    "ظهور نتيجة مصلية إيجابية لأول مرة خلال الحمل (إصابة أولية مؤكدة)",
+    "اكتشاف تشوهات في الإيكوغرافيا الجنينية (استسقاء الدماغ، تكلسات دماغية، تأخر النمو)",
+    "تراجع حاد في البصر أو ظهور بقع في مجال الرؤية (احتمال إصابة العين)",
+    "أعراض عصبية (صداع شديد، تشوش الوعي) لدى شخص يعاني من نقص المناعة"
+  ],
+  "whenToConsultAr": "يجب على كل امرأة حامل إجراء الفحص المصلي منذ بداية الحمل وتكراره وفق توصيات الطبيب. في حالة ظهور نتيجة إيجابية حديثة أو وجود أي شك، استشيري طبيبك أو طبيبك النسائي دون تأخير. أما إذا كنت تعاني من ضعف المناعة (علاج مثبط للمناعة، فيروس نقص المناعة البشري، العلاج الكيميائي) وظهر لديك صداع شديد أو تشوش في الوعي أو اضطرابات بصرية مفاجئة، فتوجه فوراً إلى قسم الطوارئ.",
+  "faqAr": [
+    {
+      "q": "هل أكون محمية من داء المقوسات إذا سبق أن أصبت به قبل الحمل؟",
+      "a": "نعم، إذا أظهر الفحص المصلي وجود أجسام مضادة قديمة (IgG إيجابي، IgM سلبي)، فأنتِ محمية في الغالب ويكون خطر انتقال العدوى إلى الجنين ضئيلاً جداً. سيفسّر طبيبك النتائج ويرشدكِ إلى المتابعة اللازمة."
+    },
+    {
+      "q": "كيف أحمي نفسي من داء المقوسات أثناء الحمل؟",
+      "a": "تجنبي اللحوم النيئة أو غير المطهوة جيداً، واغسلي الخضروات والفواكه بعناية، والبسي قفازات عند العمل في الحديقة أو تنظيف علبة القطة الرملية، واغسلي يديك جيداً قبل الأكل. هذه الاحتياطات البسيطة تقلل الخطر بشكل كبير."
+    }
+  ],
+  "intentAnswerAr": "لاستشارة متخصص في داء المقوسات خلال الحمل، ابدئي بطبيبك العام أو طبيب النساء والتوليد الذي سيصف لكِ الفحوصات المصلية المناسبة. في حالة تأكيد الإصابة الأولى، ستُحالين إلى طبيب الأمراض المعدية مع متابعة إيكوغرافية مكثفة. توجهي إلى المستعجلات فوراً في حالة اكتشاف تشوهات جنينية أو ظهور أعراض عصبية."
+}

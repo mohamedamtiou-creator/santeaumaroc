@@ -1,0 +1,64 @@
+{
+  "slug": "enuresie",
+  "term": "Énurésie (pipi au lit)",
+  "kind": "SYMPTOM",
+  "specialty": "pediatrie",
+  "synonyms": ["pipi au lit", "incontinence nocturne de l'enfant", "bedwetting"],
+  "shortAnswer": "L'énurésie désigne les mictions involontaires nocturnes chez un enfant de plus de 5 ans. Elle est très souvent bénigne et liée à la maturation de la vessie. Elle devient préoccupante si elle réapparaît après une longue période sèche, s'accompagne de douleurs ou survient aussi le jour.",
+  "causes": [
+    "Maturation vésicale plus lente que la moyenne (cause la plus fréquente)",
+    "Sommeil très profond rendant l'enfant insensible aux signaux de la vessie",
+    "Production nocturne excessive d'urine (déficit en hormone antidiurétique)",
+    "Antécédents familiaux d'énurésie (forte composante héréditaire)",
+    "Stress ou événement émotionnel (naissance d'un frère, changement de maison, rentrée scolaire)",
+    "Plus rarement : infection urinaire, constipation chronique ou anomalie anatomique"
+  ],
+  "redFlags": [
+    "Énurésie secondaire : réapparition après au moins 6 mois de nuits sèches",
+    "Mictions involontaires aussi pendant la journée (énurésie diurne)",
+    "Brûlures, douleurs ou sang dans les urines (suspicion d'infection urinaire)",
+    "Soif intense, perte de poids ou fatigue marquée — consultez rapidement un médecin, ces signes peuvent évoquer un diabète",
+    "Signes neurologiques associés : difficultés à marcher, troubles de la sensibilité des jambes"
+  ],
+  "whenToConsult": "Consultez un médecin si l'enfant a plus de 5-6 ans et que le pipi au lit persiste malgré vos encouragements, ou dès que l'un des signaux d'alerte ci-dessus apparaît. Une prise en charge précoce évite les répercussions sur l'estime de soi de l'enfant.",
+  "faq": [
+    {
+      "q": "À quel âge l'énurésie devient-elle un problème médical ?",
+      "a": "On ne parle d'énurésie à prendre en charge médicalement qu'à partir de 5 ans révolus, car avant cet âge le contrôle nocturne n'est pas encore attendu. Entre 5 et 7 ans, une surveillance simple suffit souvent ; au-delà, une consultation pédiatrique est recommandée."
+    },
+    {
+      "q": "Faut-il punir ou gronder l'enfant quand il fait pipi au lit ?",
+      "a": "Non, absolument pas. L'énurésie est involontaire et l'enfant n'en est pas responsable. Gronder ou humilier aggrave le stress et peut prolonger le problème. Un accompagnement bienveillant, des routines (aller aux toilettes avant le coucher, limiter les boissons le soir) et des encouragements sont bien plus efficaces."
+    }
+  ],
+  "intentAnswer": "Pour l'énurésie, commencez par consulter votre médecin généraliste ou pédiatre de famille : il écarte une cause infectieuse ou organique et propose les premières mesures. Si le problème persiste, il oriente vers un pédiatre spécialisé ou un urologue pédiatrique. Rendez-vous aux urgences ou consultez rapidement si l'enfant présente des douleurs intenses, du sang dans les urines, des signes neurologiques, ou une association soif intense + perte de poids + fatigue (signes pouvant évoquer un diabète).",
+  "termAr": "سلس البول الليلي (التبول اللاإرادي أثناء النوم)",
+  "shortAnswerAr": "سلس البول الليلي هو التبول اللاإرادي أثناء النوم لدى طفل تجاوز الخامسة من عمره. يكون في الغالب مؤقتاً ومرتبطاً بنضج المثانة. يستوجب الاستشارة الطبية إذا عاد بعد فترة جفاف طويلة، أو اقترن بألم، أو حدث أيضاً خلال النهار.",
+  "causesAr": [
+    "تأخر نضج المثانة وهو السبب الأكثر شيوعاً",
+    "النوم العميق جداً مما يجعل الطفل غير مستجيب لإشارات المثانة",
+    "فرط إنتاج البول ليلاً بسبب نقص هرمون مضاد لإدرار البول",
+    "وجود سوابق عائلية لسلس البول الليلي (عامل وراثي قوي)",
+    "التوتر أو الأحداث العاطفية كولادة طفل جديد أو تغيير المنزل أو الدخول المدرسي",
+    "أسباب أخرى أقل شيوعاً: التهاب المسالك البولية، الإمساك المزمن، أو تشوه تشريحي"
+  ],
+  "redFlagsAr": [
+    "سلس ثانوي: عودة التبول الليلي بعد 6 أشهر على الأقل من الليالي الجافة",
+    "تبول لاإرادي أيضاً خلال النهار",
+    "حرقة أو ألم أو دم في البول (يُشير إلى احتمال التهاب بولي)",
+    "عطش شديد أو فقدان وزن أو إرهاق ملحوظ — استشر الطبيب بسرعة، فهذه الأعراض قد تُشير إلى السكري",
+    "أعراض عصبية مصاحبة كصعوبة المشي أو اضطراب الإحساس في الساقين"
+  ],
+  "whenToConsultAr": "استشر الطبيب إذا تجاوز طفلك الخامسة أو السادسة واستمر التبول الليلي رغم التشجيع، أو حين يظهر أي من علامات الخطر المذكورة أعلاه. التدخل المبكر يحمي الطفل من التأثيرات السلبية على ثقته بنفسه.",
+  "faqAr": [
+    {
+      "q": "في أي عمر يصبح سلس البول الليلي مشكلة طبية؟",
+      "a": "لا يُعدّ سلس البول الليلي مشكلة تستوجب التدخل الطبي قبل سن الخامسة، إذ لا يُتوقع التحكم الكامل في البول قبل هذا السن. بين الخامسة والسابعة تكفي المراقبة البسيطة في الغالب، أما بعد السابعة فيُنصح باستشارة طبيب أطفال."
+    },
+    {
+      "q": "هل يجب معاقبة الطفل أو توبيخه على التبول في الفراش؟",
+      "a": "لا، بالتأكيد. التبول الليلي لاإرادي تماماً والطفل ليس مسؤولاً عنه. التوبيخ والإهانة يزيدان التوتر ويطيلان المشكلة. الأسلوب الأنجع هو الدعم العاطفي واعتماد عادات منتظمة كالذهاب إلى الحمام قبل النوم وتقليل السوائل في المساء."
+    }
+  ],
+  "intentAnswerAr": "لسلس البول الليلي، ابدأ باستشارة طبيب عام أو طبيب أطفال ليستبعد أي سبب بولي أو عضوي ويقترح الإجراءات الأولى. إذا استمرت الحالة، يُحيلك إلى طبيب أطفال متخصص أو جراح مسالك بولية للأطفال. اذهب إلى المستعجلات أو استشر الطبيب بسرعة إذا رافق الأعراضَ ألمٌ شديد أو دمٌ في البول أو أعراض عصبية، أو ظهر عطش شديد مع فقدان وزن وإرهاق (علامات قد تدل على السكري)."
+}

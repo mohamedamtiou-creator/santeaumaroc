@@ -1,0 +1,64 @@
+{
+  "slug": "coup-de-soleil",
+  "term": "Coup de soleil",
+  "kind": "DISEASE",
+  "specialty": "dermatologie",
+  "synonyms": ["érythème solaire", "brûlure solaire", "sunburn"],
+  "shortAnswer": "Le coup de soleil est une brûlure superficielle de la peau causée par une exposition excessive aux rayons UV. La plupart sont bénins et guérissent en quelques jours. Consultez rapidement si la peau cloque sur de grandes surfaces, ou en cas de fièvre et de malaise général.",
+  "causes": [
+    "Exposition prolongée au soleil sans protection (crème solaire, vêtements couvrants)",
+    "Utilisation de cabines de bronzage ou lampes UV",
+    "Peau claire ou peu habituée au soleil, plus vulnérable aux UV",
+    "Exposition entre 10h et 16h, aux heures de fort ensoleillement",
+    "Réverbération sur l'eau, le sable ou la neige amplifiant les UV",
+    "Certains médicaments ou cosmétiques rendant la peau photosensible"
+  ],
+  "redFlags": [
+    "Cloques ou décollements cutanés étendus sur de grandes zones du corps",
+    "Fièvre élevée, frissons, maux de tête intenses, confusion ou perte de connaissance (coup de chaleur — urgence vitale)",
+    "Déshydratation marquée : bouche très sèche, absence d'urines, étourdissements",
+    "Brûlures graves chez un nourrisson, un jeune enfant ou une personne âgée",
+    "Douleurs insupportables ou peau blanchâtre/grisâtre (brûlure profonde)"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si la douleur est intense, si des cloques apparaissent ou si vous présentez de la fièvre. Rendez-vous aux urgences immédiatement en cas de signes de coup de chaleur (confusion, perte de connaissance) ou de brûlures étendues.",
+  "faq": [
+    {
+      "q": "Combien de temps dure un coup de soleil et comment soulager la douleur ?",
+      "a": "Un coup de soleil bénin disparaît généralement en 3 à 7 jours. Pour soulager, appliquez des compresses fraîches (pas glacées), hydratez abondamment la peau avec un soin apaisant et buvez beaucoup d'eau. Évitez toute nouvelle exposition au soleil jusqu'à guérison complète."
+    },
+    {
+      "q": "Le coup de soleil peut-il augmenter le risque de cancer de la peau ?",
+      "a": "Oui, des coups de soleil répétés, surtout pendant l'enfance et l'adolescence, augmentent le risque de mélanome et d'autres cancers cutanés. La protection solaire régulière (indice adapté, vêtements, chapeau, ombre) est le meilleur moyen de prévenir ces risques sur le long terme."
+    }
+  ],
+  "intentAnswer": "Pour un coup de soleil, consultez d'abord votre médecin généraliste, qui évaluera la gravité et orientera le traitement. En cas de brûlures étendues, de cloques importantes ou de fièvre, un dermatologue ou les urgences sont nécessaires selon la sévérité.",
+  "termAr": "حرق الشمس",
+  "shortAnswerAr": "حرق الشمس هو تلف سطحي في الجلد ناتج عن التعرض المفرط للأشعة فوق البنفسجية. معظم الحالات خفيفة وتتحسن خلال أيام قليلة. استشر الطبيب بسرعة إذا ظهرت بثور على مناطق واسعة من الجسم، أو في حال وجود حمى وإرهاق عام.",
+  "causesAr": [
+    "التعرض لفترة طويلة للشمس دون حماية كافية (كريم واقٍ أو ملابس مناسبة)",
+    "استخدام أجهزة التسمير الاصطناعي أو مصابيح الأشعة فوق البنفسجية",
+    "البشرة الفاتحة أو غير المعتادة على الشمس، الأكثر عرضة للأشعة الضارة",
+    "التعرض للشمس بين الساعة العاشرة صباحاً والرابعة مساءً في ذروة الإشعاع",
+    "انعكاس الأشعة على الماء أو الرمال أو الثلج مما يضاعف تأثيرها",
+    "بعض الأدوية أو مستحضرات التجميل التي تزيد حساسية الجلد للضوء"
+  ],
+  "redFlagsAr": [
+    "ظهور بثور أو تقشر واسع النطاق يطال مناطق كبيرة من الجسم",
+    "ارتفاع الحرارة مع قشعريرة أو صداع شديد أو ارتباك ذهني أو فقدان الوعي (ضربة شمس — حالة طارئة مهددة للحياة)",
+    "جفاف حاد: جفاف الفم، انعدام البول، دوخة شديدة",
+    "حروق شديدة لدى رضيع أو طفل صغير أو شخص مسن",
+    "ألم لا يحتمل أو جلد شاحب مائل للرمادي (يدل على حرق عميق)"
+  ],
+  "whenToConsultAr": "استشر الطبيب العام إذا كان الألم شديداً، أو ظهرت بثور، أو رافق الحرق ارتفاع في الحرارة. توجه فوراً إلى المستعجلات في حال ظهور أعراض ضربة الشمس كالارتباك أو فقدان الوعي أو الحروق الواسعة.",
+  "faqAr": [
+    {
+      "q": "كم يستمر حرق الشمس وكيف يمكن تخفيف الألم؟",
+      "a": "يختفي حرق الشمس الخفيف عادةً في غضون 3 إلى 7 أيام. للتخفيف من الألم، ضع كمادات باردة (لا متجمدة)، رطّب الجلد بمستحضر مهدئ، واشرب كميات وفيرة من الماء. تجنب أي تعرض للشمس حتى الشفاء التام."
+    },
+    {
+      "q": "هل يزيد حرق الشمس من خطر الإصابة بسرطان الجلد؟",
+      "a": "نعم، التعرض المتكرر لحروق الشمس لا سيما في مرحلة الطفولة والمراهقة يرفع خطر الإصابة بالميلانوما وسرطانات الجلد الأخرى. الوقاية المنتظمة من الشمس (كريم واقٍ بمؤشر مناسب، ملابس، قبعة، الظل) هي أفضل وسيلة للحماية على المدى البعيد."
+    }
+  ],
+  "intentAnswerAr": "في حال الإصابة بحرق الشمس، يُنصح باستشارة الطبيب العام أولاً لتقييم الحالة وتحديد العلاج المناسب. في حالات الحروق الواسعة أو البثور الكبيرة أو ارتفاع الحرارة، يجب التوجه إلى طبيب الجلدية أو مصلحة المستعجلات حسب درجة الخطورة."
+}

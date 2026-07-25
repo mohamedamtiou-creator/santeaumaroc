@@ -1,0 +1,66 @@
+{
+  "slug": "zona",
+  "term": "Zona",
+  "kind": "DISEASE",
+  "specialty": "dermatologie",
+  "synonyms": ["herpès zoster", "varicelle-zona"],
+  "shortAnswer": "Le zona est une réactivation du virus de la varicelle, qui reste dormant dans les nerfs après une première infection. Il provoque une éruption douloureuse en bande sur un côté du corps. Bénin dans la plupart des cas, il peut devenir grave chez les personnes immunodéprimées ou âgées.",
+  "causes": [
+    "Réactivation du virus varicelle-zona (VZV) présent à l'état latent dans les ganglions nerveux",
+    "Affaiblissement du système immunitaire (âge avancé, stress prolongé, fatigue intense)",
+    "Maladies immunodéprimantes (VIH, certains cancers, traitements immunosuppresseurs)",
+    "Chimiothérapie ou corticothérapie au long cours",
+    "Stress physique ou émotionnel majeur pouvant déclencher la réactivation virale",
+    "Antécédent obligatoire de varicelle (la maladie ne survient pas sans infection préalable)"
+  ],
+  "redFlags": [
+    "Éruption au niveau du visage, du front ou autour de l'œil : risque de complications oculaires graves (zona ophtalmique) — consultez un ophtalmologue en urgence",
+    "Douleur intense ou persistante bien après la guérison des lésions cutanées (névralgie post-zostérienne)",
+    "Signes de surinfection bactérienne : rougeur croissante, chaleur, pus, fièvre élevée",
+    "Faiblesse musculaire, paralysie faciale ou troubles de l'audition associés à l'éruption",
+    "État général très altéré, fièvre persistante ou extension importante des lésions chez une personne immunodéprimée",
+    "Maux de tête intenses, raideur de la nuque, confusion, photophobie ou troubles de la conscience : signes pouvant évoquer une méningite ou encéphalite zostérienne — appelez le 15 ou rendez-vous aux urgences immédiatement"
+  ],
+  "whenToConsult": "Consultez un médecin dès l'apparition d'une éruption douloureuse typique, idéalement dans les 72 heures suivant les premiers symptômes. Une prise en charge précoce est essentielle pour limiter les complications.",
+  "faq": [
+    {
+      "q": "Le zona est-il contagieux ?",
+      "a": "Le zona ne se transmet pas d'une personne à l'autre sous forme de zona. Cependant, le liquide des vésicules contient le virus varicelle-zona et peut provoquer une varicelle chez une personne qui n'en a jamais eu. Il est donc conseillé d'éviter tout contact avec les femmes enceintes, les nourrissons et les personnes immunodéprimées pendant la phase vésiculeuse."
+    },
+    {
+      "q": "Peut-on faire un zona plusieurs fois ?",
+      "a": "Oui, il est possible de faire un zona plusieurs fois, même si c'est moins fréquent. Les récidives surviennent surtout chez les personnes dont les défenses immunitaires sont affaiblies. La vaccination contre le zona, disponible au Maroc pour les personnes de plus de 50 ans, peut réduire le risque de récidive et de complications. Renseignez-vous auprès de votre médecin."
+    }
+  ],
+  "intentAnswer": "Pour un zona, consultez en premier lieu votre médecin généraliste, qui peut poser le diagnostic et initier la prise en charge. En cas de zona au niveau de l'œil, consultez en urgence un ophtalmologue. Un dermatologue peut être sollicité pour les formes complexes ou étendues.",
+  "termAr": "الهربس النطاقي (المنطقة)",
+  "shortAnswerAr": "الهربس النطاقي هو إعادة تنشيط فيروس جدري الماء الذي يبقى كامناً في الأعصاب بعد الإصابة الأولى. يسبب طفحاً جلدياً مؤلماً على شكل شريط في أحد جانبي الجسم. غالباً ما يكون خفيفاً، لكنه قد يكون خطيراً لدى كبار السن أو ذوي المناعة الضعيفة.",
+  "causesAr": [
+    "إعادة تنشيط فيروس الهربس النطاقي الكامن في العقد العصبية",
+    "ضعف جهاز المناعة بسبب التقدم في السن أو الإجهاد المزمن أو التعب الشديد",
+    "الأمراض المثبطة للمناعة كالإيدز وبعض أنواع السرطان أو العلاجات المثبطة للمناعة",
+    "العلاج الكيميائي أو الكورتيزون على المدى الطويل",
+    "الإجهاد الجسدي أو النفسي الحاد الذي قد يُحفز إعادة التنشيط الفيروسي",
+    "الإصابة السابقة بجدري الماء شرط أساسي لظهور المرض"
+  ],
+  "redFlagsAr": [
+    "ظهور الطفح على الوجه أو الجبهة أو حول العين: خطر مضاعفات خطيرة على البصر (هربس نطاقي عيني) — توجه فوراً إلى طبيب عيون",
+    "ألم شديد أو مستمر بعد شفاء الآفات الجلدية (ألم عصبي ما بعد النطاقي)",
+    "علامات عدوى بكتيرية: احمرار متزايد، سخونة، قيح، حمى مرتفعة",
+    "ضعف عضلي أو شلل في الوجه أو اضطرابات في السمع مصاحبة للطفح",
+    "تدهور شديد في الحالة العامة أو امتداد واسع للآفات لدى الأشخاص ذوي المناعة الضعيفة",
+    "صداع شديد، تيبس الرقبة، ارتباك، حساسية للضوء أو اضطراب في الوعي: أعراض قد تدل على التهاب سحائي أو التهاب دماغي — اتصل بالإسعاف أو اذهب إلى المستعجلات فوراً"
+  ],
+  "whenToConsultAr": "استشر طبيبك فور ظهور طفح جلدي مؤلم، ويُفضَّل ذلك خلال 72 ساعة من بدء الأعراض. التدخل المبكر ضروري للحد من المضاعفات.",
+  "faqAr": [
+    {
+      "q": "هل الهربس النطاقي معدٍ؟",
+      "a": "الهربس النطاقي لا ينتقل من شخص لآخر على شكل هربس نطاقي، لكن سائل الحويصلات يحتوي على الفيروس وقد يسبب جدري الماء لمن لم يصب به من قبل. لذا يُنصح بتجنب الاتصال بالحوامل والرضع وضعيفي المناعة طوال مرحلة الحويصلات."
+    },
+    {
+      "q": "هل يمكن الإصابة بالهربس النطاقي أكثر من مرة؟",
+      "a": "نعم، يمكن أن تتكرر الإصابة، وإن كان ذلك أقل شيوعاً. تحدث النكسات خاصة لدى ضعيفي المناعة. اللقاح المتاح للأشخاص فوق 50 عاماً يُقلل من خطر التكرار والمضاعفات. استشر طبيبك للمزيد من المعلومات."
+    }
+  ],
+  "intentAnswerAr": "للحصول على المساعدة الطبية المناسبة، ابدأ بزيارة طبيب عام يمكنه تشخيص الحالة وتحديد التوجيه المناسب. في حال ظهور الطفح حول العين، توجه فوراً إلى طبيب عيون. يُستشار طبيب الجلدية في الحالات المعقدة أو الواسعة الانتشار."
+}

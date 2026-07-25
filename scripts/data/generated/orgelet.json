@@ -1,0 +1,64 @@
+{
+  "slug": "orgelet",
+  "term": "Orgelet",
+  "kind": "DISEASE",
+  "specialty": "ophtalmologie",
+  "synonyms": ["compère-loriot", "hordéolum", "furoncle de la paupière"],
+  "shortAnswer": "L'orgelet est une petite infection bactérienne d'un follicule pileux à la base d'un cil, provoquant un bouton rouge et douloureux sur le bord de la paupière. Il guérit souvent seul en une semaine, mais une paupière très gonflée ou une fièvre impose de consulter rapidement.",
+  "causes": [
+    "Infection bactérienne, le plus souvent par le staphylocoque doré",
+    "Frottement des yeux avec des mains non lavées",
+    "Port de lentilles de contact sans hygiène rigoureuse",
+    "Fatigue ou stress affaiblissant les défenses immunitaires",
+    "Blépharite chronique (inflammation récurrente du bord des paupières)",
+    "Maquillage des yeux périmé ou mal démaquillé"
+  ],
+  "redFlags": [
+    "Gonflement important s'étendant à toute la paupière ou au visage",
+    "Fièvre ou frissons associés à l'œil rouge",
+    "Baisse de la vision ou douleur oculaire profonde",
+    "Orgelet qui ne régresse pas après 10 à 14 jours malgré les soins locaux",
+    "Récidives fréquentes (plusieurs épisodes par an)"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si l'orgelet ne s'améliore pas en une semaine, devient très douloureux ou s'accompagne de fièvre. En cas de gonflement rapide de toute la paupière ou de baisse de vision, rendez-vous en urgence ophtalmologique.",
+  "faq": [
+    {
+      "q": "Puis-je percer ou presser un orgelet moi-même ?",
+      "a": "Non. Percer un orgelet peut propager l'infection à d'autres structures de l'œil ou aggraver l'inflammation. Si l'orgelet ne perce pas spontanément, un médecin peut le traiter en toute sécurité si nécessaire."
+    },
+    {
+      "q": "Comment éviter que l'orgelet revienne ?",
+      "a": "Une bonne hygiène des paupières (nettoyage quotidien au sérum physiologique), ne jamais se frotter les yeux avec des mains sales, renouveler régulièrement son maquillage et entretenir correctement ses lentilles de contact réduisent nettement le risque de récidive."
+    }
+  ],
+  "intentAnswer": "Pour un orgelet, commencez par consulter votre médecin généraliste, qui peut orienter le traitement local. Si l'infection persiste, récidive ou touche la vision, l'ophtalmologiste prend le relais. En cas de paupière très gonflée ou de fièvre, consultez en urgence sans attendre.",
+  "termAr": "شعيرة العين (حبة الجفن)",
+  "shortAnswerAr": "شعيرة العين هي التهاب بكتيري صغير يصيب جريبَ شعرة رمش على حافة الجفن، مما يسبب حبة حمراء مؤلمة. تتعافى في الغالب خلال أسبوع دون علاج، لكن إذا تورم الجفن بشكل ملحوظ أو ارتفعت الحرارة وجب التشاور الفوري مع الطبيب.",
+  "causesAr": [
+    "عدوى بكتيرية في أغلب الأحيان بجرثومة المكورات العنقودية الذهبية",
+    "حك العينين بأيدٍ غير نظيفة",
+    "ارتداء العدسات اللاصقة دون اتباع قواعد النظافة الكافية",
+    "الإجهاد أو التعب الذي يضعف المناعة",
+    "التهاب الجفن المزمن (التهاب متكرر على حافة الجفن)",
+    "استخدام مستحضرات تجميل العيون منتهية الصلاحية أو إهمال إزالة المكياج"
+  ],
+  "redFlagsAr": [
+    "تورم واضح يمتد إلى كامل الجفن أو الوجه",
+    "ارتفاع الحرارة أو قشعريرة مصاحبة لاحمرار العين",
+    "ضعف في البصر أو ألم عميق داخل العين",
+    "شعيرة لا تتحسن بعد 10 إلى 14 يوماً رغم العناية المحلية",
+    "تكرار الإصابة عدة مرات في السنة"
+  ],
+  "whenToConsultAr": "راجع طبيبك العام إذا لم تتحسن الشعيرة خلال أسبوع، أو أصبحت مؤلمة جداً، أو رافقتها حرارة. أما في حال تورم الجفن بسرعة أو تراجع البصر، فتوجه فوراً إلى طبيب العيون على وجه الاستعجال.",
+  "faqAr": [
+    {
+      "q": "هل يمكنني ثقب الشعيرة بنفسي؟",
+      "a": "لا. يمكن أن يؤدي ثقب الشعيرة بنفسك إلى انتشار العدوى إلى مناطق أخرى من العين أو تفاقم الالتهاب. إذا لم تُفرغ الشعيرة من تلقاء نفسها، يمكن للطبيب التدخل بأمان عند الحاجة."
+    },
+    {
+      "q": "كيف أمنع عودة الشعيرة مرة أخرى؟",
+      "a": "الحرص على نظافة الجفنين يومياً بالمحلول الملحي، وتجنب حك العينين بأيدٍ غير نظيفة، وتجديد مستحضرات تجميل العيون بانتظام، والعناية السليمة بالعدسات اللاصقة، كلها عوامل تقلل من خطر التكرار بشكل ملحوظ."
+    }
+  ],
+  "intentAnswerAr": "لعلاج شعيرة العين، ابدأ بزيارة طبيبك العام الذي يمكنه توجيه العلاج الموضعي. إذا استمرت الإصابة أو تكررت أو أثّرت على البصر، يحيلك إلى طبيب العيون الأخصائي. وفي حال تورم الجفن بشكل مفاجئ أو ارتفاع الحرارة، اذهب إلى الطوارئ فوراً دون تأخير."
+}

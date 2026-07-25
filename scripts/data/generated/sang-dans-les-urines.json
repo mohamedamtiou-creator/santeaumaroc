@@ -1,0 +1,66 @@
+{
+  "slug": "sang-dans-les-urines",
+  "term": "Sang dans les urines (hématurie)",
+  "kind": "SYMPTOM",
+  "specialty": "urologie-et-chirurgie-urologique",
+  "synonyms": ["hématurie", "urines sanglantes", "urines rouges", "urines rosées"],
+  "shortAnswer": "L'hématurie désigne la présence de sang dans les urines, qui peuvent devenir roses, rouges ou marron. Une cause bénigne (infection urinaire, calcul) est souvent en cause, mais tout saignement urinaire doit être évalué par un médecin, car il peut signaler une affection sérieuse du rein ou de la vessie.",
+  "causes": [
+    "Infection urinaire (cystite, pyélonéphrite) : cause la plus fréquente, surtout chez la femme",
+    "Calculs rénaux ou vésicaux (lithiase urinaire) : dépôts minéraux irritant les voies urinaires",
+    "Hypertrophie bénigne de la prostate ou prostatite chez l'homme",
+    "Traumatisme de l'appareil urinaire (choc, sport intense, sondage)",
+    "Tumeur de la vessie ou du rein (à éliminer même sans douleur)",
+    "Maladies rénales (glomérulonéphrite) ou troubles de la coagulation"
+  ],
+  "redFlags": [
+    "Sang abondant ou caillots dans les urines, même sans douleur",
+    "Douleur lombaire intense irradiant vers le bas-ventre ou l'aine (colique néphrétique)",
+    "Fièvre élevée, frissons ou altération de l'état général associés aux urines sanglantes",
+    "Hématurie apparaissant après un traumatisme (chute, accident, coup dans le dos ou le ventre) : urgence chirurgicale potentielle",
+    "Hématurie chez un fumeur de plus de 40 ans ou sans cause évidente identifiée",
+    "Difficulté sévère à uriner, blocage complet ou rétention urinaire"
+  ],
+  "whenToConsult": "Tout épisode de sang dans les urines doit être signalé à un médecin, même s'il disparaît spontanément. En cas de douleur intense, de fièvre, de caillots ou de survenue après un traumatisme, rendez-vous aux urgences sans délai.",
+  "faq": [
+    {
+      "q": "Les urines peuvent-elles être rouges sans être dangereuses ?",
+      "a": "Oui, certains aliments (betterave, mûres) ou médicaments peuvent colorer les urines en rouge sans qu'il y ait de sang. Mais seul un médecin peut le confirmer par une simple bandelette urinaire ou une analyse d'urines. En cas de doute, consultez plutôt que d'attendre."
+    },
+    {
+      "q": "Peut-on avoir du sang dans les urines sans s'en apercevoir ?",
+      "a": "Oui : on parle alors d'hématurie microscopique, détectable uniquement à l'analyse d'urines. Elle est souvent découverte lors d'un bilan de routine. Même invisible à l'œil nu, elle mérite une évaluation médicale pour en identifier la cause."
+    }
+  ],
+  "intentAnswer": "Consultez d'abord votre médecin généraliste : il prescrira une analyse d'urines et vous orientera si nécessaire vers un urologue pour un bilan complet (échographie, cystoscopie). En cas de douleur lombaire intense, de fièvre, de caillots dans les urines ou de survenue après un traumatisme, rendez-vous directement aux urgences.",
+  "termAr": "دم في البول (بيلة دموية)",
+  "shortAnswerAr": "البيلة الدموية هي وجود دم في البول الذي قد يتحول إلى اللون الوردي أو الأحمر أو البني. كثيراً ما يكون السبب بسيطاً كالتهاب المسالك البولية أو حصوة كلوية، غير أن أي نزيف في البول يستوجب تقييماً طبياً، إذ قد يكشف عن مشكلة في الكلى أو المثانة.",
+  "causesAr": [
+    "التهاب المسالك البولية (التهاب المثانة أو الكلى): السبب الأكثر شيوعاً، خاصةً عند النساء",
+    "حصوات الكلى أو المثانة: رواسب معدنية تهيّج المسالك البولية",
+    "تضخم البروستاتا الحميد أو التهابها عند الرجال",
+    "إصابة الجهاز البولي (صدمة، رياضة مكثفة، قسطرة بولية)",
+    "ورم في المثانة أو الكلى (يجب استبعاده حتى في غياب الألم)",
+    "أمراض كلوية (التهاب كبيبات الكلى) أو اضطرابات في التخثر"
+  ],
+  "redFlagsAr": [
+    "نزيف غزير أو وجود جلطات دموية في البول ولو بدون ألم",
+    "ألم شديد في الخاصرة يمتد نحو أسفل البطن أو الأربية (مغص كلوي)",
+    "حمى مرتفعة أو قشعريرة أو تدهور الحالة العامة مصاحبة للبول الدموي",
+    "ظهور الدم في البول عقب إصابة جسدية (سقوط أو حادث أو ضربة في الظهر أو البطن): حالة طارئة جراحية محتملة",
+    "بيلة دموية عند مدخن يتجاوز الأربعين أو بدون سبب واضح",
+    "صعوبة شديدة في التبول أو انقطاعه التام (احتباس بولي)"
+  ],
+  "whenToConsultAr": "يجب الإبلاغ عن أي ظهور للدم في البول للطبيب حتى لو اختفى من تلقاء نفسه. في حالة الألم الشديد أو الحمى أو وجود جلطات أو الحدوث عقب إصابة، توجه إلى المستعجلات فوراً.",
+  "faqAr": [
+    {
+      "q": "هل يمكن أن يتحول البول إلى اللون الأحمر بدون خطر حقيقي؟",
+      "a": "نعم، بعض الأطعمة (كالشمندر والتوت) أو بعض الأدوية قد تغير لون البول إلى الأحمر دون وجود دم فعلي. لكن لا يمكن التأكد من ذلك إلا عبر فحص بسيط للبول عند الطبيب. لا تتردد في الاستشارة عند أي شك."
+    },
+    {
+      "q": "هل يمكن أن يكون هناك دم في البول دون أن نلاحظه؟",
+      "a": "نعم، وتُعرف هذه الحالة بالبيلة الدموية المجهرية، التي لا تُكشف إلا بتحليل البول. وغالباً ما تُكتشف بالصدفة خلال فحص روتيني. حتى وإن كانت غير مرئية بالعين المجردة، فإنها تستحق تقييماً طبياً لتحديد سببها."
+    }
+  ],
+  "intentAnswerAr": "استشر طبيبك العام أولاً؛ سيطلب تحليل البول ويحيلك عند الحاجة إلى طبيب متخصص في المسالك البولية (أخصائي أمراض المسالك البولية) لإجراء فحوصات معمّقة (تصوير بالصدى، تنظير المثانة). في حالة ألم الخاصرة الشديد أو الحمى أو الجلطات في البول أو الحدوث عقب إصابة، توجه مباشرة إلى المستعجلات."
+}

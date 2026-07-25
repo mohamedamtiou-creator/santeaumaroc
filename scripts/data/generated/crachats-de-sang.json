@@ -1,0 +1,64 @@
+{
+  "slug": "crachats-de-sang",
+  "term": "Crachats de sang (hémoptysie)",
+  "kind": "SYMPTOM",
+  "specialty": "pneumo-phtisiologie",
+  "synonyms": ["hémoptysie", "sang dans les crachats", "expectoration sanglante", "cracher du sang"],
+  "shortAnswer": "L'hémoptysie désigne le rejet de sang lors d'une toux, provenant des voies respiratoires. De petites traces rosées peuvent être bénignes (irritation, bronchite), mais tout saignement rouge vif, abondant ou répété doit être évalué rapidement par un médecin.",
+  "causes": [
+    "Infections respiratoires : bronchite aiguë, pneumonie, tuberculose pulmonaire",
+    "Bronchectasies (dilatation chronique des bronches)",
+    "Cancer du poumon ou tumeur des voies aériennes",
+    "Embolie pulmonaire (caillot dans les artères du poumon)",
+    "Traumatisme thoracique ou corps étranger inhalé",
+    "Maladies cardiaques entraînant une congestion pulmonaire (ex. : rétrécissement mitral)"
+  ],
+  "redFlags": [
+    "Volume abondant de sang rouge vif expectoré (plus d'une cuillère à soupe)",
+    "Essoufflement brutal, douleur thoracique intense ou palpitations associés",
+    "Crachats sanglants accompagnés de fièvre élevée persistante et d'amaigrissement",
+    "Antécédent de cancer, de tuberculose ou de maladie cardiaque connue",
+    "Perte de connaissance ou teint bleuté (cyanose) survenant avec le saignement"
+  ],
+  "whenToConsult": "Consultez un médecin dès les premières traces de sang dans les crachats, même sans autre symptôme. En cas de saignement abondant, de difficultés respiratoires ou de douleur thoracique, appelez le 15 ou rendez-vous immédiatement aux urgences.",
+  "faq": [
+    {
+      "q": "Comment distinguer un crachat de sang d'un saignement du nez ou de la bouche ?",
+      "a": "Le sang provenant des poumons est généralement rouge vif, mousseux et mélangé à des mucosités ; il survient lors d'une toux. Un saignement de nez ou de gencives coule vers la gorge et peut être avalé. En cas de doute, consultez un médecin : seul un examen clinique permet de déterminer l'origine exacte."
+    },
+    {
+      "q": "L'hémoptysie est-elle toujours grave ?",
+      "a": "Non, de petites traces rosées liées à une toux vigoureuse ou une bronchite peuvent être sans gravité. Cependant, tout crachat sanglant mérite une évaluation médicale, car certaines causes — comme la tuberculose ou un cancer — nécessitent une prise en charge rapide. Ne tardez pas à consulter."
+    }
+  ],
+  "intentAnswer": "Pour des crachats de sang, consultez d'abord un médecin généraliste qui orientera vers un pneumologue (spécialiste des poumons) ou un phtisiologue si la tuberculose est suspectée. En cas de saignement abondant, d'essoufflement brutal ou de douleur thoracique, rendez-vous immédiatement aux urgences.",
+  "termAr": "تبصق الدم (نفث الدم)",
+  "shortAnswerAr": "نفث الدم هو خروج دم مع السعال من مجاري التنفس. قد تكون خطوط وردية خفيفة غير خطيرة كما في التهاب الشعب الهوائية، لكن أي نزيف أحمر قانٍ أو غزير أو متكرر يستوجب تقييماً طبياً فورياً.",
+  "causesAr": [
+    "التهابات الجهاز التنفسي: التهاب الشعب الهوائية الحاد، الالتهاب الرئوي، السل الرئوي",
+    "توسع القصبات (اتساع مزمن في الشعب الهوائية)",
+    "سرطان الرئة أو أورام المجاري الهوائية",
+    "الجلطة الرئوية (انسداد في شرايين الرئة)",
+    "صدمة صدرية أو جسم غريب مستنشق",
+    "أمراض القلب المسببة لاحتقان رئوي (مثل تضيق الصمام التاجي)"
+  ],
+  "redFlagsAr": [
+    "كمية كبيرة من الدم الأحمر القاني تُبصق (أكثر من ملعقة كبيرة)",
+    "ضيق تنفس مفاجئ أو ألم شديد في الصدر أو خفقان مصاحب للنزيف",
+    "بصاق دموي مع حمى مرتفعة مستمرة وفقدان وزن",
+    "وجود سوابق مرضية بالسرطان أو السل أو أمراض القلب",
+    "فقدان الوعي أو ازرقاق الجلد (زُرقة) مصاحب للنزيف"
+  ],
+  "whenToConsultAr": "استشر طبيبك عند أول ظهور لدم في البصاق حتى دون أعراض أخرى. في حال كان النزيف غزيراً أو رافقه صعوبة في التنفس أو ألم في الصدر، اتصل بالرقم 15 (المستعجلات) أو توجه فوراً إلى المستشفى.",
+  "faqAr": [
+    {
+      "q": "كيف أميّز بين الدم القادم من الرئتين ودم الأنف أو الفم؟",
+      "a": "الدم الرئوي عادةً أحمر قانٍ ورغوي ومختلط بالمخاط، ويخرج عند السعال. أما دم الأنف أو اللثة فيتدفق نحو الحلق وقد يُبتلع. في حال الشك، لا تتردد في استشارة الطبيب، إذ يحدد الفحص السريري مصدر النزيف بدقة."
+    },
+    {
+      "q": "هل نفث الدم خطير دائماً؟",
+      "a": "لا، فخطوط وردية خفيفة بعد سعال شديد أو التهاب شعبي قد تكون غير خطيرة. غير أن أي بصاق دموي يستحق الفحص الطبي، لأن بعض الأسباب كالسل أو السرطان تستلزم تدخلاً سريعاً. لا تؤجل الاستشارة."
+    }
+  ],
+  "intentAnswerAr": "لنفث الدم، ابدأ بالتواصل مع طبيب عام يحيلك إلى أخصائي أمراض الرئة والصدر، أو إلى أخصائي أمراض السل إن اشتُبه به. في حال كان النزيف غزيراً أو صاحبه ضيق تنفس مفاجئ أو ألم في الصدر، اتجه فوراً إلى المستعجلات."
+}

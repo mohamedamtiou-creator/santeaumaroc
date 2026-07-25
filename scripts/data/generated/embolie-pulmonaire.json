@@ -1,0 +1,66 @@
+{
+  "slug": "embolie-pulmonaire",
+  "term": "Embolie pulmonaire",
+  "kind": "DISEASE",
+  "specialty": "pneumo-phtisiologie",
+  "synonyms": ["EP", "thromboembolie pulmonaire", "caillot dans le poumon"],
+  "shortAnswer": "L'embolie pulmonaire est l'obstruction soudaine d'une artère du poumon par un caillot sanguin. Certaines formes sont graves et mettent la vie en danger : tout essoufflement brutal inexpliqué, douleur thoracique ou malaise doit conduire aux urgences sans délai.",
+  "causes": [
+    "Phlébite (thrombose veineuse profonde) : un caillot formé dans une veine des jambes peut migrer vers les poumons",
+    "Immobilisation prolongée : long trajet en avion ou en voiture, alitement post-opératoire",
+    "Chirurgie récente, surtout orthopédique ou abdominale",
+    "Cancer actif ou traitement anticancéreux",
+    "Grossesse et période post-partum (risque accru de coagulation)",
+    "Troubles héréditaires de la coagulation ou maladies auto-immunes"
+  ],
+  "redFlags": [
+    "Essoufflement soudain et inexpliqué, même au repos",
+    "Douleur thoracique aiguë, parfois aggravée par la respiration",
+    "Crachats teintés de sang (hémoptysie)",
+    "Malaise, perte de connaissance ou sensation de mort imminente",
+    "Pouls très rapide, peau bleue ou grisâtre (cyanose)",
+    "Chute brutale de la tension artérielle (hypotension) ou état de choc : signe d'embolie massive, appeler le 150 immédiatement"
+  ],
+  "whenToConsult": "Appelez le 150 (SAMU) ou rendez-vous immédiatement aux urgences dès l'apparition d'un essoufflement brutal, d'une douleur thoracique ou d'un malaise inexpliqué — surtout si vous avez récemment eu une chirurgie, un voyage long ou une phlébite. N'attendez pas : l'embolie pulmonaire peut être mortelle sans prise en charge rapide.",
+  "faq": [
+    {
+      "q": "Comment savoir si j'ai une embolie pulmonaire ?",
+      "a": "Il est impossible de l'affirmer soi-même. Les symptômes (essoufflement soudain, douleur thoracique, rythme cardiaque accéléré) ressemblent à d'autres urgences. Seul un médecin, grâce à des examens comme le scanner thoracique ou le dosage des D-dimères, peut confirmer le diagnostic. En cas de doute, appelez le 150 ou allez aux urgences."
+    },
+    {
+      "q": "Peut-on prévenir une embolie pulmonaire après une chirurgie ?",
+      "a": "Oui, la prévention est essentielle. Votre médecin peut prescrire des bas de contention, une mobilisation précoce et, si nécessaire, un traitement anticoagulant adapté à votre risque. Suivez scrupuleusement les recommandations post-opératoires et signalez toute douleur ou gonflement dans les jambes."
+    }
+  ],
+  "intentAnswer": "En cas de suspicion d'embolie pulmonaire, appelez le 150 (SAMU) ou allez directement aux urgences : c'est une urgence vitale. En dehors de toute urgence, votre médecin généraliste est le premier recours ; il orientera vers un pneumologue ou un médecin interniste pour le suivi.",
+  "termAr": "الجلطة الرئوية",
+  "shortAnswerAr": "الجلطة الرئوية هي انسداد مفاجئ لأحد شرايين الرئة بسبب خثرة دموية. قد تكون خطيرة وتهدد الحياة: أي ضيق مفاجئ في التنفس أو ألم في الصدر أو إغماء يستوجب التوجه الفوري إلى المستعجلات دون تأخير.",
+  "causesAr": [
+    "التهاب الوريد الخثاري العميق: قد تنتقل الخثرة المتشكلة في أوردة الساقين إلى الرئتين",
+    "الجلوس لفترات طويلة: خلال رحلات جوية أو برية طويلة، أو الراحة في الفراش بعد عملية جراحية",
+    "العمليات الجراحية الحديثة، خاصة في العظام أو البطن",
+    "السرطان النشط أو تلقي العلاج الكيميائي",
+    "الحمل وفترة ما بعد الولادة (زيادة خطر تخثر الدم)",
+    "اضطرابات وراثية في التخثر أو أمراض المناعة الذاتية"
+  ],
+  "redFlagsAr": [
+    "ضيق مفاجئ وغير مبرر في التنفس حتى أثناء الراحة",
+    "ألم حاد في الصدر يزداد أحياناً عند التنفس",
+    "بصاق مصحوب بدم",
+    "إغماء أو شعور بالهلع وقرب الموت",
+    "سرعة شديدة في نبضات القلب أو زرقة الجلد والشفاه",
+    "انهيار مفاجئ في ضغط الدم (انخفاض حاد) أو صدمة: علامة على جلطة رئوية ضخمة — اتصل بالإسعاف 150 فوراً"
+  ],
+  "whenToConsultAr": "اتصل برقم 150 (الإسعاف) أو توجه فوراً إلى المستعجلات عند ظهور أي ضيق مفاجئ في التنفس أو ألم في الصدر أو إغماء، خاصةً إذا خضعت مؤخراً لعملية جراحية أو قطعت رحلة طويلة أو عانيت من التهاب وريدي. لا تتأخر: الجلطة الرئوية قد تكون قاتلة دون علاج سريع.",
+  "faqAr": [
+    {
+      "q": "كيف أعرف إذا كنت أعاني من جلطة رئوية؟",
+      "a": "لا يمكن التأكد من ذلك بنفسك، إذ تتشابه أعراضها (ضيق مفاجئ في التنفس، ألم في الصدر، تسارع ضربات القلب) مع حالات طارئة أخرى. التشخيص يتطلب فحوصات طبية كالتصوير المقطعي للصدر وتحليل D-dimères. في حالة الشك، اتصل برقم 150 أو اذهب فوراً إلى المستعجلات."
+    },
+    {
+      "q": "هل يمكن الوقاية من الجلطة الرئوية بعد العمليات الجراحية؟",
+      "a": "نعم، الوقاية ضرورية جداً. قد يصف طبيبك جوارب ضاغطة، وينصحك بالتحرك المبكر، وعند الحاجة، دواءً مضاداً للتخثر يناسب درجة خطورتك. التزم بتعليمات ما بعد الجراحة، وأبلغ طبيبك عن أي ألم أو تورم في الساقين."
+    }
+  ],
+  "intentAnswerAr": "في حالة الاشتباه بجلطة رئوية، اتصل برقم 150 أو توجه مباشرة إلى المستعجلات لأنها حالة طارئة تهدد الحياة. خارج حالات الطوارئ، يُعدّ طبيب الأسرة أول من تلجأ إليه، وسيحولك عند الحاجة إلى طبيب أمراض الرئة أو طبيب الأمراض الباطنية للمتابعة."
+}

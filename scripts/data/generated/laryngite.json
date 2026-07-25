@@ -1,0 +1,64 @@
+{
+  "slug": "laryngite",
+  "term": "Laryngite",
+  "kind": "DISEASE",
+  "specialty": "oto-rhino-laryngologie",
+  "synonyms": ["inflammation du larynx", "laryngite aiguë", "laryngite chronique", "laryngite sous-glottique"],
+  "shortAnswer": "La laryngite est une inflammation du larynx (organe de la voix) qui provoque une voix enrouée, une toux sèche et parfois des douleurs à la gorge. Chez l'adulte, elle est souvent bénigne et guérit en quelques jours ; chez le jeune enfant, une gêne respiratoire doit alerter rapidement.",
+  "causes": [
+    "Infection virale (rhume, grippe, COVID-19) : cause la plus fréquente",
+    "Surmenage vocal (cris, chant prolongé, conférences) chez les professionnels de la voix",
+    "Reflux gastro-œsophagien irritant le larynx de façon répétée",
+    "Inhalation de substances irritantes : tabac, pollution, produits chimiques",
+    "Infection bactérienne (plus rare, souvent plus sévère)",
+    "Allergie ou terrain atopique favorisant l'inflammation locale"
+  ],
+  "redFlags": [
+    "Difficulté à respirer ou sifflement inspiratoire (stridor) surtout chez l'enfant : urgence",
+    "Fièvre élevée avec altération de l'état général : consultez un médecin sans délai",
+    "Incapacité à avaler sa salive ou douleur à la déglutition très intense",
+    "Aphonie (perte totale de la voix) persistant plus de deux à trois semaines sans amélioration",
+    "Crachat de sang ou masse palpable dans le cou"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si l'enrouement persiste plus d'une semaine ou s'accompagne de fièvre. Rendez-vous aux urgences sans attendre si vous observez une gêne respiratoire, un stridor ou une incapacité à avaler, notamment chez un enfant.",
+  "faq": [
+    {
+      "q": "Combien de temps dure une laryngite ?",
+      "a": "Une laryngite virale aiguë guérit généralement en 7 à 10 jours avec du repos vocal et une bonne hydratation. Si les symptômes dépassent deux à trois semaines, une consultation ORL s'impose pour éliminer d'autres causes, notamment une lésion des cordes vocales."
+    },
+    {
+      "q": "Faut-il des antibiotiques pour soigner une laryngite ?",
+      "a": "Dans la grande majorité des cas, la laryngite est d'origine virale et les antibiotiques n'ont aucun effet sur les virus. Seul un médecin peut déterminer si une infection bactérienne est en cause et prescrire le traitement adapté. Il ne faut jamais s'automédiquer."
+    }
+  ],
+  "intentAnswer": "Pour une laryngite, commencez par consulter un médecin généraliste qui évaluera la gravité et orientera si nécessaire. En cas de symptômes persistants ou de voix enrouée chronique, un ORL (oto-rhino-laryngologiste) est le spécialiste adapté. En cas de gêne respiratoire ou de stridor, appelez le 15 ou rendez-vous aux urgences.",
+  "termAr": "التهاب الحنجرة",
+  "shortAnswerAr": "التهاب الحنجرة هو تهيج في الحنجرة (عضو الصوت) يتسبب في بحة الصوت والسعال الجاف وأحياناً ألم في الحلق. عند البالغين يكون في الغالب خفيفاً ويتحسن خلال أيام، أما عند الأطفال الصغار فأي صعوبة في التنفس تستوجب الاستشارة الفورية.",
+  "causesAr": [
+    "عدوى فيروسية (نزلة برد، إنفلونزا، كوفيد-19): السبب الأكثر شيوعاً",
+    "إجهاد الصوت (الصراخ، الغناء المطوّل) لدى من يستخدمون أصواتهم في عملهم",
+    "الارتداد المعدي المريئي الذي يهيج الحنجرة بصورة متكررة",
+    "استنشاق مواد مهيجة: التبغ، التلوث، المواد الكيميائية",
+    "عدوى بكتيرية (نادرة نسبياً، لكنها غالباً أشد حدة)",
+    "الحساسية أو الاستعداد التأتبي الذي يهيئ للالتهاب الموضعي"
+  ],
+  "redFlagsAr": [
+    "صعوبة في التنفس أو صفير عند الشهيق (stridor) خاصة عند الأطفال: حالة طارئة",
+    "حمى مرتفعة مع تدهور الحالة العامة: تستوجب مراجعة الطبيب فوراً",
+    "عدم القدرة على بلع الريق أو ألم شديد عند البلع",
+    "فقدان الصوت كلياً يستمر أكثر من أسبوعين أو ثلاثة دون تحسن",
+    "بصق دم أو كتلة ملموسة في الرقبة"
+  ],
+  "whenToConsultAr": "استشيروا طبيب عام إذا استمر بحة الصوت أكثر من أسبوع أو رافقتها حمى. توجهوا إلى قسم الطوارئ فوراً في حال وجود صعوبة في التنفس أو صفير شهيقي أو عدم القدرة على البلع، ولا سيما عند الأطفال.",
+  "faqAr": [
+    {
+      "q": "كم يستغرق التهاب الحنجرة من الوقت حتى يشفى؟",
+      "a": "عادةً يتعافى التهاب الحنجرة الفيروسي الحاد في غضون 7 إلى 10 أيام مع الراحة الصوتية والترطيب الجيد. إذا تجاوزت الأعراض أسبوعين أو ثلاثة، فمن الضروري مراجعة طبيب أنف وأذن وحنجرة لاستبعاد أسباب أخرى كالآفات على الحبال الصوتية."
+    },
+    {
+      "q": "هل يستلزم التهاب الحنجرة تناول المضادات الحيوية؟",
+      "a": "في معظم الحالات يكون التهاب الحنجرة فيروسياً، والمضادات الحيوية لا تؤثر في الفيروسات. الطبيب وحده من يستطيع تحديد ما إذا كانت البكتيريا هي السبب وصرف العلاج المناسب. يُمنع تناول أي دواء دون وصفة طبية."
+    }
+  ],
+  "intentAnswerAr": "عند الإصابة بالتهاب الحنجرة، ابدأ باستشارة طبيب عام يقيّم الحالة ويحيل عند الحاجة. إذا استمرت بحة الصوت أو تكررت، فالتخصص المناسب هو طبيب أنف وأذن وحنجرة. في حالة الصعوبة في التنفس أو الصفير الشهيقي، اتصل بالمستعجلات أو توجه فوراً إلى أقرب مستشفى."
+}

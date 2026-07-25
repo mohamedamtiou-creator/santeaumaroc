@@ -5,6 +5,7 @@ import { getCurrentUser } from "@/lib/dal";
 import { prisma } from "@/lib/prisma";
 import { getDoctorInitials, casablancaTodayStr, casablancaNow } from "@/lib/utils";
 import { CancelButton } from "./_components/CancelButton";
+import { DashboardHeader } from "./_components/DashboardHeader";
 import { getLocale } from "@/lib/i18n-server";
 import { getDictionary, type Dictionary } from "@/lib/i18n";
 
@@ -122,14 +123,10 @@ export default async function DashboardPage() {
     <div className="flex flex-col gap-6">
 
       {/* ── Salutation ──────────────────────────────────────── */}
-      <header>
-        <p className="section-eyebrow mb-0.5">{tp.eyebrow}</p>
-        <h1 className="text-xl font-bold text-slate-900">
-          {greeting(dash)}, <span className="text-primary-700">{firstName}</span>
-        </h1>
-        <div className="mt-3 h-px"
-          style={{ background: "linear-gradient(90deg,#bfdbfe 0%,#a7f3d0 60%,transparent 100%)" }} />
-      </header>
+      <DashboardHeader
+        eyebrow={tp.eyebrow}
+        title={<>{greeting(dash)}, <span className="text-primary-700">{firstName}</span></>}
+      />
 
       {/* ── Prochain RDV — hero ──────────────────────────────── */}
       {next ? (

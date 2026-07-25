@@ -1,0 +1,64 @@
+{
+  "slug": "schizophrenie",
+  "term": "Schizophrénie",
+  "kind": "DISEASE",
+  "specialty": "psychiatrie",
+  "synonyms": ["psychose schizophrénique", "trouble schizophrénique"],
+  "shortAnswer": "La schizophrénie est un trouble psychiatrique sévère qui altère la perception de la réalité, la pensée et le comportement. Elle nécessite une prise en charge spécialisée. Toute rupture brutale avec la réalité, hallucinations ou comportement désorganisé chez un proche doit conduire à consulter rapidement.",
+  "causes": [
+    "Facteurs génétiques et héréditaires (antécédents familiaux de schizophrénie ou d'autres psychoses)",
+    "Déséquilibres neurochimiques dans le cerveau, notamment impliquant la dopamine",
+    "Facteurs environnementaux précoces (complications à la naissance, infections pendant la grossesse)",
+    "Stress psychosocial intense ou traumatismes répétés",
+    "Consommation de substances psychoactives (cannabis, amphétamines) pouvant déclencher ou aggraver les épisodes",
+    "Combinaison complexe de vulnérabilité biologique et de facteurs déclenchants externes"
+  ],
+  "redFlags": [
+    "Hallucinations persistantes : entendre des voix, voir des choses que les autres ne perçoivent pas",
+    "Idées délirantes envahissantes : croyances fixes et fausses (persécution, grandeur, contrôle de la pensée)",
+    "Désorganisation sévère du discours ou du comportement rendant toute communication impossible",
+    "Agitation importante, menaces envers soi-même ou autrui, idées suicidaires exprimées ou risque de passage à l'acte",
+    "Isolement total, refus de s'alimenter ou de se soigner pendant plusieurs jours"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès les premiers signes de retrait social inexpliqué, de discours bizarre ou de comportement inhabituel persistant. En cas de crise aiguë, d'agitation ou de danger immédiat, appelez le SAMU (15) ou rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "La schizophrénie est-elle définitive et incurable ?",
+      "a": "La schizophrénie est une maladie chronique, mais un suivi psychiatrique régulier et un accompagnement adapté permettent à de nombreux patients de mener une vie stable. La prise en charge précoce améliore significativement le pronostic à long terme."
+    },
+    {
+      "q": "Les personnes atteintes de schizophrénie sont-elles dangereuses ?",
+      "a": "Dans leur grande majorité, les personnes souffrant de schizophrénie ne sont pas violentes. Le risque de comportement perturbateur est surtout présent lors des épisodes aigus non traités. Un suivi médical approprié réduit considérablement ce risque."
+    }
+  ],
+  "intentAnswer": "Pour la schizophrénie, commencez par consulter votre médecin généraliste qui orientera vers un psychiatre, spécialiste de référence pour ce trouble. Des centres de santé mentale publics existent au Maroc. En cas de crise aiguë ou de danger immédiat, rendez-vous aux urgences ou appelez le SAMU (15).",
+  "termAr": "الفصام",
+  "shortAnswerAr": "الفصام اضطراب نفسي خطير يؤثر على إدراك الواقع والتفكير والسلوك، ويستلزم متابعة طبية متخصصة. أي انفصال مفاجئ عن الواقع أو هلاوس أو سلوك غير منظم لدى أحد المقربين يستوجب استشارة طبية عاجلة.",
+  "causesAr": [
+    "عوامل وراثية وجينية (وجود حالات فصام أو ذهان في العائلة)",
+    "اختلالات كيميائية في الدماغ، لا سيما تلك المتعلقة بالدوبامين",
+    "عوامل بيئية مبكرة كمضاعفات الولادة أو الإصابات خلال الحمل",
+    "ضغوط نفسية اجتماعية حادة أو صدمات متكررة",
+    "تعاطي المواد المخدرة (القنب، الأمفيتامينات) التي قد تُحفّز النوبات أو تُفاقمها",
+    "تفاعل معقد بين الاستعداد البيولوجي وعوامل خارجية مُحفّزة"
+  ],
+  "redFlagsAr": [
+    "هلاوس مستمرة: سماع أصوات أو رؤية أشياء لا يدركها الآخرون",
+    "أوهام راسخة: اعتقادات ثابتة وخاطئة بالاضطهاد أو العظمة أو التحكم في الأفكار",
+    "اضطراب حاد في الكلام أو السلوك يُعيق أي تواصل",
+    "هياج شديد أو أفكار انتحارية معلنة أو تهديدات تطال الشخص نفسه أو الآخرين مع احتمال التصرف الفعلي",
+    "عزلة تامة أو رفض الأكل والعلاج لأيام متتالية"
+  ],
+  "whenToConsultAr": "راجع طبيبك العام فور ظهور علامات الانسحاب الاجتماعي غير المبرر، أو الكلام الغريب، أو السلوك غير المعتاد المستمر. في حالات الأزمات الحادة أو الخطر الوشيك، اتصل بالإسعاف (15) أو توجه فوراً إلى المستعجلات.",
+  "faqAr": [
+    {
+      "q": "هل الفصام مرض دائم وغير قابل للشفاء؟",
+      "a": "الفصام مرض مزمن، غير أن المتابعة النفسية المنتظمة والدعم المناسب يُمكّنان كثيراً من المرضى من عيش حياة مستقرة. التدخل المبكر يُحسّن بشكل ملحوظ التوقعات على المدى البعيد."
+    },
+    {
+      "q": "هل يُشكّل المصابون بالفصام خطراً على المحيطين بهم؟",
+      "a": "في الغالب، لا يُبدي المصابون بالفصام سلوكاً عنيفاً. يبرز خطر الاضطراب السلوكي أساساً خلال النوبات الحادة غير المُعالَجة. والمتابعة الطبية الملائمة تُقلّص هذا الخطر بشكل كبير."
+    }
+  ],
+  "intentAnswerAr": "لمعالجة الفصام، ابدأ بزيارة طبيبك العام الذي سيُحيلك إلى طبيب نفسي، وهو المختص الأساسي لهذا الاضطراب. تتوفر في المغرب مراكز الصحة النفسية العمومية. في حالات الأزمة الحادة أو الخطر الوشيك، توجه فوراً إلى المستعجلات أو اتصل بالإسعاف (15)."
+}

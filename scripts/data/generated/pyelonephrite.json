@@ -1,0 +1,66 @@
+{
+  "slug": "pyelonephrite",
+  "term": "Pyélonéphrite (infection rénale)",
+  "kind": "DISEASE",
+  "specialty": "nephrologie",
+  "synonyms": ["infection rénale", "infection des reins", "pyélo"],
+  "shortAnswer": "La pyélonéphrite est une infection bactérienne qui touche le rein. Souvent bénigne et traitée rapidement en consultation, elle devient une urgence en cas de forte fièvre, frissons intenses ou douleurs lombaires sévères, surtout chez la femme enceinte ou la personne fragile.",
+  "causes": [
+    "Remontée de bactéries (souvent E. coli) depuis la vessie vers le rein",
+    "Infection urinaire basse (cystite) non traitée ou mal traitée",
+    "Obstruction des voies urinaires (calcul rénal, malformation)",
+    "Rapports sexuels fréquents favorisant la colonisation bactérienne chez la femme",
+    "Défenses immunitaires affaiblies (diabète, immunodépression)",
+    "Sonde urinaire ou geste médical sur les voies urinaires"
+  ],
+  "redFlags": [
+    "Fièvre élevée (au-dessus de 38,5 °C) avec frissons intenses et état général altéré",
+    "Confusion, somnolence excessive ou perte de connaissance (signes possibles de sepsis grave)",
+    "Douleurs lombaires très violentes, surtout unilatérales, ne cédant pas au repos",
+    "Nausées ou vomissements empêchant de s'alimenter ou de prendre un traitement oral",
+    "Femme enceinte présentant tout signe d'infection urinaire ou de douleur rénale",
+    "Absence d'amélioration après 48 à 72 heures de prise en charge médicale"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès les premiers signes (brûlures urinaires, fièvre, douleur lombaire). En cas de fièvre très élevée, frissons, vomissements, confusion ou grossesse, rendez-vous aux urgences sans délai.",
+  "faq": [
+    {
+      "q": "La pyélonéphrite est-elle contagieuse ?",
+      "a": "Non, la pyélonéphrite n'est pas contagieuse. C'est une infection causée par des bactéries présentes naturellement dans l'organisme qui remontent vers le rein. Elle ne se transmet pas d'une personne à l'autre."
+    },
+    {
+      "q": "Peut-on avoir une pyélonéphrite sans symptômes urinaires ?",
+      "a": "Oui, parfois la pyélonéphrite se manifeste uniquement par de la fièvre, des frissons et des douleurs dans le dos, sans brûlures urinaires apparentes. C'est pourquoi tout épisode fébrile avec douleur lombaire doit être évalué par un médecin."
+    }
+  ],
+  "intentAnswer": "Pour une infection rénale, consultez d'abord votre médecin généraliste qui prescrira les analyses et orientera vers un néphrologue ou urologue si nécessaire. En cas de fièvre élevée, frissons, confusion ou grossesse, rendez-vous directement aux urgences hospitalières.",
+  "termAr": "التهاب الحويضة والكلية (عدوى الكلى)",
+  "shortAnswerAr": "التهاب الحويضة والكلية هو عدوى بكتيرية تصيب الكلى. في الغالب يكون خفيفاً ويُعالَج بسرعة عند الطبيب، لكنه يصبح حالةً طارئة عند ارتفاع الحرارة الشديد أو الرعشة أو الألم القوي في الظهر، خاصةً لدى الحوامل وضعيفي المناعة.",
+  "causesAr": [
+    "صعود البكتيريا (عادةً الإشريكية القولونية) من المثانة إلى الكلى",
+    "التهاب المسالك البولية السفلية (التهاب المثانة) غير المعالَج أو المعالَج بشكل غير كافٍ",
+    "انسداد المسالك البولية بسبب حصوات الكلى أو تشوهات هيكلية",
+    "العلاقات الجنسية المتكررة التي تُسهم في انتقال البكتيريا لدى المرأة",
+    "ضعف المناعة كالسكري أو العلاجات المثبطة للمناعة",
+    "استخدام القسطرة البولية أو إجراء طبي على المسالك البولية"
+  ],
+  "redFlagsAr": [
+    "ارتفاع الحرارة فوق 38.5 درجة مع رعشة شديدة وتدهور الحالة العامة",
+    "تشوش الذهن أو النعاس الشديد أو فقدان الوعي (قد تكون علامات تسمم الدم الخطير)",
+    "ألم شديد في منطقة الخاصرة من جهة واحدة لا يتحسن بالراحة",
+    "غثيان أو قيء يمنعان الأكل أو تناول الأدوية عن طريق الفم",
+    "ظهور أي أعراض بولية أو ألم في الظهر لدى المرأة الحامل",
+    "عدم التحسن بعد 48 إلى 72 ساعة من بدء المتابعة الطبية"
+  ],
+  "whenToConsultAr": "استشر الطبيب العام فور ظهور الأعراض الأولى كالحرقة عند التبول أو الحمى أو الألم في الظهر. وفي حال الحمى الشديدة أو الرعشة أو القيء أو تشوش الذهن أو الحمل، توجه فوراً إلى المستعجلات دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل التهاب الحويضة والكلية معدٍ؟",
+      "a": "لا، هذا الالتهاب غير معدٍ. فهو ناتج عن بكتيريا موجودة بشكل طبيعي في الجسم تصعد نحو الكلى، ولا ينتقل من شخص إلى آخر."
+    },
+    {
+      "q": "هل يمكن أن يحدث التهاب الكلى دون أعراض بولية واضحة؟",
+      "a": "نعم، قد يظهر أحياناً بالحمى والرعشة وآلام الظهر فقط، دون حرقة بولية. لهذا السبب، يجب أن يُقيَّم كل ارتفاع في الحرارة مصحوب بألم في منطقة الخاصرة من قِبل طبيب متخصص."
+    }
+  ],
+  "intentAnswerAr": "في حال الاشتباه بالتهاب الكلى، ابدأ بزيارة طبيب عام يطلب الفحوصات اللازمة ويُحيلك عند الحاجة إلى طبيب الكلى أو المسالك البولية. وإذا ظهرت الحمى الشديدة أو الرعشة أو تشوش الذهن أو كنتِ حاملةً، توجه مباشرةً إلى المستعجلات."
+}

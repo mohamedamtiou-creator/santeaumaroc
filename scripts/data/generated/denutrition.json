@@ -1,0 +1,66 @@
+{
+  "slug": "denutrition",
+  "term": "Dénutrition",
+  "kind": "DISEASE",
+  "specialty": "nutrition",
+  "synonyms": ["malnutrition protéino-énergétique", "sous-alimentation", "cachexie"],
+  "shortAnswer": "La dénutrition survient quand l'organisme ne reçoit pas assez de nutriments pour fonctionner correctement. Légère, elle se corrige avec un suivi diététique. Elle devient préoccupante chez l'enfant, la personne âgée ou en cas de perte de poids rapide et inexpliquée.",
+  "causes": [
+    "Apports alimentaires insuffisants (pauvreté, anorexie, troubles de la déglutition)",
+    "Maladies chroniques augmentant les besoins ou réduisant l'absorption (cancer, maladies inflammatoires, VIH)",
+    "Troubles digestifs entravant l'assimilation des nutriments (maladie cœliaque, maladie de Crohn)",
+    "Vieillissement : perte d'appétit, isolement social, difficultés à mâcher",
+    "Carences liées à des régimes restrictifs non encadrés ou à certaines addictions",
+    "Hospitalisations prolongées ou maladies aiguës graves"
+  ],
+  "redFlags": [
+    "Perte de poids rapide et non voulue dépassant 5 % du poids corporel en un mois",
+    "Fatigue extrême, incapacité à se lever ou à effectuer les gestes quotidiens",
+    "Œdèmes (gonflement des jambes ou du ventre), signe d'une dénutrition sévère",
+    "Chez l'enfant : arrêt ou ralentissement marqué de la croissance, apathie, cheveux cassants",
+    "Plaies qui ne cicatrisent pas, infections répétées, confusion ou perte de connaissance (à tout âge)",
+    "Difficultés à respirer ou palpitations cardiaques inhabituelles accompagnant une perte de poids sévère"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès que vous constatez une perte de poids inexpliquée, une fatigue persistante ou une diminution notable de l'appétit. En cas de signe d'alerte (œdèmes, confusion, perte de connaissance, difficultés à respirer, enfant qui ne grandit plus), rendez-vous aux urgences sans délai.",
+  "faq": [
+    {
+      "q": "Comment savoir si je suis dénutri(e) ?",
+      "a": "Le médecin évalue votre poids, votre indice de masse corporelle (IMC) et peut prescrire une prise de sang pour mesurer les protéines et autres marqueurs nutritionnels. Un IMC inférieur à 18,5 chez l'adulte ou une perte de poids rapide non intentionnelle sont des signaux à prendre au sérieux, à confirmer avec votre médecin."
+    },
+    {
+      "q": "La dénutrition touche-t-elle uniquement les personnes pauvres ?",
+      "a": "Non. La dénutrition peut toucher toute personne dont les besoins nutritionnels ne sont pas couverts : personnes âgées isolées, malades chroniques, patients hospitalisés ou encore personnes suivant des régimes très restrictifs sans suivi médical."
+    }
+  ],
+  "intentAnswer": "Pour la dénutrition, consultez d'abord votre médecin généraliste qui évaluera votre état nutritionnel et vous orientera si besoin vers un médecin nutritionniste ou un diététicien-nutritionniste. En cas de symptômes graves (œdèmes, confusion, perte de connaissance, difficultés respiratoires, enfant qui ne grandit plus), rendez-vous immédiatement aux urgences.",
+  "termAr": "سوء التغذية",
+  "shortAnswerAr": "يحدث سوء التغذية عندما لا يحصل الجسم على كمية كافية من العناصر الغذائية اللازمة لعمله الطبيعي. في حالته الخفيفة، يمكن تصحيحه بمتابعة غذائية مناسبة. أما إذا أصاب طفلاً أو مسناً، أو رافقه نقص وزن سريع وغير مبرر، فهو يستدعي استشارة طبية عاجلة.",
+  "causesAr": [
+    "نقص الوجبات الغذائية أو عدم كفايتها (فقر، فقدان شهية، صعوبة في البلع)",
+    "أمراض مزمنة تزيد الاحتياجات الغذائية أو تُقلّل الامتصاص (السرطان، أمراض التهابية، فيروس نقص المناعة)",
+    "اضطرابات هضمية تعيق امتصاص المغذيات (داء الاضطرابات الهضمية، مرض كرون)",
+    "الشيخوخة: ضعف الشهية، العزلة الاجتماعية، صعوبة المضغ",
+    "حميات غذائية مقيّدة جداً دون إشراف طبي، أو تأثيرات الإدمان",
+    "الإقامة المطولة في المستشفى أو الأمراض الحادة الشديدة"
+  ],
+  "redFlagsAr": [
+    "فقدان سريع وغير إرادي للوزن يتجاوز 5% من وزن الجسم في شهر واحد",
+    "إرهاق شديد وعجز عن أداء الأنشطة اليومية الاعتيادية",
+    "تورم الساقين أو البطن (وذمة)، وهو مؤشر على سوء تغذية حاد",
+    "توقف نمو الطفل أو تباطؤه الواضح، مع لامبالاة وهشاشة الشعر",
+    "جروح لا تلتئم، أو تكرار الالتهابات، أو ارتباك ذهني أو فقدان الوعي (في أي عمر)",
+    "صعوبة في التنفس أو خفقان القلب غير المعتاد مصحوباً بفقدان حاد للوزن"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور ملاحظة نقص وزن غير مبرر، أو إرهاق مستمر، أو انخفاض ملحوظ في الشهية. وإذا ظهرت أعراض تحذيرية كالتورم أو الارتباك الذهني أو فقدان الوعي أو صعوبة التنفس أو توقف نمو الطفل، فتوجّه إلى المستعجلات فوراً.",
+  "faqAr": [
+    {
+      "q": "كيف أعرف إذا كنت أعاني من سوء التغذية؟",
+      "a": "يقوم الطبيب بتقييم وزنك ومؤشر كتلة جسمك، وقد يطلب تحاليل دم لقياس البروتينات ومؤشرات التغذية الأخرى. مؤشر كتلة الجسم الأقل من 18.5 عند البالغين، أو فقدان الوزن السريع غير المقصود، علامتان تستوجبان استشارة طبيبك للتأكد."
+    },
+    {
+      "q": "هل يصيب سوء التغذية الفقراء فقط؟",
+      "a": "لا، يمكن أن يطال سوء التغذية أي شخص لا تُلبَّى احتياجاته الغذائية، كالمسنين العزلاء، ومرضى الأمراض المزمنة، والمرضى في المستشفيات، أو من يتبعون حميات مقيدة جداً دون متابعة طبية."
+    }
+  ],
+  "intentAnswerAr": "للحصول على المساعدة في حالة سوء التغذية، ابدأ باستشارة طبيبك العام الذي سيقيّم وضعك الغذائي ويحيلك عند الحاجة إلى طبيب متخصص في التغذية أو أخصائي تغذية. وإذا ظهرت أعراض حادة كالتورم أو الارتباك الذهني أو فقدان الوعي أو صعوبة التنفس أو توقف نمو الطفل، فتوجّه فوراً إلى المستعجلات."
+}

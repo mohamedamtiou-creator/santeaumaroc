@@ -1,0 +1,66 @@
+{
+  "slug": "drepanocytose",
+  "term": "Drépanocytose",
+  "kind": "DISEASE",
+  "specialty": "hematologie",
+  "synonyms": ["anémie falciforme", "sicklémie", "hémoglobinose S"],
+  "shortAnswer": "La drépanocytose est une maladie génétique du sang où les globules rouges prennent une forme anormale en faucille. Elle provoque des crises douloureuses et une anémie chronique. Certaines crises sont bénignes et gérables à domicile ; d'autres nécessitent une prise en charge urgente.",
+  "causes": [
+    "Mutation génétique héréditaire touchant l'hémoglobine (transmission des deux parents porteurs)",
+    "Anomalie de la forme des globules rouges (forme en faucille au lieu de disque souple)",
+    "Obstruction des petits vaisseaux sanguins par les globules rigides",
+    "Facteurs déclenchants des crises : froid, déshydratation, infection, effort intense, altitude",
+    "Destruction accélérée des globules rouges (hémolyse), entraînant une anémie chronique",
+    "Prédisposition génétique plus fréquente en Afrique subsaharienne et au Maroc (surtout régions du sud)"
+  ],
+  "redFlags": [
+    "Fièvre élevée (≥ 38,5 °C) chez un enfant ou adulte drépanocytaire : risque d'infection grave",
+    "Douleur thoracique brutale, difficultés à respirer ou saturation basse (syndrome thoracique aigu, urgence vitale)",
+    "Accident vasculaire cérébral (AVC) : faiblesse soudaine d'un côté, trouble de la parole, paralysie faciale",
+    "Rate très gonflée et douloureuse chez l'enfant (séquestration splénique, urgence pédiatrique)",
+    "Érection douloureuse persistant plus de 2 à 4 heures (priapisme) : urgence urologique pouvant entraîner des séquelles définitives",
+    "Crise douloureuse insupportable ne cédant pas aux antalgiques habituels prescrits"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès l'apparition d'une crise douloureuse inhabituelle, d'une fièvre ou d'une fatigue intense. En cas de signes d'alerte listés ci-dessus, rendez-vous immédiatement aux urgences.",
+  "faq": [
+    {
+      "q": "La drépanocytose se guérit-elle ?",
+      "a": "Il n'existe pas encore de traitement curatif accessible à tous au Maroc. La greffe de moelle osseuse peut être envisagée dans certains cas, mais la majorité des patients bénéficient d'un suivi spécialisé pour prévenir et gérer les crises, réduire les complications et améliorer leur qualité de vie."
+    },
+    {
+      "q": "Comment savoir si mon enfant ou moi sommes porteurs ?",
+      "a": "Un simple test sanguin (électrophorèse de l'hémoglobine) permet de détecter la maladie ou le statut de porteur sain. Si les deux parents sont porteurs, chaque grossesse comporte un risque sur quatre de donner naissance à un enfant atteint. Un conseil génétique auprès d'un hématologue est recommandé."
+    }
+  ],
+  "intentAnswer": "Pour la drépanocytose, consultez d'abord un médecin généraliste qui orientera vers un hématologue, spécialiste des maladies du sang, pour le suivi et la prise en charge des crises. En cas de fièvre, douleur thoracique, AVC, priapisme ou crise sévère, rendez-vous directement aux urgences.",
+  "termAr": "فقر الدم المنجلي",
+  "shortAnswerAr": "فقر الدم المنجلي مرض وراثي يصيب خلايا الدم الحمراء التي تأخذ شكل المنجل بدلاً من شكلها الطبيعي، مما يسبب نوبات ألم وفقراً مزمناً في الدم. بعض النوبات خفيفة يمكن تدبيرها في المنزل، وأخرى تستوجب تدخلاً طبياً عاجلاً.",
+  "causesAr": [
+    "طفرة جينية وراثية تمس الهيموغلوبين، وتنتقل عند حمل الوالدين معاً لهذا الجين",
+    "تشوه شكل خلايا الدم الحمراء التي تصبح صلبة على شكل منجل",
+    "انسداد الأوعية الدموية الصغيرة بسبب صلابة هذه الخلايا",
+    "عوامل مُحفِّزة للنوبات: البرد، الجفاف، العدوى، المجهود الشديد، الارتفاع عن مستوى البحر",
+    "تدمير مبكر لخلايا الدم الحمراء (انحلال الدم) مما يؤدي إلى فقر دم مزمن",
+    "شيوع أكبر في أفريقيا جنوب الصحراء وبعض مناطق المغرب، لا سيما الجنوبية"
+  ],
+  "redFlagsAr": [
+    "ارتفاع الحرارة (≥ 38,5 درجة) لدى مريض بفقر الدم المنجلي: خطر عدوى خطيرة",
+    "ألم مفاجئ في الصدر أو صعوبة في التنفس (متلازمة الصدر الحادة، حالة طارئة)",
+    "أعراض سكتة دماغية: ضعف مفاجئ في أحد الجانبين، اضطراب في الكلام أو شلل في الوجه",
+    "تضخم مؤلم للطحال لدى الطفل (احتجاز طحالي، حالة طارئة عند الأطفال)",
+    "انتصاب مؤلم يستمر أكثر من ساعتين إلى أربع ساعات (الانتصاب المرضي / الانتصاب الطارئ): حالة طارئة بولية تناسلية قد تخلّف عواقب دائمة",
+    "نوبة ألم لا تتحسن بالمسكنات المعتادة الموصوفة من الطبيب"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور ظهور نوبة ألم غير معتادة أو حمى أو تعب شديد. وفي حالة أي من علامات الخطر المذكورة أعلاه، اتجه فوراً إلى المستعجلات.",
+  "faqAr": [
+    {
+      "q": "هل يمكن الشفاء من فقر الدم المنجلي؟",
+      "a": "لا يوجد حتى الآن علاج شافٍ متاح على نطاق واسع في المغرب. يُعدّ زرع نخاع العظم خياراً في بعض الحالات، غير أن معظم المرضى يخضعون لمتابعة متخصصة تهدف إلى الوقاية من النوبات والحدّ من المضاعفات وتحسين جودة الحياة."
+    },
+    {
+      "q": "كيف أعرف إن كنت أنا أو طفلي حاملاً للمرض؟",
+      "a": "تحليل بسيط للدم يسمى رحلان الهيموغلوبين يكشف المرض أو حالة الحامل السليم. إذا كان الوالدان كلاهما حاملين، فإن خطر إنجاب طفل مصاب يبلغ الربع في كل حمل. يُنصح باستشارة طبيب أمراض الدم للحصول على توجيه جيني مناسب."
+    }
+  ],
+  "intentAnswerAr": "لفقر الدم المنجلي، ابدأ بزيارة طبيب عام الذي سيحيلك إلى طبيب أمراض الدم (هيماتولوجي) المختص بمتابعة المرض وتدبير النوبات. في حالة الحمى أو ألم الصدر أو أعراض السكتة الدماغية أو الانتصاب الطارئ أو نوبة حادة، اذهب مباشرة إلى المستعجلات."
+}

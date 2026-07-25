@@ -1,0 +1,66 @@
+{
+  "slug": "bursite",
+  "term": "Bursite",
+  "kind": "DISEASE",
+  "specialty": "rhumatologie",
+  "synonyms": ["inflammation de la bourse séreuse", "hygroma"],
+  "shortAnswer": "La bursite est une inflammation d'une bourse séreuse, petite poche de liquide qui amortit les articulations. Souvent bénigne et liée à un surmenage, elle peut devenir sérieuse en cas de fièvre, de rougeur intense ou de douleur invalidante persistante.",
+  "causes": [
+    "Mouvements répétitifs ou surmenage d'une articulation (travail, sport)",
+    "Traumatisme ou choc direct sur l'articulation (coude, genou, épaule)",
+    "Infection bactérienne de la bourse (bursite septique)",
+    "Maladies rhumatismales sous-jacentes (goutte, polyarthrite rhumatoïde)",
+    "Postures prolongées en appui sur une articulation",
+    "Calcifications tendineuses ou dépôts de cristaux"
+  ],
+  "redFlags": [
+    "Fièvre, frissons ou rougeur chaude marquée sur l'articulation (suspicion d'infection)",
+    "Gonflement très rapide et douleur intense ne cédant pas au repos",
+    "Peau luisante, tendue ou écoulement de liquide au niveau de la bourse",
+    "Impossibilité totale de bouger l'articulation concernée",
+    "Symptômes persistant plus de deux à trois semaines sans amélioration",
+    "Personne diabétique, immunodéprimée ou sous traitement immunosuppresseur : tout signe local (rougeur, chaleur, gonflement) doit conduire à une consultation rapide en raison du risque accru d'infection grave"
+  ],
+  "whenToConsult": "Consultez un médecin si la douleur ou le gonflement ne s'améliorent pas après quelques jours de repos, ou immédiatement aux urgences en cas de fièvre ou de rougeur intense, signes possibles d'une infection nécessitant une prise en charge urgente.",
+  "faq": [
+    {
+      "q": "La bursite guérit-elle seule ?",
+      "a": "Une bursite bénigne liée à un surmenage peut s'améliorer avec le repos, l'application de froid et la protection de l'articulation. Cependant, si les symptômes persistent au-delà d'une à deux semaines ou s'aggravent, une consultation médicale est nécessaire pour écarter une infection ou une cause sous-jacente."
+    },
+    {
+      "q": "Quelles articulations sont les plus souvent touchées par la bursite ?",
+      "a": "L'épaule, le coude (hygroma du coude), le genou (genou du carreleur) et la hanche sont les localisations les plus fréquentes. La bursite peut toucher toute articulation soumise à des contraintes répétées ou à un traumatisme."
+    }
+  ],
+  "intentAnswer": "Pour une bursite, commencez par consulter un médecin généraliste qui évaluera la gravité et pourra vous orienter. En cas de douleur chronique ou récidivante, il vous adressera à un rhumatologue. Rendez-vous aux urgences si vous avez de la fièvre ou une rougeur intense évoquant une infection.",
+  "termAr": "التهاب الجراب",
+  "shortAnswerAr": "التهاب الجراب هو التهاب يصيب الجراب الصغير الذي يخفف الضغط على المفاصل. غالباً ما يكون بسيطاً ومرتبطاً بالإجهاد المتكرر، لكنه يستوجب الانتباه عند وجود حمى أو احمرار شديد أو ألم مستمر يعيق الحركة.",
+  "causesAr": [
+    "الحركات المتكررة أو الإجهاد الزائد على المفصل (العمل أو الرياضة)",
+    "الإصابة أو الضربة المباشرة على المفصل (الكوع أو الركبة أو الكتف)",
+    "العدوى البكتيرية للجراب (التهاب الجراب الإنتاني)",
+    "أمراض روماتيزمية كالنقرس أو التهاب المفاصل الروماتويدي",
+    "الجلوس أو الضغط المطوّل على المفصل في وضع ثابت",
+    "ترسّبات كلسية أو بلّورية في الأوتار المجاورة"
+  ],
+  "redFlagsAr": [
+    "حمى أو قشعريرة أو احمرار حار واضح حول المفصل (يستدعي استبعاد العدوى)",
+    "تورم سريع جداً مع ألم شديد لا يخف بالراحة",
+    "جلد لامع أو متوتر فوق الجراب أو خروج سائل منه",
+    "عجز تام عن تحريك المفصل المصاب",
+    "استمرار الأعراض لأكثر من أسبوعين إلى ثلاثة أسابيع دون تحسن",
+    "مرضى السكري أو ضعاف المناعة أو من يتلقون علاجاً مثبطاً للمناعة: أي علامة موضعية (احمرار أو سخونة أو تورم) تستوجب استشارة طبية سريعة نظراً لخطر العدوى الشديدة"
+  ],
+  "whenToConsultAr": "استشر طبيبك إذا لم يتحسن الألم أو التورم بعد أيام من الراحة، أو توجه فوراً إلى المستعجلات عند ظهور حمى أو احمرار شديد، إذ قد تكون هذه علامات على عدوى تستلزم علاجاً عاجلاً.",
+  "faqAr": [
+    {
+      "q": "هل يشفى التهاب الجراب من تلقاء نفسه؟",
+      "a": "قد يتحسن التهاب الجراب البسيط الناجم عن الإجهاد بالراحة وتطبيق الثلج وحماية المفصل. غير أنه إذا استمرت الأعراض أسبوعاً أو أسبوعين أو ازدادت سوءاً، فلا بد من استشارة الطبيب لاستبعاد العدوى أو أي سبب كامن."
+    },
+    {
+      "q": "ما هي المفاصل الأكثر عرضة لالتهاب الجراب؟",
+      "a": "الكتف والكوع والركبة والورك هي الأماكن الأكثر شيوعاً. يمكن أن يصيب الالتهاب أي مفصل يتعرض لضغط متكرر أو إصابة مباشرة."
+    }
+  ],
+  "intentAnswerAr": "عند الشك في التهاب الجراب، ابدأ بزيارة الطبيب العام الذي سيقيّم حالتك ويحيلك عند الحاجة إلى طبيب روماتولوجيا. توجه فوراً إلى المستعجلات إذا كنت تعاني من حمى أو احمرار حاد قد يدل على عدوى."
+}

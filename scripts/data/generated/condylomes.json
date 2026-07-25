@@ -1,0 +1,66 @@
+{
+  "slug": "condylomes",
+  "term": "Condylomes (verrues génitales, HPV)",
+  "kind": "DISEASE",
+  "specialty": "dermatologie",
+  "synonyms": ["verrues génitales", "papillomes génitaux", "HPV génital", "crêtes de coq"],
+  "shortAnswer": "Les condylomes sont de petites excroissances cutanées bénignes causées par certains types de papillomavirus humain (HPV) et transmises par contact sexuel. Souvent sans douleur, ils peuvent disparaître spontanément, mais un suivi médical reste indispensable pour écarter toute complication.",
+  "causes": [
+    "Infection par le papillomavirus humain (HPV), principalement les types 6 et 11",
+    "Transmission lors de rapports sexuels (pénétratifs, oraux ou par contact cutané génital)",
+    "Système immunitaire affaibli favorisant l'apparition des lésions",
+    "Partenaires sexuels multiples augmentant le risque d'exposition",
+    "Absence de vaccination préventive contre le HPV",
+    "Co-infection avec d'autres infections sexuellement transmissibles (IST)"
+  ],
+  "redFlags": [
+    "Lésions qui saignent, s'ulcèrent ou grossissent rapidement",
+    "Douleurs pelviennes intenses ou saignements génitaux inexpliqués",
+    "Condylomes étendus obstruant l'anus, l'urètre ou le vagin",
+    "Apparition de lésions chez une femme enceinte (risque de transmission au nouveau-né)",
+    "Frottis cervical anormal ou résultat de dépistage HPV à haut risque",
+    "Prolifération rapide ou lésions géantes chez une personne immunodéprimée (ex. : infection par le VIH) — nécessite une consultation urgente"
+  ],
+  "whenToConsult": "Consultez un médecin dès que vous remarquez des excroissances inhabituelles sur les organes génitaux, l'anus ou le pubis, même indolores. Un suivi régulier est essentiel pour surveiller l'évolution des lésions et dépister d'éventuelles complications.",
+  "faq": [
+    {
+      "q": "Les condylomes sont-ils contagieux même sans lésion visible ?",
+      "a": "Oui. Le virus HPV peut se transmettre même en l'absence de verrues apparentes. C'est pourquoi l'utilisation du préservatif et la vaccination (recommandée avant les premiers rapports sexuels) restent les meilleures protections."
+    },
+    {
+      "q": "Les condylomes peuvent-ils évoluer vers un cancer ?",
+      "a": "Les types de HPV responsables des condylomes (6 et 11) sont dits à « bas risque » et ne provoquent pas de cancer. En revanche, d'autres types de HPV à haut risque (16, 18) peuvent favoriser certains cancers génitaux. Un médecin évaluera votre situation et proposera, si besoin, un dépistage adapté."
+    }
+  ],
+  "intentAnswer": "Pour les condylomes, commencez par consulter un médecin généraliste qui confirmera la nature des lésions et vous orientera. Le spécialiste de référence est le dermatologue ou, pour les femmes, le gynécologue. En cas de saignement, lésions étendues ou douleurs intenses, consultez rapidement.",
+  "termAr": "الثآليل التناسلية (فيروس الورم الحليمي البشري - HPV)",
+  "shortAnswerAr": "الثآليل التناسلية زوائد جلدية صغيرة حميدة تسببها سلالات معينة من فيروس الورم الحليمي البشري (HPV)، وتنتقل عن طريق الاتصال الجنسي. غالباً لا تُسبب ألماً وقد تختفي من تلقاء نفسها، غير أن المتابعة الطبية ضرورية لاستبعاد أي مضاعفات.",
+  "causesAr": [
+    "الإصابة بفيروس الورم الحليمي البشري (HPV)، لا سيما السلالتان 6 و11",
+    "الانتقال عبر الاتصال الجنسي (الجنس الإيلاجي أو الفموي أو التلامس التناسلي المباشر)",
+    "ضعف جهاز المناعة الذي يُسهّل ظهور الآفات",
+    "تعدد الشركاء الجنسيين مما يزيد من احتمال التعرض للفيروس",
+    "عدم الحصول على التطعيم الوقائي ضد فيروس HPV",
+    "الإصابة المتزامنة بعدوى منقولة جنسياً أخرى"
+  ],
+  "redFlagsAr": [
+    "آفات تنزف أو تتقرح أو تكبر بسرعة ملحوظة",
+    "آلام حوضية شديدة أو نزيف تناسلي غير مبرر",
+    "ثآليل منتشرة تسد فتحة الشرج أو الإحليل أو المهبل",
+    "ظهور آفات لدى المرأة الحامل نظراً لخطر انتقال العدوى إلى المولود",
+    "نتيجة مسحة عنق الرحم غير طبيعية أو كشف HPV عالي الخطورة",
+    "تكاثر سريع أو ثآليل عملاقة لدى شخص يعاني من نقص المناعة (مثل الإصابة بفيروس نقص المناعة البشري HIV) — يستوجب استشارة طبية عاجلة"
+  ],
+  "whenToConsultAr": "راجع طبيبك فور ملاحظة أي زوائد غير مألوفة على الأعضاء التناسلية أو منطقة الشرج أو العانة، حتى وإن لم تكن مؤلمة. المتابعة المنتظمة ضرورية لمراقبة تطور الآفات واستبعاد أي مضاعفات محتملة.",
+  "faqAr": [
+    {
+      "q": "هل الثآليل التناسلية معدية حتى في غياب الأعراض الظاهرة؟",
+      "a": "نعم. يمكن أن ينتقل فيروس HPV حتى في غياب ثآليل مرئية. لذلك يبقى استخدام الواقي الذكري والتطعيم (الموصى به قبل أول علاقة جنسية) من أفضل وسائل الحماية."
+    },
+    {
+      "q": "هل يمكن أن تتحول الثآليل التناسلية إلى سرطان؟",
+      "a": "سلالتا HPV المسببتان للثآليل التناسلية (6 و11) تُصنَّفان ضمن السلالات «منخفضة الخطورة» ولا تسببان السرطان. غير أن سلالات أخرى عالية الخطورة (16 و18) قد تُهيئ لبعض السرطانات التناسلية. سيُقيّم الطبيب وضعك ويقترح فحص دوري مناسب إذا لزم الأمر."
+    }
+  ],
+  "intentAnswerAr": "في حالة الثآليل التناسلية، ابدأ بزيارة طبيب عام يُقيّم الآفات ويُحيلك إلى المختص المناسب. المختص المرجعي هو طبيب الأمراض الجلدية، أو طبيب النساء والتوليد للسيدات. في حالة النزيف أو الانتشار الواسع أو الألم الشديد، اطلب الرعاية الطبية فوراً."
+}

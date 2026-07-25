@@ -1,0 +1,66 @@
+{
+  "slug": "herpes",
+  "term": "Herpès",
+  "kind": "DISEASE",
+  "specialty": "dermatologie",
+  "synonyms": ["herpès labial", "herpès génital", "bouton de fièvre", "herpès simplex"],
+  "shortAnswer": "L'herpès est une infection virale chronique causée par le virus HSV, qui provoque des vésicules douloureuses sur les lèvres ou les organes génitaux. Les poussées sont souvent bénignes mais récidivantes. Consultez rapidement si vous avez de la fièvre, une atteinte des yeux ou des symptômes sévères.",
+  "causes": [
+    "Virus Herpès Simplex de type 1 (HSV-1), principalement responsable de l'herpès labial",
+    "Virus Herpès Simplex de type 2 (HSV-2), principalement responsable de l'herpès génital",
+    "Contact direct avec une lésion ou une muqueuse infectée (baisers, rapports sexuels)",
+    "Réactivation du virus dormant dans les nerfs lors d'un stress, d'une fatigue ou d'une fièvre",
+    "Exposition prolongée au soleil ou à un affaiblissement du système immunitaire",
+    "Transmission de la mère à l'enfant lors de l'accouchement (herpès néonatal)"
+  ],
+  "redFlags": [
+    "Lésions autour ou dans les yeux (rougeur, douleur oculaire, baisse de vision) : risque de cécité",
+    "Fièvre élevée, maux de tête intenses ou raideur de la nuque associés aux lésions",
+    "Herpès étendu ou très douloureux chez une personne immunodéprimée (VIH, chimiothérapie…)",
+    "Nouveau-né avec lésions cutanées, fièvre ou comportement anormal : urgence absolue",
+    "Lésions génitales très inflammatoires accompagnées de difficultés à uriner",
+    "Poussée d'herpès génital en cours de grossesse, notamment en fin de grossesse : consulter sans délai un obstétricien"
+  ],
+  "whenToConsult": "Consultez un médecin dès la première poussée afin d'obtenir un diagnostic confirmé. En cas de récidives fréquentes, de localisation oculaire ou de grossesse en cours, une prise en charge spécialisée est indispensable.",
+  "faq": [
+    {
+      "q": "L'herpès est-il contagieux même sans lésion visible ?",
+      "a": "Oui. Le virus peut être transmis même en l'absence de bouton apparent, notamment lors de périodes dites d'excrétion virale asymptomatique. L'utilisation du préservatif réduit le risque mais ne l'élimine pas totalement pour l'herpès génital."
+    },
+    {
+      "q": "Peut-on guérir définitivement de l'herpès ?",
+      "a": "Non, le virus reste à vie dans l'organisme. Cependant, les poussées deviennent souvent moins fréquentes et moins intenses avec le temps. Un médecin peut proposer une prise en charge pour limiter les récidives et améliorer la qualité de vie."
+    }
+  ],
+  "intentAnswer": "Pour l'herpès, consultez d'abord un médecin généraliste qui posera le diagnostic et orientera la prise en charge. En cas de doute, de localisation inhabituelle ou de récidives fréquentes, un dermatologue est le spécialiste de référence. Toute atteinte oculaire ou complication sévère impose de se rendre aux urgences.",
+  "termAr": "الهربس",
+  "shortAnswerAr": "الهربس عدوى فيروسية مزمنة ناجمة عن فيروس HSV، تتجلى في بثور مؤلمة على الشفاه أو الأعضاء التناسلية. النوبات عادةً خفيفة لكنها متكررة. استشر طبيبًا بسرعة إذا رافقتها حمى أو تأثير في العينين أو أعراض حادة.",
+  "causesAr": [
+    "فيروس الهربس البسيط من النوع الأول (HSV-1)، المسؤول أساسًا عن هربس الشفاه",
+    "فيروس الهربس البسيط من النوع الثاني (HSV-2)، المسؤول أساسًا عن الهربس التناسلي",
+    "التلامس المباشر مع قرحة أو غشاء مخاطي مصاب (القُبَل، العلاقات الجنسية)",
+    "إعادة تنشيط الفيروس الكامن في الأعصاب بسبب التوتر أو الإرهاق أو الحمى",
+    "التعرض المطوّل للشمس أو ضعف جهاز المناعة",
+    "انتقال الفيروس من الأم إلى المولود أثناء الوضع (هربس حديثي الولادة)"
+  ],
+  "redFlagsAr": [
+    "ظهور آفات حول العينين أو فيهما (احمرار، ألم، تراجع الرؤية): خطر فقدان البصر",
+    "حمى شديدة أو صداع حاد أو تيبّس في الرقبة مصاحب للآفات الجلدية",
+    "هربس واسع الانتشار أو شديد الألم لدى شخص يعاني من ضعف المناعة (فيروس نقص المناعة، العلاج الكيميائي...)",
+    "مولود جديد يُظهر آفات جلدية أو حمى أو سلوكًا غير طبيعي: حالة طارئة قصوى",
+    "آفات تناسلية التهابية شديدة مصحوبة بصعوبة في التبوّل",
+    "نوبة هربس تناسلي خلال الحمل، لا سيما في أواخره: استشر طبيب التوليد فورًا"
+  ],
+  "whenToConsultAr": "استشر طبيبًا منذ أول نوبة للحصول على تشخيص مؤكد. في حال تكرار النوبات أو إصابة العينين أو وجود حمل، يصبح التكفل المتخصص ضروريًا.",
+  "faqAr": [
+    {
+      "q": "هل الهربس معدٍ حتى في غياب الآفات الظاهرة؟",
+      "a": "نعم، يمكن أن ينتقل الفيروس حتى دون ظهور بثور، وذلك خلال ما يُعرف بفترات الإفراز الفيروسي اللاعرضي. يقلل الواقي الذكري من الخطر لكنه لا يلغيه كليًا في حالة الهربس التناسلي."
+    },
+    {
+      "q": "هل يمكن الشفاء التام من الهربس؟",
+      "a": "لا، يبقى الفيروس في الجسم مدى الحياة. غير أن النوبات تصبح في الغالب أقل تكرارًا وأخف حدةً مع مرور الوقت. يمكن للطبيب اقتراح رعاية مناسبة للحدّ من الانتكاسات وتحسين جودة الحياة."
+    }
+  ],
+  "intentAnswerAr": "لاستشارة طبية بشأن الهربس، توجّه أولًا إلى طبيب عام لإجراء التشخيص وتحديد المتابعة المناسبة. في حال الشك أو إصابة منطقة غير معتادة أو تكرار النوبات، يُعدّ طبيب الأمراض الجلدية المختص المرجع الأنسب. أما عند حدوث إصابة في العينين أو مضاعفات خطيرة، فيجب التوجه فورًا إلى المستعجلات."
+}

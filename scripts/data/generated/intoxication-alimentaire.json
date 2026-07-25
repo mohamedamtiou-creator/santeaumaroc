@@ -1,0 +1,68 @@
+{
+  "slug": "intoxication-alimentaire",
+  "term": "Intoxication alimentaire",
+  "kind": "DISEASE",
+  "specialty": "maladies-infectieuses",
+  "synonyms": ["toxi-infection alimentaire", "intoxication gastro-intestinale", "TIAC"],
+  "shortAnswer": "L'intoxication alimentaire survient après ingestion d'aliments contaminés par des bactéries, virus ou toxines. Elle provoque nausées, vomissements et diarrhées. Elle est souvent bénigne et guérit en 24 à 48 heures, mais peut être grave chez les nourrissons, les personnes âgées ou immunodéprimées.",
+  "causes": [
+    "Bactéries (Salmonella, Staphylocoque, E. coli, Listeria) présentes dans des aliments mal cuits ou mal conservés",
+    "Virus (norovirus, rotavirus) transmis par des aliments ou de l'eau contaminés",
+    "Toxines naturelles contenues dans certains champignons, fruits de mer ou poissons",
+    "Rupture de la chaîne du froid favorisant la prolifération microbienne",
+    "Hygiène insuffisante lors de la préparation des repas",
+    "Eau potable contaminée ou mauvaise hygiène des mains"
+  ],
+  "redFlags": [
+    "Diarrhée sanglante ou très abondante persistant plus de 48 heures",
+    "Fièvre élevée (supérieure à 39 °C) accompagnant les troubles digestifs",
+    "Signes de déshydratation sévère : sécheresse de la bouche, absence d'urines, vertiges intenses",
+    "Vomissements incoercibles empêchant toute hydratation orale",
+    "Signes neurologiques : confusion, paralysie, troubles visuels ou difficultés à avaler (urgence absolue, évocateurs de botulisme ou de listériose)",
+    "Signes de choc : palpitations rapides, pâleur extrême, perte de connaissance ou syncope",
+    "Survenue chez un nourrisson de moins de 6 mois, une femme enceinte, une personne âgée ou immunodéprimée"
+  ],
+  "whenToConsult": "Consultez un médecin si les symptômes durent plus de 48 heures, s'ils s'aggravent ou si vous appartenez à un groupe à risque. Rendez-vous aux urgences en cas de signes de déshydratation sévère, de diarrhée sanglante, de signes neurologiques ou de signes de choc.",
+  "faq": [
+    {
+      "q": "Que faire en attendant la consultation ?",
+      "a": "Hydratez-vous abondamment avec de l'eau ou des bouillons salés pour compenser les pertes. Évitez les aliments solides tant que les nausées persistent, puis reprenez progressivement une alimentation légère. Ne prenez aucun médicament sans avis médical."
+    },
+    {
+      "q": "Comment éviter une intoxication alimentaire ?",
+      "a": "Respectez la chaîne du froid, cuisez bien les viandes et poissons, lavez-vous les mains avant de préparer ou de manger, et ne consommez pas d'aliments dont la date de péremption est dépassée ou dont l'aspect ou l'odeur vous semble suspect."
+    }
+  ],
+  "intentAnswer": "En cas d'intoxication alimentaire, consultez d'abord votre médecin généraliste qui évaluera la gravité et proposera la prise en charge adaptée. Si les symptômes sont sévères ou compliqués, il peut orienter vers un spécialiste en maladies infectieuses. Rendez-vous aux urgences en cas de déshydratation importante, de diarrhée sanglante, de signes neurologiques (confusion, paralysie, troubles visuels) ou de signes de choc.",
+  "termAr": "تسمم غذائي",
+  "shortAnswerAr": "يحدث التسمم الغذائي بعد تناول أطعمة ملوثة ببكتيريا أو فيروسات أو سموم، ويتجلى في الغثيان والتقيؤ والإسهال. غالبًا ما يكون خفيفًا ويزول في غضون 24 إلى 48 ساعة، غير أنه قد يكون خطيرًا لدى الرضع وكبار السن والأشخاص ضعيفي المناعة.",
+  "causesAr": [
+    "بكتيريا كالسالمونيلا والمكورات العنقودية وإشريكية القولون والليستيريا في الأطعمة غير المطبوخة جيدًا أو المحفوظة بشكل رديء",
+    "فيروسات كالنوروفيروس والروتافيروس تنتقل عبر الأغذية أو المياه الملوثة",
+    "سموم طبيعية في بعض أنواع الفطر والمأكولات البحرية والأسماك",
+    "انقطاع سلسلة التبريد مما يُفضي إلى تكاثر الجراثيم",
+    "نقص النظافة أثناء تحضير الطعام",
+    "مياه الشرب الملوثة أو عدم غسل اليدين جيدًا"
+  ],
+  "redFlagsAr": [
+    "إسهال دموي أو غزير يستمر أكثر من 48 ساعة",
+    "حمى مرتفعة تتجاوز 39 درجة مئوية مصحوبة باضطرابات هضمية",
+    "علامات جفاف حاد: جفاف الفم، انعدام التبول، دوخة شديدة",
+    "تقيؤ متواصل يحول دون أي ترطيب عن طريق الفم",
+    "أعراض عصبية: تشوش الذهن، شلل، اضطرابات بصرية أو صعوبة في البلع (حالة طوارئ قصوى، قد تدل على التسمم الوشيقي أو داء الليستيريا)",
+    "علامات صدمة: تسارع نبضات القلب، شحوب شديد، فقدان الوعي أو الإغماء",
+    "ظهور الأعراض لدى رضيع دون ستة أشهر، أو امرأة حامل، أو شخص مسن أو مضعوف المناعة"
+  ],
+  "whenToConsultAr": "استشر طبيبك إذا استمرت الأعراض أكثر من 48 ساعة، أو تفاقمت، أو كنت تنتمي إلى فئة معرضة للخطر. توجه إلى المستعجلات فورًا في حال ظهور علامات جفاف حاد، أو إسهال دموي، أو أعراض عصبية، أو علامات صدمة.",
+  "faqAr": [
+    {
+      "q": "ماذا أفعل في انتظار الاستشارة الطبية؟",
+      "a": "احرص على الترطيب الجيد بشرب الماء أو المرق المملح لتعويض السوائل المفقودة. تجنب الأطعمة الصلبة ما دام الغثيان قائمًا، ثم استأنف تدريجيًا نظامًا غذائيًا خفيفًا. لا تتناول أي دواء دون استشارة طبية."
+    },
+    {
+      "q": "كيف يمكن الوقاية من التسمم الغذائي؟",
+      "a": "احرص على احترام سلسلة التبريد، وطهي اللحوم والأسماك جيدًا، وغسل يديك قبل تحضير الطعام أو تناوله. لا تستهلك أطعمة انتهت صلاحيتها أو كان مظهرها أو رائحتها مثيرًا للشك."
+    }
+  ],
+  "intentAnswerAr": "في حال الإصابة بتسمم غذائي، ابدأ بزيارة طبيبك العام الذي سيقيّم خطورة الحالة ويقترح العلاج المناسب. إذا كانت الأعراض شديدة أو مُعقَّدة، قد يُحيلك إلى أخصائي في الأمراض المعدية. توجه إلى المستعجلات فورًا في حالة جفاف حاد، أو إسهال دموي، أو أعراض عصبية (تشوش الذهن، شلل، اضطرابات بصرية)، أو علامات صدمة."
+}

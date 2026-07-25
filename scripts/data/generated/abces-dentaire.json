@@ -1,0 +1,64 @@
+{
+  "slug": "abces-dentaire",
+  "term": "Abcès dentaire",
+  "kind": "DISEASE",
+  "specialty": "chirurgie-dentaire",
+  "synonyms": ["abcès apical", "abcès périapical", "abcès gingival", "infection dentaire"],
+  "shortAnswer": "Un abcès dentaire est une collection de pus causée par une infection bactérienne d'une dent ou de la gencive. Bénin si localisé et pris en charge rapidement ; urgent si la douleur est intense, la joue gonflée ou la fièvre présente.",
+  "causes": [
+    "Carie dentaire non traitée ayant atteint la pulpe de la dent",
+    "Traumatisme dentaire (choc, fissure) laissant entrer des bactéries",
+    "Maladie parodontale (infection des gencives) avancée",
+    "Dent de sagesse mal positionnée ou partiellement sortie",
+    "Soins dentaires antérieurs insuffisants ou anciens",
+    "Défenses immunitaires affaiblies favorisant la prolifération bactérienne"
+  ],
+  "redFlags": [
+    "Gonflement important de la joue, du cou ou du plancher de la bouche",
+    "Difficulté à avaler, à ouvrir la bouche ou à respirer",
+    "Fièvre élevée (plus de 38,5 °C) associée à la douleur dentaire",
+    "Douleur pulsatile violente ne cédant pas au repos",
+    "Sensation générale de malaise, frissons ou fatigue intense"
+  ],
+  "whenToConsult": "Consultez un chirurgien-dentiste dès l'apparition d'une douleur dentaire persistante ou d'un gonflement. En cas de fièvre, de gonflement du cou ou de difficulté à respirer, rendez-vous immédiatement aux urgences.",
+  "faq": [
+    {
+      "q": "Un abcès dentaire peut-il guérir seul ?",
+      "a": "Non. Un abcès dentaire ne guérit pas sans traitement professionnel. Même si la douleur diminue temporairement, l'infection reste présente et peut s'étendre aux tissus voisins ou à d'autres parties du corps. Une consultation chez le dentiste est indispensable."
+    },
+    {
+      "q": "Que faire en attendant le rendez-vous chez le dentiste ?",
+      "a": "Rincez délicatement avec de l'eau tiède salée pour réduire l'inconfort. Évitez les aliments trop chauds ou trop froids. Ne percez jamais l'abcès vous-même. En cas de gonflement rapide, de fièvre ou de difficultés à respirer, n'attendez pas et allez aux urgences."
+    }
+  ],
+  "intentAnswer": "Pour un abcès dentaire, consultez en priorité un chirurgien-dentiste, qui assurera le traitement de l'infection. Un médecin généraliste peut orienter en première intention. En cas de gonflement du cou, de fièvre élevée ou de difficultés à respirer, rendez-vous sans délai aux urgences.",
+  "termAr": "خراج الأسنان",
+  "shortAnswerAr": "خراج الأسنان هو تجمّع للقيح ناتج عن عدوى بكتيرية في السن أو اللثة. يكون الأمر أقل خطورة إذا كان موضعياً وعُولج مبكراً، غير أنه يستوجب الاستعجال عند اشتداد الألم أو تورم الخد أو ارتفاع الحرارة.",
+  "causesAr": [
+    "تسوّس الأسنان غير المعالَج الذي وصل إلى لبّ السن",
+    "صدمة على السن (ارتطام أو تشقق) أتاحت للبكتيريا الدخول",
+    "التهاب دواعم الأسنان (اللثة) في مرحلة متقدمة",
+    "ضرس العقل المنحشر أو الظاهر جزئياً",
+    "علاجات أسنان سابقة غير كافية أو قديمة",
+    "ضعف المناعة مما يُسهّل تكاثر البكتيريا"
+  ],
+  "redFlagsAr": [
+    "تورم كبير في الخد أو الرقبة أو قاع الفم",
+    "صعوبة في البلع أو فتح الفم أو التنفس",
+    "ارتفاع الحرارة (فوق 38,5 درجة مئوية) مصحوباً بألم الأسنان",
+    "ألم نابض شديد لا يخفّ مع الراحة",
+    "شعور عام بالإرهاق أو قشعريرة أو وهن شديد"
+  ],
+  "whenToConsultAr": "راجع طبيب الأسنان فور ظهور ألم مستمر أو تورم في منطقة الفم. وإذا رافق ذلك ارتفاع في الحرارة أو تورم في الرقبة أو صعوبة في التنفس، فاذهب فوراً إلى قسم الطوارئ.",
+  "faqAr": [
+    {
+      "q": "هل يمكن أن يشفى خراج الأسنان من تلقاء نفسه؟",
+      "a": "لا. لا يُشفى خراج الأسنان دون تدخل طبي متخصص. حتى لو خفّ الألم مؤقتاً، تبقى العدوى قائمة وقد تنتشر إلى الأنسجة المجاورة أو أجزاء أخرى من الجسم. الزيارة إلى طبيب الأسنان ضرورة لا تحتمل التأخير."
+    },
+    {
+      "q": "ماذا أفعل في انتظار موعد طبيب الأسنان؟",
+      "a": "اشطف فمك برفق بالماء الدافئ والمالح لتخفيف الانزعاج. تجنب المأكولات الساخنة أو الباردة جداً. لا تحاول أبداً بزل الخراج بنفسك. وإن تفاقم التورم أو ارتفعت الحرارة أو شعرت بصعوبة في التنفس، توجه فوراً إلى الطوارئ."
+    }
+  ],
+  "intentAnswerAr": "لعلاج خراج الأسنان، استشر أولاً طبيب الأسنان الذي سيتولى معالجة العدوى. يمكن للطبيب العام أن يُوجّهك في البداية. أما في حال تورم الرقبة أو ارتفاع الحرارة الشديد أو صعوبة التنفس، فاتجه دون تأخير إلى قسم الطوارئ."
+}

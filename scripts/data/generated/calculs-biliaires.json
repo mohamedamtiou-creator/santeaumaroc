@@ -1,0 +1,66 @@
+{
+  "slug": "calculs-biliaires",
+  "term": "Calculs biliaires",
+  "kind": "DISEASE",
+  "specialty": "gastro-enterologie",
+  "synonyms": ["lithiase biliaire", "cholélithiase", "pierres à la vésicule"],
+  "shortAnswer": "Les calculs biliaires sont des dépôts solides (cristaux de cholestérol ou de sels biliaires) qui se forment dans la vésicule biliaire. Souvent silencieux, ils peuvent provoquer des douleurs après un repas gras. Une crise soudaine et intense nécessite une consultation aux urgences sans délai.",
+  "causes": [
+    "Excès de cholestérol dans la bile, favorisant la cristallisation",
+    "Alimentation riche en graisses saturées et pauvre en fibres",
+    "Surpoids ou perte de poids rapide",
+    "Prédisposition familiale et facteurs génétiques",
+    "Grossesse et fluctuations hormonales (estrogènes)",
+    "Sédentarité et certaines maladies métaboliques (diabète, dyslipidémie)"
+  ],
+  "redFlags": [
+    "Douleur violente et soudaine dans le côté droit de l'abdomen (colique hépatique intense)",
+    "Fièvre élevée avec frissons associée à une douleur abdominale (signe d'infection ou de cholangite)",
+    "Jaunisse (peau ou yeux jaunes), urines foncées, selles décolorées",
+    "Vomissements incoercibles empêchant de s'alimenter ou de s'hydrater",
+    "Douleur en barre dans le haut du ventre irradiant dans le dos (signe de pancréatite aiguë biliaire)",
+    "Douleur persistant plus de 6 heures sans amélioration"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès la première crise douloureuse après un repas gras, même si elle cède spontanément. En présence de fièvre, de jaunisse, d'une douleur très intense ou d'une douleur irradiant dans le dos, rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "Peut-on avoir des calculs biliaires sans aucun symptôme ?",
+      "a": "Oui, la majorité des calculs biliaires sont dits « silencieux » et découverts fortuitement lors d'une échographie. Ils ne nécessitent pas forcément un traitement immédiat, mais un suivi médical régulier est conseillé pour surveiller leur évolution."
+    },
+    {
+      "q": "Faut-il obligatoirement opérer les calculs biliaires ?",
+      "a": "Pas systématiquement. Lorsque les calculs provoquent des crises répétées ou des complications (infection, obstruction), le médecin peut recommander une intervention chirurgicale (ablation de la vésicule). La décision appartient au spécialiste après bilan complet."
+    }
+  ],
+  "intentAnswer": "Pour les calculs biliaires, commencez par consulter votre médecin généraliste qui prescrira une échographie abdominale. Il vous orientera ensuite vers un gastro-entérologue pour la prise en charge spécialisée. En cas de douleur intense, fièvre, jaunisse ou douleur irradiant dans le dos, rendez-vous directement aux urgences.",
+  "termAr": "حصى المرارة",
+  "shortAnswerAr": "حصى المرارة هي ترسبات صلبة تتكون داخل المرارة، غالباً من الكوليسترول أو الأملاح الصفراوية. كثيراً ما تكون صامتة دون أعراض، وقد تسبب ألماً بعد تناول وجبات دسمة. أي نوبة مفاجئة وشديدة تستوجب التوجه الفوري إلى المستعجلات.",
+  "causesAr": [
+    "ارتفاع نسبة الكوليسترول في الصفراء مما يؤدي إلى تبلوره",
+    "نظام غذائي غني بالدهون المشبعة وفقير في الألياف",
+    "زيادة الوزن أو فقدانه السريع",
+    "الاستعداد الوراثي والعوامل العائلية",
+    "الحمل والتغيرات الهرمونية (الإستروجين)",
+    "قلة الحركة وبعض الأمراض الأيضية كالسكري وارتفاع الدهون"
+  ],
+  "redFlagsAr": [
+    "ألم حاد ومفاجئ في الجانب الأيمن من البطن (مغص كبدي شديد)",
+    "ارتفاع الحرارة مع قشعريرة مصحوبة بألم بطني (علامة تلوث أو التهاب القنوات الصفراوية)",
+    "اصفرار الجلد أو بياض العينين، تغيّر لون البول والبراز",
+    "تقيؤ متكرر لا يمكن معه الأكل أو الشرب",
+    "ألم شريطي في أعلى البطن يمتد إلى الظهر (علامة التهاب البنكرياس الصفراوي الحاد)",
+    "ألم مستمر يتجاوز ست ساعات دون تحسن"
+  ],
+  "whenToConsultAr": "استشيروا الطبيب العام فور أول نوبة مؤلمة بعد وجبة دسمة، حتى لو زال الألم تلقائياً. في حال وجود حمى أو اصفرار أو ألم شديد جداً أو ألم يمتد إلى الظهر، توجهوا إلى المستعجلات فوراً دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل يمكن أن تكون حصى المرارة موجودة دون أي أعراض؟",
+      "a": "نعم، معظم حالات حصى المرارة تكون صامتة وتُكتشف بالصدفة أثناء التصوير بالسونار. لا تستدعي بالضرورة علاجاً فورياً، لكن يُنصح بمتابعة طبية منتظمة لرصد أي تطور في الوضع."
+    },
+    {
+      "q": "هل الجراحة ضرورية دائماً لعلاج حصى المرارة؟",
+      "a": "لا، ليست ضرورية في جميع الحالات. إذا تسببت الحصى في نوبات متكررة أو مضاعفات كالتلوث أو الانسداد، قد يوصي الطبيب بإجراء عملية لاستئصال المرارة. القرار يتخذه الاختصاصي بعد إجراء الفحوصات اللازمة."
+    }
+  ],
+  "intentAnswerAr": "لمعالجة حصى المرارة، ابدأ باستشارة طبيبك العام الذي سيطلب منك إجراء سونار للبطن. سيحيلك بعدها إلى طبيب متخصص في أمراض الجهاز الهضمي للمتابعة. في حال ألم شديد أو حمى أو اصفرار أو ألم يمتد إلى الظهر، اتجه مباشرة إلى المستعجلات."
+}

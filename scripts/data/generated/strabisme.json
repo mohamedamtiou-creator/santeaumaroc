@@ -1,0 +1,66 @@
+{
+  "slug": "strabisme",
+  "term": "Strabisme",
+  "kind": "DISEASE",
+  "specialty": "ophtalmologie",
+  "synonyms": ["œil qui louche", "déviation oculaire", "ésotropie", "exotropie"],
+  "shortAnswer": "Le strabisme est une déviation d'un œil par rapport à l'autre : les deux yeux ne regardent pas dans la même direction. Fréquent chez l'enfant, il est souvent traitable s'il est détecté tôt. Chez l'adulte, une apparition soudaine impose une consultation rapide.",
+  "causes": [
+    "Déséquilibre des muscles qui contrôlent les mouvements oculaires",
+    "Trouble de la vision non corrigé (hypermétropie, astigmatisme) entraînant un effort d'accommodation excessif",
+    "Facteur héréditaire ou familial",
+    "Anomalie neurologique affectant les nerfs oculomoteurs",
+    "Cataracte ou autre cause de mauvaise vision dans un œil (strabisme secondaire)",
+    "Chez l'adulte : traumatisme crânien, AVC, tumeur ou diabète"
+  ],
+  "redFlags": [
+    "Strabisme apparu brutalement chez un adulte ou un enfant déjà suivi",
+    "Déviation accompagnée de maux de tête violents, nausées ou vomissements",
+    "Strabisme soudain associé à de la fièvre, une nuque raide ou une confusion (signes possibles de méningite ou encéphalite — urgence vitale)",
+    "Perte de vision soudaine ou vision double nouvelle",
+    "Pupille dilatée ou paupière tombante du côté dévié",
+    "Strabisme chez un nourrisson de plus de 3 mois persistant en dehors des pleurs"
+  ],
+  "whenToConsult": "Consultez un ophtalmologue dès que vous suspectez un strabisme chez votre enfant, même avant l'âge de 1 an. Chez l'adulte, toute déviation oculaire soudaine nécessite une consultation en urgence le jour même. Si le strabisme s'accompagne de fièvre, de nuque raide, de maux de tête intenses ou de confusion, appelez le 15 ou rendez-vous immédiatement aux urgences.",
+  "faq": [
+    {
+      "q": "Le strabisme chez un nourrisson peut-il disparaître tout seul ?",
+      "a": "Un léger mouvement de l'œil est normal les premières semaines de vie. Au-delà de 2 à 3 mois, un strabisme persistant ne disparaît pas spontanément et doit être évalué par un ophtalmologue pour éviter une amblyopie (œil paresseux)."
+    },
+    {
+      "q": "Comment traite-t-on le strabisme chez l'enfant ?",
+      "a": "Le traitement dépend de la cause : correction optique par lunettes, rééducation orthoptique, cache sur l'œil sain pour stimuler l'œil dévié, ou parfois chirurgie. Un dépistage précoce améliore considérablement les chances de succès. Seul un ophtalmologue peut établir le plan de soin adapté."
+    }
+  ],
+  "intentAnswer": "Pour un strabisme, commencez par votre médecin généraliste ou pédiatre qui orientera vers un ophtalmologue, spécialiste des yeux. Un orthoptiste peut compléter la prise en charge par des séances de rééducation. En cas d'apparition brutale avec d'autres symptômes, rendez-vous aux urgences sans attendre.",
+  "termAr": "الحَوَل",
+  "shortAnswerAr": "الحَوَل هو انحراف إحدى العينين عن المحور نفسه الذي تنظر إليه العين الأخرى، بحيث لا تتناسق العينان في النظر. شائع عند الأطفال وقابل للعلاج إذا اكتُشف مبكرًا. أما الحول المفاجئ عند البالغين، فيستوجب استشارة طبية عاجلة.",
+  "causesAr": [
+    "خلل في توازن العضلات المتحكمة في حركة العين",
+    "اضطراب بصري غير مُصحَّح كبُعد النظر أو اللابؤرية يُرهق عضلات العين",
+    "عوامل وراثية أو تاريخ عائلي بالحَوَل",
+    "اضطراب عصبي يؤثر في الأعصاب المحرِّكة للعين",
+    "ضعف البصر في إحدى العينين بسبب الساد أو غيره (حَوَل ثانوي)",
+    "عند البالغين: إصابة في الرأس، سكتة دماغية، ورم أو داء السكري"
+  ],
+  "redFlagsAr": [
+    "ظهور الحَوَل فجأة عند بالغ أو طفل كان يتابع علاجه",
+    "انحراف العين مصحوب بصداع شديد أو غثيان أو قيء",
+    "حَوَل مفاجئ مع حمى وتيبس الرقبة أو ارتباك في الوعي (علامات محتملة لالتهاب السحايا أو الدماغ — حالة طارئة تهدد الحياة)",
+    "فقدان مفاجئ للبصر أو ازدواجية مفاجئة في الرؤية",
+    "اتساع حدقة العين أو تدلٍّ في الجفن من جهة الانحراف",
+    "حَوَل مستمر عند الرضيع بعد عمر 3 أشهر خارج أوقات البكاء"
+  ],
+  "whenToConsultAr": "استشيروا طبيب العيون حال الاشتباه في حَوَل طفلكم، حتى قبل بلوغه السنة الأولى. أما عند البالغين، فأي انحراف مفاجئ في العين يستدعي الاستشارة الطارئة في اليوم نفسه. وإذا اقترن الحَوَل بحمى أو تيبس الرقبة أو صداع حاد أو اضطراب في الوعي، فاتصل بالإسعاف أو توجه فورًا إلى المستعجلات.",
+  "faqAr": [
+    {
+      "q": "هل يمكن أن يختفي حَوَل الرضيع من تلقاء نفسه؟",
+      "a": "قد تكون بعض حركات العين الخفيفة طبيعية في الأسابيع الأولى من الحياة، غير أن الحَوَل الذي يستمر بعد عمر شهرين إلى ثلاثة أشهر لا يزول وحده، ويجب تقييمه من طبيب عيون لتفادي الكسل البصري (الغمش)."
+    },
+    {
+      "q": "كيف يُعالَج الحَوَل عند الأطفال؟",
+      "a": "يعتمد العلاج على السبب: قد يشمل تصحيح النظر بالنظارات، وإعادة التأهيل البصري، وتغطية العين السليمة لتنشيط العين المنحرفة، أو الجراحة في بعض الحالات. الاكتشاف المبكر يزيد من فرص النجاح. طبيب العيون وحده هو من يضع خطة العلاج المناسبة."
+    }
+  ],
+  "intentAnswerAr": "لمعالجة الحَوَل، ابدأ بطبيب عام أو طبيب الأطفال الذي يُحيلك إلى طبيب العيون المختص. قد يستكمل أخصائي البصريات (الأرتوبتيست) الرعاية بجلسات إعادة تأهيل بصري. وفي حال ظهور الحول فجأة مع أعراض مرافقة، توجه إلى المستعجلات فورًا."
+}

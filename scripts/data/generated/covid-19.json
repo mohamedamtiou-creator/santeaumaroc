@@ -1,0 +1,66 @@
+{
+  "slug": "covid-19",
+  "term": "COVID-19",
+  "kind": "DISEASE",
+  "specialty": "maladies-infectieuses",
+  "synonyms": ["coronavirus", "SARS-CoV-2", "Covid"],
+  "shortAnswer": "Le COVID-19 est une infection respiratoire causée par le virus SARS-CoV-2. La plupart des cas sont bénins (fièvre, toux, fatigue) et guérissent à domicile. Certaines formes peuvent s'aggraver rapidement, notamment chez les personnes âgées ou fragilisées.",
+  "causes": [
+    "Transmission par les gouttelettes respiratoires et l'air (espaces mal ventilés)",
+    "Contact avec une personne infectée, même sans symptômes",
+    "Contact avec des surfaces contaminées puis contact avec le visage (moins fréquent)",
+    "Facteurs de risque aggravants : âge avancé, diabète, hypertension, obésité, immunodépression",
+    "Absence ou incomplétude de la vaccination anti-COVID-19",
+    "Variants du virus SARS-CoV-2 pouvant contourner partiellement l'immunité"
+  ],
+  "redFlags": [
+    "Difficultés à respirer ou essoufflement au repos",
+    "Saturation en oxygène basse (SpO₂ inférieure à 94 % ou ressentie comme un manque d'air constant)",
+    "Douleur ou pression persistante dans la poitrine",
+    "Confusion, désorientation ou perte de conscience",
+    "Lèvres ou visage bleutés (cyanose)",
+    "Aggravation rapide des symptômes après quelques jours d'évolution"
+  ],
+  "whenToConsult": "Consultez un médecin dès l'apparition de symptômes évocateurs, surtout si vous êtes à risque (personne âgée, malade chronique, femme enceinte). En cas de signes d'alerte, appelez le SAMU (15 ou 141) ou rendez-vous aux urgences sans délai.",
+  "faq": [
+    {
+      "q": "Comment savoir si j'ai le COVID-19 ou une simple grippe ?",
+      "a": "Les symptômes se ressemblent (fièvre, toux, fatigue), mais la perte d'odorat ou de goût est plus caractéristique du COVID-19. Seul un test (PCR ou antigénique) permet de confirmer le diagnostic. En cas de doute, isolez-vous et consultez un professionnel de santé."
+    },
+    {
+      "q": "Quand peut-on reprendre ses activités après un COVID-19 ?",
+      "a": "Il est recommandé de s'isoler au moins 5 à 7 jours après le début des symptômes, et jusqu'à disparition de la fièvre. Votre médecin vous guidera selon votre situation et les recommandations en vigueur au Maroc."
+    }
+  ],
+  "intentAnswer": "Pour un COVID-19, consultez d'abord votre médecin généraliste qui orientera la prise en charge. En cas de forme sévère ou de complications, un médecin infectiologue ou pneumologue peut être sollicité. En présence de signes d'alerte, rendez-vous aux urgences ou appelez le SAMU (141).",
+  "termAr": "كوفيد-19",
+  "shortAnswerAr": "كوفيد-19 هو عدوى تنفسية تسببها فيروس SARS-CoV-2. معظم الحالات خفيفة (حمى، سعال، إرهاق) وتتعافى في المنزل. غير أن بعض الحالات قد تتفاقم بسرعة، خاصة لدى كبار السن والأشخاص الذين يعانون من أمراض مزمنة.",
+  "causesAr": [
+    "الانتقال عبر الرذاذ التنفسي والهواء في الأماكن سيئة التهوية",
+    "الاحتكاك بشخص مصاب حتى وإن لم تظهر عليه أعراض",
+    "لمس الأسطح الملوثة ثم لمس الوجه (أقل شيوعاً)",
+    "عوامل خطر مشددة: التقدم في السن، السكري، ارتفاع ضغط الدم، السمنة، ضعف المناعة",
+    "عدم الحصول على التطعيم ضد كوفيد-19 أو الحصول عليه بشكل ناقص",
+    "متحورات الفيروس التي قد تتحايل جزئياً على المناعة المكتسبة"
+  ],
+  "redFlagsAr": [
+    "صعوبة في التنفس أو ضيق نفس في حالة الراحة",
+    "انخفاض تشبع الأكسجين في الدم (SpO₂ أقل من 94 % أو الشعور المستمر بنقص الهواء)",
+    "ألم أو ضغط مستمر في الصدر",
+    "تشوش ذهني، ارتباك أو فقدان الوعي",
+    "ازرقاق الشفتين أو الوجه",
+    "تدهور سريع للأعراض بعد أيام قليلة من بداية المرض"
+  ],
+  "whenToConsultAr": "استشر طبيباً عند ظهور أعراض مشتبه بها، خاصةً إذا كنت من الفئات الهشة (كبار السن، أصحاب الأمراض المزمنة، الحوامل). في حال ظهور أي علامة تحذيرية، اتصل بالإسعاف (15 أو 141) أو توجه إلى المستعجلات فوراً.",
+  "faqAr": [
+    {
+      "q": "كيف أعرف إذا كنت مصاباً بكوفيد-19 أم بالإنفلونزا العادية؟",
+      "a": "الأعراض متشابهة (حمى، سعال، إرهاق)، لكن فقدان حاسة الشم أو التذوق أكثر ارتباطاً بكوفيد-19. لا يمكن التأكد إلا بإجراء تحليل (PCR أو مستضد). في حال الشك، اعزل نفسك واستشر متخصصاً في الصحة."
+    },
+    {
+      "q": "متى يمكنني العودة إلى نشاطاتي بعد الإصابة بكوفيد-19؟",
+      "a": "يُنصح بالعزل لمدة 5 إلى 7 أيام على الأقل من بداية الأعراض، وحتى تختفي الحمى. سيرشدك طبيبك بناءً على وضعك الصحي والتوصيات المعمول بها في المغرب."
+    }
+  ],
+  "intentAnswerAr": "لكوفيد-19، ابدأ باستشارة طبيبك العام الذي سيوجه متابعتك. في الحالات الشديدة أو عند ظهور مضاعفات، يمكن إحالتك إلى طبيب متخصص في الأمراض المعدية أو أمراض الرئة. إذا ظهرت أي علامة تحذيرية، توجه إلى المستعجلات أو اتصل بالإسعاف (141)."
+}

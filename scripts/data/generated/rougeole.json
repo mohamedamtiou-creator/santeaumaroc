@@ -1,0 +1,64 @@
+{
+  "slug": "rougeole",
+  "term": "Rougeole",
+  "kind": "DISEASE",
+  "specialty": "pediatrie",
+  "synonyms": ["measles", "morbilli"],
+  "shortAnswer": "La rougeole est une infection virale très contagieuse qui touche surtout les enfants non vaccinés. Elle provoque fièvre, toux, rhume et une éruption cutanée caractéristique. Elle est souvent bénigne chez l'enfant bien suivi, mais peut entraîner des complications graves sans vaccination.",
+  "causes": [
+    "Virus Paramyxovirus (Morbillivirus), transmis par voie aérienne (postillons, toux)",
+    "Contact direct avec une personne infectée ou ses sécrétions respiratoires",
+    "Absence ou incomplétude de la vaccination ROR (rougeole-oreillons-rubéole)",
+    "Séjour dans un environnement surpeuplé ou à couverture vaccinale insuffisante",
+    "Système immunitaire affaibli (malnutrition, immunodépression)",
+    "Nourrissons de moins de 12 mois avant la première dose de vaccin"
+  ],
+  "redFlags": [
+    "Difficultés respiratoires, respiration rapide ou bruyante (risque de pneumonie)",
+    "Convulsions ou perte de conscience (encéphalite possible)",
+    "Éruption qui s'étend rapidement avec altération de l'état général",
+    "Fièvre très élevée (au-delà de 40 °C) ne cédant pas après plusieurs jours",
+    "Signes de déshydratation sévère : bouche très sèche, absence d'urines, yeux enfoncés"
+  ],
+  "whenToConsult": "Consultez un médecin dès l'apparition d'une fièvre avec éruption cutanée et toux, surtout si l'enfant n'est pas vacciné. En cas de difficultés respiratoires, convulsions ou altération de conscience, rendez-vous immédiatement aux urgences.",
+  "faq": [
+    {
+      "q": "Mon enfant est vacciné, peut-il quand même attraper la rougeole ?",
+      "a": "Le vaccin ROR offre une protection très élevée (environ 97 % après deux doses). Un enfant correctement vacciné peut exceptionnellement contracter une forme atténuée de la maladie, mais le risque de complications graves est très faible. Vérifiez que votre enfant a bien reçu les deux doses recommandées."
+    },
+    {
+      "q": "Pendant combien de temps la rougeole est-elle contagieuse ?",
+      "a": "Une personne atteinte de rougeole est contagieuse de quatre jours avant l'apparition de l'éruption jusqu'à quatre jours après. L'isolement à domicile pendant cette période est essentiel pour éviter la propagation, notamment dans les crèches, écoles et lieux publics."
+    }
+  ],
+  "intentAnswer": "Pour la rougeole, consultez d'abord votre médecin généraliste ou pédiatre, surtout si l'enfant n'est pas vacciné. Le pédiatre est le spécialiste de référence pour les enfants. En cas de difficultés respiratoires, convulsions ou fièvre très élevée, rendez-vous sans délai aux urgences pédiatriques.",
+  "termAr": "الحصبة",
+  "shortAnswerAr": "الحصبة مرض فيروسي شديد العدوى يصيب غالبًا الأطفال غير المطعّمين. تظهر أعراضه في الحمى والسعال وسيلان الأنف وطفح جلدي مميز. تسير عادةً بشكل حميد عند الأطفال المتابَعين طبيًا، لكنها قد تسبب مضاعفات خطيرة في غياب التطعيم.",
+  "causesAr": [
+    "فيروس الحصبة (Morbillivirus) من فصيلة Paramyxovirus، ينتقل عبر الهواء عند السعال أو العطس",
+    "الاحتكاك المباشر بشخص مصاب أو بإفرازاته التنفسية",
+    "عدم تلقي لقاح الحصبة والنكاف والحصبة الألمانية (ROR) أو تلقيه بشكل ناقص",
+    "الإقامة في بيئة مكتظة أو ذات تغطية تطعيمية منخفضة",
+    "ضعف المناعة بسبب سوء التغذية أو أمراض المناعة",
+    "الرضع دون سن اثني عشر شهرًا قبل الجرعة الأولى من اللقاح"
+  ],
+  "redFlagsAr": [
+    "صعوبة في التنفس أو تنفس سريع وصاخب (خطر الالتهاب الرئوي)",
+    "تشنجات أو فقدان للوعي (احتمال التهاب الدماغ)",
+    "انتشار سريع للطفح الجلدي مع تدهور الحالة العامة",
+    "ارتفاع شديد في الحرارة (فوق 40 درجة) لا يتراجع بعد أيام",
+    "علامات الجفاف الشديد: جفاف الفم وانعدام التبول وغور العينين"
+  ],
+  "whenToConsultAr": "استشيروا الطبيب فور ظهور الحمى مع طفح جلدي وسعال، خاصةً إذا لم يكن الطفل مطعّمًا. وفي حالة صعوبة التنفس أو التشنجات أو تغير مستوى الوعي، توجهوا فورًا إلى قسم الطوارئ.",
+  "faqAr": [
+    {
+      "q": "هل يمكن لطفلي المطعّم أن يصاب بالحصبة؟",
+      "a": "يوفر لقاح ROR حماية عالية جدًا تبلغ نحو 97% بعد جرعتين. قد يصاب الطفل المطعّم بشكل صحيح استثنائيًا بشكل خفيف من المرض، لكن خطر المضاعفات الخطيرة يكون ضئيلًا جدًا. تأكدوا من حصول طفلكم على الجرعتين الموصى بهما."
+    },
+    {
+      "q": "كم تستمر فترة عدوى الحصبة؟",
+      "a": "يكون المريض بالحصبة معديًا من أربعة أيام قبل ظهور الطفح حتى أربعة أيام بعده. لذا يُنصح بعزل الطفل في البيت طوال هذه الفترة لمنع انتشار العدوى، ولا سيما في الحضانات والمدارس والأماكن العامة."
+    }
+  ],
+  "intentAnswerAr": "للاستشارة بشأن الحصبة، توجهوا أولًا إلى طبيب عام أو طبيب أطفال، خاصةً إذا لم يكن الطفل مطعّمًا. طبيب الأطفال هو المرجع المتخصص لهذه الحالات. وفي حال ظهور صعوبة في التنفس أو تشنجات أو ارتفاع حاد في الحرارة، اتجهوا فورًا إلى مستعجلات الأطفال."
+}

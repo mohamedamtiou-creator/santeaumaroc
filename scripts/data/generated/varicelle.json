@@ -1,0 +1,66 @@
+{
+  "slug": "varicelle",
+  "term": "Varicelle",
+  "kind": "DISEASE",
+  "specialty": "pediatrie",
+  "synonyms": ["chickenpox", "virus varicelle-zona"],
+  "shortAnswer": "La varicelle est une infection virale très contagieuse, fréquente chez l'enfant, provoquant de la fièvre et des boutons qui démangent. Elle est généralement bénigne et guérit seule. Consultez rapidement si la fièvre est très élevée, si les boutons s'infectent ou si l'enfant est immunodéprimé.",
+  "causes": [
+    "Infection par le virus varicelle-zona (VZV), de la famille des herpèsvirus",
+    "Transmission par voie aérienne (éternuements, toux) ou par contact direct avec les vésicules",
+    "Contact avec une personne malade encore en phase contagieuse (48 h avant les boutons jusqu'à la croûte complète)",
+    "Absence d'immunité antérieure (primo-infection chez les enfants non vaccinés)",
+    "Exposition en collectivité (crèche, école) favorisant la propagation"
+  ],
+  "redFlags": [
+    "Fièvre très élevée persistant au-delà de 4-5 jours ou réapparaissant après amélioration",
+    "Boutons rouges, chauds, gonflés ou purulents (surinfection bactérienne possible)",
+    "Difficultés respiratoires, essoufflement ou douleur thoracique",
+    "Raideur de la nuque, maux de tête intenses, confusion ou perte de conscience",
+    "Enfant immunodéprimé, nourrisson de moins de 1 mois ou femme enceinte non immunisée exposée",
+    "Vomissements répétés, douleurs abdominales sévères ou jaunisse (signes d'atteinte hépatique)",
+    "Vésicules qui saignent, taches violacées sur la peau ou hémorragies (varicelle hémorragique, urgence vitale)"
+  ],
+  "whenToConsult": "Consultez un médecin dès les premiers signes si l'enfant est très jeune, immunodéprimé ou si les symptômes s'aggravent. En cas de signes d'alerte, rendez-vous aux urgences sans délai.",
+  "faq": [
+    {
+      "q": "La varicelle est-elle contagieuse et pendant combien de temps ?",
+      "a": "Oui, la varicelle est très contagieuse. Elle se transmet dès 48 heures avant l'apparition des premiers boutons jusqu'à ce que toutes les vésicules soient croûtées, soit environ 5 à 7 jours après le début de l'éruption. L'enfant doit rester à la maison pendant cette période."
+    },
+    {
+      "q": "Peut-on attraper la varicelle deux fois ?",
+      "a": "C'est très rare. La primo-infection confère généralement une immunité à vie. Cependant, le virus reste dormant dans l'organisme et peut se réactiver des années plus tard sous forme de zona, notamment chez les personnes âgées ou immunodéprimées."
+    }
+  ],
+  "intentAnswer": "Pour la varicelle, consultez d'abord votre médecin généraliste ou pédiatre, qui posera le diagnostic et vous guidera. Un dermatologue peut être utile en cas de surinfection cutanée. En présence de signes d'alerte (fièvre persistante, troubles neurologiques, difficultés respiratoires), rendez-vous aux urgences immédiatement.",
+  "termAr": "جدري الماء",
+  "shortAnswerAr": "جدري الماء عدوى فيروسية شديدة العدوى، شائعة عند الأطفال، تتميز بحمى وطفح جلدي مثير للحكة. تكون في الغالب حميدة وتشفى من تلقاء نفسها. استشر الطبيب فوراً إذا ارتفعت الحمى بشدة، أو التهبت الحبوب، أو كان الطفل يعاني من ضعف في المناعة.",
+  "causesAr": [
+    "العدوى بفيروس الحماق النطاقي (VZV) من عائلة الهربس",
+    "الانتقال عبر الهواء (العطس والسعال) أو بالتلامس المباشر مع الحويصلات",
+    "الاحتكاك بشخص مصاب في مرحلة العدوى (48 ساعة قبل ظهور الطفح حتى تكوّن القشور)",
+    "غياب المناعة السابقة عند الأطفال غير الملقّحين",
+    "التواجد في الأماكن الجماعية كرياض الأطفال والمدارس مما يسهّل الانتشار"
+  ],
+  "redFlagsAr": [
+    "حمى مرتفعة جداً تستمر أكثر من 4 إلى 5 أيام أو تعود بعد تحسّن مؤقت",
+    "حبوب حمراء دافئة منتفخة أو تُفرز صديداً (مؤشر على تلوث بكتيري)",
+    "صعوبة في التنفس أو ضيق في الصدر",
+    "تيبّس في الرقبة أو صداع شديد أو تشوش وفقدان الوعي",
+    "طفل يعاني من ضعف مناعي، أو رضيع دون شهر، أو حامل غير محصّنة تعرّضت للعدوى",
+    "قيء متكرر أو آلام بطنية شديدة أو اصفرار الجلد (علامات إصابة الكبد)",
+    "حويصلات تنزف أو بقع بنفسجية على الجلد أو نزيف (جدري الماء النزفي، حالة طارئة)"
+  ],
+  "whenToConsultAr": "استشر الطبيب من البداية إذا كان الطفل صغيراً جداً أو يعاني من ضعف مناعي أو تفاقمت حالته. في حال ظهور أي علامة تحذيرية، اتجه إلى المستعجلات فوراً.",
+  "faqAr": [
+    {
+      "q": "هل جدري الماء معدٍ، وإلى متى تستمر العدوى؟",
+      "a": "نعم، جدري الماء شديد العدوى. ينتقل قبل 48 ساعة من ظهور أول حبة حتى تتقشّر جميع الحويصلات، أي نحو 5 إلى 7 أيام بعد بدء الطفح. يجب أن يبقى الطفل في المنزل طوال هذه المدة."
+    },
+    {
+      "q": "هل يمكن الإصابة بجدري الماء مرتين؟",
+      "a": "نادر جداً. تمنح الإصابة الأولى مناعة دائمة في الغالب. غير أن الفيروس يبقى كامناً في الجسم وقد يعود لاحقاً على شكل حزام ناري (zona)، خاصة عند كبار السن أو ضعيفي المناعة."
+    }
+  ],
+  "intentAnswerAr": "لمرض جدري الماء، يُنصح بمراجعة الطبيب العام أو طبيب الأطفال في المرحلة الأولى للتشخيص والإرشاد. يمكن الرجوع إلى طبيب الجلدية في حال حدوث تلوث جلدي. وعند ظهور أي علامة خطر كالحمى المستمرة أو الاضطرابات العصبية أو صعوبة التنفس، توجّه فوراً إلى المستعجلات."
+}

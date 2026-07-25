@@ -338,8 +338,8 @@ export default async function PraticienOverviewPage() {
       {/* ── En-tête ───────────────────────────────────────── */}
       <header className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0">
-          <p className="section-eyebrow mb-1">{tp.overviewEyebrow}</p>
-          <h1 className="text-xl sm:text-2xl font-bold text-slate-900">
+          <p className="text-[11px] font-bold uppercase tracking-widest text-primary-600 mb-1">{tp.overviewEyebrow}</p>
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight leading-tight">
             {greeting(dash)}, <span className="text-primary-700">{firstName}</span>
           </h1>
           <p className="text-xs text-slate-500 mt-1 capitalize">{fmtTodayDate(dash)}</p>

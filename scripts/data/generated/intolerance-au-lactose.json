@@ -1,0 +1,64 @@
+{
+  "slug": "intolerance-au-lactose",
+  "term": "Intolérance au lactose",
+  "kind": "DISEASE",
+  "specialty": "gastro-enterologie",
+  "synonyms": ["malabsorption du lactose", "déficit en lactase"],
+  "shortAnswer": "L'intolérance au lactose est l'incapacité à digérer correctement le sucre du lait (lactose) par manque d'une enzyme intestinale, la lactase. Elle provoque des ballonnements et des diarrhées après les produits laitiers. Généralement bénigne, elle devient préoccupante en cas de perte de poids ou de sang dans les selles.",
+  "causes": [
+    "Diminution naturelle de la production de lactase avec l'âge (forme la plus fréquente)",
+    "Prédisposition génétique et ethnique (plus fréquente en Afrique du Nord, Asie, Moyen-Orient)",
+    "Gastro-entérite ou infection intestinale ayant temporairement endommagé la muqueuse",
+    "Maladies inflammatoires de l'intestin (maladie de Crohn, maladie cœliaque)",
+    "Chirurgie ou traitement ayant affecté l'intestin grêle",
+    "Intolérance secondaire à une diarrhée prolongée chez le nourrisson"
+  ],
+  "redFlags": [
+    "Sang visible dans les selles ou selles noires",
+    "Perte de poids involontaire et inexpliquée",
+    "Douleurs abdominales intenses et persistantes ne cédant pas au repos",
+    "Fièvre associée aux troubles digestifs",
+    "Symptômes sévères chez un nourrisson (déshydratation, refus de s'alimenter, fontanelle creuse)"
+  ],
+  "whenToConsult": "Consultez un médecin si les symptômes digestifs sont fréquents, altèrent votre qualité de vie ou s'accompagnent d'un des signes d'alerte ci-dessus. Un avis médical est indispensable avant de supprimer totalement les produits laitiers, notamment chez l'enfant.",
+  "faq": [
+    {
+      "q": "Peut-on encore manger des produits laitiers quand on est intolérant au lactose ?",
+      "a": "Souvent oui, en partie. De nombreuses personnes tolèrent de petites quantités ou certains produits fermentés (yaourt, fromages affinés) qui contiennent moins de lactose. La suppression totale n'est pas systématiquement nécessaire et doit être discutée avec un professionnel de santé pour éviter une carence en calcium."
+    },
+    {
+      "q": "Comment distinguer l'intolérance au lactose d'une allergie aux protéines de lait ?",
+      "a": "L'intolérance au lactose est une réaction digestive (ballonnements, diarrhées) liée à un déficit enzymatique ; elle n'implique pas le système immunitaire. L'allergie aux protéines de lait est une réaction immunitaire pouvant provoquer urticaire, vomissements ou choc allergique. Seul un médecin peut établir le diagnostic exact."
+    }
+  ],
+  "intentAnswer": "Pour une intolérance au lactose, consultez d'abord votre médecin généraliste qui orientera le diagnostic. Si les symptômes persistent ou sont complexes, il vous adressera à un gastro-entérologue. En cas de douleurs intenses, de sang dans les selles ou de déshydratation sévère, rendez-vous aux urgences.",
+  "termAr": "عدم تحمل اللاكتوز",
+  "shortAnswerAr": "عدم تحمل اللاكتوز هو عجز الجسم عن هضم سكر الحليب (اللاكتوز) بسبب نقص إنزيم اللاكتاز في الأمعاء. يسبب انتفاخاً وإسهالاً بعد تناول منتجات الألبان. غالباً ما يكون بسيطاً، لكنه يستدعي الانتباه عند نزول الدم في البراز أو فقدان الوزن.",
+  "causesAr": [
+    "تراجع إنتاج إنزيم اللاكتاز بشكل طبيعي مع التقدم في العمر (الأكثر شيوعاً)",
+    "الاستعداد الوراثي والعرقي (أكثر انتشاراً في شمال أفريقيا وآسيا والشرق الأوسط)",
+    "التهاب معوي أو عدوى أضرّت مؤقتاً بجدار الأمعاء الدقيقة",
+    "أمراض التهابية في الأمعاء كمرض كرون أو الداء الزلاقي (السيلياك)",
+    "تدخل جراحي أو علاج أثّر على الأمعاء الدقيقة",
+    "عدم تحمل ثانوي ناتج عن إسهال مطوّل عند الرضيع"
+  ],
+  "redFlagsAr": [
+    "وجود دم في البراز أو براز أسود اللون",
+    "فقدان الوزن غير المبرر",
+    "آلام بطنية شديدة ومستمرة لا تتحسن بالراحة",
+    "ارتفاع الحرارة مصحوباً باضطرابات هضمية",
+    "أعراض حادة عند الرضيع: جفاف، رفض الرضاعة، تقعّر اليافوخ"
+  ],
+  "whenToConsultAr": "استشر طبيبك إذا كانت الأعراض الهضمية متكررة أو تؤثر على حياتك اليومية، أو إذا رافقها أي من علامات الخطر المذكورة. كما يجب الحصول على رأي طبي قبل الإقلاع الكلي عن منتجات الألبان، خاصة عند الأطفال.",
+  "faqAr": [
+    {
+      "q": "هل يمكن تناول منتجات الألبان رغم عدم تحمل اللاكتوز؟",
+      "a": "في أغلب الأحيان نعم، بكميات معتدلة. كثير من الأشخاص يتحملون كميات صغيرة أو بعض المنتجات المخمّرة كالزبادي والأجبان المعتّقة التي تحتوي على لاكتوز أقل. التوقف الكلي ليس ضرورياً دائماً، ويجب مناقشته مع الطبيب تجنباً لنقص الكالسيوم."
+    },
+    {
+      "q": "كيف نميّز بين عدم تحمل اللاكتوز وحساسية بروتين الحليب؟",
+      "a": "عدم تحمل اللاكتوز هو اضطراب هضمي (انتفاخ وإسهال) ناجم عن نقص إنزيمي ولا علاقة له بالجهاز المناعي. أما حساسية بروتين الحليب فهي استجابة مناعية قد تسبب طفحاً جلدياً أو تقيؤاً أو صدمة تحسسية. التشخيص الدقيق لا يتم إلا بمراجعة الطبيب."
+    }
+  ],
+  "intentAnswerAr": "إذا كنت تعاني من عدم تحمل اللاكتوز، ابدأ بزيارة طبيب عام يقيّم حالتك ويحيلك إذا لزم الأمر إلى طبيب متخصص في الجهاز الهضمي (غاسترو-إنترولوجيست). وإذا ظهرت آلام شديدة أو دم في البراز أو جفاف حاد، توجّه فوراً إلى المستعجلات."
+}

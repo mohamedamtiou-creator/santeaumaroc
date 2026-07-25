@@ -1,0 +1,64 @@
+{
+  "slug": "goutte",
+  "term": "Goutte",
+  "kind": "DISEASE",
+  "specialty": "rhumatologie",
+  "synonyms": ["arthrite goutteuse", "hyperuricémie", "crise de goutte"],
+  "shortAnswer": "La goutte est une forme d'arthrite causée par l'accumulation d'acide urique dans les articulations, provoquant des crises de douleur intense, surtout au gros orteil. Bénigne si bien prise en charge, elle peut devenir chronique et endommager les articulations en l'absence de suivi médical.",
+  "causes": [
+    "Taux élevé d'acide urique dans le sang (hyperuricémie)",
+    "Alimentation riche en purines : viandes rouges, abats, fruits de mer",
+    "Consommation excessive d'alcool, notamment de bière",
+    "Insuffisance rénale ou mauvaise élimination de l'acide urique par les reins",
+    "Certains médicaments (diurétiques notamment) pouvant augmenter l'uricémie",
+    "Prédisposition génétique et facteurs héréditaires familiaux"
+  ],
+  "redFlags": [
+    "Fièvre élevée associée à une articulation rouge, chaude et très gonflée : rendez-vous immédiatement aux urgences (suspicion d'infection articulaire, urgence vitale)",
+    "Crise touchant plusieurs grosses articulations en même temps",
+    "Apparition de nodules durs sous la peau (tophus) ou déformation articulaire progressive",
+    "Douleur articulaire intense après un traumatisme ou chez une personne immunodéprimée",
+    "Signes d'insuffisance rénale : urine mousseuse, oedèmes des jambes, fatigue extrême"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès la première crise de douleur articulaire intense et soudaine, surtout si l'articulation est rouge et chaude. Un suivi régulier est indispensable pour prévenir les récidives et les complications rénales ou articulaires.",
+  "faq": [
+    {
+      "q": "La goutte touche-t-elle uniquement le gros orteil ?",
+      "a": "Non, bien que le gros orteil soit l'articulation la plus souvent atteinte (on parle de podagre), la goutte peut toucher la cheville, le genou, le poignet ou d'autres articulations. Avec le temps, sans traitement, plusieurs articulations peuvent être affectées simultanément."
+    },
+    {
+      "q": "Peut-on prévenir les crises de goutte par l'alimentation ?",
+      "a": "Oui, en partie. Réduire la consommation de viandes rouges, d'abats, de fruits de mer et d'alcool aide à limiter les crises. Boire suffisamment d'eau favorise l'élimination de l'acide urique. Ces mesures ne remplacent pas le suivi médical, mais elles en sont un complément essentiel."
+    }
+  ],
+  "intentAnswer": "Pour une crise de goutte, commencez par consulter un médecin généraliste qui évaluera vos symptômes et pourra demander un bilan sanguin. En cas de crises répétées ou de complications, il vous orientera vers un rhumatologue. Rendez-vous aux urgences si la douleur s'accompagne de fièvre élevée.",
+  "termAr": "النقرس",
+  "shortAnswerAr": "النقرس مرض مفصلي ناجم عن تراكم حمض البوليك في المفاصل، مما يسبب نوبات ألم حادة، تصيب إبهام القدم في الغالب. يكون حميداً إذا عولج بشكل صحيح، لكنه قد يتحول إلى مزمن ويتلف المفاصل دون متابعة طبية.",
+  "causesAr": [
+    "ارتفاع مستوى حمض البوليك في الدم (فرط حمض يوريك الدم)",
+    "نظام غذائي غني بالبيورينات: اللحوم الحمراء، المخلفات، والمأكولات البحرية",
+    "الإفراط في استهلاك الكحول، خاصة البيرة",
+    "قصور كلوي أو ضعف في إفراز حمض البوليك عبر الكليتين",
+    "بعض الأدوية كمدرات البول التي قد ترفع مستوى حمض البوليك",
+    "الاستعداد الوراثي والتاريخ العائلي للإصابة بالمرض"
+  ],
+  "redFlagsAr": [
+    "ارتفاع الحرارة مع مفصل أحمر منتفخ وشديد الألم: توجه فوراً إلى طوارئ المستشفى (اشتباه بالتهاب مفصلي إنتاني، حالة طارئة)",
+    "نوبة تصيب عدة مفاصل كبيرة في آنٍ واحد",
+    "ظهور عقيدات صلبة تحت الجلد (طُفَيات النقرس) أو تشوه تدريجي في المفاصل",
+    "ألم مفصلي حاد عقب إصابة أو لدى شخص يعاني من ضعف المناعة",
+    "علامات قصور كلوي: بول رغوي، تورم في الساقين، إرهاق شديد"
+  ],
+  "whenToConsultAr": "راجع طبيباً عاماً منذ أول نوبة ألم مفصلي حاد ومفاجئ، لا سيما إن كان المفصل أحمر وساخناً. المتابعة المنتظمة ضرورية للوقاية من تكرار النوبات ومن مضاعفاتها الكلوية والمفصلية.",
+  "faqAr": [
+    {
+      "q": "هل يصيب النقرس إبهام القدم فقط؟",
+      "a": "لا، وإن كان إبهام القدم الأكثر شيوعاً، فإن النقرس يمكن أن يصيب الكاحل والركبة والرسغ وغيرها من المفاصل. مع مرور الوقت وغياب العلاج، قد تتأثر عدة مفاصل في آنٍ واحد."
+    },
+    {
+      "q": "هل يمكن الوقاية من نوبات النقرس بالتغذية؟",
+      "a": "نعم، جزئياً. تقليل اللحوم الحمراء والمخلفات والمأكولات البحرية والكحول يساعد في الحد من النوبات. كما يُسهم شرب كميات وافرة من الماء في إفراز حمض البوليك. غير أن هذه الإجراءات لا تُغني عن المتابعة الطبية، بل تُكمّلها."
+    }
+  ],
+  "intentAnswerAr": "في حال الاشتباه بنوبة نقرس، ابدأ بزيارة طبيب عام يُقيّم حالتك ويطلب الفحوصات اللازمة. إذا تكررت النوبات أو ظهرت مضاعفات، سيُحيلك إلى طبيب روماتولوجيا. توجه إلى طوارئ المستشفى فوراً إن اقترن الألم بارتفاع في الحرارة."
+}

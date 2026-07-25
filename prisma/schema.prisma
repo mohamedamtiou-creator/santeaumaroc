@@ -107,8 +107,45 @@ model Specialty {
   medicalExams   MedicalExam[]
   treatments     Treatment[]
   authoredBy     User[]          @relation("AuthorSpecialty")
+  guide          SpecialtyGuide?
 
   @@map("specialties")
+}
+
+// ─────────────────────────────────────────
+// GUIDE DE SPÉCIALITÉ — « Quand consulter un [spécialité] ? »
+// Contenu d'orientation PAR spécialité (1-pour-1), route /quand-consulter/[specialite].
+// Répond à une vraie intention patient : motifs de consultation + signes d'alerte + FAQ.
+// Mêmes garde-fous YMYL que HealthTopic : FR indexé si `reviewedAt`, AR si `arReviewedAt`.
+// Repli FR. cf lib/specialty-guide.
+// ─────────────────────────────────────────
+
+model SpecialtyGuide {
+  id              String    @id @default(cuid())
+  specialtyId     String    @unique
+  specialty       Specialty @relation(fields: [specialtyId], references: [id], onDelete: Cascade)
+  shortAnswer     String    @db.Text // « Consultez un X si… » (40-70 mots, extractible IA)
+  reasons         String    @db.Text // motifs de consultation, 1 par ligne
+  redFlags        String    @db.Text // signes d'alerte → consulter sans tarder, 1 par ligne
+  whenToConsult   String?   @db.Text // paragraphe complémentaire (hors urgence)
+  faqJson         String?   @db.Text // FAQ [{ "q": "...", "a": "..." }]
+  sources         String?   @db.Text // JSON [{label,url,publisher?,year?}]
+  relatedSlugs    String[]  @default([]) // slugs de HealthTopic liés (symptômes/maladies)
+  // Traduction arabe (relue). Servie/indexée uniquement si `arReviewedAt`. Repli FR.
+  shortAnswerAr   String?   @db.Text
+  reasonsAr       String?   @db.Text
+  redFlagsAr      String?   @db.Text
+  whenToConsultAr String?   @db.Text
+  faqJsonAr       String?   @db.Text
+  sourcesAr       String?   @db.Text
+  arReviewedAt    DateTime?
+  // Verrou d'indexation FR (YMYL) : `noindex` tant que non relu.
+  reviewedAt      DateTime?
+  status          String    @default("PUBLISHED") // PUBLISHED | DRAFT
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@map("specialty_guides")
 }
 
 // ─────────────────────────────────────────
@@ -813,6 +850,31 @@ model HealthTopic {
   relatedSlugs    String[]   @default([]) // slugs d'articles blog piliers liés (maillage)
   glossarySlugs   String[]   @default([]) // slugs de termes de glossaire liés
   sources         String?    @db.Text // JSON [{label,url,publisher?,year?}]
+  // Page « quel médecin consulter pour X ? » (intention forte, featured snippet).
+  // Générée automatiquement dès que `intentSlug` est renseigné (cf. /quel-medecin-pour/[slug]).
+  // Réutilise le verrou YMYL du topic : indexée FR si `reviewedAt`, AR si `arReviewedAt`.
+  // La question et la réponse sont composées depuis le graph (spécialité) si non rédigées.
+  intentSlug      String?    @unique // ex. « mal-de-tete » → /quel-medecin-pour/mal-de-tete
+  intentQuestion  String? // H1 FR (repli : composé depuis `term`)
+  intentAnswer    String?    @db.Text // réponse directe rédigée 40-60 mots (repli : composée)
+  intentQuestionAr String?
+  intentAnswerAr  String?    @db.Text
+  // Page « comment traiter X ? » (angle parcours/traitement, même topic → /comment-traiter/[slug]).
+  // Existe dès que `treatmentSummary` est renseigné. Indexée sous le verrou YMYL du topic.
+  // ⚠️ Orientation/parcours uniquement : PAS de posologie ni de diagnostic (garde-fou YMYL).
+  treatmentSummary   String?  @db.Text // réponse directe 40-70 mots (approches, quand/où, rôle du spécialiste)
+  treatmentSteps     String?  @db.Text // étapes du parcours, 1 par ligne (repli : aucun)
+  treatmentSummaryAr String?  @db.Text
+  treatmentStepsAr   String?  @db.Text
+  // Page « comment prévenir X ? » (angle prévention, même topic → /prevenir/[slug]).
+  // Existe dès que `preventionSummary` est renseigné. Indexée sous le verrou YMYL du topic.
+  // ⚠️ Prévention/hygiène de vie/dépistage uniquement : PAS de posologie ni de diagnostic.
+  preventionSummary   String? @db.Text // réponse directe 40-70 mots (peut-on prévenir, comment, dépistage)
+  preventionSteps     String? @db.Text // gestes de prévention, 1 par ligne (repli : aucun)
+  preventionSummaryAr String? @db.Text
+  preventionStepsAr   String? @db.Text
+  // Sujets de santé liés (topic ↔ topic) : slugs d'autres HealthTopic, résolus au rendu.
+  relatedTopicSlugs  String[] @default([])
   // Traduction arabe (relue). Servie/indexée uniquement si `arReviewedAt`. Repli FR.
   termAr          String?
   shortAnswerAr   String?    @db.Text

@@ -1,0 +1,66 @@
+{
+  "slug": "phobie-sociale",
+  "term": "Phobie sociale",
+  "kind": "DISEASE",
+  "specialty": "psychiatrie",
+  "synonyms": ["anxiété sociale", "trouble d'anxiété sociale", "peur du regard des autres"],
+  "shortAnswer": "La phobie sociale est une peur intense et persistante des situations sociales ou de performance, par crainte d'être jugé ou humilié. Bénigne si occasionnelle et gérable, elle devient problématique quand elle empêche les activités quotidiennes, le travail ou les relations.",
+  "causes": [
+    "Prédisposition génétique et tempérament anxieux dès l'enfance",
+    "Expériences traumatisantes passées (moqueries, humiliations publiques, harcèlement)",
+    "Éducation surprotectrice ou très critique favorisant la peur du jugement",
+    "Déséquilibres dans les circuits cérébraux régulant la peur et les émotions sociales",
+    "Facteurs culturels et pression sociale amplifiés par les réseaux sociaux",
+    "Événements de vie stressants déclencheurs (changement d'école, prise de poste)"
+  ],
+  "redFlags": [
+    "Isolement total : refus de sortir, d'aller au travail ou à l'école depuis plusieurs semaines",
+    "Pensées de désespoir, d'inutilité ou idées suicidaires liées à la honte sociale",
+    "Comportements d'automutilation (se blesser volontairement) pour gérer la détresse émotionnelle",
+    "Consommation d'alcool ou de substances pour « tenir » en société",
+    "Attaques de panique répétées (palpitations, souffle coupé, sensation d'évanouissement) en contexte social",
+    "Dépression associée installée : tristesse profonde, perte d'appétit, insomnie durable"
+  ],
+  "whenToConsult": "Consultez dès que la peur des situations sociales perturbe votre vie professionnelle, scolaire ou familiale depuis plus d'un mois. N'attendez pas l'aggravation : des prises en charge efficaces existent.",
+  "faq": [
+    {
+      "q": "La phobie sociale est-elle une vraie maladie ou simplement de la timidité ?",
+      "a": "La timidité est un trait de personnalité courant ; la phobie sociale est un trouble reconnu qui va bien au-delà. Elle provoque une détresse intense et pousse à éviter activement les situations sociales, au point de nuire à la scolarité, au travail et aux relations. Une évaluation par un professionnel de santé permet de faire la différence."
+    },
+    {
+      "q": "Peut-on guérir de la phobie sociale ?",
+      "a": "Oui, la phobie sociale répond bien à un accompagnement adapté. Les thérapies cognitivo-comportementales (TCC) sont particulièrement efficaces pour apprendre à modifier les pensées négatives et à affronter progressivement les situations redoutées. Une amélioration significative est possible avec un suivi régulier."
+    }
+  ],
+  "intentAnswer": "Pour la phobie sociale, commencez par consulter votre médecin généraliste qui évaluera l'impact sur votre vie et vous orientera. Le spécialiste de référence est le psychiatre ou le psychologue clinicien formé aux thérapies cognitivo-comportementales. En cas d'idées suicidaires, d'automutilation ou de crise aiguë, rendez-vous aux urgences sans attendre.",
+  "termAr": "الرهاب الاجتماعي",
+  "shortAnswerAr": "الرهاب الاجتماعي هو خوف شديد ومستمر من المواقف الاجتماعية، خشيةَ الحكم أو الإحراج أمام الآخرين. يظل خفيفاً إذا كان عرضياً وقابلاً للتحكم، لكنه يصبح مقلقاً حين يعيق الحياة اليومية أو العمل أو العلاقات الاجتماعية.",
+  "causesAr": [
+    "استعداد وراثي ومزاج قلق منذ الطفولة",
+    "تجارب مؤلمة سابقة كالسخرية أو الإهانة العلنية أو التنمر",
+    "أسلوب تربية مفرط في الحماية أو النقد يُرسّخ الخوف من حكم الآخرين",
+    "اختلالات في الدوائر العصبية المتحكمة في الخوف والمشاعر الاجتماعية",
+    "ضغوط ثقافية واجتماعية تتفاقم بسبب وسائل التواصل الاجتماعي",
+    "أحداث حياتية مجهِدة تُشكّل منطلقاً للأعراض كتغيير المدرسة أو الوظيفة"
+  ],
+  "redFlagsAr": [
+    "العزلة التامة: الامتناع عن الخروج أو الذهاب إلى العمل أو المدرسة لأسابيع",
+    "أفكار يأس أو انعدام قيمة الذات أو أفكار انتحارية مرتبطة بالخجل الاجتماعي",
+    "سلوكيات إيذاء النفس (الإيذاء الجسدي المتعمد) للتعامل مع الضيق النفسي الشديد",
+    "اللجوء إلى الكحول أو المواد المخدرة للتحمل في الأوساط الاجتماعية",
+    "نوبات هلع متكررة في السياقات الاجتماعية (خفقان القلب، ضيق التنفس، الإغماء)",
+    "اكتئاب مصاحب: حزن عميق وفقدان شهية واضطرابات النوم المزمنة"
+  ],
+  "whenToConsultAr": "استشر طبيبك فور ملاحظة أن الخوف من المواقف الاجتماعية يعرقل حياتك المهنية أو الدراسية أو الأسرية منذ أكثر من شهر. لا تنتظر تفاقم الأعراض؛ فهناك علاجات فعّالة متاحة.",
+  "faqAr": [
+    {
+      "q": "هل الرهاب الاجتماعي مرض حقيقي أم مجرد خجل؟",
+      "a": "الخجل سمة شخصية شائعة، أما الرهاب الاجتماعي فهو اضطراب معترف به يتجاوز الخجل بكثير. يسبب ضيقاً شديداً ويدفع إلى تجنب المواقف الاجتماعية بشكل يُضر بالدراسة والعمل والعلاقات. يستطيع المختص الصحي وحده التمييز بين الحالتين وتقييم مدى خطورتهما."
+    },
+    {
+      "q": "هل يمكن الشفاء من الرهاب الاجتماعي؟",
+      "a": "نعم، يستجيب الرهاب الاجتماعي بشكل جيد للمتابعة المناسبة. تُعدّ العلاجات المعرفية السلوكية من أكثر الأساليب فعالية، إذ تساعد على تعديل الأفكار السلبية والتعرض التدريجي للمواقف المخيفة. تحسن ملحوظ ممكن مع المتابعة المنتظمة مع المختص."
+    }
+  ],
+  "intentAnswerAr": "للتعامل مع الرهاب الاجتماعي، ابدأ بزيارة طبيبك العام الذي سيقيّم تأثير الحالة على حياتك ويحيلك إلى المختص المناسب. المرجع في هذا الاضطراب هو الطبيب النفسي أو الأخصائي النفسي المتخصص في العلاج المعرفي السلوكي. في حال ظهور أفكار انتحارية أو إيذاء النفس أو أزمة حادة، توجه فوراً إلى قسم الطوارئ."
+}

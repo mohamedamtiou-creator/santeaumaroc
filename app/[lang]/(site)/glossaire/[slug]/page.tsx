@@ -6,7 +6,9 @@ import { prisma } from "@/lib/prisma";
 import { localizedAlternates, frenchOnlyAlternates } from "@/lib/hreflang";
 import { getDictionary, toLocale } from "@/lib/i18n";
 import { glossaryLocalized, isGlossaryArReady, isGlossaryReviewed, normalizeCategory } from "@/lib/glossary";
+import { tSpecialty } from "@/lib/specialty-i18n";
 import { ArticleSources, parseSources } from "@/components/blog/ArticleSources";
+import { DetailHero } from "@/components/health/DetailHero";
 
 export const revalidate = 3600;
 
@@ -65,8 +67,9 @@ export default async function GlossaryTermPage({ params }: { params: Params }) {
   if (!term) notFound();
 
   const locale = toLocale(lang);
-  const t = getDictionary(locale).glossary;
-  const tb = getDictionary(locale).blog;
+  const dict = getDictionary(locale);
+  const t = dict.glossary;
+  const tb = dict.blog;
   const L = glossaryLocalized(term, locale);
   const cat = normalizeCategory(term.category);
   const sources = parseSources(L.sources);
@@ -114,64 +117,74 @@ export default async function GlossaryTermPage({ params }: { params: Params }) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
 
-      <main className="page-outer">
-        <div className="max-w-2xl mx-auto">
-          {/* Fil d'Ariane */}
-          <nav aria-label={t.breadcrumb} className="text-sm text-slate-500 mb-6">
-            <Link href="/glossaire" className="hover:text-primary-700 font-medium">{t.title}</Link>
-          </nav>
+      <div className="mx-auto max-w-3xl px-4 py-6 sm:py-10">
+        {/* Fil d'Ariane */}
+        <nav aria-label={t.breadcrumb} className="text-sm text-slate-500 mb-5 flex items-center gap-1.5 flex-wrap">
+          <Link href="/glossaire" className="hover:text-primary-700 font-medium">{t.title}</Link>
+          <span aria-hidden="true" className="text-slate-300">/</span>
+          <span className="text-slate-600 font-medium" dir="auto">{L.term}</span>
+        </nav>
 
-          <span className="inline-block text-[11px] font-bold uppercase tracking-widest text-primary-600 mb-2">{t.cats[cat]}</span>
-          <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-3" dir="auto">{L.term}</h1>
-          {term.synonyms.length > 0 && (
-            <p className="text-sm text-slate-500 mb-6" dir="auto">
-              <span className="font-semibold text-slate-600">{t.alsoCalled} :</span> {term.synonyms.join(" · ")}
-            </p>
-          )}
+        <DetailHero
+          eyebrow={t.cats[cat]}
+          title={L.term}
+          synonyms={term.synonyms}
+          alsoCalledLabel={t.alsoCalled}
+          reviewedAt={term.reviewedAt}
+          locale={locale}
+          chips={dict.healthHub}
+        />
 
-          {/* Définition (réponse courte extractible IA) */}
-          <div className="rounded-2xl border border-slate-200 bg-slate-50/60 p-5 sm:p-6 mb-8">
-            <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">{t.definitionLabel}</p>
-            <p className="text-lg text-slate-800 leading-relaxed" dir="auto">{L.definition}</p>
-          </div>
-
-          {/* Sources (réutilise le bloc article) */}
-          <ArticleSources items={sources} t={tb} />
-
-          {/* Maillage : spécialité concernée → conversion RDV */}
-          {term.specialty && (
-            <section className="mt-8 rounded-2xl border border-primary-100 bg-primary-50/50 p-5 sm:p-6">
-              <p className="text-xs font-bold uppercase tracking-widest text-primary-400 mb-2">{t.relatedSpecialtyTitle}</p>
-              <Link
-                href={`/specialites/${term.specialty.slug}`}
-                className="inline-flex items-center gap-2 text-base font-semibold text-primary-700 hover:text-primary-800"
-              >
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 rtl:-scale-x-100" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><path d="m6 3 5 5-5 5" /></svg>
-                {t.relatedSpecialtyCta.replace("{specialty}", term.specialty.name)}
-              </Link>
-            </section>
-          )}
-
-          {/* Maillage : article de fond lié */}
-          {relatedPost && (
-            <section className="mt-6">
-              <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">{t.relatedArticleTitle}</p>
-              <Link href={`/blog/${relatedPost.slug}`} className="text-base font-semibold text-primary-700 hover:text-primary-800" dir="auto">
-                {relatedPost.title}
-              </Link>
-            </section>
-          )}
-
-          <p className="text-xs text-slate-400 mt-10 leading-relaxed">{t.disclaimer}</p>
-
-          <div className="mt-8 pt-6 border-t border-slate-100">
-            <Link href="/glossaire" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-primary-700">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 rtl:-scale-x-100" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><path d="m10 3-5 5 5 5" /></svg>
-              {t.backToGlossary}
-            </Link>
-          </div>
+        {/* Définition (réponse courte extractible IA) */}
+        <div className="relative rounded-2xl border border-primary-100 bg-primary-50/40 p-5 sm:p-6 mb-8">
+          <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary-600 mb-2.5">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.75" className="w-4 h-4" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><path d="M5 3h8l3 3v11H5z" /><path d="M13 3v3h3M8 10h5M8 13h5" /></svg>
+            {t.definitionLabel}
+          </p>
+          <p className="text-lg text-slate-800 leading-relaxed" dir="auto">{L.definition}</p>
         </div>
-      </main>
+
+        {/* Sources (réutilise le bloc article) */}
+        <ArticleSources items={sources} t={tb} />
+
+        {/* Maillage : spécialité concernée → conversion RDV */}
+        {term.specialty && (
+          <section className="mt-8 rounded-2xl border border-primary-100 bg-gradient-to-br from-primary-50 to-white p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="flex items-start gap-3 min-w-0">
+              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-primary-600 ring-1 ring-primary-100" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.75" className="w-5 h-5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2v5a4 4 0 0 0 8 0V2M10 11v3a4 4 0 0 0 4 4 3 3 0 0 0 3-3v-1" /><circle cx="17" cy="12" r="1.5" /></svg>
+              </span>
+              <div className="min-w-0">
+                <p className="text-xs font-bold uppercase tracking-widest text-primary-500 mb-0.5">{t.relatedSpecialtyTitle}</p>
+                <p className="font-semibold text-slate-900 leading-snug" dir="auto">{tSpecialty(term.specialty.name, locale)}</p>
+              </div>
+            </div>
+            <Link href={`/specialites/${term.specialty.slug}`} className="btn-primary shrink-0 whitespace-nowrap">
+              {t.relatedSpecialtyCta.replace("{specialty}", tSpecialty(term.specialty.name, locale))}
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 rtl:-scale-x-100" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><path d="m6 3 5 5-5 5" /></svg>
+            </Link>
+          </section>
+        )}
+
+        {/* Maillage : article de fond lié */}
+        {relatedPost && (
+          <section className="mt-6">
+            <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">{t.relatedArticleTitle}</p>
+            <Link href={`/blog/${relatedPost.slug}`} className="text-base font-semibold text-primary-700 hover:text-primary-800" dir="auto">
+              {relatedPost.title}
+            </Link>
+          </section>
+        )}
+
+        <p className="text-xs text-slate-400 mt-10 leading-relaxed">{t.disclaimer}</p>
+
+        <div className="mt-8 pt-6 border-t border-slate-100">
+          <Link href="/glossaire" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-primary-700">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 rtl:-scale-x-100" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><path d="m10 3-5 5 5 5" /></svg>
+            {t.backToGlossary}
+          </Link>
+        </div>
+      </div>
     </>
   );
 }

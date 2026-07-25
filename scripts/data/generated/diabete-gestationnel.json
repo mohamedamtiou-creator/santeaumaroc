@@ -1,0 +1,64 @@
+{
+  "slug": "diabete-gestationnel",
+  "term": "Diabète gestationnel",
+  "kind": "DISEASE",
+  "specialty": "gyneco-obstetrique",
+  "synonyms": ["diabète de grossesse", "hyperglycémie gravidique"],
+  "shortAnswer": "Le diabète gestationnel est une élévation du taux de sucre dans le sang apparaissant pendant la grossesse. Souvent sans symptômes, il se contrôle bien avec un suivi adapté. Sans prise en charge, il peut entraîner des complications pour la mère et le bébé.",
+  "causes": [
+    "Résistance accrue à l'insuline due aux hormones placentaires",
+    "Prédisposition génétique ou antécédents familiaux de diabète",
+    "Surpoids ou obésité avant la grossesse",
+    "Âge maternel supérieur à 35 ans",
+    "Antécédent de diabète gestationnel lors d'une grossesse précédente",
+    "Syndrome des ovaires polykystiques (SOPK)"
+  ],
+  "redFlags": [
+    "Soif intense et mictions très fréquentes malgré le suivi",
+    "Bébé perçu comme très grand ou mouvements fœtaux diminués",
+    "Vision floue ou maux de tête persistants en fin de grossesse",
+    "Glycémie nettement au-dessus des valeurs cibles prescrites",
+    "Signes de prééclampsie : gonflement soudain du visage ou des mains, douleur en barre sous les côtes"
+  ],
+  "whenToConsult": "Consultez votre médecin ou sage-femme dès le début de la grossesse pour un dépistage, notamment si vous avez des facteurs de risque. En cas de signes d'alerte, rendez-vous aux urgences gynécologiques sans attendre.",
+  "faq": [
+    {
+      "q": "Le diabète gestationnel disparaît-il après l'accouchement ?",
+      "a": "Dans la majorité des cas, la glycémie revient à la normale après l'accouchement. Cependant, un contrôle est recommandé 6 à 8 semaines après la naissance, car le risque de développer un diabète de type 2 à long terme est plus élevé."
+    },
+    {
+      "q": "Le diabète gestationnel est-il dangereux pour le bébé ?",
+      "a": "Bien encadré, le diabète gestationnel expose peu le bébé à des complications graves. Sans suivi, il peut provoquer une croissance excessive du fœtus, des difficultés à l'accouchement ou une hypoglycémie néonatale. Un suivi régulier permet de prévenir ces risques."
+    }
+  ],
+  "intentAnswer": "Consultez d'abord votre médecin généraliste ou votre gynécologue-obstétricien, qui sont les référents pour le dépistage et le suivi du diabète gestationnel. Un endocrinologue peut être associé si l'équilibre glycémique est difficile à atteindre. En cas d'urgence, dirigez-vous vers la maternité ou les urgences gynécologiques.",
+  "termAr": "سكري الحمل",
+  "shortAnswerAr": "سكري الحمل هو ارتفاع في مستوى السكر بالدم يظهر خلال فترة الحمل. في الغالب لا تصاحبه أعراض واضحة، ويمكن السيطرة عليه بمتابعة طبية مناسبة. بدون علاج، قد يسبب مضاعفات للأم والجنين.",
+  "causesAr": [
+    "مقاومة متزايدة للأنسولين بسبب هرمونات المشيمة",
+    "استعداد وراثي أو وجود تاريخ عائلي للإصابة بالسكري",
+    "زيادة الوزن أو السمنة قبل الحمل",
+    "تجاوز الأم سن الخامسة والثلاثين",
+    "سابقة إصابة بسكري الحمل في حمل سابق",
+    "متلازمة تكيس المبايض"
+  ],
+  "redFlagsAr": [
+    "عطش شديد وكثرة التبول رغم المتابعة الطبية",
+    "ملاحظة كبر حجم الجنين بشكل مفرط أو تراجع حركاته",
+    "ضبابية في الرؤية أو صداع مستمر في أواخر الحمل",
+    "ارتفاع ملحوظ في قيم السكر عن المستويات الموصى بها",
+    "أعراض تسمم الحمل: تورم مفاجئ في الوجه أو اليدين، أو ألم شديد أسفل الضلوع"
+  ],
+  "whenToConsultAr": "استشيري طبيبك أو قابلة الولادة منذ بداية الحمل لإجراء الفحص المبكر، خاصة إذا كانت لديكِ عوامل خطر. وفي حال ظهور أي من العلامات التحذيرية، توجهي فوراً إلى قسم طوارئ النساء والتوليد دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل يختفي سكري الحمل بعد الولادة؟",
+      "a": "في أغلب الحالات، تعود مستويات السكر إلى طبيعتها بعد الولادة. غير أنه يُنصح بإجراء فحص للسكر بين 6 و8 أسابيع من الوضع، نظراً لارتفاع احتمال الإصابة بداء السكري من النوع الثاني مستقبلاً."
+    },
+    {
+      "q": "هل سكري الحمل خطير على الجنين؟",
+      "a": "مع المتابعة الطبية المنتظمة، تكون المخاطر على الجنين محدودة. أما في غياب العلاج، فقد يؤدي إلى نمو مفرط للجنين، أو صعوبات في الولادة، أو انخفاض السكر عند المولود. والمتابعة المنتظمة هي الوقاية الأساسية من هذه المضاعفات."
+    }
+  ],
+  "intentAnswerAr": "ابدئي باستشارة طبيبك العام أو طبيب أمراض النساء والتوليد، إذ يتولى هذان الاختصاصيان الكشف المبكر ومتابعة سكري الحمل. وقد يُحال الملف إلى طبيب الغدد الصماء إذا تعذّر ضبط مستوى السكر. في حالات الطوارئ، توجهي مباشرة إلى قسم الولادة أو طوارئ النساء."
+}

@@ -1,0 +1,64 @@
+{
+  "slug": "maladie-coeliaque",
+  "term": "Maladie cœliaque",
+  "kind": "DISEASE",
+  "specialty": "gastro-enterologie",
+  "synonyms": ["intolérance au gluten", "entéropathie au gluten", "sprue cœliaque"],
+  "shortAnswer": "La maladie cœliaque est une maladie auto-immune où l'ingestion de gluten déclenche une réaction qui abîme l'intestin grêle. Souvent bénigne si le régime est suivi, elle peut entraîner des carences graves si elle reste non diagnostiquée et non traitée.",
+  "causes": [
+    "Prédisposition génétique (gènes HLA-DQ2 et HLA-DQ8) : la maladie est héréditaire",
+    "Ingestion de gluten, une protéine présente dans le blé, l'orge et le seigle",
+    "Réaction immunitaire anormale qui attaque la muqueuse de l'intestin grêle",
+    "Facteurs environnementaux déclencheurs : infection digestive, chirurgie, stress ou grossesse",
+    "Association fréquente avec d'autres maladies auto-immunes (diabète de type 1, thyroïdite)"
+  ],
+  "redFlags": [
+    "Diarrhée chronique avec selles grasses ou très malodorantes, perte de poids inexpliquée",
+    "Fatigue intense et anémie persistante malgré un traitement en fer",
+    "Retard de croissance ou puberté retardée chez l'enfant ou l'adolescent",
+    "Douleurs abdominales sévères, vomissements répétés ou signes de déshydratation",
+    "Signes de carences graves : engourdissements, crampes, fractures spontanées, troubles de l'équilibre ou de la coordination (instabilité à la marche)",
+    "Éruption cutanée bulleuse et très prurigineuse (dermatite herpétiforme), signe spécifique de la maladie cœliaque"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si vous présentez des troubles digestifs persistants, une fatigue chronique ou des carences inexpliquées. Un avis spécialisé en gastro-entérologie est indispensable pour confirmer le diagnostic.",
+  "faq": [
+    {
+      "q": "Comment sait-on que l'on a la maladie cœliaque ?",
+      "a": "Le diagnostic repose sur une prise de sang (recherche d'anticorps spécifiques) et une biopsie de l'intestin grêle réalisée par le gastro-entérologue lors d'une endoscopie. Ne supprimez jamais le gluten avant ces examens, car cela fausserait les résultats."
+    },
+    {
+      "q": "Y a-t-il un traitement pour la maladie cœliaque ?",
+      "a": "Le seul traitement efficace est un régime sans gluten strict et à vie. La muqueuse intestinale se répare progressivement après l'éviction totale du gluten. Un suivi régulier par un médecin et un diététicien est recommandé pour éviter les carences et prévenir les complications."
+    }
+  ],
+  "intentAnswer": "Pour une suspicion de maladie cœliaque, consultez d'abord votre médecin généraliste qui prescrira un bilan sanguin. Il vous orientera vers un gastro-entérologue pour confirmer le diagnostic. En cas de signes d'alerte graves (déshydratation, vomissements intenses, perte de connaissance ou détresse importante), rendez-vous immédiatement aux urgences.",
+  "termAr": "مرض السيلياك (الداء البطني)",
+  "shortAnswerAr": "مرض السيلياك هو مرض مناعي ذاتي يتسبب فيه تناول الغلوتين في أضرار تطال الأمعاء الدقيقة. يكون خفيفاً عند الالتزام بالحمية الغذائية، لكنه قد يؤدي إلى نقص حاد في العناصر الغذائية إن ظل دون تشخيص أو علاج.",
+  "causesAr": [
+    "الاستعداد الوراثي: ارتباط المرض بجينات HLA-DQ2 وHLA-DQ8، مما يجعله منتشراً في العائلات",
+    "تناول الغلوتين، وهو بروتين موجود في القمح والشعير والجاودار",
+    "تفاعل مناعي غير طبيعي يُتلف بطانة الأمعاء الدقيقة",
+    "عوامل بيئية مُحفِّزة: عدوى هضمية، أو عملية جراحية، أو توتر نفسي، أو حمل",
+    "ارتباط متكرر بأمراض مناعية أخرى كداء السكري من النوع الأول والتهاب الغدة الدرقية"
+  ],
+  "redFlagsAr": [
+    "إسهال مزمن مع براز دهني أو كريه الرائحة، مصحوب بفقدان وزن غير مبرر",
+    "تعب شديد وفقر دم مستمر لا يستجيب لمكملات الحديد",
+    "تأخر النمو أو البلوغ المتأخر عند الأطفال والمراهقين",
+    "آلام بطنية حادة أو قيء متكرر أو علامات جفاف",
+    "علامات نقص حاد في العناصر الغذائية: تخدر الأطراف، تقلصات، كسور تلقائية، أو اضطراب في التوازن والتنسيق الحركي (تعثر أثناء المشي)",
+    "طفح جلدي فقاعي مع حكة شديدة (التهاب الجلد الهربسي الشكل)، وهو علامة جلدية مميزة لمرض السيلياك"
+  ],
+  "whenToConsultAr": "راجع طبيبك العام عند وجود اضطرابات هضمية مستمرة، أو إرهاق مزمن، أو نقص مجهول السبب في العناصر الغذائية. ويستوجب تأكيد التشخيص استشارة طبيب متخصص في أمراض الجهاز الهضمي.",
+  "faqAr": [
+    {
+      "q": "كيف يُشخَّص مرض السيلياك؟",
+      "a": "يعتمد التشخيص على فحص دم يكشف عن أجسام مضادة محددة، يليه أخذ خزعة من الأمعاء الدقيقة عبر تنظير داخلي يجريه طبيب الجهاز الهضمي. لا تُقدم على إزالة الغلوتين من غذائك قبل إجراء هذه الفحوصات، لأن ذلك قد يُعطي نتائج مضللة."
+    },
+    {
+      "q": "هل يوجد علاج لمرض السيلياك؟",
+      "a": "العلاج الوحيد المثبت هو اتباع حمية غذائية خالية من الغلوتين بشكل صارم ومدى الحياة. تتعافى بطانة الأمعاء تدريجياً بعد الامتناع الكامل عن الغلوتين. يُنصح بمتابعة منتظمة مع الطبيب وأخصائي التغذية للوقاية من نقص العناصر الغذائية ومضاعفات المرض."
+    }
+  ],
+  "intentAnswerAr": "عند الاشتباه في الإصابة بمرض السيلياك، ابدأ بزيارة طبيبك العام الذي سيصف لك فحص دم أولياً، ثم يحيلك إلى طبيب الجهاز الهضمي لتأكيد التشخيص. في حالة ظهور أعراض خطيرة كالجفاف أو القيء الشديد أو فقدان الوعي أو الانهيار، اتجه فوراً إلى قسم الطوارئ."
+}

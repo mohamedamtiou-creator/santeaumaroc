@@ -1,0 +1,66 @@
+{
+  "slug": "meningite",
+  "term": "Méningite",
+  "kind": "DISEASE",
+  "specialty": "maladies-infectieuses",
+  "synonyms": ["inflammation des méninges", "méningite bactérienne", "méningite virale", "méningite à méningocoque"],
+  "shortAnswer": "La méningite est une inflammation des enveloppes protectrices du cerveau. Les formes virales guérissent souvent seules, mais la méningite bactérienne est une urgence vitale qui nécessite une prise en charge immédiate aux urgences, sans attendre.",
+  "causes": [
+    "Bactéries (méningocoque, pneumocoque, listeria) : formes les plus graves",
+    "Virus (entérovirus, herpès, oreillons) : formes généralement plus bénignes",
+    "Champignons (cryptocoque) : plus rares, surtout chez les personnes immunodéprimées",
+    "Tuberculose : méningite tuberculeuse à évolution progressive",
+    "Propagation d'une infection voisine (otite, sinusite, abcès dentaire)",
+    "Traumatisme crânien ou intervention neurochirurgicale (méningite post-traumatique)"
+  ],
+  "redFlags": [
+    "Raideur de la nuque intense avec fièvre élevée : signe d'alerte majeur, appeler le 15 ou se rendre aux urgences immédiatement",
+    "Purpura (taches violacées qui ne s'effacent pas à la pression) sur la peau : urgence absolue, signe de méningococcémie",
+    "Troubles de la conscience, confusion, somnolence excessive ou convulsions",
+    "Photophobie (douleur aux yeux à la lumière) et phonophobie (sensibilité aux bruits) associées à une céphalée en casque",
+    "Vomissements en jet et maux de tête brutaux et intenses chez un enfant ou un adulte",
+    "Chez le nourrisson : fontanelle bombée (renflement du crâne mou), pleurs aigus inhabituels ou refus de s'alimenter associés à la fièvre — urgence vitale immédiate"
+  ],
+  "whenToConsult": "Devant toute suspicion de méningite — fièvre + mal de tête violent + raideur de la nuque — consultez en urgence (urgences hospitalières ou SAMU 15) sans attendre. Chez l'enfant, tout plafonnement, fontanelle bombée ou pleurs inhabituels avec fièvre justifient une consultation immédiate.",
+  "faq": [
+    {
+      "q": "Comment distinguer une méningite virale d'une méningite bactérienne ?",
+      "a": "Cette distinction ne peut être faite que par un médecin, avec une analyse du liquide céphalorachidien (ponction lombaire) en milieu hospitalier. En pratique, ne tentez jamais de différencier les deux vous-même : toute suspicion de méningite est une urgence médicale à traiter sans délai."
+    },
+    {
+      "q": "La méningite est-elle contagieuse ? Faut-il protéger l'entourage ?",
+      "a": "Certaines méningites bactériennes (notamment à méningocoque) sont transmissibles par voie respiratoire. En cas de méningite confirmée, les proches sont généralement pris en charge par les autorités sanitaires pour une prophylaxie adaptée. Le médecin et les services de santé publique guident l'entourage selon le contexte."
+    }
+  ],
+  "intentAnswer": "En cas de suspicion de méningite, rendez-vous directement aux urgences ou appelez le 15 (SAMU) : c'est une urgence médicale. Hors urgence, un médecin généraliste est le premier recours ; il orientera vers un infectiologue ou un neurologue pour le suivi selon la forme diagnostiquée.",
+  "termAr": "التهاب السحايا",
+  "shortAnswerAr": "التهاب السحايا هو التهاب يصيب الأغشية التي تحيط بالدماغ والحبل الشوكي. الأشكال الفيروسية تتحسن في الغالب من تلقاء نفسها، أما الأشكال البكتيرية فهي حالة طارئة تستدعي التوجه الفوري إلى المستعجلات دون أي تأخير.",
+  "causesAr": [
+    "البكتيريا (المكورة السحائية، المكورة الرئوية، اللستيريا): أشد الأشكال خطورة",
+    "الفيروسات (الفيروسات المعوية، الهربس، النكاف): أشكال أخف وطأة في الغالب",
+    "الفطريات (المستخفية): نادرة، وتُصيب أساساً من يعانون ضعف المناعة",
+    "مرض السل: التهاب سحايا سلي يتطور بشكل تدريجي",
+    "انتشار عدوى مجاورة (التهاب الأذن، الجيوب الأنفية، خراج الأسنان)",
+    "رضوض الرأس أو التدخلات الجراحية العصبية (التهاب السحايا ما بعد الرضح)"
+  ],
+  "redFlagsAr": [
+    "تصلب شديد في الرقبة مع ارتفاع حاد في الحرارة: علامة تحذير كبرى — اتصل بالإسعاف فوراً أو توجه إلى المستعجلات",
+    "طفح أرجواني (بقع لا تختفي عند الضغط عليها): حالة طارئة قصوى تدل على انتشار البكتيريا في الدم",
+    "اضطرابات الوعي أو الارتباك أو النعاس الشديد أو التشنجات",
+    "حساسية مفرطة للضوء والأصوات مع صداع عنيف وشديد",
+    "قيء نافوري وصداع مفاجئ وشديد عند الطفل أو البالغ",
+    "عند الرضيع: انتفاخ اليافوخ (تورم الجزء الطري من الجمجمة) أو بكاء حاد غير معتاد أو رفض الرضاعة مع الحمى — حالة طارئة فورية"
+  ],
+  "whenToConsultAr": "عند أي اشتباه بالتهاب السحايا — حمى مع صداع عنيف وتصلب الرقبة — توجه فوراً إلى المستعجلات أو اتصل بالإسعاف (15) دون انتظار. عند الرضع، أي بكاء غير مألوف مع حمى أو نتوء في اليافوخ يستوجب الفحص الطبي الفوري.",
+  "faqAr": [
+    {
+      "q": "كيف يمكن التفريق بين التهاب السحايا الفيروسي والبكتيري؟",
+      "a": "لا يمكن التفريق بينهما إلا بتحليل سائل النخاع الشوكي (البزل القطني) في المستشفى من قِبَل طبيب متخصص. لا تحاول أبداً التمييز بنفسك: أي اشتباه بالتهاب السحايا يُعدّ حالة طارئة تستوجب التصرف الفوري."
+    },
+    {
+      "q": "هل التهاب السحايا معدٍ؟ هل يجب حماية المقربين؟",
+      "a": "بعض أشكال التهاب السحايا البكتيري (كالمكورة السحائية) تنتقل عبر الجهاز التنفسي. في حال تأكيد الإصابة، تتولى السلطات الصحية تقييم وضع المخالطين وتزويدهم بالوقاية اللازمة. اتبع دائماً تعليمات الطبيب والجهات الصحية المختصة."
+    }
+  ],
+  "intentAnswerAr": "عند الاشتباه بالتهاب السحايا، توجه مباشرة إلى المستعجلات أو اتصل بالإسعاف (15): إنها حالة طارئة لا تحتمل التأخير. في غياب الأعراض الخطيرة، يبدأ الاستشارة عند الطبيب العام الذي يُحيل إذا لزم إلى طبيب أمراض معدية أو طبيب أعصاب."
+}

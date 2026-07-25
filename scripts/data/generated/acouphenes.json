@@ -1,0 +1,66 @@
+{
+  "slug": "acouphenes",
+  "term": "Acouphènes (bourdonnements d'oreille)",
+  "kind": "SYMPTOM",
+  "specialty": "oto-rhino-laryngologie",
+  "synonyms": ["bourdonnements d'oreille", "sifflements d'oreille", "tinnitus"],
+  "shortAnswer": "Les acouphènes sont des sons (bourdonnements, sifflements, cliquetis) perçus sans source extérieure. Souvent bénins et passagers après une exposition au bruit, ils méritent une consultation si ils persistent au-delà de quelques jours, touchent une seule oreille ou s'accompagnent d'autres symptômes.",
+  "causes": [
+    "Exposition prolongée à des bruits forts (concerts, chantiers, écouteurs à volume élevé)",
+    "Bouchon de cérumen ou otite",
+    "Presbyacousie (perte auditive liée à l'âge)",
+    "Stress intense ou fatigue chronique",
+    "Certaines pathologies vasculaires ou tensions de la mâchoire (syndrome temporo-mandibulaire)",
+    "Traumatisme sonore aigu (explosion, coup sur l'oreille)"
+  ],
+  "redFlags": [
+    "Perte auditive brutale (soudaine) : urgence médicale nécessitant une prise en charge dans les 72 heures",
+    "Acouphènes pulsatiles (battements rythmiques synchrones avec le pouls), qu'ils soient uni- ou bilatéraux",
+    "Acouphènes survenant d'un seul côté, persistants, sans cause évidente",
+    "Vertiges intenses, troubles de l'équilibre ou difficulté à marcher",
+    "Maux de tête violents, confusion mentale ou paralysie faciale",
+    "Acouphènes apparus après un traumatisme crânien ou une chute"
+  ],
+  "whenToConsult": "Consultez un médecin si les acouphènes durent plus de 48 heures, s'aggravent, touchent une seule oreille ou s'accompagnent d'une baisse d'audition ou de vertiges. En cas de perte auditive brutale ou de signes d'alerte (vertiges sévères, paralysie faciale, confusion), rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "Les acouphènes peuvent-ils disparaître seuls ?",
+      "a": "Oui, les acouphènes passagers — notamment après une exposition au bruit — s'estompent souvent en quelques heures ou jours avec du repos et l'éloignement du bruit. En revanche, des acouphènes persistants ou unilatéraux nécessitent un bilan médical pour en identifier la cause."
+    },
+    {
+      "q": "Quel impact les acouphènes peuvent-ils avoir au quotidien ?",
+      "a": "Des acouphènes chroniques peuvent perturber le sommeil, la concentration et générer de l'anxiété. Des solutions existent (thérapies sonores, soutien psychologique, prises en charge spécialisées) ; parlez-en à votre médecin pour adapter la prise en charge à votre situation."
+    }
+  ],
+  "intentAnswer": "Pour des acouphènes, commencez par consulter votre médecin généraliste, qui évaluera la situation et vous orientera si besoin vers un ORL (oto-rhino-laryngologiste), spécialiste de référence. En cas de perte auditive brutale, de vertiges intenses ou de paralysie faciale, rendez-vous immédiatement aux urgences.",
+  "termAr": "طنين الأذنين (أصوات في الأذن)",
+  "shortAnswerAr": "الطنين هو إحساس بأصوات (دوي، صفير، نقيق) دون مصدر خارجي. كثيرًا ما يكون مؤقتًا وغير خطير بعد التعرض للضوضاء، غير أنه يستوجب استشارة طبية إذا استمر أكثر من يومين، أصاب أذنًا واحدة، أو رافقته أعراض أخرى.",
+  "causesAr": [
+    "التعرض المطوّل لأصوات عالية (حفلات موسيقية، ورش البناء، سماعات الرأس بصوت مرتفع)",
+    "سدادة شمع في الأذن أو التهاب الأذن",
+    "ضعف السمع المرتبط بالتقدم في السن (الصمم الشيخي)",
+    "التوتر الشديد أو الإرهاق المزمن",
+    "بعض اضطرابات الأوعية الدموية أو توتر الفك (متلازمة الفك الصدغي)",
+    "صدمة صوتية حادة (انفجار، ضربة على الأذن)"
+  ],
+  "redFlagsAr": [
+    "فقدان مفاجئ (مباغت) للسمع: حالة طارئة تستوجب التدخل الطبي خلال 72 ساعة",
+    "طنين نابض (إيقاعي متزامن مع دقات القلب)، سواء في أذن واحدة أو في كلتيهما",
+    "طنين في أذن واحدة فقط، مستمر، دون سبب واضح",
+    "دوخة شديدة أو اضطرابات في التوازن أو صعوبة في المشي",
+    "صداع حاد، أو ارتباك ذهني، أو شلل في الوجه",
+    "ظهور الطنين عقب إصابة في الرأس أو سقطة"
+  ],
+  "whenToConsultAr": "استشر طبيبًا إذا استمر الطنين أكثر من 48 ساعة، أو ازداد سوءًا، أو أصاب أذنًا واحدة، أو رافقه ضعف في السمع أو دوخة. وفي حال فقدان مفاجئ للسمع أو ظهور أي من علامات الخطر (دوخة شديدة، شلل في الوجه، ارتباك ذهني)، توجّه إلى طوارئ المستشفى فورًا.",
+  "faqAr": [
+    {
+      "q": "هل يمكن أن يختفي الطنين من تلقاء نفسه؟",
+      "a": "نعم، الطنين العابر — لا سيما بعد التعرض للضوضاء — يتلاشى في الغالب خلال ساعات أو أيام مع الراحة والابتعاد عن المصدر الصوتي. أما الطنين المستمر أو الذي يصيب أذنًا واحدة، فيستلزم تقييمًا طبيًا للكشف عن سببه."
+    },
+    {
+      "q": "ما تأثير الطنين المزمن على الحياة اليومية؟",
+      "a": "قد يؤثر الطنين المزمن على النوم والتركيز ويسبب القلق. ثمة حلول متاحة كالعلاج الصوتي والدعم النفسي والرعاية المتخصصة؛ تحدّث مع طبيبك لتحديد أنسب خطة علاجية لحالتك."
+    }
+  ],
+  "intentAnswerAr": "في حالة الطنين، ابدأ باستشارة طبيبك العام الذي سيقيّم حالتك ويحيلك عند الحاجة إلى طبيب الأنف والأذن والحنجرة، المختص المرجعي في هذا الشأن. وإذا عانيت من فقدان مفاجئ للسمع، أو دوخة شديدة، أو شلل في الوجه، فتوجّه إلى طوارئ المستشفى على الفور."
+}

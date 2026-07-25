@@ -1,0 +1,62 @@
+{
+  "slug": "teigne",
+  "term": "Teigne (dermatophytose)",
+  "kind": "DISEASE",
+  "specialty": "dermatologie",
+  "synonyms": ["dermatophytose du cuir chevelu", "tinea capitis", "champignon du crâne"],
+  "shortAnswer": "La teigne est une infection fongique contagieuse du cuir chevelu (ou de la barbe) causée par des champignons microscopiques. Souvent bénigne chez l'enfant, elle nécessite une consultation médicale car elle ne guérit pas seule et peut entraîner des zones chauves persistantes si elle n'est pas traitée.",
+  "causes": [
+    "Contact direct avec une personne ou un animal infecté (chats, chiens, bovins)",
+    "Partage d'objets contaminés : peigne, chapeau, oreiller, serviette",
+    "Milieux humides et chauds favorisant la prolifération des champignons dermatophytes",
+    "Système immunitaire affaibli (enfants en bas âge, personnes immunodéprimées)",
+    "Fréquentation de collectivités : école, crèche, sport de contact",
+    "Blessures ou irritations du cuir chevelu facilitant la pénétration fongique"
+  ],
+  "redFlags": [
+    "Plaques douloureuses, gonflées et suintantes (kérion) : possible surinfection bactérienne",
+    "Fièvre associée à une tuméfaction du cuir chevelu ou des ganglions cervicaux",
+    "Extension rapide des lésions malgré un traitement en cours",
+    "Chute de cheveux étendue avec cicatrices naissantes (risque d'alopécie définitive)"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès l'apparition de plaques squameuses avec perte de cheveux chez l'enfant ou l'adulte. En cas de kérion, de fièvre ou d'extension rapide, une consultation urgente est indispensable.",
+  "faq": [
+    {
+      "q": "La teigne est-elle contagieuse et comment éviter de la transmettre ?",
+      "a": "Oui, la teigne est très contagieuse. Pour limiter la transmission, évitez de partager peignes, chapeaux ou serviettes, traitez les animaux domestiques infectés, et informez l'entourage (école, famille) afin que les contacts proches puissent être examinés."
+    },
+    {
+      "q": "Mon enfant peut-il aller à l'école s'il a une teigne ?",
+      "a": "En général, l'éviction scolaire est recommandée jusqu'au début du traitement médical confirmé. Renseignez-vous auprès du médecin et de l'établissement scolaire, car les règles peuvent varier ; un certificat médical est souvent exigé pour la reprise."
+    }
+  ],
+  "intentAnswer": "Pour une teigne, consultez d'abord votre médecin généraliste qui pourra poser le diagnostic et orienter le traitement. Si les lésions sont étendues, récidivantes ou atypiques, un dermatologue prendra le relais. En cas de kérion douloureux ou de fièvre, rendez-vous aux urgences sans attendre.",
+  "termAr": "السعفة (الفطار الجلدي)",
+  "shortAnswerAr": "السعفة هي عدوى فطرية معدية تصيب فروة الرأس أو اللحية، تسببها فطريات مجهرية. غالباً ما تكون خفيفة عند الأطفال، لكنها تستوجب استشارة طبية لأنها لا تشفى تلقائياً، وقد تُفضي إلى تساقط دائم للشعر إن أُهملت.",
+  "causesAr": [
+    "الاحتكاك المباشر بشخص أو حيوان مصاب (قطط، كلاب، أبقار)",
+    "المشاركة في استخدام أدوات ملوثة: مشط، قبعة، وسادة، منشفة",
+    "البيئات الرطبة والدافئة التي تُشجع على تكاثر الفطريات الجلدية",
+    "ضعف الجهاز المناعي لدى الأطفال الصغار أو المرضى المناعيين",
+    "الاحتكاك في الأماكن الجماعية: مدارس، حضانات، رياضات التماس",
+    "جروح أو تهيج فروة الرأس تُسهّل نفاذ الفطريات"
+  ],
+  "redFlagsAr": [
+    "بقع مؤلمة ومتورمة وتسيل منها إفرازات (كيريون): علامة تلوث جرثومي محتمل",
+    "حمى مصحوبة بتضخم فروة الرأس أو العقد الليمفاوية في الرقبة",
+    "امتداد سريع للآفات رغم وجود علاج جارٍ",
+    "تساقط واسع للشعر مع بدء ظهور ندوب (خطر الصلع الدائم)"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور ظهور بقع قشرية مع تساقط الشعر لدى الطفل أو البالغ. وفي حال ظهور كيريون أو حمى أو انتشار سريع للإصابة، توجه فوراً للطوارئ.",
+  "faqAr": [
+    {
+      "q": "هل السعفة معدية وكيف نتجنب نقل العدوى؟",
+      "a": "نعم، السعفة شديدة العدوى. للحد من انتشارها، تجنب مشاركة الأمشاط والقبعات والمناشف، واحرص على علاج الحيوانات الأليفة المصابة، وأخبر المقربين (المدرسة، الأسرة) حتى يتمكن المخالطون من الفحص."
+    },
+    {
+      "q": "هل يمكن لطفلي أن يذهب إلى المدرسة إذا كان مصاباً بالسعفة؟",
+      "a": "يُنصح عادةً بالغياب عن المدرسة حتى بداية العلاج الطبي المُثبَّت. تواصل مع الطبيب والمؤسسة التعليمية، إذ قد تختلف الأنظمة؛ وكثيراً ما يُطلب شهادة طبية للعودة."
+    }
+  ],
+  "intentAnswerAr": "في حالة السعفة، ابدأ باستشارة طبيبك العام الذي يُشخّص الحالة ويُوجّه العلاج. وإذا كانت الإصابة واسعة أو متكررة أو غير نمطية، فإن طبيب الجلدية هو المرجع المناسب. أما في حال ظهور كيريون مؤلم أو حمى، فتوجه إلى المستعجلات دون تأخير."
+}

@@ -5,6 +5,7 @@ import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { prisma } from "@/lib/prisma";
 import { cachedQuery } from "@/lib/cache";
 import { SpecialtyQuestionsSection } from "@/components/qa/SpecialtyQuestionsSection";
+import { SpecialtyPillarTopics } from "@/components/health/SpecialtyPillarTopics";
 import { PraticienCard } from "@/components/PraticienCard";
 import { ListingControls, FILTERABLE_LANGUAGES } from "@/components/ListingControls";
 import { SpecialtyControls, SpecialtyResults as SpecialtyResultsLive } from "@/components/specialites/SpecialtyListing";
@@ -636,6 +637,13 @@ export default async function SpecialitePage({ params }: { params: Params }) {
             locale={locale}
             t={t}
           />
+        )}
+
+        {/* ── Pillar : symptômes/maladies de la spécialité + guide (cocon) ── */}
+        {showMaillage && (
+          <Suspense fallback={null}>
+            <SpecialtyPillarTopics specialtyId={specialty.id} specialtySlug={slug} locale={locale} />
+          </Suspense>
         )}
 
         {/* ── Par ville (cities déjà en coquille) ──── */}

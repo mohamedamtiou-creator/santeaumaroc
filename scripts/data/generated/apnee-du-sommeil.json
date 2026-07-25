@@ -1,0 +1,64 @@
+{
+  "slug": "apnee-du-sommeil",
+  "term": "Apnée du sommeil",
+  "kind": "DISEASE",
+  "specialty": "pathologie-du-sommeil-et-de-la-vigilance",
+  "synonyms": ["syndrome d'apnées obstructives du sommeil", "SAOS", "apnées nocturnes", "troubles respiratoires du sommeil"],
+  "shortAnswer": "L'apnée du sommeil est une interruption répétée de la respiration pendant la nuit. Elle peut passer inaperçue ou provoquer une fatigue chronique et des complications cardiovasculaires sérieuses ; une consultation médicale est nécessaire pour évaluer la sévérité et adapter la prise en charge.",
+  "causes": [
+    "Surpoids ou obésité (dépôts graisseux autour des voies aériennes)",
+    "Relâchement des muscles de la gorge pendant le sommeil",
+    "Obstruction nasale ou amygdales volumineuses",
+    "Morphologie particulière du cou, de la mâchoire ou du palais",
+    "Consommation d'alcool ou de sédatifs qui relâchent les muscles",
+    "Facteurs génétiques et antécédents familiaux"
+  ],
+  "redFlags": [
+    "Sensation d'étouffement ou de réveil en sursaut avec la gorge serrée",
+    "Somnolence diurne sévère au point de s'endormir en conduisant ou au travail",
+    "Pauses respiratoires observées par le conjoint durant la nuit",
+    "Maux de tête matinaux persistants associés à une fatigue chronique",
+    "Palpitations, douleurs thoraciques nocturnes ou hypertension difficile à contrôler"
+  ],
+  "whenToConsult": "Consultez un médecin si vous ronflez fortement, si votre entourage observe des pauses dans votre respiration la nuit, ou si vous souffrez de fatigue et de somnolence malgré un sommeil de durée normale. Ne tardez pas si vous avez des antécédents cardiovasculaires.",
+  "faq": [
+    {
+      "q": "Comment sait-on si l'on souffre d'apnée du sommeil ?",
+      "a": "Le diagnostic repose sur un examen médical et une étude du sommeil (polysomnographie ou polygraphie ventilatoire), réalisée en laboratoire ou à domicile. Le médecin mesure le nombre d'interruptions respiratoires par heure pour confirmer et évaluer la sévérité de la maladie."
+    },
+    {
+      "q": "L'apnée du sommeil est-elle dangereuse à long terme ?",
+      "a": "Non traitée, elle peut favoriser l'hypertension artérielle, les maladies cardiaques, le diabète et les accidents vasculaires cérébraux. Prise en charge à temps — par un appareil à pression positive (PPC), une orthèse d'avancement mandibulaire ou d'autres moyens — elle se gère efficacement et réduit ces risques."
+    }
+  ],
+  "intentAnswer": "Pour l'apnée du sommeil, commencez par un médecin généraliste qui évaluera vos symptômes et vous orientera au besoin vers un spécialiste du sommeil (somnologue) ou un pneumologue, voire un ORL si une cause anatomique est suspectée. En cas d'étouffements nocturnes ou de douleurs thoraciques, consultez en urgence.",
+  "termAr": "انقطاع التنفس أثناء النوم",
+  "shortAnswerAr": "انقطاع التنفس أثناء النوم هو توقف متكرر للتنفس خلال الليل. قد يمر دون أن يُلاحَظ أو يسبب تعباً مزمناً ومضاعفات قلبية وعائية خطيرة؛ لذلك تستلزم الحالة استشارة طبية لتقييم شدتها وتحديد العلاج المناسب.",
+  "causesAr": [
+    "الوزن الزائد أو السمنة بسبب تراكم الدهون حول مجرى الهواء",
+    "ارتخاء عضلات الحلق أثناء النوم",
+    "انسداد الأنف أو تضخم اللوزتين",
+    "شكل الرقبة أو الفك أو الحنك",
+    "تناول الكحول أو المهدئات التي تُرخي العضلات",
+    "العوامل الوراثية والتاريخ العائلي للمرض"
+  ],
+  "redFlagsAr": [
+    "الإحساس بالاختناق أو الاستيقاظ فجأة مع ضيق في الحلق",
+    "نعاس شديد خلال النهار لدرجة النوم أثناء القيادة أو العمل",
+    "توقفات في التنفس يلاحظها الشريك أثناء الليل",
+    "صداع صباحي متكرر مع تعب مزمن",
+    "خفقان أو ألم في الصدر ليلاً أو ضغط دم مرتفع يصعب التحكم فيه"
+  ],
+  "whenToConsultAr": "استشر طبيباً إذا كنت تشخر بشدة، أو لاحظ شريكك توقفات في تنفسك أثناء النوم، أو إذا كنت تعاني من تعب ونعاس رغم النوم الكافي. لا تتأخر في الاستشارة إذا كانت لديك أمراض قلبية أو وعائية.",
+  "faqAr": [
+    {
+      "q": "كيف نعرف أننا نعاني من انقطاع التنفس أثناء النوم؟",
+      "a": "يعتمد التشخيص على الفحص الطبي ودراسة النوم (تخطيط النوم الكامل أو المراقبة التنفسية)، وتُجرى في مختبر متخصص أو في المنزل. يقيس الطبيب عدد مرات توقف التنفس في الساعة للتأكد من الحالة وتحديد شدتها."
+    },
+    {
+      "q": "هل انقطاع التنفس أثناء النوم خطير على المدى البعيد؟",
+      "a": "إذا تُرك دون علاج، قد يزيد من خطر ارتفاع ضغط الدم وأمراض القلب والسكري والسكتة الدماغية. لكن مع العلاج المناسب — كجهاز الضغط الإيجابي المستمر أو الجهاز الفموي لتقديم الفك أو غيره — يمكن التحكم فيه بشكل فعال وتقليل هذه المخاطر."
+    }
+  ],
+  "intentAnswerAr": "لانقطاع التنفس أثناء النوم، ابدأ بزيارة طبيب عام يقيّم أعراضك ويحيلك عند الحاجة إلى طبيب متخصص في اضطرابات النوم أو طبيب الرئة، أو إلى طبيب الأنف والأذن والحنجرة إن اشتُبه بسبب تشريحي. في حال الاختناق الليلي أو ألم الصدر، اذهب إلى الطوارئ فوراً."
+}

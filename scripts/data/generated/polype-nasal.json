@@ -1,0 +1,64 @@
+{
+  "slug": "polype-nasal",
+  "term": "Polypes nasaux",
+  "kind": "DISEASE",
+  "specialty": "oto-rhino-laryngologie",
+  "synonyms": ["polype de nez", "polypose nasale", "polypose naso-sinusienne"],
+  "shortAnswer": "Les polypes nasaux sont de petites excroissances bénignes qui se forment à l'intérieur du nez ou des sinus. Souvent liés à une inflammation chronique, ils provoquent une gêne respiratoire. La plupart sont bénins, mais une évolution rapide ou unilatérale doit toujours être évaluée par un médecin.",
+  "causes": [
+    "Inflammation chronique de la muqueuse nasale (rhinite allergique, sinusite chronique)",
+    "Allergie respiratoire (acariens, pollens, moisissures)",
+    "Intolérance à l'aspirine ou aux anti-inflammatoires (triade de Widal)",
+    "Asthme, souvent associé à la polypose naso-sinusienne",
+    "Mucoviscidose (chez l'enfant en particulier)",
+    "Infections respiratoires à répétition favorisant l'inflammation muqueuse"
+  ],
+  "redFlags": [
+    "Polype unilatéral (d'un seul côté du nez) : doit être exploré pour éliminer une tumeur",
+    "Saignements de nez fréquents ou abondants inexpliqués",
+    "Douleurs faciales intenses ou gonflement autour de l'œil ou de la joue",
+    "Perte de l'odorat soudaine et totale, surtout chez un jeune adulte",
+    "Obstruction nasale totale avec fièvre persistante (risque de sinusite compliquée)"
+  ],
+  "whenToConsult": "Consultez votre médecin généraliste si vous souffrez d'une gêne nasale persistante, d'une perte d'odorat ou de maux de tête récurrents. En cas de saignements inexpliqués, de polype unilatéral ou de signes d'alerte, consultez rapidement sans attendre.",
+  "faq": [
+    {
+      "q": "Les polypes nasaux peuvent-ils disparaître sans traitement ?",
+      "a": "Rarement d'eux-mêmes. Un traitement médical (généralement des sprays à base de corticoïdes prescrits par un médecin) peut les réduire significativement. Sans prise en charge, ils ont tendance à grossir et à aggraver la gêne respiratoire. Une évaluation médicale est indispensable."
+    },
+    {
+      "q": "Les polypes nasaux sont-ils dangereux ou cancéreux ?",
+      "a": "La grande majorité des polypes nasaux sont bénins et non cancéreux. Cependant, un polype situé d'un seul côté du nez, qui saigne ou qui grossit rapidement doit être examiné par un ORL pour écarter toute lésion suspecte. Ne tardez pas à consulter dans ce cas."
+    }
+  ],
+  "intentAnswer": "Pour des polypes nasaux, commencez par votre médecin généraliste, qui évaluera vos symptômes et vous orientera si nécessaire vers un ORL (oto-rhino-laryngologiste), le spécialiste de référence pour le diagnostic et le traitement. En cas de saignement abondant, de douleur faciale intense ou de polype unilatéral, consultez en urgence.",
+  "termAr": "السلائل الأنفية",
+  "shortAnswerAr": "السلائل الأنفية نمو صغير حميد يتشكل داخل الأنف أو الجيوب الأنفية نتيجة التهاب مزمن في الغشاء المخاطي. تسبب صعوبة في التنفس وفقدان حاسة الشم. معظمها حميد، غير أن أي نمو سريع أو من جانب واحد يستوجب مراجعة الطبيب.",
+  "causesAr": [
+    "التهاب مزمن في بطانة الأنف (التهاب الأنف التحسسي، التهاب الجيوب المزمن)",
+    "الحساسية التنفسية (عث الغبار، حبوب اللقاح، العفن)",
+    "التحسس من الأسبرين أو مضادات الالتهاب غير الستيرويدية",
+    "الربو، الذي كثيراً ما يقترن بداء السلائل الأنفي الجيبي",
+    "التليف الكيسي (خاصةً عند الأطفال)",
+    "الالتهابات التنفسية المتكررة التي تُذكي الالتهاب المخاطي"
+  ],
+  "redFlagsAr": [
+    "سليلة في جانب واحد فقط من الأنف: يجب فحصها للتأكد من غياب أي ورم",
+    "نزيف من الأنف متكرر أو غزير بدون سبب واضح",
+    "ألم شديد في الوجه أو تورم حول العين أو الخد",
+    "فقدان مفاجئ وكامل لحاسة الشم، لا سيما عند الشباب",
+    "انسداد كلي في الأنف مع حمى مستمرة (خطر التهاب جيوب معقد)"
+  ],
+  "whenToConsultAr": "راجع طبيبك العام إذا عانيت من انسداد أنفي مستمر، أو فقدان لحاسة الشم، أو صداع متكرر. وفي حال وجود نزيف غير مفسَّر، أو سليلة من جانب واحد، أو أي من العلامات التحذيرية، اطلب الاستشارة الطبية دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل يمكن أن تختفي السلائل الأنفية دون علاج؟",
+      "a": "نادراً ما تختفي من تلقاء نفسها. قد يُقلّصها العلاج الطبي (عادةً رذاذ كورتيكوستيرويد يصفه الطبيب)، لكنها تميل إلى الكبر وتفاقم أعراض التنفس دون رعاية. لا غنى عن تقييم طبي للحصول على العلاج المناسب."
+    },
+    {
+      "q": "هل السلائل الأنفية خطيرة أو سرطانية؟",
+      "a": "الغالبية العظمى منها حميدة وليست سرطانية. غير أن أي سليلة في جانب واحد من الأنف، أو تنزف، أو تكبر بسرعة، ينبغي فحصها من قِبل طبيب الأذن والأنف والحنجرة لاستبعاد أي آفة مشبوهة. لا تتأخر في طلب الاستشارة."
+    }
+  ],
+  "intentAnswerAr": "لمعالجة السلائل الأنفية، ابدأ بزيارة طبيبك العام الذي سيقيّم حالتك ويحيلك إذا لزم إلى طبيب الأذن والأنف والحنجرة، وهو المختص الأول في تشخيص هذه الحالة وعلاجها. وفي حال نزيف حاد أو ألم شديد في الوجه أو سليلة من جانب واحد، اتجه إلى الطوارئ فوراً."
+}

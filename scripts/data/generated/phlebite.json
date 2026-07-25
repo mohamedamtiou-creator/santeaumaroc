@@ -1,0 +1,64 @@
+{
+  "slug": "phlebite",
+  "term": "Phlébite (thrombose veineuse)",
+  "kind": "DISEASE",
+  "specialty": "angiologie",
+  "synonyms": ["thrombose veineuse profonde", "TVP", "thrombophlébite", "caillot veineux"],
+  "shortAnswer": "La phlébite est la formation d'un caillot de sang dans une veine, le plus souvent dans une jambe. Toute douleur, gonflement ou rougeur dans le mollet doit être évaluée par un médecin. En cas d'essoufflement soudain, de douleur thoracique ou de crachats de sang, appelez le 15 ou rendez-vous immédiatement aux urgences.",
+  "causes": [
+    "Immobilisation prolongée : long voyage en avion ou en voiture, alitement après une opération",
+    "Chirurgie récente, notamment orthopédique ou abdominale",
+    "Grossesse et période post-partum (modifications hormonales et compression veineuse)",
+    "Contraceptifs oraux ou traitement hormonal de la ménopause",
+    "Varices importantes ou antécédents personnels ou familiaux de phlébite",
+    "Cancer actif ou trouble de la coagulation (thrombophilie)"
+  ],
+  "redFlags": [
+    "Essoufflement soudain, douleur thoracique ou crachats de sang : signe possible d'embolie pulmonaire — appeler le 15 ou aller aux urgences immédiatement",
+    "Mollet très douloureux, gonflé, chaud et rouge, surtout après un voyage ou une opération",
+    "Pâleur ou cyanose (teinte bleutée) du membre inférieur avec douleur intense",
+    "Fièvre élevée associée à une veine dure et douloureuse sous la peau",
+    "Tout symptôme veineux chez une femme enceinte ou en post-partum"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste rapidement si vous ressentez une douleur, un gonflement ou une chaleur inexpliqués dans une jambe, surtout après un facteur de risque récent. En cas de difficultés respiratoires ou de douleur thoracique, rendez-vous aux urgences sans délai.",
+  "faq": [
+    {
+      "q": "Peut-on marcher quand on a une phlébite ?",
+      "a": "La marche douce est généralement conseillée pour favoriser la circulation, mais uniquement après évaluation médicale. Le médecin adapte les recommandations selon la localisation et la gravité du caillot. Ne reprenez pas l'activité physique intense sans avis professionnel."
+    },
+    {
+      "q": "La phlébite peut-elle récidiver ?",
+      "a": "Oui, le risque de récidive existe, notamment en cas de thrombophilie, de cancer ou d'antécédents de phlébite. Un suivi régulier chez un angiologue et le port de bas de contention prescrits permettent de réduire ce risque. Informez toujours votre médecin de vos antécédents avant toute opération ou voyage long."
+    }
+  ],
+  "intentAnswer": "Pour une phlébite, consultez d'abord votre médecin généraliste qui évaluera l'urgence et vous orientera vers un angiologue (spécialiste des vaisseaux) pour l'écho-Doppler et la prise en charge. En cas d'essoufflement ou de douleur thoracique, rendez-vous immédiatement aux urgences.",
+  "termAr": "التهاب الوريد الخثاري (الخثار الوريدي)",
+  "shortAnswerAr": "التهاب الوريد الخثاري هو تشكّل جلطة دموية داخل وريد، في الغالب بالساق. يجب تقييم أي ألم أو تورم أو احمرار في الساق من قِبَل طبيب متخصص. أما في حال ضيق مفاجئ في التنفس أو ألم في الصدر أو نفث دم، فاتصل بالإسعاف أو توجّه إلى الطوارئ فوراً.",
+  "causesAr": [
+    "الجلوس لفترات طويلة: رحلات جوية أو برية مطوّلة، أو الراحة في الفراش بعد عملية جراحية",
+    "الجراحة الحديثة، ولا سيما جراحات العظام أو البطن",
+    "الحمل وفترة ما بعد الولادة (تغيرات هرمونية وضغط على الأوردة)",
+    "حبوب منع الحمل أو العلاج الهرموني لسن اليأس",
+    "دوالي الأوردة أو سوابق شخصية أو عائلية للتخثر الوريدي",
+    "السرطان النشط أو اضطرابات التخثر (التخثّر الوراثي)"
+  ],
+  "redFlagsAr": [
+    "ضيق مفاجئ في التنفس، أو ألم في الصدر، أو نفث دم: قد يدل على انسداد رئوي — اتصل بالإسعاف أو اذهب للطوارئ فوراً",
+    "ألم شديد وتورم وحرارة واحمرار في الساق، خاصة بعد سفر طويل أو عملية جراحية",
+    "شحوب أو زرقة في الطرف السفلي مع ألم حاد",
+    "ارتفاع في الحرارة مع ظهور وريد صلب ومؤلم تحت الجلد",
+    "أي أعراض وريدية لدى حامل أو في مرحلة ما بعد الوضع"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام بسرعة إذا شعرت بألم أو تورم أو دفء غير مبرر في الساق، لا سيما بعد عامل خطر حديث. أما في حال الشعور بصعوبة في التنفس أو ألم في الصدر، فتوجّه إلى قسم الطوارئ دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل يمكن المشي عند الإصابة بالتهاب الوريد الخثاري؟",
+      "a": "يُنصح عموماً بالمشي الخفيف لتحسين الدورة الدموية، لكن فقط بعد تقييم طبي. يحدد الطبيب التوصيات المناسبة بحسب موضع الجلطة وشدتها. لا تستأنف النشاط البدني المكثف دون استشارة مختص."
+    },
+    {
+      "q": "هل يمكن أن يتكرر التهاب الوريد الخثاري؟",
+      "a": "نعم، يوجد خطر تكرار الإصابة خاصة في حالات التخثر الوراثي، أو السرطان، أو السوابق المرضية. تساعد المتابعة المنتظمة عند طبيب الأوعية الدموية وارتداء الجوارب الضاغطة الموصوفة على تقليل هذا الخطر. أخبر طبيبك دائماً بسوابقك قبل أي عملية أو رحلة طويلة."
+    }
+  ],
+  "intentAnswerAr": "لعلاج التهاب الوريد الخثاري، ابدأ بزيارة طبيبك العام الذي سيقيّم الحالة ويحوّلك إلى طبيب الأوعية الدموية (أنجيولوجيست) لإجراء فحص دوبلر وتلقي العلاج المناسب. في حال ضيق التنفس أو ألم الصدر، توجّه فوراً إلى الطوارئ."
+}

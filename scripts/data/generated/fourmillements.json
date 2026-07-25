@@ -1,0 +1,67 @@
+{
+  "slug": "fourmillements",
+  "term": "Fourmillements et engourdissements",
+  "kind": "SYMPTOM",
+  "specialty": "neurologie",
+  "synonyms": ["paresthésies", "engourdissement", "picotements", "sensation de membre endormi", "fourmis dans les membres"],
+  "synonymsAr": ["تنميل", "خدر", "وخز", "إحساس بنوم العضو", "نمل في الأطراف"],
+  "shortAnswer": "Les fourmillements et engourdissements sont des sensations anormales (picotements, perte de sensibilité) dues à une perturbation nerveuse ou circulatoire. Passagers après une mauvaise position, ils sont bénins. Persistants, unilatéraux ou accompagnés d'autres signes, ils nécessitent une consultation.",
+  "causes": [
+    "Compression nerveuse temporaire (membre endormi après une mauvaise position)",
+    "Canal carpien ou autre syndrome de compression nerveuse chronique",
+    "Diabète (neuropathie diabétique touchant les pieds et les mains)",
+    "Carence en vitamines B1, B6 ou B12",
+    "Problèmes de la colonne vertébrale (hernie discale, arthrose cervicale ou lombaire)",
+    "Maladies neurologiques ou vasculaires (sclérose en plaques, insuffisance circulatoire)"
+  ],
+  "redFlags": [
+    "Fourmillements soudains d'un seul côté du corps, du visage, d'un bras ou d'une jambe (signe possible d'AVC)",
+    "Perte de force ou paralysie accompagnant l'engourdissement",
+    "Troubles de la parole, de la vision ou de l'équilibre associés",
+    "Engourdissement après un traumatisme du dos ou du cou",
+    "Fourmillements progressifs qui remontent le long des membres ou envahissent tout le corps",
+    "Anesthésie dans la région du périnée ou des fesses (en selle) avec difficulté à uriner ou à retenir les urines : urgence neurochirurgicale immédiate"
+  ],
+  "whenToConsult": "Consultez un médecin si les fourmillements persistent plus de quelques jours, reviennent fréquemment, touchent toujours le même côté ou s'accompagnent d'une faiblesse musculaire. En cas de survenue brutale avec d'autres signes neurologiques, appelez le SAMU ou rendez-vous aux urgences immédiatement.",
+  "faq": [
+    {
+      "q": "Pourquoi ai-je des fourmillements dans les mains la nuit ?",
+      "a": "Les fourmillements nocturnes dans les mains sont souvent liés au syndrome du canal carpien, une compression du nerf médian au poignet. Cette douleur réveille parfois la nuit et s'améliore en secouant la main. Un médecin peut confirmer le diagnostic par un examen clinique ou une électromyographie."
+    },
+    {
+      "q": "Les fourmillements dans les pieds peuvent-ils être liés au diabète ?",
+      "a": "Oui. Une glycémie mal contrôlée peut abîmer les petits nerfs des pieds et provoquer des picotements, brûlures ou engourdissements : c'est la neuropathie diabétique. Si vous êtes diabétique et ressentez ces symptômes, signalez-les à votre médecin traitant lors de votre prochain suivi."
+    }
+  ],
+  "intentAnswer": "Commencez par consulter votre médecin généraliste, qui évaluera l'origine des fourmillements (neurologique, métabolique ou vasculaire) et vous orientera si besoin vers un neurologue. En cas de fourmillements soudains d'un côté du corps avec faiblesse ou troubles de la parole, rendez-vous immédiatement aux urgences.",
+  "termAr": "التنميل والخدر",
+  "shortAnswerAr": "التنميل والخدر هما إحساس غير طبيعي بوخز أو فقدان الإحساس، وغالبًا ما يكونان ناتجَين عن ضغط على عصب أو اضطراب في الدورة الدموية. إذا زالا بعد تغيير الوضعية فلا خطر، أما إذا استمرا أو ظهرا في جهة واحدة من الجسم فيستوجبان استشارة طبية.",
+  "causesAr": [
+    "ضغط مؤقت على العصب بسبب وضعية خاطئة (تخدير العضو)",
+    "متلازمة النفق الرسغي أو ضغط مزمن على الأعصاب الطرفية",
+    "مرض السكري (اعتلال الأعصاب السكري الذي يصيب القدمين واليدين)",
+    "نقص فيتامينات B1 أو B6 أو B12",
+    "مشاكل في العمود الفقري (انزلاق غضروفي، فقرات عنقية أو قطنية متآكلة)",
+    "أمراض عصبية أو وعائية (التصلب اللويحي، قصور الدورة الدموية)"
+  ],
+  "redFlagsAr": [
+    "تنميل مفاجئ في جهة واحدة من الجسم أو الوجه أو الذراع أو الساق (قد يشير إلى سكتة دماغية)",
+    "ضعف عضلي أو شلل مصاحب للخدر",
+    "اضطرابات في الكلام أو الرؤية أو التوازن",
+    "خدر يظهر عقب إصابة في الظهر أو الرقبة",
+    "تنميل يتصاعد تدريجيًا أو ينتشر في كامل الجسم",
+    "تخدير في منطقة العجان أو الأرداف (على شكل سرج) مصحوب بصعوبة في التبول أو حبسه: حالة طوارئ جراحية عصبية فورية"
+  ],
+  "whenToConsultAr": "استشر طبيبك إذا استمر التنميل أكثر من بضعة أيام أو تكرر بانتظام أو اقتصر دائمًا على جهة واحدة أو رافقه ضعف في العضلات. أما إذا ظهر فجأة مع أعراض عصبية أخرى، فاتصل بالإسعاف أو توجه إلى المستعجلات فورًا.",
+  "faqAr": [
+    {
+      "q": "لماذا أشعر بتنميل في يديَّ ليلًا؟",
+      "a": "غالبًا ما يرتبط التنميل الليلي في اليدين بمتلازمة النفق الرسغي، وهي ضغط على العصب المتوسط عند الرسغ. قد يوقظك الألم ويخف بتحريك اليد وهزّها. يمكن للطبيب تأكيد التشخيص عبر الفحص السريري أو تخطيط العضل الكهربائي."
+    },
+    {
+      "q": "هل يمكن أن يكون التنميل في القدمين مرتبطًا بمرض السكري؟",
+      "a": "نعم. ارتفاع نسبة السكر في الدم لفترات طويلة قد يتلف الأعصاب الدقيقة في القدمين، مما يسبب وخزًا أو حرقة أو خدرًا يُعرف باعتلال الأعصاب السكري. إذا كنت مصابًا بالسكري وتعاني هذه الأعراض، أخبر طبيبك المعالج في أقرب موعد لمتابعتك."
+    }
+  ],
+  "intentAnswerAr": "ابدأ باستشارة طبيبك العام الذي سيقيّم سبب التنميل (عصبي أو استقلابي أو وعائي) ويحيلك عند الحاجة إلى طبيب أعصاب متخصص. في حال ظهور تنميل مفاجئ في جهة واحدة من الجسم مصحوب بضعف أو اضطراب في الكلام، توجه إلى المستعجلات فورًا."
+}

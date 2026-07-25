@@ -1,0 +1,66 @@
+{
+  "slug": "diarrhee-du-voyageur",
+  "term": "Diarrhée du voyageur (tourista)",
+  "kind": "DISEASE",
+  "specialty": "maladies-infectieuses",
+  "synonyms": ["tourista", "turista", "diarrhée du touriste", "gastro-entérite du voyageur"],
+  "shortAnswer": "La diarrhée du voyageur est une infection digestive fréquente survenant en voyage, causée le plus souvent par des bactéries présentes dans l'eau ou les aliments. Elle guérit généralement en 3 à 5 jours avec du repos et une bonne hydratation, mais certains signes doivent alerter.",
+  "causes": [
+    "Bactéries contaminant l'eau ou les aliments (principale cause)",
+    "Virus gastro-intestinaux présents dans l'environnement local",
+    "Parasites intestinaux (amibes, Giardia) dans l'eau non traitée",
+    "Consommation de crudités, fruits non pelés ou glace dans des zones à risque",
+    "Hygiène insuffisante des mains avant les repas",
+    "Changement brutal d'alimentation et de microbiote intestinal"
+  ],
+  "redFlags": [
+    "Selles sanglantes ou avec du mucus abondant",
+    "Fièvre élevée (au-dessus de 38,5 °C) persistant plus de 48 heures",
+    "Signes de déshydratation sévère : bouche très sèche, absence d'urines, vertiges, confusion",
+    "Diarrhée importante (plus de 6 selles par jour) ne s'améliorant pas",
+    "Vomissements persistants empêchant toute hydratation par voie orale",
+    "Douleurs abdominales très intenses ou ventre rigide"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès que les symptômes persistent plus de 48 heures, s'aggravent ou si l'un des signes d'alerte ci-dessus apparaît. En cas de déshydratation sévère ou de fièvre élevée, rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "Faut-il prendre des médicaments dès les premiers symptômes ?",
+      "a": "Non, il ne faut pas s'automédiquer. La priorité est de bien s'hydrater avec de l'eau en bouteille ou des solutions de réhydratation. Si les symptômes persistent ou s'aggravent, un médecin pourra vous orienter vers le traitement adapté à votre situation."
+    },
+    {
+      "q": "Comment éviter la diarrhée du voyageur au Maroc ou à l'étranger ?",
+      "a": "Privilégiez l'eau en bouteille ou traitée, évitez les crudités et fruits non pelés achetés sur la voie publique, lavez-vous les mains régulièrement avec du savon avant de manger. Ces précautions simples réduisent considérablement le risque d'infection digestive en voyage."
+    }
+  ],
+  "intentAnswer": "Pour une diarrhée du voyageur, commencez par consulter votre médecin généraliste qui évaluera votre état d'hydratation et posera les examens nécessaires. En cas de symptômes sévères (sang dans les selles, fièvre élevée, déshydratation), un spécialiste en maladies infectieuses ou les urgences prennent en charge rapidement.",
+  "termAr": "إسهال المسافر (توريستا)",
+  "shortAnswerAr": "إسهال المسافر هو التهاب معوي شائع يصيب المسافرين، وينجم في الغالب عن بكتيريا موجودة في الماء أو الطعام الملوث. يتعافى معظم المصابين خلال 3 إلى 5 أيام مع الراحة والترطيب الجيد، غير أن بعض الأعراض تستوجب التنبه والاستشارة الطبية.",
+  "causesAr": [
+    "البكتيريا الملوثة للمياه والأغذية (السبب الأكثر شيوعاً)",
+    "الفيروسات المعوية المنتشرة في البيئة المحلية",
+    "الطفيليات المعوية كالأميبا والجيارديا في المياه غير المعالجة",
+    "تناول الخضروات النيئة أو الفواكه غير المقشرة أو الثلج في مناطق عالية الخطورة",
+    "إهمال غسل اليدين قبل تناول الطعام",
+    "التغيير المفاجئ في النظام الغذائي والجراثيم المعوية"
+  ],
+  "redFlagsAr": [
+    "براز دموي أو يحتوي على مخاط وفير",
+    "حمى مرتفعة (فوق 38.5 درجة مئوية) تستمر أكثر من 48 ساعة",
+    "علامات جفاف حاد: جفاف شديد في الفم، انقطاع البول، دوار، أو ارتباك ذهني",
+    "إسهال غزير (أكثر من 6 مرات في اليوم) لا يتحسن",
+    "قيء مستمر يمنع الترطيب عن طريق الفم",
+    "آلام بطنية شديدة أو تصلب في جدار البطن"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور استمرار الأعراض أكثر من 48 ساعة، أو عند تفاقمها، أو عند ظهور أي من علامات الخطر المذكورة أعلاه. في حال الجفاف الشديد أو الحمى المرتفعة، توجه إلى المستعجلات دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل يجب تناول الأدوية فور ظهور الأعراض الأولى؟",
+      "a": "لا يُنصح بالعلاج الذاتي. الأولوية هي الحفاظ على ترطيب الجسم بالمياه المعبأة أو محاليل الإماهة. إذا استمرت الأعراض أو ساءت، فالطبيب هو المرجع لتحديد العلاج المناسب لحالتك."
+    },
+    {
+      "q": "كيف يمكن تفادي إسهال المسافر في المغرب أو خارجه؟",
+      "a": "اعتمد على المياه المعبأة أو المعالجة، وتجنب الخضروات النيئة والفواكه غير المقشرة المباعة في الشارع، واحرص على غسل يديك بالصابون قبل الأكل. هذه الاحتياطات البسيطة تُقلل بشكل كبير من خطر الإصابة بالتهابات هضمية في أثناء السفر."
+    }
+  ],
+  "intentAnswerAr": "في حال إصابتك بإسهال المسافر، ابدأ باستشارة طبيبك العام الذي سيقيّم حالة ترطيبك ويطلب الفحوصات اللازمة. أما عند ظهور أعراض شديدة كوجود دم في البراز أو حمى مرتفعة أو جفاف، فيتولى اختصاصي الأمراض المعدية أو قسم المستعجلات متابعة حالتك بسرعة."
+}

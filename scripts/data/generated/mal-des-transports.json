@@ -1,0 +1,64 @@
+{
+  "slug": "mal-des-transports",
+  "term": "Mal des transports",
+  "kind": "DISEASE",
+  "specialty": "medecine-generale",
+  "synonyms": ["cinétose", "naupathie", "mal de mer", "mal de l'air", "mal de voiture"],
+  "shortAnswer": "Le mal des transports est un trouble bénin causé par un conflit entre les informations envoyées par l'oreille interne, les yeux et le cerveau lors d'un déplacement. Il se manifeste par des nausées et des vertiges. Il est généralement sans danger, mais des vomissements répétés ou des vertiges persistants après l'arrêt méritent une consultation.",
+  "causes": [
+    "Conflit sensoriel entre l'oreille interne (qui perçoit le mouvement) et les yeux (qui voient un habitacle immobile)",
+    "Mouvements répétitifs ou irréguliers du véhicule (virages, houle, turbulences)",
+    "Anxiété et appréhension avant ou pendant le trajet",
+    "Chaleur excessive, odeurs fortes ou manque de ventilation dans l'habitacle",
+    "Lecture ou fixation d'un écran pendant le trajet",
+    "Prédisposition génétique : certaines personnes y sont naturellement plus sensibles, notamment les enfants de 2 à 12 ans"
+  ],
+  "redFlags": [
+    "Vertiges intenses persistant plusieurs heures après l'arrêt du transport",
+    "Vomissements incoercibles entraînant une déshydratation (surtout chez l'enfant ou la personne âgée)",
+    "Apparition soudaine de maux de tête violents, troubles de la vision ou de la parole associés aux vertiges",
+    "Perte de connaissance ou malaise grave pendant le trajet",
+    "Premiers épisodes de vertiges intenses à l'âge adulte sans antécédent connu (à ne pas attribuer d'emblée au transport)"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si le mal des transports est très fréquent, sévère ou s'il perturbe significativement votre vie quotidienne, ou si des vertiges persistent longtemps après l'arrêt du déplacement.",
+  "faq": [
+    {
+      "q": "Que faire pour prévenir le mal des transports pendant un trajet ?",
+      "a": "Regardez l'horizon ou un point fixe au loin, choisissez une place avant ou au centre du véhicule, aérez l'habitacle, évitez de lire ou regarder un écran, et mangez légèrement avant le départ. Ces mesures simples réduisent souvent les symptômes de façon significative."
+    },
+    {
+      "q": "Le mal des transports peut-il disparaître avec l'âge ?",
+      "a": "Oui, dans la majorité des cas. Les enfants y sont plus sujets entre 2 et 12 ans, et les symptômes tendent à s'atténuer naturellement à l'adolescence et à l'âge adulte. Chez certaines personnes, une forme légère peut toutefois persister."
+    }
+  ],
+  "intentAnswer": "Pour le mal des transports, le médecin généraliste est le premier recours : il évalue la sévérité et peut orienter si besoin. En cas de vertiges récurrents ou persistants après le trajet, un avis ORL ou neurologique peut être demandé. Si des signes d'alerte apparaissent (malaise, vertiges intenses prolongés), consultez en urgence.",
+  "termAr": "دوار السفر",
+  "shortAnswerAr": "دوار السفر اضطراب بسيط يحدث عندما تتعارض المعلومات التي يرسلها الأذن الداخلية والعينان إلى الدماغ أثناء التنقل، مما يسبب الغثيان والدوخة. يكون في الغالب بلا خطورة، لكن القيء المتكرر أو الدوار المستمر بعد التوقف يستوجبان استشارة طبية.",
+  "causesAr": [
+    "تعارض حسي بين الأذن الداخلية التي تستشعر الحركة والعينين اللتين تريان مكاناً ثابتاً داخل المركبة",
+    "حركات متكررة أو غير منتظمة للمركبة كالمنعرجات والأمواج والاضطرابات الجوية",
+    "القلق والتوتر قبل السفر أو أثناءه",
+    "الحرارة الشديدة أو الروائح القوية وضعف التهوية داخل المركبة",
+    "القراءة أو تثبيت النظر على شاشة خلال الرحلة",
+    "الاستعداد الوراثي: بعض الأشخاص أكثر حساسية بطبعهم، ولا سيما الأطفال بين سنتين و12 سنة"
+  ],
+  "redFlagsAr": [
+    "دوار شديد يستمر لساعات طويلة بعد التوقف عن السفر",
+    "قيء متواصل يؤدي إلى الجفاف، خاصة عند الأطفال وكبار السن",
+    "صداع حاد مفاجئ أو اضطرابات في الرؤية أو الكلام مصحوبة بالدوار",
+    "فقدان الوعي أو إغماء خلال الرحلة",
+    "ظهور نوبات دوار حادة لأول مرة عند البالغ دون أي سوابق معروفة"
+  ],
+  "whenToConsultAr": "راجع طبيب عام إذا كان دوار السفر يتكرر كثيراً أو كان شديداً يؤثر على حياتك اليومية، أو إذا استمر الدوار فترة طويلة بعد انتهاء الرحلة.",
+  "faqAr": [
+    {
+      "q": "ماذا أفعل للوقاية من دوار السفر خلال الرحلة؟",
+      "a": "انظر إلى الأفق أو نقطة ثابتة بعيدة، اجلس في المقعد الأمامي أو وسط المركبة، اضمن تهوية جيدة، تجنب القراءة ومشاهدة الشاشات، وتناول وجبة خفيفة قبل الانطلاق. هذه الخطوات البسيطة تخفف الأعراض بشكل ملحوظ."
+    },
+    {
+      "q": "هل يزول دوار السفر مع التقدم في السن؟",
+      "a": "نعم، في أغلب الحالات. يكون الأطفال بين سنتين و12 سنة أكثر عرضة له، وتميل الأعراض إلى التراجع تلقائياً في مرحلة المراهقة والبلوغ، وإن كانت بعض الحالات الخفيفة قد تستمر لدى بعض البالغين."
+    }
+  ],
+  "intentAnswerAr": "لدوار السفر، يُعدّ الطبيب العام المرجع الأول للتقييم والتوجيه عند الحاجة. إذا كانت نوبات الدوار متكررة أو تستمر بعد الرحلة، قد يُحيل إلى طبيب الأنف والأذن والحنجرة أو طبيب الأعصاب. أما في حال ظهور علامات تحذيرية كالإغماء أو الدوار الشديد المطول، فتوجّه فوراً إلى المستعجلات."
+}

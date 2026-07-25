@@ -1,0 +1,64 @@
+{
+  "slug": "allergie-alimentaire",
+  "term": "Allergie alimentaire",
+  "kind": "DISEASE",
+  "specialty": "allergologie",
+  "synonyms": ["allergie aux aliments", "hypersensibilité alimentaire", "réaction allergique alimentaire"],
+  "shortAnswer": "L'allergie alimentaire est une réaction anormale du système immunitaire contre une protéine présente dans certains aliments. Les formes légères (urticaire, picotements) restent gérables, mais une réaction sévère comme le choc anaphylactique constitue une urgence médicale absolue.",
+  "causes": [
+    "Arachides, noix et fruits à coque (allergènes fréquents)",
+    "Lait de vache, œufs et produits laitiers",
+    "Poissons, crustacés et fruits de mer",
+    "Blé, seigle et céréales contenant du gluten",
+    "Soja et légumineuses apparentées",
+    "Prédisposition génétique et antécédents d'atopie (eczéma, asthme)"
+  ],
+  "redFlags": [
+    "Difficultés à respirer, sifflement ou sensation d'étouffement après ingestion d'un aliment",
+    "Gonflement du visage, des lèvres, de la langue ou de la gorge",
+    "Chute de tension, perte de conscience ou malaise brutal",
+    "Vomissements répétés associés à une éruption cutanée généralisée",
+    "Chez l'enfant : pâleur soudaine, hypotonie ou pleurs inconsolables après un repas"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès l'apparition d'une réaction suspecte après un repas, même légère, afin d'orienter vers un allergologue pour un bilan. En cas de signes graves (difficultés respiratoires, malaise), appelez immédiatement le 15 ou rendez-vous aux urgences.",
+  "faq": [
+    {
+      "q": "Comment savoir si je suis allergique à un aliment ou si j'ai simplement une intolérance ?",
+      "a": "L'allergie alimentaire implique le système immunitaire et peut provoquer des réactions graves même avec de petites quantités ; elle est diagnostiquée par des tests cutanés ou sanguins chez un allergologue. L'intolérance (ex. au lactose) est une difficulté digestive, généralement sans danger vital, mais seul un médecin peut établir la différence."
+    },
+    {
+      "q": "Mon enfant a fait une réaction après avoir mangé des arachides : que faire maintenant ?",
+      "a": "Consultez un médecin sans attendre pour évaluer la réaction et envisager une prescription de traitement d'urgence à avoir sur soi. Un bilan chez un allergologue pédiatrique permettra de confirmer l'allergie, d'identifier les aliments à éviter et d'élaborer un plan d'action en cas de réexposition accidentelle."
+    }
+  ],
+  "intentAnswer": "Pour une allergie alimentaire, commencez par un médecin généraliste qui évaluera vos symptômes et vous orientera vers un allergologue pour des tests spécifiques. Si vous présentez des difficultés respiratoires ou un malaise, rendez-vous immédiatement aux urgences sans attendre de rendez-vous.",
+  "termAr": "حساسية الطعام",
+  "shortAnswerAr": "حساسية الطعام هي ردّ فعل مناعي غير طبيعي تجاه بروتين موجود في بعض الأطعمة. قد تكون الأعراض خفيفة كالطفح الجلدي أو الحكة، لكن الصدمة التأقية الشديدة تُعدّ حالةً طارئة تستوجب التدخل الفوري.",
+  "causesAr": [
+    "الفول السوداني والمكسرات ذات القشرة الصلبة (من أكثر المسببات شيوعاً)",
+    "حليب البقر والبيض ومنتجات الألبان",
+    "الأسماك والقشريات والمأكولات البحرية",
+    "القمح والجاودار والحبوب المحتوية على الغلوتين",
+    "فول الصويا والبقوليات المشابهة",
+    "الاستعداد الوراثي وتاريخ الإصابة بالحساسية (الأكزيما، الربو)"
+  ],
+  "redFlagsAr": [
+    "صعوبة في التنفس أو صوت صفير أو الشعور بالاختناق بعد تناول طعام",
+    "تورم الوجه أو الشفتين أو اللسان أو الحلق",
+    "انخفاض مفاجئ في ضغط الدم أو فقدان الوعي أو الإغماء",
+    "قيء متكرر مصحوب بطفح جلدي منتشر في الجسم",
+    "عند الأطفال: شحوب مفاجئ أو ارتخاء عضلي أو بكاء لا يهدأ بعد الوجبة"
+  ],
+  "whenToConsultAr": "استشر طبيباً عاماً عند ظهور أي تفاعل مشبوه بعد الأكل، حتى وإن كان خفيفاً، لتحويلك إلى أخصائي الحساسية لإجراء الفحوصات اللازمة. في حال ظهور أعراض خطيرة كصعوبة التنفس أو الإغماء، اتصل فوراً بالإسعاف (15) أو توجّه إلى أقرب مستعجلات.",
+  "faqAr": [
+    {
+      "q": "كيف أعرف إن كنت أعاني من حساسية طعام أم مجرد عدم تحمّل لأحد الأطعمة؟",
+      "a": "حساسية الطعام تشمل الجهاز المناعي وقد تسبب ردود فعل خطيرة حتى مع كميات صغيرة، ويُؤكَّد تشخيصها بالاختبارات الجلدية أو تحاليل الدم لدى أخصائي الحساسية. أما عدم التحمل (كعدم تحمّل اللاكتوز) فهو اضطراب هضمي دون خطر مميت في الغالب، وفي جميع الأحوال لا يمكن التمييز بينهما إلا بمراجعة الطبيب."
+    },
+    {
+      "q": "أصيب طفلي بتفاعل بعد تناول الفول السوداني، فماذا أفعل؟",
+      "a": "راجع الطبيب فوراً لتقييم حدة التفاعل والنظر في وصف دواء طارئ يُحمل معه في جميع الأوقات. كذلك يُستحسن إجراء فحص شامل عند أخصائي حساسية الأطفال لتأكيد التشخيص وتحديد الأطعمة الواجب تجنّبها، ووضع خطة تصرف في حالة التعرض العرضي مجدداً."
+    }
+  ],
+  "intentAnswerAr": "عند الاشتباه في حساسية غذائية، ابدأ بطبيب عام يقيّم أعراضك ويحوّلك إلى أخصائي الحساسية لإجراء الاختبارات المناسبة. أما إذا ظهرت صعوبة في التنفس أو إغماء، فتوجّه فوراً إلى المستعجلات دون انتظار موعد."
+}

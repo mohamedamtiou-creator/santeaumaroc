@@ -1,0 +1,64 @@
+{
+  "slug": "pertes-vaginales",
+  "term": "Pertes vaginales anormales",
+  "kind": "SYMPTOM",
+  "specialty": "gyneco-obstetrique",
+  "synonyms": ["leucorrhées", "écoulements vaginaux", "pertes blanches", "pertes colorées"],
+  "shortAnswer": "Les pertes vaginales anormales sont des écoulements inhabituels par leur aspect, odeur ou quantité. Elles sont souvent bénignes (infection fongique, déséquilibre de la flore). Elles nécessitent une consultation si elles s'accompagnent de douleurs, de fièvre ou de saignements inhabituels.",
+  "causes": [
+    "Vaginose bactérienne (déséquilibre de la flore vaginale normale)",
+    "Mycose vaginale (infection à Candida), fréquente après antibiotiques",
+    "Infections sexuellement transmissibles (chlamydia, trichomonase, gonorrhée)",
+    "Corps étranger oublié dans le vagin",
+    "Fluctuations hormonales (cycle menstruel, grossesse, ménopause)",
+    "Cervicite ou infection du col de l'utérus"
+  ],
+  "redFlags": [
+    "Pertes accompagnées de fièvre, frissons ou douleurs pelviennes intenses",
+    "Saignements entre les règles ou après un rapport sexuel",
+    "Pertes malodorantes, verdâtres ou purulentes persistantes",
+    "Douleurs lors des rapports sexuels ou à la miction",
+    "Pertes survenant pendant la grossesse, surtout si aqueuses ou sanglantes"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste ou un gynécologue si les pertes durent plus de quelques jours, changent d'aspect ou s'accompagnent d'un symptôme inhabituel. En cas de fièvre, de douleurs pelviennes sévères ou de grossesse, rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "Comment distinguer des pertes normales de pertes anormales ?",
+      "a": "Les pertes normales sont claires ou légèrement blanchâtres, inodores et varient selon le cycle menstruel. Elles deviennent anormales si elles sont abondantes, malodorantes, colorées (jaunes, vertes, grises), ou si elles provoquent des démangeaisons ou brûlures."
+    },
+    {
+      "q": "Les pertes vaginales anormales sont-elles toujours liées à une infection sexuellement transmissible ?",
+      "a": "Non. La majorité des cas sont dus à une mycose ou une vaginose bactérienne, qui peuvent survenir sans rapport sexuel. Cependant, certaines IST peuvent être silencieuses et provoquer des pertes. Seul un examen médical permet de déterminer la cause exacte."
+    }
+  ],
+  "intentAnswer": "Pour des pertes vaginales anormales, consultez d'abord un médecin généraliste qui pourra orienter le diagnostic. Il vous adressera si nécessaire à un gynécologue-obstétricien pour un examen complet et un prélèvement. En cas de fièvre ou de douleurs pelviennes aiguës, rendez-vous aux urgences.",
+  "termAr": "إفرازات مهبلية غير طبيعية",
+  "shortAnswerAr": "الإفرازات المهبلية غير الطبيعية هي سوائل تخرج من المهبل بشكل غير معتاد في لونها أو رائحتها أو كميتها. كثيرًا ما تكون حالات خفيفة كعدوى فطرية أو اختلال في البكتيريا الطبيعية. غير أنها تستوجب الاستشارة الطبية إذا رافقها ألم أو حمى أو نزيف غير عادي.",
+  "causesAr": [
+    "التهاب المهبل الجرثومي (اختلال في البكتيريا الطبيعية للمهبل)",
+    "داء المبيضات (عدوى فطرية) الشائع بعد تناول المضادات الحيوية",
+    "الأمراض المنقولة جنسيًا (الكلاميديا، داء المشعرات، السيلان)",
+    "جسم غريب متروك داخل المهبل",
+    "تقلبات هرمونية (الدورة الشهرية، الحمل، سن اليأس)",
+    "التهاب عنق الرحم أو عدوى في عنق الرحم"
+  ],
+  "redFlagsAr": [
+    "إفرازات مصحوبة بحمى أو قشعريرة أو ألم شديد في الحوض",
+    "نزيف بين الدورات الشهرية أو بعد العلاقة الزوجية",
+    "إفرازات ذات رائحة كريهة أو ذات لون أخضر أو صديدي تستمر لأيام",
+    "ألم أثناء العلاقة الزوجية أو التبول",
+    "إفرازات خلال فترة الحمل، خاصةً إذا كانت مائية أو دموية"
+  ],
+  "whenToConsultAr": "استشيري طبيبًا عامًا أو طبيب نساء وتوليد إذا استمرت الإفرازات أكثر من بضعة أيام، أو تغيّر شكلها، أو رافقها أي أعراض غير عادية. في حالة وجود حمى أو آلام حادة في الحوض أو إذا كنتِ حاملًا، توجهي إلى قسم الطوارئ فورًا.",
+  "faqAr": [
+    {
+      "q": "كيف أميّز الإفرازات الطبيعية عن غير الطبيعية؟",
+      "a": "الإفرازات الطبيعية شفافة أو بيضاء فاتحة، عديمة الرائحة، وتتغير مع الدورة الشهرية. تصبح غير طبيعية إذا كانت غزيرة أو ذات رائحة كريهة أو ملونة (صفراء أو خضراء أو رمادية)، أو إذا أحدثت حكة أو حرقة."
+    },
+    {
+      "q": "هل الإفرازات المهبلية غير الطبيعية مرتبطة دائمًا بمرض منقول جنسيًا؟",
+      "a": "لا. معظم الحالات ناجمة عن عدوى فطرية أو التهاب مهبلي جرثومي يمكن أن يحدث دون علاقة جنسية. غير أن بعض الأمراض المنقولة جنسيًا قد تكون صامتة وتسبب إفرازات. الفحص الطبي وحده يحدد السبب الفعلي."
+    }
+  ],
+  "intentAnswerAr": "عند ظهور إفرازات مهبلية غير طبيعية، ابدئي بزيارة طبيب عام يقيّم الحالة ويوجهك نحو التشخيص المناسب. قد يحيلك إلى طبيب متخصص في أمراض النساء والتوليد لإجراء فحص مفصّل وأخذ مسحة. في حالة وجود حمى أو آلام حادة في الحوض، توجهي إلى الطوارئ مباشرةً."
+}

@@ -1,0 +1,68 @@
+{
+  "slug": "extinction-de-voix",
+  "term": "Extinction de voix",
+  "kind": "SYMPTOM",
+  "specialty": "phoniatrie",
+  "synonyms": ["aphonie", "voix enrouée", "dysphonie", "enrouement", "perte de voix"],
+  "shortAnswer": "L'extinction de voix est une diminution ou disparition temporaire de la voix, le plus souvent bénigne après un effort vocal ou un rhume. Elle devient préoccupante si elle dure plus de trois semaines, s'accompagne de difficultés à avaler ou survient sans cause évidente.",
+  "causes": [
+    "Laryngite aiguë infectieuse (rhume, grippe) ou irritative",
+    "Forçage vocal prolongé (chanteurs, enseignants, conférenciers)",
+    "Reflux gastro-œsophagien irritant les cordes vocales",
+    "Tabagisme chronique ou exposition à des vapeurs irritantes",
+    "Nodules, polypes ou kystes des cordes vocales",
+    "Paralysie d'une corde vocale (cause neurologique ou thyroïdienne)"
+  ],
+  "redFlags": [
+    "Enrouement persistant au-delà de 3 semaines sans amélioration",
+    "Difficulté à avaler ou sensation de blocage dans la gorge",
+    "Douleur persistante au cou ou à la gorge, parfois irradiant vers l'oreille",
+    "Perte de poids inexpliquée associée à l'enrouement",
+    "Essoufflement ou gêne respiratoire accompagnant la dysphonie",
+    "Crachats sanglants ou présence de sang dans les expectorations",
+    "Masse palpable dans le cou ou ganglions cervicaux augmentés de volume"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si l'enrouement persiste plus de deux semaines malgré le repos vocal. En cas de signes d'alerte (difficulté à avaler, essoufflement, douleur persistante), consultez sans attendre.",
+  "faq": [
+    {
+      "q": "Combien de temps dure une extinction de voix normale ?",
+      "a": "Une extinction de voix liée à une laryngite virale ou à un forçage vocal dure généralement 5 à 10 jours. Le repos vocal, une bonne hydratation et l'éviction du tabac favorisent la récupération. Si la voix ne revient pas au bout de deux semaines, une consultation médicale s'impose."
+    },
+    {
+      "q": "Faut-il chuchoter pour reposer sa voix ?",
+      "a": "Non, le chuchotement force en réalité les cordes vocales et peut aggraver l'irritation. Il est préférable de parler le moins possible à voix normale et douce, de bien s'hydrater et d'éviter les irritants comme la fumée et l'alcool."
+    }
+  ],
+  "intentAnswer": "Pour une extinction de voix, commencez par consulter un médecin généraliste qui évaluera la cause et orientera si besoin vers un ORL ou un phoniatre (spécialiste de la voix). En cas de signes d'alerte (essoufflement, douleur intense, difficultés à avaler), rendez-vous aux urgences sans délai.",
+  "termAr": "بحّة الصوت / فقدان الصوت",
+  "shortAnswerAr": "بحّة الصوت هي ضعف أو اختفاء مؤقت للصوت، وغالبًا ما تكون حميدة بعد إجهاد الصوت أو نزلة برد. تستوجب التنبّه إذا استمرت أكثر من ثلاثة أسابيع، أو رافقها صعوبة في البلع، أو ظهرت دون سبب واضح.",
+  "causesAr": [
+    "التهاب الحنجرة الحاد بسبب عدوى (كالزكام والإنفلونزا) أو تهيّج",
+    "إجهاد الصوت لفترة طويلة (المغنون والمعلمون وأصحاب المهن الخطابية)",
+    "الارتداد المعدي المريئي الذي يهيّج الحبال الصوتية",
+    "التدخين المزمن أو التعرض للأبخرة المهيِّجة",
+    "عقيدات أو زوائد أو أكياس على الحبال الصوتية",
+    "شلل في أحد الحبلين الصوتيين (بسبب اضطراب عصبي أو في الغدة الدرقية)"
+  ],
+  "redFlagsAr": [
+    "استمرار البحّة لأكثر من ثلاثة أسابيع دون تحسّن",
+    "صعوبة في البلع أو الشعور باحتقان في الحلق",
+    "ألم مستمر في الرقبة أو الحلق قد يمتد إلى الأذن",
+    "فقدان الوزن غير المبرر مصحوبًا بالبحّة",
+    "ضيق في التنفس أو صعوبة تنفسية مرافقة لتغيّر الصوت",
+    "البصق بدم أو وجود دم في البلغم",
+    "كتلة ملموسة في الرقبة أو تضخّم العقد اللمفاوية العنقية"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام إذا استمرت بحّة الصوت أكثر من أسبوعين رغم الراحة الصوتية. وفي حال ظهور أي علامة تحذيرية كصعوبة البلع أو ضيق التنفس أو الألم المستمر، اطلب الرعاية الطبية فورًا.",
+  "faqAr": [
+    {
+      "q": "كم تستمر بحّة الصوت الطبيعية؟",
+      "a": "تستمر بحّة الصوت الناجمة عن التهاب فيروسي أو إجهاد صوتي عادةً بين 5 و10 أيام. تُساعد الراحة الصوتية وشرب الماء بكثرة وتجنّب التدخين على التعافي. إذا لم يعُد الصوت إلى طبيعته خلال أسبوعين، فينبغي استشارة الطبيب."
+    },
+    {
+      "q": "هل الهمس يريح الحبال الصوتية؟",
+      "a": "لا، بل إن الهمس يُجهد الحبال الصوتية ويزيد من التهيّج. الأفضل هو الكلام بأقل قدر ممكن بصوت هادئ ومعتدل، مع الإكثار من شرب الماء وتجنّب المهيّجات كالدخان والكحول."
+    }
+  ],
+  "intentAnswerAr": "عند فقدان الصوت أو بحّته، ابدأ بزيارة طبيب عام يقيّم السبب ويُحيلك عند الحاجة إلى طبيب أنف وأذن وحنجرة أو أخصائي في أمراض الصوت (فونياتري). وفي حال وجود علامات تحذيرية كضيق التنفس أو الألم الشديد أو صعوبة البلع، توجّه إلى قسم الطوارئ فورًا."
+}

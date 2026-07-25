@@ -1,0 +1,66 @@
+{
+  "slug": "fievre-typhoide",
+  "term": "Fièvre typhoïde",
+  "kind": "DISEASE",
+  "specialty": "maladies-infectieuses",
+  "synonyms": ["typhoïde", "fièvre entérique", "salmonellose typhoïde"],
+  "shortAnswer": "La fièvre typhoïde est une infection bactérienne grave du tube digestif, fréquente au Maroc. Elle commence souvent comme une simple fièvre prolongée. Elle devient dangereuse sans traitement : toute fièvre persistante au-delà de cinq jours, surtout avec douleurs abdominales, nécessite une consultation médicale rapide.",
+  "causes": [
+    "Ingestion d'eau contaminée par la bactérie Salmonella Typhi",
+    "Consommation d'aliments crus ou mal cuits manipulés par une personne infectée",
+    "Manque d'hygiène des mains après les toilettes",
+    "Fruits et légumes lavés avec de l'eau non potable",
+    "Contact étroit avec une personne atteinte de fièvre typhoïde",
+    "Séjour dans une zone à hygiène sanitaire précaire"
+  ],
+  "redFlags": [
+    "Fièvre élevée persistant au-delà de 5 jours sans cause identifiée",
+    "Douleurs abdominales intenses ou ventre dur comme une planche",
+    "Saignement digestif (selles noires ou sang dans les selles)",
+    "Vomissements persistants empêchant toute hydratation, surtout chez l'enfant ou la personne âgée",
+    "Confusion, somnolence excessive ou difficulté à rester éveillé",
+    "Chute de tension, teint très pâle ou perte de connaissance"
+  ],
+  "whenToConsult": "Consultez un médecin sans attendre si vous avez de la fièvre depuis plus de trois jours, surtout après un voyage ou une exposition à de l'eau/aliments douteux. En cas de signes d'alerte (douleurs abdominales sévères, saignements, vomissements incoercibles, confusion), rendez-vous aux urgences immédiatement.",
+  "faq": [
+    {
+      "q": "La fièvre typhoïde est-elle contagieuse entre personnes ?",
+      "a": "Elle se transmet principalement par voie digestive (eau ou aliments contaminés), et non par simple contact ou par l'air. Cependant, une personne malade peut contaminer son entourage via les mains souillées ou les selles. Une hygiène stricte des mains suffit à réduire considérablement ce risque."
+    },
+    {
+      "q": "Peut-on prévenir la fièvre typhoïde au Maroc ?",
+      "a": "Oui : boire de l'eau en bouteille ou bouillie, laver soigneusement les aliments, se laver les mains avant de manger et après les toilettes sont les gestes essentiels. Un vaccin existe et peut être recommandé par votre médecin avant un voyage dans une zone à risque élevé."
+    }
+  ],
+  "intentAnswer": "Pour une suspicion de fièvre typhoïde, consultez d'abord un médecin généraliste qui prescrira les analyses nécessaires. Si l'infection est confirmée ou sévère, il vous orientera vers un spécialiste en maladies infectieuses. En cas de signes d'alerte (douleurs intenses, saignements, confusion), rendez-vous directement aux urgences.",
+  "termAr": "حمى التيفوئيد",
+  "shortAnswerAr": "حمى التيفوئيد مرض بكتيري خطير يصيب الجهاز الهضمي، شائع في المغرب. تبدأ عادةً بحمى مستمرة قد تبدو عادية. لكنها تصبح خطيرة دون علاج: أي حمى تستمر أكثر من خمسة أيام، خاصة مع آلام في البطن، تستوجب استشارة طبية فورية.",
+  "causesAr": [
+    "شرب مياه ملوثة ببكتيريا السالمونيلا التيفية",
+    "تناول أطعمة نيئة أو غير مطبوخة جيداً تعامل معها شخص مصاب",
+    "إهمال غسل اليدين بعد استخدام الحمام",
+    "غسل الفواكه والخضروات بمياه غير صالحة للشرب",
+    "الاحتكاك المباشر بشخص مصاب بالحمى التيفية",
+    "الإقامة في أماكن تفتقر إلى الصرف الصحي الملائم"
+  ],
+  "redFlagsAr": [
+    "حمى مرتفعة مستمرة لأكثر من خمسة أيام دون سبب واضح",
+    "آلام حادة في البطن أو تصلب جدار البطن",
+    "نزيف هضمي (براز أسود اللون أو دم في البراز)",
+    "قيء متواصل يمنع أي ترطيب، خاصة عند الأطفال أو كبار السن",
+    "ارتباك ذهني أو نعاس شديد وصعوبة في البقاء مستيقظاً",
+    "انخفاض ضغط الدم أو شحوب حاد أو فقدان الوعي"
+  ],
+  "whenToConsultAr": "استشر طبيباً فوراً إذا استمرت الحمى أكثر من ثلاثة أيام، خاصة بعد سفر أو تعرض لمياه أو أطعمة مشبوهة. وفي حال ظهور أي علامة خطر (آلام بطنية شديدة، نزيف، قيء متواصل يمنع الشرب، ارتباك)، اتجه مباشرة إلى قسم الطوارئ.",
+  "faqAr": [
+    {
+      "q": "هل حمى التيفوئيد معدية بين الأشخاص؟",
+      "a": "تنتقل أساساً عن طريق الماء أو الغذاء الملوث، وليس بالتنفس أو التلامس البسيط. غير أن المريض قد يُعدي المحيطين به عبر الأيدي غير النظيفة أو البراز. غسل اليدين بانتظام يقلل من هذا الخطر بشكل كبير."
+    },
+    {
+      "q": "هل يمكن الوقاية من حمى التيفوئيد في المغرب؟",
+      "a": "نعم: شرب المياه المعبأة أو المغلية، وغسل المواد الغذائية جيداً، والحرص على نظافة اليدين قبل الأكل وبعد الحمام كلها تدابير فعّالة. كما يتوفر لقاح يمكن لطبيبك أن يوصي به قبل السفر إلى مناطق عالية الخطورة."
+    }
+  ],
+  "intentAnswerAr": "عند الاشتباه في حمى التيفوئيد، ابدأ بزيارة طبيب عام يطلب الفحوصات اللازمة. وإن تأكدت الإصابة أو كانت الحالة خطيرة، يحيلك إلى أخصائي في الأمراض المعدية. أما عند ظهور علامات الخطر (آلام شديدة، نزيف، ارتباك)، فتوجه مباشرة إلى المستعجلات."
+}

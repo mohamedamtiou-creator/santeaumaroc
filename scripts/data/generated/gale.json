@@ -1,0 +1,64 @@
+{
+  "slug": "gale",
+  "term": "Gale",
+  "kind": "DISEASE",
+  "specialty": "dermatologie",
+  "synonyms": ["scabiose", "sarcopte", "gale sarcoptique"],
+  "shortAnswer": "La gale est une infection cutanée très contagieuse causée par un acarien microscopique. Elle provoque des démangeaisons intenses, surtout la nuit. Elle se traite bien mais nécessite une consultation médicale et un traitement simultané de l'entourage pour éviter les rechutes.",
+  "causes": [
+    "Contamination par contact cutané prolongé avec une personne infestée (partage d'un lit, rapport intime)",
+    "Partage de vêtements, de linge de lit ou de serviettes contaminés",
+    "Transmission en milieu collectif (crèches, établissements de soins, familles nombreuses)",
+    "Contact avec des animaux porteurs (gale animale, moins persistante chez l'humain)",
+    "Système immunitaire affaibli favorisant une forme sévère dite « gale croûteuse » (norvégienne)",
+    "Voyages ou séjours dans des zones à forte densité de population et conditions d'hygiène précaires"
+  ],
+  "redFlags": [
+    "Lésions croûteuses épaisses, généralisées ou très étendues (possible gale norvégienne chez personne immunodéprimée) : consultez un médecin en urgence",
+    "Fièvre, ganglions enflés ou signes d'infection cutanée surajoutée (rougeur chaude, gonflement, pus) : consultez en urgence ou rendez-vous aux urgences si la rougeur s'étend rapidement",
+    "Démangeaisons intenses ne cédant pas après traitement correct et bien suivi",
+    "Atteinte de nourrissons ou de personnes âgées vivant en collectivité avec propagation rapide",
+    "Réapparition des symptômes après traitement sans retraitement simultané de l'entourage"
+  ],
+  "whenToConsult": "Consultez un médecin dès l'apparition de démangeaisons nocturnes persistantes, surtout si d'autres membres de votre entourage présentent les mêmes symptômes. Un traitement précoce limite la propagation. En cas de fièvre associée ou de plaie infectée qui s'étend, rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "La gale est-elle grave ?",
+      "a": "La gale n'est pas dangereuse en elle-même, mais elle est très contagieuse et provoque un inconfort important. Sans traitement adapté, elle persiste et se propage. Elle peut devenir plus sévère chez les personnes immunodéprimées. Un suivi médical est indispensable."
+    },
+    {
+      "q": "Faut-il traiter toute la famille même sans symptômes ?",
+      "a": "Oui. Les personnes en contact étroit (famille vivant sous le même toit, partenaire) doivent être traitées en même temps, même si elles ne présentent pas encore de démangeaisons, afin d'éviter une contamination croisée et des rechutes répétées."
+    }
+  ],
+  "intentAnswer": "Pour la gale, consultez en premier lieu un médecin généraliste qui peut poser le diagnostic et orienter le traitement. En cas de forme atypique, sévère ou récidivante, il vous adressera à un dermatologue. Si des signes d'infection grave apparaissent (fièvre, rougeur qui s'étend, pus), rendez-vous aux urgences sans attendre.",
+  "termAr": "الجرب",
+  "shortAnswerAr": "الجرب مرض جلدي معدٍ جداً تسببه حشرة مجهرية تُعرف بالسارقوبت. يتميز بحكة شديدة تزداد ليلاً. يستجيب للعلاج بشكل جيد، لكنه يستلزم استشارة طبية وعلاج المحيطين في الوقت ذاته لتفادي الانتكاسات.",
+  "causesAr": [
+    "الاحتكاك الجسدي المطوّل مع شخص مصاب (مشاركة الفراش أو العلاقة الجنسية)",
+    "مشاركة الملابس أو الفراش أو المناشف الملوّثة",
+    "الانتقال في الأماكن الجماعية كالحضانات ودور الرعاية والعائلات الكبيرة",
+    "الاتصال ببعض الحيوانات الحاملة للجرب، وإن كانت العدوى أقل استمرارية عند الإنسان",
+    "ضعف جهاز المناعة الذي قد يؤدي إلى شكل حاد يُعرف بالجرب النرويجي",
+    "السفر أو الإقامة في مناطق ذات كثافة سكانية عالية وظروف نظافة صعبة"
+  ],
+  "redFlagsAr": [
+    "ظهور قشور سميكة منتشرة على الجسم قد تشير إلى الجرب النرويجي لدى من يعانون ضعف المناعة: استشر طبيباً بشكل عاجل",
+    "ارتفاع في درجة الحرارة أو تورم الغدد الليمفاوية أو علامات عدوى جلدية ثانوية (احمرار ساخن أو تورم أو قيح): راجع الطوارئ فوراً إذا كان الاحمرار يتسع بسرعة",
+    "استمرار الحكة الشديدة رغم اتباع العلاج بشكل صحيح",
+    "إصابة الرضع أو كبار السن في الأماكن الجماعية مع انتشار سريع",
+    "عودة الأعراض بعد العلاج دون معالجة المحيطين في الوقت ذاته"
+  ],
+  "whenToConsultAr": "راجع الطبيب فور ظهور حكة ليلية متكررة، خاصة إذا شكا أفراد من محيطك من الأعراض ذاتها. التشخيص المبكر يحدّ من انتشار المرض. وفي حال ظهور حمى أو جرح جلدي متسع أو قيح، توجّه فوراً إلى المستعجلات دون انتظار.",
+  "faqAr": [
+    {
+      "q": "هل الجرب خطير؟",
+      "a": "الجرب في حد ذاته ليس خطراً، لكنه شديد العدوى ويسبب إزعاجاً كبيراً. بدون علاج مناسب يستمر وينتشر، وقد يصبح أشد حدة لدى من يعانون ضعف المناعة. لذلك لا بد من استشارة طبية."
+    },
+    {
+      "q": "هل يجب علاج جميع أفراد الأسرة حتى من لا تظهر عليهم أعراض؟",
+      "a": "نعم. يجب معالجة جميع المخالطين عن كثب في آنٍ واحد، حتى غير المصابين ظاهرياً، لقطع حلقة العدوى المتبادلة وتفادي الانتكاسات المتكررة."
+    }
+  ],
+  "intentAnswerAr": "في حال الاشتباه بالجرب، ابدأ باستشارة طبيب عام يستطيع تشخيص الحالة وتوجيه العلاج. إذا كانت الحالة غير نمطية أو شديدة أو متكررة، يُحيلك إلى طبيب جلدية. وفي حال ظهور علامات عدوى حادة (حمى، احمرار متسع، قيح)، توجّه فوراً إلى المستعجلات."
+}

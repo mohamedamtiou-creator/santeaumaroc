@@ -1,0 +1,66 @@
+{
+  "slug": "sclerose-en-plaques",
+  "term": "Sclérose en plaques",
+  "kind": "DISEASE",
+  "specialty": "neurologie",
+  "synonyms": ["SEP", "sclérose multiple", "maladie démyélinisante"],
+  "shortAnswer": "La sclérose en plaques est une maladie chronique du système nerveux central qui attaque la gaine de myéline protégeant les nerfs. Elle évolue par poussées ou de façon progressive. Une fatigue persistante, des troubles visuels ou moteurs inhabituels justifient une consultation médicale rapide.",
+  "causes": [
+    "Réaction auto-immune : le système immunitaire attaque par erreur la myéline des nerfs",
+    "Prédisposition génétique (antécédents familiaux de SEP)",
+    "Facteurs environnementaux : manque de vitamine D, exposition solaire insuffisante",
+    "Infections virales passées (notamment le virus d'Epstein-Barr) comme possible déclencheur",
+    "Tabagisme, associé à un risque accru et une évolution plus rapide",
+    "Déséquilibre du microbiome intestinal évoqué dans les recherches récentes"
+  ],
+  "redFlags": [
+    "Perte soudaine de la vision d'un œil ou vision double brutale",
+    "Faiblesse ou paralysie rapide d'un bras ou d'une jambe",
+    "Perte d'équilibre sévère rendant la marche impossible",
+    "Troubles de la parole ou difficultés à avaler apparaissant brutalement",
+    "Rétention urinaire aiguë ou incontinence soudaine et complète",
+    "Difficultés respiratoires ou sensation d'étouffement (atteinte possible de la moelle cervicale haute)"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès l'apparition de symptômes neurologiques inexpliqués (engourdissements, troubles visuels, fatigue intense, déséquilibre). En cas de signes d'alerte graves, rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "La sclérose en plaques est-elle mortelle ?",
+      "a": "La SEP raccourcit rarement la vie de façon significative. Avec un suivi neurologique régulier et les traitements disponibles, la plupart des personnes atteintes mènent une vie active. La maladie évolue différemment selon chaque patient ; un suivi médical précoce améliore nettement le pronostic."
+    },
+    {
+      "q": "Comment la sclérose en plaques est-elle diagnostiquée ?",
+      "a": "Le diagnostic repose sur l'examen neurologique, l'IRM cérébrale et médullaire, et parfois une ponction lombaire ou des potentiels évoqués. Il ne peut être posé que par un neurologue après un bilan complet. Aucun test sanguin simple ne permet à lui seul de confirmer la maladie."
+    }
+  ],
+  "intentAnswer": "Pour une suspicion de sclérose en plaques, consultez d'abord votre médecin généraliste qui vous orientera vers un neurologue, spécialiste de référence pour le diagnostic et le suivi. En cas de perte de vision soudaine, de paralysie, de difficultés respiratoires ou de troubles graves, rendez-vous immédiatement aux urgences.",
+  "termAr": "التصلب اللويحي",
+  "shortAnswerAr": "التصلب اللويحي مرض مزمن يصيب الجهاز العصبي المركزي، إذ يهاجم الجهاز المناعي غلاف المايلين الواقي للأعصاب. يتطور على شكل نوبات أو بصورة تدريجية. التعب المستمر أو اضطرابات الرؤية أو الحركة غير المعتادة تستوجب استشارة طبية سريعة.",
+  "causesAr": [
+    "استجابة مناعية ذاتية: يهاجم الجهاز المناعي عن طريق الخطأ غلاف المايلين للأعصاب",
+    "الاستعداد الوراثي (وجود إصابات بالتصلب اللويحي في العائلة)",
+    "عوامل بيئية: نقص فيتامين د وقلة التعرض للشمس",
+    "إصابات فيروسية سابقة (لا سيما فيروس إبشتاين-بار) كعامل مُحفِّز محتمل",
+    "التدخين المرتبط بارتفاع خطر الإصابة وتسارع تطور المرض",
+    "اختلال توازن ميكروبيوم الأمعاء وفق ما تشير إليه الأبحاث الحديثة"
+  ],
+  "redFlagsAr": [
+    "فقدان مفاجئ للرؤية في إحدى العينين أو ازدواج مفاجئ في الرؤية",
+    "ضعف أو شلل سريع في ذراع أو ساق",
+    "اضطراب شديد في التوازن يجعل المشي متعذراً",
+    "اضطرابات مفاجئة في الكلام أو صعوبة في البلع",
+    "احتباس بولي حاد أو سلس بول مفاجئ وكامل",
+    "صعوبة في التنفس أو الشعور بالاختناق (احتمال إصابة النخاع الشوكي العنقي العلوي)"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور ظهور أعراض عصبية غير مبررة (تنميل، اضطرابات بصرية، تعب شديد، فقدان توازن). وفي حال ظهور علامات تحذيرية خطيرة، توجه فوراً إلى قسم الطوارئ دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل التصلب اللويحي مرض مميت؟",
+      "a": "نادراً ما يؤثر التصلب اللويحي تأثيراً كبيراً على متوسط العمر. مع المتابعة العصبية المنتظمة والعلاجات المتاحة، يعيش معظم المرضى حياة نشطة. يتفاوت تطور المرض من شخص لآخر، والتشخيص المبكر يُحسّن المآل بشكل ملحوظ."
+    },
+    {
+      "q": "كيف يُشخَّص التصلب اللويحي؟",
+      "a": "يعتمد التشخيص على الفحص العصبي وتصوير الدماغ والحبل الشوكي بالرنين المغناطيسي، وأحياناً البزل القطني أو الإمكانات المستثارة. ولا يمكن تأكيده إلا من قِبل طبيب أعصاب بعد تقييم شامل، ولا يوجد فحص دم بسيط وحده يكفي للتأكيد."
+    }
+  ],
+  "intentAnswerAr": "عند الاشتباه في التصلب اللويحي، ابدأ باستشارة طبيبك العام الذي سيحيلك إلى طبيب الأعصاب المختص بالتشخيص والمتابعة. وإذا ظهرت أعراض حادة كفقدان البصر المفاجئ أو الشلل أو صعوبة التنفس أو اضطرابات خطيرة، اتجه فوراً إلى قسم الطوارئ."
+}

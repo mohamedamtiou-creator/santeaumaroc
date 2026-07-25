@@ -1,0 +1,64 @@
+{
+  "slug": "tennis-elbow",
+  "term": "Épicondylite (tennis elbow)",
+  "kind": "DISEASE",
+  "specialty": "traumatologie-orthopedie",
+  "synonyms": ["tennis elbow", "épicondylalgie latérale", "coude du tennisman"],
+  "shortAnswer": "L'épicondylite est une inflammation des tendons du coude due à une surutilisation. Elle provoque une douleur à l'extérieur du coude, souvent bénigne et guérissable avec du repos. Consultez si la douleur persiste plus de quelques semaines ou s'accompagne de blocage ou engourdissement.",
+  "causes": [
+    "Mouvements répétitifs du poignet et du bras (travail sur ordinateur, bricolage, jardinage)",
+    "Pratique sportive intensive (tennis, badminton, golf)",
+    "Mauvaise technique gestuelle lors d'un effort physique",
+    "Port fréquent de charges lourdes avec le coude tendu",
+    "Surmenage professionnel des membres supérieurs (artisans, peintres, plombiers)",
+    "Vieillissement des tendons rendant les fibres plus fragiles"
+  ],
+  "redFlags": [
+    "Douleur intense et soudaine après un traumatisme ou une chute sur le bras",
+    "Blocage ou déformation visible du coude",
+    "Engourdissements ou fourmillements remontant dans la main ou les doigts",
+    "Gonflement chaud et rouge du coude avec fièvre (signe d'infection possible)",
+    "Impossibilité totale de plier ou d'étendre le bras"
+  ],
+  "whenToConsult": "Consultez un médecin si la douleur au coude dure plus de deux à trois semaines malgré le repos, ou si elle gêne vos activités quotidiennes. En présence de l'un des signes d'alerte ci-dessus, consultez sans attendre.",
+  "faq": [
+    {
+      "q": "Faut-il arrêter tout sport ou toute activité en cas d'épicondylite ?",
+      "a": "Pas forcément. Il est conseillé de réduire ou d'adapter les activités douloureuses, sans les supprimer totalement. Un professionnel de santé pourra orienter vers des exercices adaptés et évaluer si une rééducation est nécessaire."
+    },
+    {
+      "q": "L'épicondylite peut-elle guérir seule sans traitement ?",
+      "a": "Dans de nombreux cas, le repos et l'arrêt des mouvements répétitifs suffisent à soulager progressivement la douleur. Cependant, si les symptômes persistent au-delà de quelques semaines, une prise en charge médicale (kinésithérapie, port d'une orthèse) accélère la guérison et évite les rechutes."
+    }
+  ],
+  "intentAnswer": "Pour une épicondylite (tennis elbow), consultez d'abord votre médecin généraliste, qui posera le diagnostic et orientera si besoin vers un spécialiste en traumatologie-orthopédie ou un médecin du sport. En cas de douleur intense après un traumatisme, de blocage du coude ou d'engourdissement, rendez-vous aux urgences.",
+  "termAr": "التهاب اللقيمة (كوع التنس)",
+  "shortAnswerAr": "التهاب اللقيمة هو التهاب في أوتار الكوع ناجم عن الإفراط في استخدام المفصل. يسبب ألمًا في الجانب الخارجي من الكوع، وغالبًا ما يكون خفيفًا ويتحسن بالراحة. استشر طبيبًا إذا استمر الألم أكثر من أسبوعين أو صاحبه تنميل أو تقييد في الحركة.",
+  "causesAr": [
+    "الحركات المتكررة للمعصم والذراع (العمل على الحاسوب، أعمال البناء، البستنة)",
+    "ممارسة الرياضة بشكل مكثف (التنس، الريشة الطائرة، الغولف)",
+    "الأسلوب الخاطئ في الحركة أثناء المجهود البدني",
+    "حمل الأثقال بصفة متكررة مع مد الكوع",
+    "الإجهاد المهني المزمن للطرف العلوي (الحرفيون، الرسامون، السباكون)",
+    "تقدم العمر الذي يجعل ألياف الأوتار أكثر هشاشة"
+  ],
+  "redFlagsAr": [
+    "ألم شديد ومفاجئ بعد صدمة أو سقوط على الذراع",
+    "تقييد أو تشوه مرئي في مفصل الكوع",
+    "تنميل أو وخز يمتد إلى اليد أو الأصابع",
+    "تورم مع احمرار وحرارة في الكوع مصحوب بحمى (علامة محتملة للعدوى)",
+    "عدم القدرة التامة على ثني الذراع أو مدها"
+  ],
+  "whenToConsultAr": "استشر طبيبك إذا استمر ألم الكوع أكثر من أسبوعين إلى ثلاثة أسابيع رغم الراحة، أو إذا أعاق أنشطتك اليومية. في حالة وجود أي من العلامات التحذيرية المذكورة، اطلب الرعاية الطبية دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل يجب التوقف عن ممارسة الرياضة أو النشاط تمامًا في حالة التهاب اللقيمة؟",
+      "a": "ليس بالضرورة. يُنصح بتقليل الأنشطة المؤلمة أو تعديلها دون إيقافها كليًا. يمكن لأخصائي الصحة أن يرشدك إلى تمارين ملائمة ويقيّم ما إذا كانت إعادة التأهيل ضرورية."
+    },
+    {
+      "q": "هل يمكن أن يشفى التهاب اللقيمة من تلقاء نفسه دون علاج؟",
+      "a": "في كثير من الحالات، تكفي الراحة والابتعاد عن الحركات المتكررة لتخفيف الألم تدريجيًا. غير أنه إذا استمرت الأعراض لأسابيع، فإن التدخل الطبي (العلاج الطبيعي، جبيرة الكوع) يُسرّع الشفاء ويمنع الانتكاسات."
+    }
+  ],
+  "intentAnswerAr": "لعلاج التهاب اللقيمة (كوع التنس)، ابدأ باستشارة طبيبك العام الذي سيشخص حالتك ويحيلك عند الحاجة إلى أخصائي في جراحة العظام والمفاصل أو طب الرياضة. في حال حدوث ألم شديد بعد صدمة، أو تقييد في حركة الكوع، أو تنميل في اليد، توجه إلى المستعجلات فورًا."
+}

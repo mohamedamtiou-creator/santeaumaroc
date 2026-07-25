@@ -1,0 +1,64 @@
+{
+  "slug": "depression-post-partum",
+  "term": "Dépression post-partum",
+  "kind": "DISEASE",
+  "specialty": "psychiatrie",
+  "synonyms": ["baby blues sévère", "dépression périnatale", "dépression du post-partum"],
+  "shortAnswer": "La dépression post-partum est un trouble de l'humeur qui survient après l'accouchement, au-delà du baby blues passager. Elle se manifeste par une tristesse intense, une fatigue profonde et un sentiment d'inadéquation. Elle nécessite un suivi médical : ne pas attendre si les symptômes durent plus de deux semaines.",
+  "causes": [
+    "Chute brutale des hormones (œstrogènes, progestérone) après l'accouchement",
+    "Manque de sommeil chronique et épuisement physique",
+    "Antécédents personnels ou familiaux de dépression ou d'anxiété",
+    "Isolement social, manque de soutien du partenaire ou de l'entourage",
+    "Grossesse ou accouchement difficile, prématurité, complications néonatales",
+    "Stress financier, instabilité conjugale ou contexte de vie précaire"
+  ],
+  "redFlags": [
+    "Pensées de faire du mal à soi-même ou à son bébé : appeler le 15 (SAMU) ou se rendre aux urgences immédiatement",
+    "Refus total de s'occuper du nourrisson ou absence de lien affectif persistante",
+    "Hallucinations, confusion ou discours désorganisé (signes de psychose du post-partum)",
+    "Agitation extrême, insomnie totale ou état de panique incontrôlable",
+    "Incapacité complète à manger, se lever ou prendre soin de soi depuis plusieurs jours"
+  ],
+  "whenToConsult": "Consultez votre médecin généraliste ou votre gynécologue dès que la tristesse, les pleurs ou le sentiment d'incompétence persistent au-delà de deux semaines après l'accouchement. N'attendez pas : une prise en charge précoce améliore nettement le pronostic pour la mère et pour le bébé.",
+  "faq": [
+    {
+      "q": "La dépression post-partum est-elle différente du baby blues ?",
+      "a": "Oui. Le baby blues est une réaction émotionnelle normale qui survient dans les premiers jours après l'accouchement et disparaît spontanément en une à deux semaines. La dépression post-partum est plus intense, dure plus longtemps et nécessite un accompagnement médical. Si les symptômes s'aggravent ou persistent, consultez sans tarder."
+    },
+    {
+      "q": "Peut-on allaiter si l'on souffre d'une dépression post-partum ?",
+      "a": "Dans la plupart des cas, oui. La décision dépend de votre état de santé et des options thérapeutiques envisagées par votre médecin. Parlez-en ouvertement à votre médecin ou à votre gynécologue, qui pourra adapter la prise en charge en tenant compte de l'allaitement."
+    }
+  ],
+  "intentAnswer": "Pour une dépression post-partum, commencez par consulter votre médecin généraliste ou votre gynécologue, qui posera le diagnostic et orientera vers un psychiatre ou un psychologue spécialisé en périnatalité. En cas de pensées suicidaires ou de confusion, rendez-vous immédiatement aux urgences ou appelez le 15.",
+  "termAr": "اكتئاب ما بعد الولادة",
+  "shortAnswerAr": "اكتئاب ما بعد الولادة هو اضطراب نفسي يظهر بعد الوضع، ويتجاوز في حدّته ما يُعرف بـ«كآبة الأم» العابرة. يتميّز بحزن عميق وإرهاق شديد وشعور بالعجز. يستدعي متابعة طبية ولا يجب الانتظار إذا استمرت الأعراض أكثر من أسبوعين.",
+  "causesAr": [
+    "الانخفاض المفاجئ في مستوى الهرمونات (الإستروجين والبروجستيرون) بعد الولادة",
+    "الحرمان المزمن من النوم والإرهاق الجسدي",
+    "وجود تاريخ شخصي أو عائلي من الاكتئاب أو القلق",
+    "العزلة الاجتماعية وغياب الدعم من الشريك أو المحيط",
+    "حمل أو ولادة صعبة، أو مضاعفات عند المولود",
+    "ضغوط مادية أو زعزعة استقرار الحياة الأسرية"
+  ],
+  "redFlagsAr": [
+    "أفكار إيذاء النفس أو الطفل: التوجه فوراً إلى المستعجلات أو الاتصال بالإسعاف",
+    "الرفض التام للاهتمام بالرضيع أو غياب الرابط العاطفي بشكل مستمر",
+    "هلوسات أو تشوش في التفكير أو كلام غير مترابط (علامات ذهان ما بعد الولادة)",
+    "هياج شديد أو أرق كامل أو نوبات ذعر لا يمكن السيطرة عليها",
+    "عجز تام عن الأكل أو النهوض أو الاعتناء بالنفس لأيام متتالية"
+  ],
+  "whenToConsultAr": "استشيري طبيبك العام أو طبيبك النسائي فور شعورك بحزن مستمر أو بكاء متكرر أو إحساس بعدم الكفاءة يمتد لأكثر من أسبوعين بعد الولادة. لا تنتظري؛ فالتدخل المبكر يُحسّن نتائج العلاج بشكل ملحوظ، لصالحك ولصالح طفلك.",
+  "faqAr": [
+    {
+      "q": "هل اكتئاب ما بعد الولادة يختلف عن كآبة الأيام الأولى؟",
+      "a": "نعم. كآبة الأيام الأولى (baby blues) استجابةٌ عاطفية طبيعية تظهر في الأيام القليلة التالية للولادة وتزول من تلقاء نفسها في غضون أسبوع أو أسبوعين. أما اكتئاب ما بعد الولادة فأشدّ حدةً وأطول أمداً، ويستلزم متابعة طبية. إن تفاقمت الأعراض أو استمرت، فلا تترددي في الاستشارة."
+    },
+    {
+      "q": "هل يمكن الإرضاع الطبيعي في حالة اكتئاب ما بعد الولادة؟",
+      "a": "في الغالب نعم. يعتمد القرار على حالتك الصحية وخيارات العلاج التي يقترحها طبيبك. تحدثي بصراحة مع طبيبك العام أو طبيبك النسائي، الذي سيُكيّف خطة العلاج مع ظروف الإرضاع."
+    }
+  ],
+  "intentAnswerAr": "للتعامل مع اكتئاب ما بعد الولادة، ابدئي باستشارة طبيبك العام أو طبيبك النسائي الذي سيُشخّص حالتك ويُحيلك إلى طبيب نفسي أو أخصائي نفسي متخصص في صحة الأم والطفل. وفي حال ظهور أفكار انتحارية أو تشوش ذهني، توجهي فوراً إلى المستعجلات أو اتصلي بالإسعاف."
+}

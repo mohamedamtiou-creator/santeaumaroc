@@ -1,0 +1,62 @@
+{
+  "slug": "myopie",
+  "term": "Myopie",
+  "kind": "DISEASE",
+  "specialty": "ophtalmologie",
+  "synonyms": ["vision de loin floue", "myopie axiale", "courte vue"],
+  "shortAnswer": "La myopie est un trouble de la vision qui rend les objets éloignés flous, tandis que la vision de près reste nette. Très fréquente et généralement bénigne, elle peut nécessiter une surveillance régulière car une myopie forte expose à des complications oculaires sérieuses.",
+  "causes": [
+    "Facteurs génétiques : antécédents familiaux de myopie (risque nettement augmenté si les deux parents sont myopes)",
+    "Allongement excessif du globe oculaire, entraînant une mise au point en avant de la rétine",
+    "Manque d'exposition à la lumière naturelle, notamment chez l'enfant en âge scolaire",
+    "Temps prolongé passé sur des écrans ou à des activités de vision rapprochée",
+    "Progression rapide durant l'enfance et l'adolescence (phase de croissance oculaire)",
+    "Rare : myopie secondaire à une pathologie (cataracte, diabète non équilibré, kératocône)"
+  ],
+  "redFlags": [
+    "Apparition soudaine de corps flottants (mouches volantes) nombreux ou d'un voile dans le champ visuel : risque de décollement de rétine",
+    "Éclairs lumineux (phosphènes) répétés, même en l'absence de douleur",
+    "Baisse brutale et unilatérale de la vision, même indolore",
+    "Douleur oculaire intense accompagnée de rougeur, nausées ou vision de halos colorés autour des lumières (possible glaucome aigu)"
+  ],
+  "whenToConsult": "Consultez un ophtalmologue dès que vous ressentez une gêne visuelle à distance, des maux de tête fréquents à l'école ou au travail, ou si votre enfant plisse les yeux pour voir le tableau. En cas de signes d'alerte (éclairs, voile, baisse brutale), consultez en urgence sans attendre.",
+  "faq": [
+    {
+      "q": "La myopie peut-elle s'aggraver avec l'âge ?",
+      "a": "Oui, la myopie progresse souvent pendant l'enfance et l'adolescence, puis se stabilise généralement à l'âge adulte (20-25 ans). Une myopie forte (supérieure à -6 dioptries) reste préoccupante à tout âge car elle augmente le risque de décollement de rétine, de glaucome et de dégénérescence maculaire. Un suivi ophtalmologique régulier est indispensable."
+    },
+    {
+      "q": "Quelles sont les options pour corriger la myopie ?",
+      "a": "Les lunettes et les lentilles de contact corrigent la vision sans la guérir. La chirurgie réfractive (laser, implant) est possible à l'âge adulte une fois la myopie stabilisée, après bilan ophtalmologique approfondi. Chez l'enfant, des méthodes de ralentissement de la progression (orthokératologie, lentilles spéciales) peuvent être proposées par un spécialiste."
+    }
+  ],
+  "intentAnswer": "Pour une myopie, commencez par consulter votre médecin généraliste qui pourra orienter vers un ophtalmologue, spécialiste indispensable pour le bilan visuel, la prescription de correction et le suivi. En cas de baisse brutale de vision, d'éclairs ou de voile, rendez-vous en urgence aux urgences ophtalmologiques.",
+  "termAr": "قصر النظر",
+  "shortAnswerAr": "قصر النظر هو اضطراب بصري يجعل الأشياء البعيدة تبدو ضبابية بينما تظل الرؤية عن قرب واضحة. شائع جداً وغير خطير في الغالب، غير أن قصر النظر الشديد قد يستدعي متابعة منتظمة لتفادي مضاعفات جدية في العين.",
+  "causesAr": [
+    "عوامل وراثية: وجود قصر النظر عند أحد الوالدين أو كليهما يرفع احتمال الإصابة بشكل ملحوظ",
+    "استطالة مفرطة في كرة العين مما يجعل بؤرة الصورة تقع أمام الشبكية",
+    "قلة التعرض للضوء الطبيعي، خاصة لدى الأطفال في سن الدراسة",
+    "قضاء وقت طويل أمام الشاشات أو في الأنشطة التي تتطلب الرؤية عن قرب",
+    "تطور سريع للمرض خلال مرحلة الطفولة والمراهقة نتيجة نمو العين",
+    "نادراً: قصر نظر ثانوي بسبب حالة مرضية كالساد أو مرض السكري غير المتوازن أو القرنية المخروطية"
+  ],
+  "redFlagsAr": [
+    "ظهور مفاجئ لعدد كبير من البقع العائمة (ذباب طائر) أو حجاب في مجال البصر: يستدعي استبعاد انفصال الشبكية فوراً",
+    "ومضات ضوئية متكررة (فوسفينات) حتى في غياب أي ألم",
+    "تراجع مفاجئ ومتزايد في حدة البصر في عين واحدة حتى دون ألم",
+    "ألم شديد في العين مصحوب باحمرار وغثيان أو رؤية هالات ملونة حول الأضواء (يحتمل الجلوكوما الحادة)"
+  ],
+  "whenToConsultAr": "استشر طبيب العيون فور ملاحظة صعوبة في الرؤية عن بُعد، أو صداع متكرر في المدرسة أو العمل، أو إذا كان طفلك يُضيّق عينيه لرؤية السبورة. وفي حال ظهور علامات التحذير (ومضات، حجاب، تراجع مفاجئ في البصر)، توجّه إلى المستعجلات فوراً دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل يمكن أن يتفاقم قصر النظر مع التقدم في السن؟",
+      "a": "نعم، يتطور قصر النظر عادةً خلال مرحلتي الطفولة والمراهقة، ثم يستقر في أغلب الحالات عند البلوغ (بين 20 و25 سنة). غير أن قصر النظر الشديد (أكثر من 6 ديوبتريات) يزيد من خطر الإصابة بانفصال الشبكية والزرق والضمور البقعي في أي سن، مما يستوجب المتابعة المنتظمة عند طبيب العيون."
+    },
+    {
+      "q": "ما هي الخيارات المتاحة لتصحيح قصر النظر؟",
+      "a": "تعمل النظارات والعدسات اللاصقة على تصحيح الرؤية دون علاج المرض. أما الجراحة الانكسارية (الليزر أو العدسة داخل العين) فتُجرى للبالغين بعد استقرار درجة قصر النظر وإجراء فحص دقيق. وبالنسبة للأطفال، يمكن للمختص أن يقترح وسائل لإبطاء تطور المرض كعدسات التقويس الليلي أو العدسات المتخصصة."
+    }
+  ],
+  "intentAnswerAr": "في حالة قصر النظر، ابدأ بزيارة طبيب عام يمكنه إحالتك إلى طبيب عيون، وهو المختص الضروري لإجراء الفحص البصري وصرف الوصفة الطبية والمتابعة. أما في حال تراجع مفاجئ في البصر أو ومضات ضوئية أو ظهور حجاب، فتوجه فوراً إلى مستعجلات طب العيون."
+}

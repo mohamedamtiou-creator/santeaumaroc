@@ -1,0 +1,66 @@
+{
+  "slug": "taches-sur-la-peau",
+  "term": "Taches sur la peau",
+  "kind": "SYMPTOM",
+  "specialty": "dermatologie",
+  "synonyms": ["macules cutanées", "hyperpigmentation", "lésions pigmentées", "taches pigmentaires", "dyschromie"],
+  "shortAnswer": "Les taches sur la peau sont des modifications localisées de la couleur ou de la texture de la peau. Souvent bénignes (coup de soleil, taches de vieillesse), elles peuvent parfois signaler une maladie à traiter. Une tache qui change, saigne ou ne guérit pas nécessite un avis médical.",
+  "causes": [
+    "Exposition solaire prolongée (taches de soleil, éphélides)",
+    "Réactions allergiques ou irritations cutanées (eczéma, urticaire)",
+    "Infections cutanées fongiques : mycoses, pityriasis versicolor",
+    "Troubles de la pigmentation d'origine auto-immune : vitiligo",
+    "Troubles hormonaux : mélasma (masque de grossesse)",
+    "Maladies systémiques : lupus, maladies auto-immunes",
+    "Cicatrices post-inflammatoires après acné ou blessure"
+  ],
+  "redFlags": [
+    "Tache qui change rapidement de forme, de taille ou de couleur",
+    "Bords irréguliers, asymétrie marquée ou plusieurs couleurs dans la même lésion",
+    "Tache qui saigne, suinte ou ne cicatrise pas",
+    "Apparition soudaine de nombreuses taches associées à de la fièvre ou des douleurs",
+    "Tache douloureuse, croûteuse ou évoluant depuis plusieurs semaines"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si une tache persiste plus de 3 semaines, évolue ou s'accompagne d'autres symptômes. En cas de signe d'alerte, consultez rapidement un dermatologue.",
+  "faq": [
+    {
+      "q": "Les taches brunes qui apparaissent avec l'âge sont-elles dangereuses ?",
+      "a": "Les taches de vieillesse (lentigos solaires) sont généralement bénignes et très courantes après 40 ans. Elles ne disparaissent pas seules mais sont sans danger. Toutefois, si une tache change d'aspect, grossit rapidement ou devient irrégulière, il est conseillé de la faire examiner par un dermatologue."
+    },
+    {
+      "q": "Comment distinguer une tache bénigne d'une tache inquiétante ?",
+      "a": "Une règle simple est la règle ABCDE : Asymétrie, Bords irréguliers, Couleur non uniforme, Diamètre supérieur à 6 mm, Évolution récente. Si une de ces caractéristiques est présente, consultez un dermatologue sans attendre."
+    }
+  ],
+  "intentAnswer": "Pour des taches sur la peau, commencez par consulter un médecin généraliste qui orientera vers un dermatologue si nécessaire. Le dermatologue est le spécialiste de référence pour diagnostiquer et traiter toute lésion cutanée. En cas de tache évolutive, saignante ou accompagnée de fièvre, consultez en urgence.",
+  "termAr": "بقع الجلد",
+  "shortAnswerAr": "بقع الجلد هي تغيرات موضعية في لون الجلد أو ملمسه. كثيرًا ما تكون حميدة كبقع الشمس أو الشيخوخة، غير أنها قد تكون أحيانًا علامةً على مرض يستوجب العلاج. أي بقعة تتغير أو تنزف أو لا تشفى تستدعي استشارة طبية.",
+  "causesAr": [
+    "التعرض المفرط للشمس (بقع الشمس والنمش)",
+    "ردود فعل تحسسية أو تهيج جلدي (أكزيما، شرى)",
+    "التهابات جلدية فطرية: فطريات، النخالية المبرقشة",
+    "اضطرابات التصبغ ذات المنشأ المناعي الذاتي: البهاق",
+    "اضطرابات هرمونية: الكلف (قناع الحمل)",
+    "أمراض جهازية: الذئبة الحمراء وأمراض المناعة الذاتية",
+    "ندوب ما بعد الالتهاب جراء حب الشباب أو الجروح"
+  ],
+  "redFlagsAr": [
+    "بقعة تتغير شكلها أو حجمها أو لونها بسرعة",
+    "حواف غير منتظمة أو عدم تناسق واضح أو تعدد الألوان في نفس الآفة",
+    "بقعة تنزف أو تُفرز سائلًا أو لا تلتئم",
+    "ظهور مفاجئ لبقع كثيرة مصحوبة بحمى أو آلام",
+    "بقعة مؤلمة أو متقشرة أو تتطور منذ أسابيع"
+  ],
+  "whenToConsultAr": "استشر طبيبًا عامًا إذا استمرت البقعة أكثر من ثلاثة أسابيع أو تطورت أو رافقتها أعراض أخرى. عند وجود أي علامة تحذيرية، توجّه بسرعة إلى طبيب الجلدية.",
+  "faqAr": [
+    {
+      "q": "هل البقع البنية التي تظهر مع التقدم في السن خطيرة؟",
+      "a": "بقع الشيخوخة (النمش الشمسي) حميدة في الغالب وشائعة جدًا بعد سن الأربعين. لا تختفي من تلقاء نفسها لكنها غير ضارة. غير أنه إذا تغيّر شكل بقعة أو كبرت بسرعة أو أصبحت غير منتظمة، يُنصح بعرضها على طبيب الجلدية."
+    },
+    {
+      "q": "كيف أميّز بين البقعة الحميدة والبقعة المقلقة؟",
+      "a": "يمكن الاستعانة بقاعدة ABCDE: عدم التناسق، حواف غير منتظمة، لون غير متجانس، قطر يتجاوز 6 ملم، تطور حديث. إذا توفّرت إحدى هذه الخصائص، راجع طبيب الجلدية دون تأخير."
+    }
+  ],
+  "intentAnswerAr": "لمعالجة بقع الجلد، ابدأ بالطبيب العام الذي يُحيلك إلى طبيب الجلدية عند الحاجة. طبيب الجلدية هو المختص المرجعي لتشخيص وعلاج أي آفة جلدية. في حال وجود بقعة متطورة أو نازفة أو مصحوبة بحمى، توجّه إلى الطوارئ فورًا."
+}

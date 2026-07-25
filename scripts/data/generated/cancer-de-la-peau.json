@@ -1,0 +1,64 @@
+{
+  "slug": "cancer-de-la-peau",
+  "term": "Cancer de la peau (mélanome)",
+  "kind": "DISEASE",
+  "specialty": "dermatologie",
+  "synonyms": ["mélanome", "mélanome cutané", "cancer cutané", "tumeur melanocytaire"],
+  "shortAnswer": "Le mélanome est un cancer de la peau issu des cellules pigmentaires. La plupart des taches sont bénignes, mais une lésion qui change de forme, de couleur ou saigne sans raison doit être montrée rapidement à un médecin : un dépistage précoce améliore considérablement les chances de guérison.",
+  "causes": [
+    "Exposition solaire intense et répétée, surtout dans l'enfance et l'adolescence",
+    "Coups de soleil ayant provoqué des cloques dans le passé",
+    "Utilisation de cabines de bronzage (UV artificiels)",
+    "Peau claire, taches de rousseur, cheveux roux ou blonds",
+    "Nombreux grains de beauté ou grains de beauté atypiques (dysplasiques)",
+    "Antécédents personnels ou familiaux de mélanome ou de cancer de la peau"
+  ],
+  "redFlags": [
+    "Grain de beauté asymétrique, aux bords irréguliers ou déchiquetés",
+    "Lésion présentant plusieurs couleurs mélangées (brun, noir, rouge, blanc, bleu)",
+    "Tache qui grossit rapidement ou change d'aspect en quelques semaines",
+    "Lésion qui saigne spontanément, démange de façon persistante ou forme une croûte",
+    "Apparition d'un ganglion sous l'aisselle ou dans l'aine près d'un grain de beauté suspect"
+  ],
+  "whenToConsult": "Consultez un médecin sans attendre si vous remarquez un grain de beauté qui change, une nouvelle tache cutanée inhabituelle ou l'un des signes d'alerte ci-dessus. N'attendez pas : plus le mélanome est détecté tôt, plus le traitement est efficace.",
+  "faq": [
+    {
+      "q": "Comment surveiller mes grains de beauté à la maison ?",
+      "a": "Appliquez la règle ABCDE : Asymétrie, Bords irréguliers, Couleur non uniforme, Diamètre supérieur à 6 mm, Évolution (changement récent). Si l'un de ces critères est présent, consultez un dermatologue sans tarder pour un examen professionnel."
+    },
+    {
+      "q": "Le mélanome peut-il apparaître sur des zones non exposées au soleil ?",
+      "a": "Oui. Bien que le soleil soit le principal facteur de risque, le mélanome peut se développer sur n'importe quelle zone de la peau, y compris la plante des pieds, les ongles ou le cuir chevelu. Un examen cutané complet par un dermatologue est donc important, quel que soit l'endroit."
+    }
+  ],
+  "intentAnswer": "Pour un grain de beauté suspect ou une tache cutanée inquiétante, commencez par consulter votre médecin généraliste qui évaluera la lésion et vous orientera vers un dermatologue pour un examen spécialisé (dermoscopie). En cas de saignement soudain ou de croissance très rapide, rendez-vous en urgence.",
+  "termAr": "سرطان الجلد (الميلانوما)",
+  "shortAnswerAr": "الميلانوما سرطان يصيب خلايا الصبغة في الجلد. معظم البقع الجلدية حميدة، لكن أي شامة تتغير شكلاً أو لوناً أو تنزف بدون سبب يستوجب عرضها على طبيب دون تأخير، إذ إن الكشف المبكر يُحسّن كثيراً من فرص الشفاء.",
+  "causesAr": [
+    "التعرض المتكرر لأشعة الشمس الحارقة، خاصةً في مرحلة الطفولة والمراهقة",
+    "حروق شمس شديدة أدت إلى ظهور فقاعات في الماضي",
+    "استخدام أجهزة التسمير الاصطناعي (الأشعة فوق البنفسجية)",
+    "البشرة الفاتحة، أو النمش، أو الشعر الأحمر أو الأشقر",
+    "وجود عدد كبير من الشامات أو شامات غير منتظمة الشكل",
+    "وجود تاريخ شخصي أو عائلي للإصابة بسرطان الجلد أو الميلانوما"
+  ],
+  "redFlagsAr": [
+    "شامة غير متماثلة ذات حواف مشرشرة أو غير منتظمة",
+    "بقعة تحتوي على ألوان متعددة ممزوجة (بني، أسود، أحمر، أبيض، أزرق)",
+    "بقعة تكبر بسرعة أو تتغير شكلها في غضون أسابيع",
+    "آفة تنزف تلقائياً أو تسبب حكة مستمرة أو تُشكّل قشرة",
+    "ظهور عقدة ليمفاوية تحت الإبط أو في الفخذ بالقرب من شامة مشبوهة"
+  ],
+  "whenToConsultAr": "راجع طبيبك فوراً إذا لاحظت شامة تتغير، أو بقعة جلدية جديدة غير مألوفة، أو أي من علامات الخطر المذكورة أعلاه. لا تؤجل الزيارة، فاكتشاف الميلانوما مبكراً يجعل العلاج أكثر فعالية بكثير.",
+  "faqAr": [
+    {
+      "q": "كيف أراقب شاماتي في المنزل؟",
+      "a": "طبّق قاعدة ABCDE: عدم التماثل، والحواف غير المنتظمة، والألوان غير المتجانسة، والقطر الأكبر من 6 ملم، والتطور (أي تغيّر حديث). إذا توفّر أي من هذه المعايير، استشر طبيب الجلد دون تأخير للفحص المتخصص."
+    },
+    {
+      "q": "هل يمكن أن تظهر الميلانوما في أماكن غير مشمسة من الجسم؟",
+      "a": "نعم. رغم أن الشمس هي عامل الخطر الرئيسي، قد تنشأ الميلانوما في أي منطقة من الجلد، بما فيها باطن القدم والأظافر وفروة الرأس. لذلك يُوصى بإجراء فحص كامل للجلد لدى طبيب الأمراض الجلدية بصرف النظر عن موضع البقعة."
+    }
+  ],
+  "intentAnswerAr": "إذا لاحظت شامة مثيرة للقلق أو بقعة جلدية غير عادية، ابدأ بزيارة طبيبك العام الذي سيقيّم الحالة ويحيلك إلى طبيب جلدية لإجراء فحص متخصص بالمنظار الجلدي. وفي حال النزيف المفاجئ أو النمو السريع جداً، توجه إلى طوارئ أقرب مستشفى."
+}

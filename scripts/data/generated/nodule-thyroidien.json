@@ -1,0 +1,64 @@
+{
+  "slug": "nodule-thyroidien",
+  "term": "Nodule thyroïdien (goitre)",
+  "kind": "DISEASE",
+  "specialty": "endocrinologie-et-maladies-metaboliques",
+  "synonyms": ["goitre thyroïdien", "kyste thyroïdien", "tumeur thyroïdienne", "masse cervicale thyroïdienne"],
+  "shortAnswer": "Un nodule thyroïdien est une petite boule qui se forme dans la glande thyroïde, à la base du cou. La grande majorité est bénigne et sans danger. Il faut cependant consulter si le nodule grossit rapidement, gêne la déglutition ou s'accompagne d'autres signes inhabituels.",
+  "causes": [
+    "Carence en iode (fréquente dans certaines régions du Maroc)",
+    "Prédisposition familiale ou génétique",
+    "Inflammation chronique de la thyroïde (thyroïdite de Hashimoto)",
+    "Antécédent d'irradiation du cou",
+    "Dérèglement hormonal ou modification des taux de TSH",
+    "Rarement, transformation tumorale (bénigne ou maligne)"
+  ],
+  "redFlags": [
+    "Nodule qui grossit très rapidement en quelques semaines",
+    "Difficulté à avaler ou à respirer, sensation d'étouffement",
+    "Voix rauque ou enrouement persistant sans cause évidente",
+    "Ganglions enflés dans le cou associés au nodule",
+    "Douleur cervicale intense ou nodule très dur à la palpation"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès que vous découvrez une boule dans le cou ou que l'on vous signale une anomalie lors d'un examen. En présence de signes d'alerte (difficulté à avaler, voix rauque, croissance rapide), consultez sans délai. Si vous ressentez une gêne respiratoire ou une sensation d'étouffement, rendez-vous immédiatement aux urgences — il s'agit d'une urgence médicale.",
+  "faq": [
+    {
+      "q": "Un nodule thyroïdien est-il forcément un cancer ?",
+      "a": "Non. Plus de 90 % des nodules thyroïdiens sont bénins. Seul un bilan médical (échographie, prise de sang, parfois ponction) permet de rassurer ou d'orienter vers une prise en charge adaptée. Il ne faut ni ignorer ni dramatiser la découverte d'un nodule."
+    },
+    {
+      "q": "Quels examens sont réalisés pour explorer un nodule thyroïdien ?",
+      "a": "Le médecin prescrit généralement une échographie du cou et un dosage sanguin des hormones thyroïdiennes (TSH). En fonction des résultats, une cytoponction (prélèvement à l'aiguille fine) peut être proposée pour analyser les cellules du nodule et exclure une anomalie maligne."
+    }
+  ],
+  "intentAnswer": "Pour un nodule thyroïdien, commencez par consulter votre médecin généraliste qui prescrira les premiers examens (échographie, TSH). Il vous orientera si besoin vers un endocrinologue, spécialiste de la thyroïde. En cas de difficulté à respirer ou à avaler, rendez-vous aux urgences sans attendre.",
+  "termAr": "عقيدة الغدة الدرقية (تضخم الغدة الدرقية)",
+  "shortAnswerAr": "عقيدة الغدة الدرقية هي كتلة صغيرة تتشكل داخل الغدة الدرقية الموجودة في قاعدة الرقبة. معظمها حميد ولا يشكل خطرًا. غير أنه يجب استشارة الطبيب إذا كبرت الكتلة بسرعة أو سببت صعوبة في البلع أو رافقتها أعراض غير معتادة.",
+  "causesAr": [
+    "نقص اليود، وهو شائع في بعض مناطق المغرب",
+    "الاستعداد الوراثي والعائلي",
+    "التهاب الغدة الدرقية المزمن (التهاب هاشيموتو)",
+    "التعرض للإشعاع في منطقة الرقبة في الماضي",
+    "اضطراب هرمونات الغدة الدرقية أو تغيُّر مستوى TSH",
+    "نادرًا، تحول الكتلة إلى ورم (حميد أو خبيث)"
+  ],
+  "redFlagsAr": [
+    "نمو سريع جدًا للعقيدة خلال أسابيع قليلة",
+    "صعوبة في البلع أو التنفس، مع إحساس بالاختناق",
+    "بحة في الصوت أو خشونته المستمرة دون سبب واضح",
+    "تضخم الغدد الليمفاوية في الرقبة مع وجود العقيدة",
+    "ألم شديد في الرقبة أو كتلة صلبة جدًا عند الجس"
+  ],
+  "whenToConsultAr": "استشر طبيبًا عامًا فور اكتشافك لكتلة في الرقبة أو عند الإشارة إليها خلال فحص طبي. وفي حال وجود علامات تحذيرية كصعوبة البلع أو بحة الصوت أو النمو السريع، توجه للطبيب فورًا. أما إذا شعرت بضيق في التنفس أو إحساس بالاختناق، فتوجه فورًا إلى المستعجلات — فهذه حالة طبية طارئة.",
+  "faqAr": [
+    {
+      "q": "هل عقيدة الغدة الدرقية تعني بالضرورة وجود سرطان؟",
+      "a": "لا. أكثر من 90% من عقيدات الغدة الدرقية حميدة. الفحوصات الطبية وحدها كالتصوير بالموجات فوق الصوتية وتحاليل الدم هي التي تطمئن أو تحدد الخطوة التالية. لا ينبغي تجاهل العقيدة ولا المبالغة في القلق منها."
+    },
+    {
+      "q": "ما الفحوصات التي تُجرى لدراسة عقيدة الغدة الدرقية؟",
+      "a": "يطلب الطبيب عادةً تصويرًا بالموجات فوق الصوتية للرقبة وتحليل دم لقياس هرمون TSH. وبحسب النتائج، قد يُقترح إجراء خزعة بالإبرة الدقيقة لتحليل خلايا العقيدة والتحقق من طبيعتها."
+    }
+  ],
+  "intentAnswerAr": "عند ظهور عقيدة في الغدة الدرقية، ابدأ باستشارة الطبيب العام الذي سيطلب الفحوصات الأولية كالإيكوغرافيا وتحليل TSH. وإن اقتضى الأمر، سيحيلك إلى طبيب متخصص في الغدد الصماء. أما إذا شعرت بصعوبة في التنفس أو البلع، فتوجه إلى المستعجلات فورًا."
+}

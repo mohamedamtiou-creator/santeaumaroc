@@ -1,0 +1,64 @@
+{
+  "slug": "polyarthrite-rhumatoide",
+  "term": "Polyarthrite rhumatoïde",
+  "kind": "DISEASE",
+  "specialty": "rhumatologie",
+  "synonyms": ["PR", "rhumatisme inflammatoire", "arthrite rhumatoïde"],
+  "shortAnswer": "La polyarthrite rhumatoïde est une maladie auto-immune qui provoque une inflammation chronique des articulations, surtout des mains et des pieds. Elle évolue par poussées. Une prise en charge précoce chez un rhumatologue est essentielle pour préserver la mobilité et éviter les déformations.",
+  "causes": [
+    "Dérèglement du système immunitaire qui attaque les articulations (maladie auto-immune)",
+    "Facteurs génétiques : antécédents familiaux de maladies rhumatismales",
+    "Facteurs hormonaux : plus fréquente chez la femme, souvent déclenchée ou aggravée lors de changements hormonaux",
+    "Tabagisme : facteur de risque reconnu et aggravant",
+    "Infections virales ou bactériennes pouvant déclencher la maladie chez des personnes prédisposées",
+    "Stress physique ou émotionnel important pouvant favoriser les poussées"
+  ],
+  "redFlags": [
+    "Gonflement et rougeur importants d'une ou plusieurs articulations accompagnés de fièvre élevée",
+    "Douleurs articulaires intenses empêchant tout mouvement, apparues brutalement",
+    "Déformations visibles des doigts ou des orteils s'installant rapidement",
+    "Essoufflement ou douleur thoracique (possible atteinte cardiaque ou pulmonaire associée)",
+    "Fourmillements, engourdissements ou faiblesse musculaire s'étendant aux bras ou aux jambes (signe d'une possible atteinte de la moelle épinière — urgence neurologique)"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès l'apparition de douleurs et gonflements persistants de plusieurs articulations, surtout le matin avec une raideur de plus de 30 minutes. Il vous orientera rapidement vers un rhumatologue pour confirmer le diagnostic et débuter un traitement adapté.",
+  "faq": [
+    {
+      "q": "La polyarthrite rhumatoïde peut-elle guérir complètement ?",
+      "a": "Il n'existe pas de guérison définitive à ce jour, mais des traitements modernes permettent de contrôler l'inflammation, de réduire les douleurs et de préserver la qualité de vie. Un suivi régulier chez le rhumatologue est indispensable pour adapter la prise en charge au fil du temps."
+    },
+    {
+      "q": "La polyarthrite rhumatoïde touche-t-elle uniquement les personnes âgées ?",
+      "a": "Non, elle peut survenir à tout âge, y compris chez les adultes jeunes entre 30 et 50 ans, et même chez l'enfant. Elle touche trois fois plus les femmes que les hommes. Plus le diagnostic est posé tôt, meilleures sont les chances de limiter les séquelles articulaires."
+    }
+  ],
+  "intentAnswer": "Pour la polyarthrite rhumatoïde, consultez en premier votre médecin généraliste qui établira un bilan initial et vous adressera à un rhumatologue, spécialiste des maladies inflammatoires des articulations. En cas de gonflement brutal avec fièvre, de douleurs très intenses, ou de fourmillements et faiblesse dans les membres, rendez-vous aux urgences sans attendre.",
+  "termAr": "التهاب المفاصل الروماتويدي",
+  "shortAnswerAr": "التهاب المفاصل الروماتويدي مرض مناعي ذاتي يُسبب التهاباً مزمناً في المفاصل، لا سيما مفاصل اليدين والقدمين، ويتطور على شكل نوبات. التشخيص المبكر والمتابعة مع طبيب الروماتولوجيا ضروريان للحفاظ على حركة المفاصل وتجنب التشوهات.",
+  "causesAr": [
+    "خلل في الجهاز المناعي يجعله يهاجم المفاصل (مرض مناعي ذاتي)",
+    "عوامل وراثية: وجود أفراد في العائلة مصابين بأمراض روماتيزمية",
+    "عوامل هرمونية: أكثر شيوعاً عند النساء وقد تتفاقم خلال التغيرات الهرمونية",
+    "التدخين: عامل خطر معروف يُفاقم شدة المرض",
+    "عدوى فيروسية أو جرثومية قد تُحفز المرض لدى الأشخاص المستعدين وراثياً",
+    "الضغط النفسي أو الجسدي الشديد الذي قد يُثير نوبات المرض"
+  ],
+  "redFlagsAr": [
+    "تورم واحمرار شديد في مفصل واحد أو أكثر مع ارتفاع في درجة الحرارة",
+    "ألم مفصلي حاد يمنع أي حركة ويظهر فجأة",
+    "تشوهات واضحة في أصابع اليدين أو القدمين تتطور بسرعة",
+    "ضيق في التنفس أو ألم في الصدر قد يدل على تأثر القلب أو الرئتين",
+    "تنميل أو وخز أو ضعف عضلي يمتد إلى الذراعين أو الساقين (علامة محتملة على ضغط على النخاع الشوكي — حالة طارئة عصبية)"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور ظهور آلام وتورمات مستمرة في عدة مفاصل، خاصةً إذا رافقتها تيبّس صباحي يتجاوز نصف ساعة. سيحيلك الطبيب إلى أخصائي الروماتولوجيا لتأكيد التشخيص والبدء بالعلاج المناسب في أقرب وقت.",
+  "faqAr": [
+    {
+      "q": "هل يمكن الشفاء التام من التهاب المفاصل الروماتويدي؟",
+      "a": "لا يوجد علاج شافٍ نهائي حتى الآن، غير أن العلاجات الحديثة تُمكّن من السيطرة على الالتهاب وتخفيف الآلام والحفاظ على جودة الحياة. المتابعة المنتظمة مع طبيب الروماتولوجيا ضرورية لتكييف العلاج مع تطور الحالة."
+    },
+    {
+      "q": "هل يصيب التهاب المفاصل الروماتويدي كبار السن فقط؟",
+      "a": "لا، يمكن أن يظهر في أي سن بما في ذلك البالغون الشباب بين 30 و50 سنة، بل وحتى الأطفال. يُصيب النساء ثلاثة أضعاف الرجال. وكلما بُوكر التشخيص، كانت فرص الحد من الأضرار المفصلية أكبر."
+    }
+  ],
+  "intentAnswerAr": "للتعامل مع التهاب المفاصل الروماتويدي، ابدأ بزيارة طبيبك العام الذي سيُجري تقييماً أولياً ويحيلك إلى طبيب الروماتولوجيا، المتخصص في أمراض المفاصل الالتهابية. في حال ظهور تورم مفاجئ مع حمى، أو ألم شديد جداً، أو تنميل وضعف في الأطراف، اذهب إلى المستعجلات فوراً دون تأخير."
+}

@@ -1,0 +1,66 @@
+{
+  "slug": "sang-dans-les-selles",
+  "term": "Sang dans les selles",
+  "kind": "SYMPTOM",
+  "specialty": "gastro-enterologie",
+  "synonyms": ["rectorragie", "méléna", "saignement rectal", "selles sanglantes"],
+  "shortAnswer": "Du sang dans les selles peut provenir de l'anus, du côlon ou de l'estomac. Une petite trace rouge vif après l'effort est souvent bénigne (hémorroïdes, fissure). Mais un saignement abondant, noir ou accompagné de douleurs intenses nécessite une consultation rapide.",
+  "causes": [
+    "Hémorroïdes (varices anales) : cause la plus fréquente, sang rouge vif après la selle",
+    "Fissure anale : petite déchirure douloureuse de la peau autour de l'anus",
+    "Gastro-entérite ou infection intestinale bactérienne",
+    "Polypes ou diverticules du côlon",
+    "Maladie inflammatoire de l'intestin (Crohn, rectocolite hémorragique)",
+    "Ulcère gastrique ou duodénal (selles noires et goudronneuses = méléna)"
+  ],
+  "redFlags": [
+    "Saignement abondant ou selles entièrement noires et nauséabondes (méléna)",
+    "Vertiges, malaise, perte de connaissance ou pouls rapide (signes de choc hémorragique) : appelez le 15 ou rendez-vous immédiatement aux urgences",
+    "Douleurs abdominales intenses ou ventre dur",
+    "Perte de poids inexpliquée, fatigue extrême ou pâleur importante",
+    "Fièvre élevée associée aux saignements",
+    "Saignement persistant sur plusieurs jours malgré le repos"
+  ],
+  "whenToConsult": "Consultez un médecin dès l'apparition du sang si vous avez plus de 40 ans, si le saignement se répète, ou si d'autres symptômes l'accompagnent. En cas de saignement abondant, de selles noires, de vertiges ou de malaise, rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "Les hémorroïdes sont-elles toujours responsables du sang dans les selles ?",
+      "a": "Non. Bien qu'elles en soient la cause la plus courante (sang rouge vif, indolore ou peu douloureux), d'autres affections comme les polypes, les fissures ou les maladies inflammatoires peuvent aussi provoquer un saignement. Seul un médecin peut confirmer l'origine après examen."
+    },
+    {
+      "q": "Dois-je passer une coloscopie ?",
+      "a": "Pas forcément d'emblée. Votre médecin évaluera d'abord votre âge, vos antécédents et la nature du saignement. Une coloscopie peut être recommandée, notamment après 40 ans ou en cas de récidive, pour écarter un polype ou un cancer du côlon à un stade précoce."
+    }
+  ],
+  "intentAnswer": "Consultez d'abord votre médecin généraliste : il examinera l'origine du saignement et vous orientera si besoin vers un gastro-entérologue pour un bilan complet (coloscopie, etc.). En cas de saignement abondant, de selles noires, de vertiges ou de douleurs intenses, rendez-vous directement aux urgences.",
+  "termAr": "دم في البراز",
+  "shortAnswerAr": "وجود دم في البراز قد يكون ناتجاً عن البواسير أو شقوق الشرج، وهي أسباب شائعة وغير خطيرة في الغالب. لكن النزيف الغزير أو البراز الأسود أو الألم الشديد في البطن تستوجب استشارة طبية فورية.",
+  "causesAr": [
+    "البواسير (دوالي الشرج): السبب الأكثر شيوعاً، دم أحمر فاتح بعد التبرز",
+    "شق الشرج: جرح صغير مؤلم عند حافة فتحة الشرج",
+    "التهاب معدي معوي أو عدوى بكتيرية في الأمعاء",
+    "أورام حميدة (بوليبات) أو رتوج في القولون",
+    "أمراض التهابية معوية كداء كرون أو التهاب القولون التقرحي",
+    "قرحة المعدة أو الاثني عشر (براز أسود قطراني = الميلينا)"
+  ],
+  "redFlagsAr": [
+    "نزيف غزير أو براز أسود ذو رائحة كريهة (ميلينا)",
+    "دوخة أو إغماء أو نبض سريع (علامات صدمة نزيفية): اتصل بالإسعاف أو توجه فوراً إلى المستعجلات",
+    "ألم شديد في البطن أو تصلبه",
+    "فقدان وزن غير مبرر، إرهاق شديد أو شحوب واضح",
+    "حمى مرتفعة مصاحبة للنزيف",
+    "استمرار النزيف عدة أيام رغم الراحة"
+  ],
+  "whenToConsultAr": "استشر طبيبك فور ظهور الدم إذا تجاوزت الأربعين من عمرك، أو تكرر النزيف، أو رافقته أعراض أخرى. في حال النزيف الغزير أو البراز الأسود أو الدوخة أو الإغماء، توجه إلى المستعجلات دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل البواسير هي السبب الوحيد للدم في البراز؟",
+      "a": "لا. رغم أنها السبب الأكثر شيوعاً (دم أحمر فاتح، مع ألم خفيف أو بدونه)، فإن أسباباً أخرى كالبوليبات والشقوق والأمراض الالتهابية قد تكون مسؤولة أيضاً. لا يمكن تحديد السبب إلا بعد فحص طبي."
+    },
+    {
+      "q": "هل أحتاج بالضرورة إلى تنظير القولون؟",
+      "a": "ليس بالضرورة في البداية. سيقيّم الطبيب عمرك وتاريخك الصحي وطبيعة النزيف. قد يوصي بتنظير القولون خاصةً بعد سن الأربعين أو عند تكرار النزيف، للكشف المبكر عن أي بوليب أو سرطان في القولون."
+    }
+  ],
+  "intentAnswerAr": "استشر طبيبك العام أولاً؛ سيفحص سبب النزيف ويحيلك عند الحاجة إلى طبيب متخصص في الجهاز الهضمي (أخصائي أمراض الجهاز الهضمي) لإجراء فحوصات معمّقة. في حال النزيف الغزير أو البراز الأسود أو الدوخة أو الألم الشديد، توجه مباشرة إلى المستعجلات."
+}

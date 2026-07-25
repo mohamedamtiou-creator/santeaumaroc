@@ -1,0 +1,66 @@
+{
+  "slug": "gingivite",
+  "term": "Gingivite",
+  "kind": "DISEASE",
+  "specialty": "parodontologie",
+  "synonyms": ["inflammation des gencives", "gencives enflammées", "maladie gingivale"],
+  "shortAnswer": "La gingivite est une inflammation des gencives, souvent bénigne et réversible avec une bonne hygiène bucco-dentaire. Elle devient préoccupante si les gencives saignent fréquemment, gonflent ou si des douleurs persistent : un dentiste doit être consulté rapidement.",
+  "causes": [
+    "Mauvaise hygiène bucco-dentaire (plaque dentaire et tartre accumulés)",
+    "Tabagisme, qui fragilise les gencives et masque les saignements",
+    "Diabète mal équilibré favorisant les infections gingivales",
+    "Changements hormonaux (grossesse, puberté, ménopause)",
+    "Médicaments entraînant une sécheresse buccale ou une hypertrophie gingivale",
+    "Carence en vitamine C (rare mais possible au Maroc chez certaines populations)"
+  ],
+  "redFlags": [
+    "Gencives qui saignent abondamment au brossage ou spontanément",
+    "Douleur intense, gonflement marqué ou abcès dentaire visible",
+    "Gonflement du visage ou de la mâchoire (risque d'infection profonde grave, urgence vitale)",
+    "Dents qui bougent ou sensation de déchaussement",
+    "Fièvre associée à une douleur buccale (risque d'infection étendue)",
+    "Plaie ou ulcération gingivale qui ne cicatrise pas en deux semaines"
+  ],
+  "whenToConsult": "Consultez un dentiste ou un parodontologue si vos gencives saignent régulièrement, gonflent ou sont douloureuses depuis plus d'une semaine. En cas de fièvre, de gonflement du visage ou de la mâchoire, ou de douleur aiguë, rendez-vous immédiatement aux urgences ou en urgence dentaire.",
+  "faq": [
+    {
+      "q": "La gingivite peut-elle disparaître seule sans traitement ?",
+      "a": "Une gingivite légère peut s'améliorer avec un brossage rigoureux deux fois par jour et l'utilisation du fil dentaire. Cependant, si les symptômes persistent plus d'une semaine ou s'aggravent, un détartrage professionnel chez le dentiste est nécessaire pour éliminer le tartre que le brossage ne peut pas retirer."
+    },
+    {
+      "q": "La gingivite est-elle contagieuse ?",
+      "a": "La gingivite elle-même n'est pas contagieuse au sens strict, mais les bactéries responsables peuvent se transmettre par la salive (embrassades, partage d'ustensiles). Maintenir une bonne hygiène bucco-dentaire reste la meilleure protection pour toute la famille."
+    }
+  ],
+  "intentAnswer": "Pour une gingivite, commencez par consulter votre médecin généraliste ou directement un dentiste (chirurgien-dentiste) qui réalisera un détartrage et établira un plan d'hygiène adapté. Si la gingivite est avancée ou récidivante, il vous orientera vers un parodontologue. En cas de gonflement du visage ou de la mâchoire, de fièvre ou de douleur intense, consultez immédiatement aux urgences ou en urgence dentaire.",
+  "termAr": "التهاب اللثة",
+  "shortAnswerAr": "التهاب اللثة هو احمرار وتورم في اللثة، وغالباً ما يكون خفيفاً وقابلاً للشفاء بالعناية الجيدة بالفم والأسنان. يصبح الأمر مقلقاً إذا نزفت اللثة بشكل متكرر أو تورمت أو ظهر ألم مستمر، ويجب حينئذٍ استشارة طبيب الأسنان.",
+  "causesAr": [
+    "ضعف نظافة الفم والأسنان مع تراكم الجير واللويحة الجرثومية",
+    "التدخين الذي يضعف اللثة ويخفي علامات النزيف",
+    "مرض السكري غير المتوازن الذي يهيئ للالتهابات",
+    "التغيرات الهرمونية (الحمل، البلوغ، انقطاع الطمث)",
+    "بعض الأدوية التي تسبب جفاف الفم أو تضخم اللثة",
+    "نقص فيتامين C في حالات نادرة"
+  ],
+  "redFlagsAr": [
+    "نزيف غزير من اللثة عند التفريش أو بشكل تلقائي",
+    "ألم شديد أو تورم واضح أو خراج سني",
+    "تورم الوجه أو الفك (خطر عدوى عميقة خطيرة، حالة طارئة)",
+    "تحرك الأسنان أو الشعور بتراجع اللثة عنها",
+    "حمى مصحوبة بألم في الفم تدل على انتشار العدوى",
+    "قرحة أو تقرح في اللثة لا يشفى في أسبوعين"
+  ],
+  "whenToConsultAr": "استشر طبيب الأسنان أو اختصاصي أمراض اللثة إذا استمر النزيف أو التورم أو الألم أكثر من أسبوع. في حالة ارتفاع الحرارة أو تورم الوجه أو الفك أو الألم الحاد، توجّه فوراً إلى طوارئ طب الأسنان أو أقرب مستعجلات.",
+  "faqAr": [
+    {
+      "q": "هل يمكن أن يختفي التهاب اللثة دون علاج؟",
+      "a": "قد يتحسن التهاب اللثة الخفيف بتفريش منتظم مرتين يومياً واستخدام الخيط الطبي. لكن إذا استمرت الأعراض أكثر من أسبوع أو تفاقمت، يكون من الضروري إجراء تنظيف احترافي لدى طبيب الأسنان لإزالة الجير الذي لا يُزيله التفريش وحده."
+    },
+    {
+      "q": "هل التهاب اللثة معدٍ؟",
+      "a": "التهاب اللثة في حد ذاته ليس معدياً، لكن البكتيريا المسببة له قد تنتقل عبر اللعاب (التقبيل أو مشاركة الأدوات). لذلك تبقى النظافة الجيدة للفم أفضل وقاية لجميع أفراد الأسرة."
+    }
+  ],
+  "intentAnswerAr": "لعلاج التهاب اللثة، يمكنك البدء بزيارة طبيبك العام أو مباشرةً طبيب الأسنان الذي سيجري تنظيفاً للأسنان ويضع برنامج عناية مناسباً. إذا كان الالتهاب متقدماً أو متكرراً، يُحيلك إلى اختصاصي أمراض اللثة. في حالة تورم الوجه أو الفك أو الحمى أو الألم الشديد، اذهب فوراً إلى طوارئ طب الأسنان أو أقرب مستعجلات."
+}

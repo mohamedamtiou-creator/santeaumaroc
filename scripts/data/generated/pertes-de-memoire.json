@@ -1,0 +1,64 @@
+{
+  "slug": "pertes-de-memoire",
+  "term": "Pertes de mémoire",
+  "kind": "SYMPTOM",
+  "specialty": "neurologie",
+  "synonyms": ["oublis", "troubles mnésiques", "amnésie", "défaillance de la mémoire"],
+  "shortAnswer": "Les pertes de mémoire désignent une difficulté à retenir ou rappeler des informations. Des oublis ponctuels liés au stress ou à la fatigue sont courants et bénins. Des oublis fréquents, progressifs ou soudains, surtout chez un adulte jeune, méritent un avis médical.",
+  "causes": [
+    "Fatigue intense, manque de sommeil ou surmenage",
+    "Stress chronique, anxiété ou dépression",
+    "Vieillissement normal (léger ralentissement mémoriel après 60 ans)",
+    "Maladies neurodégénératives (maladie d'Alzheimer, démences)",
+    "Carences nutritionnelles (vitamine B12, fer) ou dysfonction thyroïdienne",
+    "Traumatisme crânien, accident vasculaire cérébral ou effet secondaire de certains médicaments"
+  ],
+  "redFlags": [
+    "Perte de mémoire soudaine et brutale, surtout sans cause apparente",
+    "Oublis très fréquents perturbant la vie quotidienne (se perdre dans un lieu connu, oublier des proches)",
+    "Confusion, désorientation dans le temps ou l'espace",
+    "Accompagnement de maux de tête violents, troubles de la vision, de la parole ou faiblesse soudaine d'un côté du corps",
+    "Survenue après un traumatisme crânien ou un malaise"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si les oublis deviennent répétitifs ou gênent vos activités habituelles. En cas de perte de mémoire brutale, de confusion soudaine ou de signes neurologiques associés, appelez le 141 ou rendez-vous aux urgences sans délai.",
+  "faq": [
+    {
+      "q": "Les oublis sont-ils normaux avec l'âge ?",
+      "a": "Un certain ralentissement de la mémoire fait partie du vieillissement normal. Oublier un nom puis s'en souvenir plus tard est bénin. En revanche, oublier des événements récents de manière répétée, se perdre dans un lieu familier ou avoir du mal à gérer les tâches du quotidien sont des signaux qui nécessitent un avis médical."
+    },
+    {
+      "q": "Peut-on prévenir les troubles de la mémoire ?",
+      "a": "Adopter un mode de vie sain aide à préserver les fonctions cognitives : sommeil suffisant, activité physique régulière, alimentation équilibrée, stimulation intellectuelle et gestion du stress. Ces mesures ne remplacent pas un suivi médical en cas de troubles persistants."
+    }
+  ],
+  "intentAnswer": "Pour des pertes de mémoire, consultez d'abord votre médecin généraliste, qui évaluera vos symptômes et pourra vous orienter vers un neurologue ou un gériatre si nécessaire. En cas de perte de mémoire brutale ou de signes neurologiques soudains, appelez le 141 ou rendez-vous immédiatement aux urgences.",
+  "termAr": "فقدان الذاكرة",
+  "shortAnswerAr": "فقدان الذاكرة هو صعوبة في تذكّر المعلومات أو استرجاعها. النسيان العرضي بسبب التعب أو الضغط النفسي أمر شائع وغير خطير. أما النسيان المتكرر أو المتزايد أو المفاجئ، لا سيما عند الشباب، فيستوجب استشارة طبية.",
+  "causesAr": [
+    "الإرهاق الشديد أو اضطرابات النوم أو الإجهاد المفرط",
+    "التوتر المزمن أو القلق أو الاكتئاب",
+    "الشيخوخة الطبيعية (تراجع طفيف في الذاكرة بعد سن الستين)",
+    "الأمراض التنكسية العصبية كمرض الزهايمر والخرف",
+    "نقص الفيتامينات (B12، الحديد) أو اضطرابات الغدة الدرقية",
+    "إصابة في الرأس أو سكتة دماغية أو تأثير جانبي لبعض الأدوية"
+  ],
+  "redFlagsAr": [
+    "فقدان ذاكرة مفاجئ وحاد دون سبب واضح",
+    "نسيان متكرر جداً يعطّل الحياة اليومية (التيه في أماكن مألوفة، نسيان وجوه المقرّبين)",
+    "ارتباك أو تشوش في المكان والزمان",
+    "ألم شديد في الرأس أو اضطرابات في الرؤية أو الكلام أو ضعف مفاجئ في أحد جانبي الجسم مصاحب للنسيان",
+    "حدوث النسيان بعد إصابة في الرأس أو إغماء"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام إذا أصبحت نوبات النسيان متكررة أو تؤثر على أنشطتك اليومية. في حالة فقدان الذاكرة المفاجئ أو الارتباك الحاد أو ظهور أعراض عصبية مفاجئة، اتصل بالرقم 141 أو اذهب فوراً إلى المستعجلات.",
+  "faqAr": [
+    {
+      "q": "هل النسيان مع التقدم في السن أمر طبيعي؟",
+      "a": "تراجع طفيف في الذاكرة جزء من الشيخوخة الطبيعية، كأن تنسى اسماً ثم تتذكره لاحقاً. غير أن نسيان الأحداث الحديثة بشكل متكرر، أو التيه في أماكن مألوفة، أو صعوبة إنجاز المهام اليومية، كلها إشارات تستوجب استشارة طبية."
+    },
+    {
+      "q": "هل يمكن الوقاية من اضطرابات الذاكرة؟",
+      "a": "نمط الحياة الصحي يساعد في الحفاظ على الوظائف المعرفية: نوم كافٍ، ونشاط بدني منتظم، وتغذية متوازنة، وتحفيز ذهني، وإدارة جيدة للتوتر. هذه الإجراءات لا تُغني عن المتابعة الطبية عند وجود اضطرابات مستمرة."
+    }
+  ],
+  "intentAnswerAr": "في حالة فقدان الذاكرة، استشر طبيبك العام أولاً لتقييم الأعراض، وقد يحيلك إلى طبيب أعصاب أو طبيب متخصص في أمراض الشيخوخة حسب الحالة. في حالة فقدان الذاكرة المفاجئ أو ظهور أعراض عصبية حادة، اتصل بالرقم 141 أو توجه فوراً إلى المستعجلات."
+}

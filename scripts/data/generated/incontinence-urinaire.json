@@ -1,0 +1,66 @@
+{
+  "slug": "incontinence-urinaire",
+  "term": "Incontinence urinaire",
+  "kind": "SYMPTOM",
+  "specialty": "urologie-et-chirurgie-urologique",
+  "synonyms": ["fuites urinaires", "perte d'urine involontaire", "énurésie adulte"],
+  "shortAnswer": "L'incontinence urinaire est une perte involontaire d'urine. Souvent bénigne et liée à l'âge ou à l'accouchement, elle peut néanmoins masquer une cause sérieuse. Toute fuite fréquente, soudaine ou accompagnée d'autres symptômes mérite une consultation médicale.",
+  "causes": [
+    "Faiblesse du plancher pelvien (après accouchement, chirurgie, ménopause)",
+    "Vessie hyperactive ou instabilité du détrusor",
+    "Hypertrophie bénigne de la prostate chez l'homme",
+    "Infections urinaires répétées",
+    "Troubles neurologiques (séquelles d'AVC, sclérose en plaques, Parkinson)",
+    "Surpoids, toux chronique ou efforts physiques intenses"
+  ],
+  "redFlags": [
+    "Perte d'urine soudaine et totale après un traumatisme du dos ou du bassin",
+    "Fuites accompagnées de sang dans les urines (hématurie)",
+    "Impossibilité complète d'uriner (rétention aiguë) associée à des fuites par regorgement",
+    "Douleurs lombaires ou pelviennes intenses avec fièvre",
+    "Apparition brutale chez une personne sans antécédent, surtout après 50 ans",
+    "Perte de contrôle urinaire accompagnée de faiblesse ou engourdissement des jambes, de sensations anormales dans le périnée ou de perte du contrôle des selles (urgence chirurgicale : syndrome de la queue de cheval)"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès que les fuites urinaires perturbent votre quotidien ou surviennent plusieurs fois par semaine. En cas de sang dans les urines, de douleur ou de fièvre associée, consultez sans délai. Si vous ressentez simultanément une faiblesse des jambes, des engourdissements au niveau du périnée ou une perte du contrôle des selles, appelez le 15 ou rendez-vous aux urgences immédiatement.",
+  "faq": [
+    {
+      "q": "L'incontinence urinaire est-elle normale avec l'âge ?",
+      "a": "Les fuites urinaires sont fréquentes après un certain âge, mais elles ne sont pas une fatalité. Des traitements efficaces existent : rééducation périnéale, médicaments, et parfois chirurgie. Il ne faut pas hésiter à en parler à son médecin."
+    },
+    {
+      "q": "La rééducation périnéale est-elle vraiment utile ?",
+      "a": "Oui, la kinésithérapie périnéale est le traitement de première intention pour l'incontinence d'effort. Elle renforce les muscles du plancher pelvien et réduit significativement les fuites chez la majorité des patients, femmes comme hommes."
+    }
+  ],
+  "intentAnswer": "Pour des fuites urinaires, commencez par consulter votre médecin généraliste qui réalisera un bilan initial et vous orientera si nécessaire vers un urologue ou une sage-femme spécialisée en rééducation périnéale. En cas d'urgence (sang dans les urines, impossibilité d'uriner, douleur intense, ou faiblesse des jambes avec perte du contrôle des selles), rendez-vous aux urgences.",
+  "termAr": "سلس البول",
+  "shortAnswerAr": "سلس البول هو تسرب غير إرادي للبول. غالبًا ما يكون حالةً بسيطة مرتبطة بالعمر أو الولادة، لكنه قد يخفي سببًا أكثر خطورة. أي تسرب متكرر أو مفاجئ أو مصحوب بأعراض أخرى يستوجب استشارة طبية.",
+  "causesAr": [
+    "ضعف عضلات قاع الحوض (بعد الولادة أو الجراحة أو انقطاع الطمث)",
+    "فرط نشاط المثانة أو عدم استقرار العضلة الدافعة",
+    "تضخم البروستاتا الحميد عند الرجال",
+    "التهابات المسالك البولية المتكررة",
+    "الاضطرابات العصبية (مضاعفات السكتة الدماغية، التصلب المتعدد، الباركنسون)",
+    "زيادة الوزن أو السعال المزمن أو الجهد البدني الشديد"
+  ],
+  "redFlagsAr": [
+    "فقدان مفاجئ وكامل للسيطرة على البول بعد إصابة في الظهر أو الحوض",
+    "تسرب البول مصحوبًا بدم في البول (بيلة دموية)",
+    "عدم القدرة الكاملة على التبول (احتباس بولي حاد) مع تسرب بالتقطير",
+    "آلام شديدة في أسفل الظهر أو الحوض مصحوبة بحمى",
+    "ظهور مفاجئ عند شخص دون تاريخ مرضي، خاصة بعد سن الخمسين",
+    "فقدان السيطرة على البول مصحوبًا بضعف أو خدر في الساقين أو إحساس شاذ في منطقة العجان أو فقدان السيطرة على الأمعاء (حالة طارئة جراحية: متلازمة ذيل الفرس)"
+  ],
+  "whenToConsultAr": "استشر الطبيب العام فور ملاحظة تسرب البول بشكل متكرر أو يؤثر على حياتك اليومية. في حالة وجود دم في البول أو ألم أو حمى مصاحبة، اطلب الرعاية الطبية فورًا. وإذا رافق سلس البول ضعف في الساقين أو خدر في منطقة العجان أو فقدان السيطرة على الأمعاء، اتصل بالطوارئ أو اذهب إليها فورًا.",
+  "faqAr": [
+    {
+      "q": "هل يُعدّ سلس البول أمرًا طبيعيًا مع التقدم في السن؟",
+      "a": "رغم شيوع تسرب البول مع التقدم في العمر، فإنه ليس حتمًا لا مفر منه. ثمة علاجات فعّالة كإعادة تأهيل عضلات الحوض والأدوية وأحيانًا الجراحة. لا تتردد في مناقشة الأمر مع طبيبك."
+    },
+    {
+      "q": "هل إعادة تأهيل عضلات قاع الحوض مفيدة فعلًا؟",
+      "a": "نعم، تُعدّ العلاج الطبيعي لعضلات الحوض الخيارَ الأول لعلاج سلس الإجهاد. تعمل على تقوية العضلات وتقليل التسرب بشكل ملحوظ لدى غالبية المرضى، رجالًا ونساءً."
+    }
+  ],
+  "intentAnswerAr": "في حال تسرب البول، ابدأ باستشارة طبيبك العام الذي سيجري الفحوصات الأولية ويحيلك عند الحاجة إلى طبيب مسالك بولية أو قابلة مختصة في إعادة تأهيل الحوض. في الحالات الطارئة (دم في البول، تعذّر التبول، ألم شديد، أو ضعف في الساقين مع فقدان السيطرة على الأمعاء)، توجه فورًا إلى المستعجلات."
+}

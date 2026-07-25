@@ -1,0 +1,68 @@
+{
+  "slug": "leucemie",
+  "term": "Leucémie",
+  "kind": "DISEASE",
+  "specialty": "hematologie",
+  "synonyms": ["cancer du sang", "cancer de la moelle osseuse", "leucose"],
+  "shortAnswer": "La leucémie est un cancer des cellules sanguines qui se développe dans la moelle osseuse. Certaines formes évoluent lentement, d'autres très rapidement. Une fatigue intense persistante, des infections répétées ou des saignements inexpliqués nécessitent une consultation médicale sans délai.",
+  "causes": [
+    "Anomalies génétiques ou chromosomiques (ex. : chromosome Philadelphie dans la LMC)",
+    "Exposition prolongée à certains produits chimiques (benzène, solvants industriels)",
+    "Exposition aux rayonnements ionisants (radiothérapie antérieure, accidents nucléaires)",
+    "Certaines maladies génétiques prédisposantes (trisomie 21, anémie de Fanconi)",
+    "Antécédents de chimiothérapie pour un autre cancer",
+    "Facteurs immunitaires (déficit immunitaire sévère)"
+  ],
+  "redFlags": [
+    "Fatigue extrême, pâleur intense et essoufflement inhabituel persistant plusieurs semaines",
+    "Fièvre prolongée ou infections répétées sans cause évidente",
+    "Saignements spontanés (gencives, nez) ou apparition de bleus inexpliqués",
+    "Ganglions gonflés, rate ou foie augmenté de volume (gêne abdominale)",
+    "Douleurs osseuses ou articulaires inhabituelles, surtout chez l'enfant",
+    "Sueurs nocturnes abondantes et inexpliquées",
+    "Maux de tête intenses, troubles visuels, confusion ou convulsions (urgence : atteinte neurologique possible)"
+  ],
+  "whenToConsult": "Consultez votre médecin généraliste sans attendre si vous présentez une fatigue persistante, des infections à répétition, des saignements inexpliqués ou des sueurs nocturnes. En cas de fièvre élevée, de difficultés respiratoires sévères, de saignements abondants, ou de maux de tête intenses, de troubles de la conscience ou de convulsions, rendez-vous aux urgences immédiatement.",
+  "faq": [
+    {
+      "q": "La leucémie est-elle toujours mortelle ?",
+      "a": "Non. Les progrès thérapeutiques ont considérablement amélioré le pronostic, notamment pour certaines formes aiguës de l'enfant dont le taux de guérison dépasse 80 %. Le pronostic dépend du type de leucémie, du stade et de la rapidité de la prise en charge. Un diagnostic précoce reste un facteur clé."
+    },
+    {
+      "q": "Quels examens permettent de diagnostiquer une leucémie ?",
+      "a": "Le diagnostic repose d'abord sur une prise de sang (numération formule sanguine) qui révèle des anomalies des globules blancs. En cas d'anomalie, un myélogramme (prélèvement de moelle osseuse) est réalisé par un hématologue pour confirmer le diagnostic et préciser le type de leucémie."
+    }
+  ],
+  "intentAnswer": "Pour une suspicion de leucémie, consultez d'abord votre médecin généraliste qui prescrira un bilan sanguin. Il vous orientera vers un hématologue, spécialiste des maladies du sang, pour confirmer le diagnostic et organiser la prise en charge. En cas de signes graves (fièvre, saignements, essoufflement, troubles neurologiques), rendez-vous aux urgences sans délai.",
+  "termAr": "ابيضاض الدم (سرطان الدم)",
+  "shortAnswerAr": "ابيضاض الدم هو سرطان يصيب خلايا الدم وينشأ في نخاع العظام. بعض أشكاله تتطور ببطء وأخرى بسرعة كبيرة. التعب الشديد المستمر، أو الالتهابات المتكررة، أو النزيف غير المبرر تستوجب استشارة طبية عاجلة.",
+  "causesAr": [
+    "اضطرابات جينية أو كروموسومية (مثل كروموسوم فيلادلفيا في ابيضاض الدم النخاعي المزمن)",
+    "التعرض المطوّل لمواد كيميائية كالبنزين والمذيبات الصناعية",
+    "التعرض للإشعاعات المؤينة (علاج إشعاعي سابق أو حوادث نووية)",
+    "أمراض وراثية مهيِّئة (متلازمة داون، فقر دم فانكوني)",
+    "سوابق علاج كيميائي لسرطان آخر",
+    "ضعف مناعي حاد"
+  ],
+  "redFlagsAr": [
+    "تعب شديد وشحوب ملحوظ وضيق في التنفس يستمران لأسابيع دون سبب واضح",
+    "حمى مطوّلة أو التهابات متكررة بلا سبب معروف",
+    "نزيف تلقائي (لثة، أنف) أو ظهور كدمات غير مبررة",
+    "تضخم الغدد الليمفاوية أو الطحال أو الكبد مع انزعاج في البطن",
+    "آلام في العظام أو المفاصل غير معتادة، خاصة عند الأطفال",
+    "تعرق ليلي غزير وغير مبرر",
+    "صداع شديد أو اضطرابات بصرية أو ارتباك أو تشنجات (حالة طارئة: احتمال إصابة الجهاز العصبي)"
+  ],
+  "whenToConsultAr": "راجع طبيبك العام فوراً إذا عانيت من تعب مستمر أو التهابات متكررة أو نزيف غير مبرر أو تعرق ليلي. وفي حال وجود حمى مرتفعة أو صعوبة شديدة في التنفس أو نزيف غزير أو صداع حاد أو اضطراب في الوعي أو تشنجات، اتجه إلى المستعجلات على الفور.",
+  "faqAr": [
+    {
+      "q": "هل ابيضاض الدم مميت دائماً؟",
+      "a": "لا. شهدت العلاجات تقدماً كبيراً، لا سيما في بعض أشكاله الحادة عند الأطفال التي تتجاوز نسبة الشفاء منها 80%. يتوقف المآل على نوع المرض ومرحلته وسرعة التشخيص والعلاج، إذ يبقى الكشف المبكر عاملاً حاسماً."
+    },
+    {
+      "q": "ما الفحوصات التي تكشف ابيضاض الدم؟",
+      "a": "يبدأ التشخيص بتحليل دم شامل (صورة دموية كاملة) يُظهر اضطرابات في كريات الدم البيضاء. وعند وجود شذوذ، يجري أخصائي الدم ثقباً نخاعياً (أخذ عينة من نخاع العظام) لتأكيد التشخيص وتحديد نوع المرض بدقة."
+    }
+  ],
+  "intentAnswerAr": "عند الاشتباه في ابيضاض الدم، ابدأ بزيارة طبيبك العام الذي سيطلب تحليل دم. سيحيلك بعدها إلى أخصائي أمراض الدم (الهيماتولوجيا) لتأكيد التشخيص وتنظيم العلاج. وإذا ظهرت أعراض حادة كحمى أو نزيف أو ضيق في التنفس أو اضطرابات عصبية، اذهب إلى المستعجلات دون تأخير."
+}

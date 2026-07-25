@@ -4,6 +4,7 @@ import { localizedAlternates } from "@/lib/hreflang";
 import { getDictionary, toLocale } from "@/lib/i18n";
 import { treatmentLocalized, isTreatmentReviewed } from "@/lib/treatment";
 import { TopicListBrowser, type BrowserItem } from "@/components/health/TopicListBrowser";
+import { HubHero } from "@/components/health/HubHero";
 
 export const revalidate = 3600;
 
@@ -37,7 +38,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 
 export default async function TraitementsPage({ params }: { params: Promise<{ lang: string }> }) {
   const locale = toLocale((await params).lang);
-  const t = getDictionary(locale).treatments;
+  const dict = getDictionary(locale);
+  const t = dict.treatments;
   const treatments = await getTreatments();
 
   const items: BrowserItem[] = treatments.map((tr) => {
@@ -83,21 +85,20 @@ export default async function TraitementsPage({ params }: { params: Promise<{ la
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
 
-      <div className="hero-bg relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "28px 28px" }} aria-hidden="true" />
-        <div className="relative max-w-3xl mx-auto px-4 py-16 sm:py-20">
-          <p className="section-eyebrow text-secondary-300 mb-4">{t.breadcrumb}</p>
-          <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight mb-5 tracking-tight" dir="auto">{t.title}</h1>
-          <p className="text-white/75 text-lg leading-relaxed" dir="auto">{t.intro}</p>
-        </div>
-      </div>
+      <HubHero
+        eyebrow={t.breadcrumb}
+        title={t.title}
+        intro={t.intro}
+        countChip={t.count.replace("{n}", String(reviewed.length))}
+        chips={dict.healthHub}
+      />
 
-      <main className="page-outer">
+      <div className="page-outer">
         <div className="max-w-3xl mx-auto">
           <TopicListBrowser items={items} labels={t} basePath="/traitements" />
           <p className="text-xs text-slate-400 mt-8 leading-relaxed">{t.disclaimer}</p>
         </div>
-      </main>
+      </div>
     </>
   );
 }

@@ -1,0 +1,64 @@
+{
+  "slug": "syndrome-du-canal-carpien",
+  "term": "Syndrome du canal carpien",
+  "kind": "DISEASE",
+  "specialty": "traumatologie-orthopedie",
+  "synonyms": ["compression du nerf médian", "neuropathie du canal carpien", "SCC"],
+  "shortAnswer": "Le syndrome du canal carpien est une compression du nerf médian au niveau du poignet, provoquant engourdissements et douleurs dans la main. Bénin dans la plupart des cas, il nécessite une consultation si les symptômes persistent ou s'aggravent la nuit.",
+  "causes": [
+    "Mouvements répétitifs du poignet (travail manuel, saisie clavier)",
+    "Rétention d'eau lors de la grossesse",
+    "Diabète et autres maladies métaboliques",
+    "Hypothyroïdie (insuffisance thyroïdienne)",
+    "Polyarthrite rhumatoïde et maladies inflammatoires des articulations",
+    "Traumatisme ou fracture ancienne du poignet"
+  ],
+  "redFlags": [
+    "Perte de force importante de la main rendant difficile la préhension des objets",
+    "Engourdissements permanents qui ne disparaissent plus au réveil",
+    "Atrophie (fonte musculaire) visible à la base du pouce",
+    "Douleurs intenses remontant jusqu'à l'épaule ou le cou",
+    "Symptômes des deux mains évoluant rapidement et simultanément"
+  ],
+  "whenToConsult": "Consultez un médecin si les fourmillements ou douleurs dans la main perturbent votre sommeil, persistent depuis plusieurs semaines ou gênent vos activités quotidiennes. En cas de perte de force ou d'atrophie du pouce, consultez rapidement sans attendre.",
+  "faq": [
+    {
+      "q": "Le syndrome du canal carpien peut-il guérir sans opération ?",
+      "a": "Oui, dans de nombreux cas, des mesures conservatrices suffisent : port d'une attelle de nuit, aménagement du poste de travail et traitement de la cause sous-jacente. Votre médecin évaluera si une intervention chirurgicale est nécessaire selon la sévérité et l'évolution."
+    },
+    {
+      "q": "Quels examens permettent de confirmer le diagnostic ?",
+      "a": "Le médecin s'appuie d'abord sur l'examen clinique (tests de Tinel et Phalen). Un électromyogramme (EMG) peut être prescrit pour mesurer la conduction nerveuse et confirmer la compression du nerf médian avant d'envisager un traitement spécialisé."
+    }
+  ],
+  "intentAnswer": "Pour le syndrome du canal carpien, consultez d'abord votre médecin généraliste qui évaluera vos symptômes et vous orientera si nécessaire vers un rhumatologue, un neurologue ou un chirurgien orthopédiste. En cas de perte de force soudaine ou d'atrophie du pouce, consultez rapidement.",
+  "termAr": "متلازمة النفق الرسغي",
+  "shortAnswerAr": "متلازمة النفق الرسغي هي ضغط على العصب المتوسط عند الرسغ، تسبب تنميلاً وألماً في اليد. تبقى في معظم الحالات غير خطيرة، غير أنها تستوجب استشارة طبية إذا استمرت الأعراض أو اشتدت خلال الليل.",
+  "causesAr": [
+    "الحركات المتكررة للرسغ (العمل اليدوي، استخدام لوحة المفاتيح)",
+    "احتباس الماء خلال الحمل",
+    "داء السكري والأمراض الأيضية الأخرى",
+    "قصور الغدة الدرقية",
+    "التهاب المفاصل الروماتويدي والأمراض الالتهابية المفصلية",
+    "إصابة أو كسر قديم في الرسغ"
+  ],
+  "redFlagsAr": [
+    "ضعف ملحوظ في اليد يجعل الإمساك بالأشياء صعباً",
+    "تنميل دائم لا يزول عند الاستيقاظ",
+    "ضمور عضلي واضح في قاعدة الإبهام",
+    "آلام شديدة تمتد إلى الكتف أو الرقبة",
+    "أعراض في كلتا اليدين تتفاقم بسرعة وبشكل متزامن"
+  ],
+  "whenToConsultAr": "راجع طبيبك إذا أثر التنميل أو الألم في يدك على نومك، أو استمر لعدة أسابيع، أو أعاق أنشطتك اليومية. وفي حال فقدان القوة أو ضمور الإبهام، استشر الطبيب في أقرب وقت دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل يمكن الشفاء من متلازمة النفق الرسغي دون جراحة؟",
+      "a": "نعم، في كثير من الحالات تكفي التدابير التحفظية كارتداء جبيرة ليلية وتهيئة بيئة العمل وعلاج السبب الكامن. سيقيّم طبيبك مدى الحاجة إلى التدخل الجراحي بحسب شدة الأعراض وتطورها."
+    },
+    {
+      "q": "ما الفحوصات التي تؤكد التشخيص؟",
+      "a": "يعتمد الطبيب أولاً على الفحص السريري (اختباري تينيل وفالين). وقد يطلب تخطيط الأعصاب والعضلات (EMG) لقياس التوصيل العصبي وتأكيد ضغط العصب المتوسط قبل تحديد العلاج المناسب."
+    }
+  ],
+  "intentAnswerAr": "لعلاج متلازمة النفق الرسغي، ابدأ بزيارة طبيبك العام الذي سيقيّم أعراضك ويحيلك إذا لزم الأمر إلى أخصائي أمراض الروماتيزم أو الأعصاب أو جراح العظام. وفي حال فقدان القوة المفاجئ أو ضمور الإبهام، اطلب الاستشارة الطبية بسرعة."
+}

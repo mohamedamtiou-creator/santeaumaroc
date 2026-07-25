@@ -1,0 +1,64 @@
+{
+  "slug": "lymphome",
+  "term": "Lymphome",
+  "kind": "DISEASE",
+  "specialty": "hematologie",
+  "synonyms": ["cancer du système lymphatique", "lymphome hodgkinien", "lymphome non hodgkinien", "maladie de Hodgkin"],
+  "shortAnswer": "Le lymphome est un cancer qui touche les cellules du système lymphatique. Il existe des formes très curables lorsqu'elles sont détectées tôt. Toute ganglion gonflé persistant, fièvre inexpliquée ou perte de poids importante doit conduire à consulter rapidement un médecin.",
+  "causes": [
+    "Anomalie génétique ou mutation des lymphocytes (globules blancs du système immunitaire)",
+    "Infections virales comme le virus d'Epstein-Barr (EBV) ou le VIH dans certains cas",
+    "Déficit ou affaiblissement du système immunitaire (immunodépression)",
+    "Exposition prolongée à certains produits chimiques ou pesticides",
+    "Antécédents familiaux de lymphome ou d'autres cancers du sang",
+    "Maladies auto-immunes chroniques pouvant fragiliser le système lymphatique"
+  ],
+  "redFlags": [
+    "Ganglion (boule) sous la peau qui grossit progressivement et persiste plus de 3 semaines, sans douleur ni infection évidente",
+    "Fièvre prolongée inexpliquée, sueurs nocturnes abondantes et perte de poids significative (signes dits « B »)",
+    "Essoufflement important, toux persistante ou sensation de pression dans la poitrine",
+    "Fatigue extrême et inhabituellement sévère ne s'améliorant pas avec le repos",
+    "Démangeaisons généralisées sans cause cutanée identifiée"
+  ],
+  "whenToConsult": "Consultez votre médecin généraliste sans délai si vous ressentez un ou plusieurs de ces signes, en particulier un ganglion qui persiste ou grossit. En cas d'essoufflement brutal ou de fièvre très élevée, rendez-vous aux urgences.",
+  "faq": [
+    {
+      "q": "Le lymphome est-il toujours grave ?",
+      "a": "Non. Certains lymphomes, notamment la maladie de Hodgkin, ont un taux de guérison élevé lorsqu'ils sont pris en charge tôt. D'autres formes évoluent lentement. Le pronostic dépend du type, du stade et de la prise en charge rapide par une équipe spécialisée."
+    },
+    {
+      "q": "Comment distinguer un simple ganglion d'un signe inquiétant ?",
+      "a": "Un ganglion lié à une infection (angine, rhume) est souvent douloureux et disparaît en 2 à 3 semaines. Un ganglion ferme, indolore, qui grossit progressivement ou persiste au-delà de 3 semaines doit être évalué par un médecin, même en l'absence d'autres symptômes."
+    }
+  ],
+  "intentAnswer": "Pour un lymphome suspecté, commencez par consulter votre médecin généraliste qui prescrira les premiers examens (prise de sang, échographie). Il vous orientera vers un hématologue ou un oncologue. En cas de ganglion très rapidement croissant, d'essoufflement brutal ou de fièvre élevée, rendez-vous aux urgences.",
+  "termAr": "سرطان الغدد الليمفاوية (اللمفومة)",
+  "shortAnswerAr": "اللمفومة (سرطان الغدد الليمفاوية) مرضٌ يصيب خلايا الجهاز اللمفاوي. بعض أنواعه قابلة للشفاء إذا اكتُشفت مبكراً. كل ورم في العقد الليمفاوية يستمر أكثر من ثلاثة أسابيع، أو حمى مجهولة السبب، أو فقدان واضح للوزن يستوجب استشارة طبيب في أقرب وقت.",
+  "causesAr": [
+    "طفرة جينية في اللمفاويات (خلايا الدم البيضاء المسؤولة عن المناعة)",
+    "بعض الفيروسات كفيروس إبشتاين-بار أو فيروس نقص المناعة المكتسب في حالات معينة",
+    "ضعف الجهاز المناعي أو انخفاض كفاءته لأسباب متعددة",
+    "التعرض المطوّل لمواد كيميائية أو مبيدات حشرية",
+    "وجود حالات سرطان الدم أو اللمفومة في الأسرة",
+    "أمراض المناعة الذاتية المزمنة التي قد تُضعف الجهاز اللمفاوي"
+  ],
+  "redFlagsAr": [
+    "ظهور كتلة أو تضخم في العقد الليمفاوية يستمر أكثر من ثلاثة أسابيع دون ألم أو سبب واضح",
+    "حمى مستمرة مجهولة السبب مصحوبة بتعرق ليلي غزير وفقدان ملحوظ للوزن",
+    "ضيق في التنفس أو سعال مستمر أو إحساس بضغط في الصدر",
+    "إرهاق شديد وغير معتاد لا يتحسن بالراحة",
+    "حكة منتشرة في الجسم دون سبب جلدي واضح"
+  ],
+  "whenToConsultAr": "راجع طبيبك العام فوراً إن لاحظت أياً من هذه العلامات، خاصة إذا كانت العقدة الليمفاوية تكبر أو تستمر. في حال صعوبة التنفس المفاجئة أو الحمى الشديدة، اذهب إلى المستعجلات دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل اللمفومة مرض خطير دائماً؟",
+      "a": "لا. بعض أنواع اللمفومة، كداء هودجكين، تُشفى بنسبة مرتفعة إذا اكتُشفت مبكراً. وبعض الأنواع الأخرى تتطور ببطء. يعتمد التشخيص على نوع اللمفومة ومرحلتها وسرعة تلقي العلاج من فريق طبي متخصص."
+    },
+    {
+      "q": "كيف أُفرق بين عقدة ليمفاوية عادية وأخرى مثيرة للقلق؟",
+      "a": "العقدة الليمفاوية الناجمة عن عدوى (كالتهاب الحلق) تكون مؤلمة وتختفي خلال أسبوعين إلى ثلاثة. أما العقدة الصلبة غير المؤلمة التي تكبر تدريجياً أو تستمر أكثر من ثلاثة أسابيع، فيجب عرضها على الطبيب حتى في غياب أعراض أخرى."
+    }
+  ],
+  "intentAnswerAr": "إذا كنت تشك في وجود لمفومة، ابدأ باستشارة طبيبك العام الذي سيطلب الفحوصات الأولية (تحاليل الدم والسونار). سيُحيلك بعدها إلى طبيب أمراض الدم أو الأورام. في حال تضخم سريع جداً للعقد، أو ضيق التنفس المفاجئ، أو الحمى الشديدة، توجه فوراً إلى المستعجلات."
+}

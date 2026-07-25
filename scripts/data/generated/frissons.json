@@ -1,0 +1,64 @@
+{
+  "slug": "frissons",
+  "term": "Frissons",
+  "kind": "SYMPTOM",
+  "specialty": "medecine-generale",
+  "synonyms": ["tremblements de froid", "chair de poule", "claquements de dents", "frissonnements"],
+  "shortAnswer": "Les frissons sont des contractions musculaires involontaires qui produisent de la chaleur. Souvent bénins et liés à une infection courante (grippe, rhume), ils peuvent signaler une situation grave s'ils s'accompagnent de forte fièvre, confusion ou difficultés respiratoires.",
+  "causes": [
+    "Infection virale ou bactérienne (grippe, angine, pneumonie)",
+    "Fièvre d'origine infectieuse ou inflammatoire",
+    "Exposition prolongée au froid",
+    "Paludisme (zone d'endémie ou retour de voyage)",
+    "Infection urinaire ou rénale (pyélonéphrite)",
+    "Réaction à une prise de sang, une perfusion ou un vaccin"
+  ],
+  "redFlags": [
+    "Frissons intenses avec fièvre très élevée (au-dessus de 39,5 °C) ne cédant pas",
+    "Confusion mentale, perte de connaissance ou raideur de nuque",
+    "Difficultés respiratoires, teint bleuté ou douleur thoracique",
+    "Frissons survenant après un retour de zone paludéenne",
+    "Taches rouges ou violacées sur la peau ne disparaissant pas à la pression"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si les frissons persistent plus de 24 à 48 heures ou s'accompagnent de fièvre persistante. Rendez-vous aux urgences immédiatement en présence de l'un des signes d'alerte listés ci-dessus.",
+  "faq": [
+    {
+      "q": "Les frissons sans fièvre sont-ils dangereux ?",
+      "a": "Des frissons sans fièvre peuvent survenir lors d'une exposition au froid, d'une hypoglycémie ou d'un choc émotionnel. S'ils sont répétés, inhabituels ou accompagnés d'autres symptômes, consultez un médecin pour en identifier la cause."
+    },
+    {
+      "q": "Que faire en attendant la consultation médicale ?",
+      "a": "Restez au chaud, hydratez-vous bien et surveillez votre température régulièrement. Ne prenez aucun médicament sans avis médical. Si un signe d'alerte apparaît, appelez le SAMU ou rendez-vous aux urgences sans attendre."
+    }
+  ],
+  "intentAnswer": "Pour des frissons, consultez en premier votre médecin généraliste, qui orientera si besoin vers un infectiologue ou un interniste. En cas de retour de voyage tropical, signalez-le immédiatement. Si des signes d'alerte sont présents (confusion, raideur de nuque, détresse respiratoire), rendez-vous aux urgences sans délai.",
+  "termAr": "قشعريرة",
+  "shortAnswerAr": "القشعريرة هي انقباضات عضلية لا إرادية تساعد الجسم على توليد الحرارة. غالبًا ما تكون حميدة ومرتبطة بعدوى شائعة كالإنفلونزا، لكنها قد تشير إلى حالة خطيرة إذا صاحبها حمى شديدة أو تشوش ذهني أو صعوبة في التنفس.",
+  "causesAr": [
+    "عدوى فيروسية أو بكتيرية (إنفلونزا، التهاب الحلق، التهاب رئوي)",
+    "حمى ناجمة عن التهاب أو عدوى",
+    "التعرض المطوّل للبرد",
+    "الملاريا (في المناطق الموبوءة أو بعد السفر)",
+    "عدوى في المسالك البولية أو الكلى (التهاب الحويضة والكلية)",
+    "رد فعل لأخذ دم أو حقنة وريدية أو تطعيم"
+  ],
+  "redFlagsAr": [
+    "قشعريرة شديدة مع حمى مرتفعة جدًا (تتجاوز 39,5 درجة) لا تخف",
+    "تشوش ذهني أو فقدان وعي أو تصلب في الرقبة",
+    "صعوبة في التنفس أو تلوّن أزرق في البشرة أو ألم في الصدر",
+    "قشعريرة تظهر بعد العودة من منطقة موبوءة بالملاريا",
+    "بقع حمراء أو بنفسجية على الجلد لا تختفي عند الضغط عليها"
+  ],
+  "whenToConsultAr": "استشر طبيبًا عامًا إذا استمرت القشعريرة أكثر من 24 إلى 48 ساعة أو رافقتها حمى متواصلة. توجّه فورًا إلى المستعجلات في حال ظهور أي علامة تحذيرية مذكورة أعلاه.",
+  "faqAr": [
+    {
+      "q": "هل القشعريرة دون حمى خطيرة؟",
+      "a": "قد تحدث القشعريرة دون حمى عند التعرض للبرد أو انخفاض السكر في الدم أو الصدمة النفسية. إذا كانت متكررة أو غير معتادة أو مصحوبة بأعراض أخرى، استشر طبيبًا لتحديد السبب."
+    },
+    {
+      "q": "ماذا أفعل في انتظار الاستشارة الطبية؟",
+      "a": "ابقَ في مكان دافئ واشرب كميات كافية من الماء وراقب درجة حرارتك بانتظام. لا تتناول أي دواء دون استشارة طبية. إذا ظهرت علامة تحذيرية، اتصل بالإسعاف أو اذهب إلى المستعجلات فورًا."
+    }
+  ],
+  "intentAnswerAr": "لمعالجة القشعريرة، يُنصح باستشارة الطبيب العام أولًا، الذي يُحيل عند الحاجة إلى أخصائي الأمراض المعدية أو الطب الداخلي. إذا عدت من رحلة إلى منطقة استوائية، أبلغ طبيبك فورًا. وفي حال ظهور علامات تحذيرية كالتشوش أو تصلب الرقبة أو ضيق التنفس، اتجه إلى المستعجلات دون تأخير."
+}

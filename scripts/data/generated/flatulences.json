@@ -1,0 +1,68 @@
+{
+  "slug": "flatulences",
+  "term": "Flatulences",
+  "kind": "SYMPTOM",
+  "specialty": "gastro-enterologie",
+  "synonyms": ["gaz intestinaux", "ballonnements", "aérophagie", "pets"],
+  "shortAnswer": "Les flatulences sont des gaz intestinaux qui s'accumulent dans le tube digestif et s'évacuent naturellement. Elles sont bénignes dans la grande majorité des cas. Elles deviennent préoccupantes si elles s'accompagnent de douleurs intenses, de saignements ou d'une perte de poids inexpliquée.",
+  "causes": [
+    "Alimentation riche en fibres fermentescibles (légumineuses, choux, oignons)",
+    "Ingestion d'air lors des repas (manger vite, boissons gazeuses)",
+    "Intolérance au lactose ou au gluten",
+    "Déséquilibre du microbiote intestinal",
+    "Syndrome de l'intestin irritable",
+    "Constipation chronique ralentissant le transit"
+  ],
+  "redFlags": [
+    "Douleurs abdominales intenses ou persistantes accompagnant les gaz",
+    "Sang dans les selles ou selles noires",
+    "Perte de poids inexpliquée associée aux ballonnements",
+    "Alternance diarrhée / constipation sévère et prolongée",
+    "Modification récente et inexpliquée du transit intestinal (surtout après 50 ans)",
+    "Fièvre accompagnant les troubles digestifs",
+    "Vomissements associés aux douleurs abdominales (risque d'occlusion intestinale)"
+  ],
+  "whenToConsult": "Consultez un médecin si les flatulences sont très fréquentes, douloureuses ou associées à d'autres symptômes digestifs persistants depuis plus de deux semaines. En présence de sang dans les selles ou d'une perte de poids, consultez sans attendre.",
+  "faq": [
+    {
+      "q": "Certains aliments sont-ils particulièrement responsables des flatulences ?",
+      "a": "Oui, les légumineuses (lentilles, pois chiches, haricots), les choux, l'oignon, l'ail et les boissons gazeuses sont les principaux responsables. Manger lentement, bien mastiquer et réduire temporairement ces aliments peut aider à diminuer les gaz."
+    },
+    {
+      "q": "Les flatulences peuvent-elles signaler une maladie grave ?",
+      "a": "Dans la grande majorité des cas, les flatulences isolées sont bénignes. Elles peuvent toutefois accompagner des maladies digestives comme l'intestin irritable, la maladie cœliaque ou, plus rarement, des pathologies du côlon. Un médecin pourra orienter les examens si d'autres symptômes sont présents."
+    }
+  ],
+  "intentAnswer": "Pour des flatulences isolées, commencez par consulter un médecin généraliste qui évaluera votre alimentation et votre transit. Si les symptômes persistent ou s'aggravent, il vous orientera vers un gastro-entérologue. En cas de douleurs abdominales intenses, de saignements, de vomissements ou de fièvre, rendez-vous aux urgences sans attendre.",
+  "termAr": "انتفاخ البطن والغازات",
+  "shortAnswerAr": "الغازات المعوية هي تجمع للهواء في الجهاز الهضمي يخرج بشكل طبيعي. وهي في الغالب حالة حميدة لا تستدعي القلق. غير أنها تستوجب الانتباه إذا رافقها ألم شديد أو نزيف في البراز أو فقدان وزن غير مبرر.",
+  "causesAr": [
+    "تناول أطعمة غنية بالألياف القابلة للتخمر كالبقوليات والملفوف والبصل",
+    "ابتلاع الهواء أثناء الأكل السريع أو شرب المشروبات الغازية",
+    "عدم تحمل اللاكتوز أو الغلوتين",
+    "اضطراب في توازن بكتيريا الأمعاء",
+    "متلازمة القولون العصبي",
+    "الإمساك المزمن الذي يُبطئ حركة الأمعاء"
+  ],
+  "redFlagsAr": [
+    "آلام بطنية شديدة أو مستمرة مصاحبة للغازات",
+    "وجود دم في البراز أو براز أسود اللون",
+    "فقدان وزن غير مبرر مع الانتفاخ",
+    "تناوب حاد بين الإسهال والإمساك لفترة مطولة",
+    "تغيّر مفاجئ وغير مبرر في عادات الأمعاء (خاصةً بعد سن الخمسين)",
+    "ارتفاع في درجة الحرارة مصاحب لاضطرابات الجهاز الهضمي",
+    "قيء مصاحب لآلام البطن (احتمال انسداد معوي)"
+  ],
+  "whenToConsultAr": "استشر طبيبك إذا كانت الغازات متكررة أو مؤلمة أو مصحوبة بأعراض هضمية أخرى مستمرة لأكثر من أسبوعين. وإذا لاحظت دمًا في البراز أو فقدانًا في الوزن، فتوجه إلى الطبيب دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل هناك أطعمة بعينها تسبب الغازات أكثر من غيرها؟",
+      "a": "نعم، تُعدّ البقوليات كالعدس والحمص والفاصولياء، إضافةً إلى الملفوف والبصل والثوم والمشروبات الغازية، من أبرز المسببات. يمكن تخفيف الغازات بالأكل ببطء، والمضغ الجيد، وتقليل هذه الأطعمة مؤقتًا."
+    },
+    {
+      "q": "هل يمكن أن تكون الغازات علامة على مرض خطير؟",
+      "a": "في معظم الحالات، الغازات المعزولة حميدة. لكنها قد ترافق حالات هضمية كالقولون العصبي أو مرض الاضطرابات الهضمية أو، نادرًا، أمراض القولون. يستطيع الطبيب توجيه الفحوصات اللازمة إذا رافق الغازاتِ أعراضٌ أخرى."
+    }
+  ],
+  "intentAnswerAr": "في حالة الغازات المعوية المعزولة، ابدأ بزيارة طبيب عام يقيّم نظامك الغذائي وحركة أمعائك. وإذا استمرت الأعراض أو تفاقمت، سيحيلك إلى طبيب متخصص في الجهاز الهضمي. وفي حال الألم الشديد أو النزيف أو القيء المصاحب للألم أو الحمى، توجه إلى قسم الطوارئ فورًا."
+}

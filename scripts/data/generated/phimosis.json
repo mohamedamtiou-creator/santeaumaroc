@@ -1,0 +1,64 @@
+{
+  "slug": "phimosis",
+  "term": "Phimosis",
+  "kind": "DISEASE",
+  "specialty": "urologie-et-chirurgie-urologique",
+  "synonyms": ["prépuce serré", "striction du prépuce", "prépuce non rétractable"],
+  "shortAnswer": "Le phimosis est un rétrécissement du prépuce qui empêche son rétractation sur le gland. Chez le nourrisson, il est normal et disparaît souvent seul. Chez l'adulte, il peut gêner l'hygiène, la sexualité ou uriner et nécessite alors un avis médical.",
+  "causes": [
+    "Phimosis physiologique (naturel chez le nourrisson et le jeune enfant)",
+    "Cicatrices dues à des infections répétées du prépuce (balanoposthite)",
+    "Lichen scléreux (maladie inflammatoire cutanée chronique)",
+    "Traumatismes ou tentatives forcées de décalottage",
+    "Diabète favorisant les infections locales répétées",
+    "Prédisposition génétique ou constitutionnelle"
+  ],
+  "redFlags": [
+    "Gonflement douloureux et bloqué du prépuce en position rétractée (paraphimosis) : urgence chirurgicale",
+    "Difficulté ou impossibilité d'uriner, jet urinaire très fin",
+    "Douleurs importantes lors des rapports sexuels ou érections",
+    "Rougeur, gonflement, écoulement purulent évoquant une infection sévère",
+    "Lésion blanchâtre ou durcie sur le prépuce (risque de lichen scléreux)"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si le phimosis persiste après l'adolescence, gêne la miction ou la vie intime, ou s'accompagne de douleurs et d'infections à répétition. En cas de paraphimosis (prépuce bloqué rétracté, douloureux et gonflé), rendez-vous immédiatement aux urgences.",
+  "faq": [
+    {
+      "q": "Le phimosis guérit-il tout seul chez l'enfant ?",
+      "a": "Oui, dans la grande majorité des cas. Le prépuce est naturellement adhérent chez le nourrisson et se rétracte progressivement jusqu'à l'adolescence. Il ne faut jamais forcer la rétraction, ce qui pourrait provoquer des cicatrices. Un suivi pédiatrique suffit généralement."
+    },
+    {
+      "q": "Quels sont les traitements possibles pour un phimosis adulte ?",
+      "a": "Le médecin peut proposer des crèmes corticoïdes appliquées localement pour assouplir le prépuce, des exercices d'étirement progressif, ou selon les cas une intervention chirurgicale (prépucoplastie ou circoncision). Le choix dépend de la sévérité et des symptômes, et se décide avec un urologue."
+    }
+  ],
+  "intentAnswer": "Pour un phimosis, commencez par consulter un médecin généraliste qui évaluera la situation et pourra orienter vers un urologue si un traitement spécialisé (crème, chirurgie) est nécessaire. En cas de paraphimosis (urgence douloureuse), rendez-vous directement aux urgences.",
+  "termAr": "الشبم (ضيق القلفة)",
+  "shortAnswerAr": "الشبم هو ضيق في الجلدة الجلدية المحيطة بالحشفة يمنع سحبها للخلف. عند الرضع والأطفال الصغار يُعدّ أمراً طبيعياً يزول من تلقاء نفسه. أما عند البالغين فقد يُعيق النظافة أو العلاقة الجنسية أو التبوّل، ويستدعي عندئذٍ استشارة طبية.",
+  "causesAr": [
+    "شبم فسيولوجي طبيعي عند حديثي الولادة والأطفال الصغار",
+    "ندبات ناجمة عن التهابات متكررة في الغلفة (التهاب الحشفة والقلفة)",
+    "الحزاز الصلبي (مرض التهابي جلدي مزمن)",
+    "إصابات ناتجة عن محاولات إجبارية لسحب الغلفة",
+    "داء السكري الذي يُهيئ بيئة للعدوى المتكررة",
+    "استعداد وراثي أو تركيبي"
+  ],
+  "redFlagsAr": [
+    "تورم مؤلم وانحشار الغلفة في وضعية مسحوبة للخلف (paraphimosis): حالة طارئة تستوجب التدخل الجراحي الفوري",
+    "صعوبة في التبوّل أو انعدامه مع ضعف شديد في تدفق البول",
+    "آلام شديدة عند الجماع أو الانتصاب",
+    "احمرار وتورم وإفراز قيحي يدلّ على عدوى حادة",
+    "بقع بيضاء أو منطقة متصلّبة على الغلفة قد تشير إلى الحزاز الصلبي"
+  ],
+  "whenToConsultAr": "استشر طبيباً عاماً إذا استمر الشبم بعد مرحلة المراهقة، أو أعاق التبوّل أو الحياة الجنسية، أو رافقته آلام والتهابات متكررة. في حال حدوث paraphimosis (انحشار الغلفة مسحوبةً مع تورم وألم شديدين)، توجّه فوراً إلى قسم الطوارئ.",
+  "faqAr": [
+    {
+      "q": "هل يختفي الشبم من تلقاء نفسه عند الأطفال؟",
+      "a": "نعم، في الغالبية العظمى من الحالات. تكون الغلفة ملتصقة بشكل طبيعي عند حديثي الولادة وتنسحب تدريجياً مع التقدم في العمر حتى مرحلة المراهقة. يجب تجنّب محاولة سحبها بالقوة لأن ذلك قد يسبب ندبات. المتابعة مع طبيب الأطفال كافية في العادة."
+    },
+    {
+      "q": "ما هي العلاجات المتاحة لشبم البالغين؟",
+      "a": "يمكن للطبيب اقتراح كريمات الكورتيكوستيرويد الموضعية لتليين الغلفة، أو تمارين تمدد تدريجي، أو في بعض الحالات تدخّل جراحي (رأب الغلفة أو الختان). يُحدَّد الخيار المناسب حسب شدة الأعراض بالتشاور مع طبيب المسالك البولية."
+    }
+  ],
+  "intentAnswerAr": "لعلاج الشبم، ابدأ بزيارة الطبيب العام الذي سيقيّم حالتك ويحيلك إلى طبيب المسالك البولية إذا اقتضى الأمر علاجاً متخصصاً (كريم أو جراحة). في حال paraphimosis (حالة طارئة مؤلمة)، اتجه مباشرة إلى قسم الطوارئ."
+}

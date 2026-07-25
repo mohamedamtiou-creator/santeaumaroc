@@ -1,0 +1,65 @@
+{
+  "slug": "gastrite",
+  "term": "Gastrite",
+  "kind": "DISEASE",
+  "specialty": "gastro-enterologie",
+  "synonyms": ["inflammation de l'estomac", "gastrite aiguë", "gastrite chronique"],
+  "shortAnswer": "La gastrite est une inflammation de la muqueuse de l'estomac. Elle provoque des douleurs ou brûlures à l'estomac, souvent bénignes et passagères. Elle peut devenir préoccupante si les douleurs sont intenses, persistantes, ou accompagnées de saignements.",
+  "causes": [
+    "Infection à la bactérie Helicobacter pylori (cause la plus fréquente)",
+    "Prise prolongée d'anti-inflammatoires non stéroïdiens (AINS) ou d'aspirine",
+    "Consommation excessive d'alcool ou de tabac",
+    "Stress intense ou choc physique (gastrite de stress)",
+    "Reflux biliaire depuis l'intestin vers l'estomac",
+    "Maladies auto-immunes attaquant la muqueuse gastrique"
+  ],
+  "redFlags": [
+    "Vomissements de sang ou présence de sang noir dans les selles (méléna)",
+    "Douleur abdominale intense et soudaine, insupportable",
+    "Perte de poids inexpliquée et rapide",
+    "Fatigue extrême avec teint très pâle (anémie sévère possible)",
+    "Douleurs persistantes depuis plusieurs semaines sans amélioration"
+  ],
+  "whenToConsult": "Consultez un médecin si les symptômes (brûlures, douleurs à l'estomac, nausées) durent plus de quelques jours ou reviennent souvent. En cas de saignement digestif ou de douleur très intense, rendez-vous aux urgences sans délai.",
+  "faq": [
+    {
+      "q": "La gastrite peut-elle évoluer vers quelque chose de grave ?",
+      "a": "Une gastrite chronique non traitée, notamment due à Helicobacter pylori, peut à long terme favoriser l'apparition d'ulcères ou, plus rarement, d'autres complications. Un suivi médical et un traitement adapté permettent dans la grande majorité des cas d'éviter ces évolutions."
+    },
+    {
+      "q": "Quels aliments sont à éviter en cas de gastrite ?",
+      "a": "Il est généralement conseillé d'éviter les aliments épicés, très acides, les boissons gazeuses, l'alcool et le café en excès. Chaque personne réagit différemment : discutez avec votre médecin pour un conseil personnalisé, car il n'existe pas de régime universel."
+    }
+  ],
+  "intentAnswer": "Pour une gastrite, commencez par consulter un médecin généraliste qui posera le diagnostic et orientera la prise en charge. Si les symptômes persistent ou se compliquent, il vous adressera à un gastro-entérologue. En cas de douleur intense ou de saignement, rendez-vous directement aux urgences.",
+  "termAr": "التهاب المعدة",
+  "synonymsAr": ["التهاب بطانة المعدة", "التهاب المعدة الحاد", "التهاب المعدة المزمن"],
+  "shortAnswerAr": "التهاب المعدة هو التهاب يصيب بطانة المعدة، ويسبب آلاماً أو حرقة في المنطقة العلوية من البطن. غالباً ما يكون مؤقتاً وغير خطير، لكنه يستدعي الانتباه إذا اشتدت الأعراض أو تكررت أو صاحبها نزيف.",
+  "causesAr": [
+    "العدوى ببكتيريا هيليكوباكتر بيلوري (السبب الأكثر شيوعاً)",
+    "الاستخدام المطوّل لمضادات الالتهاب غير الستيرويدية أو الأسبرين",
+    "الإفراط في تناول الكحول أو التدخين",
+    "الإجهاد الشديد أو الصدمات الجسدية الحادة",
+    "ارتجاع العصارة الصفراوية من الأمعاء إلى المعدة",
+    "أمراض المناعة الذاتية التي تهاجم بطانة المعدة"
+  ],
+  "redFlagsAr": [
+    "قيء يحتوي على دم أو براز أسود القوام (نزيف هضمي)",
+    "ألم شديد ومفاجئ في البطن لا يُحتمل",
+    "فقدان وزن غير مبرر وسريع",
+    "إرهاق شديد مع شحوب واضح في الوجه (قد يدل على فقر دم حاد)",
+    "آلام متواصلة لأسابيع دون تحسن"
+  ],
+  "whenToConsultAr": "استشر طبيبك إذا استمرت الأعراض (حرقة، ألم في المعدة، غثيان) أكثر من بضعة أيام أو تكررت بصفة منتظمة. أما في حال وجود نزيف أو ألم حاد مفاجئ، فتوجّه إلى قسم الطوارئ فوراً دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل يمكن أن يتفاقم التهاب المعدة ويصبح خطيراً؟",
+      "a": "التهاب المعدة المزمن غير المعالج، خاصة الناجم عن بكتيريا هيليكوباكتر بيلوري، قد يؤدي على المدى البعيد إلى قرحة معدية أو مضاعفات أخرى نادرة. غير أن المتابعة الطبية والعلاج المناسب يحولان في أغلب الحالات دون هذه التطورات."
+    },
+    {
+      "q": "ما الأطعمة التي يُنصح بتجنبها عند الإصابة بالتهاب المعدة؟",
+      "a": "يُنصح عموماً بتجنب الأطعمة الحارة والحامضة جداً، والمشروبات الغازية، والكحول، والإفراط في القهوة. غير أن كل شخص يختلف في تفاعله مع الأطعمة؛ لذا استشر طبيبك للحصول على نصيحة مخصصة لحالتك."
+    }
+  ],
+  "intentAnswerAr": "للتشخيص الأولي لالتهاب المعدة، ابدأ باستشارة طبيب عام الذي سيقيّم حالتك ويضع خطة العلاج المناسبة. إن استمرت الأعراض أو تعقدت، سيحيلك إلى طبيب متخصص في أمراض الجهاز الهضمي. وفي حال الألم الشديد أو النزيف، اتجه مباشرة إلى قسم الطوارئ."
+}

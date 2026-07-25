@@ -1,0 +1,64 @@
+{
+  "slug": "saignement-des-gencives",
+  "term": "Saignement des gencives",
+  "kind": "SYMPTOM",
+  "specialty": "parodontologie",
+  "synonyms": ["gencives qui saignent", "saignement gingival", "gingivorragie"],
+  "shortAnswer": "Les gencives qui saignent lors du brossage ou spontanément signalent souvent une inflammation (gingivite) liée à la plaque dentaire. C'est fréquent et traitable, mais un saignement abondant, persistant ou accompagné d'autres symptômes doit être signalé rapidement à un professionnel.",
+  "causes": [
+    "Gingivite ou parodontite (inflammation due à l'accumulation de plaque dentaire et de tartre)",
+    "Brossage trop vigoureux ou brosse à dents inadaptée",
+    "Tabagisme, qui fragilise les gencives",
+    "Carence en vitamine C (scorbut, rare mais possible)",
+    "Grossesse (gingivite hormonale fréquente)",
+    "Troubles de la coagulation ou prise de certains traitements anticoagulants"
+  ],
+  "redFlags": [
+    "Saignement abondant, spontané ou qui ne s'arrête pas après quelques minutes",
+    "Gencives très enflées, douloureuses, avec du pus ou une mauvaise odeur persistante",
+    "Dents qui se déchaussent ou deviennent mobiles",
+    "Saignement accompagné de fièvre, fatigue intense ou apparition de bleus inexpliqués sur le corps",
+    "Saignement chez une personne sous traitement anticoagulant ou atteinte d'une maladie du sang connue"
+  ],
+  "whenToConsult": "Consultez un dentiste ou un médecin si le saignement se produit régulièrement, persiste plus de deux semaines ou s'accompagne de douleur, de gonflement ou d'un des signaux d'alerte ci-dessus. En cas de saignement abondant et incontrôlable, rendez-vous aux urgences.",
+  "faq": [
+    {
+      "q": "Saigner des gencives lors du brossage est-il normal ?",
+      "a": "Non, ce n'est pas normal, même si c'est très fréquent. Cela indique souvent une gingivite débutante causée par la plaque dentaire. Un bon détartrage chez le dentiste et une hygiène bucco-dentaire adaptée permettent généralement de faire disparaître ce saignement en quelques semaines."
+    },
+    {
+      "q": "Puis-je continuer à me brosser les dents si mes gencives saignent ?",
+      "a": "Oui, il est important de continuer à vous brosser les dents deux fois par jour avec une brosse souple et un geste doux. Arrêter le brossage aggraverait l'accumulation de plaque et donc l'inflammation. Consultez votre dentiste pour vérifier votre technique de brossage."
+    }
+  ],
+  "intentAnswer": "Pour un saignement des gencives, consultez d'abord votre médecin généraliste ou directement un dentiste. Si le problème vient des gencives elles-mêmes, le dentiste vous orientera vers un parodontologue (spécialiste des gencives). En cas de saignement abondant et incontrôlable, rendez-vous aux urgences sans attendre.",
+  "termAr": "نزيف اللثة",
+  "shortAnswerAr": "نزيف اللثة أثناء التفريش أو بشكل تلقائي يشير في الغالب إلى التهاب (التهاب اللثة) ناتج عن تراكم البلاك. الأمر شائع وقابل للعلاج، غير أن النزيف الغزير أو المستمر أو المصحوب بأعراض أخرى يستوجب مراجعة طبيب مختص في أقرب وقت.",
+  "causesAr": [
+    "التهاب اللثة أو داء اللثة (بسبب تراكم البلاك والجير على الأسنان)",
+    "التفريش بقوة زائدة أو استخدام فرشاة غير مناسبة",
+    "التدخين الذي يضعف أنسجة اللثة",
+    "نقص فيتامين ج (داء الإسقربوط، نادر لكن ممكن)",
+    "الحمل (التهاب اللثة الهرموني شائع لدى الحوامل)",
+    "اضطرابات التخثر أو تناول بعض أدوية مضادات التخثر"
+  ],
+  "redFlagsAr": [
+    "نزيف غزير أو تلقائي لا يتوقف بعد بضع دقائق",
+    "لثة منتفخة جداً ومؤلمة مع وجود قيح أو رائحة كريهة مستمرة",
+    "تراخي الأسنان أو تحركها",
+    "نزيف مصحوب بحمى أو إرهاق شديد أو ظهور كدمات غير مبررة على الجسم",
+    "نزيف لدى شخص يتناول مضادات التخثر أو يعاني من مرض معروف في الدم"
+  ],
+  "whenToConsultAr": "راجع طبيب الأسنان أو الطبيب العام إذا تكرر النزيف بانتظام، أو استمر أكثر من أسبوعين، أو اقترن بألم أو تورم أو أي من علامات التحذير المذكورة أعلاه. في حال النزيف الغزير الذي لا يمكن إيقافه، توجه فوراً إلى قسم الطوارئ.",
+  "faqAr": [
+    {
+      "q": "هل نزيف اللثة أثناء تفريش الأسنان أمر طبيعي؟",
+      "a": "لا، ليس طبيعياً وإن كان شائعاً جداً. فهو يشير في الغالب إلى التهاب لثة مبكر ناجم عن البلاك. يمكن عادةً التخلص من هذا النزيف في غضون أسابيع قليلة بإجراء تنظيف احترافي للأسنان لدى طبيب الأسنان واتباع عادات نظافة فموية سليمة."
+    },
+    {
+      "q": "هل يمكنني الاستمرار في تفريش أسناني إذا كانت لثتي تنزف؟",
+      "a": "نعم، من الضروري الاستمرار في تفريش أسنانك مرتين يومياً بفرشاة ناعمة وبلطف. التوقف عن التفريش يزيد من تراكم البلاك ويفاقم الالتهاب. استشر طبيب أسنانك للتحقق من صحة أسلوبك في التفريش."
+    }
+  ],
+  "intentAnswerAr": "في حالة نزيف اللثة، ابدأ بزيارة طبيبك العام أو طبيب الأسنان مباشرةً. إذا كان السبب يخص اللثة، سيحيلك طبيب الأسنان إلى أخصائي أمراض اللثة. في حال النزيف الغزير الذي لا يمكن إيقافه، اذهب إلى الطوارئ فوراً دون تأخير."
+}

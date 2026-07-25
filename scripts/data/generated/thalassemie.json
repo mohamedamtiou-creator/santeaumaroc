@@ -1,0 +1,71 @@
+{
+  "slug": "thalassemie",
+  "term": "Thalassémie",
+  "kind": "DISEASE",
+  "specialty": "hematologie",
+  "synonyms": [
+    "anémie méditerranéenne",
+    "anémie de Cooley",
+    "thalassémie alpha",
+    "thalassémie bêta"
+  ],
+  "shortAnswer": "La thalassémie est une maladie génétique du sang qui réduit la production normale d'hémoglobine. La forme mineure est souvent bénigne et peu symptomatique. La forme majeure provoque une anémie sévère nécessitant un suivi médical spécialisé régulier dès l'enfance.",
+  "causes": [
+    "Mutation héréditaire des gènes codant l'hémoglobine (transmise par les deux parents pour la forme sévère)",
+    "Anomalie des chaînes alpha ou bêta de l'hémoglobine selon le type",
+    "Origine génétique familiale : parents porteurs sains (trait thalassémique) sans le savoir",
+    "Fréquence plus élevée dans les populations d'Afrique du Nord, dont le Maroc, et du bassin méditerranéen",
+    "Aucune cause environnementale : maladie entièrement héréditaire, non contagieuse",
+    "Risque de forme sévère si les deux parents sont porteurs du gène muté"
+  ],
+  "redFlags": [
+    "Pâleur intense, fatigue extrême ou essoufflement chez un enfant ou un nourrisson",
+    "Jaunisse (teint jaune de la peau et des yeux) persistante ou apparaissant chez un jeune enfant",
+    "Gros ventre lié à une hypertrophie du foie ou de la rate (rate volumineuse palpable)",
+    "Retard de croissance ou de développement inexpliqué chez l'enfant",
+    "Crises de fièvre répétées sans cause infectieuse évidente chez un enfant anémique",
+    "Chez un patient thalassémique connu : pâleur brutale soudaine, palpitations, essoufflement au repos ou perte de connaissance — signes d'urgence vitale, appeler le 15 ou se rendre aux urgences immédiatement"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès suspicion d'anémie chronique ou si vous avez des antécédents familiaux de thalassémie, notamment avant ou pendant une grossesse. Un bilan sanguin simple (électrophorèse de l'hémoglobine) permet de confirmer le diagnostic. En cas de pâleur brutale, d'essoufflement au repos, de palpitations ou de perte de connaissance chez un patient déjà diagnostiqué, rendez-vous immédiatement aux urgences.",
+  "faqAr": [
+    {
+      "q": "هل التلاسيميا قابلة للشفاء التام؟",
+      "a": "النوع البسيط (الحامل) لا يحتاج عادةً إلى علاج ويعيش المصاب حياةً طبيعية. أما النوع الشديد (الكبرى) فلا يُشفى منه حاليًا إلا بزراعة نخاع العظم في حالات مختارة، غير أن نقل الدم الدوري وعلاجات داعمة تحت إشراف طبي متخصص تُمكّن المريض من حياة أفضل."
+    },
+    {
+      "q": "هل يجب إجراء فحص التلاسيميا قبل الزواج؟",
+      "a": "يُنصح بإجراء فحص كهربائي للهيموغلوبين (الرحلان الكهربائي) لكلا الشريكين قبل الزواج أو الإنجاب إذا كان أحدهما يحمل تاريخًا عائليًا للمرض. إذا كان الاثنان حاملَين للجين المعطوب، فإن خطر إنجاب طفل مصاب بالتلاسيميا الكبرى يرتفع بشكل ملحوظ."
+    }
+  ],
+  "intentAnswerAr": "إذا كنت تشك في الإصابة بالتلاسيميا، ابدأ بزيارة طبيب عام لإجراء فحص دم شامل وتقييم أولي. في حالة تأكيد التشخيص، يُحيلك إلى طبيب متخصص في أمراض الدم (هيماتولوجي). وفي حال ظهور أعراض حادة كشحوب مفاجئ شديد أو اصفرار مفاجئ أو ضيق تنفس في الراحة أو إغماء، توجّه فورًا إلى قسم الاستعجالات.",
+  "shortAnswerAr": "التلاسيميا مرض وراثي يُقلّل من إنتاج الهيموغلوبين الطبيعي في الدم. النوع البسيط (الصفة الحاملة) غالبًا لا يسبب أعراضًا تُذكر. أما النوع الشديد فيُسبب فقر دم حادًا يستوجب متابعة طبية متخصصة منذ الطفولة.",
+  "causesAr": [
+    "طفرة وراثية في جينات الهيموغلوبين تنتقل من الوالدين إلى الطفل",
+    "خلل في سلاسل ألفا أو بيتا للهيموغلوبين حسب نوع المرض",
+    "وجود أحد الوالدين أو كليهما حاملَين للجين المعطوب دون أعراض واضحة",
+    "انتشار أعلى في شمال أفريقيا بما فيها المغرب وحوض البحر الأبيض المتوسط",
+    "المرض وراثي بالكامل وغير معدٍ بأي شكل من الأشكال",
+    "خطر الشكل الشديد يرتفع عندما يكون كلا الوالدين حاملَين للجين"
+  ],
+  "redFlagsAr": [
+    "شحوب شديد أو إرهاق مفرط أو ضيق تنفس عند طفل أو رضيع",
+    "اصفرار مستمر في الجلد أو بياض العينين (يرقان) لدى طفل صغير",
+    "انتفاخ البطن بسبب تضخم الكبد أو الطحال",
+    "تأخر في النمو أو التطور عند الطفل دون تفسير واضح",
+    "حمى متكررة دون سبب التهابي أو عدوى واضحة لدى طفل مصاب بفقر الدم",
+    "لدى مريض مشخَّص بالتلاسيميا: شحوب مفاجئ حاد أو خفقان القلب أو ضيق تنفس في الراحة أو إغماء — علامات طوارئ حيوية، اتصل بالإسعاف أو اذهب فورًا إلى المستعجلات"
+  ],
+  "whenToConsultAr": "استشر طبيبًا عامًا فور الاشتباه في فقر دم مزمن أو في حال وجود تاريخ عائلي للتلاسيميا، لا سيما قبل الحمل أو خلاله. يكفي فحص دم بسيط (رحلان كهربائي للهيموغلوبين) لتأكيد التشخيص. في حالة شحوب مفاجئ أو ضيق تنفس في الراحة أو خفقان أو إغماء لدى مريض مشخَّص، توجّه فورًا إلى المستعجلات.",
+  "faq": [
+    {
+      "q": "La thalassémie est-elle guérissable ?",
+      "a": "La forme mineure (trait thalassémique) ne nécessite généralement pas de traitement et permet une vie normale. La forme majeure n'est actuellement guérie que par greffe de moelle osseuse dans des cas sélectionnés. Des transfusions régulières et un suivi spécialisé permettent aux patients de vivre mieux au quotidien."
+    },
+    {
+      "q": "Faut-il faire un bilan avant de se marier si on a des antécédents familiaux ?",
+      "a": "Oui, il est recommandé de réaliser une électrophorèse de l'hémoglobine pour les deux partenaires en cas d'antécédents familiaux. Si les deux sont porteurs du gène muté, le risque d'avoir un enfant atteint de thalassémie majeure est significatif. Un conseil génétique peut guider la décision d'avoir des enfants."
+    }
+  ],
+  "intentAnswer": "Pour une suspicion de thalassémie, consultez d'abord un médecin généraliste qui prescrira un bilan sanguin avec électrophorèse de l'hémoglobine. En cas de confirmation, il vous orientera vers un hématologue pour le suivi spécialisé. En présence de signes alarmants (pâleur intense soudaine, jaunisse brutale, difficultés respiratoires au repos, palpitations ou perte de connaissance), rendez-vous aux urgences sans attendre.",
+  "termAr": "الثلاسيميا"
+}

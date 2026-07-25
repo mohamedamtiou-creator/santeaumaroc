@@ -1,0 +1,64 @@
+{
+  "slug": "crampes-musculaires",
+  "term": "Crampes musculaires",
+  "kind": "SYMPTOM",
+  "specialty": "medecine-generale",
+  "synonyms": ["crampe", "spasme musculaire", "contracture musculaire"],
+  "shortAnswer": "Une crampe musculaire est une contraction douloureuse et involontaire d'un muscle, souvent brève et bénigne. Elle survient fréquemment la nuit ou à l'effort. Elle est généralement sans gravité, mais des crampes fréquentes, intenses ou accompagnées d'autres symptômes méritent une consultation médicale.",
+  "causes": [
+    "Déshydratation ou apport insuffisant en eau, surtout par temps chaud",
+    "Effort physique intense ou inhabituel (sport, marche prolongée)",
+    "Déséquilibre en minéraux (magnésium, potassium, calcium)",
+    "Mauvaise circulation sanguine dans les membres inférieurs",
+    "Position prolongée inconfortable ou immobilité (travail sédentaire, long voyage)",
+    "Certaines situations physiologiques comme la grossesse"
+  ],
+  "redFlags": [
+    "Crampes très fréquentes, persistantes ou qui ne cèdent pas au repos",
+    "Douleur intense accompagnée d'un gonflement, rougeur ou chaleur dans le membre (peut évoquer une phlébite)",
+    "Crampes survenant avec essoufflement, douleur thoracique ou malaise",
+    "Faiblesse musculaire progressive ou perte de sensibilité associée",
+    "Crampes généralisées avec fièvre élevée ou raideur de la nuque (urgence absolue)"
+  ],
+  "whenToConsult": "Consultez un médecin si les crampes sont fréquentes, très douloureuses, ou accompagnées de gonflement, faiblesse ou autres symptômes inhabituels. En cas de gonflement chaud et rouge d'un membre, ou de crampes avec essoufflement, rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "Comment soulager rapidement une crampe musculaire ?",
+      "a": "Étirez doucement le muscle contracté en sens inverse de la crampe, massez la zone et appliquez une source de chaleur légère. Assurez-vous de bien vous hydrater. Ces mesures suffisent généralement à faire céder une crampe bénigne en quelques minutes."
+    },
+    {
+      "q": "Les crampes nocturnes aux jambes sont-elles graves ?",
+      "a": "Elles sont le plus souvent bénignes, surtout chez les personnes âgées ou après une journée active. Cependant, si elles sont très fréquentes, perturbent régulièrement le sommeil ou s'accompagnent d'autres symptômes, il est conseillé d'en parler à un médecin pour en rechercher la cause."
+    }
+  ],
+  "intentAnswer": "Pour des crampes musculaires, consultez d'abord un médecin généraliste qui évaluera la cause et orientera si nécessaire vers un angiologue (problèmes circulatoires) ou un neurologue (atteinte nerveuse). En cas de gonflement brutal d'un membre, d'essoufflement ou de crampes généralisées avec fièvre, rendez-vous immédiatement aux urgences.",
+  "termAr": "تشنجات عضلية",
+  "shortAnswerAr": "التشنج العضلي هو انقباض مؤلم ولا إرادي في العضلة، يكون في الغالب قصيراً وغير خطير. يحدث كثيراً أثناء النوم أو بعد المجهود. عادةً ما يزول من تلقاء نفسه، لكن التشنجات المتكررة أو الشديدة أو المصحوبة بأعراض أخرى تستدعي استشارة طبية.",
+  "causesAr": [
+    "الجفاف وعدم شرب كميات كافية من الماء، خاصة في الطقس الحار",
+    "المجهود البدني الشديد أو غير المعتاد (الرياضة، المشي لفترات طويلة)",
+    "نقص المعادن كالمغنيسيوم والبوتاسيوم والكالسيوم",
+    "ضعف الدورة الدموية في الأطراف السفلية",
+    "الجلوس أو البقاء في وضع غير مريح لفترة طويلة (العمل المكتبي، السفر الطويل)",
+    "بعض الحالات الفسيولوجية كالحمل"
+  ],
+  "redFlagsAr": [
+    "تشنجات متكررة جداً أو مستمرة لا تتحسن بالراحة",
+    "ألم شديد مصحوب بتورم أو احمرار أو سخونة في الطرف (قد يدل على تجلط وريدي)",
+    "تشنجات مع ضيق في التنفس أو ألم في الصدر أو شعور بالتوعك العام",
+    "ضعف عضلي متصاعد أو فقدان الإحساس في المنطقة المصابة",
+    "تشنجات عامة مع حمى شديدة أو تيبس في الرقبة (طوارئ فورية)"
+  ],
+  "whenToConsultAr": "استشر طبيباً إذا كانت التشنجات متكررة أو مؤلمة جداً، أو مصحوبة بتورم أو ضعف أو أعراض غير عادية. في حال تورم الطرف مع سخونة واحمرار، أو ظهور تشنجات مع ضيق التنفس، توجه إلى المستعجلات فوراً دون انتظار.",
+  "faqAr": [
+    {
+      "q": "كيف أخفف من التشنج العضلي بسرعة؟",
+      "a": "قم بتمديد العضلة المتشنجة برفق في الاتجاه المعاكس، ودلّكها بلطف، وضع عليها مصدر حرارة خفيف. احرص على شرب الماء بكميات كافية. تكفي هذه الإجراءات في الغالب لتخفيف التشنج البسيط في غضون دقائق."
+    },
+    {
+      "q": "هل التشنجات الليلية في الساقين خطيرة؟",
+      "a": "في أغلب الأحيان هي غير خطيرة، وتشيع لدى كبار السن أو بعد يوم مجهد. غير أنها إذا كانت متكررة جداً أو تؤثر على النوم باستمرار أو ترافقت بأعراض أخرى، فمن الأفضل مناقشة الأمر مع الطبيب للبحث عن السبب."
+    }
+  ],
+  "intentAnswerAr": "لتشنجات عضلية، ابدأ بزيارة طبيب عام يقيّم الحالة ويحيلك عند الحاجة إلى أخصائي في الأوعية الدموية (إذا كان السبب دورانياً) أو أخصائي في الأمراض العصبية (إذا كان السبب عصبياً). في حال تورم مفاجئ في الطرف أو ضيق في التنفس أو تشنجات عامة مع حمى، توجه فوراً إلى المستعجلات."
+}

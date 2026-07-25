@@ -1,0 +1,66 @@
+{
+  "slug": "vaginisme",
+  "term": "Vaginisme",
+  "kind": "DISEASE",
+  "specialty": "sexologie",
+  "synonyms": ["contracture vaginale involontaire", "dyspareunie d'entrée", "pénétration douloureuse"],
+  "shortAnswer": "Le vaginisme est une contraction involontaire des muscles du vagin rendant toute pénétration douloureuse ou impossible. Dans la plupart des cas, c'est une condition traitable ; consultez un médecin si cela affecte votre vie intime ou entraîne une détresse persistante.",
+  "causes": [
+    "Facteurs psychologiques : anxiété, peur de la douleur, traumatisme passé ou antécédents d'abus",
+    "Douleurs lors de rapports antérieurs ayant conditionné une réaction de défense musculaire",
+    "Infections gynécologiques répétées (mycoses, vaginites) ayant sensibilisé la région",
+    "Causes médicales : endométriose, sécheresse vaginale, cicatrices post-chirurgicales",
+    "Manque d'information ou représentations négatives de la sexualité",
+    "Contexte relationnel difficile, pression ou manque de confiance au sein du couple"
+  ],
+  "redFlags": [
+    "Fièvre ou frissons accompagnant des douleurs pelviennes (possible infection génitale haute nécessitant une consultation urgente)",
+    "Douleurs pelviennes intenses ou permanentes, y compris en dehors des rapports",
+    "Saignements inhabituels non liés aux règles après toute tentative de pénétration",
+    "Symptômes urinaires associés : brûlures, difficultés à uriner, infections fréquentes",
+    "Détresse psychologique sévère : crises d'angoisse, isolement, dépression",
+    "Impossibilité totale de tout examen gynécologique, empêchant un suivi médical nécessaire"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès que le vaginisme perturbe votre vie intime ou vous cause de l'anxiété. Une prise en charge précoce améliore nettement les résultats.",
+  "faq": [
+    {
+      "q": "Le vaginisme peut-il guérir complètement ?",
+      "a": "Oui, dans la grande majorité des cas. Avec un accompagnement adapté (rééducation périnéale, thérapie sexologique, soutien psychologique), la plupart des femmes retrouvent une vie intime satisfaisante. La durée du traitement varie selon chaque situation."
+    },
+    {
+      "q": "Est-ce que le vaginisme est fréquent au Maroc ?",
+      "a": "Le vaginisme est souvent sous-déclaré en raison du tabou entourant la sexualité. Il touche des femmes de tous milieux. Il est important de ne pas s'isoler et de consulter un professionnel de santé en toute confidentialité."
+    }
+  ],
+  "intentAnswer": "Pour le vaginisme, consultez d'abord votre médecin généraliste ou un gynécologue pour écarter toute cause organique. Le spécialiste de référence est le sexologue, souvent accompagné d'un kinésithérapeute périnéal. En cas de douleurs pelviennes aiguës ou de saignements, rendez-vous aux urgences.",
+  "termAr": "التشنج المهبلي",
+  "shortAnswerAr": "التشنج المهبلي هو تقلص لا إرادي في عضلات المهبل يجعل الإيلاج مؤلماً أو مستحيلاً. في أغلب الحالات يمكن علاجه بنجاح؛ استشيري طبيبك إن كان يؤثر على حياتك الزوجية أو يسبب لك ضائقة نفسية مستمرة.",
+  "causesAr": [
+    "عوامل نفسية: القلق، الخوف من الألم، أو تاريخ من الصدمات أو الإساءة",
+    "ألم سابق أثناء العلاقة الزوجية أدى إلى استجابة دفاعية عضلية مشروطة",
+    "التهابات مهبلية متكررة (فطريات، التهاب المهبل) أدت إلى حساسية في المنطقة",
+    "أسباب عضوية: بطانة الرحم المهاجرة، جفاف مهبلي، ندبات ما بعد الجراحة",
+    "نقص المعلومات الجنسية أو الموروثات الثقافية السلبية حول الجنس",
+    "صعوبات في العلاقة الزوجية أو ضغط عاطفي وغياب الثقة بين الشريكين"
+  ],
+  "redFlagsAr": [
+    "حمى أو قشعريرة مصاحبة لآلام الحوض (احتمال التهاب حوضي علوي يستوجب استشارة عاجلة)",
+    "ألم شديد أو مستمر في منطقة الحوض حتى خارج أوقات العلاقة الزوجية",
+    "نزيف غير مرتبط بالدورة الشهرية عقب أي محاولة للإيلاج",
+    "أعراض بولية مصاحبة: حرقان، صعوبة في التبول، أو التهابات متكررة",
+    "ضائقة نفسية حادة: نوبات قلق، عزلة اجتماعية، أو أعراض اكتئاب",
+    "استحالة الخضوع لأي فحص نسائي، مما يعيق المتابعة الطبية الضرورية"
+  ],
+  "whenToConsultAr": "راجعي طبيبك العام فور شعورك بأن التشنج المهبلي يؤثر على حياتك الزوجية أو يسبب لك توتراً. التدخل المبكر يحسّن نتائج العلاج بشكل ملحوظ.",
+  "faqAr": [
+    {
+      "q": "هل يمكن الشفاء التام من التشنج المهبلي؟",
+      "a": "نعم، في الغالبية العظمى من الحالات. بمتابعة مناسبة (إعادة تأهيل قاع الحوض، علاج جنسي، دعم نفسي) تستعيد معظم النساء حياة زوجية مُرضية. تختلف مدة العلاج من حالة إلى أخرى."
+    },
+    {
+      "q": "هل التشنج المهبلي شائع في المغرب؟",
+      "a": "كثيراً ما يظل التشنج المهبلي غير مُبلَّغ عنه بسبب الطابو المحيط بالجنسانية. ويصيب نساءً من مختلف الأوساط. من المهم ألا تنعزلي وأن تستشيري مختصاً في سرية تامة."
+    }
+  ],
+  "intentAnswerAr": "لمعالجة التشنج المهبلي، ابدئي بزيارة طبيبك العام أو طبيب أمراض النساء لاستبعاد أي سبب عضوي. المختص الأساسي هو طبيب الجنسانية، وغالباً يعمل بالتنسيق مع مختص في إعادة تأهيل قاع الحوض. في حال ألم حوضي حاد أو نزيف، توجهي فوراً إلى المستعجلات."
+}

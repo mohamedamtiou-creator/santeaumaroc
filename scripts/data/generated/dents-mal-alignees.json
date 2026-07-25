@@ -1,0 +1,68 @@
+{
+  "slug": "dents-mal-alignees",
+  "term": "Dents mal alignées",
+  "kind": "SYMPTOM",
+  "specialty": "orthodontie",
+  "synonyms": ["malocclusion", "chevauchement dentaire", "dents de travers", "décalage dentaire"],
+  "shortAnswer": "Les dents mal alignées désignent un mauvais positionnement des dents ou des mâchoires. Souvent bénin et stable chez l'adulte, ce problème peut cependant affecter la mastication, l'hygiène dentaire et la confiance en soi. Une consultation permet d'évaluer si un traitement orthodontique est utile.",
+  "causes": [
+    "Facteurs héréditaires : forme des mâchoires ou des dents transmise génétiquement",
+    "Persistance prolongée de la succion du pouce ou de la tétine après 3-4 ans",
+    "Perte précoce des dents de lait sans maintien de l'espace",
+    "Respiration buccale chronique favorisant une croissance anormale du palais",
+    "Absence de place suffisante dans la mâchoire pour les dents permanentes",
+    "Dents surnuméraires ou agénésies (dents manquantes à la naissance)"
+  ],
+  "redFlags": [
+    "Gonflement du visage, de la joue ou du cou accompagné de fièvre et de douleur dentaire intense (abcès dentaire pouvant évoluer vers une cellulite faciale grave — urgence médicale)",
+    "Difficulté à respirer ou à avaler liée à un gonflement facial (urgence vitale : appelez le 15 ou rendez-vous aux urgences immédiatement)",
+    "Douleurs persistantes de la mâchoire, claquements ou blocage à l'ouverture de la bouche (signe de trouble de l'articulation temporo-mandibulaire)",
+    "Difficultés sévères à mastiquer ou à avaler les aliments solides",
+    "Usure rapide et visible de l'émail dentaire en peu de mois",
+    "Décalage important de la mâchoire inférieure ou supérieure perceptible de face",
+    "Douleurs ou maux de tête récurrents liés à la mastication chez l'enfant"
+  ],
+  "whenToConsult": "Consultez un orthodontiste si le chevauchement gêne le brossage, provoque des douleurs ou affecte la mastication. Pour les enfants, une première évaluation est recommandée vers 7-8 ans afin de déceler tôt tout problème de croissance des mâchoires.",
+  "faq": [
+    {
+      "q": "À quel âge commencer un traitement orthodontique au Maroc ?",
+      "a": "Une première consultation chez l'orthodontiste est idéale vers 7-8 ans, lorsque les premières dents permanentes font leur apparition. Le traitement actif débute souvent entre 10 et 14 ans, mais les adultes peuvent également bénéficier d'un traitement orthodontique à tout âge."
+    },
+    {
+      "q": "Les dents mal alignées peuvent-elles provoquer des caries ?",
+      "a": "Oui. Un chevauchement dentaire rend le brossage et l'utilisation du fil dentaire plus difficiles, favorisant l'accumulation de plaque et donc les caries et les maladies des gencives. Un alignement correct améliore l'hygiène bucco-dentaire et réduit ce risque."
+    }
+  ],
+  "intentAnswer": "Pour des dents mal alignées, commencez par consulter votre dentiste généraliste ou un médecin généraliste qui pourra vous orienter. Le spécialiste à consulter est l'orthodontiste, seul habilité à prescrire appareils dentaires ou gouttières. Si des douleurs de mâchoire intenses, un gonflement du visage avec fièvre, ou un blocage surviennent, consultez rapidement sans attendre — un abcès dentaire peut engager le pronostic vital.",
+  "termAr": "اعوجاج الأسنان",
+  "shortAnswerAr": "اعوجاج الأسنان هو سوء انتظام الأسنان أو الفكين. في الغالب تكون الحالة خفيفة ومستقرة لدى البالغين، غير أنها قد تؤثر على المضغ ونظافة الفم والثقة بالنفس. يساعد الطبيب في تحديد ما إذا كان العلاج التقويمي ضرورياً.",
+  "causesAr": [
+    "عوامل وراثية: شكل الفكين أو الأسنان الموروث من الأهل",
+    "الاستمرار في مص الإبهام أو اللهاية بعد سن الثالثة أو الرابعة",
+    "فقدان أسنان الحليب مبكراً دون الحفاظ على الفراغ",
+    "التنفس الفموي المزمن الذي يعيق النمو الطبيعي للحنك",
+    "ضيق الفك وعدم كفايته لاستيعاب الأسنان الدائمة",
+    "وجود أسنان زائدة أو غياب بعض الأسنان منذ الولادة"
+  ],
+  "redFlagsAr": [
+    "تورم الوجه أو الخد أو الرقبة مصحوباً بحمى وألم سني حاد (خراج سني قد يتطور إلى التهاب نسيجي وجهي خطير — حالة طارئة تستوجب التوجه الفوري للطوارئ)",
+    "صعوبة في التنفس أو البلع مرتبطة بتورم الوجه (حالة حرجة تهدد الحياة — اتصل بالمستعجلات فوراً أو اذهب إلى أقرب مستشفى)",
+    "ألم مستمر في الفك أو أصوات طقطقة أو صعوبة في فتح الفم (علامة على اضطراب المفصل الصدغي الفكي)",
+    "صعوبة شديدة في مضغ الطعام الصلب أو البلع",
+    "تآكل سريع وملحوظ في مينا الأسنان خلال أشهر قليلة",
+    "انزياح واضح للفك السفلي أو العلوي يُلاحَظ من الأمام",
+    "صداع متكرر أو آلام مرتبطة بالمضغ لدى الأطفال"
+  ],
+  "whenToConsultAr": "استشر طبيب الأسنان أو أخصائي تقويم الأسنان إذا كان التراكب يُصعّب التنظيف أو يسبب ألماً أو يؤثر على المضغ. بالنسبة للأطفال، يُنصح بالفحص الأول في سن السابعة أو الثامنة للكشف المبكر عن أي مشكلة في نمو الفكين.",
+  "faqAr": [
+    {
+      "q": "في أي سن يبدأ العلاج التقويمي في المغرب؟",
+      "a": "يُستحسن الفحص الأول لدى أخصائي تقويم الأسنان في سن السابعة أو الثامنة، حين تظهر أولى الأسنان الدائمة. يبدأ العلاج الفعلي عادةً بين العاشرة والرابعة عشرة من العمر، لكن يمكن للبالغين أيضاً الاستفادة من التقويم في أي مرحلة."
+    },
+    {
+      "q": "هل تسبب الأسنان المعوجة تسوساً؟",
+      "a": "نعم. يجعل تراكم الأسنان تنظيفها بالفرشاة والخيط الصحي أصعب، مما يؤدي إلى تراكم البلاك وبالتالي التسوس وأمراض اللثة. يُحسّن انتظام الأسنان من نظافة الفم ويقلل من هذا الخطر."
+    }
+  ],
+  "intentAnswerAr": "في حال اعوجاج الأسنان، ابدأ باستشارة طبيب الأسنان أو الطبيب العام الذي يمكنه إحالتك إلى المختص. المختص المعني هو أخصائي تقويم الأسنان، وهو المؤهل الوحيد لوصف التقويم أو الأطباق الشفافة. إذا ظهر تورم في الوجه مصحوب بحمى أو صعوبة في التنفس، توجه فوراً للطوارئ دون تأخير — فخراج الأسنان قد يكون خطيراً على الحياة."
+}

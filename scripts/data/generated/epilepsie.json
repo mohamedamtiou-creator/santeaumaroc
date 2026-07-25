@@ -1,0 +1,68 @@
+{
+  "slug": "epilepsie",
+  "term": "Épilepsie",
+  "kind": "DISEASE",
+  "specialty": "neurologie",
+  "synonyms": ["crise d'épilepsie", "crise convulsive", "convulsions", "haut mal"],
+  "shortAnswer": "L'épilepsie est une maladie neurologique caractérisée par des crises récurrentes dues à une activité électrique anormale dans le cerveau. Une première crise isolée peut être bénigne, mais des crises répétées, prolongées ou accompagnées de perte de conscience nécessitent une consultation médicale urgente.",
+  "causes": [
+    "Cause inconnue (épilepsie idiopathique) dans la majorité des cas",
+    "Traumatisme crânien ancien ou récent",
+    "Accident vasculaire cérébral (AVC) ou malformation vasculaire cérébrale",
+    "Tumeur cérébrale bénigne ou maligne",
+    "Infections du système nerveux (méningite, encéphalite)",
+    "Facteurs génétiques ou malformations cérébrales congénitales"
+  ],
+  "redFlags": [
+    "Crise durant plus de 5 minutes (état de mal épileptique) : appeler le 15 ou se rendre aux urgences immédiatement",
+    "Deux crises ou plus survenant sans reprise de conscience entre elles",
+    "Crise survenant pour la première fois chez un adulte ou un enfant",
+    "Blessure, difficulté respiratoire ou cyanose (peau bleue) pendant ou après la crise",
+    "Crise chez une femme enceinte",
+    "Crise accompagnée de fièvre élevée, raideur de nuque ou sensibilité à la lumière (suspicion de méningite ou d'encéphalite) : urgence absolue",
+    "Crise survenant dans les heures ou jours suivant un traumatisme crânien récent"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès la première crise inexpliquée pour un bilan initial. En cas de crise prolongée, de traumatisme ou de trouble de conscience persistant, rendez-vous aux urgences sans délai.",
+  "faq": [
+    {
+      "q": "Que faire si je suis témoin d'une crise d'épilepsie ?",
+      "a": "Restez calme, allongez la personne sur le côté (position latérale de sécurité) pour éviter l'étouffement, éloignez les objets dangereux et ne mettez rien dans sa bouche. Chronométrez la durée de la crise. Si elle dure plus de 5 minutes, appelez le 15 ou les secours immédiatement."
+    },
+    {
+      "q": "L'épilepsie empêche-t-elle de mener une vie normale ?",
+      "a": "Dans la plupart des cas, avec un suivi médical adapté et régulier, les personnes épileptiques peuvent mener une vie normale. Certaines précautions (conduite, baignade seul, travail en hauteur) peuvent être recommandées par le médecin selon la fréquence et le type des crises."
+    }
+  ],
+  "intentAnswer": "Pour une épilepsie, commencez par consulter votre médecin généraliste qui effectuera un premier bilan et vous orientera vers un neurologue, spécialiste du système nerveux. En cas de première crise, de crise prolongée ou de traumatisme associé, rendez-vous directement aux urgences.",
+  "termAr": "الصرع",
+  "shortAnswerAr": "الصرع مرض عصبي يتميز بنوبات متكررة ناتجة عن نشاط كهربائي غير طبيعي في الدماغ. قد تكون النوبة الأولى المعزولة غير خطيرة، غير أن النوبات المتكررة أو المطولة أو المصحوبة بفقدان الوعي تستوجب استشارة طبية عاجلة.",
+  "causesAr": [
+    "سبب غير معروف (صرع مجهول السبب) في أغلب الحالات",
+    "إصابة في الرأس قديمة أو حديثة",
+    "سكتة دماغية أو تشوه وعائي في الدماغ",
+    "ورم دماغي حميد أو خبيث",
+    "التهابات الجهاز العصبي (التهاب السحايا أو الدماغ)",
+    "عوامل وراثية أو تشوهات دماغية خلقية"
+  ],
+  "redFlagsAr": [
+    "نوبة تستمر أكثر من 5 دقائق (حالة صرعية): اتصل بالإسعاف فوراً أو توجه إلى المستعجلات",
+    "نوبتان أو أكثر متتاليتان دون استعادة الوعي بينهما",
+    "نوبة تحدث لأول مرة عند بالغ أو طفل",
+    "وجود جرح أو صعوبة في التنفس أو زرقة الجلد خلال النوبة أو بعدها",
+    "نوبة صرع لدى امرأة حامل",
+    "نوبة مصحوبة بحمى شديدة أو تيبس الرقبة أو الحساسية للضوء (احتمال التهاب السحايا أو الدماغ): حالة طارئة قصوى",
+    "نوبة تحدث في الساعات أو الأيام التالية لإصابة حديثة في الرأس"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور حدوث أي نوبة غير مفسرة لإجراء الفحوصات الأولية اللازمة. أما في حالة نوبة مطولة أو إصابة مصاحبة أو اضطراب مستمر في الوعي، فتوجه إلى المستعجلات دون تأخير.",
+  "faqAr": [
+    {
+      "q": "ماذا أفعل إذا شهدت شخصاً يُصاب بنوبة صرع؟",
+      "a": "ابقَ هادئاً، وضع الشخص على جانبه (وضع الأمان الجانبي) لتفادي الاختناق، وابعد الأشياء الخطرة من حوله، ولا تضع أي شيء في فمه. راقب مدة النوبة؛ فإن تجاوزت 5 دقائق، اتصل بالإسعاف أو بخدمات الطوارئ فوراً."
+    },
+    {
+      "q": "هل يمنع الصرع من عيش حياة طبيعية؟",
+      "a": "في معظم الحالات، يمكن للمصاب بالصرع أن يعيش حياة طبيعية إذا خضع لمتابعة طبية منتظمة وملائمة. قد ينصح الطبيب بأخذ بعض الاحتياطات، كقيادة السيارة أو السباحة منفرداً أو العمل في الأماكن المرتفعة، وذلك حسب نوع النوبات وتكرارها."
+    }
+  ],
+  "intentAnswerAr": "للاستشارة بشأن الصرع، ابدأ بطبيب عام يُجري التقييم الأولي ثم يحيلك إلى طبيب أعصاب، المختص بأمراض الجهاز العصبي. في حالة أول نوبة أو نوبة مطولة أو إصابة مصاحبة، توجه مباشرة إلى المستعجلات."
+}

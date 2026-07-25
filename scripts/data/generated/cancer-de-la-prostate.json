@@ -1,0 +1,66 @@
+{
+  "slug": "cancer-de-la-prostate",
+  "term": "Cancer de la prostate",
+  "kind": "DISEASE",
+  "specialty": "oncologie-medicale",
+  "synonyms": ["adénocarcinome prostatique", "tumeur de la prostate"],
+  "shortAnswer": "Le cancer de la prostate est une tumeur maligne qui se développe dans la glande prostatique, surtout après 50 ans. Souvent à évolution lente, il peut rester longtemps silencieux. Un dépistage régulier par le médecin permet de le détecter tôt, quand les traitements sont les plus efficaces.",
+  "causes": [
+    "Âge avancé (risque fortement accru après 50 ans)",
+    "Antécédents familiaux de cancer de la prostate (père, frère)",
+    "Origine ethnique (risque plus élevé chez les hommes d'Afrique subsaharienne)",
+    "Alimentation riche en graisses animales et faible en légumes",
+    "Facteurs hormonaux (rôle de la testostérone dans la croissance tumorale)",
+    "Exposition à certains produits chimiques ou pesticides (facteur possible)"
+  ],
+  "redFlags": [
+    "Impossibilité totale d'uriner (rétention urinaire aiguë) : urgence, rendez-vous aux urgences immédiatement",
+    "Difficulté ou douleur à uriner avec jet très faible, ou sang dans les urines ou dans le sperme",
+    "Douleurs osseuses persistantes (dos, bassin, hanches) sans cause évidente",
+    "Faiblesse soudaine ou engourdissement des membres inférieurs, perte du contrôle de la vessie ou des selles (compression médullaire possible : urgence absolue)",
+    "Gonflement inexpliqué des jambes ou des pieds",
+    "Perte de poids importante et fatigue intense sans autre explication"
+  ],
+  "whenToConsult": "Tout homme de plus de 50 ans (ou 45 ans en cas d'antécédents familiaux) devrait en parler avec son médecin généraliste pour évaluer l'opportunité d'un dépistage. En présence de l'un des signes d'alerte ci-dessus, consultez sans attendre — et rendez-vous aux urgences en cas d'impossibilité totale d'uriner ou de faiblesse soudaine des jambes.",
+  "faq": [
+    {
+      "q": "Le cancer de la prostate est-il toujours grave ?",
+      "a": "Non. Beaucoup de cancers de la prostate évoluent très lentement et ne menacent pas la vie, surtout s'ils sont détectés tôt. Certains ne nécessitent qu'une surveillance active. D'autres, plus agressifs, demandent un traitement rapide. Seul un spécialiste peut évaluer le niveau de risque après bilan complet."
+    },
+    {
+      "q": "Le dépistage du cancer de la prostate est-il recommandé au Maroc ?",
+      "a": "Le dépistage n'est pas systématique pour toute la population, mais il est conseillé aux hommes à risque (plus de 50 ans, antécédents familiaux). Il repose sur un dosage sanguin du PSA et un examen clinique. Parlez-en à votre médecin généraliste qui vous orientera selon votre situation."
+    }
+  ],
+  "intentAnswer": "Pour un cancer de la prostate suspecté ou à surveiller, consultez en premier votre médecin généraliste : il prescrira les examens de dépistage (PSA, toucher rectal). Il vous adressera ensuite à un urologue ou un oncologue médical. En cas de signes d'alerte graves (impossibilité totale d'uriner, douleurs osseuses intenses, faiblesse soudaine des membres inférieurs), rendez-vous immédiatement aux urgences.",
+  "termAr": "سرطان البروستاتا",
+  "shortAnswerAr": "سرطان البروستاتا ورم خبيث يتطور في الغدة البروستاتية، ويصيب الرجال عادةً بعد سن الخمسين. كثيرًا ما يكون تطوره بطيئًا وقد يظل صامتًا فترة طويلة. الكشف المبكر عند الطبيب يُتيح تشخيصه في مرحلة يكون فيها العلاج أكثر فاعلية.",
+  "causesAr": [
+    "التقدم في السن (يرتفع الخطر بشكل ملحوظ بعد سن الخمسين)",
+    "الاستعداد الوراثي والتاريخ العائلي لسرطان البروستاتا (الأب أو الأخ)",
+    "الأصل الإثني (يرتفع الخطر لدى الرجال من أصول أفريقية جنوب الصحراء)",
+    "النظام الغذائي الغني بالدهون الحيوانية وقليل الخضروات",
+    "العوامل الهرمونية (دور التستوستيرون في تحفيز نمو الورم)",
+    "التعرض لبعض المواد الكيميائية أو المبيدات الحشرية (عامل محتمل)"
+  ],
+  "redFlagsAr": [
+    "احتباس بولي حاد كامل (عدم القدرة على التبول نهائيًا): حالة طارئة تستوجب التوجه الفوري إلى المستعجلات",
+    "صعوبة أو ألم عند التبول مع ضعف شديد في تدفق البول، أو وجود دم في البول أو السائل المنوي",
+    "آلام عظمية مستمرة في الظهر أو الحوض أو الوركين دون سبب واضح",
+    "ضعف مفاجئ أو خدر في الأطراف السفلية أو فقدان السيطرة على المثانة أو الأمعاء (احتمال ضغط على الحبل الشوكي: حالة طارئة مطلقة)",
+    "تورم غير مبرر في الساقين أو القدمين",
+    "فقدان ملحوظ للوزن مع إرهاق شديد دون تفسير آخر"
+  ],
+  "whenToConsultAr": "يُنصح كل رجل تجاوز الخمسين (أو الخامسة والأربعين إن كان لديه أفراد مصابون في العائلة) بمناقشة إمكانية الكشف المبكر مع طبيبه العام. وعند ظهور أي من علامات الإنذار المذكورة أعلاه، يجب التوجه للطبيب فورًا — وفي حال عدم القدرة على التبول نهائيًا أو ظهور ضعف مفاجئ في الأطراف السفلية، توجّه فورًا إلى المستعجلات.",
+  "faqAr": [
+    {
+      "q": "هل سرطان البروستاتا مرض خطير دائمًا؟",
+      "a": "لا. كثير من حالات سرطان البروستاتا تتطور ببطء شديد ولا تُشكّل خطرًا على الحياة، لا سيما إن اكتُشفت مبكرًا. بعضها لا يستلزم سوى المراقبة الدورية، في حين تستوجب الأنواع الأكثر عدوانية علاجًا سريعًا. يبقى تقييم درجة الخطورة من اختصاص الطبيب المتخصص بعد إجراء الفحوصات اللازمة."
+    },
+    {
+      "q": "هل يُوصى بالكشف المبكر عن سرطان البروستاتا في المغرب؟",
+      "a": "لا يوجد برنامج تشخيص شامل للجميع، لكنه يُنصح به للرجال الأكثر عرضة للخطر (فوق الخمسين أو لديهم تاريخ عائلي). يعتمد الكشف على قياس مستوى بروتين PSA في الدم والفحص السريري. تحدث مع طبيبك العام ليُقيّم وضعك ويُحيلك إذا لزم الأمر."
+    }
+  ],
+  "intentAnswerAr": "عند الاشتباه بسرطان البروستاتا أو الرغبة في الكشف المبكر، ابدأ بزيارة طبيبك العام الذي سيطلب الفحوصات الأولية (PSA والفحص السريري). سيُحيلك بعد ذلك إلى طبيب أمراض المسالك البولية أو أخصائي الأورام. وفي حال ظهور أعراض حادة كاحتباس بولي كامل أو آلام عظمية شديدة أو ضعف مفاجئ في الأطراف السفلية، توجّه فورًا إلى المستعجلات."
+}

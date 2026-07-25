@@ -1,0 +1,64 @@
+{
+  "slug": "rectocolite-hemorragique",
+  "term": "Rectocolite hémorragique",
+  "kind": "DISEASE",
+  "specialty": "gastro-enterologie",
+  "synonyms": ["RCH", "colite ulcéreuse", "rectocolite ulcéro-hémorragique", "RCUH"],
+  "shortAnswer": "La rectocolite hémorragique est une inflammation chronique du côlon et du rectum qui évolue par poussées. Elle provoque des diarrhées sanglantes et des douleurs abdominales. Bénigne en poussée légère, elle peut devenir grave en cas de saignements abondants ou de fièvre élevée.",
+  "causes": [
+    "Dérèglement du système immunitaire qui attaque la muqueuse intestinale (maladie auto-immune)",
+    "Facteurs génétiques : antécédents familiaux de maladies inflammatoires de l'intestin",
+    "Déséquilibre du microbiote intestinal (flore intestinale)",
+    "Facteurs environnementaux : alimentation, stress prolongé, infections intestinales",
+    "Arrêt du tabac (facteur déclencheur paradoxal reconnu)",
+    "Prise de certains anti-inflammatoires non stéroïdiens pouvant aggraver la maladie"
+  ],
+  "redFlags": [
+    "Saignements rectaux abondants ou persistants avec pâleur et fatigue intense (risque d'anémie sévère)",
+    "Fièvre élevée (au-dessus de 38,5 °C) associée à des douleurs abdominales intenses",
+    "Plus de 6 selles sanglantes par jour avec état général dégradé",
+    "Ventre très dur ou douloureux à la palpation (suspicion de complication grave type mégacôlon)",
+    "Perte de poids rapide et involontaire importante"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès l'apparition de diarrhées avec sang persistant ou de douleurs abdominales répétées. En cas de saignements abondants, de fièvre élevée ou de douleurs intenses, rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "La rectocolite hémorragique est-elle contagieuse ou héréditaire ?",
+      "a": "Elle n'est pas contagieuse. En revanche, le risque est légèrement plus élevé si un membre de votre famille est atteint d'une maladie inflammatoire de l'intestin, sans que cela soit systématique."
+    },
+    {
+      "q": "Peut-on vivre normalement avec une rectocolite hémorragique ?",
+      "a": "Oui. Entre les poussées, la plupart des patients mènent une vie normale. Un suivi régulier par un gastro-entérologue permet de contrôler la maladie, de prévenir les rechutes et de surveiller les éventuelles complications à long terme."
+    }
+  ],
+  "intentAnswer": "Pour une rectocolite hémorragique, commencez par consulter votre médecin généraliste qui orientera le diagnostic et vous adressera à un gastro-entérologue, spécialiste des maladies digestives. En cas de saignements abondants, de fièvre élevée ou de douleurs abdominales intenses, rendez-vous directement aux urgences.",
+  "termAr": "التهاب القولون والمستقيم النزفي",
+  "shortAnswerAr": "التهاب القولون والمستقيم النزفي مرض مزمن يصيب القولون والمستقيم ويسير على شكل نوبات. يتسبب في إسهال مصحوب بدم وآلام في البطن. يكون خفيفاً في النوبات البسيطة، لكنه يستدعي الإسراع إلى الطبيب عند النزيف الشديد أو الحمى المرتفعة.",
+  "causesAr": [
+    "اضطراب في جهاز المناعة يهاجم بطانة الأمعاء (مرض مناعي ذاتي)",
+    "عوامل وراثية: وجود حالات مشابهة في الأسرة",
+    "اختلال في توازن البكتيريا النافعة في الأمعاء",
+    "عوامل بيئية: النظام الغذائي، التوتر المزمن، الالتهابات المعوية",
+    "الإقلاع عن التدخين (عامل محفز معروف بشكل مفارق)",
+    "تناول بعض مضادات الالتهاب غير الستيرويدية التي قد تفاقم المرض"
+  ],
+  "redFlagsAr": [
+    "نزيف مستقيمي غزير أو متكرر مصحوب بشحوب وتعب شديد (خطر فقر الدم الحاد)",
+    "حمى مرتفعة (فوق 38,5 درجة) مع آلام شديدة في البطن",
+    "أكثر من 6 مرات إسهال دموي في اليوم مع تدهور الحالة العامة",
+    "البطن صلب جداً أو مؤلم عند اللمس (احتمال مضاعفة خطيرة كتمدد القولون السام)",
+    "فقدان سريع وغير مبرر للوزن"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور ظهور إسهال مصحوب بدم مستمر أو آلام بطنية متكررة. في حال النزيف الغزير أو الحمى المرتفعة أو الآلام الشديدة، توجه فوراً إلى قسم الطوارئ.",
+  "faqAr": [
+    {
+      "q": "هل التهاب القولون والمستقيم النزفي معدٍ أو وراثي؟",
+      "a": "المرض غير معدٍ على الإطلاق. أما وراثياً، فإن خطر الإصابة يكون أعلى نسبياً إذا كان أحد أفراد الأسرة مصاباً بمرض التهابي مزمن في الأمعاء، لكن ذلك ليس قاعدة ثابتة."
+    },
+    {
+      "q": "هل يمكن العيش بشكل طبيعي مع هذا المرض؟",
+      "a": "نعم. بين النوبات، يعيش معظم المرضى حياة طبيعية. المتابعة المنتظمة مع طبيب الجهاز الهضمي تساعد على السيطرة على المرض، والوقاية من الانتكاسات، ورصد أي مضاعفات محتملة على المدى البعيد."
+    }
+  ],
+  "intentAnswerAr": "إذا كنت تعاني من أعراض تشير إلى التهاب القولون والمستقيم النزفي، ابدأ باستشارة طبيبك العام الذي سيوجهك نحو طبيب متخصص في أمراض الجهاز الهضمي. وفي حال ظهور نزيف شديد أو حمى مرتفعة أو آلام حادة في البطن، توجه مباشرة إلى قسم الطوارئ دون تأخير."
+}

@@ -1,0 +1,68 @@
+{
+  "slug": "perte-d-audition",
+  "term": "Perte d'audition",
+  "kind": "SYMPTOM",
+  "specialty": "oto-rhino-laryngologie",
+  "synonyms": ["hypoacousie", "surdité", "baisse de l'ouïe", "diminution de l'audition", "surdité partielle"],
+  "shortAnswer": "La perte d'audition est une diminution de la capacité à entendre les sons, partielle ou totale, d'une ou des deux oreilles. Elle est souvent bénigne (bouchon de cérumen, rhume). Elle devient préoccupante si elle est soudaine, unilatérale, ou accompagnée de vertiges ou d'acouphènes.",
+  "causes": [
+    "Bouchon de cérumen obstruant le conduit auditif",
+    "Infection de l'oreille (otite moyenne, otite externe)",
+    "Exposition prolongée à des bruits forts (bruit professionnel, concerts)",
+    "Vieillissement naturel de l'oreille (presbyacousie) après 60 ans",
+    "Traumatisme acoustique aigu (explosion, son très intense)",
+    "Maladies ou affections générales (diabète, hypertension, certains médicaments ototoxiques)"
+  ],
+  "redFlags": [
+    "Perte d'audition soudaine d'une seule oreille sans cause évidente (urgence ORL dans les 48 heures)",
+    "Vertiges intenses, perte d'équilibre ou nausées associés à la baisse d'audition",
+    "Acouphènes (sifflements, bourdonnements) persistants ou d'apparition brutale",
+    "Douleur intense ou écoulement de pus ou de sang par l'oreille",
+    "Paralysie faciale associée à une baisse d'audition",
+    "Perte d'audition survenant après un choc à la tête ou un accident : rendez-vous aux urgences immédiatement (risque de fracture de la base du crâne)",
+    "Fièvre élevée, raideur de la nuque et baisse d'audition soudaine : appelez le 15 ou rendez-vous aux urgences sans délai (risque de méningite)"
+  ],
+  "whenToConsult": "Consultez votre médecin généraliste dès que la baisse d'audition dure plus de quelques jours ou gêne votre quotidien. En cas de perte auditive soudaine d'une oreille, de vertiges, de paralysie faciale, de traumatisme crânien ou de fièvre avec raideur de la nuque, rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "Un bouchon de cérumen peut-il vraiment faire perdre l'audition ?",
+      "a": "Oui, un bouchon de cérumen peut bloquer le conduit auditif et provoquer une baisse d'audition notable, parfois accompagnée d'une sensation d'oreille bouchée ou de bourdonnements. Ne tentez pas de le retirer vous-même avec un coton-tige : consultez un médecin qui procédera à un lavage d'oreille en toute sécurité."
+    },
+    {
+      "q": "À quel âge faut-il commencer à surveiller son audition ?",
+      "a": "Un premier bilan auditif est recommandé dès l'apparition de difficultés à suivre une conversation, notamment en milieu bruyant. Après 60 ans, une consultation ORL régulière est conseillée, car la presbyacousie (perte auditive liée à l'âge) s'installe progressivement et peut bénéficier d'une aide auditive adaptée."
+    }
+  ],
+  "intentAnswer": "Pour une perte d'audition progressive, commencez par consulter votre médecin généraliste qui examinera vos oreilles et vous adressera si besoin à un médecin ORL (oto-rhino-laryngologiste) pour un bilan auditif complet. En cas de perte soudaine d'une oreille, de vertiges, de paralysie faciale, de traumatisme crânien ou de fièvre avec raideur de la nuque, rendez-vous immédiatement aux urgences.",
+  "termAr": "فقدان السمع",
+  "shortAnswerAr": "فقدان السمع هو تراجع في القدرة على سماع الأصوات، جزئيًا أو كليًا، في إحدى الأذنين أو كلتيهما. كثيرًا ما تكون الأسباب بسيطة كسدادة الشمع أو نزلة برد. لكنه يستوجب الانتباه إذا كان مفاجئًا أو في أذن واحدة أو مصحوبًا بدوار أو طنين.",
+  "causesAr": [
+    "سدادة الشمع (الصملاخ) التي تسد قناة الأذن",
+    "التهاب الأذن الوسطى أو الخارجية",
+    "التعرض المطوّل للضوضاء الشديدة (بيئة العمل، الحفلات الموسيقية)",
+    "الشيخوخة الطبيعية للأذن (الصمم الشيخي) بعد سن الستين",
+    "الصدمة الصوتية الحادة (انفجار أو صوت عالٍ جدًا)",
+    "أمراض عامة أو أدوية سامة للأذن (داء السكري، ارتفاع ضغط الدم، بعض الأدوية)"
+  ],
+  "redFlagsAr": [
+    "فقدان مفاجئ للسمع في أذن واحدة دون سبب واضح (حالة طارئة عند طبيب الأنف والأذن والحنجرة خلال 48 ساعة)",
+    "دوار شديد أو اضطراب في التوازن أو غثيان مصاحب لتراجع السمع",
+    "طنين مستمر (صفير أو دوي) أو ظهوره فجأة",
+    "ألم حاد في الأذن أو إفراز قيح أو دم منها",
+    "شلل في عضلات الوجه مصحوب بضعف في السمع",
+    "فقدان السمع عقب إصابة في الرأس أو حادث: توجّه إلى المستعجلات فورًا (خطر كسر قاعدة الجمجمة)",
+    "حمى مرتفعة وتيبس الرقبة وفقدان مفاجئ للسمع: اتصل بالإسعاف أو توجّه إلى المستعجلات دون تأخير (خطر التهاب السحايا)"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام إذا استمر تراجع السمع أكثر من بضعة أيام أو أثّر على حياتك اليومية. أما في حال فقدان مفاجئ للسمع في إحدى الأذنين أو دوار حاد أو شلل في الوجه أو إصابة في الرأس أو حمى مع تيبس الرقبة، فتوجه إلى المستعجلات فورًا دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل يمكن أن تسبب سدادة الشمع فقدانًا حقيقيًا للسمع؟",
+      "a": "نعم، يمكن لسدادة الشمع أن تسدّ قناة الأذن وتسبب تراجعًا ملحوظًا في السمع، مصحوبًا أحيانًا بإحساس بالانسداد أو طنين خفيف. تجنّب إدخال عود القطن لإزالتها، واستشر طبيبك الذي سيقوم بغسيل الأذن بطريقة آمنة."
+    },
+    {
+      "q": "من أي سن يجب مراقبة السمع بانتظام؟",
+      "a": "يُنصح بإجراء فحص للسمع عند الشعور بصعوبة في متابعة المحادثات خاصةً في الأماكن الصاخبة. بعد سن الستين، يُستحسن إجراء فحص دوري عند طبيب الأنف والأذن والحنجرة، إذ يتطور الصمم الشيخي تدريجيًا ويمكن تخفيف أثره بمعين سمعي مناسب."
+    }
+  ],
+  "intentAnswerAr": "في حال تراجع السمع التدريجي، ابدأ باستشارة طبيبك العام الذي سيفحص أذنيك ويحيلك عند الحاجة إلى طبيب الأنف والأذن والحنجرة لإجراء تقييم سمعي شامل. أما إذا كان فقدان السمع مفاجئًا أو مصحوبًا بدوار أو شلل في الوجه أو إصابة في الرأس أو حمى مع تيبس الرقبة، فتوجه إلى المستعجلات على الفور."
+}

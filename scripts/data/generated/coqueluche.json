@@ -1,0 +1,66 @@
+{
+  "slug": "coqueluche",
+  "term": "Coqueluche",
+  "kind": "DISEASE",
+  "specialty": "pediatrie",
+  "synonyms": ["toux coquelucheuse", "pertussis", "toux des 100 jours"],
+  "shortAnswer": "La coqueluche est une infection respiratoire très contagieuse causée par une bactérie. Elle provoque des quintes de toux violentes suivies d'une reprise bruyante de la respiration. Bénigne chez l'adulte vacciné, elle peut être grave, voire mortelle, chez le nourrisson de moins de 6 mois.",
+  "causes": [
+    "Infection par la bactérie Bordetella pertussis, transmise par voie aérienne (postillons, éternuements)",
+    "Contact étroit avec une personne infectée, souvent un adulte ou un adolescent peu symptomatique",
+    "Vaccination incomplète ou protection vaccinale diminuée avec le temps",
+    "Nourrissons non encore complètement vaccinés (schéma vaccinal non terminé)",
+    "Absence de vaccination dans l'entourage (parents, grands-parents, fratrie)",
+    "Épidémies cycliques survenant tous les 3 à 5 ans dans la population générale"
+  ],
+  "redFlags": [
+    "Quintes de toux suffocantes chez un nourrisson de moins de 6 mois : urgence pédiatrique immédiate",
+    "Pause respiratoire (apnée) ou bleuissement du visage (cyanose) après une quinte de toux",
+    "Signes de pneumonie : fièvre élevée persistante, respiration très rapide, teint gris ou bleuté",
+    "Vomissements répétés après les quintes entraînant une déshydratation, un refus de s'alimenter ou une perte de poids",
+    "Détresse respiratoire sévère : respiration très rapide, battements des ailes du nez, tirage",
+    "Convulsions ou perte de connaissance associées aux quintes de toux"
+  ],
+  "whenToConsult": "Consultez un médecin rapidement si vous suspectez une coqueluche, surtout en présence d'un nourrisson ou d'une femme enceinte dans l'entourage. En cas de détresse respiratoire, d'apnée ou de cyanose, appelez le 15 ou rendez-vous aux urgences sans délai.",
+  "faq": [
+    {
+      "q": "Mon enfant est vacciné : peut-il quand même attraper la coqueluche ?",
+      "a": "Oui, c'est possible. La protection vaccinale diminue avec le temps et n'est pas absolue. Un enfant vacciné peut contracter la maladie, mais sous une forme généralement moins sévère. Il est important de respecter les rappels vaccinaux prévus dans le calendrier."
+    },
+    {
+      "q": "La coqueluche est-elle contagieuse même sans fièvre ?",
+      "a": "Oui, la coqueluche est très contagieuse dès les premiers jours, avant l'apparition des quintes caractéristiques. Un adulte ou un adolescent avec une simple toux persistante peut transmettre la bactérie à un nourrisson vulnérable sans s'en rendre compte."
+    }
+  ],
+  "intentAnswer": "Pour une suspicion de coqueluche, consultez d'abord votre médecin généraliste, qui pourra poser le diagnostic et orienter la prise en charge. En cas de nourrisson ou de forme sévère, il vous adressera à un pédiatre. Appelez le 15 ou allez aux urgences si l'enfant présente une apnée ou une détresse respiratoire.",
+  "termAr": "السعال الديكي",
+  "shortAnswerAr": "السعال الديكي مرض تنفسي معدٍ جداً تسببه بكتيريا، يتجلى في نوبات سعال شديدة تنتهي بصوت صفيري عند الشهيق. يكون خفيفاً عند البالغين الملقّحين، لكنه قد يكون خطيراً بل مميتاً عند الرضع دون ستة أشهر.",
+  "causesAr": [
+    "الإصابة ببكتيريا البورديتيلا الشاهقة (Bordetella pertussis) التي تنتقل عبر الهواء عند السعال والعطس",
+    "الاحتكاك المباشر بشخص مصاب، كثيراً ما يكون بالغاً أو مراهقاً يحمل المرض دون أعراض واضحة",
+    "عدم اكتمال جدول التطعيم أو تراجع مفعوله بمرور الوقت",
+    "الرضع الذين لم يكملوا بعدُ جرعاتهم التطعيمية",
+    "غياب التطعيم لدى أفراد المحيط المقربين (الآباء، الأجداد، الإخوة)",
+    "موجات وبائية دورية تحدث كل ثلاث إلى خمس سنوات في عموم السكان"
+  ],
+  "redFlagsAr": [
+    "نوبات سعال اختناقية عند رضيع دون ستة أشهر: حالة طارئة تستوجب الإسعاف الفوري",
+    "توقف التنفس (انقطاع النفس) أو ازرقاق الوجه بعد نوبة سعال",
+    "علامات الالتهاب الرئوي: حمى مرتفعة مستمرة، تسارع شديد في التنفس، شحوب أو ازرقاق في اللون",
+    "قيء متكرر عقب النوبات مع جفاف أو رفض للتغذية أو فقدان واضح في الوزن",
+    "ضيق تنفسي حاد: سرعة في التنفس، ارتعاش أجنحة الأنف، تراجع عضلات الصدر",
+    "تشنجات أو فقدان للوعي مرتبط بنوبات السعال"
+  ],
+  "whenToConsultAr": "راجع الطبيب فوراً عند الاشتباه في السعال الديكي، خاصةً إذا كان في المنزل رضيع أو امرأة حامل. في حالة ضيق تنفسي أو انقطاع نفس أو ازرقاق، اتصل بالإسعاف أو توجّه إلى المستعجلات دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل يمكن لطفلي المطعَّم أن يصاب بالسعال الديكي؟",
+      "a": "نعم، ذلك ممكن. تتراجع الحماية التي يوفرها التطعيم مع مرور الوقت وليست مطلقة. قد يُصاب الطفل المطعَّم بالمرض لكن بشكل أخف وطأة في الغالب. لذا من الضروري احترام جرعات التذكير المقررة في برنامج التطعيم."
+    },
+    {
+      "q": "هل السعال الديكي معدٍ حتى في غياب الحمى؟",
+      "a": "نعم، وهو من أشد الأمراض عدوى منذ أيامه الأولى، قبل ظهور نوبات السعال المميزة. يمكن للبالغ أو المراهق المصاب بسعال مستمر أن ينقل البكتيريا إلى رضيع ضعيف دون أن يدري."
+    }
+  ],
+  "intentAnswerAr": "عند الاشتباه في السعال الديكي، ابدأ بزيارة الطبيب العام الذي يُقيّم الحالة ويوجّه العلاج. في حالة الرضع أو الحالات الشديدة، يحيلك إلى طبيب أطفال متخصص. اتصل بالإسعاف أو اذهب إلى المستعجلات فوراً إذا أُصيب الطفل بانقطاع النفس أو ضيق تنفسي حاد."
+}

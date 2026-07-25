@@ -1,0 +1,64 @@
+{
+  "slug": "bpco",
+  "term": "BPCO (bronchopneumopathie chronique)",
+  "kind": "DISEASE",
+  "specialty": "pneumo-phtisiologie",
+  "synonyms": ["bronchite chronique obstructive", "emphysème pulmonaire", "maladie pulmonaire obstructive chronique", "MPOC"],
+  "shortAnswer": "La BPCO est une maladie pulmonaire chronique qui obstrue progressivement les voies respiratoires, provoquant essoufflement et toux persistante. Elle évolue lentement et reste stable avec un suivi adapté, mais une aggravation soudaine — surtout chez un fumeur — nécessite une consultation rapide.",
+  "causes": [
+    "Tabagisme actif ou passif prolongé (cause principale dans plus de 80 % des cas)",
+    "Exposition répétée à des fumées industrielles, poussières ou produits chimiques en milieu professionnel",
+    "Pollution de l'air intérieur, notamment la fumée de bois ou de charbon lors de la cuisson",
+    "Infections respiratoires fréquentes dans l'enfance fragilisant les poumons",
+    "Facteurs génétiques (rare déficit en alpha-1-antitrypsine)",
+    "Pollution atmosphérique chronique dans les grandes villes"
+  ],
+  "redFlags": [
+    "Essoufflement soudain et intense au repos, lèvres ou ongles qui bleuissent (cyanose)",
+    "Aggravation rapide de la toux avec crachats purulents ou teintés de sang",
+    "Confusion, somnolence excessive ou incapacité à finir une phrase complète",
+    "Fréquence cardiaque très élevée ou irrégulière accompagnée de difficultés respiratoires",
+    "Absence d'amélioration après utilisation habituelle de l'inhalateur (si prescrit)"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès l'apparition d'une toux chronique, d'un essoufflement à l'effort ou d'une production régulière de mucus, surtout si vous fumez ou avez fumé. En cas de signes d'alerte, rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "La BPCO peut-elle être guérie complètement ?",
+      "a": "Non, la BPCO est une maladie chronique sans guérison définitive, mais elle peut être stabilisée. L'arrêt du tabac reste la mesure la plus efficace pour ralentir son évolution. Un suivi médical régulier permet de préserver la qualité de vie et de prévenir les complications."
+    },
+    {
+      "q": "Comment distinguer la BPCO de l'asthme ?",
+      "a": "Les deux maladies causent essoufflement et sifflement, mais la BPCO survient surtout après 40 ans chez les fumeurs et l'obstruction est peu réversible. L'asthme débute souvent plus jeune, avec des crises variables. Seul un médecin, après un bilan respiratoire (spirométrie), peut poser le bon diagnostic."
+    }
+  ],
+  "intentAnswer": "Pour une BPCO, commencez par votre médecin généraliste qui peut demander une spirométrie et orienter vers un pneumologue-phtisiologue pour un bilan complet et un suivi spécialisé. Si vous ressentez un essoufflement soudain intense, des lèvres bleutées ou une confusion, appelez le SAMU ou rendez-vous aux urgences immédiatement.",
+  "termAr": "داء الانسداد الرئوي المزمن (BPCO)",
+  "shortAnswerAr": "داء الانسداد الرئوي المزمن مرض يُضيّق مجاري الهواء في الرئتين بشكل تدريجي، مسبّبًا ضيق تنفس وسعالًا مستمرًا. يتطور ببطء ويمكن تثبيته بالمتابعة الطبية، غير أن تدهورًا مفاجئًا — خاصة عند المدخنين — يستوجب استشارة طبية عاجلة.",
+  "causesAr": [
+    "التدخين النشط أو السلبي لفترة طويلة (السبب الرئيسي في أكثر من 80% من الحالات)",
+    "التعرض المتكرر للأبخرة الصناعية والأغبرة والمواد الكيميائية في بيئة العمل",
+    "تلوث الهواء الداخلي، لا سيما دخان الحطب أو الفحم المستخدم في الطهي",
+    "التهابات الجهاز التنفسي المتكررة في مرحلة الطفولة مما يُضعف الرئتين",
+    "العوامل الوراثية (نقص نادر في بروتين ألفا-1 أنتيتريبسين)",
+    "التلوث الجوي المزمن في المدن الكبرى"
+  ],
+  "redFlagsAr": [
+    "ضيق تنفس مفاجئ وشديد في الراحة، أو ازرقاق الشفتين والأظافر",
+    "تفاقم سريع للسعال مع بلغم قيحي أو مختلط بالدم",
+    "تشوش ذهني أو نعاس مفرط أو عجز عن إتمام جملة كاملة",
+    "تسارع ضربات القلب أو اضطراب إيقاعها مصحوبًا بصعوبة في التنفس",
+    "عدم التحسن بعد استخدام جهاز الاستنشاق المعتاد (إن كان موصوفًا)"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور ظهور سعال مزمن أو ضيق تنفس عند المجهود أو إفراز مخاط بصفة منتظمة، خاصة إن كنت مدخنًا أو كنت تدخن سابقًا. وإن ظهرت أي علامات تحذيرية، توجه إلى المستعجلات دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل يمكن الشفاء التام من داء الانسداد الرئوي المزمن؟",
+      "a": "لا، هو مرض مزمن لا شفاء كاملًا منه، لكن يمكن تثبيته. والإقلاع عن التدخين هو أنجع خطوة لإبطاء تطوره. والمتابعة الطبية المنتظمة تساعد على الحفاظ على جودة الحياة وتفادي المضاعفات."
+    },
+    {
+      "q": "كيف نُفرّق بين الانسداد الرئوي المزمن والربو؟",
+      "a": "كلا المرضين يسببان ضيق تنفس وأزيزًا، لكن الانسداد الرئوي المزمن يظهر غالبًا بعد سن الأربعين لدى المدخنين وانسداده لا يزول كليًا. أما الربو فيبدأ في سن أصغر على شكل نوبات متقلبة. الطبيب وحده، بعد إجراء قياس التنفس (spirométrie)، قادر على وضع التشخيص الصحيح."
+    }
+  ],
+  "intentAnswerAr": "لداء الانسداد الرئوي المزمن، ابدأ بطبيبك العام الذي يمكنه طلب قياس التنفس وإحالتك إلى طبيب الرئة والسل لإجراء فحص شامل ومتابعة متخصصة. وإن أحسست بضيق تنفس مفاجئ وشديد أو ازرقاق في الشفتين أو تشوش ذهني، اتصل بالإسعاف أو اتجه فورًا إلى المستعجلات."
+}

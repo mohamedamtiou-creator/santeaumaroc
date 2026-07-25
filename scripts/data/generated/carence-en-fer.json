@@ -1,0 +1,66 @@
+{
+  "slug": "carence-en-fer",
+  "term": "Carence en fer",
+  "kind": "DISEASE",
+  "specialty": "medecine-generale",
+  "synonyms": ["anémie ferriprive", "déficit en fer", "manque de fer", "hyposidérémie"],
+  "shortAnswer": "La carence en fer est un manque de fer dans l'organisme, souvent responsable d'une fatigue persistante. Elle est fréquente et bénigne dans sa forme légère, mais doit être prise en charge car une anémie sévère ou une cause sous-jacente non traitée peut être sérieuse.",
+  "causes": [
+    "Alimentation pauvre en fer (régimes restrictifs, végétarisme sans compensation)",
+    "Pertes de sang importantes (règles abondantes, saignements digestifs)",
+    "Besoins accrus non couverts (grossesse, croissance chez l'enfant et l'adolescent)",
+    "Mauvaise absorption intestinale (maladie cœliaque, chirurgie digestive)",
+    "Dons de sang fréquents sans suivi nutritionnel",
+    "Maladies chroniques inflammatoires ou rénales"
+  ],
+  "redFlags": [
+    "Essoufflement au moindre effort ou au repos",
+    "Palpitations cardiaques ou douleurs thoraciques",
+    "Malaise, vertiges soudains ou perte de connaissance",
+    "Pâleur intense des conjonctives, des lèvres ou des ongles",
+    "Saignements digestifs visibles (selles noires, sang dans les selles)",
+    "Fatigue extrême empêchant toute activité quotidienne"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si vous ressentez une fatigue inhabituelle, un essoufflement ou une pâleur persistante. Une prise de sang suffit souvent à confirmer le diagnostic et orienter la prise en charge.",
+  "faq": [
+    {
+      "q": "Peut-on corriger une carence en fer uniquement par l'alimentation ?",
+      "a": "Une alimentation riche en fer (viande rouge, légumineuses, fruits secs, épinards) aide à prévenir et à compléter la prise en charge, mais en cas de carence confirmée par analyse sanguine, un suivi médical est nécessaire pour évaluer si une supplémentation est appropriée."
+    },
+    {
+      "q": "La carence en fer peut-elle toucher les enfants et les femmes enceintes ?",
+      "a": "Oui, ce sont des populations particulièrement vulnérables en raison de besoins accrus. Chez la femme enceinte, un suivi biologique régulier est recommandé dès le début de la grossesse. Chez l'enfant, une fatigue, un retard de croissance ou des difficultés de concentration peuvent alerter."
+    }
+  ],
+  "intentAnswer": "Pour une carence en fer, consultez d'abord un médecin généraliste qui prescrira une prise de sang. Si une cause sous-jacente est suspectée (saignement digestif, maladie intestinale), il vous orientera vers un gastro-entérologue ou un hématologue. En cas d'essoufflement sévère, de palpitations ou de perte de connaissance, rendez-vous aux urgences.",
+  "termAr": "نقص الحديد",
+  "shortAnswerAr": "نقص الحديد هو انخفاض مستوى الحديد في الجسم، وغالبًا ما يسبب تعبًا مستمرًا. تعدّ الحالات الخفيفة شائعة وغير خطيرة في الغالب، لكن يجب معالجتها لأن فقر الدم الشديد أو وجود سبب كامن غير مُعالَج قد يكون أمرًا جدّيًا.",
+  "causesAr": [
+    "نظام غذائي فقير بالحديد (حميات مقيّدة أو نباتية دون تعويض كافٍ)",
+    "فقدان دم مفرط (دورة شهرية غزيرة أو نزيف في الجهاز الهضمي)",
+    "احتياجات متزايدة غير مُغطّاة (الحمل، النمو عند الأطفال والمراهقين)",
+    "ضعف امتصاص الحديد في الأمعاء (مرض الاضطرابات الهضمية أو التدخلات الجراحية)",
+    "التبرع المتكرر بالدم دون متابعة غذائية",
+    "الأمراض المزمنة الالتهابية أو أمراض الكلى"
+  ],
+  "redFlagsAr": [
+    "ضيق في التنفس عند أدنى مجهود أو في حالة الراحة",
+    "خفقان القلب أو ألم في الصدر",
+    "إغماء أو دوار مفاجئ أو فقدان الوعي",
+    "شحوب حادّ في ملتحمة العين أو الشفتين أو الأظافر",
+    "نزيف هضمي ظاهر (براز أسود اللون أو وجود دم في البراز)",
+    "إرهاق شديد يمنع ممارسة الأنشطة اليومية"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام إذا شعرت بتعب غير مُعتاد أو ضيق في التنفس أو شحوب مستمر. عادةً ما يكفي فحص الدم لتأكيد التشخيص وتحديد طريقة العلاج المناسبة.",
+  "faqAr": [
+    {
+      "q": "هل يمكن تصحيح نقص الحديد عن طريق الغذاء فقط؟",
+      "a": "يُساعد النظام الغذائي الغني بالحديد (اللحوم الحمراء، البقوليات، الفواكه المجففة، السبانخ) في الوقاية وتكملة العلاج، غير أنه عند تأكيد النقص بتحليل الدم، يُستوجب الحصول على متابعة طبية لتقييم الحاجة إلى مكملات غذائية مناسبة."
+    },
+    {
+      "q": "هل يمكن أن يصيب نقص الحديد الأطفال والنساء الحوامل؟",
+      "a": "نعم، تُعدّ هذه الفئات الأكثر عرضةً للإصابة نظرًا لاحتياجاتهم المتزايدة. يُوصى بالمتابعة الدورية لفحوصات الدم للمرأة الحامل منذ بداية الحمل، أما عند الطفل فقد يُنبّه التعب أو تأخر النمو أو صعوبات التركيز إلى وجود نقص."
+    }
+  ],
+  "intentAnswerAr": "لمعالجة نقص الحديد، ابدأ باستشارة طبيبك العام الذي سيطلب تحليل الدم اللازم. إذا اشتُبه في وجود سبب كامن كنزيف هضمي أو مرض معوي، فسيُحيلك إلى طبيب الجهاز الهضمي أو أخصائي أمراض الدم. في حال ضيق التنفس الشديد أو الخفقان أو فقدان الوعي، توجّه إلى قسم الطوارئ فورًا."
+}

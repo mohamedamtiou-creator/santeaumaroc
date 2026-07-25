@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { localizedAlternates } from "@/lib/hreflang";
-import { toLocale } from "@/lib/i18n";
+import { toLocale, getDictionary } from "@/lib/i18n";
 import { RemboursementSimulateur } from "@/components/RemboursementSimulateur";
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
@@ -252,6 +252,7 @@ const COPY: Record<"fr" | "ar", Copy> = {
 export default async function RemboursementPage({ params }: { params: Promise<{ lang: string }> }) {
   const locale = toLocale((await params).lang) === "ar" ? "ar" : "fr";
   const t = COPY[locale];
+  const chips = getDictionary(locale).healthHub;
   const url = `${BASE}/remboursement-amo-cnss`;
 
   const jsonLd = {
@@ -312,98 +313,126 @@ export default async function RemboursementPage({ params }: { params: Promise<{ 
             {t.heroTitle}
           </h1>
           <p className="text-white/75 text-lg leading-relaxed">{t.heroSubtitle}</p>
-          <p className="mt-6 text-sm text-white/60">
+
+          {/* Bande de confiance E-E-A-T */}
+          <div className="mt-7 flex flex-wrap items-center gap-2.5">
+            <span className="badge-trust">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.75" className="w-3.5 h-3.5" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><path d="M8 1.5 2.5 3.8v3.4c0 3.2 2.3 5.4 5.5 6.3 3.2-.9 5.5-3.1 5.5-6.3V3.8L8 1.5z" /><path d="m5.8 8 1.6 1.6L10.4 6" /></svg>
+              {chips.verified}
+            </span>
+            <span className="badge-trust">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.75" className="w-3.5 h-3.5" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><circle cx="8" cy="8" r="6.5" /><path d="M8 4.5v3.5l2.2 1.3" /></svg>
+              {chips.free}
+            </span>
+            <Link href="/methodologie" className="badge-trust hover:bg-white hover:text-primary-900 transition-colors">
+              {chips.methodology}
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" className="w-3 h-3 rtl:-scale-x-100" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><path d="m4 2 4 4-4 4" /></svg>
+            </Link>
+          </div>
+
+          <p className="mt-5 text-sm text-white/60">
             {t.updatedLabel} : <time dateTime={LAST_UPDATED_ISO}>{t.updatedHuman}</time>
           </p>
         </div>
       </div>
 
-      <main className="page-outer">
-        <div className="max-w-3xl mx-auto">
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:py-10">
+        <div className="grid lg:grid-cols-[minmax(0,1fr)_20rem] gap-8 items-start">
+          <div className="min-w-0">
 
-          {/* ── Simulateur interactif (outil linkable) ──── */}
-          <RemboursementSimulateur locale={locale} />
+            {/* ── Simulateur interactif (outil linkable) ──── */}
+            <RemboursementSimulateur locale={locale} />
 
-          {/* ── Sections ────────────────────────────────── */}
-          {t.sections.map((s, i) => (
-            <section key={i} className="mb-10">
-              <h2 className="text-xl font-bold text-slate-900 mb-3">{s.title}</h2>
-              {s.paragraphs.map((p, j) => (
-                <p key={j} className="text-slate-600 leading-relaxed mb-3">{p}</p>
-              ))}
-              {s.items && (
-                <ul className="mt-2 space-y-2">
-                  {s.items.map((it, k) => (
-                    <li key={k} className="flex gap-2.5 text-sm text-slate-700 leading-relaxed">
-                      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.25"
-                        className="w-4 h-4 mt-1 shrink-0 text-secondary-600 rtl:-scale-x-100" aria-hidden="true"
+            {/* ── Sections ────────────────────────────────── */}
+            {t.sections.map((s, i) => (
+              <section key={i} className="mb-10">
+                <h2 className="text-xl font-bold text-slate-900 mb-3">{s.title}</h2>
+                {s.paragraphs.map((p, j) => (
+                  <p key={j} className="text-slate-600 leading-relaxed mb-3">{p}</p>
+                ))}
+                {s.items && (
+                  <ul className="mt-2 space-y-2">
+                    {s.items.map((it, k) => (
+                      <li key={k} className="flex gap-2.5 text-sm text-slate-700 leading-relaxed">
+                        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.25"
+                          className="w-4 h-4 mt-1 shrink-0 text-secondary-600 rtl:-scale-x-100" aria-hidden="true"
+                          strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M3 8.5l3.5 3.5L13 5" />
+                        </svg>
+                        <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            ))}
+
+            {/* ── FAQ ─────────────────────────────────────── */}
+            <section className="mb-10">
+              <h2 className="text-xl font-bold text-slate-900 mb-4">{t.faqTitle}</h2>
+              <div className="space-y-3">
+                {t.faqs.map((f, i) => (
+                  <details key={i} className="card p-4 group">
+                    <summary className="font-semibold text-slate-800 cursor-pointer list-none flex items-start justify-between gap-3">
+                      <span>{f.q}</span>
+                      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2"
+                        className="w-4 h-4 mt-1 shrink-0 text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"
                         strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M3 8.5l3.5 3.5L13 5" />
+                        <path d="M4 6l4 4 4-4" />
                       </svg>
-                      <span>{it}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
+                    </summary>
+                    <p className="text-sm text-slate-600 leading-relaxed mt-3">{f.a}</p>
+                  </details>
+                ))}
+              </div>
             </section>
-          ))}
 
-          {/* ── FAQ ─────────────────────────────────────── */}
-          <section className="mb-10">
-            <h2 className="text-xl font-bold text-slate-900 mb-4">{t.faqTitle}</h2>
-            <div className="space-y-3">
-              {t.faqs.map((f, i) => (
-                <details key={i} className="card p-4 group">
-                  <summary className="font-semibold text-slate-800 cursor-pointer list-none flex items-start justify-between gap-3">
-                    <span>{f.q}</span>
-                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2"
-                      className="w-4 h-4 mt-1 shrink-0 text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"
-                      strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M4 6l4 4 4-4" />
-                    </svg>
-                  </summary>
-                  <p className="text-sm text-slate-600 leading-relaxed mt-3">{f.a}</p>
-                </details>
-              ))}
+            {/* ── Sources ─────────────────────────────────── */}
+            <section className="mb-10">
+              <h2 className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-3">{t.sourcesTitle}</h2>
+              <ul className="space-y-1.5 text-sm">
+                {t.sources.map((src, i) => (
+                  <li key={i}>
+                    <a href={src.href} target="_blank" rel="noopener noreferrer nofollow"
+                      className="text-primary-700 hover:text-primary-800 underline underline-offset-2">
+                      {src.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            {/* ── Disclaimer YMYL ─────────────────────────── */}
+            <div className="rounded-xl border border-amber-200 bg-amber-50/70 p-4 sm:p-5">
+              <p className="text-sm font-bold text-amber-800 mb-1">{t.disclaimerTitle}</p>
+              <p className="text-sm text-amber-900/80 leading-relaxed">{t.disclaimer}</p>
             </div>
-          </section>
 
-          {/* ── Sources ─────────────────────────────────── */}
-          <section className="mb-10">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-3">{t.sourcesTitle}</h2>
-            <ul className="space-y-1.5 text-sm">
-              {t.sources.map((src, i) => (
-                <li key={i}>
-                  <a href={src.href} target="_blank" rel="noopener noreferrer nofollow"
-                    className="text-primary-700 hover:text-primary-800 underline underline-offset-2">
-                    {src.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          {/* ── Disclaimer YMYL ─────────────────────────── */}
-          <div className="rounded-xl border border-amber-200 bg-amber-50/70 p-4 sm:p-5 mb-10">
-            <p className="text-sm font-bold text-amber-800 mb-1">{t.disclaimerTitle}</p>
-            <p className="text-sm text-amber-900/80 leading-relaxed">{t.disclaimer}</p>
+            {/* CTA — visible mobile (l'aside sticky prend le relais en desktop) */}
+            <Link href="/praticiens" className="lg:hidden btn-primary w-full mt-8">
+              {t.ctaBtn}
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 rtl:-scale-x-100" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><path d="m6 3 5 5-5 5" /></svg>
+            </Link>
           </div>
 
-          {/* ── CTA ─────────────────────────────────────── */}
-          <section>
-            <div
-              className="rounded-2xl p-8 sm:p-10 text-center relative overflow-hidden"
-              style={{ background: "linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 58%, #047857 100%)" }}
-            >
-              <div className="relative">
-                <h2 className="text-xl sm:text-2xl font-bold text-white mb-3">{t.ctaTitle}</h2>
-                <p className="text-white/75 text-sm mb-7 max-w-md mx-auto leading-relaxed">{t.ctaText}</p>
-                <Link href="/praticiens" className="btn-ghost-white px-8 py-3">{t.ctaBtn}</Link>
+          {/* ── Aside de conversion (desktop) ── */}
+          <aside className="hidden lg:block" aria-label={t.ctaTitle}>
+            <div className="sticky top-20">
+              <div className="rounded-2xl border border-primary-100 bg-gradient-to-br from-primary-50 to-white p-5 shadow-sm">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-primary-600 ring-1 ring-primary-100 mb-3" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.75" className="w-5 h-5" strokeLinecap="round" strokeLinejoin="round"><circle cx="10" cy="7" r="4" /><path d="M3 18c0-3.87 3.13-7 7-7s7 3.13 7 7" /></svg>
+                </span>
+                <h2 className="font-bold text-slate-900 text-lg leading-snug">{t.ctaTitle}</h2>
+                <p className="text-sm text-slate-500 mt-1 mb-4 leading-relaxed">{t.ctaText}</p>
+                <Link href="/praticiens" className="btn-primary w-full">
+                  {t.ctaBtn}
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 rtl:-scale-x-100" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><path d="m6 3 5 5-5 5" /></svg>
+                </Link>
               </div>
             </div>
-          </section>
+          </aside>
         </div>
-      </main>
+      </div>
     </>
   );
 }

@@ -1,0 +1,66 @@
+{
+  "slug": "verrues",
+  "term": "Verrues",
+  "kind": "DISEASE",
+  "specialty": "dermatologie",
+  "synonyms": ["verrue vulgaire", "verrue plantaire", "verrue plane", "papillome cutané"],
+  "shortAnswer": "Les verrues sont de petites excroissances bénignes de la peau causées par le virus HPV. Elles disparaissent souvent seules en quelques mois. Une consultation s'impose si elles se multiplient, deviennent douloureuses ou si vous avez un doute sur l'aspect d'une lésion.",
+  "causes": [
+    "Infection par le papillomavirus humain (HPV), virus très courant",
+    "Contact direct avec une personne porteuse ou une surface contaminée (piscines, douches publiques)",
+    "Micro-coupures ou écorchures de la peau facilitant l'entrée du virus",
+    "Système immunitaire affaibli (les défenses naturelles contrôlent normalement le virus)",
+    "Terrain atopique : les personnes à peau sensible ou sèche sont plus exposées",
+    "Enfants et adolescents particulièrement touchés en raison d'une immunité encore en développement"
+  ],
+  "redFlags": [
+    "Lésion qui saigne spontanément, croûte ou ulcère sans cicatriser",
+    "Aspect irrégulier, contours flous ou couleur inhomogène évoquant une autre pathologie cutanée",
+    "Croissance très rapide ou apparition de nombreuses nouvelles lésions en peu de temps",
+    "Verrue génitale ou péri-anale : toujours évaluer par un médecin sans délai",
+    "Douleur intense ou gêne fonctionnelle importante (verrue plantaire invalidante)",
+    "Verrues multiples ou extensives chez une personne immunodéprimée (VIH, greffe d'organe, chimiothérapie) : consultation spécialisée urgente"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si les verrues persistent plus de 3 mois, se multiplient ou sont douloureuses. Référez-vous directement à un dermatologue si la lésion a un aspect inhabituel ou si vous avez des verrues génitales.",
+  "faq": [
+    {
+      "q": "Les verrues sont-elles contagieuses ?",
+      "a": "Oui, les verrues se transmettent par contact direct avec la peau d'une personne infectée ou par des surfaces contaminées (sol de piscine, serviettes partagées). Évitez de gratter ou toucher vos verrues et lavez-vous bien les mains. Le risque de transmission est toutefois faible chez les personnes ayant un système immunitaire sain."
+    },
+    {
+      "q": "Faut-il toujours traiter une verrue ?",
+      "a": "Pas nécessairement. Les verrues bénignes disparaissent souvent spontanément en quelques mois à deux ans, surtout chez l'enfant. Un traitement est conseillé si la verrue est douloureuse, inesthétique, nombreuse ou si elle ne régresse pas. Le médecin ou le dermatologue proposera la solution adaptée à votre situation."
+    }
+  ],
+  "intentAnswer": "Pour une verrue, commencez par votre médecin généraliste qui pourra confirmer le diagnostic et proposer un premier traitement. Si les verrues persistent, se multiplient ou ont un aspect atypique, il vous orientera vers un dermatologue. En cas de lésion qui saigne ou d'aspect inquiétant, consultez sans attendre.",
+  "termAr": "الثآليل",
+  "shortAnswerAr": "الثآليل نتوءات جلدية صغيرة حميدة تسببها فيروسات الورم الحليمي البشري (HPV). تختفي في الغالب من تلقاء نفسها خلال أشهر. استشر طبيباً إذا تكاثرت أو أصبحت مؤلمة أو بدا شكلها غير معتاد.",
+  "causesAr": [
+    "الإصابة بفيروس الورم الحليمي البشري (HPV)، وهو فيروس شائع جداً",
+    "الاتصال المباشر بجلد شخص مصاب أو بأسطح ملوثة (حمامات السباحة، الدشات العامة)",
+    "الجروح الصغيرة والخدوش التي تُسهّل دخول الفيروس إلى الجلد",
+    "ضعف جهاز المناعة الذي يُقلّل من قدرة الجسم على مكافحة الفيروس",
+    "البشرة الجافة أو الحساسة التي تزيد من قابلية الإصابة",
+    "الأطفال والمراهقون أكثر عرضة لأن مناعتهم لا تزال في طور النضج"
+  ],
+  "redFlagsAr": [
+    "آفة تنزّ دماً من تلقاء نفسها أو تتقرّح دون أن تلتئم",
+    "شكل غير منتظم، حواف ضبابية، أو تلوّن غير متجانس يوحي بتشخيص آخر",
+    "نمو سريع جداً أو ظهور عدد كبير من الثآليل في وقت قصير",
+    "ثآليل في منطقة الأعضاء التناسلية أو المحيط الشرجي: تستوجب تقييماً طبياً فورياً",
+    "ألم شديد أو إعاقة وظيفية كبيرة، خاصة عند ثآليل القدم",
+    "ثآليل متعددة أو واسعة الانتشار لدى شخص يعاني من ضعف المناعة (الإيدز، زراعة الأعضاء، العلاج الكيميائي): استشارة متخصصة عاجلة"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام إذا استمرت الثآليل أكثر من ثلاثة أشهر، أو تكاثرت، أو سببت ألماً. توجّه مباشرة إلى طبيب الأمراض الجلدية إذا كانت الآفة ذات مظهر غير طبيعي أو في حال وجود ثآليل تناسلية.",
+  "faqAr": [
+    {
+      "q": "هل الثآليل معدية؟",
+      "a": "نعم، تنتقل الثآليل عن طريق الاتصال المباشر بجلد شخص مصاب أو بالأسطح الملوثة كأرضيات المسابح والمناشف المشتركة. تجنّب حكّ الثآليل أو لمسها، واحرص على غسل يديك جيداً. غير أن خطر العدوى يبقى منخفضاً لدى الأشخاص ذوي المناعة السليمة."
+    },
+    {
+      "q": "هل يجب دائماً علاج الثآليل؟",
+      "a": "ليس بالضرورة. كثيراً ما تختفي الثآليل الحميدة من تلقاء نفسها في غضون أشهر إلى سنتين، خاصة عند الأطفال. يُنصح بالعلاج إذا كانت الثآليل مؤلمة أو مُزعجة جمالياً أو لا تتراجع. سيقترح عليك الطبيب أو طبيب الجلدية الحل الأنسب لحالتك."
+    }
+  ],
+  "intentAnswerAr": "إذا كنت تتساءل عن أي طبيب تستشير للثآليل، فابدأ بطبيبك العام الذي يؤكد التشخيص ويقترح العلاج المناسب. إن استمرت الثآليل أو تكاثرت أو بدا شكلها مقلقاً، سيحيلك إلى طبيب الأمراض الجلدية. في حال نزيف الآفة أو ظهور أي علامة مثيرة للقلق، استشر طبيباً دون تأخير."
+}

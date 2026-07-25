@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { logout } from "@/features/auth/actions";
+import { logout } from "@/features/auth/logout";
 import { prisma } from "@/lib/prisma";
 import { AdminNav, AdminMobileNav, type AdminNavItem } from "./_components/AdminNav";
 import { Logo } from "@/components/ui/Logo";

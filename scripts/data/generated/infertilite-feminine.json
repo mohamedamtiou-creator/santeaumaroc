@@ -1,0 +1,64 @@
+{
+  "slug": "infertilite-feminine",
+  "term": "Infertilité féminine",
+  "kind": "DISEASE",
+  "specialty": "gyneco-obstetrique",
+  "synonyms": ["stérilité féminine", "difficultés à concevoir", "infécondité"],
+  "shortAnswer": "L'infertilité féminine désigne l'absence de grossesse après 12 mois de rapports réguliers sans contraception. Elle est souvent traitable. Une consultation est conseillée dès 6 mois si vous avez plus de 35 ans, ou en cas de cycles irréguliers ou d'antécédents gynécologiques.",
+  "causes": [
+    "Troubles de l'ovulation (syndrome des ovaires polykystiques, insuffisance ovarienne)",
+    "Obstruction des trompes de Fallope (souvent liée à des infections ou une endométriose)",
+    "Endométriose : tissu utérin présent en dehors de l'utérus",
+    "Anomalies de l'utérus (fibromes, polypes, malformations)",
+    "Problèmes hormonaux (thyroïde, prolactine, hormones sexuelles déséquilibrées)",
+    "Facteurs liés à l'âge : diminution progressive de la réserve ovarienne après 35 ans"
+  ],
+  "redFlags": [
+    "Douleurs pelviennes intenses et persistantes, notamment pendant les règles ou les rapports",
+    "Absence totale de règles (aménorrhée) ou cycles très irréguliers depuis plusieurs mois",
+    "Saignements anormaux en dehors des règles ou très abondants",
+    "Fièvre avec douleurs abdominales basses (possible infection gynécologique nécessitant une prise en charge urgente)",
+    "Antécédents de grossesse extra-utérine ou de fausse couche répétée (3 ou plus)"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste ou un gynécologue si vous n'avez pas de grossesse après 12 mois d'essais (ou 6 mois si vous avez plus de 35 ans). En cas de douleurs sévères, fièvre ou saignements inhabituels, consultez sans délai.",
+  "faq": [
+    {
+      "q": "À partir de quand parle-t-on vraiment d'infertilité ?",
+      "a": "On parle d'infertilité après 12 mois de rapports réguliers sans contraception et sans grossesse. Ce délai est ramené à 6 mois pour les femmes de 35 ans et plus. Avant ce délai, il est souvent trop tôt pour conclure, même si une consultation précoce peut être utile en cas d'antécédents."
+    },
+    {
+      "q": "L'infertilité féminine est-elle toujours définitive ?",
+      "a": "Non, dans de nombreux cas elle est traitable. Selon la cause identifiée, des traitements hormonaux, chirurgicaux ou des techniques d'assistance médicale à la procréation (comme la FIV) peuvent permettre une grossesse. Un bilan complet chez un gynécologue spécialisé est la première étape pour évaluer les options."
+    }
+  ],
+  "intentAnswer": "Pour des difficultés à concevoir, consultez d'abord votre médecin généraliste qui pourra orienter le bilan. Le spécialiste de référence est le gynécologue-obstétricien, parfois associé à un spécialiste en fertilité. En cas de douleurs intenses, fièvre ou saignements anormaux, rendez-vous aux urgences sans attendre.",
+  "termAr": "العقم عند المرأة",
+  "shortAnswerAr": "العقم عند المرأة هو عدم حدوث الحمل بعد 12 شهرًا من المحاولة المنتظمة دون وسائل منع الحمل. كثيرًا ما يكون قابلًا للعلاج. يُنصح باستشارة الطبيب بعد 6 أشهر فقط إذا كانت المرأة تجاوزت 35 سنة، أو تعاني من اضطرابات في الدورة الشهرية، أو لديها تاريخ طبي نسائي خاص.",
+  "causesAr": [
+    "اضطرابات التبويض (متلازمة تكيس المبايض، قصور المبيض المبكر)",
+    "انسداد قناتَي فالوب، غالبًا بسبب التهابات سابقة أو بطانة الرحم المهاجرة",
+    "بطانة الرحم المهاجرة (الانتباذ البطاني الرحمي): وجود نسيج الرحم خارج تجويفه",
+    "تشوهات الرحم كالأورام الليفية أو السلائل أو التشوهات الخلقية",
+    "اضطرابات هرمونية (الغدة الدرقية، البرولاكتين، الهرمونات الجنسية)",
+    "تأثير العمر: تراجع الاحتياطي المبيضي تدريجيًا بعد سن 35"
+  ],
+  "redFlagsAr": [
+    "آلام شديدة ومستمرة في الحوض، خاصة أثناء الدورة الشهرية أو العلاقة الزوجية",
+    "انقطاع كامل للدورة الشهرية أو عدم انتظامها الشديد لعدة أشهر",
+    "نزيف غير طبيعي خارج الدورة أو نزيف غزير جدًا",
+    "حمى مع ألم في أسفل البطن (قد يدل على التهاب يستدعي تدخلًا عاجلًا)",
+    "تاريخ من الحمل خارج الرحم أو ثلاثة إجهاضات متكررة أو أكثر"
+  ],
+  "whenToConsultAr": "استشيري طبيبك العام أو طبيب النساء إذا لم تحدث الحمل بعد 12 شهرًا من المحاولة (أو 6 أشهر إذا تجاوزتِ 35 عامًا). في حال الألم الشديد أو الحمى أو النزيف غير المعتاد، اطلبي الرعاية الطبية فورًا.",
+  "faqAr": [
+    {
+      "q": "متى يُعدّ عدم الإنجاب عقمًا فعلًا؟",
+      "a": "يُعدّ الأمر عقمًا بعد 12 شهرًا من المحاولة المنتظمة دون حمل. يُقلَّص هذا الأجل إلى 6 أشهر للمرأة التي تجاوزت 35 عامًا. قبل هذه المدة، قد يكون الأوان مبكرًا للحكم، وإن كانت الاستشارة المبكرة مفيدة عند وجود تاريخ طبي خاص."
+    },
+    {
+      "q": "هل العقم عند المرأة دائمًا نهائي؟",
+      "a": "لا، في كثير من الحالات يمكن علاجه. بحسب السبب، قد تُفيد العلاجات الهرمونية أو التدخل الجراحي أو تقنيات الإنجاب بالمساعدة الطبية كأطفال الأنابيب. الخطوة الأولى هي إجراء فحص شامل لدى طبيب متخصص في النساء والتوليد."
+    }
+  ],
+  "intentAnswerAr": "إذا كنتِ تعانين من صعوبة في الإنجاب، ابدئي بطبيب عام يوجهك للفحوصات الأولية، ثم اللجوء إلى طبيب أمراض النساء والتوليد، وأحيانًا إلى متخصص في الخصوبة. في حال الألم الشديد أو الحمى أو النزيف غير الطبيعي، توجهي إلى المستعجلات فورًا."
+}

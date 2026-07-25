@@ -1,0 +1,66 @@
+{
+  "slug": "mononucleose",
+  "term": "Mononucléose",
+  "kind": "DISEASE",
+  "specialty": "maladies-infectieuses",
+  "synonyms": ["maladie du baiser", "fièvre glandulaire", "MNI"],
+  "shortAnswer": "La mononucléose infectieuse est une infection virale fréquente chez les adolescents et jeunes adultes, provoquant fatigue intense, fièvre et ganglions gonflés. Elle guérit généralement seule en quelques semaines, mais une fatigue prolongée ou une douleur abdominale soudaine nécessite une consultation rapide.",
+  "causes": [
+    "Virus d'Epstein-Barr (EBV), transmis principalement par la salive (baisers, partage d'ustensiles)",
+    "Contact étroit avec une personne infectée, même sans symptômes",
+    "Consommation de boissons ou d'aliments partagés avec un porteur du virus",
+    "Système immunitaire qui réagit fortement à une première infection par l'EBV",
+    "Plus rarement, transmission par le cytomégalovirus (CMV) donnant un tableau similaire",
+    "Infection possible par voie respiratoire lors de contacts très proches"
+  ],
+  "redFlags": [
+    "Douleur abdominale soudaine et intense (risque de rupture de la rate — urgence)",
+    "Difficultés à respirer ou à avaler, gorge très enflée obstruant les voies respiratoires",
+    "Jaunisse : peau ou blanc des yeux qui jaunissent (signe d'atteinte du foie à signaler au médecin)",
+    "Raideur de la nuque accompagnée de forte fièvre (à distinguer d'une méningite)",
+    "Éruption cutanée après prise de certains médicaments (signe de réaction grave)",
+    "Fatigue extrême persistant plus de 4 semaines ou aggravation progressive de l'état général"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès les premiers symptômes (fièvre, gorge très rouge, ganglions). Rendez-vous aux urgences immédiatement en cas de douleur abdominale brutale, de difficulté à respirer ou à avaler.",
+  "faq": [
+    {
+      "q": "La mononucléose est-elle contagieuse ? Faut-il s'isoler ?",
+      "a": "Oui, le virus se transmet par la salive, surtout pendant la phase aiguë. Un isolement strict n'est pas nécessaire, mais évitez de partager verres, couverts ou d'embrasser d'autres personnes pendant la période de fièvre. La contagiosité peut persister quelques semaines."
+    },
+    {
+      "q": "Peut-on faire du sport pendant une mononucléose ?",
+      "a": "Non, le sport et les efforts physiques intenses sont déconseillés pendant au moins 3 à 4 semaines, car la rate peut être fragilisée et un choc abdominal risque de la rompre. Reprenez l'activité physique uniquement après accord médical."
+    }
+  ],
+  "intentAnswer": "Pour une mononucléose, consultez d'abord votre médecin généraliste qui posera le diagnostic et assurera le suivi. Si des complications surviennent (rate douloureuse, angine sévère), il vous orientera vers un spécialiste en maladies infectieuses. Appelez le 15 ou rendez-vous aux urgences en cas de douleur abdominale brutale ou de gêne respiratoire.",
+  "termAr": "داء كثرة الوحيدات المعدي",
+  "shortAnswerAr": "داء كثرة الوحيدات المعدي هو عدوى فيروسية شائعة تصيب المراهقين والشباب، وتسبب تعباً شديداً وحمى وتضخم الغدد الليمفاوية. يشفى عادةً من تلقاء نفسه في غضون أسابيع، غير أن التعب المطوّل أو الألم المفاجئ في البطن يستوجبان استشارة طبية عاجلة.",
+  "causesAr": [
+    "فيروس إبشتاين-بار (EBV) الذي ينتقل أساساً عبر اللعاب (التقبيل أو مشاركة أدوات المائدة)",
+    "الاحتكاك الوثيق بشخص مصاب، حتى وإن لم تظهر عليه أعراض",
+    "تناول المشروبات أو الطعام المشترك مع حامل الفيروس",
+    "استجابة قوية من جهاز المناعة عند التعرض الأول لفيروس EBV",
+    "نادراً، عدوى بالفيروس المضخم للخلايا (CMV) تُعطي صورة مماثلة",
+    "انتقال محتمل عبر الجهاز التنفسي عند الاحتكاك المباشر جداً"
+  ],
+  "redFlagsAr": [
+    "ألم مفاجئ وشديد في البطن (خطر تمزق الطحال — حالة طارئة)",
+    "صعوبة في التنفس أو البلع بسبب تضخم شديد في الحلق",
+    "اليرقان: اصفرار الجلد أو بياض العينين (علامة على إصابة الكبد تستوجب إخبار الطبيب)",
+    "تيبّس في الرقبة مصحوب بحمى مرتفعة (يستوجب استبعاد التهاب السحايا)",
+    "طفح جلدي عقب تناول بعض الأدوية (يدل على رد فعل خطير)",
+    "تعب مفرط يستمر أكثر من أربعة أسابيع أو تدهور تدريجي في الحالة العامة"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور ظهور الأعراض الأولى (حمى، احمرار شديد في الحلق، تضخم الغدد). توجّه فوراً إلى المستعجلات في حال ألم مفاجئ في البطن أو صعوبة في التنفس أو البلع.",
+  "faqAr": [
+    {
+      "q": "هل داء كثرة الوحيدات معدٍ؟ هل ينبغي العزل؟",
+      "a": "نعم، ينتقل الفيروس عبر اللعاب، خاصةً خلال المرحلة الحادة. لا يستلزم الأمر عزلاً صارماً، لكن تجنّب مشاركة الأكواب والأدوات أو التقبيل طوال فترة الحمى. قد تستمر العدوى أسابيع قليلة بعد تحسّن الأعراض."
+    },
+    {
+      "q": "هل يمكن ممارسة الرياضة أثناء الإصابة بهذا الداء؟",
+      "a": "لا، يُنصح بتجنّب الرياضة والمجهود البدني الشديد لمدة ثلاثة إلى أربعة أسابيع على الأقل، إذ قد يكون الطحال هشاً وأي صدمة في البطن قد تتسبب في تمزقه. استأنف النشاط البدني فقط بعد الحصول على إذن طبي."
+    }
+  ],
+  "intentAnswerAr": "في حالة الإصابة بداء كثرة الوحيدات، استشر أولاً طبيبك العام الذي سيشخّص الحالة ويتابعها. إذا ظهرت مضاعفات (ألم في الطحال أو التهاب حلق شديد)، سيحيلك إلى أخصائي في الأمراض المعدية. اتصل بالإسعاف أو توجّه إلى المستعجلات فوراً عند أي ألم مفاجئ في البطن أو صعوبة في التنفس."
+}

@@ -1,0 +1,66 @@
+{
+  "slug": "syndrome-de-fatigue-chronique",
+  "term": "Syndrome de fatigue chronique",
+  "kind": "DISEASE",
+  "specialty": "medecine-interne",
+  "synonyms": ["encéphalomyélite myalgique", "SFC", "EM/SFC", "fatigue chronique"],
+  "shortAnswer": "Le syndrome de fatigue chronique est une maladie caractérisée par une fatigue profonde et persistante depuis plus de six mois, non soulagée par le repos. Il peut être stable sur le long terme, mais une aggravation progressive ou des signes neurologiques nécessitent un avis médical rapide.",
+  "causes": [
+    "Origine mal connue, possiblement multifactorielle (virale, immunitaire, neurologique)",
+    "Antécédent d'infection virale (grippe, mononucléose, Covid-19)",
+    "Dérégulation du système immunitaire",
+    "Dysfonctionnement du système nerveux autonome",
+    "Facteurs psychologiques et stress chronique associés",
+    "Prédisposition génétique évoquée dans certains cas"
+  ],
+  "redFlags": [
+    "Fatigue extrême avec impossibilité de se lever ou de réaliser les gestes quotidiens",
+    "Troubles neurologiques : confusion, perte de mémoire sévère, troubles de la vision",
+    "Douleurs thoraciques, palpitations ou difficultés respiratoires",
+    "Perte de poids involontaire importante et rapide",
+    "Fièvre persistante inexpliquée ou ganglions très augmentés de volume",
+    "Pensées suicidaires ou idées de se faire du mal : appelez immédiatement le 141 (SAMU) ou un proche"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si la fatigue dure depuis plus de six semaines et perturbe votre vie quotidienne. En cas de signes d'alerte, rendez-vous rapidement aux urgences.",
+  "faq": [
+    {
+      "q": "Le syndrome de fatigue chronique est-il reconnu comme une vraie maladie ?",
+      "a": "Oui, il est reconnu par l'Organisation mondiale de la santé comme une maladie neurologique. Son diagnostic repose sur des critères précis évalués par un médecin, après élimination d'autres causes de fatigue."
+    },
+    {
+      "q": "Peut-on guérir du syndrome de fatigue chronique ?",
+      "a": "L'évolution est variable : certaines personnes s'améliorent avec une prise en charge adaptée (gestion de l'effort, soutien psychologique, traitement des symptômes associés), tandis que d'autres vivent avec une forme stable sur le long terme. Un suivi médical régulier est essentiel."
+    }
+  ],
+  "intentAnswer": "Pour le syndrome de fatigue chronique, consultez d'abord votre médecin généraliste, qui orientera si besoin vers un interniste ou un neurologue pour un bilan approfondi. Si vous présentez des signes d'alerte (confusion, douleurs thoraciques, fièvre, pensées suicidaires), rendez-vous aux urgences sans attendre.",
+  "termAr": "متلازمة التعب المزمن",
+  "shortAnswerAr": "متلازمة التعب المزمن مرضٌ يتميّز بإرهاق عميق ومستمر لأكثر من ستة أشهر لا يزول بالراحة. قد تستقر الحالة على المدى الطويل، غير أن أي تدهور تدريجي أو أعراض عصبية تستوجب استشارة طبية عاجلة.",
+  "causesAr": [
+    "أسباب غير محددة تماماً، ويُرجَّح أنها متعددة العوامل (فيروسية، مناعية، عصبية)",
+    "عدوى فيروسية سابقة كالإنفلونزا أو كوفيد-19 أو التهاب الغدد",
+    "خلل في الجهاز المناعي",
+    "اضطراب في الجهاز العصبي اللاإرادي",
+    "ضغط نفسي مزمن وعوامل نفسية مصاحبة",
+    "استعداد وراثي محتمل في بعض الحالات"
+  ],
+  "redFlagsAr": [
+    "إرهاق شديد يمنع من القيام بالأنشطة اليومية الأساسية",
+    "أعراض عصبية: تشوش ذهني، فقدان شديد للذاكرة، أو اضطرابات في الرؤية",
+    "آلام في الصدر أو خفقان أو صعوبة في التنفس",
+    "فقدان ملحوظ وسريع في الوزن دون سبب واضح",
+    "حمى مستمرة غير مُفسَّرة أو تضخم واضح في الغدد اللمفاوية",
+    "أفكار انتحارية أو الرغبة في إيذاء النفس: اتصل فوراً بـ 141 (SAMU) أو بشخص قريب منك"
+  ],
+  "whenToConsultAr": "راجع طبيبك العام إذا استمر الإرهاق أكثر من ستة أسابيع وأثّر على حياتك اليومية. وفي حال ظهور أي علامات تحذيرية، توجّه فوراً إلى مستعجلات أقرب مستشفى.",
+  "faqAr": [
+    {
+      "q": "هل متلازمة التعب المزمن مرضٌ حقيقي معترف به؟",
+      "a": "نعم، تعترف به منظمة الصحة العالمية بوصفه مرضاً عصبياً. يعتمد تشخيصه على معايير محددة يُقيّمها الطبيب بعد استبعاد الأسباب الأخرى للإرهاق."
+    },
+    {
+      "q": "هل يمكن الشفاء من متلازمة التعب المزمن؟",
+      "a": "يتفاوت مسار المرض من شخص لآخر؛ يتحسّن بعض المرضى مع الرعاية المناسبة (إدارة المجهود، الدعم النفسي، علاج الأعراض المصاحبة)، بينما تستقر الحالة لدى آخرين على المدى الطويل. المتابعة الطبية المنتظمة ضرورية."
+    }
+  ],
+  "intentAnswerAr": "إذا كنت تتساءل عن أي طبيب تستشير لمتلازمة التعب المزمن، ابدأ بطبيبك العام الذي يمكنه إحالتك عند الحاجة إلى طبيب الباطنية أو أخصائي الأعصاب لإجراء فحوصات معمّقة. وإن ظهرت عليك علامات تحذيرية كتشوش ذهني أو ألم في الصدر أو حمى أو أفكار انتحارية، فتوجّه فوراً إلى المستعجلات."
+}

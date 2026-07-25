@@ -1,0 +1,66 @@
+{
+  "slug": "coup-de-chaleur",
+  "term": "Coup de chaleur",
+  "kind": "SYMPTOM",
+  "specialty": "medecine-generale",
+  "synonyms": ["hyperthermie sévère", "coup de soleil grave", "insolation sévère"],
+  "shortAnswer": "Le coup de chaleur est une urgence médicale grave où la température corporelle dépasse 40 °C et que le corps ne parvient plus à réguler seul. Il ne faut pas le confondre avec un simple coup de chaud ou une fatigue par la chaleur. Appelez le 150 ou rendez-vous immédiatement aux urgences si vous observez une confusion, une perte de connaissance ou une peau sèche et brûlante.",
+  "causes": [
+    "Exposition prolongée à une chaleur intense (soleil, canicule, espace confiné surchauffé)",
+    "Effort physique intense par temps chaud, même à l'ombre",
+    "Déshydratation sévère limitant la transpiration et le refroidissement naturel",
+    "Port de vêtements épais ou imperméables empêchant l'évacuation de la chaleur",
+    "Âge avancé ou très jeune âge (nourrisson) réduisant les capacités d'adaptation thermique",
+    "Certaines maladies chroniques ou médicaments affectant la thermorégulation"
+  ],
+  "redFlags": [
+    "Température corporelle supérieure à 40 °C ne descendant pas malgré le refroidissement",
+    "Confusion, désorientation, propos incohérents ou perte de connaissance",
+    "Absence de transpiration malgré la chaleur intense (peau sèche et brûlante)",
+    "Convulsions, tremblements ou incapacité à se tenir debout",
+    "Pouls rapide et faible, ou chute de tension artérielle",
+    "Chez le nourrisson : fontanelle bombée, pleurs stridents, teint grisâtre"
+  ],
+  "whenToConsult": "Le coup de chaleur avec signes d'alerte (confusion, perte de connaissance, peau sèche et brûlante, convulsions) est une urgence vitale : appelez immédiatement le 150 (SAMU) ou rendez-vous aux urgences sans délai. Pour un épisode léger d'épuisement par la chaleur sans signe d'alerte, consultez un médecin généraliste si les symptômes persistent après refroidissement et repos.",
+  "faq": [
+    {
+      "q": "Comment refroidir rapidement une personne victime d'un coup de chaleur en attendant les secours ?",
+      "a": "Mettez-la à l'ombre, allongez-la, retirez les vêtements superflus et humidifiez la peau avec de l'eau froide (pas glacée) en ventilant. Donnez à boire si elle est consciente et capable d'avaler. Appelez le 150 sans attendre si des signes graves sont présents (confusion, peau sèche et chaude, convulsions)."
+    },
+    {
+      "q": "Le coup de chaleur peut-il laisser des séquelles ?",
+      "a": "Un coup de chaleur pris en charge rapidement guérit généralement sans séquelles. En revanche, un coup de chaleur sévère non traité à temps peut entraîner des atteintes rénales, hépatiques ou neurologiques. La prise en charge médicale rapide est donc primordiale."
+    }
+  ],
+  "intentAnswer": "Le coup de chaleur est une urgence médicale : si vous observez une confusion, une perte de connaissance, une peau sèche et brûlante ou des convulsions, appelez le 150 (SAMU) ou rendez-vous directement aux urgences sans délai. Ne retardez pas l'appel des secours pour un simple refroidissement à domicile. Un médecin urgentiste ou réanimateur prendra en charge les formes graves. En cas de symptômes légers d'épuisement par la chaleur sans signe d'alerte, un médecin généraliste peut évaluer la situation.",
+  "termAr": "ضربة الشمس (ضربة الحر)",
+  "shortAnswerAr": "ضربة الشمس حالة طارئة خطيرة ترتفع فيها حرارة الجسم فوق 40 درجة ويعجز عن تنظيمها وحده. لا ينبغي الخلط بينها وبين التعب العادي من الحر. اتصل بـ 150 أو توجّه فوراً إلى المستعجلات إذا لاحظت ارتباكاً أو فقدان الوعي أو جفاف الجلد مع سخونته الشديدة.",
+  "causesAr": [
+    "التعرض المطوّل لأشعة الشمس الحارقة أو البقاء في أماكن مغلقة شديدة الحرارة",
+    "بذل مجهود بدني كبير في الطقس الحار حتى في الظل",
+    "الجفاف الشديد الذي يُعيق التعرق والتبريد الطبيعي للجسم",
+    "ارتداء ملابس سميكة أو غير نافذة للهواء تحبس الحرارة",
+    "كبار السن والرضع الأكثر عرضة لصعوبات في التكيف مع الحرارة",
+    "بعض الأمراض المزمنة أو الأدوية التي تؤثر على آلية ضبط حرارة الجسم"
+  ],
+  "redFlagsAr": [
+    "حرارة الجسم فوق 40 درجة لا تنخفض رغم محاولات التبريد",
+    "التشوش الذهني، الكلام غير المفهوم أو فقدان الوعي",
+    "جفاف الجلد وسخونته دون تعرق رغم شدة الحر",
+    "تشنجات أو رعشة أو عدم القدرة على الوقوف",
+    "نبض سريع وضعيف أو انخفاض في ضغط الدم",
+    "عند الرضيع: نتوء اليافوخ، بكاء حاد متواصل، أو شحوب ملحوظ في الوجه"
+  ],
+  "whenToConsultAr": "ضربة الشمس المصحوبة بعلامات الخطر (ارتباك، فقدان وعي، جلد جاف وساخن، تشنجات) حالة طارئة تهدد الحياة: اتصل فوراً بـ 150 (المستعجلات) أو توجّه إلى المستشفى دون تأخير. أما في حالات الإجهاد الخفيف من الحر دون علامات خطر، فاستشر طبيباً عاماً إذا استمرت الأعراض بعد الراحة والتبريد.",
+  "faqAr": [
+    {
+      "q": "كيف نُبرّد سريعاً شخصاً أُصيب بضربة شمس في انتظار المساعدة؟",
+      "a": "ضعه في مكان مظلل، أضجعه وانزع الملابس الزائدة، ورطّب جلده بماء بارد (لا مثلج) مع تهوية المكان. أعطه ماء للشرب إن كان واعياً وقادراً على البلع. اتصل بـ 150 فوراً إذا ظهرت علامات خطر (ارتباك أو جلد جاف وساخن أو تشنجات) دون انتظار التحسن."
+    },
+    {
+      "q": "هل يمكن أن تترك ضربة الشمس مضاعفات دائمة؟",
+      "a": "في الغالب تشفى ضربة الشمس دون مضاعفات إذا عولجت مبكراً، لكن الحالة الشديدة غير المعالجة قد تُصيب الكلى أو الكبد أو الجهاز العصبي. لذلك فإن التدخل الطبي السريع أمر بالغ الأهمية."
+    }
+  ],
+  "intentAnswerAr": "ضربة الشمس حالة طارئة: إذا لاحظت ارتباكاً أو فقدان وعي أو جلداً جافاً وساخناً أو تشنجات، اتصل فوراً بـ 150 أو توجّه مباشرة إلى المستعجلات دون تأخير، ولا تكتفِ بمحاولات التبريد في المنزل. يتولى طبيب الإنعاش والطوارئ معالجة الحالات الشديدة. أما في حال أعراض خفيفة من الإجهاد الحراري دون علامات خطر، فيمكن استشارة طبيب عام لتقييم الوضع."
+}

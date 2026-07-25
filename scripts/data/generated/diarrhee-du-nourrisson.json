@@ -1,0 +1,66 @@
+{
+  "slug": "diarrhee-du-nourrisson",
+  "term": "Diarrhée du nourrisson",
+  "kind": "SYMPTOM",
+  "specialty": "pediatrie",
+  "synonyms": ["selles liquides bébé", "gastro-entérite nourrisson", "turista nourrisson"],
+  "shortAnswer": "La diarrhée du nourrisson se manifeste par des selles plus fréquentes et plus liquides que d'habitude. Souvent bénigne et passagère (virale), elle devient préoccupante dès que le bébé montre des signes de déshydratation, surtout avant 6 mois.",
+  "causes": [
+    "Infection virale (rotavirus, norovirus) : cause la plus fréquente",
+    "Infection bactérienne (salmonelle, E. coli) liée à une eau ou un aliment contaminé",
+    "Introduction d'un nouvel aliment lors de la diversification alimentaire",
+    "Intolérance transitoire au lactose après une gastro-entérite",
+    "Prise d'antibiotiques perturbant la flore intestinale",
+    "Allergie aux protéines de lait de vache"
+  ],
+  "redFlags": [
+    "Signes de déshydratation : bouche sèche, absence de larmes, fontanelle creuse, yeux enfoncés",
+    "Moins de 6 couches mouillées en 24 heures (nourrisson)",
+    "Sang ou mucus dans les selles",
+    "Fièvre élevée (> 38,5 °C) associée chez un bébé de moins de 3 mois",
+    "Vomissements répétés empêchant toute réhydratation orale",
+    "Somnolence anormale, hypotonie (bébé « mou »), difficultés à être réveillé ou perte de réactivité : urgence vitale immédiate"
+  ],
+  "whenToConsult": "Consultez un médecin rapidement si votre nourrisson a moins de 6 mois, si la diarrhée dure plus de 48 heures, ou si l'un des signes d'alerte ci-dessus apparaît. En cas de déshydratation sévère, rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "Comment savoir si mon bébé est déshydraté ?",
+      "a": "Observez l'état général : un nourrisson déshydraté pleure sans larmes, a la bouche et les lèvres sèches, la fontanelle (point mou sur le crâne) creusée, et urine très peu. Si vous constatez ces signes, consultez un médecin en urgence."
+    },
+    {
+      "q": "Dois-je arrêter d'allaiter pendant la diarrhée ?",
+      "a": "Non, l'allaitement maternel doit être maintenu et même augmenté : il apporte des anticorps et aide à la réhydratation. Pour les bébés nourris au lait artificiel, votre médecin pourra vous conseiller sur l'adaptation temporaire de l'alimentation."
+    }
+  ],
+  "intentAnswer": "Pour la diarrhée du nourrisson, consultez d'abord votre médecin généraliste ou pédiatre. Le pédiatre est le spécialiste de référence pour les jeunes enfants. En cas de signes de déshydratation, de sang dans les selles ou d'état général dégradé, rendez-vous directement aux urgences pédiatriques.",
+  "termAr": "إسهال الرضيع",
+  "shortAnswerAr": "إسهال الرضيع هو زيادة في عدد البراز مع تغير في قوامه ليصبح سائلاً. غالباً ما يكون بسيطاً وعابراً بسبب التهاب فيروسي، لكنه يصبح خطيراً عند ظهور علامات الجفاف، خاصة عند الرضع دون 6 أشهر.",
+  "causesAr": [
+    "التهاب فيروسي (فيروس الروتا، النوروفيروس): السبب الأكثر شيوعاً",
+    "التهاب بكتيري ناتج عن ماء أو طعام ملوث",
+    "إدخال أغذية جديدة خلال مرحلة التنويع الغذائي",
+    "عدم تحمل اللاكتوز المؤقت عقب التهاب المعدة والأمعاء",
+    "تناول المضادات الحيوية التي تؤثر على البكتيريا النافعة في الأمعاء",
+    "حساسية بروتينات حليب البقر"
+  ],
+  "redFlagsAr": [
+    "علامات الجفاف: جفاف الفم، غياب الدموع، انخماص اليافوخ، وغؤور العينين",
+    "أقل من 6 حفاضات مبللة في 24 ساعة",
+    "وجود دم أو مخاط في البراز",
+    "ارتفاع الحرارة فوق 38.5 درجة عند رضيع أقل من 3 أشهر",
+    "قيء متكرر يمنع شرب أي سائل",
+    "النعاس الشديد أو الارتخاء العضلي (طفل « مترهل ») أو صعوبة إيقاظه أو فقدان الاستجابة: حالة طارئة تستوجب التوجه الفوري للإسعاف"
+  ],
+  "whenToConsultAr": "استشر الطبيب في أقرب وقت إذا كان عمر رضيعك أقل من 6 أشهر، أو إذا استمر الإسهال أكثر من 48 ساعة، أو ظهرت أي من علامات الخطر المذكورة أعلاه. في حال الجفاف الشديد، توجه فوراً إلى قسم الطوارئ دون تأخير.",
+  "faqAr": [
+    {
+      "q": "كيف أعرف إذا كان طفلي يعاني من الجفاف؟",
+      "a": "راقب الحالة العامة لطفلك: إذا كان يبكي دون دموع، وكان فمه وشفتاه جافتين، ويافوخه منخفضاً، ويتبول بشكل نادر جداً، فهذه علامات تستوجب التوجه الفوري إلى الطبيب."
+    },
+    {
+      "q": "هل يجب أن أوقف الرضاعة الطبيعية خلال نوبة الإسهال؟",
+      "a": "لا، بل يُنصح بمواصلة الرضاعة الطبيعية وتكثيفها لأنها تمد الطفل بالأجسام المضادة وتساعده على الترطيب. أما الأطفال الذين يرضعون بالحليب الصناعي، فيمكن لطبيبك إرشادك حول تعديل التغذية مؤقتاً إن لزم الأمر."
+    }
+  ],
+  "intentAnswerAr": "لإسهال الرضيع، ابدأ بزيارة طبيب عام أو طبيب أطفال. طبيب الأطفال هو المختص الأنسب لهذه الفئة العمرية. في حال ظهور علامات الجفاف أو وجود دم في البراز أو تدهور الحالة العامة، توجه مباشرة إلى قسم الطوارئ الأطفال."
+}

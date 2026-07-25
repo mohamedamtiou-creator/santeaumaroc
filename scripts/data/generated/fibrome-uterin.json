@@ -1,0 +1,64 @@
+{
+  "slug": "fibrome-uterin",
+  "term": "Fibrome utérin",
+  "kind": "DISEASE",
+  "specialty": "gyneco-obstetrique",
+  "synonyms": ["myome", "léiomyome utérin", "fibromyome"],
+  "shortAnswer": "Le fibrome utérin est une tumeur bénigne du muscle de l'utérus, très fréquente chez la femme en âge de procréer. Il est souvent sans symptômes et ne nécessite pas toujours un traitement, mais des saignements abondants ou des douleurs persistantes doivent conduire à consulter un gynécologue.",
+  "causes": [
+    "Facteurs hormonaux : les fibromes sont sensibles aux œstrogènes et à la progestérone",
+    "Prédisposition familiale : risque plus élevé si la mère ou une sœur en a eu",
+    "Origine ethnique : plus fréquents et plus précoces chez les femmes d'origine africaine",
+    "Obésité et surpoids, qui augmentent le taux d'œstrogènes circulants",
+    "Nulliparité (n'avoir jamais accouché) est associée à un risque plus élevé",
+    "Stress chronique et certains régimes alimentaires riches en viande rouge (facteurs associés, non établis comme causes directes)"
+  ],
+  "redFlags": [
+    "Saignements menstruels très abondants ou prolongés entraînant une fatigue intense, un essoufflement ou des vertiges (signe d'anémie sévère)",
+    "Douleurs pelviennes aiguës et soudaines (évoque une torsion ou une nécrose du fibrome)",
+    "Gonflement important et rapide du ventre sans autre explication",
+    "Difficultés urinaires marquées : envies fréquentes, impossibilité d'uriner correctement",
+    "Difficultés à concevoir ou fausses couches à répétition associées à des fibromes connus"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste ou un gynécologue si vous présentez des règles très abondantes, des douleurs pelviennes persistantes ou un ventre gonflé. Rendez-vous aux urgences si vous ressentez une douleur pelvienne aiguë soudaine ou une fatigue extrême accompagnée de saignements importants.",
+  "faq": [
+    {
+      "q": "Un fibrome utérin peut-il devenir cancéreux ?",
+      "a": "C'est extrêmement rare. Le fibrome utérin est une tumeur bénigne qui ne se transforme quasiment jamais en cancer. Cependant, un suivi gynécologique régulier est recommandé pour surveiller son évolution, surtout s'il grossit rapidement."
+    },
+    {
+      "q": "Le fibrome utérin empêche-t-il toujours d'avoir des enfants ?",
+      "a": "Non, la grande majorité des femmes porteuses de fibromes peuvent concevoir et mener une grossesse à terme. Selon leur taille et leur emplacement, certains fibromes peuvent réduire les chances de conception ou augmenter le risque de complications. Un bilan gynécologique permet d'évaluer votre situation personnelle."
+    }
+  ],
+  "intentAnswer": "Pour un fibrome utérin, commencez par consulter votre médecin généraliste qui vous orientera. Le spécialiste de référence est le gynécologue-obstétricien, qui pourra réaliser une échographie et proposer une prise en charge adaptée. En cas de douleur pelvienne aiguë ou de saignement très abondant, rendez-vous aux urgences sans attendre.",
+  "termAr": "الورم الليفي الرحمي",
+  "shortAnswerAr": "الورم الليفي الرحمي ورمٌ حميد ينشأ في عضلة الرحم، وهو شائع جداً لدى النساء في سن الإنجاب. كثيراً ما يكون بدون أعراض ولا يستدعي علاجاً دائماً، غير أن النزيف الغزير أو الآلام المستمرة تستوجب استشارة طبيب متخصص.",
+  "causesAr": [
+    "عوامل هرمونية: الأورام الليفية حساسة للإستروجين والبروجسترون",
+    "الاستعداد الوراثي: الخطر أعلى إذا كانت الأم أو الأخت مصابة",
+    "الأصل العرقي: أكثر شيوعاً وتبكيراً لدى النساء ذوات الأصول الأفريقية",
+    "السمنة والوزن الزائد، لما يرفعانه من مستوى الإستروجين في الدم",
+    "عدم الإنجاب مرتبط بارتفاع خطر الإصابة",
+    "الإجهاد المزمن وبعض الأنظمة الغذائية الغنية باللحوم الحمراء (عوامل مرتبطة وليست أسباباً مثبتة)"
+  ],
+  "redFlagsAr": [
+    "نزيف حيضي غزير أو مطوّل يصاحبه تعب شديد أو ضيق تنفس أو دوخة (علامات فقر الدم الحاد)",
+    "ألم حوضي مفاجئ وحاد (قد يدل على التواء الورم أو نخره)",
+    "تضخم سريع وملحوظ في البطن دون سبب واضح",
+    "اضطرابات بولية واضحة كالرغبة المتكررة في التبول أو صعوبة التبول",
+    "صعوبة في الحمل أو إجهاضات متكررة مرتبطة بأورام ليفية معروفة"
+  ],
+  "whenToConsultAr": "راجعي طبيبك العام أو طبيب أمراض النساء إذا عانيتِ من دورة شهرية غزيرة، أو آلام حوضية مستمرة، أو انتفاخ في البطن. توجّهي فوراً إلى المستعجلات في حالة ألم حوضي حاد مفاجئ أو إرهاق شديد مصحوب بنزيف غزير.",
+  "faqAr": [
+    {
+      "q": "هل يمكن أن يتحول الورم الليفي الرحمي إلى سرطان؟",
+      "a": "هذا نادر للغاية. الورم الليفي الرحمي ورم حميد ونادراً جداً ما يتحول إلى سرطان. ومع ذلك، يُنصح بالمتابعة الدورية مع طبيب أمراض النساء لمراقبة تطوره، خاصة إذا كبر بسرعة."
+    },
+    {
+      "q": "هل يمنع الورم الليفي الرحمي الحمل دائماً؟",
+      "a": "لا، فالغالبية العظمى من النساء المصابات به يستطعن الحمل وإتمام الحمل حتى الولادة. قد يؤثر بعضها على فرص الحمل أو يرفع خطر المضاعفات حسب حجمه وموضعه. يحدد طبيب أمراض النساء وضعك بدقة بعد الفحص اللازم."
+    }
+  ],
+  "intentAnswerAr": "للورم الليفي الرحمي، ابدئي باستشارة طبيبك العام الذي سيوجهك إلى المختص. الطبيب المرجعي هو طبيب أمراض النساء والتوليد الذي يجري التشخيص بالصدى ويقترح العلاج المناسب. في حالة ألم حوضي حاد أو نزيف غزير، توجّهي إلى المستعجلات دون تأخير."
+}

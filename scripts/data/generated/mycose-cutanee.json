@@ -1,0 +1,66 @@
+{
+  "slug": "mycose-cutanee",
+  "term": "Mycose cutanée",
+  "kind": "DISEASE",
+  "specialty": "dermatologie",
+  "synonyms": ["dermatophytose", "teigne", "candidose cutanée", "pied d'athlète", "tinea"],
+  "shortAnswer": "Une mycose cutanée est une infection de la peau provoquée par des champignons microscopiques. Elle se manifeste par des rougeurs, des démangeaisons et des plaques squameuses. Souvent bénigne, elle nécessite une consultation si elle s'étend, persiste ou touche un enfant ou une personne fragilisée.",
+  "causes": [
+    "Contact avec une personne ou un animal infecté (champignons contagieux)",
+    "Humidité prolongée de la peau (transpiration excessive, vêtements mouillés)",
+    "Fréquentation de lieux collectifs humides (piscines, vestiaires, douches publiques)",
+    "Affaiblissement du système immunitaire (diabète, traitement immunosuppresseur)",
+    "Utilisation prolongée d'antibiotiques favorisant la prolifération fongique",
+    "Hygiène insuffisante ou séchage incomplet des plis cutanés"
+  ],
+  "redFlags": [
+    "Plaques qui s'étendent rapidement malgré un traitement local bien suivi",
+    "Atteinte du cuir chevelu avec chute de cheveux ou plaques croûteuses chez l'enfant",
+    "Signes d'infection bactérienne surajoutée : peau chaude, gonflée, suintante ou douloureuse",
+    "Fièvre associée à une rougeur qui s'étend rapidement (risque d'érysipèle ou de fasciite nécrosante)",
+    "Mycose récidivante ou ne répondant pas au traitement, surtout chez un diabétique ou immunodéprimé",
+    "Atteinte des ongles envahissante ou extension aux muqueuses"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si les symptômes persistent au-delà de deux à trois semaines, s'aggravent ou récidivent fréquemment. Un avis dermatologique est recommandé en cas de doute diagnostique, d'atteinte étendue ou de terrain fragilisé.",
+  "faq": [
+    {
+      "q": "Une mycose cutanée est-elle contagieuse ?",
+      "a": "Oui, la plupart des mycoses cutanées se transmettent par contact direct avec une personne ou un animal infecté, ou indirectement via des objets contaminés (serviettes, chaussures). Des précautions d'hygiène simples — ne pas partager ses affaires et bien sécher les zones à risque — réduisent le risque de transmission."
+    },
+    {
+      "q": "Peut-on traiter une mycose cutanée soi-même ?",
+      "a": "Certaines mycoses superficielles bénignes peuvent être soulagées par des mesures d'hygiène rigoureuses. Toutefois, un traitement adapté nécessite un diagnostic médical : le médecin déterminera la nature du champignon en cause et orientera vers le soin approprié. L'automédication sans avis médical risque de masquer le diagnostic ou d'aggraver la situation."
+    }
+  ],
+  "intentAnswer": "Pour une mycose cutanée, consultez en premier votre médecin généraliste, qui pose le diagnostic et oriente le traitement. En cas de doute, de résistance au traitement ou de forme étendue, il vous adressera à un dermatologue. Rendez-vous aux urgences si la peau présente des signes d'infection grave (gonflement important, forte douleur, fièvre).",
+  "termAr": "فطريات الجلد",
+  "shortAnswerAr": "فطريات الجلد هي عدوى جلدية تسببها فطريات مجهرية، وتظهر على شكل احمرار وحكة وبقع متقشرة. غالبًا ما تكون غير خطيرة، غير أنها تستدعي استشارة طبية إذا اتسعت أو استمرت أو أصابت طفلًا أو شخصًا يعاني من ضعف المناعة.",
+  "causesAr": [
+    "الاحتكاك المباشر بشخص أو حيوان مصاب بالفطريات",
+    "رطوبة الجلد لفترات طويلة بسبب التعرق الزائد أو الملابس المبللة",
+    "استخدام الأماكن الجماعية الرطبة كحمامات السباحة والملاعب وأماكن الاستحمام العامة",
+    "ضعف جهاز المناعة بسبب مرض السكري أو علاجات مثبطة للمناعة",
+    "الاستخدام المطوّل للمضادات الحيوية مما يساعد على نمو الفطريات",
+    "قصور في النظافة الشخصية أو عدم تجفيف ثنيات الجلد جيدًا"
+  ],
+  "redFlagsAr": [
+    "توسع سريع للبقع رغم الالتزام بالعلاج الموضعي",
+    "إصابة فروة الرأس مع تساقط الشعر أو ظهور بقع متقشرة عند الأطفال",
+    "علامات عدوى بكتيرية مصاحبة: جلد ساخن ومنتفخ أو مؤلم أو ينز",
+    "ارتفاع الحرارة مع احمرار يتوسع بسرعة (خطر الحمرة أو التهاب اللفافة الناخر)",
+    "تكرار الفطريات أو عدم استجابتها للعلاج، لا سيما عند مريض السكري أو ضعيف المناعة",
+    "امتداد الإصابة إلى الأظافر امتدادًا واسعًا أو انتشارها إلى الأغشية المخاطية"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام إذا استمرت الأعراض أكثر من أسبوعين إلى ثلاثة أسابيع، أو ازدادت سوءًا، أو تكررت بشكل متكرر. يُنصح بمراجعة طبيب الجلدية في حالة الشك في التشخيص أو اتساع الإصابة أو وجود حالة صحية مُضعِفة.",
+  "faqAr": [
+    {
+      "q": "هل فطريات الجلد معدية؟",
+      "a": "نعم، تنتقل معظم فطريات الجلد عن طريق الاحتكاك المباشر بشخص أو حيوان مصاب، أو بصورة غير مباشرة عبر الأغراض الملوثة كالمناشف والأحذية. ويمكن الحد من انتشارها باتباع قواعد النظافة البسيطة، كعدم مشاركة الأدوات الشخصية وتجفيف المناطق المعرضة للخطر جيدًا."
+    },
+    {
+      "q": "هل يمكن علاج فطريات الجلد دون استشارة طبية؟",
+      "a": "قد تتحسن بعض الفطريات السطحية البسيطة باتباع تدابير النظافة الجيدة، إلا أن العلاج الملائم يستلزم تشخيصًا طبيًا دقيقًا لتحديد نوع الفطريات وتوجيه العلاج المناسب. فالعلاج الذاتي دون رأي الطبيب قد يُخفي التشخيص الحقيقي أو يُفاقم الحالة."
+    }
+  ],
+  "intentAnswerAr": "إذا كنت تعاني من فطريات جلدية، فاستشر أولًا طبيبك العام الذي يضع التشخيص ويحدد طريقة العلاج. وفي حال الشك أو عدم الاستجابة للعلاج أو اتساع الإصابة، سيحيلك إلى طبيب متخصص في الجلدية. أما إذا ظهرت علامات عدوى حادة كتورم شديد أو ألم حاد أو حمى، فتوجه فورًا إلى المستعجلات."
+}

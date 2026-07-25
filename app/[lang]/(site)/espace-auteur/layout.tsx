@@ -27,12 +27,13 @@ export default async function EspaceAuteurLayout({ children, params }: { childre
   const pending = user.authorStatus === AUTHOR_STATUS.PENDING;
 
   return (
-    <main className="page-outer">
+    // Le layout (site) fournit déjà le <main> — pas de 2ᵉ landmark ici.
+    <div className="page-outer">
       <div className="max-w-5xl mx-auto">
         <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-0.5">{t.eyebrow}</p>
-            <h1 className="text-2xl font-bold text-slate-900">{user.name}</h1>
+            <p className="text-[11px] font-bold uppercase tracking-widest text-primary-600 mb-1">{t.eyebrow}</p>
+            <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight leading-tight">{user.name}</h1>
           </div>
           <div className="flex items-center gap-3">
             {user.doctorProfile && (
@@ -63,6 +64,6 @@ export default async function EspaceAuteurLayout({ children, params }: { childre
 
         {children}
       </div>
-    </main>
+    </div>
   );
 }

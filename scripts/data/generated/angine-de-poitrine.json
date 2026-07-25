@@ -1,0 +1,64 @@
+{
+  "slug": "angine-de-poitrine",
+  "term": "Angine de poitrine (angor)",
+  "kind": "DISEASE",
+  "specialty": "cardiologie",
+  "synonyms": ["angor", "angor stable", "angor instable", "douleur coronarienne", "maladie coronarienne"],
+  "shortAnswer": "L'angine de poitrine est une douleur thoracique causée par un manque d'oxygène au cœur, souvent déclenchée par l'effort. Elle peut rester stable et gérable, mais toute douleur nouvelle, prolongée ou survenant au repos est une urgence absolue.",
+  "causes": [
+    "Rétrécissement des artères coronaires par accumulation de plaques graisseuses (athérosclérose)",
+    "Hypertension artérielle non contrôlée fragilisant les vaisseaux",
+    "Diabète favorisant les lésions des parois artérielles",
+    "Tabagisme réduisant l'apport en oxygène et endommageant les artères",
+    "Cholestérol élevé contribuant aux dépôts dans les artères",
+    "Obésité et sédentarité augmentant la charge de travail du cœur"
+  ],
+  "redFlags": [
+    "Douleur thoracique intense, persistante (plus de 15-20 minutes) ou survenant au repos",
+    "Douleur irradiant vers le bras gauche, la mâchoire, le cou ou le dos",
+    "Essoufflement soudain, sueurs froides, nausées ou malaise associés à la douleur",
+    "Douleur différente ou plus forte que d'habitude, ou apparaissant pour la première fois",
+    "Perte de connaissance ou sensation de cœur qui s'emballe (palpitations violentes)"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès l'apparition de toute douleur ou gêne thoracique, même passagère. En cas de douleur intense, prolongée ou accompagnée d'autres signes d'alarme, appelez immédiatement le SAMU (15) ou le 150, ou rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "Quelle est la différence entre l'angine de poitrine stable et instable ?",
+      "a": "L'angor stable survient de façon prévisible à l'effort et disparaît au repos en quelques minutes. L'angor instable est imprévisible, survient au repos ou pour des efforts minimes et dure plus longtemps : c'est une urgence médicale car il peut annoncer un infarctus."
+    },
+    {
+      "q": "Peut-on mener une vie normale avec une angine de poitrine ?",
+      "a": "Oui, avec un suivi cardiologique régulier et des mesures adaptées (activité physique encadrée, alimentation saine, arrêt du tabac, contrôle des facteurs de risque), la plupart des patients stabilisent leur maladie et maintiennent une bonne qualité de vie. Le respect des recommandations médicales est essentiel."
+    }
+  ],
+  "intentAnswer": "Pour une angine de poitrine, consultez d'abord votre médecin généraliste qui évaluera vos facteurs de risque et vous adressera à un cardiologue pour un bilan complet (ECG, test d'effort). En cas de douleur thoracique intense ou inhabituelle, rendez-vous immédiatement aux urgences.",
+  "termAr": "الذبحة الصدرية (الأنجينا)",
+  "shortAnswerAr": "الذبحة الصدرية ألم في الصدر ناتج عن نقص الأكسجين الواصل إلى عضلة القلب، وغالباً ما يظهر عند المجهود. قد تكون مستقرة وقابلة للتحكم، لكن أي ألم جديد أو مطوّل أو يظهر في الراحة يستوجب التوجه فوراً للطوارئ.",
+  "causesAr": [
+    "تضيّق الشرايين التاجية بسبب تراكم الترسبات الدهنية (تصلب الشرايين)",
+    "ارتفاع ضغط الدم غير المُعالج مما يُضعف جدران الأوعية الدموية",
+    "مرض السكري الذي يُلحق الضرر ببطانة الشرايين",
+    "التدخين الذي يُقلل من وصول الأكسجين ويتلف الشرايين",
+    "ارتفاع الكوليسترول المُسهم في تكوين الرواسب داخل الشرايين",
+    "السمنة وقلة الحركة اللتان تزيدان من العبء على القلب"
+  ],
+  "redFlagsAr": [
+    "ألم صدري شديد ومستمر (أكثر من 15-20 دقيقة) أو يظهر في الراحة",
+    "ألم يمتد إلى الذراع الأيسر أو الفك أو الرقبة أو الظهر",
+    "ضيق مفاجئ في التنفس مصحوب بتعرق بارد أو غثيان أو دوار",
+    "ألم مختلف أو أشد من المعتاد، أو يظهر للمرة الأولى",
+    "فقدان الوعي أو خفقان قلب حاد ومفاجئ"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور ظهور أي ألم أو ضيق في الصدر حتى لو كان عابراً. وفي حال كان الألم شديداً أو مطوّلاً أو مصحوباً بأعراض مقلقة، اتصل بالإسعاف فوراً على الرقم 15 أو 150، أو توجه إلى أقرب مستعجلات دون تأخير.",
+  "faqAr": [
+    {
+      "q": "ما الفرق بين الذبحة الصدرية المستقرة وغير المستقرة؟",
+      "a": "الذبحة المستقرة تظهر بصورة منتظمة عند المجهود وتزول بالراحة في دقائق. أما الذبحة غير المستقرة فتظهر بشكل غير متوقع حتى في الراحة وتدوم وقتاً أطول، وهي حالة طارئة لأنها قد تكون مقدمة لاحتشاء القلب."
+    },
+    {
+      "q": "هل يمكن عيش حياة طبيعية مع الذبحة الصدرية؟",
+      "a": "نعم، مع المتابعة الدورية مع طبيب القلب واتباع نمط حياة صحي (رياضة منتظمة ومعتدلة، تغذية سليمة، الإقلاع عن التدخين، والتحكم في عوامل الخطر)، يتمكن معظم المرضى من الحفاظ على جودة حياة جيدة."
+    }
+  ],
+  "intentAnswerAr": "لمن يعاني من الذبحة الصدرية، ابدأ بزيارة طبيبك العام الذي سيقيّم عوامل الخطر لديك ويُحيلك إلى طبيب القلب لإجراء الفحوصات اللازمة (رسم القلب، اختبار الجهد). وإذا كان الألم شديداً أو غير مألوف، فتوجه فوراً إلى المستعجلات."
+}

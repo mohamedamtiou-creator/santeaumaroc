@@ -1,0 +1,64 @@
+{
+  "slug": "aphtes",
+  "term": "Aphtes",
+  "kind": "DISEASE",
+  "specialty": "chirurgie-dentaire",
+  "synonyms": ["ulcère buccal", "stomatite aphteuse", "ulcération buccale"],
+  "shortAnswer": "Les aphtes sont de petites ulcérations douloureuses à l'intérieur de la bouche. Bénins et passagers chez la plupart des gens, ils guérissent spontanément en 7 à 14 jours. Il faut consulter si les aphtes sont très grands, très nombreux, ou s'ils persistent au-delà de trois semaines.",
+  "causes": [
+    "Traumatisme local : morsure accidentelle, brosse à dents trop dure, prothèse dentaire mal ajustée",
+    "Stress ou fatigue chronique",
+    "Déficiences nutritionnelles (fer, vitamine B12, acide folique)",
+    "Variations hormonales (cycle menstruel, grossesse)",
+    "Certaines sensibilités alimentaires (noix, agrumes, épices fortes)",
+    "Maladies de fond possibles : maladie cœliaque, maladie de Crohn, immunodépression"
+  ],
+  "redFlags": [
+    "Aphte de plus de 1 cm de diamètre ou qui ne cicatrise pas après 3 semaines",
+    "Plaie ou tache blanche/rouge persistante dans la bouche sans douleur (ne pas négliger même indolore)",
+    "Aphtes récidivants très fréquents accompagnés de fièvre, ulcérations génitales ou oculaires",
+    "Difficulté à avaler, à parler ou à ouvrir la bouche",
+    "Ganglions du cou très gonflés ou douloureux associés"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste ou un chirurgien-dentiste si un aphte dure plus de trois semaines, revient fréquemment, est exceptionnellement grand ou s'accompagne d'autres symptômes. Toute lésion buccale persistante et indolore mérite une évaluation rapide.",
+  "faq": [
+    {
+      "q": "Les aphtes sont-ils contagieux ?",
+      "a": "Non, les aphtes ne sont pas contagieux. Ils ne se transmettent pas par contact, contrairement au bouton de fièvre (herpès labial) qui, lui, est d'origine virale et contagieux. Vous pouvez donc embrasser vos proches sans risque de leur transmettre vos aphtes."
+    },
+    {
+      "q": "Comment soulager la douleur d'un aphte en attendant la consultation ?",
+      "a": "Évitez les aliments acides, épicés ou trop chauds qui irritent la lésion. Brossez-vous les dents doucement avec une brosse souple. Des bains de bouche à l'eau salée tiède peuvent aider à calmer la douleur. Un pharmacien peut vous conseiller un gel protecteur adapté, sans ordonnance, pour couvrir l'ulcération."
+    }
+  ],
+  "intentAnswer": "Pour un aphte isolé et récent, commencez par consulter un médecin généraliste ou un chirurgien-dentiste. Le généraliste orientera vers un spécialiste (dermatologue, gastro-entérologue) si une maladie de fond est suspectée. En cas de lésion persistante, très volumineuse ou accompagnée de fièvre élevée, consultez rapidement sans attendre.",
+  "termAr": "قرحات الفم (تقرحات فموية)",
+  "shortAnswerAr": "قرحات الفم هي تقرحات صغيرة مؤلمة تظهر داخل الفم. تُعدّ في الغالب حميدة وتزول من تلقاء نفسها خلال 7 إلى 14 يوماً. يستوجب الأمر استشارة طبيب إذا كانت القرحات كبيرة الحجم أو كثيرة العدد أو استمرت أكثر من ثلاثة أسابيع.",
+  "causesAr": [
+    "إصابة موضعية: عضّ الخدّ بالخطأ، أو استخدام فرشاة أسنان صلبة، أو طقم أسنان غير مناسب",
+    "التوتر النفسي أو التعب المزمن",
+    "نقص العناصر الغذائية كالحديد وفيتامين ب12 وحمض الفوليك",
+    "التقلبات الهرمونية (الدورة الشهرية، الحمل)",
+    "حساسية لبعض الأطعمة كالمكسرات والحمضيات والبهارات الحارة",
+    "أمراض كامنة محتملة: مرض السيلياك أو مرض كرون أو ضعف المناعة"
+  ],
+  "redFlagsAr": [
+    "قرحة يزيد قطرها عن سنتيمتر واحد أو لا تلتئم بعد ثلاثة أسابيع",
+    "بقعة بيضاء أو حمراء مستمرة في الفم غير مؤلمة (لا تُهمل حتى وإن لم تكن مؤلمة)",
+    "تكرار القرحات بشكل متكرر مصحوباً بحمى أو تقرحات تناسلية أو عينية",
+    "صعوبة في البلع أو الكلام أو فتح الفم",
+    "تضخم الغدد الليمفاوية في الرقبة أو ألم شديد بها"
+  ],
+  "whenToConsultAr": "استشر طبيباً عاماً أو طبيب أسنان إذا استمرت القرحة أكثر من ثلاثة أسابيع، أو تكررت بشكل متقارب، أو كانت كبيرة بشكل غير عادي، أو رافقتها أعراض أخرى. وكل آفة فموية مستمرة غير مؤلمة تستحق تقييماً طبياً سريعاً.",
+  "faqAr": [
+    {
+      "q": "هل قرحات الفم معدية؟",
+      "a": "لا، قرحات الفم ليست معدية ولا تنتقل بالتلامس، خلافاً لقرح الحمى (الهربس الشفوي) التي تسببها فيروسات وتنتقل بالعدوى. لذا يمكنك مخالطة ذويك دون أي خطر نقل العدوى إليهم."
+    },
+    {
+      "q": "كيف أخفف ألم القرحة في انتظار الاستشارة الطبية؟",
+      "a": "تجنب الأطعمة الحامضة والحارة والساخنة التي تهيّج القرحة. استخدم فرشاة أسنان ناعمة وتمضمض بماء دافئ ومالح للتخفيف من الألم. يمكن لصيدلاني أن ينصحك بهلام واقٍ مناسب دون وصفة طبية لتغطية التقرح وحمايته."
+    }
+  ],
+  "intentAnswerAr": "لقرحة فموية معزولة وحديثة، ابدأ باستشارة طبيب عام أو طبيب أسنان. وسيحيلك الطبيب العام إلى متخصص (كطبيب جلدية أو جهاز هضمي) إذا اشتُبه في وجود مرض كامن. وإذا كانت الآفة مستمرة أو كبيرة جداً أو مصحوبة بحمى مرتفعة، فاستشر طبيباً بسرعة دون تأخير."
+}

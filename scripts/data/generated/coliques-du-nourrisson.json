@@ -1,0 +1,66 @@
+{
+  "slug": "coliques-du-nourrisson",
+  "term": "Coliques du nourrisson",
+  "kind": "SYMPTOM",
+  "specialty": "pediatrie",
+  "synonyms": ["pleurs inconsolables du bébé", "coliques infantiles", "douleurs abdominales du nourrisson"],
+  "shortAnswer": "Les coliques du nourrisson désignent des pleurs intenses et répétés chez un bébé en bonne santé, souvent le soir, avant 3-4 mois. Généralement bénignes et transitoires, elles peuvent masquer une cause sérieuse si elles s'accompagnent de fièvre, vomissements ou prise de poids insuffisante.",
+  "causes": [
+    "Immaturité du système digestif du nourrisson",
+    "Accumulation de gaz intestinaux et ballonnements",
+    "Intolérance ou allergie aux protéines du lait (vache ou parfois maternelle)",
+    "Déglutition d'air pendant les tétées (mauvaise prise du sein ou du biberon)",
+    "Hypersensibilité ou immaturité du système nerveux du bébé",
+    "Reflux gastro-œsophagien associé dans certains cas"
+  ],
+  "redFlags": [
+    "Fièvre supérieure à 38 °C chez un nourrisson de moins de 3 mois",
+    "Vomissements importants, répétés ou bilieux (verdâtres)",
+    "Sang dans les selles ou selles noires",
+    "Prise de poids insuffisante ou refus prolongé de s'alimenter",
+    "Bébé inconsolable avec ventre très dur, bombé ou douloureux à la palpation",
+    "Gonflement ou bosse dans l'aine ou au nombril qui ne disparaît pas (hernie étranglée possible — urgence immédiate)"
+  ],
+  "whenToConsult": "Consultez votre pédiatre ou médecin généraliste si les pleurs sont inhabituellement intenses, persistent au-delà de 3-4 mois, ou si vous observez l'un des signes d'alerte ci-dessus. En cas de fièvre, vomissements sévères, sang dans les selles ou gonflement de l'aine, rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "Jusqu'à quel âge durent les coliques du nourrisson ?",
+      "a": "Les coliques surviennent généralement entre 2 semaines et 4 mois de vie. Elles disparaissent le plus souvent spontanément vers 3-4 mois, à mesure que le système digestif du bébé mûrit."
+    },
+    {
+      "q": "Comment soulager un bébé qui a des coliques ?",
+      "a": "Plusieurs gestes peuvent aider : porter le bébé en position semi-dressée après les tétées, faire des massages doux du ventre dans le sens des aiguilles d'une montre, veiller à la bonne prise du sein ou du biberon pour limiter l'ingestion d'air. Votre pédiatre pourra vous orienter si les symptômes persistent."
+    }
+  ],
+  "intentAnswer": "Pour les coliques du nourrisson, consultez d'abord votre médecin généraliste ou votre pédiatre, qui est le spécialiste de référence pour les problèmes digestifs du bébé. En cas de fièvre, vomissements sévères, sang dans les selles ou gonflement de l'aine, rendez-vous directement aux urgences pédiatriques.",
+  "termAr": "مغص الرضيع",
+  "shortAnswerAr": "مغص الرضيع هو نوبات بكاء شديدة ومتكررة عند رضيع يتمتع بصحة جيدة، تحدث غالباً في المساء قبل بلوغه 3-4 أشهر. عادةً ما تكون حالة حميدة وتزول من تلقاء نفسها، لكنها قد تُخفي سبباً خطيراً إذا اقترنت بحمى أو قيء أو ضعف في النمو.",
+  "causesAr": [
+    "عدم اكتمال نضج الجهاز الهضمي لدى الرضيع",
+    "تراكم الغازات في الأمعاء والانتفاخ",
+    "عدم تحمل بروتين حليب البقر أو الحساسية منه في بعض الأحيان",
+    "ابتلاع الهواء أثناء الرضاعة بسبب وضعية خاطئة على الثدي أو الرضّاعة",
+    "فرط حساسية أو عدم نضج الجهاز العصبي لدى الرضيع",
+    "الارتجاع المعدي المريئي المصاحب في بعض الحالات"
+  ],
+  "redFlagsAr": [
+    "حمى تتجاوز 38 درجة مئوية عند رضيع أقل من 3 أشهر",
+    "قيء غزير ومتكرر أو قيء أخضر اللون (صفراوي)",
+    "دم في البراز أو براز أسود اللون",
+    "ضعف في اكتساب الوزن أو رفض الرضاعة لفترة طويلة",
+    "بكاء لا يهدأ مع بطن صلب أو منتفخ أو مؤلم عند الضغط عليه",
+    "تورم أو انتفاخ في منطقة الأربية (الفخذ) أو السرة لا يختفي (قد يدل على فتق مختنق — حالة طارئة فورية)"
+  ],
+  "whenToConsultAr": "استشر طبيب الأطفال أو الطبيب العام إذا كان البكاء شديداً بشكل غير معتاد، أو استمر بعد 3-4 أشهر، أو لاحظت أياً من علامات التحذير المذكورة. في حالة الحمى أو القيء الشديد أو وجود دم في البراز أو انتفاخ في الأربية، توجّه فوراً إلى قسم طوارئ الأطفال دون تأخير.",
+  "faqAr": [
+    {
+      "q": "حتى أي عمر يستمر مغص الرضيع؟",
+      "a": "يظهر المغص عادةً من الأسبوع الثاني من العمر وحتى الشهر الرابع، ويزول في الغالب تلقائياً نحو الشهر الثالث أو الرابع مع اكتمال نضج الجهاز الهضمي للرضيع."
+    },
+    {
+      "q": "كيف يمكن تخفيف مغص الرضيع؟",
+      "a": "ثمة تدابير قد تساعد، منها: حمل الرضيع في وضعية شبه منتصبة بعد الرضاعة، والتدليك اللطيف للبطن في اتجاه عقارب الساعة، والحرص على الوضعية الصحيحة أثناء الرضاعة لتقليل ابتلاع الهواء. استشر طبيب الأطفال إذا استمرت الأعراض."
+    }
+  ],
+  "intentAnswerAr": "لمغص الرضيع، يُنصح بالبدء باستشارة الطبيب العام أو طبيب الأطفال الذي يُعدّ المرجع الأساسي لمشكلات الجهاز الهضمي عند الرضع. في حالة ظهور الحمى أو القيء الشديد أو الدم في البراز أو انتفاخ في الأربية، توجّه مباشرةً إلى طوارئ الأطفال."
+}

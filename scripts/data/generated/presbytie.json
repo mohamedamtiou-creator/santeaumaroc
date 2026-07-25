@@ -1,0 +1,64 @@
+{
+  "slug": "presbytie",
+  "term": "Presbytie",
+  "kind": "DISEASE",
+  "specialty": "ophtalmologie",
+  "synonyms": ["vue fatiguée", "difficulté à lire de près", "vieillissement du cristallin"],
+  "shortAnswer": "La presbytie est une diminution naturelle de la vision de près liée au vieillissement du cristallin, qui perd de sa souplesse. Elle touche presque tout le monde après 40-45 ans. Bénigne et progressive, elle se corrige facilement avec des lunettes ou des lentilles. Aucune urgence en l'absence d'autres symptômes.",
+  "causes": [
+    "Vieillissement naturel du cristallin qui durcit progressivement et perd son élasticité",
+    "Affaiblissement des muscles ciliaires qui ajustent la mise au point",
+    "Processus universel indépendant de la myopie, de l'hypermétropie ou de l'astigmatisme préexistants",
+    "Exposition prolongée aux rayons UV sans protection sur de nombreuses années",
+    "Facteurs génétiques pouvant accélérer l'apparition avant 40 ans (presbytie précoce)",
+    "Certaines maladies générales (diabète, anémie, sclérose en plaques) pouvant aggraver ou précipiter les troubles de l'accommodation"
+  ],
+  "redFlags": [
+    "Baisse soudaine de la vision d'un seul œil ou des deux yeux en dehors de la gêne habituelle à la lecture",
+    "Apparition de points noirs, de voiles, d'éclairs lumineux ou de déformations des lignes droites",
+    "Douleur oculaire intense, rougeur marquée ou sensibilité à la lumière",
+    "Maux de tête sévères accompagnés de nausées et de troubles visuels : urgence absolue, consultez immédiatement aux urgences ophtalmologiques sans attendre",
+    "Dégradation très rapide de la vision en quelques jours sans correction optique récente"
+  ],
+  "whenToConsult": "Consultez un ophtalmologue dès que vous peinez à lire de près ou à distinguer les petits caractères après 40 ans, afin d'obtenir une correction adaptée. En cas de symptôme d'alerte (baisse brutale, douleur, éclairs, maux de tête avec nausées et troubles visuels), consultez en urgence ophtalmologique immédiatement sans attendre.",
+  "faq": [
+    {
+      "q": "La presbytie peut-elle être opérée ?",
+      "a": "Oui, plusieurs techniques chirurgicales existent (laser, implants multifocaux). L'ophtalmologue évalue si votre situation et votre âge s'y prêtent, en tenant compte de votre état oculaire global. Discutez-en lors de votre consultation."
+    },
+    {
+      "q": "La presbytie aggrave-t-elle la myopie ou l'hypermétropie ?",
+      "a": "La presbytie s'ajoute aux troubles préexistants sans les modifier directement. Votre ophtalmologue adaptera votre correction (verres progressifs ou bifocaux) pour vous donner une bonne vision de loin et de près simultanément."
+    }
+  ],
+  "intentAnswer": "Pour la presbytie, commencez par consulter un médecin généraliste qui orientera vers un ophtalmologue, spécialiste incontournable pour mesurer la correction et vérifier l'état global de vos yeux. En cas de baisse brutale de vision, de douleur, d'éclairs ou de maux de tête avec nausées et troubles visuels, rendez-vous en urgence ophtalmologique immédiatement.",
+  "termAr": "طول النظر الشيخوخي",
+  "shortAnswerAr": "طول النظر الشيخوخي هو صعوبة في الرؤية عن قرب تنتج عن فقدان مرونة عدسة العين بشكل طبيعي مع التقدم في السن، وتظهر عادةً بعد سن الأربعين. وهي حالة حميدة تتطور تدريجياً وتُصحَّح بسهولة بالنظارات أو العدسات اللاصقة.",
+  "causesAr": [
+    "تصلب عدسة العين بشكل طبيعي مع التقدم في السن وفقدانها مرونتها",
+    "ضعف العضلات الهدبية المسؤولة عن ضبط التركيز البصري",
+    "مسار عام يطال الجميع بصرف النظر عن وجود قِصَر نظر أو بُعد نظر مسبق",
+    "التعرض المتراكم للأشعة فوق البنفسجية دون حماية كافية على مدار السنين",
+    "عوامل وراثية قد تُعجّل بظهور الحالة قبل سن الأربعين",
+    "بعض الأمراض العامة كالسكري وفقر الدم والتصلب اللويحي المتعدد التي قد تُسرّع من ضعف التوافق البصري"
+  ],
+  "redFlagsAr": [
+    "فقدان مفاجئ للرؤية في عين واحدة أو كلتيهما خارج الصعوبة المعتادة في القراءة",
+    "ظهور بقع سوداء أو ضبابية أو ومضات ضوئية أو تشوه في الخطوط المستقيمة",
+    "ألم حاد في العين مع احمرار شديد أو حساسية مفرطة للضوء",
+    "صداع شديد مصحوب بغثيان واضطرابات في الرؤية: حالة طارئة تستلزم التوجه الفوري إلى طوارئ طب العيون دون تأخير",
+    "تدهور سريع جداً في حدة الرؤية خلال أيام قليلة دون تغيير في التصحيح البصري"
+  ],
+  "whenToConsultAr": "استشر طبيب العيون فور ملاحظة صعوبة في القراءة أو تمييز الخطوط الصغيرة بعد سن الأربعين للحصول على التصحيح المناسب. وفي حالة أي علامة تحذيرية كانخفاض مفاجئ في الرؤية أو ألم أو ومضات ضوئية أو صداع شديد مع غثيان واضطرابات بصرية، توجّه فوراً إلى طوارئ طب العيون دون انتظار.",
+  "faqAr": [
+    {
+      "q": "هل يمكن إجراء عملية لتصحيح طول النظر الشيخوخي؟",
+      "a": "نعم، ثمة تقنيات جراحية متعددة كتصحيح الليزر وزراعة العدسات متعددة البؤر. يقيّم طبيب العيون مدى ملاءمة حالتك وسنّك لهذه الخيارات، ناقش ذلك معه خلال الاستشارة."
+    },
+    {
+      "q": "هل يؤثر طول النظر الشيخوخي على قِصَر النظر أو بُعد النظر المسبق؟",
+      "a": "يُضاف طول النظر الشيخوخي إلى الاضطرابات البصرية الموجودة دون أن يُغيّرها مباشرةً. سيُكيّف طبيب العيون تصحيحك باستخدام عدسات تدريجية أو ثنائية البؤرة لتمنحك رؤية واضحة عن بُعد وعن قرب في آنٍ واحد."
+    }
+  ],
+  "intentAnswerAr": "بالنسبة لطول النظر الشيخوخي، ابدأ بزيارة الطبيب العام الذي سيحيلك إلى طبيب العيون، وهو المختص الأساسي لقياس التصحيح البصري وفحص صحة العين بشكل شامل. وفي حال حدوث انخفاض مفاجئ في الرؤية أو ألم أو ومضات ضوئية أو صداع شديد مع غثيان واضطرابات بصرية، اتجه فوراً إلى أقرب طوارئ للعيون دون تأخير."
+}

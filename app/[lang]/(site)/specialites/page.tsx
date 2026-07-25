@@ -6,6 +6,7 @@ import { localizedAlternates } from "@/lib/hreflang";
 import { getDictionary, toLocale } from "@/lib/i18n";
 import { tSpecialty } from "@/lib/specialty-i18n";
 import { specialtyFamily } from "@/lib/specialty-family";
+import { DirectoryHero } from "@/components/directory/DirectoryHero";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const locale = toLocale((await params).lang);
@@ -53,7 +54,9 @@ export default async function SpecialitesPage({ params }: { params: Promise<{ la
   });
 
   const total = specialties.reduce((s, sp) => s + sp._count.doctors, 0);
-  const t = getDictionary(locale).directory;
+  const dict = getDictionary(locale);
+  const t = dict.directory;
+  const nf = (n: number) => n.toLocaleString(locale === "ar" ? "ar-MA" : "fr");
   const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 
   const jsonLd = {
@@ -97,16 +100,15 @@ export default async function SpecialitesPage({ params }: { params: Promise<{ la
     <div className="page-outer">
 
       {/* ── En-tête ──────────────────────────────── */}
-      <header className="mb-8">
-        <p className="section-eyebrow mb-1.5">{t.specEyebrow}</p>
-        <h1 className="section-title">{t.specTitle}</h1>
-        <p className="text-slate-500 mt-2 text-sm leading-relaxed">
-          <span className="font-semibold text-slate-700">{specialties.length}</span> {t.specMany} —{" "}
-          <span className="font-semibold text-slate-700">{total.toLocaleString("fr")}</span> {t.referencedSuffix}
-        </p>
-        <div className="mt-4 h-0.5 rounded-full"
-          style={{ background: "linear-gradient(90deg, #93c5fd 0%, #6ee7b7 60%, transparent 100%)" }} />
-      </header>
+      <DirectoryHero
+        eyebrow={t.specEyebrow}
+        title={t.specTitle}
+        stats={[
+          { value: nf(specialties.length), label: t.specMany },
+          { value: nf(total), label: t.referencedSuffix },
+        ]}
+        freeLabel={dict.healthHub.free}
+      />
 
       {/* ── Grille ───────────────────────────────── */}
       {specialties.length === 0 ? (

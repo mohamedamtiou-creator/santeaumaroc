@@ -1,0 +1,64 @@
+{
+  "slug": "yeux-secs",
+  "term": "Yeux secs (sécheresse oculaire)",
+  "kind": "SYMPTOM",
+  "specialty": "ophtalmologie",
+  "synonyms": ["sécheresse oculaire", "syndrome de l'œil sec", "kératoconjonctivite sèche"],
+  "shortAnswer": "La sécheresse oculaire survient quand les larmes sont insuffisantes ou de mauvaise qualité pour lubrifier l'œil. Elle provoque picotements, rougeurs et sensation de sable. Souvent bénigne et liée à l'environnement, elle nécessite un avis médical si elle persiste ou s'accompagne d'une baisse de vision.",
+  "causes": [
+    "Exposition prolongée aux écrans (clignement réduit)",
+    "Air climatisé, vent, air sec ou fumée de cigarette",
+    "Port prolongé de lentilles de contact",
+    "Vieillissement naturel (surtout après 50 ans) et ménopause",
+    "Certaines maladies systémiques (syndrome de Sjögren, polyarthrite rhumatoïde, diabète)",
+    "Utilisation de certains collyres ou médicaments (antihistaminiques, antidépresseurs)"
+  ],
+  "redFlags": [
+    "Baisse soudaine ou progressive de la vision",
+    "Douleur oculaire intense ou photophobie sévère",
+    "Rougeur importante avec sécrétions purulentes (suspicion d'infection)",
+    "Sensation de corps étranger très marquée après un traumatisme ou projection de produit",
+    "Symptômes associés à des douleurs articulaires, bouche sèche ou fatigue générale persistante"
+  ],
+  "whenToConsult": "Consultez un médecin si les symptômes durent plus de quelques jours malgré le repos des écrans et l'humidification de l'air. En cas de baisse de vision, douleur intense ou rougeur avec sécrétions, consultez en urgence.",
+  "faq": [
+    {
+      "q": "Les collyres en vente libre sont-ils suffisants pour soigner les yeux secs ?",
+      "a": "Les larmes artificielles disponibles en pharmacie peuvent soulager les formes légères liées aux écrans ou à l'air sec. Cependant, si les symptômes persistent, reviennent fréquemment ou s'aggravent, un ophtalmologue doit évaluer la cause et adapter la prise en charge."
+    },
+    {
+      "q": "La sécheresse oculaire peut-elle abîmer les yeux à long terme ?",
+      "a": "Une sécheresse modérée et non traitée peut, avec le temps, fragiliser la surface de la cornée et favoriser des micro-lésions ou des infections. Un suivi ophtalmologique régulier permet de prévenir ces complications et d'adapter le traitement à chaque situation."
+    }
+  ],
+  "intentAnswer": "Pour des yeux secs, commencez par consulter votre médecin généraliste qui évaluera la cause et vous orientera si nécessaire. L'ophtalmologue est le spécialiste de référence pour un bilan complet et un traitement adapté. En cas de douleur intense, baisse de vision ou rougeur sévère, rendez-vous en urgence ophtalmologique.",
+  "termAr": "جفاف العينين (جفاف القرنية والملتحمة)",
+  "shortAnswerAr": "يحدث جفاف العينين حين تكون الدموع غير كافية أو لا تؤدي وظيفتها في ترطيب العين، مما يسبب حرقة وحمرة وإحساساً بوجود رمل. غالباً ما تكون الحالة بسيطة ومرتبطة بالبيئة، غير أنها تستوجب استشارة طبية إذا استمرت أو ترافقت مع تشوش في الرؤية.",
+  "causesAr": [
+    "التحديق المطوّل في الشاشات مع قلة الرمش",
+    "التعرض لتكييف الهواء أو الريح أو الهواء الجاف أو دخان السجائر",
+    "ارتداء العدسات اللاصقة لفترات طويلة",
+    "التقدم في السن (خاصة بعد الخمسين) وانقطاع الطمث",
+    "بعض الأمراض المزمنة كمتلازمة شوغرن والتهاب المفاصل الروماتويدي والسكري",
+    "استخدام بعض قطرات العين أو الأدوية كمضادات الهيستامين ومضادات الاكتئاب"
+  ],
+  "redFlagsAr": [
+    "تراجع مفاجئ أو تدريجي في حدة الإبصار",
+    "ألم شديد في العين أو حساسية مفرطة للضوء",
+    "احمرار واضح مصحوب بإفرازات قيحية (يستدعي استبعاد العدوى)",
+    "إحساس قوي بجسم غريب في العين عقب صدمة أو تعرض لمادة كيميائية",
+    "أعراض مصاحِبة كألم المفاصل وجفاف الفم والتعب المستمر"
+  ],
+  "whenToConsultAr": "استشر طبيبك إذا استمرت الأعراض أكثر من بضعة أيام رغم الراحة من الشاشات وترطيب الجو. وفي حال تشوش الرؤية أو الألم الشديد أو الاحمرار مع إفرازات، توجه فوراً إلى قسم طوارئ العيون.",
+  "faqAr": [
+    {
+      "q": "هل قطرات العيون المتاحة في الصيدلية كافية لعلاج جفاف العينين؟",
+      "a": "قد تُخفف الدموع الاصطناعية المتوفرة دون وصفة الأعراضَ الخفيفة المرتبطة بالشاشات أو الهواء الجاف. لكن إذا استمرت الأعراض أو تكررت أو تفاقمت، ينبغي مراجعة طبيب العيون لتحديد السبب الكامن ووضع خطة علاجية مناسبة."
+    },
+    {
+      "q": "هل يمكن أن يُلحق جفاف العينين ضرراً بالنظر على المدى البعيد؟",
+      "a": "نعم، قد يؤدي الجفاف المتوسط غير المعالَج إلى إضعاف سطح القرنية تدريجياً وزيادة خطر الالتهابات والتهيج المزمن. لذا فإن المتابعة المنتظمة مع طبيب العيون ضرورية للوقاية من هذه المضاعفات وتكييف العلاج مع كل حالة."
+    }
+  ],
+  "intentAnswerAr": "لعلاج جفاف العينين، ابدأ باستشارة طبيبك العام الذي سيقيّم الحالة ويحيلك عند الحاجة. طبيب العيون هو المختص المرجعي لإجراء فحص شامل ووصف العلاج المناسب. وفي حال الألم الشديد أو تشوش الرؤية أو الاحمرار الحاد، توجه فوراً إلى قسم طوارئ العيون."
+}

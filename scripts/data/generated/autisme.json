@@ -1,0 +1,64 @@
+{
+  "slug": "autisme",
+  "term": "Autisme (TSA)",
+  "kind": "DISEASE",
+  "specialty": "psychiatrie",
+  "synonyms": ["Trouble du spectre autistique", "TSA", "Trouble envahissant du développement", "Autisme infantile"],
+  "shortAnswer": "L'autisme (TSA) est un trouble du neurodéveloppement qui affecte la communication, les interactions sociales et les comportements. Il est présent dès la naissance, variable d'une personne à l'autre. Un dépistage précoce et un accompagnement adapté améliorent significativement la qualité de vie.",
+  "causes": [
+    "Facteurs génétiques : mutations ou variants génétiques jouant un rôle majeur",
+    "Facteurs environnementaux pendant la grossesse (infections, exposition à certaines substances)",
+    "Âge avancé des parents au moment de la conception",
+    "Prématurité ou complications à la naissance",
+    "Antécédents familiaux de TSA ou d'autres troubles du neurodéveloppement",
+    "Interaction complexe gènes-environnement, sans cause unique identifiée"
+  ],
+  "redFlags": [
+    "Absence de babillage ou de gestes (pointer du doigt, agiter la main) avant 12 mois",
+    "Aucun mot prononcé à 16 mois ou aucune association de deux mots à 24 mois",
+    "Perte de compétences langagières ou sociales déjà acquises, à tout âge",
+    "Absence de contact visuel, de sourire social ou de réponse au prénom après 12 mois",
+    "Comportements répétitifs intenses (balancements, rituels) associés à une grande détresse"
+  ],
+  "whenToConsult": "Consultez votre médecin généraliste ou pédiatre dès que vous observez un retard de langage, un manque d'interaction sociale ou des comportements inhabituels chez votre enfant. Un dépistage précoce, idéalement avant 3 ans, permet une prise en charge plus efficace.",
+  "faq": [
+    {
+      "q": "L'autisme peut-il être diagnostiqué dès le jeune âge ?",
+      "a": "Oui. Des signes évocateurs peuvent apparaître dès 12-18 mois. Un diagnostic fiable est possible à partir de 2 ans dans la majorité des cas. Plus le repérage est précoce, plus les interventions éducatives et thérapeutiques sont efficaces pour aider l'enfant à développer ses compétences."
+    },
+    {
+      "q": "Quelles structures prennent en charge l'autisme au Maroc ?",
+      "a": "Au Maroc, le diagnostic est posé par un pédopsychiatre ou un neuropsychiatre pédiatrique. La prise en charge fait appel à des orthophonistes, psychomotriciens et éducateurs spécialisés. Plusieurs centres spécialisés et associations (notamment à Casablanca, Rabat, Marrakech) proposent des programmes adaptés aux enfants et adultes autistes."
+    }
+  ],
+  "intentAnswer": "Pour l'autisme (TSA), commencez par consulter votre médecin généraliste ou pédiatre qui orientera vers un pédopsychiatre ou un neuropsychiatre pédiatrique pour le diagnostic. Une équipe pluridisciplinaire (orthophoniste, psychomotricien) assurera le suivi. En cas de régression brutale, consultez en urgence.",
+  "termAr": "التوحد (اضطراب طيف التوحد)",
+  "shortAnswerAr": "التوحد أو اضطراب طيف التوحد (TSA) هو اضطراب في النمو العصبي يؤثر على التواصل والتفاعل الاجتماعي والسلوك. يكون موجوداً منذ الولادة ويتفاوت من شخص لآخر. الكشف المبكر والمتابعة المناسبة يُحسّنان جودة الحياة بشكل ملحوظ.",
+  "causesAr": [
+    "عوامل وراثية: طفرات أو متغيرات جينية تؤدي دوراً رئيسياً",
+    "عوامل بيئية خلال فترة الحمل كالعدوى أو التعرض لبعض المواد",
+    "تقدم سن الوالدين عند الإنجاب",
+    "الولادة المبكرة أو المضاعفات عند الوضع",
+    "وجود حالات توحد أو اضطرابات نمائية في العائلة",
+    "تفاعل معقد بين الجينات والبيئة دون سبب وحيد محدد"
+  ],
+  "redFlagsAr": [
+    "غياب المناغاة أو الإيماءات (كالإشارة بالإصبع أو التلويح) قبل عمر 12 شهراً",
+    "عدم نطق أي كلمة في عمر 16 شهراً، أو غياب تركيب كلمتين في عمر 24 شهراً",
+    "فقدان مهارات لغوية أو اجتماعية كانت قد اكتسبت سابقاً، في أي عمر",
+    "غياب التواصل البصري أو الابتسامة الاجتماعية أو الاستجابة للاسم بعد عمر 12 شهراً",
+    "سلوكيات تكرارية مكثفة مصحوبة بضائقة شديدة (مثل التأرجح والطقوس الصارمة)"
+  ],
+  "whenToConsultAr": "استشيروا طبيبكم العام أو طبيب الأطفال فور ملاحظة تأخر في الكلام أو ضعف في التفاعل الاجتماعي أو سلوكيات غير معتادة لدى طفلكم. الكشف المبكر، ويُفضَّل قبل سن الثلاث سنوات، يتيح تدخلاً أكثر فعالية.",
+  "faqAr": [
+    {
+      "q": "هل يمكن تشخيص التوحد في سن مبكرة؟",
+      "a": "نعم، تظهر مؤشرات التوحد في أغلب الأحيان بين 12 و18 شهراً، ويمكن إجراء تشخيص موثوق من عمر سنتين في معظم الحالات. كلما كان الكشف أبكر، كانت التدخلات التعليمية والعلاجية أكثر نفعاً في تنمية مهارات الطفل."
+    },
+    {
+      "q": "ما هي الجهات التي تتكفل بالتوحد في المغرب؟",
+      "a": "يُشخَّص التوحد في المغرب من قِبَل طبيب نفسي للأطفال أو طبيب أعصاب نفسي متخصص في الأطفال. تشمل رعاية المصابين أخصائيي النطق واللغة والعلاج النفسي الحركي والمربين المتخصصين. تتوفر مراكز متخصصة وجمعيات في عدة مدن كالدار البيضاء والرباط ومراكش تقدم برامج ملائمة للأطفال والبالغين."
+    }
+  ],
+  "intentAnswerAr": "في حال التساؤل عن أي طبيب يجب استشارته بشأن التوحد (TSA)، ابدأ بطبيب الأطفال أو طبيبك العام الذي سيحيلك إلى طبيب نفسي للأطفال أو متخصص في الأعصاب النفسية لإجراء التشخيص. يضمن فريق متعدد التخصصات متابعة شاملة. في حال حدوث تراجع مفاجئ في المهارات، توجهوا للطوارئ دون تأخير."
+}

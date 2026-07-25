@@ -1,0 +1,64 @@
+{
+  "slug": "kyste-hydatique",
+  "term": "Kyste hydatique (hydatidose)",
+  "kind": "DISEASE",
+  "specialty": "chirurgie-digestive-viscerale",
+  "synonyms": ["hydatidose", "échinococcose kystique", "kyste à échinocoques"],
+  "shortAnswer": "Le kyste hydatique est une infection parasitaire causée par la larve d'un ver (Echinococcus granulosus), très fréquente au Maroc. Longtemps silencieux, il devient préoccupant s'il grossit, se fissure ou provoque douleur, jaunisse ou réaction allergique soudaine.",
+  "causes": [
+    "Contact étroit avec des chiens infectés (principal vecteur au Maroc)",
+    "Ingestion accidentelle d'œufs du parasite via des aliments ou de l'eau souillés",
+    "Manipulation de terre ou de végétaux contaminés par des déjections de chiens",
+    "Consommation de fruits ou légumes crus mal lavés en zone rurale endémique",
+    "Abattage de bétail (ovins, bovins) sans précautions hygiéniques",
+    "Absence de traitement antiparasitaire régulier des chiens d'élevage"
+  ],
+  "redFlags": [
+    "Douleur abdominale soudaine et intense, surtout au niveau du foie (côté droit)",
+    "Jaunisse (peau et blanc des yeux jaunes), selles décolorées ou urines foncées",
+    "Réaction allergique grave (urticaire généralisée, gonflement du visage, difficultés à respirer) pouvant indiquer une rupture du kyste",
+    "Fièvre élevée avec frissons et altération de l'état général",
+    "Toux persistante ou crachats striés de sang (si kyste pulmonaire)"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès que vous ressentez une gêne ou pesanteur sous les côtes droites, ou si vous avez été exposé à des facteurs de risque. En cas de douleur intense, jaunisse ou réaction allergique brutale, rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "Le kyste hydatique peut-il guérir seul sans opération ?",
+      "a": "Non, un kyste hydatique ne disparaît pas spontanément. Une prise en charge médicale ou chirurgicale est toujours nécessaire. Le traitement dépend de la taille, de la localisation et de l'état du kyste. Votre médecin décidera avec le spécialiste de la meilleure approche (chirurgie, drainage ou traitement médical sous surveillance)."
+    },
+    {
+      "q": "Comment se protéger du kyste hydatique au Maroc ?",
+      "a": "La prévention repose sur le déparasitage régulier des chiens, le lavage soigneux des mains après contact avec des animaux, la cuisson correcte des abats, et l'hygiène alimentaire stricte (fruits et légumes bien lavés). Évitez tout contact avec des chiens errants et signalez-les aux autorités locales."
+    }
+  ],
+  "intentAnswer": "En premier recours, consultez votre médecin généraliste qui orientera vers un chirurgien digestif et viscéral pour la prise en charge du kyste. Un gastro-entérologue et un spécialiste en maladies infectieuses peuvent aussi intervenir. En cas de douleur intense, jaunisse ou choc allergique, rendez-vous immédiatement aux urgences.",
+  "termAr": "الكيس المائي (داء العدارية)",
+  "shortAnswerAr": "الكيس المائي عدوى طفيلية شائعة جداً في المغرب، تسببها يرقات دودة المشوكة. يظل صامتاً لفترة طويلة، لكنه يصبح خطيراً إذا كبر أو تشقق، وقد يُحدث ألماً في البطن أو يرقاناً أو تفاعلاً تحسسياً مفاجئاً.",
+  "causesAr": [
+    "الاحتكاك المباشر بالكلاب المصابة، وهي الناقل الرئيسي في المغرب",
+    "ابتلاع بيض الطفيلي عن طريق الأطعمة أو المياه الملوثة",
+    "ملامسة التربة أو النباتات الملوثة ببراز الكلاب",
+    "تناول الخضار والفواكه النيئة غير المغسولة جيداً في المناطق الريفية الموبوءة",
+    "ذبح المواشي (الأغنام والأبقار) دون اتخاذ احتياطات صحية كافية",
+    "عدم تطهير كلاب الرعي بشكل منتظم من الطفيليات"
+  ],
+  "redFlagsAr": [
+    "ألم مفاجئ وشديد في البطن، خاصة في منطقة الكبد (الجانب الأيمن)",
+    "اليرقان (اصفرار الجلد وبياض العينين)، مع شحوب البراز أو داكن البول",
+    "تفاعل تحسسي حاد (طفح جلدي منتشر، تورم الوجه، صعوبة في التنفس) قد يُنذر بتمزق الكيس",
+    "حمى مرتفعة مع قشعريرة وتدهور في الحالة العامة",
+    "سعال مستمر أو بلغم مصحوب بدم (في حالة الكيس الرئوي)"
+  ],
+  "whenToConsultAr": "راجع طبيبك العام فور الشعور بثقل أو انزعاج أسفل الأضلاع اليمنى، أو عند وجود عوامل خطر. في حالة ألم شديد أو يرقان أو تفاعل تحسسي مفاجئ، توجه فوراً إلى مصلحة المستعجلات دون انتظار.",
+  "faqAr": [
+    {
+      "q": "هل يمكن أن يشفى الكيس المائي من تلقاء نفسه دون جراحة؟",
+      "a": "لا، لا يختفي الكيس المائي تلقائياً، ولا بد دائماً من تدخل طبي أو جراحي. يعتمد العلاج على حجم الكيس وموقعه وحالته. سيقرر طبيبك بالتشاور مع الأخصائي الأنسب: الجراحة، التصريف، أو العلاج الدوائي تحت المراقبة."
+    },
+    {
+      "q": "كيف أتحصن ضد الكيس المائي في المغرب؟",
+      "a": "تعتمد الوقاية على تطهير الكلاب بانتظام من الطفيليات، وغسل اليدين جيداً بعد ملامسة الحيوانات، والطهي الجيد للأحشاء، والحرص على النظافة الغذائية (خضار وفواكه مغسولة جيداً). تجنب ملامسة الكلاب الضالة وأبلغ عنها للسلطات المحلية."
+    }
+  ],
+  "intentAnswerAr": "ابدأ بزيارة طبيبك العام الذي سيحولك إلى جراح الجهاز الهضمي والأحشاء للتكفل بالكيس. قد يتدخل أيضاً أطباء الجهاز الهضمي وأخصائيو الأمراض المعدية. في حال ألم شديد أو يرقان أو صدمة تحسسية، توجه فوراً إلى المستعجلات."
+}

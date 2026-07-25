@@ -1,0 +1,64 @@
+{
+  "slug": "maladie-de-meniere",
+  "term": "Maladie de Ménière",
+  "kind": "DISEASE",
+  "specialty": "oto-rhino-laryngologie",
+  "synonyms": ["hydrops endolymphatique", "vertige de Ménière", "syndrome de Ménière"],
+  "shortAnswer": "La maladie de Ménière est une affection de l'oreille interne provoquant des crises de vertiges intenses, une perte auditive fluctuante et des acouphènes. Les crises durent de 20 minutes à quelques heures. Elle est invalidante mais non dangereuse en elle-même ; une consultation ORL est indispensable pour confirmer le diagnostic.",
+  "causes": [
+    "Excès de liquide dans l'oreille interne (hydrops endolymphatique), dont la cause exacte reste inconnue",
+    "Prédisposition génétique : certaines formes sont familiales",
+    "Facteurs déclenchants possibles : stress, fatigue, excès de sel, caféine ou alcool",
+    "Réactions auto-immunes affectant l'oreille interne",
+    "Infections virales antérieures de l'oreille interne",
+    "Anomalies anatomiques ou circulatoires de l'oreille interne"
+  ],
+  "redFlags": [
+    "Perte auditive soudaine et totale d'une oreille : urgence ORL dans les 24-48 heures",
+    "Vertige accompagné de maux de tête violents, raideur de la nuque ou fièvre : consulter les urgences sans délai (risque méningite)",
+    "Chute brutale sans perte de connaissance (crise otolithique de Tumarkin) : risque traumatique, avis médical urgent",
+    "Symptômes neurologiques associés : trouble de la parole, paralysie faciale, vision double — appeler le 15 ou se rendre aux urgences",
+    "Crise de vertige chez une personne seule en voiture, en hauteur ou en milieu aquatique : risque d'accident grave"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès la première crise de vertige rotatoire prolongée, surtout si elle s'accompagne de baisse d'audition ou d'acouphènes. En cas de red flags, rendez-vous directement aux urgences ou appelez le 15.",
+  "faq": [
+    {
+      "q": "La maladie de Ménière peut-elle guérir définitivement ?",
+      "a": "Il n'existe pas de traitement curatif établi à ce jour, mais de nombreux patients voient leurs crises s'espacer avec le temps. Une prise en charge médicale adaptée par un ORL permet de réduire la fréquence et l'intensité des crises et de préserver au mieux l'audition."
+    },
+    {
+      "q": "Peut-on conduire ou travailler avec la maladie de Ménière ?",
+      "a": "Entre les crises, la vie quotidienne est généralement normale. Cependant, la conduite et les travaux en hauteur sont déconseillés si les crises sont fréquentes et imprévisibles. Votre médecin ou ORL peut vous orienter vers une évaluation de l'aptitude professionnelle si nécessaire."
+    }
+  ],
+  "intentAnswer": "Consultez d'abord votre médecin généraliste, qui évaluera vos vertiges et vous orientera. Le spécialiste de référence est l'ORL (oto-rhino-laryngologiste), parfois secondé par un audioprothésiste ou un kinésithérapeute vestibulaire. En cas de vertige brutal avec signes neurologiques, rendez-vous aux urgences sans attendre.",
+  "termAr": "مرض مينيير",
+  "shortAnswerAr": "مرض مينيير هو اضطراب في الأذن الداخلية يسبب نوبات من الدوار الشديد وضعف مؤقت في السمع وطنين في الأذن. تستمر النوبات من 20 دقيقة إلى عدة ساعات. لا يشكّل خطرًا مباشرًا على الحياة، غير أنه يستوجب استشارة طبيب أنف وأذن وحنجرة لتأكيد التشخيص.",
+  "causesAr": [
+    "تراكم السوائل في الأذن الداخلية (الاستسقاء اللمفي الداخلي) بسبب غير محدد تمامًا",
+    "استعداد وراثي، إذ تتكرر الإصابة أحيانًا في بعض العائلات",
+    "عوامل مُحفِّزة محتملة: التوتر، والإرهاق، والإفراط في تناول الملح أو الكافيين أو الكحول",
+    "اضطرابات في جهاز المناعة تؤثر على الأذن الداخلية",
+    "إصابات فيروسية سابقة في الأذن الداخلية",
+    "تشوهات تشريحية أو اضطرابات في الدورة الدموية للأذن الداخلية"
+  ],
+  "redFlagsAr": [
+    "فقدان مفاجئ وكامل للسمع في إحدى الأذنين: استشر طبيب أنف وأذن وحنجرة في غضون 24 إلى 48 ساعة",
+    "دوار مصحوب بصداع شديد أو تيبس الرقبة أو حمى: توجّه إلى المستعجلات فورًا (خطر التهاب السحايا)",
+    "سقوط مفاجئ دون فقدان للوعي (أزمة توماركين الحصيانية): خطر إصابة، استشارة طبية عاجلة",
+    "أعراض عصبية مصاحبة كاضطراب الكلام أو شلل الوجه أو ازدواج الرؤية: اتصل بالإسعاف أو توجّه إلى المستعجلات",
+    "نوبة دوار حادة أثناء قيادة السيارة أو العمل على ارتفاعات أو في الماء: خطر حادث جسيم"
+  ],
+  "whenToConsultAr": "استشر طبيبًا عامًا فور حدوث أول نوبة دوار دوّار مطوّلة، لا سيما إذا رافقها ضعف في السمع أو طنين في الأذن. وفي حالة ظهور أي من علامات التحذير، توجّه مباشرة إلى المستعجلات أو اتصل بالإسعاف.",
+  "faqAr": [
+    {
+      "q": "هل يمكن الشفاء التام من مرض مينيير؟",
+      "a": "لا يوجد علاج شافٍ معروف حتى الآن، غير أن كثيرًا من المرضى يلاحظون تراجعًا تدريجيًا في تكرار النوبات مع مرور الوقت. تتيح المتابعة الطبية المنتظمة مع طبيب أنف وأذن وحنجرة تقليل حدة النوبات والحفاظ على السمع قدر الإمكان."
+    },
+    {
+      "q": "هل يمكن قيادة السيارة والعمل بشكل طبيعي مع مرض مينيير؟",
+      "a": "بين النوبات، تكون الحياة اليومية طبيعية في الغالب. إلا أن قيادة السيارة والعمل في الأماكن المرتفعة يُنصح بتجنبهما عند تكرار النوبات وعدم القدرة على التنبؤ بها. يمكن لطبيبك أو أخصائي الأنف والأذن والحنجرة توجيهك بشأن الأهلية المهنية عند الحاجة."
+    }
+  ],
+  "intentAnswerAr": "ابدأ باستشارة طبيبك العام الذي سيُقيّم حالتك ويحيلك إلى المختص. الطبيب المرجعي لهذا المرض هو أخصائي الأنف والأذن والحنجرة، وقد يستعين أحيانًا بمختص في الأطراف السمعية أو معالج فيزيائي متخصص في التوازن. في حال ظهور دوار مفاجئ مصحوب بأعراض عصبية، توجّه إلى المستعجلات دون تأخير."
+}

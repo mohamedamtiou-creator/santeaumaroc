@@ -1,0 +1,64 @@
+{
+  "slug": "roseole",
+  "term": "Roséole",
+  "kind": "DISEASE",
+  "specialty": "pediatrie",
+  "synonyms": ["exanthème subit", "sixième maladie", "roséole infantile"],
+  "shortAnswer": "La roséole est une infection virale bénigne du nourrisson, provoquant une forte fièvre pendant 3 à 5 jours suivie d'une éruption rosée. Elle guérit spontanément dans la plupart des cas, mais une fièvre très élevée ou une convulsion nécessite une consultation rapide.",
+  "causes": [
+    "Virus herpès humain de type 6 (HHV-6), principale cause chez le nourrisson",
+    "Virus herpès humain de type 7 (HHV-7), plus rarement impliqué",
+    "Transmission par la salive et les sécrétions respiratoires d'un adulte porteur",
+    "Contagion possible avant l'apparition de l'éruption, pendant la phase fébrile",
+    "Touche principalement les enfants entre 6 mois et 2 ans, lors de la perte des anticorps maternels",
+    "Pas de facteur saisonnier marqué, cas observés toute l'année"
+  ],
+  "redFlags": [
+    "Convulsions fébriles ou perte de connaissance, même brève",
+    "Fièvre dépassant 40 °C difficile à faire baisser par les moyens habituels",
+    "Raideur de la nuque, fontanelle bombée chez le nourrisson, ou très forte sensibilité à la lumière",
+    "Éruption qui ne blanchit pas à la pression (test du verre) ou s'accompagne de purpura",
+    "Enfant très difficile à réveiller, refus total de s'alimenter ou signes de déshydratation sévère"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste ou un pédiatre si la fièvre dépasse 38,5 °C chez un nourrisson de moins de 3 mois, si elle persiste plus de 5 jours, ou dès l'apparition d'un signe d'alerte. Rendez-vous aux urgences pédiatriques sans attendre en cas de convulsion ou de raideur de la nuque.",
+  "faq": [
+    {
+      "q": "Faut-il isoler l'enfant atteint de roséole de ses frères et sœurs ?",
+      "a": "La roséole est contagieuse surtout pendant la phase de fièvre, avant l'éruption. Un isolement strict n'est pas toujours possible, mais il est conseillé d'éviter les contacts proches avec des nourrissons très jeunes ou immunodéprimés. L'éruption elle-même est peu contagieuse."
+    },
+    {
+      "q": "L'éruption cutanée de la roséole est-elle dangereuse et combien de temps dure-t-elle ?",
+      "a": "Non, l'éruption rosée qui apparaît après la chute de la fièvre est un signe que l'infection touche à sa fin. Elle est indolore, ne gratte généralement pas et disparaît d'elle-même en 1 à 3 jours sans laisser de cicatrices. Aucun traitement local n'est nécessaire."
+    }
+  ],
+  "intentAnswer": "Pour la roséole, consultez en premier recours un médecin généraliste ou votre pédiatre habituel. Si l'enfant fait des convulsions, présente une raideur de la nuque ou une fièvre très élevée résistante, rendez-vous directement aux urgences pédiatriques sans attendre.",
+  "termAr": "الحُمَيراء (الوردية الرضيعية)",
+  "shortAnswerAr": "الحُمَيراء عدوى فيروسية شائعة عند الرضع، تبدأ بحمى شديدة تدوم 3 إلى 5 أيام ثم تظهر طفح وردي اللون. تتعافى معظم الحالات من تلقاء نفسها، غير أن الحمى المرتفعة جداً أو التشنجات تستوجب استشارة طبية عاجلة.",
+  "causesAr": [
+    "فيروس الهربس البشري من النوع السادس (HHV-6)، وهو السبب الرئيسي لدى الرضع",
+    "فيروس الهربس البشري من النوع السابع (HHV-7)، ويكون أقل شيوعاً",
+    "ينتقل الفيروس عبر اللعاب والإفرازات التنفسية من شخص بالغ حامل للفيروس",
+    "العدوى ممكنة قبل ظهور الطفح، خلال مرحلة الحمى",
+    "يصيب أساساً الأطفال بين 6 أشهر وسنتين، حين تضعف الأجسام المضادة الموروثة من الأم",
+    "لا موسمية محددة، إذ تُسجَّل الحالات على مدار السنة"
+  ],
+  "redFlagsAr": [
+    "تشنجات حُمّية أو فقدان الوعي ولو لفترة قصيرة",
+    "حمى تتجاوز 40 درجة مئوية يصعب خفضها بالوسائل المعتادة",
+    "تيبّس في الرقبة، أو انتفاخ اليافوخ عند الرضيع، أو حساسية شديدة للضوء",
+    "طفح لا يشحب عند الضغط عليه بزجاجة شفافة، أو مصحوب ببقع حمراء داكنة لا تختفي",
+    "صعوبة شديدة في إيقاظ الطفل، أو رفض تام للرضاعة مع علامات جفاف"
+  ],
+  "whenToConsultAr": "استشيروا طبيباً عاماً أو طبيب أطفال إذا تجاوزت الحمى 38.5 درجة لدى رضيع دون 3 أشهر، أو استمرت أكثر من 5 أيام، أو ظهرت أي علامة تحذيرية. توجّهوا فوراً إلى مستعجلات الأطفال عند حدوث تشنجات أو تيبّس في الرقبة.",
+  "faqAr": [
+    {
+      "q": "هل يجب عزل الطفل المصاب بالحُمَيراء عن إخوته وأخواته؟",
+      "a": "تكون العدوى أشد خطراً خلال مرحلة الحمى قبل ظهور الطفح. لا يُشترط عزل تام، لكن يُستحسن تجنب الاحتكاك المباشر مع الرضع الصغار جداً أو من يعانون من ضعف في المناعة. أما الطفح نفسه فعدواه محدودة."
+    },
+    {
+      "q": "هل الطفح الجلدي خطير وكم يستمر؟",
+      "a": "لا، ظهور الطفح الوردي بعد انخفاض الحمى يعني أن المرض في طريقه إلى الشفاء. لا يسبب الطفح ألماً أو حكة في الغالب، ويزول من تلقاء نفسه خلال يوم إلى ثلاثة أيام دون أن يترك أثراً، ولا يحتاج إلى أي علاج موضعي."
+    }
+  ],
+  "intentAnswerAr": "للحُمَيراء، ابدأوا بالتشاور مع الطبيب العام أو طبيب الأطفال المعتاد. وإذا أُصيب الطفل بتشنجات، أو تيبّس في الرقبة، أو حمى شديدة مقاومة، فتوجّهوا مباشرة إلى مستعجلات الأطفال دون تأخير."
+}

@@ -1,0 +1,64 @@
+{
+  "slug": "appendicite",
+  "term": "Appendicite",
+  "kind": "DISEASE",
+  "specialty": "chirurgie-generale",
+  "synonyms": ["inflammation de l'appendice", "appendicite aiguë"],
+  "shortAnswer": "L'appendicite est une inflammation de l'appendice, petit organe situé en bas à droite du ventre. Bénigne si prise en charge rapidement, elle devient une urgence chirurgicale en cas de douleur soudaine et intense du côté droit, accompagnée de fièvre ou de vomissements.",
+  "causes": [
+    "Obstruction de l'appendice par des selles durcies (stercolite)",
+    "Infection bactérienne ou virale du tube digestif",
+    "Gonflement des ganglions lymphatiques de l'abdomen",
+    "Corps étranger ingéré obstruant l'appendice",
+    "Tumeur ou parasites dans de rares cas",
+    "Cause parfois indéterminée, notamment chez l'enfant"
+  ],
+  "redFlags": [
+    "Douleur vive et persistante en bas à droite du ventre, aggravée au moindre mouvement",
+    "Fièvre supérieure à 38,5 °C associée aux douleurs abdominales",
+    "Ventre dur, contracté ou très sensible au toucher",
+    "Nausées, vomissements répétés avec incapacité à s'alimenter",
+    "Douleur qui disparaît brusquement après avoir été très intense (signe d'une perforation)"
+  ],
+  "whenToConsult": "Consultez un médecin sans attendre si vous ressentez une douleur persistante en bas à droite de l'abdomen, surtout avec de la fièvre. En cas de douleur intense ou de signes d'alarme, rendez-vous directement aux urgences.",
+  "faq": [
+    {
+      "q": "Peut-on confondre l'appendicite avec une autre douleur abdominale ?",
+      "a": "Oui, les douleurs abdominales ont de nombreuses causes (gastro-entérite, colique, douleur ovarienne chez la femme). Seul un médecin peut distinguer l'appendicite grâce à l'examen clinique et, si nécessaire, une échographie ou un scanner. Ne tentez pas de vous auto-diagnostiquer."
+    },
+    {
+      "q": "L'appendicite se traite-t-elle toujours par opération ?",
+      "a": "Dans la majorité des cas, le traitement est chirurgical (ablation de l'appendice). Certaines formes peu sévères peuvent parfois être traitées par antibiotiques sous surveillance médicale stricte, mais cette décision appartient au chirurgien après bilan complet."
+    }
+  ],
+  "intentAnswer": "Pour une douleur suspectée d'être une appendicite, consultez d'abord un médecin généraliste qui évaluera la situation. Il vous orientera vers un chirurgien général en cas de doute. En présence de signes d'urgence (douleur intense, fièvre, ventre dur), rendez-vous directement aux urgences.",
+  "termAr": "التهاب الزائدة الدودية",
+  "shortAnswerAr": "التهاب الزائدة الدودية هو التهاب يصيب الزائدة الدودية، وهي عضو صغير في الجهة السفلية اليمنى من البطن. يكون الأمر بسيطاً إذا عولج مبكراً، لكنه يتحوّل إلى حالة طارئة تستوجب التدخل الجراحي عند ظهور ألم مفاجئ وشديد مصحوب بالحمى أو القيء.",
+  "causesAr": [
+    "انسداد الزائدة الدودية بسبب براز متصلّب",
+    "عدوى بكتيرية أو فيروسية في الجهاز الهضمي",
+    "تضخّم الغدد الليمفاوية في منطقة البطن",
+    "جسم غريب مبتلَع يسدّ الزائدة الدودية",
+    "ورم أو طفيليات في حالات نادرة",
+    "سبب غير محدد في بعض الأحيان، لا سيّما عند الأطفال"
+  ],
+  "redFlagsAr": [
+    "ألم حاد ومستمر في أسفل البطن على الجانب الأيمن يزداد عند أدنى حركة",
+    "حمى تتجاوز 38,5 درجة مئوية مصحوبة بآلام في البطن",
+    "بطن صلب ومتقلّص أو شديد الحساسية عند اللمس",
+    "غثيان وقيء متكرر مع عجز عن تناول الطعام",
+    "اختفاء مفاجئ للألم بعد أن كان شديداً جداً، وهو ما قد يدلّ على ثقب في الزائدة"
+  ],
+  "whenToConsultAr": "استشر طبيبك فوراً إذا شعرت بألم مستمر في أسفل البطن الأيمن، لا سيما إذا اقترن بالحمى. وفي حالة الألم الشديد أو ظهور أعراض التحذير، توجّه مباشرة إلى المستعجلات.",
+  "faqAr": [
+    {
+      "q": "هل يمكن الخلط بين التهاب الزائدة الدودية وآلام بطنية أخرى؟",
+      "a": "نعم، للآلام البطنية أسباب كثيرة كالتهاب المعدة والأمعاء، أو المغص، أو الألم المبيضي لدى المرأة. الطبيب وحده هو القادر على التمييز بين هذه الحالات بالفحص السريري، وعند الحاجة بالتصوير بالموجات فوق الصوتية أو الأشعة المقطعية. لا تحاول تشخيص نفسك."
+    },
+    {
+      "q": "هل يُعالَج التهاب الزائدة الدودية دائماً بالجراحة؟",
+      "a": "في أغلب الحالات يكون العلاج جراحياً بإزالة الزائدة الدودية. بعض الحالات الخفيفة يمكن أن تُعالَج بالمضادات الحيوية تحت رقابة طبية صارمة، غير أن هذا القرار يعود للجراح بعد التقييم الكامل للحالة."
+    }
+  ],
+  "intentAnswerAr": "عند الاشتباه بالتهاب الزائدة الدودية، ابدأ بزيارة طبيب عام يقيّم حالتك ويحيلك إذا لزم إلى جراح عام. وفي حال ظهور أعراض خطيرة كألم شديد أو حمى أو بطن صلب، توجّه مباشرة إلى قسم المستعجلات دون تأخير."
+}

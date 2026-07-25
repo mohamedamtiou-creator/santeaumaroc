@@ -1,0 +1,64 @@
+{
+  "slug": "vitiligo",
+  "term": "Vitiligo",
+  "kind": "DISEASE",
+  "specialty": "dermatologie",
+  "synonyms": ["dépigmentation cutanée", "taches blanches sur la peau"],
+  "shortAnswer": "Le vitiligo est une maladie de la peau où certaines zones perdent leur pigmentation et deviennent blanches. Il est bénin sur le plan médical, mais peut affecter le moral. Consultez un dermatologue si les taches s'étendent rapidement ou touchent le visage et les mains.",
+  "causes": [
+    "Réaction auto-immune : le système immunitaire détruit par erreur les cellules productrices de pigment (mélanocytes)",
+    "Facteurs génétiques : antécédents familiaux de vitiligo ou d'autres maladies auto-immunes",
+    "Stress physique ou émotionnel intense pouvant déclencher ou aggraver les taches",
+    "Traumatismes cutanés (brûlures, frottements répétés) sur des zones prédisposées",
+    "Association possible avec d'autres maladies auto-immunes (thyroïdite, diabète de type 1)",
+    "Exposition excessive au soleil sans protection dans certains cas"
+  ],
+  "redFlags": [
+    "Extension rapide et brutale des taches blanches en quelques semaines",
+    "Apparition de taches sur le visage, les paupières ou autour de la bouche : consultez un dermatologue pour évaluer l'étendue et adapter la prise en charge",
+    "Perte de couleur des cheveux, des sourcils ou des cils associée aux taches cutanées",
+    "Fatigue chronique, palpitations ou prise/perte de poids inexpliquée (signe d'une maladie auto-immune associée)",
+    "Dépression ou détresse psychologique importante liée à l'aspect de la peau"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès l'apparition de taches blanches inhabituelles afin d'obtenir un diagnostic. Un suivi par un dermatologue est recommandé pour évaluer l'étendue et envisager la prise en charge adaptée.",
+  "faq": [
+    {
+      "q": "Le vitiligo est-il contagieux ?",
+      "a": "Non, le vitiligo n'est absolument pas contagieux. Il s'agit d'une maladie auto-immune qui ne se transmet ni par contact, ni par voie aérienne. Vous ne risquez pas de contaminer votre entourage."
+    },
+    {
+      "q": "Le vitiligo peut-il guérir complètement ?",
+      "a": "Il n'existe pas de traitement curatif universel, mais plusieurs options médicales (photothérapie, traitements locaux) peuvent stabiliser la maladie et favoriser une repigmentation partielle. L'évolution est variable d'une personne à l'autre ; seul un dermatologue peut vous proposer la stratégie la mieux adaptée à votre situation."
+    }
+  ],
+  "intentAnswer": "Pour le vitiligo, commencez par consulter votre médecin généraliste qui posera le diagnostic et orientera si besoin. Le spécialiste de référence est le dermatologue, qui évalue l'étendue et propose la prise en charge. En cas d'extension très rapide ou de signes généraux inquiétants, consultez en urgence.",
+  "termAr": "البهاق",
+  "shortAnswerAr": "البهاق مرض جلدي تفقد فيه مناطق من الجلد لونها الطبيعي فتصبح بيضاء. وهو غير خطير على الصحة العامة، لكنه قد يؤثر على الحالة النفسية. استشر طبيب الجلدية إذا كانت البقع تتسع بسرعة أو تظهر على الوجه واليدين.",
+  "causesAr": [
+    "رد فعل مناعي ذاتي: يهاجم الجهاز المناعي عن طريق الخطأ خلايا الميلانين المسؤولة عن تصبغ الجلد",
+    "عوامل وراثية: وجود حالات مشابهة في العائلة أو أمراض مناعية ذاتية أخرى",
+    "ضغط نفسي أو جسدي حاد قد يُطلق المرض أو يُفاقمه",
+    "إصابات جلدية متكررة كالحروق أو الاحتكاك الشديد في مناطق معرّضة",
+    "ارتباط محتمل بأمراض مناعية ذاتية أخرى كالتهاب الغدة الدرقية أو السكري من النوع الأول",
+    "التعرض المفرط للشمس دون وقاية في بعض الحالات"
+  ],
+  "redFlagsAr": [
+    "اتساع سريع ومفاجئ للبقع البيضاء خلال أسابيع قليلة",
+    "ظهور بقع على الوجه أو الجفنين أو حول الفم: استشر طبيب الجلدية لتقييم مدى الانتشار وتحديد العلاج المناسب",
+    "فقدان لون الشعر أو الحاجبين أو الرموش مصحوباً بتغيرات جلدية",
+    "تعب مزمن أو خفقان أو تغير في الوزن غير مبرر، وهو مؤشر على مرض مناعي مصاحب",
+    "اكتئاب أو ضائقة نفسية شديدة مرتبطة بمظهر الجلد"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور ظهور بقع بيضاء غير معتادة للحصول على تشخيص دقيق. كما يُنصح بمتابعة منتظمة مع طبيب الجلدية لتقييم مدى انتشار البهاق واختيار العلاج المناسب.",
+  "faqAr": [
+    {
+      "q": "هل البهاق مرض معدٍ؟",
+      "a": "لا، البهاق ليس معدياً على الإطلاق. إنه مرض مناعي ذاتي لا ينتقل بالملامسة ولا بأي طريقة أخرى، فلا داعي للقلق من التعامل مع المحيطين بك."
+    },
+    {
+      "q": "هل يمكن الشفاء التام من البهاق؟",
+      "a": "لا يوجد علاج شافٍ بشكل كامل حتى الآن، غير أن خيارات طبية عدة كالعلاج بالضوء والأدوية الموضعية يمكنها تثبيت المرض واستعادة جزء من اللون الطبيعي. يتفاوت التطور من شخص لآخر، ولذا فإن طبيب الجلدية هو الأقدر على اقتراح الخطة العلاجية الملائمة لوضعك."
+    }
+  ],
+  "intentAnswerAr": "للتعامل مع البهاق، ابدأ بزيارة طبيبك العام الذي يتولى التشخيص ويحيلك عند الحاجة. المختص المرجعي هو طبيب الجلدية الذي يقيّم درجة الانتشار ويضع خطة العلاج. إذا تسعت البقع بسرعة كبيرة أو ظهرت أعراض عامة مقلقة، فاطلب الاستشارة الطبية في أقرب وقت."
+}

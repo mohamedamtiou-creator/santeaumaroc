@@ -1,0 +1,64 @@
+{
+  "slug": "douleur-a-la-hanche",
+  "term": "Douleur à la hanche",
+  "kind": "SYMPTOM",
+  "specialty": "traumatologie-orthopedie",
+  "synonyms": ["coxalgie", "douleur coxo-fémorale", "douleur inguinale", "hanche douloureuse"],
+  "shortAnswer": "La douleur à la hanche est une gêne ressentie au niveau de l'articulation entre le bassin et le fémur. Elle est souvent bénigne (tendinite, fatigue musculaire) mais peut indiquer une affection sérieuse si elle survient après une chute, s'accompagne d'une déformation ou empêche tout appui.",
+  "causes": [
+    "Arthrose de la hanche (coxarthrose), surtout après 50 ans",
+    "Tendinite ou bursite péri-articulaire (inflammation des tendons ou des bourses)",
+    "Fracture du col du fémur, notamment après une chute chez la personne âgée",
+    "Nécrose avasculaire de la tête fémorale (manque d'irrigation de l'os)",
+    "Luxation ou entorse traumatique (choc ou accident sportif)",
+    "Douleur référée depuis le rachis lombaire (cruralgie, sciatique haute)"
+  ],
+  "redFlags": [
+    "Impossibilité totale d'appuyer sur la jambe ou de se lever après une chute",
+    "Déformation visible ou raccourcissement du membre inférieur",
+    "Fièvre associée à la douleur (suspicion d'arthrite infectieuse)",
+    "Douleur nocturne intense, persistante, sans facteur déclenchant évident",
+    "Perte de sensibilité ou faiblesse du membre inférieur"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si la douleur dure plus de quelques jours, limite vos activités quotidiennes ou survient après un traumatisme. Rendez-vous aux urgences immédiatement si vous ne pouvez pas poser le pied par terre après une chute ou si la hanche est déformée.",
+  "faq": [
+    {
+      "q": "La douleur à la hanche est-elle toujours liée à l'articulation elle-même ?",
+      "a": "Non. La douleur peut venir du dos (rachis lombaire), d'une tendinite autour de l'articulation ou d'un nerf comprimé. C'est pourquoi un examen médical est indispensable pour en identifier la cause exacte avant tout traitement."
+    },
+    {
+      "q": "Peut-on continuer le sport avec une douleur à la hanche ?",
+      "a": "Pas sans avis médical. Forcer peut aggraver une lésion (fracture de fatigue, déchirure tendineuse). En attendant la consultation, réduisez les activités qui déclenchent la douleur et évitez les impacts répétés."
+    }
+  ],
+  "intentAnswer": "Pour une douleur à la hanche, commencez par consulter votre médecin généraliste : il posera le diagnostic de départ et prescrira les examens nécessaires. Si une cause articulaire ou osseuse est suspectée, il vous orientera vers un traumatologue-orthopédiste. En cas de chute avec impossibilité d'appuyer sur la jambe, rendez-vous directement aux urgences.",
+  "termAr": "ألم الورك",
+  "shortAnswerAr": "ألم الورك هو شعور بعدم الراحة في المنطقة الواقعة بين الحوض وعظم الفخذ. غالبًا ما يكون بسيطًا كالتهاب الأوتار أو الإجهاد العضلي، لكنه قد يكون خطيرًا إذا ظهر عقب سقطة، أو ترافق مع تشوه في المنطقة، أو أعاق الوقوف والمشي كليًا.",
+  "causesAr": [
+    "هشاشة مفصل الورك (الفُصال العظمي)، خاصةً بعد سن الخمسين",
+    "التهاب الأوتار أو الجراب المحيط بالمفصل",
+    "كسر عنق عظم الفخذ، لا سيما عند كبار السن بعد السقوط",
+    "نخر العظم الوعائي في رأس الفخذ (نقص التروية الدموية للعظم)",
+    "خلع أو التواء ناجم عن صدمة أو حادثة رياضية",
+    "ألم منعكس من العمود الفقري القطني (عرق النسا أو اعتلال العصب الفخذي)"
+  ],
+  "redFlagsAr": [
+    "العجز التام عن الوقوف أو تحمُّل وزن الجسم على الساق بعد سقطة",
+    "تشوه واضح أو قِصَر ملحوظ في الطرف السفلي",
+    "ارتفاع في درجة الحرارة مصاحب للألم (احتمال التهاب مفصلي جرثومي)",
+    "ألم ليلي شديد ومستمر دون سبب واضح",
+    "خدر أو ضعف في الطرف السفلي"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام إذا استمر الألم أكثر من بضعة أيام، أعاق أنشطتك اليومية، أو ظهر إثر إصابة. توجه فورًا إلى طوارئ المستشفى إذا تعذّر عليك الوقوف بعد سقطة أو ظهر تشوه في منطقة الورك.",
+  "faqAr": [
+    {
+      "q": "هل يكون ألم الورك دائمًا ناجمًا عن المفصل نفسه؟",
+      "a": "لا، قد يكون مصدر الألم العمودَ الفقري القطني أو التهاب أوتار محيطة بالمفصل أو ضغطًا على عصب. لذا يستلزم الأمر فحصًا طبيًا لتحديد السبب الدقيق قبل البدء بأي علاج."
+    },
+    {
+      "q": "هل يمكن ممارسة الرياضة مع وجود ألم في الورك؟",
+      "a": "لا يُنصح بذلك قبل استشارة الطبيب، إذ قد تؤدي ممارسة الرياضة إلى تفاقم الإصابة ككسر الإجهاد أو تمزق الأوتار. في انتظار الموعد، تجنّب الحركات التي تُفاقم الألم والأنشطة ذات الصدمات المتكررة."
+    }
+  ],
+  "intentAnswerAr": "إذا كنت تعاني من ألم في الورك، ابدأ بزيارة طبيبك العام الذي سيحدد التشخيص الأولي ويطلب الفحوصات اللازمة. إذا شكّ في وجود سبب مفصلي أو عظمي، أحالك إلى طبيب الصدمات والجراحة التقويمية. أما في حال السقوط وعدم القدرة على الوقوف، فاتجه مباشرةً إلى قسم الطوارئ."
+}

@@ -1,0 +1,68 @@
+{
+  "slug": "maladie-de-crohn",
+  "term": "Maladie de Crohn",
+  "kind": "DISEASE",
+  "specialty": "gastro-enterologie",
+  "synonyms": ["Crohn", "maladie inflammatoire de l'intestin", "MICI"],
+  "shortAnswer": "La maladie de Crohn est une inflammation chronique du tube digestif, souvent par poussées. Elle peut rester modérée, mais certains signes nécessitent une consultation rapide : douleurs abdominales persistantes, diarrhées fréquentes ou perte de poids inexpliquée méritent toujours une évaluation médicale.",
+  "causes": [
+    "Réaction anormale du système immunitaire contre la paroi intestinale",
+    "Prédisposition génétique (antécédents familiaux de MICI)",
+    "Déséquilibre du microbiote intestinal",
+    "Facteurs environnementaux (alimentation, tabac — le tabac aggrave la maladie)",
+    "Stress chronique pouvant déclencher ou aggraver les poussées",
+    "Interactions entre gènes de susceptibilité et agents infectieux ou alimentaires"
+  ],
+  "redFlags": [
+    "Diarrhées sanglantes ou selles noires et goudronneuses",
+    "Douleurs abdominales intenses et soudaines, ventre dur ou contracté",
+    "Impossibilité totale d'aller à la selle ou d'émettre des gaz, avec vomissements et gonflement abdominal marqué (signe d'occlusion intestinale — urgence chirurgicale)",
+    "Distension abdominale extrême associée à une fièvre élevée et une dégradation rapide de l'état général (signe de mégacôlon toxique — urgence vitale)",
+    "Fièvre élevée (> 38,5 °C) associée à des douleurs abdominales",
+    "Perte de poids rapide et importante sans raison évidente",
+    "Signe de déshydratation sévère : soif intense, absence d'urine, extrême fatigue"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste dès que vous présentez des diarrhées persistant plus de deux semaines, des douleurs abdominales récurrentes ou une fatigue inexpliquée. En cas de saignements digestifs, de fièvre, de douleurs intenses, d'impossibilité d'aller à la selle avec vomissements, ou de gonflement abdominal sévère, rendez-vous aux urgences sans attendre.",
+  "faq": [
+    {
+      "q": "La maladie de Crohn est-elle contagieuse ?",
+      "a": "Non, la maladie de Crohn n'est pas contagieuse. C'est une maladie auto-immune chronique liée à une réaction anormale du système immunitaire, et non à une infection transmissible d'une personne à une autre."
+    },
+    {
+      "q": "Peut-on mener une vie normale avec la maladie de Crohn ?",
+      "a": "Oui, avec un suivi médical régulier et une prise en charge adaptée, la plupart des patients atteints de la maladie de Crohn vivent normalement entre les poussées. Un gastro-entérologue élaborera avec vous un plan de suivi personnalisé."
+    }
+  ],
+  "intentAnswer": "Pour la maladie de Crohn, commencez par consulter votre médecin généraliste qui orientera le bilan initial. Il vous adressera à un gastro-entérologue, spécialiste des maladies inflammatoires chroniques de l'intestin. En cas de douleurs abdominales intenses, de saignements, de fièvre élevée, d'impossibilité d'aller à la selle avec vomissements ou de gonflement abdominal sévère, rendez-vous directement aux urgences.",
+  "termAr": "داء كرون",
+  "shortAnswerAr": "داء كرون هو التهاب مزمن يصيب الجهاز الهضمي، يسير على شكل نوبات متكررة. قد يكون خفيفاً، لكن بعض الأعراض تستوجب استشارة طبية عاجلة: آلام البطن المستمرة، الإسهال المتكرر، أو فقدان الوزن غير المبرر تستحق دائماً تقييماً طبياً.",
+  "causesAr": [
+    "استجابة مناعية غير طبيعية تستهدف جدار الأمعاء",
+    "استعداد وراثي (وجود حالات مرض التهاب الأمعاء في العائلة)",
+    "اختلال في توازن البكتيريا النافعة للأمعاء",
+    "عوامل بيئية كالتدخين والنظام الغذائي (التدخين يُفاقم المرض)",
+    "الإجهاد المزمن الذي قد يُحفّز النوبات أو يُشدّدها",
+    "تفاعل بين الجينات الوراثية وعوامل معدية أو غذائية"
+  ],
+  "redFlagsAr": [
+    "إسهال دموي أو براز أسود قطراني",
+    "آلام بطنية حادة ومفاجئة أو بطن متصلب",
+    "تعذّر التبرز الكامل وانعدام خروج الغازات مع قيء وانتفاخ بطني واضح (علامة انسداد معوي — حالة طارئة تستوجب التدخل الجراحي)",
+    "انتفاخ بطني شديد مصحوب بحمى مرتفعة وتدهور سريع في الحالة العامة (علامة الميغاكولون السام — حالة خطرة على الحياة)",
+    "حمى مرتفعة (أكثر من 38,5 °م) مصحوبة بآلام في البطن",
+    "فقدان سريع وملحوظ للوزن دون سبب واضح",
+    "علامات الجفاف الشديد: عطش شديد، انعدام التبول، إرهاق مفرط"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام فور استمرار الإسهال أكثر من أسبوعين، أو في حال تكرار آلام البطن أو الإرهاق غير المبرر. أما في حالات النزيف الهضمي أو الحمى أو الآلام الحادة أو تعذّر التبرز مع القيء أو الانتفاخ البطني الشديد، فتوجه إلى المستعجلات فوراً دون تأخير.",
+  "faqAr": [
+    {
+      "q": "هل داء كرون معدٍ؟",
+      "a": "لا، داء كرون ليس مرضاً معدياً. إنه مرض مناعي ذاتي مزمن ناجم عن استجابة مناعية غير طبيعية، وليس عدوى تنتقل من شخص لآخر."
+    },
+    {
+      "q": "هل يمكن العيش بشكل طبيعي مع داء كرون؟",
+      "a": "نعم، مع المتابعة الطبية المنتظمة والعلاج المناسب، يعيش أغلب المرضى حياة طبيعية بين النوبات. سيضع معك طبيب الجهاز الهضمي خطة متابعة شخصية ملائمة لحالتك."
+    }
+  ],
+  "intentAnswerAr": "إذا كنت تعاني من أعراض تشبه داء كرون، ابدأ باستشارة طبيبك العام الذي سيوجه الفحوصات الأولية، ثم يحيلك إلى طبيب متخصص في أمراض الجهاز الهضمي. في حال الآلام الحادة أو النزيف أو الحمى المرتفعة أو تعذّر التبرز مع القيء أو الانتفاخ الشديد، توجه مباشرة إلى المستعجلات."
+}

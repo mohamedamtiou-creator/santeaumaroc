@@ -1,0 +1,64 @@
+{
+  "slug": "retard-de-croissance",
+  "term": "Retard de croissance",
+  "kind": "SYMPTOM",
+  "specialty": "pediatrie",
+  "synonyms": ["croissance insuffisante", "petite taille", "nanisme", "hypotrophie staturo-pondérale"],
+  "shortAnswer": "Le retard de croissance désigne une taille ou un poids nettement inférieur à la moyenne pour l'âge et le sexe de l'enfant. Il est souvent bénin (constitution familiale, nutrition), mais doit être évalué par un médecin si la courbe de croissance s'écarte progressivement de la normale.",
+  "causes": [
+    "Facteurs constitutionnels ou familiaux (petite taille héréditaire)",
+    "Apports nutritionnels insuffisants ou malnutrition",
+    "Maladies chroniques (maladies digestives, cardiaques, rénales)",
+    "Troubles hormonaux, notamment déficit en hormone de croissance ou hypothyroïdie",
+    "Causes génétiques ou chromosomiques (syndrome de Turner, trisomie 21…)",
+    "Retard de croissance intra-utérin (bébé petit dès la naissance)"
+  ],
+  "redFlags": [
+    "Chute brutale de la courbe de taille ou de poids sur le carnet de santé",
+    "Absence totale de croissance pendant plus de 6 mois",
+    "Retard de croissance associé à une fatigue intense, des douleurs osseuses ou une jaunisse",
+    "Puberté très précoce ou très tardive associée à un nanisme",
+    "Signes d'appel neurologiques : maux de tête fréquents, troubles visuels, vomissements matinaux"
+  ],
+  "whenToConsult": "Consultez votre médecin généraliste ou pédiatre dès que vous constatez que la courbe de croissance de votre enfant s'écarte régulièrement des normes, ou si vous avez le moindre doute. Ne tardez pas si des signes d'alerte apparaissent.",
+  "faq": [
+    {
+      "q": "À partir de quand parle-t-on vraiment de retard de croissance ?",
+      "a": "On parle de retard de croissance lorsque la taille de l'enfant est inférieure au 3e percentile (courbe du bas du carnet de santé) ou lorsqu'il « croise » deux lignes de percentile vers le bas. Le médecin compare la taille de l'enfant à celle des parents et suit l'évolution dans le temps."
+    },
+    {
+      "q": "Un retard de croissance peut-il être rattrapé ?",
+      "a": "Dans de nombreux cas, oui. Certains enfants ont un développement naturellement plus lent (retard pubertaire constitutionnel) et rattrapent la taille prévue avec le temps. D'autres causes (déficit hormonal, maladie chronique) nécessitent un traitement spécifique suivi par un spécialiste pour favoriser le rattrapage."
+    }
+  ],
+  "intentAnswer": "Pour un retard de croissance, commencez par consulter votre médecin généraliste ou pédiatre, qui évaluera la courbe de croissance et orientera vers un endocrinologue pédiatrique si nécessaire. En cas de signes d'alerte (chute brutale de courbe, maux de tête, troubles visuels), consultez en urgence.",
+  "termAr": "تأخر النمو",
+  "shortAnswerAr": "تأخر النمو هو انخفاض ملحوظ في الطول أو الوزن مقارنةً بالمتوسط الطبيعي لعمر الطفل وجنسه. غالباً ما يكون بسيطاً ومرتبطاً بالعوامل الوراثية أو التغذية، غير أنه يستوجب متابعة طبية إذا كان منحنى النمو يبتعد تدريجياً عن المعدل الطبيعي.",
+  "causesAr": [
+    "العوامل الوراثية والعائلية (قصر القامة الموروث)",
+    "نقص التغذية أو سوء التغذية",
+    "الأمراض المزمنة كأمراض الجهاز الهضمي والقلب والكلى",
+    "اضطرابات هرمونية كنقص هرمون النمو أو قصور الغدة الدرقية",
+    "أسباب وراثية أو كروموسومية مثل متلازمة تيرنر أو متلازمة داون",
+    "تأخر النمو داخل الرحم (ولادة الطفل بحجم صغير)"
+  ],
+  "redFlagsAr": [
+    "انحراف مفاجئ وملحوظ في منحنى الطول أو الوزن في دفتر صحة الطفل",
+    "توقف النمو تماماً لمدة تزيد على ستة أشهر",
+    "تأخر النمو مصحوباً بإرهاق شديد أو آلام في العظام أو اصفرار الجلد",
+    "بلوغ مبكر جداً أو متأخر جداً مع قصر واضح في القامة",
+    "أعراض عصبية مقلقة: صداع متكرر، اضطرابات في الرؤية، قيء صباحي"
+  ],
+  "whenToConsultAr": "استشر طبيب الأطفال أو الطبيب العام فور ملاحظة انحراف منتظم في منحنى نمو طفلك، أو إذا ساورك أي قلق. لا تتأخر في طلب المساعدة إذا ظهرت أي من علامات الخطر.",
+  "faqAr": [
+    {
+      "q": "متى يُعدّ تأخر النمو حقيقياً يستوجب المتابعة؟",
+      "a": "يُعدّ تأخر النمو فعلياً حين يكون طول الطفل دون الشريحة الثالثة في منحنى النمو (الخط الأدنى في دفتر الصحة)، أو حين ينزل المنحنى عبر خطين متتاليين نحو الأسفل. يقارن الطبيب طول الطفل بطول والديه ويتابع التطور مع الوقت."
+    },
+    {
+      "q": "هل يمكن تعويض تأخر النمو لاحقاً؟",
+      "a": "في كثير من الحالات نعم؛ إذ يتأخر بعض الأطفال طبيعياً في النمو ثم يلحقون بأقرانهم مع البلوغ. أما الحالات الناجمة عن نقص هرموني أو مرض مزمن فتستدعي علاجاً متخصصاً تحت إشراف طبيب الغدد الصماء لدعم التعويض."
+    }
+  ],
+  "intentAnswerAr": "لمعالجة مشكلة تأخر النمو، ابدأ بزيارة الطبيب العام أو طبيب الأطفال الذي سيقيّم منحنى النمو ويحيلك عند الحاجة إلى طبيب متخصص في الغدد الصماء للأطفال. وفي حال ظهور علامات خطر (انحراف مفاجئ في المنحنى، صداع، اضطراب في الرؤية)، توجه إلى المستعجلات فوراً."
+}

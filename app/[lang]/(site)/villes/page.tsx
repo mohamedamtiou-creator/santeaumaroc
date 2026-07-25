@@ -5,6 +5,7 @@ import { CityIcon } from "@/components/CityIcon";
 import { localizedAlternates } from "@/lib/hreflang";
 import { getDictionary, toLocale } from "@/lib/i18n";
 import { tCity } from "@/lib/specialty-i18n";
+import { DirectoryHero } from "@/components/directory/DirectoryHero";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const locale = toLocale((await params).lang);
@@ -56,7 +57,9 @@ export default async function VillesPage({ params }: { params: Promise<{ lang: s
   const totalDoctors = cities.reduce((s, c) => s + c._count.doctors, 0);
   const totalEstabs  = cities.reduce((s, c) => s + c._count.establishments, 0);
   const locale = toLocale((await params).lang);
-  const t = getDictionary(locale).directory;
+  const dict = getDictionary(locale);
+  const t = dict.directory;
+  const nf = (n: number) => n.toLocaleString(locale === "ar" ? "ar-MA" : "fr");
   const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 
   const jsonLd = {
@@ -93,17 +96,16 @@ export default async function VillesPage({ params }: { params: Promise<{ lang: s
     <div className="page-outer">
 
       {/* ── En-tête ──────────────────────────────── */}
-      <header className="mb-8">
-        <p className="section-eyebrow mb-1.5">{t.villesEyebrow}</p>
-        <h1 className="section-title">{t.villesTitle}</h1>
-        <p className="text-slate-500 mt-2 text-sm leading-relaxed">
-          <span className="font-semibold text-slate-700">{cities.length}</span> {t.cityMany} ·{" "}
-          <span className="font-semibold text-slate-700">{totalDoctors.toLocaleString("fr")}</span> {t.pracMany} ·{" "}
-          <span className="font-semibold text-slate-700">{totalEstabs.toLocaleString("fr")}</span> {t.estabMany}
-        </p>
-        <div className="mt-4 h-px"
-          style={{ background: "linear-gradient(90deg, #bfdbfe 0%, #a7f3d0 60%, transparent 100%)" }} />
-      </header>
+      <DirectoryHero
+        eyebrow={t.villesEyebrow}
+        title={t.villesTitle}
+        stats={[
+          { value: nf(cities.length), label: t.cityMany },
+          { value: nf(totalDoctors), label: t.pracMany },
+          { value: nf(totalEstabs), label: t.estabMany },
+        ]}
+        freeLabel={dict.healthHub.free}
+      />
 
       {/* ── Grille des villes ─────────────────────── */}
       {cities.length === 0 ? (

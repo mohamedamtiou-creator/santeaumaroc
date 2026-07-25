@@ -1,0 +1,66 @@
+{
+  "slug": "contraception",
+  "term": "Contraception (consultation)",
+  "kind": "SYMPTOM",
+  "specialty": "gyneco-obstetrique",
+  "synonyms": ["planning familial", "méthode contraceptive", "pilule", "DIU", "stérilet"],
+  "shortAnswer": "La consultation contraceptive aide à choisir la méthode de prévention de grossesse la mieux adaptée à votre santé et à votre mode de vie. Elle est bénigne en soi, mais certains signaux (douleur, saignement inhabituel, malaise) nécessitent une évaluation médicale rapide.",
+  "causes": [
+    "Désir de prévenir une grossesse non planifiée",
+    "Changement de méthode contraceptive (intolérance, oubli fréquent)",
+    "Reprise de contraception après une grossesse ou un accouchement",
+    "Questions sur la contraception d'urgence après un rapport non protégé",
+    "Pathologie gynécologique nécessitant de reconsidérer la méthode en cours",
+    "Adolescente ou jeune femme souhaitant une première contraception"
+  ],
+  "redFlags": [
+    "Douleur thoracique ou essoufflement soudain : rendez-vous immédiatement aux urgences (risque d'embolie pulmonaire, signe vasculaire grave)",
+    "Douleur, gonflement ou rougeur d'un mollet ou d'une jambe (suspicion de thrombose veineuse profonde : urgences sans délai)",
+    "Maux de tête sévères, troubles visuels soudains, engourdissement ou faiblesse d'un membre : appelez le 15 ou rendez-vous aux urgences (risque d'AVC)",
+    "Douleur pelvienne intense et persistante (à évaluer en urgence si DIU en place)",
+    "Saignements vaginaux abondants ou inhabituels inexpliqués",
+    "Retard de règles malgré une contraception en cours (consulter pour écarter une grossesse)"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste ou un gynécologue avant de démarrer ou de changer de méthode contraceptive, et sans attendre si vous ressentez l'un des signes d'alerte ci-dessus. En cas de rapport non protégé, renseignez-vous dans les 72 heures pour la contraception d'urgence.",
+  "faq": [
+    {
+      "q": "Quelle méthode contraceptive est la plus adaptée au Maroc ?",
+      "a": "Il n'existe pas de méthode universelle : le choix dépend de votre âge, de vos antécédents médicaux, de votre mode de vie et de votre projet de grossesse futur. Seul un professionnel de santé peut vous orienter après un examen et un bilan personnalisé."
+    },
+    {
+      "q": "La contraception est-elle accessible sans rendez-vous médical ?",
+      "a": "Certaines méthodes sont disponibles en pharmacie, mais une consultation médicale reste recommandée avant toute initiation : elle permet de vérifier l'absence de contre-indications et d'assurer un suivi adapté, notamment pour les méthodes hormonales ou le DIU."
+    }
+  ],
+  "intentAnswer": "Pour une consultation contraceptive, commencez par votre médecin généraliste ou un centre de santé de proximité qui peut vous orienter et prescrire les méthodes courantes. Le gynécologue-obstétricien est le spécialiste de référence pour un bilan complet ou des situations particulières. En cas de signe d'alerte (douleur thoracique, essoufflement, douleur de jambe, malaise), rendez-vous immédiatement aux urgences.",
+  "termAr": "تنظيم الأسرة (استشارة)",
+  "shortAnswerAr": "تهدف استشارة تنظيم الأسرة إلى اختيار وسيلة منع الحمل الأنسب لصحتك وأسلوب حياتك. هي في حد ذاتها استشارة عادية، غير أن بعض الأعراض كالألم أو النزيف غير المعتاد أو الدوخة المفاجئة تستوجب تقييماً طبياً عاجلاً.",
+  "causesAr": [
+    "الرغبة في تجنب حمل غير مخطط له",
+    "تغيير وسيلة منع الحمل بسبب عدم التحمل أو النسيان المتكرر",
+    "استئناف منع الحمل بعد الحمل أو الولادة",
+    "الحاجة إلى منع الحمل الطارئ عقب علاقة غير محمية",
+    "وجود مشكلة نسائية تستدعي إعادة النظر في الوسيلة الحالية",
+    "مراهقة أو شابة تودّ البدء بأول وسيلة لتنظيم الأسرة"
+  ],
+  "redFlagsAr": [
+    "ألم مفاجئ في الصدر أو ضيق في التنفس: توجّهي فوراً إلى المستعجلات (خطر الجلطة الرئوية، علامة وعائية خطيرة)",
+    "ألم أو تورم أو احمرار في الساق أو أسفل القدم (اشتباه بتجلط الأوردة العميقة: المستعجلات دون تأخير)",
+    "صداع حاد مفاجئ أو اضطرابات في الرؤية أو خدر أو ضعف مفاجئ في أحد الأطراف: اتصلي بالطوارئ أو توجهي إلى المستعجلات فوراً (خطر السكتة الدماغية)",
+    "ألم شديد ومستمر في الحوض، خاصة عند وجود لولب داخل الرحم (يستوجب تقييماً عاجلاً)",
+    "نزيف مهبلي غزير أو غير مألوف دون سبب واضح",
+    "تأخر الدورة الشهرية رغم استخدام وسيلة منع الحمل (يستوجب استشارة لاستبعاد الحمل)"
+  ],
+  "whenToConsultAr": "استشيري طبيبك العام أو طبيب النساء والتوليد قبل البدء بأي وسيلة لتنظيم الأسرة أو تغييرها، وتوجهي فوراً للطبيب إذا ظهر أي من علامات الخطر المذكورة. وفي حالة علاقة غير محمية، استفسري عن منع الحمل الطارئ في غضون 72 ساعة.",
+  "faqAr": [
+    {
+      "q": "ما الوسيلة الأنسب لتنظيم الأسرة في المغرب؟",
+      "a": "لا توجد وسيلة مثالية لجميع النساء؛ فالاختيار يعتمد على عمرك وتاريخك الصحي وأسلوب حياتك ومشروعك الإنجابي مستقبلاً. يمكن لمختص الصحة وحده أن يرشدك بعد فحص وتقييم شخصي."
+    },
+    {
+      "q": "هل يمكن الحصول على وسائل منع الحمل دون استشارة طبية؟",
+      "a": "بعض الوسائل متوفرة في الصيدليات، لكن يُنصح بالاستشارة الطبية قبل البدء للتحقق من غياب موانع الاستعمال وضمان متابعة مناسبة، لا سيما بالنسبة للوسائل الهرمونية أو اللولب الرحمي."
+    }
+  ],
+  "intentAnswerAr": "للحصول على استشارة في تنظيم الأسرة، ابدئي بطبيبك العام أو مركز صحة قريب يمكنه إرشادك ووصف الوسائل الشائعة. طبيب النساء والتوليد هو المختص المرجعي لإجراء تقييم شامل أو للحالات الخاصة. وفي حالة وجود أعراض خطيرة كألم في الصدر أو ضيق التنفس أو ألم في الساق أو إغماء، توجهي مباشرة إلى المستعجلات."
+}

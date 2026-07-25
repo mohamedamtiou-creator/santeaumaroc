@@ -1,0 +1,64 @@
+{
+  "slug": "osteoporose",
+  "term": "Ostéoporose",
+  "kind": "DISEASE",
+  "specialty": "rhumatologie",
+  "synonyms": ["fragilité osseuse", "perte osseuse", "os poreux"],
+  "shortAnswer": "L'ostéoporose est une maladie qui fragilise les os en réduisant leur densité. Elle évolue souvent sans douleur pendant des années. Elle devient préoccupante lorsqu'elle entraîne des fractures, notamment du poignet, de la hanche ou du dos, parfois après un choc minime.",
+  "causes": [
+    "Ménopause : la chute des œstrogènes accélère la perte osseuse chez la femme",
+    "Vieillissement naturel : la densité osseuse diminue progressivement après 50 ans",
+    "Manque de calcium et de vitamine D dans l'alimentation",
+    "Sédentarité et manque d'activité physique régulière",
+    "Tabagisme et consommation excessive d'alcool",
+    "Certaines maladies chroniques (maladies thyroïdiennes, rhumatoïdes) ou traitements prolongés (corticoïdes)"
+  ],
+  "redFlags": [
+    "Fracture survenant après un choc minime ou une simple chute de sa hauteur",
+    "Douleur dorsale ou lombaire intense et soudaine (pouvant signaler une fracture vertébrale)",
+    "Engourdissement, faiblesse dans les jambes ou perte de contrôle urinaire après une douleur dorsale brutale — urgence neurochirurgicale immédiate",
+    "Diminution notable de la taille ou apparition d'une bosse dans le dos (cyphose)",
+    "Fracture de hanche : douleur à l'aine avec impossibilité de marcher — urgence chirurgicale"
+  ],
+  "whenToConsult": "Consultez votre médecin généraliste si vous avez plus de 50 ans, si vous avez subi une fracture après un traumatisme léger, ou si vous présentez des facteurs de risque connus. Il vous orientera vers un rhumatologue pour un bilan osseux complet.",
+  "faq": [
+    {
+      "q": "Peut-on prévenir l'ostéoporose ?",
+      "a": "Oui, dans une large mesure. Une alimentation riche en calcium (produits laitiers, légumes verts), une exposition raisonnée au soleil pour la vitamine D, la pratique régulière d'une activité physique avec mise en charge (marche, gymnastique) et l'arrêt du tabac réduisent significativement le risque. Ces habitudes sont bénéfiques à tout âge."
+    },
+    {
+      "q": "L'ostéoporose touche-t-elle uniquement les femmes ?",
+      "a": "Non, les hommes peuvent également développer une ostéoporose, surtout après 70 ans ou en cas de facteurs de risque (déficit en testostérone, corticothérapie prolongée, alcoolisme). Cependant, les femmes ménopausées restent le groupe le plus exposé en raison de la chute hormonale rapide."
+    }
+  ],
+  "intentAnswer": "Pour l'ostéoporose, commencez par consulter votre médecin généraliste : il évaluera vos facteurs de risque et pourra prescrire une ostéodensitométrie. Il vous adressera ensuite à un rhumatologue pour la prise en charge. En cas de fracture avec douleur intense et impotence fonctionnelle, rendez-vous aux urgences.",
+  "termAr": "هشاشة العظام",
+  "shortAnswerAr": "هشاشة العظام مرض يُضعف العظام بتقليل كثافتها، وغالبًا ما يتطور بصمت دون أعراض. يصبح خطيرًا حين يُؤدي إلى كسور، لا سيما في المعصم أو الورك أو الظهر، وقد يحدث الكسر بعد صدمة بسيطة جدًا.",
+  "causesAr": [
+    "انقطاع الطمث: انخفاض هرمون الإستروجين يُسرّع فقدان الكثافة العظمية عند المرأة",
+    "الشيخوخة الطبيعية: تتراجع كثافة العظام تدريجيًا بعد سن الخمسين",
+    "نقص الكالسيوم وفيتامين د في التغذية",
+    "قلة الحركة وغياب النشاط البدني المنتظم",
+    "التدخين والإفراط في تناول الكحول",
+    "بعض الأمراض المزمنة (أمراض الغدة الدرقية، التهاب المفاصل) أو العلاجات الطويلة بالكورتيزون"
+  ],
+  "redFlagsAr": [
+    "كسر يحدث إثر صدمة خفيفة أو سقوط بسيط من الوقوف",
+    "ألم مفاجئ وشديد في الظهر أو أسفله (قد يدل على كسر في الفقرات)",
+    "تخدّر أو ضعف في الساقين أو فقدان السيطرة على المثانة بعد ألم ظهر مفاجئ — حالة طارئة عصبية تستوجب التدخل الفوري",
+    "تراجع ملحوظ في الطول أو ظهور انحناء في الظهر (حدبة)",
+    "كسر في الورك مع ألم في الفخذ وعجز عن المشي — حالة طارئة تستدعي التدخل الجراحي"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام إذا تجاوزت الخمسين من عمرك، أو أصبت بكسر بعد صدمة خفيفة، أو كنت تعاني من عوامل خطر معروفة. سيُحيلك إلى طبيب الروماتيزم لإجراء فحص كامل لكثافة العظام.",
+  "faqAr": [
+    {
+      "q": "هل يمكن الوقاية من هشاشة العظام؟",
+      "a": "نعم، إلى حد بعيد. التغذية الغنية بالكالسيوم (منتجات الألبان والخضروات الورقية)، والتعرض المعتدل للشمس للحصول على فيتامين د، وممارسة الرياضة بانتظام كالمشي والجمباز، والإقلاع عن التدخين، كلها عوامل تُقلل من خطر الإصابة بشكل ملحوظ في أي سن."
+    },
+    {
+      "q": "هل تصيب هشاشة العظام النساء فقط؟",
+      "a": "لا، يمكن أن يُصاب الرجال بها أيضًا، خاصة بعد سن السبعين أو في حالة وجود عوامل خطر كنقص هرمون التستوستيرون أو الاستخدام المطوّل للكورتيزون. غير أن النساء بعد انقطاع الطمث يبقين الفئة الأكثر عرضة نظرًا للانخفاض الهرموني المتسارع."
+    }
+  ],
+  "intentAnswerAr": "لهشاشة العظام، ابدأ باستشارة طبيبك العام الذي سيُقيّم عوامل الخطر ويصف قياس الكثافة العظمية إذا لزم، ثم يُحيلك إلى طبيب الروماتيزم للمتابعة. في حال تعرضت لكسر مصحوب بألم شديد وعجز عن الحركة، توجّه فورًا إلى المستعجلات."
+}

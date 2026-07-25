@@ -1,0 +1,64 @@
+{
+  "slug": "transpiration-excessive",
+  "term": "Transpiration excessive",
+  "kind": "SYMPTOM",
+  "specialty": "medecine-generale",
+  "synonyms": ["hyperhidrose", "sueurs abondantes", "sudation excessive"],
+  "shortAnswer": "La transpiration excessive (hyperhidrose) est une sudation anormalement abondante, localisée ou généralisée. Bénigne dans la plupart des cas (stress, chaleur, effort), elle nécessite un avis médical si elle survient la nuit sans raison apparente, s'accompagne d'autres symptômes ou perturbe la vie quotidienne.",
+  "causes": [
+    "Hyperhidrose primaire (prédisposition génétique, sans cause identifiée)",
+    "Stress, anxiété ou émotions intenses",
+    "Chaleur excessive ou effort physique intense",
+    "Dérèglements hormonaux (ménopause, hyperthyroïdie, diabète)",
+    "Infections ou fièvre (tuberculose, infections chroniques)",
+    "Effets indésirables de certains traitements médicaux"
+  ],
+  "redFlags": [
+    "Sueurs nocturnes persistantes sans effort ni chaleur, surtout avec amaigrissement ou fièvre",
+    "Palpitations, tremblements ou sensation de chaleur intense accompagnant la transpiration",
+    "Transpiration froide soudaine associée à une douleur thoracique ou une difficulté à respirer",
+    "Apparition brutale chez une personne sans antécédents, après 50 ans",
+    "Perte de poids inexpliquée associée aux sueurs excessives"
+  ],
+  "whenToConsult": "Consultez un médecin généraliste si la transpiration excessive est fréquente, perturbe votre vie sociale ou professionnelle, ou s'accompagne d'autres symptômes inhabituels. En cas de sueurs nocturnes avec fièvre ou amaigrissement, une consultation rapide s'impose.",
+  "faq": [
+    {
+      "q": "L'hyperhidrose est-elle une maladie grave ?",
+      "a": "Dans la majorité des cas, l'hyperhidrose primaire est bénigne, même si elle peut être très gênante au quotidien. C'est votre médecin qui déterminera s'il existe une cause sous-jacente à traiter, après un bilan clinique adapté."
+    },
+    {
+      "q": "Peut-on réduire la transpiration excessive sans médicaments ?",
+      "a": "Certaines mesures d'hygiène aident : porter des vêtements en fibres naturelles, éviter les déclencheurs (stress, aliments épicés, caféine), maintenir une bonne hydratation. Votre médecin vous orientera vers les solutions les mieux adaptées à votre situation."
+    }
+  ],
+  "intentAnswer": "Pour une transpiration excessive, consultez d'abord un médecin généraliste qui évaluera la cause. Selon le bilan, il peut orienter vers un endocrinologue (problème hormonal), un dermatologue (hyperhidrose primaire) ou un cardiologue. En cas de sueurs froides avec douleur thoracique, appelez le 15 ou rendez-vous aux urgences.",
+  "termAr": "التعرق المفرط",
+  "shortAnswerAr": "التعرق المفرط (فرط التعرق) هو إفراز غير طبيعي للعرق، موضعياً أو عاماً. في الغالب يكون حميداً ومرتبطاً بالتوتر أو الحرارة أو المجهود. غير أنه يستوجب استشارة طبية إذا ظهر ليلاً دون سبب، أو ترافق مع أعراض أخرى، أو أثّر على الحياة اليومية.",
+  "causesAr": [
+    "فرط التعرق الأولي (استعداد وراثي دون سبب محدد)",
+    "التوتر والقلق والانفعالات الشديدة",
+    "الحرارة المرتفعة أو المجهود البدني المكثف",
+    "اضطرابات هرمونية (سن اليأس، فرط نشاط الغدة الدرقية، السكري)",
+    "العدوى والحمى (السل والالتهابات المزمنة)",
+    "الآثار الجانبية لبعض العلاجات الطبية"
+  ],
+  "redFlagsAr": [
+    "تعرق ليلي مستمر دون مجهود أو حرارة، خاصة مع فقدان الوزن أو الحمى",
+    "خفقان أو رعشة أو إحساس بحرارة شديدة مصاحب للتعرق",
+    "تعرق بارد مفاجئ مع ألم في الصدر أو صعوبة في التنفس",
+    "ظهور مفاجئ لدى شخص بدون سوابق مرضية، خاصة بعد سن الخمسين",
+    "فقدان وزن غير مبرر مرتبط بالتعرق المفرط"
+  ],
+  "whenToConsultAr": "استشر طبيباً عاماً إذا كان التعرق المفرط متكرراً أو يؤثر على حياتك الاجتماعية أو المهنية، أو ترافق مع أعراض غير اعتيادية. في حالة التعرق الليلي مع الحمى أو فقدان الوزن، يجب الاستشارة بسرعة.",
+  "faqAr": [
+    {
+      "q": "هل فرط التعرق مرض خطير؟",
+      "a": "في معظم الحالات، فرط التعرق الأولي حميد وإن كان مزعجاً في الحياة اليومية. طبيبك هو من يحدد وجود سبب كامن يستوجب العلاج، وذلك بعد الفحص السريري المناسب."
+    },
+    {
+      "q": "هل يمكن التخفيف من التعرق المفرط دون أدوية؟",
+      "a": "بعض الإجراءات الصحية تساعد: ارتداء ملابس من الألياف الطبيعية، وتجنب المحفزات كالتوتر والأطعمة الحارة والكافيين، مع الحفاظ على الترطيب الجيد. سيرشدك طبيبك إلى الحلول الأنسب لحالتك."
+    }
+  ],
+  "intentAnswerAr": "للتعرق المفرط، ابدأ باستشارة طبيب عام يقيّم السبب. وبحسب نتائج الفحص، قد يحيلك إلى طبيب الغدد الصماء (في حالة اضطراب هرموني)، أو طبيب الجلدية (في حالة فرط التعرق الأولي)، أو طبيب القلب. في حالة تعرق بارد مع ألم في الصدر، اتصل بالإسعاف أو توجه فوراً إلى المستعجلات."
+}

@@ -1,0 +1,64 @@
+{
+  "slug": "andropause",
+  "term": "Andropause",
+  "kind": "DISEASE",
+  "specialty": "andrologie",
+  "synonyms": ["déficit androgénique lié à l'âge", "hypogonadisme tardif", "DALA"],
+  "shortAnswer": "L'andropause est une baisse progressive de la testostérone chez l'homme à partir de la cinquantaine, entraînant fatigue, troubles de l'humeur et baisse du désir sexuel. Elle évolue lentement et ne constitue pas une urgence, mais certains signes justifient une consultation médicale rapide.",
+  "causes": [
+    "Déclin naturel et progressif de la production de testostérone avec l'âge",
+    "Surpoids et obésité abdominale, qui accélèrent la baisse hormonale",
+    "Maladies chroniques (diabète, hypertension, insuffisance rénale)",
+    "Stress prolongé et troubles du sommeil",
+    "Sédentarité et mode de vie peu actif",
+    "Certains traitements médicaux (chimiothérapie, corticoïdes au long cours)"
+  ],
+  "redFlags": [
+    "Douleurs thoraciques ou essoufflement inexpliqués survenant avec la fatigue",
+    "Dépression sévère avec idées noires ou pensées suicidaires",
+    "Troubles urinaires soudains et importants (rétention, sang dans les urines)",
+    "Perte de poids rapide et inexpliquée associée aux autres symptômes",
+    "Douleurs osseuses intenses et persistantes non liées à un traumatisme, pouvant évoquer une fracture ostéoporotique ou une atteinte osseuse sérieuse nécessitant un avis médical urgent"
+  ],
+  "whenToConsult": "Consultez votre médecin généraliste si la fatigue, les troubles de l'humeur ou la baisse du désir sexuel persistent plus de quelques semaines et affectent votre qualité de vie. Il vous orientera vers un andrologue ou un endocrinologue si un bilan hormonal est nécessaire.",
+  "faq": [
+    {
+      "q": "L'andropause touche-t-elle tous les hommes ?",
+      "a": "Pas de la même façon. La baisse de testostérone est quasi universelle avec l'âge, mais seul un homme sur cinq environ développe des symptômes suffisamment marqués pour parler d'andropause clinique. Le mode de vie joue un rôle important : activité physique régulière, alimentation équilibrée et gestion du stress peuvent limiter l'impact de ce déclin hormonal."
+    },
+    {
+      "q": "Peut-on traiter l'andropause au Maroc ?",
+      "a": "Oui. Après confirmation du diagnostic par un bilan sanguin, un médecin spécialiste peut proposer une prise en charge adaptée. Celle-ci passe d'abord par des mesures hygiéno-diététiques. Un traitement hormonal substitutif peut être envisagé dans certains cas, sous stricte surveillance médicale, car il n'est pas adapté à tous les hommes."
+    }
+  ],
+  "intentAnswer": "Pour l'andropause, commencez par consulter votre médecin généraliste, qui prescrira un bilan sanguin hormonal. Il vous adressera ensuite à un andrologue ou un endocrinologue si nécessaire. En cas de signes d'alerte (douleurs thoraciques, dépression sévère), rendez-vous aux urgences sans attendre.",
+  "termAr": "سن اليأس عند الرجل",
+  "shortAnswerAr": "سن اليأس عند الرجل هو انخفاض تدريجي في مستوى هرمون التستوستيرون لدى الرجل ابتداءً من سن الخمسين، ويتجلى في التعب، وتقلب المزاج، وانخفاض الرغبة الجنسية. يتطور ببطء وليس حالة طارئة، غير أن بعض الأعراض تستدعي استشارة طبية.",
+  "causesAr": [
+    "الانخفاض الطبيعي والتدريجي في إنتاج هرمون التستوستيرون مع التقدم في السن",
+    "الوزن الزائد والسمنة البطنية اللتان تُسرّعان من انخفاض مستوى الهرمونات",
+    "الأمراض المزمنة كالسكري وارتفاع ضغط الدم والقصور الكلوي",
+    "الإجهاد المزمن واضطرابات النوم",
+    "قلة الحركة ونمط الحياة الخامل",
+    "بعض العلاجات الطبية كالعلاج الكيميائي والكورتيزون طويل الأمد"
+  ],
+  "redFlagsAr": [
+    "آلام في الصدر أو ضيق في التنفس غير مبرر يصاحب الإرهاق",
+    "اكتئاب حاد مع أفكار سوداء أو ميول انتحارية",
+    "اضطرابات بولية مفاجئة وشديدة كاحتباس البول أو وجود دم في البول",
+    "فقدان سريع وغير مبرر للوزن مصحوب بأعراض أخرى",
+    "آلام عظمية شديدة ومستمرة غير مرتبطة بإصابة، قد تشير إلى كسر عظمي ناجم عن هشاشة العظام أو إصابة عظمية خطيرة تستوجب استشارة طبية عاجلة"
+  ],
+  "whenToConsultAr": "استشر طبيبك العام إذا استمر التعب أو تقلب المزاج أو انخفاض الرغبة الجنسية لأسابيع وأثّر في جودة حياتك. سيحيلك إلى طبيب متخصص في الأمراض الذكورية أو الغدد الصماء إذا استدعى الأمر إجراء تحاليل هرمونية.",
+  "faqAr": [
+    {
+      "q": "هل يصيب سن اليأس جميع الرجال؟",
+      "a": "ليس بالدرجة ذاتها. الانخفاض في مستوى التستوستيرون يكاد يكون حتمياً مع التقدم في السن، لكن رجلاً واحداً من كل خمسة تقريباً يعاني من أعراض واضحة بما يكفي للحديث عن حالة سريرية. وتؤدي عوامل نمط الحياة دوراً مهماً، إذ يمكن للنشاط الرياضي المنتظم والتغذية المتوازنة وإدارة التوتر أن تحدّ من تأثير هذا الانخفاض الهرموني."
+    },
+    {
+      "q": "هل يمكن علاج هذه الحالة في المغرب؟",
+      "a": "نعم. بعد تأكيد التشخيص عبر تحليل الدم، يمكن للطبيب المختص اقتراح علاج مناسب. يُبدأ في الغالب بتعديل نمط الحياة، وقد يُنظر في العلاج بالهرمونات البديلة في بعض الحالات تحت إشراف طبي دقيق، إذ لا يناسب جميع الرجال."
+    }
+  ],
+  "intentAnswerAr": "لمعالجة أعراض سن اليأس عند الرجل، ابدأ بزيارة طبيبك العام الذي سيطلب تحاليل هرمونية، ثم يحيلك عند الحاجة إلى طبيب متخصص في الأمراض الذكورية أو الغدد الصماء. وفي حال ظهور أعراض مقلقة كآلام الصدر أو الاكتئاب الشديد، توجه إلى المستعجلات فوراً."
+}

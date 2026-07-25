@@ -1,0 +1,64 @@
+{
+  "slug": "leishmaniose-cutanee",
+  "term": "Leishmaniose cutanée",
+  "kind": "DISEASE",
+  "specialty": "maladies-infectieuses",
+  "synonyms": ["bouton d'Orient", "clou de Biskra", "leishmaniose de la peau"],
+  "shortAnswer": "Infection parasitaire transmise par la piqûre d'un phlébotome (petit moucheron), fréquente dans les zones rurales du Maroc (Rif, Anti-Atlas). Elle provoque une plaie ou croûte sur la peau qui évolue lentement. Bénigne dans la plupart des cas, elle nécessite un avis médical pour éviter les cicatrices définitives.",
+  "causes": [
+    "Piqûre d'un phlébotome (insecte vecteur) porteur du parasite Leishmania",
+    "Séjour ou vie dans une zone rurale endémique (Rif, Anti-Atlas, plaines semi-arides)",
+    "Absence de protection contre les insectes (moustiquaire, répulsif) dans les zones à risque",
+    "Contact avec des zones proches de terriers de rongeurs, réservoirs naturels du parasite",
+    "Système immunitaire affaibli (augmente la vulnérabilité à la forme cutanée diffuse)",
+    "Enfants et personnes vivant à la campagne : groupe le plus souvent exposé au Maroc"
+  ],
+  "redFlags": [
+    "Lésion qui s'étend rapidement, devient très douloureuse ou dépasse 5 cm",
+    "Atteinte du visage avec déformation du nez, des lèvres ou des muqueuses (risque de forme muco-cutanée)",
+    "Lésions multiples envahissant de grandes surfaces du corps (forme diffuse)",
+    "Fièvre persistante, fatigue intense ou ganglions enflés associés à la plaie cutanée",
+    "Plaie surinfectée : rougeur chaude, pus abondant, bords très inflammatoires"
+  ],
+  "whenToConsult": "Consultez un médecin dès qu'une lésion cutanée suspecte (croûte indolore, ulcère arrondi) apparaît après un séjour en zone rurale marocaine, même sans douleur. Ne tardez pas si la lésion est sur le visage ou s'aggrave rapidement.",
+  "faq": [
+    {
+      "q": "La leishmaniose cutanée est-elle contagieuse entre personnes ?",
+      "a": "Non, elle ne se transmet pas d'une personne à l'autre. La contamination se fait uniquement par la piqûre d'un phlébotome infecté. Vous ne risquez rien à côtoyer une personne atteinte."
+    },
+    {
+      "q": "La lésion peut-elle guérir seule sans traitement ?",
+      "a": "Certaines formes cicatrisent spontanément en plusieurs mois, mais elles laissent souvent des cicatrices inesthétiques, surtout sur le visage. Un médecin doit évaluer la lésion pour décider si un traitement est nécessaire et éviter des séquelles définitives."
+    }
+  ],
+  "intentAnswer": "Pour une leishmaniose cutanée, consultez d'abord votre médecin généraliste qui orientera vers un spécialiste en maladies infectieuses ou un dermatologue pour confirmer le diagnostic et décider du traitement. Rendez-vous aux urgences si la lésion s'étend rapidement sur le visage ou s'accompagne de fièvre.",
+  "termAr": "اللشمانيا الجلدية",
+  "shortAnswerAr": "عدوى طفيلية تنتقل عبر لدغة حشرة صغيرة (ذبابة الرمل)، شائعة في المناطق الريفية بالمغرب (الريف، الأطلس الصغير). تظهر على شكل قرحة أو جلطة جلدية تتطور ببطء. تبقى في الغالب غير خطيرة، لكنها تستلزم استشارة طبية لتفادي ندوب دائمة.",
+  "causesAr": [
+    "لدغة ذبابة الرمل (الفاصد) الحاملة لطفيل الليشمانيا",
+    "الإقامة أو العمل في مناطق ريفية موبوءة بالمغرب (الريف، الأطلس الصغير، السهول شبه الجافة)",
+    "غياب الحماية من الحشرات (ناموسية، طارد حشرات) في المناطق المعرضة للخطر",
+    "التواجد بالقرب من أوكار القوارض التي تُعدّ خزانًا طبيعيًا للطفيل",
+    "ضعف جهاز المناعة، الذي يزيد من خطر الإصابة بالشكل الجلدي المنتشر",
+    "الأطفال والأشخاص القاطنون بالأرياف هم الأكثر عرضة للإصابة في المغرب"
+  ],
+  "redFlagsAr": [
+    "تمدد الجرح بسرعة أو اشتداد ألمه أو تجاوز حجمه 5 سنتيمترات",
+    "إصابة الوجه مع تشوه في الأنف أو الشفتين أو الأغشية المخاطية (خطر الشكل المخاطي الجلدي)",
+    "ظهور آفات متعددة تغطي مساحات واسعة من الجسم (الشكل المنتشر)",
+    "حمى مستمرة أو إجهاد شديد أو تضخم الغدد الليمفاوية مع وجود الجرح الجلدي",
+    "جرح مُصاب بعدوى ثانوية: احمرار حار، قيح غزير، حواف ملتهبة بشدة"
+  ],
+  "whenToConsultAr": "استشر طبيبك فور ظهور آفة جلدية مشبوهة (قشرة غير مؤلمة أو تقرح دائري) بعد الإقامة في منطقة ريفية مغربية، حتى وإن لم تكن مؤلمة. لا تتأخر إذا كانت الآفة على الوجه أو إذا تفاقمت بسرعة.",
+  "faqAr": [
+    {
+      "q": "هل تنتقل اللشمانيا الجلدية من شخص لآخر؟",
+      "a": "لا، لا تنتقل بين البشر مباشرةً. العدوى تحدث فقط عبر لدغة ذبابة الرمل المصابة. لا يوجد أي خطر من مخالطة شخص مصاب."
+    },
+    {
+      "q": "هل يمكن أن تشفى الآفة الجلدية من تلقاء نفسها دون علاج؟",
+      "a": "قد تندمل بعض الأشكال تلقائيًا في غضون أشهر، إلا أنها كثيرًا ما تترك ندوبًا مشوِّهة لا سيما في الوجه. يجب على الطبيب تقييم الإصابة لتحديد الحاجة إلى العلاج وتفادي العواقب الدائمة."
+    }
+  ],
+  "intentAnswerAr": "في حالة الاشتباه باللشمانيا الجلدية، ابدأ باستشارة طبيبك العام الذي سيحيلك إلى أخصائي في الأمراض المعدية أو طبيب الجلدية لتأكيد التشخيص واختيار العلاج المناسب. توجه إلى المستعجلات فورًا إذا امتدت الآفة بسرعة على الوجه أو رافقتها حمى."
+}
