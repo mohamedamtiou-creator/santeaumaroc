@@ -1,5 +1,6 @@
 import { unstable_cache } from "next/cache";
 import { processCache } from "@/lib/process-cache";
+import { withDbRetry } from "@/lib/prisma";
 
 /**
  * Requête mise en cache à DEUX niveaux — le patron de scalabilité du site
@@ -38,8 +39,13 @@ export async function cachedQuery<T>(
   fn: () => Promise<T>,
   tags?: string[],
 ): Promise<T> {
+  // `fn` (producteur DB) est enveloppé dans withDbRetry : sur un cold-start Neon,
+  // l'acquisition de connexion peut timeouter (« timeout exceeded when trying to
+  // connect ») lors d'une revalidation ISR en tâche de fond. Le retry réveille le
+  // compute et réussit à la 2e tentative, au lieu de laisser échouer la
+  // revalidation (et de logguer une erreur bruyante à chaque expiration de TTL).
   const result = await unstable_cache(
-    () => processCache(key, revalidate, fn),
+    () => processCache(key, revalidate, () => withDbRetry(fn)),
     [key],
     { revalidate, tags: tags ?? [key] },
   )();

@@ -47,3 +47,41 @@ const globalForPrisma = globalThis as unknown as {
 export const prisma = globalForPrisma.prisma ?? createPrismaClient();
 
 globalForPrisma.prisma = prisma;
+
+// ── Résilience cold-start Neon ───────────────────────────────────────────────
+// En serverless, une revalidation ISR peut se déclencher sur un compute Neon
+// SUSPENDU (auto-suspend). Le réveil du compute peut dépasser les
+// `connectionTimeoutMillis` (10 s) → « timeout exceeded when trying to connect ».
+// Ce timeout survient pendant l'ACQUISITION de la connexion, donc AVANT que la
+// requête n'atteigne la base : aucune IO n'a eu lieu, le rejouer est sans effet
+// de bord (sûr même pour une écriture — la 1re tentative n'a rien appliqué).
+// La 1re tentative « réveille » le compute ; la 2e, après un court backoff, tombe
+// sur un compute chaud et réussit.
+const CONNECT_ERROR_RX =
+  /timeout exceeded when trying to connect|Timed out fetching a new connection|Can't reach database server|Connection terminated due to connection timeout|ECONNREFUSED|ETIMEDOUT/i;
+
+/** Vrai si l'erreur est un échec d'ACQUISITION de connexion (rejouable sans risque). */
+export function isTransientConnectError(e: unknown): boolean {
+  const msg = e instanceof Error ? e.message : String(e);
+  return CONNECT_ERROR_RX.test(msg);
+}
+
+/**
+ * Rejoue `fn` sur un échec de connexion transitoire (cold-start Neon), avec
+ * backoff court. Réservé aux opérations dont on sait qu'aucune IO n'a eu lieu à
+ * l'échec (acquisition de connexion) — c.-à-d. les erreurs matchées par
+ * {@link isTransientConnectError}. Toute autre erreur est propagée immédiatement.
+ */
+export async function withDbRetry<T>(fn: () => Promise<T>, attempts = 3): Promise<T> {
+  let lastErr: unknown;
+  for (let i = 0; i < attempts; i++) {
+    try {
+      return await fn();
+    } catch (e) {
+      lastErr = e;
+      if (i === attempts - 1 || !isTransientConnectError(e)) throw e;
+      await new Promise((r) => setTimeout(r, 300 * 2 ** i)); // 300 ms, 600 ms
+    }
+  }
+  throw lastErr;
+}
