@@ -8,11 +8,16 @@ import { PrismaPg } from "@prisma/adapter-pg";
 // borne les timeouts pour éviter les connexions zombies et les attentes infinies.
 // ⚠️ Parsing robuste : `Number("") || 20` retombait silencieusement sur 20 si la
 // variable était vide / 0 / non numérique (piège fréquent en prod). On n'accepte
-// QUE des entiers > 0, sinon défaut bas adapté au serverless DERRIÈRE un pooler
-// (Neon PgBouncer). Défaut = 3 : assez pour la concurrence Fluid par instance,
-// sans saturer (N instances × 3 reste raisonnable, le pooler multiplexe le reste).
+// QUE des entiers > 0, sinon défaut adapté au serverless DERRIÈRE un pooler
+// (Neon PgBouncer, host `-pooler`). ⚠️ `max` est le NOMBRE DE REQUÊTES CONCURRENTES
+// par instance : trop bas → « timeout exceeded when trying to connect » dès que
+// des rendus/revalidations ISR se chevauchent (les jointures fiche médecin tiennent
+// le slot un moment). Défaut = 12 : le pooler multiplexe et borne le total réel
+// côté Postgres, donc monter le per-instance est sûr et évite la famine de slots.
+// NB : le param d'URL `connection_limit=…` est IGNORÉ avec un driver adapter —
+// seul ce `max` compte.
 const _envMax = Number(process.env.DATABASE_POOL_MAX);
-const CONFIGURED_MAX = Number.isInteger(_envMax) && _envMax > 0 ? _envMax : 3;
+const CONFIGURED_MAX = Number.isInteger(_envMax) && _envMax > 0 ? _envMax : 12;
 
 // Au build (`next build`), Next lance plusieurs workers pour le pré-rendu
 // statique, et CHAQUE worker est un process Node distinct avec SON propre pool.
