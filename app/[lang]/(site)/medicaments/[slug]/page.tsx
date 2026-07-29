@@ -279,7 +279,14 @@ export default async function MedicamentPage({ params }: { params: Params }) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Drug",
+        // Fiche INFORMATIVE, pas une boutique. On type l'entité en `Substance`
+        // (un `MedicalEntity`) et NON `Drug` : `Drug` est un sous-type de
+        // `Product`, donc Google le valide en fiche produit/marchand — ce qui
+        // exige soit une `image` + offre (signal d'achat trompeur), soit
+        // offers/review/aggregateRating. `Substance` porte le même sens médical
+        // sans déclencher ces règles. Prix/remboursement/avis restent affichés
+        // pour les visiteurs, mais ne sont pas déclarés comme offre marchande.
+        "@type": "Substance",
         "@id": `${BASE}/medicaments/${slug}#drug`,
         "name": m.nom,
         "url": `${BASE}/medicaments/${slug}`,
@@ -292,24 +299,6 @@ export default async function MedicamentPage({ params }: { params: Params }) {
             "@type": "DrugStrength",
             "strengthValue": m.dosage ?? "",
             "strengthUnit": m.uniteDosage ?? "",
-          },
-        }),
-        ...(m.ppv && {
-          "offers": {
-            "@type": "Offer",
-            "priceCurrency": "MAD",
-            "price": Number(m.ppv).toFixed(2),
-            "availability": "https://schema.org/InStock",
-            "areaServed": { "@type": "Country", "name": "Maroc" },
-          },
-        }),
-        ...(avgRating > 0 && m._count.reviews > 0 && {
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": avgRating.toFixed(1),
-            "reviewCount": m._count.reviews,
-            "bestRating": "5",
-            "worstRating": "1",
           },
         }),
       },

@@ -316,7 +316,11 @@ export default async function SpecialiteCityPage({ params }: { params: Params })
           : `${total.toLocaleString("fr")} ${total > 1 ? synPlural : synonyme} référencé${total > 1 ? "s" : ""} à ${city.name} sur SantéauMaroc.`,
         "specialty": specialty.name,
         "about": { "@type": "MedicalSpecialty", "name": specialty.name },
-        "spatialCoverage": { "@type": "City", "name": city.name, "addressCountry": "MA" },
+        "spatialCoverage": {
+          "@type": "AdministrativeArea",
+          "name": city.name,
+          "containedInPlace": { "@type": "Country", "name": "Maroc" },
+        },
         "isPartOf": { "@type": "WebSite", "url": BASE },
         "lastReviewed": reviewedIso,
         "dateModified": reviewedIso,

@@ -389,9 +389,13 @@ export default async function BlogArticlePage({ params }: { params: Params }) {
     // choisi selon la rubrique : symptôme, médicament, examen ou pathologie.
     ...(post.aboutEntity && {
       "about": {
+        // `Substance` (et non `Drug`) pour les médicaments : `Drug` est un
+        // sous-type de `Product`, donc Google le valide en fiche produit et
+        // exige offers/review/aggregateRating — hors sujet pour un article
+        // informatif. `Substance` porte le même sens médical sans ce piège.
         "@type":
           post.category.slug === "symptomes"   ? "MedicalSymptom"
-          : post.category.slug === "medicaments" ? "Drug"
+          : post.category.slug === "medicaments" ? "Substance"
           : post.category.slug === "examens"     ? "MedicalTest"
           :                                        "MedicalCondition",
         "name": post.aboutEntity,

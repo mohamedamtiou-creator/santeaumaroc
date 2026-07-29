@@ -252,7 +252,7 @@ export default async function QuestionDetailPage({ params }: { params: Params })
         "@type": "Physician",
         "name": dn,
         "medicalSpecialty": a.doctor.specialtyName,
-        ...(a.doctor.slug ? { "url": `${BASE}/praticiens/${a.doctor.slug}` } : {}),
+        "url": a.doctor.slug ? `${BASE}/praticiens/${a.doctor.slug}` : `${BASE}/praticiens`,
       },
     };
   };
@@ -271,7 +271,7 @@ export default async function QuestionDetailPage({ params }: { params: Params })
           "text": loc.body || loc.title,
           "answerCount": answers.length,
           "dateCreated": (q.publishedAt ?? q.createdAt).toISOString(),
-          "author": { "@type": "Person", "name": askerName },
+          "author": { "@type": "Person", "name": askerName, "url": `${BASE}/questions` },
           ...(q.specialty ? { "about": { "@type": "MedicalSpecialty", "name": q.specialty.name } } : {}),
           ...(accepted ? { "acceptedAnswer": answerNode(accepted) } : {}),
           ...(suggested.length ? { "suggestedAnswer": suggested.map(answerNode) } : {}),

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
-import { localizedAlternates } from "@/lib/hreflang";
+import { frenchOnlyAlternates } from "@/lib/hreflang";
 import { toLocale } from "@/lib/i18n";
 import { DARIJA_CATEGORIES, DARIJA_TERM_COUNT, DARIJA_FAQ } from "@/lib/darija-content";
 
@@ -13,7 +13,12 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: "الصحة بالدارجة — قاموس المصطلحات الطبية",
     description:
       "قاموس صحي بالدارجة المغربية: شنو كيعني كل مرض وكل طبيب مختص، مع الترجمة بالفرنسية والعربية والتوجيه نحو الطبيب المناسب. Glossaire santé en darija marocaine.",
-    alternates: localizedAlternates(PATH, locale),
+    // Contenu darija UNIQUE (mêmes octets sous /sante-darija et /ar/sante-darija) :
+    // ce ne sont pas deux traductions mais une seule ressource. On déclare donc un
+    // canonical unique vers l'URL FR (celle que Google indexe déjà) sans hreflang
+    // croisé, et on sert la variante /ar en noindex pour lever le doublon.
+    alternates: frenchOnlyAlternates(PATH),
+    ...(locale === "ar" && { robots: { index: false, follow: true } }),
     openGraph: {
       title: "الصحة بالدارجة — قاموس المصطلحات الطبية | SantéauMaroc",
       description: "شنو كيعني كل مرض وكل طبيب مختص بالدارجة، مع التوجيه نحو الطبيب المناسب.",
