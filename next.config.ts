@@ -206,6 +206,15 @@ const nextConfig: NextConfig = {
   // dynamic: 30s — filtered list pages stay cached for back-navigation
   // static: 3600s — SSG pages (specialites, villes) kept in router cache 1 h
   experimental: {
+    // ── LCP mobile 4G : CSS inline dans le <head> ──────────────────────────
+    // Le CSS (Tailwind atomique, ~21 KB) était servi en <link> SÉPARÉ et donc
+    // BLOQUANT : sur Slow 4G le navigateur devait faire un aller-retour réseau
+    // avant de peindre, ce qui retardait FCP/LCP (élément LCP = texte du factoïde
+    // sur la fiche praticien). En inlinant, les styles arrivent AVEC le HTML → le
+    // rendu progressif peint dès l'arrivée des octets, sans round-trip. Idéal ici :
+    // Tailwind (CSS compact) + trafic SEO majoritairement first-time (pas de cache
+    // CSS à préserver). Cf. docs/next inlineCss. Actif en build prod seulement.
+    inlineCss: true,
     // ── Concurrence du pré-rendu statique ↔ pool Postgres au build ──────────
     // Sans plafond, Next lance 1 worker par cœur (29 sur cette machine) pour
     // générer les ~6300 pages statiques. CHAQUE worker est un process Node avec
