@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 import { ToastProvider } from "@/components/ui/Toast";
 import { getDictionary, dirOf, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 import { LocaleProvider } from "@/components/i18n/LocaleLink";
-import { AdSenseLoader } from "@/components/ads/AdSenseLoader";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -130,9 +129,9 @@ export default async function RootLayout({
         <LocaleProvider locale={locale}>
           <ToastProvider>{children}</ToastProvider>
         </LocaleProvider>
-        {/* Script AdSense — inerte tant que la pub n'est pas activée (flags OFF).
-            Ne charge un encart que là où un <AdSlot> est monté (pages éditoriales). */}
-        <AdSenseLoader />
+        {/* Le loader AdSense n'est PLUS ici : monté depuis <InArticleAds> uniquement,
+            pour ne charger le script (~190 KB) que sur les pages blog qui affichent
+            vraiment un encart — pas sur les 20 000+ fiches/listings (drag LCP). */}
       </body>
     </html>
   );

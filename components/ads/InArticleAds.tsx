@@ -1,4 +1,5 @@
 import { AdSlot } from "./AdSlot";
+import { AdSenseLoader } from "./AdSenseLoader";
 import { ADS } from "@/lib/ads/config";
 
 /**
@@ -53,6 +54,9 @@ export function InArticleAds({ html, active }: { html: string; active: boolean }
 
   return (
     <>
+      {/* Loader AdSense monté ICI (et nulle part ailleurs) : seulement quand
+          l'article structure au moins un encart → aucun JS pub sur le reste du site. */}
+      {adAfter.size > 0 && <AdSenseLoader />}
       {parts.map((segment, i) => (
         <div key={i}>
           <div dir="auto" className="blog-prose" dangerouslySetInnerHTML={{ __html: segment }} />
