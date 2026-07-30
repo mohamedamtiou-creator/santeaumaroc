@@ -419,13 +419,26 @@
   ascent-override: 137.65%; descent-override: 60.32%; line-gap-override: 0.0%; size-adjust: 94.66%;
 }
 
+/* Snippets arabes ISOLÉS sur une page non-arabe (ex. le lien « العربية » du
+   sélecteur de langue, marqué lang="ar") : on N'inclut PAS Cairo dans la pile →
+   le navigateur ne télécharge pas le webfont Cairo (~30 KB) pour quelques
+   caractères. Ces snippets s'affichent via la police arabe système (repli
+   Noto/Geeza), ce qui est visuellement acceptable et sans coût réseau. */
 :lang(ar) {
-  /* Cairo auto-hébergée (ci-dessus) + repli ajusté, puis polices système. */
-  font-family: "Cairo", "Cairo Fallback", "Noto Sans Arabic", "Geeza Pro",
+  font-family: "Cairo Fallback", "Noto Sans Arabic", "Geeza Pro",
                "Segoe UI", Tahoma, sans-serif;
   /* L'arabe est cursif : TOUT letter-spacing casse les liaisons entre lettres.
      Neutralise les tracking-tight / tracking-widest hérités du design latin. */
   letter-spacing: 0;
+}
+
+/* Page ENTIÈREMENT arabe (html lang="ar") : Cairo auto-hébergée (préchargée, cf
+   layout) en tête de pile. Spécificité supérieure à la règle ci-dessus pour
+   l'emporter sur les éléments :lang(ar) descendants d'une page arabe. */
+html[lang="ar"],
+html[lang="ar"] :lang(ar) {
+  font-family: "Cairo", "Cairo Fallback", "Noto Sans Arabic", "Geeza Pro",
+               "Segoe UI", Tahoma, sans-serif;
 }
 
 /* Interligne : généreux sur le TEXTE COURANT (les diacritiques i'jām/tashkīl
