@@ -322,6 +322,10 @@ function words(html) {
 async function main() {
   const admin = await prisma.user.findFirst({ where: { role: "ADMIN", isActive: true }, select: { id: true } });
   if (!admin) { console.error("Aucun admin actif trouvé."); process.exit(1); }
+  // Signature de relecture : compte de rédaction dédié, pas le compte technique
+  // d'administration (cf. scripts/seed-editorial-reviewer.cjs).
+  const reviewer = await prisma.user.findUnique({ where: { email: "redaction@santeaumaroc.com" }, select: { id: true } });
+  if (!reviewer) { console.error("Compte de rédaction absent : lancer d'abord scripts/seed-editorial-reviewer.cjs"); process.exit(1); }
 
   const cats = await prisma.postCategory.findMany({ select: { id: true, slug: true } });
   const catId = (s) => {
@@ -341,7 +345,7 @@ async function main() {
       faqJson: JSON.stringify(art.faq),
       sources: JSON.stringify(art.sources),
       aboutEntity: art.aboutEntity,
-      reviewedById: admin.id, reviewedAt: now,
+      reviewedById: reviewer.id, reviewedAt: now,
     };
     const post = await prisma.post.upsert({
       where: { slug: art.slug },

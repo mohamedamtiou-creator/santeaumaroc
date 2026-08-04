@@ -48,7 +48,7 @@ const getPost = cache(async (slug: string) => {
     include: {
       category: { select: { name: true, slug: true, color: true } },
       author:   { select: { name: true, avatar: true, jobTitle: true, credentials: true, bio: true, registrationNumber: true } },
-      reviewedBy: { select: { name: true, jobTitle: true, credentials: true } },
+      reviewedBy: { select: { name: true, jobTitle: true, credentials: true, registrationNumber: true } },
       // Cocon sémantique : pilier parent + satellites publiés
       pillar:   { select: { slug: true, title: true } },
       satellites: {
@@ -415,12 +415,19 @@ export default async function BlogArticlePage({ params }: { params: Params }) {
       },
     }),
     ...(post.reviewedAt && { "lastReviewed": post.reviewedAt.toISOString() }),
+    // `Person` seulement pour un praticien identifié (n° d'inscription à l'ordre) ;
+    // la relecture par la rédaction est portée par une `Organization`, comme sur les
+    // fiches maladies/symptômes. Annoncer une personne qui n'en est pas une serait
+    // une donnée structurée trompeuse.
     ...(post.reviewedBy && {
-      "reviewedBy": {
-        "@type": "Person",
-        "name": post.reviewedBy.name,
-        ...(post.reviewedBy.jobTitle && { "jobTitle": post.reviewedBy.jobTitle }),
-      },
+      "reviewedBy": post.reviewedBy.registrationNumber
+        ? {
+            "@type": "Person",
+            "name": post.reviewedBy.name,
+            ...(post.reviewedBy.jobTitle && { "jobTitle": post.reviewedBy.jobTitle }),
+            "identifier": post.reviewedBy.registrationNumber,
+          }
+        : { "@type": "Organization", "name": post.reviewedBy.name, "url": BASE },
     }),
     ...(post.coverImage && { "image": post.coverImage }),
     // Références médicales vérifiables → signal E-E-A-T fort + attribution pour

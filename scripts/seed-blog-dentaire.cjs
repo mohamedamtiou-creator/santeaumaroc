@@ -270,6 +270,10 @@ function calcReadingTime(html) {
 async function main() {
   const admin = await prisma.user.findFirst({ where: { role: "ADMIN", isActive: true }, select: { id: true } });
   if (!admin) { console.error("Aucun admin actif trouvé."); process.exit(1); }
+  // Signature de relecture : compte de rédaction dédié, pas le compte technique
+  // d'administration (cf. scripts/seed-editorial-reviewer.cjs).
+  const reviewer = await prisma.user.findUnique({ where: { email: "redaction@santeaumaroc.com" }, select: { id: true } });
+  if (!reviewer) { console.error("Compte de rédaction absent : lancer d'abord scripts/seed-editorial-reviewer.cjs"); process.exit(1); }
 
   const cat = await prisma.postCategory.findUnique({ where: { slug: ARTICLE.categorySlug }, select: { id: true } });
   if (!cat) { console.error(`Catégorie « ${ARTICLE.categorySlug} » introuvable.`); process.exit(1); }
@@ -290,7 +294,7 @@ async function main() {
     faqJson: JSON.stringify(faq),
     sources: JSON.stringify(sources),
     aboutEntity: ARTICLE.aboutEntity,
-    reviewedById: admin.id,
+    reviewedById: reviewer.id,
     reviewedAt: now,
   };
 
