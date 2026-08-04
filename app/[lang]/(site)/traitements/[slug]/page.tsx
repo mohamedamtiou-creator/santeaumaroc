@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { prisma } from "@/lib/prisma";
 import { localizedAlternates, frenchOnlyAlternates } from "@/lib/hreflang";
+import { labelWithoutGloss } from "@/lib/utils";
 import { getDictionary, toLocale } from "@/lib/i18n";
 import { treatmentLocalized, isTreatmentArReady, isTreatmentReviewed, parseLines, parseFaq } from "@/lib/treatment";
 import { tSpecialty } from "@/lib/specialty-i18n";
@@ -38,7 +39,8 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 
   const locale = toLocale(lang);
   const L = treatmentLocalized(treatment, locale);
-  const title = `${L.name} : options, durée et effets`;
+  // Gabarit aligné sur la langue du CONTENU servi (cf. /maladies).
+  const title = getDictionary(L.isArabic ? "ar" : "fr").treatments.itemMetaTitle.replace("{term}", labelWithoutGloss(L.name));
   const description = L.shortAnswer.slice(0, 160);
   const arReady = isTreatmentArReady(treatment);
   const indexable = isTreatmentReviewed(treatment) && (locale !== "ar" || arReady);

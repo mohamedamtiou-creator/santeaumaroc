@@ -2,15 +2,33 @@ import { getDictionary, type Dictionary } from "@/lib/i18n";
 
 export type Heading = { level: number; text: string; id: string };
 
+/**
+ * Identifiant d'ancre depuis le texte d'un titre.
+ *
+ * La classe de caractères conserve les lettres ARABES (U+0600–U+06FF) en plus de
+ * l'alphabet latin : sans elles, un titre en arabe était entièrement filtré et
+ * produisait `id=""` puis `id="-2"`, `id="-3"`… — donc un sommaire dont le
+ * premier lien pointait sur `#` et un attribut `id` vide, invalide en HTML. Le
+ * jeu latin est inchangé (le tiret reste filtré) pour ne pas modifier les
+ * ancres françaises déjà en ligne.
+ */
 function slugify(s: string) {
   return s
     .toLowerCase()
     .normalize("NFD")
     .replace(/[̀-ͯ]/g, "")
     .replace(/&amp;/g, "and")
-    .replace(/[^a-z0-9\s]/g, "")
+    .replace(/[^a-z0-9؀-ۿ\s]/g, "")
+    // Ponctuation arabe : filtrée comme l'est « ? » côté français, pour des
+    // ancres homogènes entre les deux langues.
+    .replace(/[،؛؟٪۔]/g, "")
     .trim()
     .replace(/\s+/g, "-");
+}
+
+/** Repli si un titre ne laisse aucun caractère exploitable (emoji, ponctuation seule). */
+function slugOrFallback(s: string, index: number) {
+  return slugify(s) || `section-${index + 1}`;
 }
 
 function stripTags(html: string) {
@@ -22,9 +40,10 @@ export function extractHeadings(html: string): Heading[] {
   const seen: Record<string, number> = {};
   const re = /<h([23])[^>]*>([\s\S]*?)<\/h[23]>/gi;
   let m: RegExpExecArray | null;
+  let i = 0;
   while ((m = re.exec(html)) !== null) {
     const text = stripTags(m[2]);
-    const base = slugify(text);
+    const base = slugOrFallback(text, i++);
     seen[base] = (seen[base] ?? 0) + 1;
     const id = seen[base] > 1 ? `${base}-${seen[base]}` : base;
     headings.push({ level: parseInt(m[1]), text, id });
@@ -34,9 +53,10 @@ export function extractHeadings(html: string): Heading[] {
 
 export function addHeadingIds(html: string): string {
   const seen: Record<string, number> = {};
+  let i = 0;
   return html.replace(/<h([23])([^>]*)>([\s\S]*?)<\/h[23]>/gi, (_, lvl, attrs, inner) => {
     const text = stripTags(inner);
-    const base = slugify(text);
+    const base = slugOrFallback(text, i++);
     seen[base] = (seen[base] ?? 0) + 1;
     const id = seen[base] > 1 ? `${base}-${seen[base]}` : base;
     return `<h${lvl}${attrs} id="${id}">${inner}</h${lvl}>`;

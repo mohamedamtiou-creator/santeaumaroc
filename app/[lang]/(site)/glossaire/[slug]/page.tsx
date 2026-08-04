@@ -4,8 +4,10 @@ import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { prisma } from "@/lib/prisma";
 import { localizedAlternates, frenchOnlyAlternates } from "@/lib/hreflang";
+import { labelWithoutGloss } from "@/lib/utils";
 import { getDictionary, toLocale } from "@/lib/i18n";
 import { glossaryLocalized, isGlossaryArReady, isGlossaryReviewed, normalizeCategory } from "@/lib/glossary";
+import { isGlossaryIndexable } from "@/lib/glossary-quality";
 import { tSpecialty } from "@/lib/specialty-i18n";
 import { ArticleSources, parseSources } from "@/components/blog/ArticleSources";
 import { DetailHero } from "@/components/health/DetailHero";
@@ -45,12 +47,17 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 
   const locale = toLocale(lang);
   const L = glossaryLocalized(term, locale);
-  const title = `${L.term} : définition`;
+  // Gabarit aligné sur la langue du CONTENU servi (cf. /maladies).
+  const title = getDictionary(L.isArabic ? "ar" : "fr").glossary.itemMetaTitle.replace("{term}", labelWithoutGloss(L.term));
   const description = L.definition.slice(0, 160);
 
   const arReady = isGlossaryArReady(term);
-  // Verrou d'indexation : FR non relu → noindex ; AR non prêt → noindex de la vue AR.
-  const indexable = isGlossaryReviewed(term) && (locale !== "ar" || arReady);
+  // Verrou d'indexation à deux étages :
+  //  1. relecture — FR non relu → noindex ; AR non prêt → noindex de la vue AR ;
+  //  2. fond — une définition trop courte pour mériter son URL reste crawlée
+  //     mais non indexée (cf. lib/glossary-quality : anti-pages minces).
+  const reviewLocksPass = isGlossaryReviewed(term) && (locale !== "ar" || arReady);
+  const indexable = isGlossaryIndexable(term, reviewLocksPass);
 
   return {
     title,

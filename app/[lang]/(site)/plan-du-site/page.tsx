@@ -132,6 +132,11 @@ const COPY: Record<"fr" | "ar", Copy> = {
         icon: "book",
         title: "Ressources & information santé",
         links: [
+          { href: "/outils", label: "Outils santé", desc: "IMC, tour de taille, calories, eau, fréquence cardiaque, grossesse, ovulation, tension, risque de diabète." },
+          { href: "/grossesse", label: "Dossier grossesse", desc: "Du désir d'enfant à l'après-naissance : suivi, examens, complications et inconforts." },
+          { href: "/sante-enfant", label: "Dossier santé de l'enfant", desc: "Fièvre, éruptions, croissance, sommeil, alimentation et maladies chroniques de l'enfant." },
+          { href: "/nutrition", label: "Dossier nutrition", desc: "Poids, alimentation et maladies chroniques, intolérances, carences et hydratation." },
+          { href: "/vaccination", label: "Dossier vaccination", desc: "De quoi protègent les vaccins, où se faire vacciner, rappels et vaccins du voyageur." },
           { href: "/blog", label: "Blog santé", desc: "Articles de prévention et de vulgarisation, relus médicalement." },
           { href: "/questions", label: "Questions / Réponses", desc: "Posez vos questions ; des médecins vérifiés y répondent." },
           { href: "/quel-medecin-pour", label: "Quel médecin consulter ?", desc: "Trouvez le bon spécialiste selon votre symptôme ou votre situation." },
@@ -231,6 +236,11 @@ const COPY: Record<"fr" | "ar", Copy> = {
         icon: "book",
         title: "موارد ومعلومات صحية",
         links: [
+          { href: "/outils", label: "أدوات صحية", desc: "كتلة الجسم، محيط الخصر، السعرات، الماء، نبضات القلب، الحمل، الإباضة، ضغط الدم، خطر السكري." },
+          { href: "/grossesse", label: "ملفّ الحمل", desc: "من الرغبة في الإنجاب إلى ما بعد الولادة: التتبّع، الفحوصات، المضاعفات والمتاعب." },
+          { href: "/sante-enfant", label: "ملفّ صحّة الطفل", desc: "الحمّى، الطفح، النمو، النوم، التغذية والأمراض المزمنة عند الطفل." },
+          { href: "/nutrition", label: "ملفّ التغذية", desc: "الوزن، التغذية والأمراض المزمنة، عدم التحمّل، النواقص والتزوّد بالماء." },
+          { href: "/vaccination", label: "ملفّ التلقيح", desc: "من ماذا تحمي اللقاحات، أين تتلقّح، التذكيرات ولقاحات المسافر." },
           { href: "/blog", label: "مدوّنة الصحة", desc: "مقالات وقائية وتبسيطية، مُراجَعة طبياً." },
           { href: "/questions", label: "الأسئلة والأجوبة", desc: "اطرح أسئلتك، ويجيب عنها أطباء مُوثَّقون." },
           { href: "/quel-medecin-pour", label: "أي طبيب تستشير؟", desc: "اعثر على الأخصائي المناسب حسب العَرَض أو حالتك." },

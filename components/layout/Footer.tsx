@@ -44,6 +44,11 @@ export function Footer({ locale }: { locale: Locale }) {
     {
       title: f.cols.guides,
       links: [
+        { href: "/outils",            label: f.links.tools },
+        { href: "/grossesse",         label: f.links.pregnancy },
+        { href: "/sante-enfant",      label: f.links.childHealth },
+        { href: "/nutrition",         label: f.links.nutrition },
+        { href: "/vaccination",       label: f.links.vaccination },
         { href: "/symptomes",         label: f.links.symptoms },
         { href: "/maladies",          label: f.links.diseases },
         { href: "/quel-medecin-pour", label: f.links.intent },

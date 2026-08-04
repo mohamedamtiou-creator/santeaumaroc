@@ -199,42 +199,88 @@ function lowerFirst(s: string): string {
 /**
  * Préfixe un libellé de topic par l'article défini français correct
  * (« la migraine », « le mal de dos », « l'acné », « les hémorroïdes ») pour
- * composer des questions grammaticales. Le genre n'est pas stocké → heuristique :
- * élision devant voyelle/h muet, féminin par suffixes médicaux fréquents, sinon
- * masculin. Les cas irréguliers (pluriels multi-mots, exceptions) sont couverts
- * par `FR_ARTICLE_OVERRIDE` (à compléter au besoin, clé = libellé en minuscules).
- * Les acronymes (AVC, BPCO…) gardent leur casse.
+ * composer des questions grammaticales sur /quel-medecin-pour, /comment-traiter
+ * et /prevenir. Le genre n'est pas stocké en base → heuristique en cascade.
+ *
+ * ── POURQUOI CETTE CASCADE (audit du 4 août 2026) ─────────────────────────
+ * La version précédente testait uniquement un suffixe féminin sur le mot-tête,
+ * avec élision avant ce test. Sur les 265 fiches, elle publiait 62 titres faux :
+ *   · pluriels traités en masculin singulier — « le ballonnements »,
+ *     « le règles douloureuses », « le troubles de la vue » ;
+ *   · pluriels élidés — « l'oreillons », « l'yeux secs », « l'acouphènes » ;
+ *   · féminins dont le mot-tête n'a aucun suffixe reconnaissable — « le fièvre »,
+ *     « le ménopause », « le cataracte », « le gale », « le toux ».
+ * L'ordre compte : la détection du PLURIEL doit passer AVANT l'élision, sinon
+ * « hémorroïdes » redevient « l'hémorroïdes ».
+ *
+ * Le pluriel est désormais INFÉRÉ (mot-tête en « s »/« x »), ce qui rend inutiles
+ * les entrées « les » de l'ancienne table — dont plusieurs étaient d'ailleurs
+ * mortes, leur clé ne portant pas la parenthèse du libellé réel
+ * (« calculs rénaux » vs « Calculs rénaux (lithiase urinaire) »).
  */
 type FrArticle = "le" | "la" | "l'" | "les";
+
+/**
+ * Féminins que le suffixe ne permet pas de deviner. Clé = libellé COMPLET en
+ * minuscules, parenthèse incluse : c'est la seule forme qui matche réellement.
+ */
 const FR_ARTICLE_OVERRIDE: Record<string, FrArticle> = {
-  "brûlures d'estomac": "les",
-  "brulures d'estomac": "les",
-  "hémorroïdes": "les",
-  "hemorroides": "les",
-  "douleurs articulaires": "les",
-  "palpitations": "les",
-  "acouphènes": "les",
-  "aphtes": "les",
-  "calculs rénaux": "les",
-  "calculs biliaires": "les",
-  "coliques du nourrisson": "les",
-  "condylomes": "les",
+  "bpco (bronchopneumopathie chronique)": "la",
+  cataracte: "la",
+  "chute de cheveux": "la",
+  "colique néphrétique": "la",
+  coqueluche: "la",
+  "crise d'angoisse (attaque de panique)": "la",
+  fatigue: "la",
+  fièvre: "la",
+  "fièvre chez l'enfant": "la",
+  "fièvre typhoïde": "la",
+  gale: "la",
+  "gastro-entérite": "la",
+  goutte: "la",
+  "mauvaise haleine": "la",
+  ménopause: "la",
+  "perte d'appétit": "la",
+  "perte d'audition": "la",
+  "perte de poids inexpliquée": "la",
+  "prise de poids inexpliquée": "la",
+  "rage (morsure animale)": "la",
+  roséole: "la",
+  rougeole: "la",
+  rubéole: "la",
+  sciatique: "la",
+  "teigne (dermatophytose)": "la",
+  toux: "la",
+  "toux chez l'enfant": "la",
 };
+
+/**
+ * Singuliers savants terminés par « s » ou « x » : sans cette liste, la règle du
+ * pluriel produirait « les psoriasis », « les reflux », « les stress ».
+ */
+const FR_SINGULIER_EN_S = new Set([
+  "abcès", "anus", "herpès", "lupus", "phimosis", "pityriasis", "pouls", "prolapsus",
+  "psoriasis", "reflux", "sinus", "stress", "tétanos", "torticolis", "toux", "virus",
+]);
 
 /** Article défini FR + libellé, sans contraction (heuristique genre/nombre). */
 function frArticleParts(term: string): { article: FrArticle; noun: string } {
   const raw = term.trim();
   const lower = raw.toLowerCase();
-  const isAcronym = /^[A-Z0-9][A-Z0-9-]*$/.test(raw); // AVC, BPCO, DMLA…
-  const noun = isAcronym ? raw : lowerFirst(raw);
+  // Un libellé qui COMMENCE par un sigle garde sa casse : « le bPCO (…) » sinon.
+  const startsWithAcronym = /^[A-Z0-9][A-Z0-9-]+\b/.test(raw); // AVC, BPCO, TDAH, COVID-19…
+  const noun = startsWithAcronym ? raw : lowerFirst(raw);
 
   const override = FR_ARTICLE_OVERRIDE[lower];
   if (override) return { article: override, noun };
-  // Élision devant voyelle ou h (muet) : « l'acné », « l'hypertension ».
-  if (/^[aàâäeéèêëiîïoôöuùûüyh]/i.test(lower)) return { article: "l'", noun };
-  // Féminin : suffixes médicaux fréquents et fiables, testés sur le MOT-TÊTE
-  // (1er mot du groupe : « carie dentaire » → carie fém → « la »). Sinon masculin.
+
   const head = lower.split(/[\s-]/)[0];
+  // 1. Pluriel — AVANT l'élision (« les hémorroïdes », pas « l'hémorroïdes »).
+  if (/[sx]$/.test(head) && !FR_SINGULIER_EN_S.has(head)) return { article: "les", noun };
+  // 2. Élision devant voyelle, h muet ou œ : « l'acné », « l'hypertension », « l'œil rouge ».
+  if (/^[aàâäeéèêëiîïoôöuùûüyhœ]/i.test(lower)) return { article: "l'", noun };
+  // 3. Féminin : suffixes médicaux fréquents et fiables, testés sur le MOT-TÊTE
+  //    (« carie dentaire » → carie fém → « la »). Sinon masculin.
   const feminine = /(ite|ose|ie|tion|sion|ure|té|ité|ine|ade|ance|ence|algie|pathie|ée|ppe|sse|mie|xie|rie|gie|elle|eur)$/.test(head);
   return { article: feminine ? "la" : "le", noun };
 }

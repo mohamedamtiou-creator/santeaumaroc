@@ -4,7 +4,15 @@ import { processCache } from "@/lib/process-cache";
 import { generateAvailableSlots } from "@/lib/utils";
 import { isProPlan, isFeaturedActive, hasProAccess } from "@/lib/plan";
 
-export const PRATICIENS_PAGE_SIZE = 15;
+// 25 résultats/page — compromis LCP. La profondeur de pagination n'est plus un
+// enjeu SEO : la découverte des fiches ne repose PAS sur la pagination (les
+// listings sont statiques, `?page=N` sert le HTML de la page 1) mais sur l'index
+// alphabétique par ville (cf. lib/city-alpha-index.ts). On privilégie donc le
+// poids de la page 1 — la seule qui compte pour le LCP.
+//
+// ⚠️ ALPHA_MIN_CITY_DOCTORS en dérive : toute ville dont le listing dépasse une
+// page doit avoir un index, sinon ses fiches de page 2+ n'ont aucun lien HTML.
+export const PRATICIENS_PAGE_SIZE = 25;
 
 // DTO plat 100 % sérialisable (JSON + RSC payload) : c'est ce que consomme
 // PraticienCard, l'ItemList JSON-LD ET la route API /api/praticiens/search.
@@ -57,7 +65,7 @@ function sanitize(s: string | null | undefined): string | null {
 export const getCachedDoctors = unstable_cache(
   (q: string, specialite: string, ville: string, page: number): Promise<DoctorsResult> =>
     processCache(
-      `praticiens:doctors:${q}|${specialite}|${ville}|${page}`,
+      `praticiens:doctors:${q}|${specialite}|${ville}|${page}|n${PRATICIENS_PAGE_SIZE}`,
       300,
       async () => {
         const where = {
@@ -154,6 +162,10 @@ export const getCachedDoctors = unstable_cache(
         };
       }
     ),
-  ["praticiens-doctors"],
+  // `n<taille>` dans les keyParts : le Data Cache est DURABLE (il survit aux
+  // déploiements). Sans cela, un changement de PRATICIENS_PAGE_SIZE resservirait
+  // pendant tout le TTL des listes de l'ancienne taille, incohérentes avec le
+  // totalPages recalculé côté page.
+  ["praticiens-doctors", `n${PRATICIENS_PAGE_SIZE}`],
   { revalidate: 300, tags: ["doctors"] },
 );

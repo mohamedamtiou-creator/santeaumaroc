@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { prisma } from "@/lib/prisma";
 import { localizedAlternates, frenchOnlyAlternates } from "@/lib/hreflang";
+import { labelWithoutGloss } from "@/lib/utils";
 import { getDictionary, toLocale } from "@/lib/i18n";
 import { tSpecialty } from "@/lib/specialty-i18n";
 import {
@@ -53,7 +54,9 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const L = topicLocalized(topic, locale);
   const IW = intentLocalized(topic, locale);
   const specialtyName = topic.specialty ? tSpecialty(topic.specialty.name, locale) : null;
-  const question = IW.question ?? composeIntentQuestion(L.term, locale);
+  // Le <title> est composé sans la glose entre parenthèses : le H1 plus bas garde
+  // le libellé complet, utile au lecteur (cf. labelWithoutGloss).
+  const question = IW.question ?? composeIntentQuestion(labelWithoutGloss(L.term), locale);
   const answer = IW.answer ?? composeIntentAnswer(L.term, specialtyName, locale);
 
   const arReady = isTopicArReady(topic);

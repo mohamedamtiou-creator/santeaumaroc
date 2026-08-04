@@ -17,9 +17,9 @@ import { incrementViews } from "@/features/blog/actions";
 import { ArticleViewTracker } from "@/components/blog/ArticleViewTracker";
 import { relatedSpecialty, specialtyCityLinks } from "@/lib/blog-related";
 import { RelatedDoctors } from "@/components/blog/RelatedDoctors";
-import { localizedAlternates } from "@/lib/hreflang";
+import { localizedAlternates, frenchOnlyAlternates } from "@/lib/hreflang";
 import { getDictionary, toLocale, type Dictionary } from "@/lib/i18n";
-import { blogLocalized } from "@/lib/blog-content";
+import { blogLocalized, isBlogArReady } from "@/lib/blog-content";
 import { InArticleAds } from "@/components/ads/InArticleAds";
 import { adsActive } from "@/lib/ads/config";
 
@@ -88,10 +88,21 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const title       = L.metaTitle || L.title;
   const description = L.metaDesc  || L.excerpt;
 
+  // Verrou YMYL AR (même contrat que /maladies, /symptomes, /examens…) : tant que
+  // la traduction n'est pas relue, `blogLocalized` sert du FRANÇAIS sous le chrome
+  // arabe. Annoncer `hreflang="ar-MA"` et laisser /ar/blog/… indexable créerait
+  // deux URLs pour un même contenu français — le doublon AR remonté par Search
+  // Console. On ne déclare donc l'alternative arabe que si elle existe vraiment,
+  // et la vue /ar est en noindex jusque-là (follow, pour ne pas couper le maillage).
+  const arReady = isBlogArReady(post);
+
   return {
     title,
     description,
-    alternates: localizedAlternates(`/blog/${slug}`, locale),
+    alternates: arReady
+      ? localizedAlternates(`/blog/${slug}`, locale)
+      : frenchOnlyAlternates(`/blog/${slug}`),
+    ...(locale === "ar" && !arReady ? { robots: { index: false, follow: true } } : {}),
     // og:image / twitter:image sont fournis par opengraph-image.tsx (carte
     // dynamique : titre + catégorie + badge relecture sur la cover).
     openGraph: {
@@ -99,7 +110,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       description,
       url: `/blog/${slug}`,
       type: "article",
-      locale: locale === "ar" ? "ar_MA" : "fr_MA",
+      locale: locale === "ar" && arReady ? "ar_MA" : "fr_MA",
       publishedTime:  post.publishedAt?.toISOString(),
       modifiedTime:   post.updatedAt.toISOString(),
       section: post.category.name,
@@ -366,7 +377,9 @@ export default async function BlogArticlePage({ params }: { params: Params }) {
     "@id": `${articleUrl}#article`,
     "headline": L.title,
     "description": L.excerpt,
-    "inLanguage": locale === "ar" ? "ar-MA" : "fr-MA",
+    // Langue du CONTENU réellement servi, pas de la locale demandée : sous le
+    // verrou YMYL, /ar/blog/… rend du français (cf blogLocalized).
+    "inLanguage": L.isArabic ? "ar-MA" : "fr-MA",
     "datePublished": post.publishedAt?.toISOString(),
     "dateModified": post.updatedAt.toISOString(),
     "author": {

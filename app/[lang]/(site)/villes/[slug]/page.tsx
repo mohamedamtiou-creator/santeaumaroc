@@ -6,12 +6,14 @@ import { prisma } from "@/lib/prisma";
 import { PraticienCard } from "@/components/PraticienCard";
 import { SearchFilters } from "@/components/SearchFilters";
 import { VilleResults } from "@/components/villes/VilleResults";
-import { Pagination } from "@/components/ui/Pagination";
+import { PaginationNav } from "@/components/ui/PaginationNav";
 import { CityIcon } from "@/components/CityIcon";
 import { EssentielBox } from "@/components/EssentielBox";
 import { FaqAccordion } from "@/components/ui/FaqAccordion";
 import { getCityContent, getCityFaqs } from "@/lib/city-content";
 import { getVilleDoctors } from "@/lib/ville-doctors";
+import { AlphaIndexNav } from "@/components/villes/AlphaIndexNav";
+import { ALPHA_MIN_CITY_DOCTORS, getCityLetterBuckets } from "@/lib/city-alpha-index";
 import { PRATICIENS_PAGE_SIZE as PAGE_SIZE } from "@/lib/praticiens-query";
 import { localizedAlternates } from "@/lib/hreflang";
 import { getDictionary, toLocale } from "@/lib/i18n";
@@ -128,6 +130,10 @@ export default async function VillePage({ params }: { params: Params }) {
   ]);
   if (!city) notFound();
 
+  // Index alphabétique — seulement là où le listing dépasse une page. En dessous,
+  // la page 1 montre déjà tout le monde : aucun index à générer.
+  const alpha = total > ALPHA_MIN_CITY_DOCTORS ? await getCityLetterBuckets(slug) : null;
+
   const { specialties, totalEstabs, estabCounts } = meta;
   const locale = toLocale(lang);
   const dict = getDictionary(locale);
@@ -135,7 +141,6 @@ export default async function VillePage({ params }: { params: Params }) {
   const content = getCityContent(slug, locale);
   const cityName = tCity(city.name, locale);
   const totalPages = Math.ceil(total / PAGE_SIZE);
-  const buildUrl = (p: number) => `/villes/${slug}${p > 1 ? `?page=${p}` : ""}`;
 
   const reviewedDisplay = new Intl.DateTimeFormat(locale === "ar" ? "ar-MA" : "fr-FR", {
     day: "numeric", month: "long", year: "numeric",
@@ -243,7 +248,10 @@ export default async function VillePage({ params }: { params: Params }) {
           ))}
         </div>
       )}
-      <Pagination page={1} totalPages={totalPages} buildUrl={buildUrl} t={dict.pagination} />
+      {/* PaginationNav (boutons) et non Pagination (<a href>) : cette page est
+          statique et ne lit pas searchParams, donc chaque ?page=N servirait le
+          HTML de la page 1 — autant d'URL en doublon exact offertes au crawl. */}
+      <PaginationNav page={1} totalPages={totalPages} basePath={`/villes/${slug}`} t={dict.pagination} />
     </>
   );
 
@@ -367,6 +375,18 @@ export default async function VillePage({ params }: { params: Params }) {
             {baseList}
           </VilleResults>
         </Suspense>
+
+        {/* ── Annuaire A–Z ── Chemin de lien HTML vers TOUTES les fiches de la
+            ville : la pagination est gérée côté client, elle n'en fournit aucun
+            (cf. lib/city-alpha-index.ts). ── */}
+        {alpha && (
+          <AlphaIndexNav
+            citySlug={slug}
+            cityName={cityName}
+            buckets={alpha.buckets}
+            locale={locale}
+          />
+        )}
 
         {/* ── Contenu éditorial (FR + AR) ── */}
         <div className="mt-10 card p-5 sm:p-6">

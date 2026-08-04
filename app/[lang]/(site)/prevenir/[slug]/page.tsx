@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { prisma } from "@/lib/prisma";
 import { localizedAlternates, frenchOnlyAlternates } from "@/lib/hreflang";
+import { labelWithoutGloss } from "@/lib/utils";
 import { getDictionary, toLocale } from "@/lib/i18n";
 import { tSpecialty } from "@/lib/specialty-i18n";
 import {
@@ -21,6 +22,8 @@ import {
 import { parseSources, ArticleSources } from "@/components/blog/ArticleSources";
 import { BlogFaq } from "@/components/blog/BlogFaq";
 import { RelatedDoctors } from "@/components/blog/RelatedDoctors";
+import { ToolInsert } from "@/components/outils/ToolInsert";
+import { toolsForTopic } from "@/lib/health-tools-inserts";
 import { EditorialReviewNote } from "@/components/health/EditorialReviewNote";
 import { TopicClusterLinks } from "@/components/health/TopicClusterLinks";
 
@@ -52,7 +55,9 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const locale = toLocale(lang);
   const L = topicLocalized(topic, locale);
   const PW = preventionLocalized(topic, locale);
-  const question = composePreventionQuestion(L.term, locale);
+  // Le <title> est composé sans la glose entre parenthèses : le H1 plus bas garde
+  // le libellé complet, utile au lecteur (cf. labelWithoutGloss).
+  const question = composePreventionQuestion(labelWithoutGloss(L.term), locale);
   const answer = PW.summary ?? composePreventionAnswer(L.term, locale);
 
   const arReady = isTopicArReady(topic);
@@ -194,6 +199,10 @@ export default async function PreventionPage({ params }: { params: Params }) {
                 </ul>
               </section>
             )}
+
+            {/* Maillage retour vers /outils : la prévention est le contexte où un
+                score de risque ou une mesure prend le plus de sens. */}
+            <ToolInsert slugs={toolsForTopic(topic.slug)} locale={locale} t={dict.tools} />
 
             {topic.specialty && (
               <RelatedDoctors specialtySlug={topic.specialty.slug} specialtyLabel={topic.specialty.name} t={dict.card} tb={tb} locale={locale} />

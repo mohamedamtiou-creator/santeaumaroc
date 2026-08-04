@@ -73,7 +73,9 @@ export function getSpecialtyDoctors(slug: string, f: SpecialtyFilters): Promise<
   const q      = (f.q     ?? "").trim();
   const page   = Math.max(1, f.page ?? 1);
   const today  = dispo === "1" ? casablancaWeekday() : -1;
-  const key = `specialite-doctors:${slug}:${ville}:${tri}:${dispo}:${conv}:${langue}:${q}:${page}:${today}`;
+  // `n<taille>` : le Data Cache est durable, un changement de
+  // PRATICIENS_PAGE_SIZE doit invalider les listes de l'ancienne taille.
+  const key = `specialite-doctors:${slug}:${ville}:${tri}:${dispo}:${conv}:${langue}:${q}:${page}:${today}:n${PRATICIENS_PAGE_SIZE}`;
 
   return cachedQuery(key, 3600, async () => {
     const where = buildWhere(slug, { ville, dispo, conv, langue, q, today });

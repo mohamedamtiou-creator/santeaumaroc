@@ -4,12 +4,15 @@ import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { prisma } from "@/lib/prisma";
 import { localizedAlternates, frenchOnlyAlternates } from "@/lib/hreflang";
+import { labelWithoutGloss } from "@/lib/utils";
 import { getDictionary, toLocale } from "@/lib/i18n";
 import { examLocalized, isExamArReady, isExamReviewed, parseLines, parseFaq } from "@/lib/medical-exam";
 import { tSpecialty } from "@/lib/specialty-i18n";
 import { parseSources, ArticleSources } from "@/components/blog/ArticleSources";
 import { BlogFaq } from "@/components/blog/BlogFaq";
 import { RelatedDoctors } from "@/components/blog/RelatedDoctors";
+import { ToolInsert } from "@/components/outils/ToolInsert";
+import { toolsForExam } from "@/lib/health-tools-inserts";
 import { EditorialReviewNote } from "@/components/health/EditorialReviewNote";
 import { DetailHero } from "@/components/health/DetailHero";
 import { SpecialtyAside } from "@/components/health/SpecialtyAside";
@@ -45,7 +48,8 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 
   const locale = toLocale(lang);
   const L = examLocalized(exam, locale);
-  const title = `${L.name} : déroulé, préparation et prix au Maroc`;
+  // Gabarit aligné sur la langue du CONTENU servi (cf. /maladies).
+  const title = getDictionary(L.isArabic ? "ar" : "fr").exams.itemMetaTitle.replace("{term}", labelWithoutGloss(L.name));
   const description = L.shortAnswer.slice(0, 160);
   const arReady = isExamArReady(exam);
   const indexable = isExamReviewed(exam) && (locale !== "ar" || arReady);
@@ -105,6 +109,25 @@ export default async function ExamPage({ params }: { params: Params }) {
           "name": L.name,
           ...(exam.synonyms.length > 0 && { "alternateName": exam.synonyms }),
           ...(exam.specialty && { "relevantSpecialty": { "@type": "MedicalSpecialty", "name": exam.specialty.name } }),
+          // Balisage du prix : la fourchette est affichée depuis toujours dans le
+          // héros, mais aucun moteur ne pouvait la lire COMME un prix. Fourchette
+          // → minPrice/maxPrice ; honoraires libres, donc jamais un prix unique.
+          ...((exam.priceMin != null || exam.priceMax != null) && {
+            "offers": {
+              "@type": "Offer",
+              "areaServed": { "@type": "Country", "name": "Maroc" },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceCurrency": "MAD",
+                ...(exam.priceMin != null ? { "minPrice": exam.priceMin } : {}),
+                ...(exam.priceMax != null ? { "maxPrice": exam.priceMax } : {}),
+                "valueAddedTaxIncluded": true,
+                "description": L.isArabic
+                  ? "الأتعاب حرة في القطاع الخاص: مبالغ إرشادية."
+                  : "Honoraires libres dans le privé : fourchette indicative.",
+              },
+            },
+          }),
         },
         "audience": { "@type": "MedicalAudience", "audienceType": "Patient" },
         ...(sources.length > 0 && {
@@ -235,6 +258,9 @@ export default async function ExamPage({ params }: { params: Params }) {
                 </ul>
               </section>
             )}
+
+            {/* Maillage retour vers /outils (registre inversé, aucune requête) */}
+            <ToolInsert slugs={toolsForExam(exam.slug)} locale={locale} t={dict.tools} />
 
             {/* Praticiens réservables de la spécialité */}
             {exam.specialty && (

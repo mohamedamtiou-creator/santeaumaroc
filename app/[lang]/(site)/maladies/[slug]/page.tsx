@@ -4,12 +4,15 @@ import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { prisma } from "@/lib/prisma";
 import { localizedAlternates, frenchOnlyAlternates } from "@/lib/hreflang";
+import { labelWithoutGloss } from "@/lib/utils";
 import { getDictionary, toLocale } from "@/lib/i18n";
 import { topicLocalized, isTopicArReady, isTopicReviewed, parseLines, parseFaq, composeIntentQuestion, composeTreatmentQuestion, composePreventionQuestion } from "@/lib/health-topic";
 import { tSpecialty } from "@/lib/specialty-i18n";
 import { parseSources, ArticleSources } from "@/components/blog/ArticleSources";
 import { BlogFaq } from "@/components/blog/BlogFaq";
 import { RelatedDoctors } from "@/components/blog/RelatedDoctors";
+import { ToolInsert } from "@/components/outils/ToolInsert";
+import { toolsForTopic } from "@/lib/health-tools-inserts";
 import { EditorialReviewNote } from "@/components/health/EditorialReviewNote";
 import { DetailHero } from "@/components/health/DetailHero";
 import { SpecialtyAside } from "@/components/health/SpecialtyAside";
@@ -39,7 +42,11 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 
   const locale = toLocale(lang);
   const L = topicLocalized(topic, locale);
-  const title = `${L.term} : causes, symptômes et quand consulter`;
+  // Le gabarit suit la langue du CONTENU réellement servi, pas la locale demandée :
+  // sous le verrou YMYL, /ar rend du français, et un gabarit arabe autour d'un terme
+  // français produisait « حبّ الشباب : causes, symptômes et quand consulter ».
+  const tMeta = getDictionary(L.isArabic ? "ar" : "fr").diseases;
+  const title = tMeta.itemMetaTitle.replace("{term}", labelWithoutGloss(L.term));
   const description = L.shortAnswer.slice(0, 160);
   const arReady = isTopicArReady(topic);
   const indexable = isTopicReviewed(topic) && (locale !== "ar" || arReady);
@@ -193,6 +200,9 @@ export default async function MaladiePage({ params }: { params: Params }) {
                 <p className="text-slate-700 leading-relaxed" dir="auto">{L.whenToConsult}</p>
               </section>
             )}
+
+            {/* Maillage retour vers /outils (registre inversé, aucune requête) */}
+            <ToolInsert slugs={toolsForTopic(topic.slug)} locale={locale} t={dict.tools} />
 
             {/* Praticiens réservables de la spécialité */}
             {topic.specialty && (

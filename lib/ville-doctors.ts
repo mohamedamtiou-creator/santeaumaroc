@@ -16,7 +16,11 @@ function sanitize(s: string | null | undefined): string | null {
 export function getVilleDoctors(slug: string, specialite: string, page: number): Promise<DoctorsResult> {
   const spec = (specialite ?? "").trim();
   const p = Math.max(1, page || 1);
-  const key = `ville-doctors:${slug}:${spec}:${p}`;
+  // La taille de page fait partie de la clé : le Data Cache est DURABLE (il
+  // survit aux déploiements), donc sans elle un changement de
+  // PRATICIENS_PAGE_SIZE resservirait pendant 1 h des listes de l'ancienne
+  // taille, incohérentes avec le totalPages recalculé.
+  const key = `ville-doctors:${slug}:${spec}:${p}:n${PRATICIENS_PAGE_SIZE}`;
 
   return cachedQuery(key, 3600, async () => {
     const where = {

@@ -1,5 +1,12 @@
 import type { MetadataRoute } from "next";
 import { prisma } from "@/lib/prisma";
+import { getAlphaIndexSitemapPaths } from "@/lib/city-alpha-index";
+import { MED_HUB_PATH, MED_MIN_INDEXABLE, getMedLetterBuckets, medIndexPath } from "@/lib/medicament-remboursement";
+import { TOOL_SLUGS } from "@/lib/health-tools";
+import { TOOLS_AR_REVIEWED } from "@/lib/tools-content-ar";
+import { glossaryQuality } from "@/lib/glossary-quality";
+import { CLUSTER_SLUGS } from "@/lib/life-clusters";
+import { CLUSTERS_AR_REVIEWED } from "@/lib/life-clusters-content-ar";
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 
@@ -77,6 +84,99 @@ function staticPages(now: Date): MetadataRoute.Sitemap {
   ];
 }
 
+/**
+ * Pages d'index alphabétique des villes (`/villes/casablanca/annuaire/b[/2]`).
+ *
+ * Comme pour les combos, on ne déclare QUE les URL indexables : une lettre sous
+ * ALPHA_MIN_INDEXABLE praticiens est servie en `noindex, follow` (elle reste
+ * crawlée via la barre A–Z, mais n'a pas à être advertisée ici).
+ */
+async function alphaIndexEntries(now: Date): Promise<MetadataRoute.Sitemap> {
+  const paths = await getAlphaIndexSitemapPaths();
+  return paths.map((path) => ({
+    url: `${BASE}${path}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.5,
+  }));
+}
+
+/**
+ * Silo remboursement des médicaments : le hub + ses pages d'index alphabétique.
+ * Même règle que partout : on ne déclare que l'indexable (une lettre sous
+ * MED_MIN_INDEXABLE est servie en `noindex, follow`).
+ */
+async function medicamentEntries(now: Date): Promise<MetadataRoute.Sitemap> {
+  const { buckets } = await getMedLetterBuckets();
+  const entries: MetadataRoute.Sitemap = [
+    { url: `${BASE}${MED_HUB_PATH}`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.7 },
+  ];
+  for (const b of buckets) {
+    if (b.count < MED_MIN_INDEXABLE) continue;
+    for (let p = 1; p <= b.pages; p++) {
+      entries.push({
+        url: `${BASE}${medIndexPath(b.slug, p)}`,
+        lastModified: now,
+        changeFrequency: "monthly" as const,
+        priority: 0.5,
+      });
+    }
+  }
+  return entries;
+}
+
+/**
+ * Cluster `/outils` : le hub et ses six calculateurs.
+ *
+ * Les entrées portent leurs `alternates` EXPLICITEMENT pour court-circuiter le
+ * défaut bilingue de `withHreflang` : tant que la traduction arabe n'est pas
+ * relue (`TOOLS_AR_REVIEWED`), les pages arabes sont servies en `noindex` et ne
+ * doivent donc pas être advertisées ici.
+ */
+function toolsEntries(now: Date): MetadataRoute.Sitemap {
+  const arReady = TOOLS_AR_REVIEWED !== null;
+  const entry = (path: string, priority: number) => {
+    const fr = `${BASE}${path}`;
+    const ar = `${BASE}/ar${path}`;
+    return {
+      url: fr,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority,
+      alternates: {
+        languages: arReady
+          ? { "fr-MA": fr, "ar-MA": ar, "x-default": fr }
+          : { "fr-MA": fr, "x-default": fr },
+      },
+    };
+  };
+  return [entry("/outils", 0.75), ...TOOL_SLUGS.map((slug) => entry(`/outils/${slug}`, 0.7))];
+}
+
+/**
+ * Dossiers « parcours de vie » (`/grossesse`, `/nutrition`…). Même règle que le
+ * cluster outils : `alternates` explicites, car l'arabe reste `noindex` tant que
+ * `CLUSTERS_AR_REVIEWED` n'est pas posé.
+ */
+function clusterEntries(now: Date): MetadataRoute.Sitemap {
+  const arReady = CLUSTERS_AR_REVIEWED !== null;
+  return CLUSTER_SLUGS.map((slug) => {
+    const fr = `${BASE}/${slug}`;
+    const ar = `${BASE}/ar/${slug}`;
+    return {
+      url: fr,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.75,
+      alternates: {
+        languages: arReady
+          ? { "fr-MA": fr, "ar-MA": ar, "x-default": fr }
+          : { "fr-MA": fr, "x-default": fr },
+      },
+    };
+  });
+}
+
 async function coreEntries(now: Date): Promise<MetadataRoute.Sitemap> {
   const [specialties, cities, postCategories, questionSpecialties, glossary, symptoms, diseases, exams, treatments, intents, treatmentPages, preventionPages, guides] = await Promise.all([
     prisma.specialty.findMany({ select: { slug: true }, orderBy: { order: "asc" } }),
@@ -93,9 +193,15 @@ async function coreEntries(now: Date): Promise<MetadataRoute.Sitemap> {
     }),
     // Termes de glossaire RELUS uniquement (reviewedAt) → cohérence
     // découverte ↔ indexabilité (les termes non relus sont en noindex).
+    // Les champs de fond sont remontés pour appliquer le MÊME garde-fou
+    // anti-pages minces que la page (lib/glossary-quality) : on ne déclare
+    // jamais dans le sitemap une URL servie en noindex.
     prisma.glossaryTerm.findMany({
       where: { status: "PUBLISHED", reviewedAt: { not: null } },
-      select: { slug: true, updatedAt: true, arReviewedAt: true },
+      select: {
+        slug: true, updatedAt: true, arReviewedAt: true,
+        definition: true, sources: true, relatedSlug: true, synonyms: true,
+      },
       orderBy: { term: "asc" },
     }),
     // Symptômes RELUS uniquement (idem glossaire : cohérence découverte ↔ index).
@@ -149,14 +255,20 @@ async function coreEntries(now: Date): Promise<MetadataRoute.Sitemap> {
     }),
   ]);
 
+  const [alphaIndex, medicaments] = await Promise.all([alphaIndexEntries(now), medicamentEntries(now)]);
+
   return [
+    ...medicaments,
+    ...toolsEntries(now),
+    ...clusterEntries(now),
     ...staticPages(now),
     ...specialties.map((s) => ({ url: `${BASE}/specialites/${s.slug}`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 })),
     ...cities.map((c) => ({ url: `${BASE}/villes/${c.slug}`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 })),
+    ...alphaIndex,
     ...postCategories.map((c) => ({ url: `${BASE}/blog/categorie/${c.slug}`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.75 })),
     ...questionSpecialties.map((s) => ({ url: `${BASE}/questions/specialite/${s.slug}`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.65 })),
     // hreflang AR déclaré seulement si la traduction du terme est relue (YMYL).
-    ...glossary.map((g) => {
+    ...glossary.filter((g) => glossaryQuality(g).substantial).map((g) => {
       const fr = `${BASE}/glossaire/${g.slug}`;
       const ar = `${BASE}/ar/glossaire/${g.slug}`;
       return {

@@ -27,6 +27,7 @@ const SPECIALTIES: Record<string, RelatedSpecialty> = {
   pediatrie:            { slug: "pediatrie",            labelFr: "pédiatres",             labelAr: "أطباء الأطفال" },
   dermatologie:         { slug: "dermatologie",         labelFr: "dermatologues",         labelAr: "أطباء الجلد" },
   pneumologie:          { slug: "pneumo-phtisiologie",  labelFr: "pneumologues",          labelAr: "أطباء الرئة" },
+  dentaire:             { slug: "chirurgie-dentaire",   labelFr: "chirurgiens-dentistes", labelAr: "أطباء الأسنان" },
 };
 
 // Article (slug) → spécialité associée
@@ -205,6 +206,16 @@ const POST_TO_SPECIALTY: Record<string, RelatedSpecialty> = {
   "bilan-de-sante-quand-faire-maroc":         SPECIALTIES["medecine-generale"],
   "activite-physique-sante-maroc":            SPECIALTIES["medecine-generale"],
   "alimentation-mediterraneenne-maroc":       SPECIALTIES["medecine-generale"],
+  // Vertical bucco-dentaire → chirurgie dentaire (2e pool de praticiens de
+  // l'annuaire ; premier article du corpus sur ce silo).
+  "mal-de-dents-rage-de-dents-maroc":         SPECIALTIES.dentaire,
+  "abces-dentaire-maroc":                     SPECIALTIES.dentaire,
+  "dent-de-sagesse-extraction-maroc":         SPECIALTIES.dentaire,
+  "parodontite-dechaussement-dents-maroc":    SPECIALTIES.dentaire,
+  "carie-dentaire-maroc":                     SPECIALTIES.dentaire,
+  // Vertical dermatologie (348 praticiens) — piliers autonomes.
+  "chute-de-cheveux-maroc":                   SPECIALTIES.dermatologie,
+  "acne-maroc":                               SPECIALTIES.dermatologie,
 };
 
 // Repli par catégorie si l'article n'est pas mappé individuellement.

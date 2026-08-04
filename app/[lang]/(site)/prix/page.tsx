@@ -5,21 +5,24 @@ import { localizedAlternates } from "@/lib/hreflang";
 import { getDictionary, toLocale } from "@/lib/i18n";
 import { examLocalized } from "@/lib/medical-exam";
 import { HubHero } from "@/components/health/HubHero";
+import {
+  CONSULTATIONS,
+  TAUX_REMBOURSEMENT,
+  estPubliable,
+  formatMontant,
+  mentionReserve,
+} from "@/lib/prix-reference";
 
 export const revalidate = 3600;
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 const PATH = "/prix";
 
-// Repères de consultation : fourchettes éditoriales indicatives (secteur privé,
-// Maroc). Aucune donnée par praticien en base → pas de grille par ville (éviterait
-// du contenu dupliqué). Ces repères sont volontairement nationaux et disclaimer.
-const CONSULT: { fr: string; ar: string; price: string }[] = [
-  { fr: "Médecine générale", ar: "الطب العام", price: "100 – 250" },
-  { fr: "Consultation spécialiste", ar: "استشارة أخصائي", price: "200 – 500" },
-  { fr: "Consultation dentaire", ar: "استشارة الأسنان", price: "150 – 400" },
-  { fr: "Psychiatrie / psychologie", ar: "الطب النفسي", price: "250 – 600" },
-];
+// Les montants de consultation viennent désormais de lib/prix-reference.ts —
+// source de vérité unique, chaque montant portant son registre (TNR officiel vs
+// honoraires libres), sa source et son statut de validation. Ils n'ont plus le
+// droit d'être codés en dur ici : c'est ce qui produisait des écarts avec les
+// tables de specialty-content et le corpus blog.
 
 function formatPrice(min: number | null, max: number | null): string | null {
   if (min && max) return `${min} – ${max} MAD`;
@@ -69,6 +72,11 @@ export default async function PrixPage({ params }: { params: Promise<{ lang: str
     })
     .filter((r) => r.price);
 
+  // Bornes numériques pour le balisage (examRows ne porte que du texte formaté).
+  const examRowsLd = exams
+    .filter((e) => e.priceMin != null || e.priceMax != null)
+    .map((e) => ({ slug: e.slug, name: examLocalized(e, locale).name, min: e.priceMin, max: e.priceMax }));
+
   const url = `${isAr ? `${BASE}/ar` : BASE}${PATH}`;
   const jsonLd = {
     "@context": "https://schema.org",
@@ -80,6 +88,54 @@ export default async function PrixPage({ params }: { params: Promise<{ lang: str
         "description": t.metaDesc,
         "inLanguage": isAr ? "ar-MA" : "fr-MA",
         "isPartOf": { "@type": "WebSite", "@id": `${BASE}#website` },
+      },
+      // Balisage des prix : sans lui, aucun moteur ne lit ces montants comme des
+      // prix — c'était le cas de TOUT le contenu santé (PriceSpecification
+      // n'existait que sur les pages d'offres commerciales du site).
+      // Un ItemList de MedicalProcedure, chacun portant son PriceSpecification.
+      {
+        "@type": "ItemList",
+        "@id": `${url}#tarifs`,
+        "name": t.consultTitle,
+        "itemListElement": [
+          ...CONSULTATIONS.filter((a) => estPubliable(a.prive)).map((a, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "item": {
+              "@type": "MedicalProcedure",
+              "name": isAr ? a.labelAr : a.labelFr,
+              "offers": {
+                "@type": "Offer",
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "priceCurrency": "MAD",
+                  ...(a.prive!.min != null ? { "minPrice": a.prive!.min } : {}),
+                  ...(a.prive!.max != null ? { "maxPrice": a.prive!.max } : {}),
+                  "valueAddedTaxIncluded": true,
+                },
+              },
+            },
+          })),
+          ...examRowsLd.map((e, i) => ({
+            "@type": "ListItem",
+            "position": CONSULTATIONS.length + i + 1,
+            "item": {
+              "@type": "MedicalProcedure",
+              "name": e.name,
+              "url": `${isAr ? `${BASE}/ar` : BASE}/examens/${e.slug}`,
+              "offers": {
+                "@type": "Offer",
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "priceCurrency": "MAD",
+                  ...(e.min != null ? { "minPrice": e.min } : {}),
+                  ...(e.max != null ? { "maxPrice": e.max } : {}),
+                  "valueAddedTaxIncluded": true,
+                },
+              },
+            },
+          })),
+        ],
       },
       {
         "@type": "BreadcrumbList",
@@ -116,21 +172,71 @@ export default async function PrixPage({ params }: { params: Promise<{ lang: str
                 {t.consultTitle}
               </h2>
               <p className="text-sm text-slate-500 mb-4" dir="auto">{t.consultIntro}</p>
-              <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+
+              {/* Deux registres, deux colonnes, jamais confondus : la base de
+                  remboursement officielle (TNR) n'est PAS le prix payé au cabinet.
+                  C'est la distinction que le patient doit lire pour anticiper son
+                  reste à charge. */}
+              <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
                 <table className="w-full border-collapse">
                   <thead className="bg-slate-50/80 border-b border-slate-100">
-                    <tr><th className={thCls}>{t.colType}</th><th className={`${thCls} text-end`}>{t.colPrice}</th></tr>
+                    <tr>
+                      <th className={thCls}>{t.colType}</th>
+                      <th className={`${thCls} text-end`}>{isAr ? "أساس التعويض" : "Base de remboursement"}</th>
+                      <th className={`${thCls} text-end`}>{isAr ? "القطاع الخاص" : "Secteur privé"}</th>
+                    </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100">
-                    {CONSULT.map((c) => (
-                      <tr key={c.fr} className="hover:bg-slate-50/70 transition-colors">
-                        <td className={`${tdCls} font-medium text-slate-900`} dir="auto">{isAr ? c.ar : c.fr}</td>
-                        <td className={`${tdCls} text-end font-bold text-primary-700 tabular-nums whitespace-nowrap`} dir="ltr">{c.price} MAD</td>
-                      </tr>
-                    ))}
+                    {CONSULTATIONS.map((acte) => {
+                      const tnr = formatMontant(acte.tnr, isAr ? "ar" : "fr");
+                      const prive = formatMontant(acte.prive, isAr ? "ar" : "fr");
+                      return (
+                        <tr key={acte.slug} className="hover:bg-slate-50/70 transition-colors align-baseline">
+                          <td className={`${tdCls} font-medium text-slate-900`} dir="auto">
+                            {isAr ? acte.labelAr : acte.labelFr}
+                          </td>
+                          <td className={`${tdCls} text-end tabular-nums whitespace-nowrap`} dir="ltr">
+                            {tnr ? (
+                              <>
+                                <span className="font-bold text-secondary-700">{tnr}</span>
+                                {acte.tnr?.revisionEnCours && (
+                                  <span className="block text-[11px] font-normal text-terra-600 text-end" dir="auto">
+                                    {isAr ? "قيد المراجعة" : "en révision"}
+                                  </span>
+                                )}
+                              </>
+                            ) : (
+                              <span className="text-slate-400">—</span>
+                            )}
+                          </td>
+                          <td className={`${tdCls} text-end font-bold text-primary-700 tabular-nums whitespace-nowrap`} dir="ltr">
+                            {prive ?? <span className="font-normal text-slate-400">—</span>}
+                          </td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
+
+              {/* Réserves : obligatoires sous tout montant non validé (YMYL). */}
+              <ul className="mt-3 space-y-1">
+                {[
+                  CONSULTATIONS.find((a) => a.tnr)?.tnr,
+                  CONSULTATIONS.find((a) => a.prive)?.prive,
+                ]
+                  .filter((m) => !!m)
+                  .map((m) => (
+                    <li key={m!.registre} className="text-xs text-slate-500 leading-relaxed" dir="auto">
+                      {mentionReserve(m!, isAr ? "ar" : "fr")}
+                    </li>
+                  ))}
+                <li className="text-xs text-slate-500 leading-relaxed" dir="auto">
+                  {isAr
+                    ? `نسبة التعويض في التطبيب الخارجي بين ${TAUX_REMBOURSEMENT.ambulatoireMin} و ${TAUX_REMBOURSEMENT.ambulatoireMax} بالمائة من الأساس المرجعي، وتصل إلى ${TAUX_REMBOURSEMENT.hospitalisation} بالمائة عند الاستشفاء.`
+                    : `Le remboursement en ambulatoire se situe entre ${TAUX_REMBOURSEMENT.ambulatoireMin} et ${TAUX_REMBOURSEMENT.ambulatoireMax} % de la base de référence, et jusqu'à ${TAUX_REMBOURSEMENT.hospitalisation} % en hospitalisation. Le taux exact dépend de votre régime.`}
+                </li>
+              </ul>
             </section>
 
             {/* ── Examens (données réelles MedicalExam) ── */}
@@ -207,10 +313,18 @@ export default async function PrixPage({ params }: { params: Promise<{ lang: str
             <section>
               <h2 className="text-lg font-bold text-slate-900 mb-2" dir="auto">{t.medicamentsTitle}</h2>
               <p className="text-sm text-slate-600 leading-relaxed mb-3" dir="auto">{t.medicamentsText}</p>
-              <Link href="/medicaments" className="inline-flex items-center gap-2 text-sm font-semibold text-primary-700 hover:text-primary-800">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 rtl:-scale-x-100" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><path d="m6 3 5 5-5 5" /></svg>
-                {t.medicamentsCta}
-              </Link>
+              <div className="flex flex-wrap gap-x-6 gap-y-2">
+                {/* Le silo remboursement est la donnée la plus solide du lot :
+                    référentiel public du médicament, pas estimation éditoriale. */}
+                <Link href="/remboursement-amo-cnss/medicaments" className="inline-flex items-center gap-2 text-sm font-semibold text-primary-700 hover:text-primary-800">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 rtl:-scale-x-100" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><path d="m6 3 5 5-5 5" /></svg>
+                  {isAr ? "تعويض الأدوية: النسب والأسعار" : "Remboursement des médicaments : taux et prix"}
+                </Link>
+                <Link href="/medicaments" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-primary-800">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 rtl:-scale-x-100" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><path d="m6 3 5 5-5 5" /></svg>
+                  {t.medicamentsCta}
+                </Link>
+              </div>
             </section>
 
             {/* CTA conversion — visible mobile (l'aside sticky prend le relais en desktop) */}

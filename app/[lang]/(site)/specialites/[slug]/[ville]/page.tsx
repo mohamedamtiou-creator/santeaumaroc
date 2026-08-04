@@ -7,7 +7,7 @@ import { cachedQuery } from "@/lib/cache";
 import { PraticienCard } from "@/components/PraticienCard";
 import { ListingControls, FILTERABLE_LANGUAGES } from "@/components/ListingControls";
 import { SpecialtyControls, SpecialtyResults as SpecialtyResultsLive } from "@/components/specialites/SpecialtyListing";
-import { Pagination } from "@/components/ui/Pagination";
+import { PaginationNav } from "@/components/ui/PaginationNav";
 import { SpecialtyIcon } from "@/components/SpecialtyIcon";
 import { EssentielBox } from "@/components/EssentielBox";
 import { SpecialtyEditorial } from "@/components/SpecialtyEditorial";
@@ -146,7 +146,7 @@ function ChevronLeft() {
    durable) → SSR de base et filtrage client strictement cohérents. */
 async function CityResults({
   slug, ville, page, total, locale, t, tCard, tPagination,
-  specName, cityName, synonyme, synPlural, specialtyName, cityDisplayName, buildUrl,
+  specName, cityName, synonyme, synPlural, specialtyName, cityDisplayName,
 }: {
   slug: string;
   ville: string;
@@ -162,7 +162,6 @@ async function CityResults({
   synPlural: string;
   specialtyName: string;
   cityDisplayName: string;
-  buildUrl: (p: number) => string;
 }) {
   const { doctors } = await getSpecialtyDoctors(slug, { ville, page });
   const totalPages = Math.ceil(total / PAGE_SIZE);
@@ -230,7 +229,9 @@ async function CityResults({
         </div>
       )}
 
-      <Pagination page={page} totalPages={totalPages} buildUrl={buildUrl} t={tPagination} />
+      {/* Boutons et non liens : page statique ne lisant pas searchParams, donc
+          ?page=N sert le HTML de la page 1 (URL en doublon exact pour le crawl). */}
+      <PaginationNav page={page} totalPages={totalPages} basePath={`/specialites/${slug}/${ville}`} t={tPagination} />
     </>
   );
 }
@@ -269,7 +270,6 @@ export default async function SpecialiteCityPage({ params }: { params: Params })
   const otherCities = allCities.filter((c) => c.slug !== ville).slice(0, 8);
 
   const page = 1;
-  const buildUrl = (p: number) => `/specialites/${slug}/${ville}${p > 1 ? `?page=${p}` : ""}`;
 
   // Date de relecture : override par spécialité (content.reviewed) sinon constante globale.
   const reviewedIso = content.reviewed ?? CONTENT_REVIEWED;
@@ -367,7 +367,6 @@ export default async function SpecialiteCityPage({ params }: { params: Params })
       synPlural={synPlural}
       specialtyName={specialty.name}
       cityDisplayName={city.name}
-      buildUrl={buildUrl}
     />
   );
 

@@ -1,5 +1,24 @@
 import type { TimeSlot, WorkingHourRecord, AbsenceRecord, ManagedSlot } from "@/lib/types";
 
+/**
+ * Retire la glose entre parenthèses d'un libellé — POUR LES <title> UNIQUEMENT.
+ *
+ * Les libellés du catalogue portent souvent une glose utile à la lecture mais
+ * coûteuse en SERP : « Acouphènes (bourdonnements d'oreille) », « BPCO
+ * (bronchopneumopathie chronique) », « IRM (imagerie par résonance magnétique) ».
+ * Une fois le gabarit et le suffixe « | SantéauMaroc » ajoutés, 409 des 812
+ * titres de fiches dépassaient 60 caractères et étaient tronqués par Google
+ * (audit du 4 août 2026). La glose est donc retirée du `<title>` et CONSERVÉE
+ * dans le H1 et le corps de page, où elle sert le lecteur.
+ *
+ * Sans effet si le libellé n'a pas de parenthèse ; renvoie le libellé d'origine
+ * si le retrait ne laissait rien (libellé entièrement parenthésé).
+ */
+export function labelWithoutGloss(label: string): string {
+  const stripped = label.replace(/\s*\([^()]*\)/g, " ").replace(/\s{2,}/g, " ").trim();
+  return stripped || label.trim();
+}
+
 export function formatDate(dateStr: string): string {
   const date = new Date(dateStr + "T00:00:00");
   return date.toLocaleDateString("fr-MA", {

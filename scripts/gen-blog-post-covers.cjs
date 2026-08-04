@@ -84,6 +84,16 @@ const MAP = [
   ["sante-mentale-guide-maroc",                "photo-1522075782449-e45a34f1ddfb", "Silhouette apaisée au coucher du soleil, bien-être mental"],
   ["stress-chronique-burn-out-maroc",          "photo-1456406644174-8ddd4cd52a06", "Personne épuisée, tête dans la main, devant son ordinateur"],
   ["troubles-sommeil-insomnie-maroc",          "photo-1768946131530-358c52c4c42d", "Lit et oreillers évoquant les troubles du sommeil et l'insomnie"],
+  // symptomes
+  ["mal-de-dents-rage-de-dents-maroc",         "photo-1657470179447-0f5aa16daa91", "Chirurgien-dentiste soignant une patiente au fauteuil"],
+  // cocon dentaire (satellites du pilier « mal de dents »)
+  ["abces-dentaire-maroc",                     "photo-1588776814546-daab30f310ce", "Équipe dentaire réalisant un soin au fauteuil, aspiration en cours"],
+  ["dent-de-sagesse-extraction-maroc",         "photo-1777445374290-eedda5be8e5b", "Radiographie panoramique dentaire montrant les dents de sagesse"],
+  ["parodontite-dechaussement-dents-maroc",    "photo-1606811971618-4486d14f3f99", "Examen des gencives avec miroir et sonde parodontale"],
+  ["carie-dentaire-maroc",                     "photo-1609840113564-ab4aba4956c4", "Brossage des dents avec une brosse souple et un dentifrice fluoré"],
+  // dermatologie
+  ["chute-de-cheveux-maroc",                   "photo-1773078280516-df823e1c9d78", "Peigne portant des cheveux tombés"],
+  ["acne-maroc",                               "photo-1660646463659-df77c1580723", "Visage présentant des lésions d'acné inflammatoire sur la joue"],
 ];
 
 function fetchBuffer(url) {

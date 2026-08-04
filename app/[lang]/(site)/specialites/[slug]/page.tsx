@@ -9,10 +9,12 @@ import { SpecialtyPillarTopics } from "@/components/health/SpecialtyPillarTopics
 import { PraticienCard } from "@/components/PraticienCard";
 import { ListingControls, FILTERABLE_LANGUAGES } from "@/components/ListingControls";
 import { SpecialtyControls, SpecialtyResults as SpecialtyResultsLive } from "@/components/specialites/SpecialtyListing";
-import { Pagination } from "@/components/ui/Pagination";
+import { PaginationNav } from "@/components/ui/PaginationNav";
 import { SpecialtyIcon } from "@/components/SpecialtyIcon";
 import { EssentielBox } from "@/components/EssentielBox";
 import { SpecialtyEditorial } from "@/components/SpecialtyEditorial";
+import { ToolInsert } from "@/components/outils/ToolInsert";
+import { toolsForSpecialty } from "@/lib/health-tools-inserts";
 import { getSpecialtyContent, pluralizeSynonyme } from "@/lib/specialty-content";
 import { articleSlugsForSpecialty } from "@/lib/blog-related";
 import { getDictionary, toLocale, type Locale, type Dictionary } from "@/lib/i18n";
@@ -136,7 +138,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
    base et le filtrage client, et DTO plat JSON-safe (prix Decimal→number). */
 async function SpecialtyResults({
   page, total, slug, locale, t, tCard, tPagination,
-  hasRefine, ville, activeCityName, specName, synonyme, synPlural, specialtyName, buildUrl,
+  hasRefine, ville, activeCityName, specName, synonyme, synPlural, specialtyName,
 }: {
   page: number;
   total: number;
@@ -152,7 +154,6 @@ async function SpecialtyResults({
   synonyme: string;
   synPlural: string;
   specialtyName: string;
-  buildUrl: (p: number) => string;
 }) {
   // Vue canonique (aucun filtre, page demandée) : même source cachée durable que
   // la route API client → SSR de base et filtrage client strictement cohérents.
@@ -263,7 +264,9 @@ async function SpecialtyResults({
         </div>
       )}
 
-      <Pagination page={page} totalPages={totalPages} buildUrl={buildUrl} t={tPagination} />
+      {/* Boutons et non liens : page statique ne lisant pas searchParams, donc
+          ?page=N sert le HTML de la page 1 (URL en doublon exact pour le crawl). */}
+      <PaginationNav page={page} totalPages={totalPages} basePath={`/specialites/${slug}`} t={tPagination} />
     </>
   );
 }
@@ -422,8 +425,6 @@ export default async function SpecialitePage({ params }: { params: Params }) {
   const activeCityName: string | null = null;
   const showMaillage = true;
 
-  const buildUrl = (p: number) => `/specialites/${slug}${p > 1 ? `?page=${p}` : ""}`;
-
   const controlsCities = cities.map((c) => ({ slug: c.slug, name: locale === "ar" ? tCity(c.name, locale) : c.name }));
 
   // Liste de base (page 1, sans filtre) rendue côté serveur : sert de contenu au
@@ -445,7 +446,6 @@ export default async function SpecialitePage({ params }: { params: Params }) {
       synonyme={synonyme}
       synPlural={synPlural}
       specialtyName={specialty.name}
-      buildUrl={buildUrl}
     />
   );
 
@@ -644,6 +644,11 @@ export default async function SpecialitePage({ params }: { params: Params }) {
           <Suspense fallback={null}>
             <SpecialtyPillarTopics specialtyId={specialty.id} specialtySlug={slug} locale={locale} />
           </Suspense>
+        )}
+
+        {/* ── Outils du cluster /outils rattachés à cette spécialité ── */}
+        {showMaillage && (
+          <ToolInsert slugs={toolsForSpecialty(slug)} locale={locale} t={dict.tools} />
         )}
 
         {/* ── Par ville (cities déjà en coquille) ──── */}

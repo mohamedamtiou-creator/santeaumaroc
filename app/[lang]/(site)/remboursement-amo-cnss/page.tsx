@@ -387,6 +387,28 @@ export default async function RemboursementPage({ params }: { params: Promise<{ 
               </div>
             </section>
 
+            {/* ── Silo médicaments ────────────────────────
+                Seule donnée de remboursement massive et de source officielle du
+                site (5 916 médicaments) : elle mérite une entrée explicite ici,
+                le guide étant la page mère naturelle du sujet. */}
+            <section className="mb-10 rounded-2xl border border-primary-100 bg-primary-50/40 p-5 sm:p-6">
+              <h2 className="text-lg font-bold text-slate-900 mb-2" dir="auto">
+                {locale === "ar" ? "تعويض الأدوية" : "Remboursement des médicaments"}
+              </h2>
+              <p className="text-sm text-slate-700 leading-relaxed" dir="auto">
+                {locale === "ar"
+                  ? "نسبة التعويض وأساس التعويض والسعر العمومي لأكثر من 5900 دواء مسوَّق بالمغرب، مع تحديد الأدوية التي يتجاوز سعرها أساس تعويضها."
+                  : "Le taux, la base de remboursement et le prix de vente de plus de 5 900 médicaments commercialisés au Maroc — dont ceux dont le prix dépasse la base, où la différence reste à votre charge."}
+              </p>
+              <Link
+                href="/remboursement-amo-cnss/medicaments"
+                className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-primary-700 hover:text-primary-800"
+              >
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 rtl:-scale-x-100" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><path d="m6 3 5 5-5 5" /></svg>
+                {locale === "ar" ? "استعراض الأدوية" : "Consulter les médicaments"}
+              </Link>
+            </section>
+
             {/* ── Sources ─────────────────────────────────── */}
             <section className="mb-10">
               <h2 className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-3">{t.sourcesTitle}</h2>
