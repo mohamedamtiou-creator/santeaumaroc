@@ -1,6 +1,21 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+/**
+ * Client Resend construit À LA DEMANDE, jamais au chargement du module.
+ *
+ * `new Resend(undefined)` LÈVE (« Missing API key »). Au niveau module, cette
+ * exception se déclenchait pendant `next build`, à la collecte des données de
+ * page : tout le build échouait sur `/api/auth/verify-email` dès que
+ * `RESEND_API_KEY` était absente — typiquement un poste de dev ou une CI qui
+ * n'envoie pas d'e-mail. Or aucune page n'a besoin d'envoyer un e-mail POUR être
+ * construite. En différant la construction au premier envoi réel, l'absence de
+ * clé ne casse plus que l'envoi lui-même, là où l'erreur est pertinente.
+ */
+let client: Resend | null = null;
+function getResend(): Resend {
+  if (!client) client = new Resend(process.env.RESEND_API_KEY);
+  return client;
+}
 
 // En dev : utilise l'adresse de test Resend si le domaine n'est pas encore vérifié
 const FROM =
@@ -33,8 +48,8 @@ const C = {
 const FONT =
   "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif";
 
-async function send(payload: Parameters<typeof resend.emails.send>[0]) {
-  const { data, error } = await resend.emails.send(payload);
+async function send(payload: Parameters<Resend["emails"]["send"]>[0]) {
+  const { data, error } = await getResend().emails.send(payload);
   if (error) {
     console.error("[Resend] Échec d'envoi →", JSON.stringify(error));
     throw new Error(error.message);

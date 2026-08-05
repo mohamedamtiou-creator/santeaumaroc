@@ -141,7 +141,10 @@ export function Footer({ locale }: { locale: Locale }) {
             <p className="text-sm leading-relaxed text-slate-400">
               {f.tagline}
             </p>
-            <p className="mt-4 text-xs text-slate-500 font-semibold uppercase tracking-wider">
+            {/* slate-400 et non slate-500 : sur le fond sombre du pied de page
+                (#172554), #62748e ne tenait que 3,08:1. Ici on éclaircit pour
+                remonter à ~5,2:1 — l'inverse du réflexe « foncer pour contraster ». */}
+            <p className="mt-4 text-xs text-slate-400 font-semibold uppercase tracking-wider">
               {f.country}
             </p>
 

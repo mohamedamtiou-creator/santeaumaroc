@@ -126,7 +126,8 @@ export function CallbackForm({ doctorId, t, doctorMotifs, motifT, callHref, call
           aux flèches native, re-clic = désélection (le motif reste facultatif). */}
       <fieldset className="flex flex-col gap-1.5">
         <legend className="text-xs font-semibold text-slate-700">
-          {t.reason} <span className="font-normal text-slate-400">· {t.reasonOptional}</span>
+          {/* slate-500 et non slate-400 : #90a1b9 sur blanc ne tenait que 2,63:1 (AA en exige 4,5). */}
+          {t.reason} <span className="font-normal text-slate-500">· {t.reasonOptional}</span>
         </legend>
         {/* Valeur soumise à l'action serveur (chip choisi ou texte « Autre »). */}
         <input type="hidden" name="reason" value={finalReason} />

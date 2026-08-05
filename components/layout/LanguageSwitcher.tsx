@@ -2,7 +2,7 @@
 
 import { useRouter, usePathname } from "next/navigation";
 import { useTransition } from "react";
-import { type Locale } from "@/lib/i18n";
+import { type Locale } from "@/lib/locale";
 import { setLocale } from "@/lib/locale-action";
 
 const OPTIONS: { code: Locale; short: string; label: string }[] = [

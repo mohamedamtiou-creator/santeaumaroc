@@ -2,45 +2,27 @@
  * i18n léger basé cookie (sans refonte du routing).
  * — Module PUR : aucun import `next/headers` ici → importable côté client ET serveur.
  * — La lecture du cookie côté serveur vit dans `lib/i18n-server.ts`.
- */
-
-export const LOCALES = ["fr", "ar"] as const;
-export type Locale = (typeof LOCALES)[number];
-
-export const DEFAULT_LOCALE: Locale = "fr";
-export const LOCALE_COOKIE = "locale";
-
-export function isLocale(value: string | undefined | null): value is Locale {
-  return value === "fr" || value === "ar";
-}
-
-/** Normalise le segment d'URL [lang] en locale valide (repli FR).
- *  À utiliser dans les pages/layouts : `const locale = toLocale((await params).lang)`. */
-export function toLocale(value: string | undefined | null): Locale {
-  return isLocale(value) ? value : DEFAULT_LOCALE;
-}
-
-/** Direction d'écriture associée à la locale. */
-export function dirOf(locale: Locale): "ltr" | "rtl" {
-  return locale === "ar" ? "rtl" : "ltr";
-}
-
-/**
- * Préfixe un href interne par /ar quand la locale est l'arabe (FR = passe-plat).
- * Laisse intacts : hrefs externes/ancres/mailto/tel, hrefs déjà préfixés /ar.
  *
- * Fonction PURE (aucun `"use client"`, aucun hook) → utilisable côté serveur ET
- * client. Permet aux Server Components qui connaissent déjà la locale (via
- * `params.lang`) de rendre un `next/link` NU, sans passer par le composant client
- * `LocaleLink` (qui hydrate un îlot par lien). Voir composants à fort volume de
- * liens (PraticienCard, Footer…). En FR le href ressort inchangé.
+ * ⚠️ POIDS : ce fichier porte les deux dictionnaires en entier (~326 KB de
+ * source). Un composant CLIENT qui l'importe embarque tout dans son bundle, même
+ * pour une seule fonction. Les primitives de locale vivent donc dans
+ * `lib/locale.ts` (sans dépendance) et sont ré-exportées ici pour compatibilité :
+ * côté client, importer depuis `@/lib/locale`, jamais depuis `@/lib/i18n`.
  */
-export function localeHref(locale: Locale, href: string): string {
-  if (locale === "ar" && href.startsWith("/") && !href.startsWith("/ar/") && href !== "/ar") {
-    return href === "/" ? "/ar" : `/ar${href}`;
-  }
-  return href;
-}
+
+export {
+  LOCALES,
+  DEFAULT_LOCALE,
+  LOCALE_COOKIE,
+  isLocale,
+  toLocale,
+  dirOf,
+  localeHref,
+  type Locale,
+} from "./locale";
+
+// Liaison locale pour les signatures de ce fichier (`export … from` n'en crée pas).
+import { type Locale } from "./locale";
 
 /* ── Dictionnaires (chrome : navbar + footer) ─────────────────────────── */
 

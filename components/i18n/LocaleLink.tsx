@@ -2,7 +2,10 @@
 
 import NextLink from "next/link";
 import { createContext, useContext, forwardRef, type ComponentProps } from "react";
-import { localeHref, type Locale } from "@/lib/i18n";
+// `@/lib/locale` et NON `@/lib/i18n` : ce composant est le lien utilisé partout,
+// et importer `lib/i18n` embarquait les deux dictionnaires (~326 KB de source)
+// dans le bundle client de chaque page.
+import { localeHref, type Locale } from "@/lib/locale";
 
 /**
  * Contexte de locale fourni par le layout racine (valeur = getLocale() côté

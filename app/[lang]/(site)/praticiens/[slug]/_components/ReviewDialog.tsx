@@ -130,10 +130,12 @@ export function ReviewDialog({
     return () => window.removeEventListener("keydown", fn);
   }, [isOpen]);
 
-  /* ── Styles du bouton déclencheur ── */
+  /* ── Styles du bouton déclencheur ──
+     Fond en -700 et non -600 : blanc sur #059669 ne tenait que 3,76:1, sous le
+     minimum AA de 4,5:1 pour du texte de 14 px. -700 (#047857) donne 6,1:1. */
   const btnBase = variant === "header"
-    ? "inline-flex items-center gap-2 bg-secondary-600 hover:bg-secondary-700 active:bg-secondary-800 text-white text-sm font-semibold px-4 py-2.5 rounded-xl transition-all duration-150 shrink-0"
-    : "mt-5 inline-flex items-center gap-2 bg-secondary-600 hover:bg-secondary-700 active:bg-secondary-800 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-150";
+    ? "inline-flex items-center gap-2 bg-secondary-700 hover:bg-secondary-800 active:bg-secondary-900 text-white text-sm font-semibold px-4 py-2.5 rounded-xl transition-all duration-150 shrink-0"
+    : "mt-5 inline-flex items-center gap-2 bg-secondary-700 hover:bg-secondary-800 active:bg-secondary-900 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-150";
   const btnShadow = { boxShadow: "0 1px 2px 0 rgb(5 150 105 / 0.3)" };
 
   /* ── Bouton déclencheur selon l'état de connexion ── */

@@ -206,15 +206,32 @@ const nextConfig: NextConfig = {
   // dynamic: 30s — filtered list pages stay cached for back-navigation
   // static: 3600s — SSG pages (specialites, villes) kept in router cache 1 h
   experimental: {
-    // ── LCP mobile 4G : CSS inline dans le <head> ──────────────────────────
-    // Le CSS (Tailwind atomique, ~21 KB) était servi en <link> SÉPARÉ et donc
-    // BLOQUANT : sur Slow 4G le navigateur devait faire un aller-retour réseau
-    // avant de peindre, ce qui retardait FCP/LCP (élément LCP = texte du factoïde
-    // sur la fiche praticien). En inlinant, les styles arrivent AVEC le HTML → le
-    // rendu progressif peint dès l'arrivée des octets, sans round-trip. Idéal ici :
-    // Tailwind (CSS compact) + trafic SEO majoritairement first-time (pas de cache
-    // CSS à préserver). Cf. docs/next inlineCss. Actif en build prod seulement.
-    inlineCss: true,
+    // ── CSS : <link> séparé, PAS inliné ────────────────────────────────────
+    // Ce réglage a été à `true` pour gagner l'aller-retour réseau avant la
+    // première peinture, sur la foi d'un CSS « Tailwind atomique, ~21 KB ». Cette
+    // prémisse ne tient plus : la feuille pèse aujourd'hui 141 KB, et inliner
+    // recopie ces 141 KB dans CHAQUE document, sans aucune réutilisation entre
+    // pages.
+    //
+    // Mesuré sur /praticiens/[slug] (Pixel 7, Slow 4G, CPU ×4, médiane de 3) :
+    //
+    //                     inline ON     inline OFF
+    //   HTML (gzip)         84,3 KB       36,7 KB
+    //   LCP                 1188 ms       1388 ms
+    //   TBT                  880 ms        468 ms
+    //   CLS                       0             0
+    //
+    // Inliner achète 200 ms de LCP (le round-trip, comme prévu) et coûte le DOUBLE
+    // de TBT : le navigateur doit analyser 141 KB de CSS au sein même du flux HTML,
+    // sur le fil principal, avant de rendre la main. Or le TBT pèse 30 % du score
+    // Lighthouse mobile contre 25 % pour le LCP, et 1388 ms reste très loin sous le
+    // seuil « bon » de 2500 ms. En <link>, la feuille est aussi mise en cache et la
+    // 2ᵉ page d'une session ne la repaie pas — alors qu'inliner la resert à chaque
+    // vue.
+    //
+    // ⚠️ À ne rebasculer à `true` qu'après avoir REMESURÉ, et seulement si la
+    // feuille redevient petite (ordre de 20-30 KB).
+    inlineCss: false,
     // ── Concurrence du pré-rendu statique ↔ pool Postgres au build ──────────
     // Sans plafond, Next lance 1 worker par cœur (29 sur cette machine) pour
     // générer les ~6300 pages statiques. CHAQUE worker est un process Node avec

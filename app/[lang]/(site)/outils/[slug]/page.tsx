@@ -91,6 +91,12 @@ export default async function ToolPage({ params }: { params: Params }) {
     name: getToolContent(s, locale).name,
   }));
 
+  // La table de référence est rendue deux fois (cartes sous `sm`, tableau
+  // au-delà) : les libellés sont résolus une seule fois.
+  const refRows = def.categories
+    .map(({ key, severity }) => ({ key, severity, cat: content.categories[key] }))
+    .filter((r) => r.cat);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -214,17 +220,55 @@ export default async function ToolPage({ params }: { params: Params }) {
             {/* ── Table de référence : le contenu indexable, servi sans JS ── */}
             <section aria-labelledby="ref-title" className="mt-10">
               <h2 id="ref-title" className="text-xl font-bold text-slate-900 mb-4">{t.refTitle}</h2>
-              <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white">
+
+              {/* Sous `sm`, les trois colonnes (dont un paragraphe entier) ne tiennent
+                  pas : à 360 px la table mesurait 420 à 520 px, l'interprétation était
+                  poussée hors écran et chaque ligne devenait une colonne de trois mots.
+                  On la déplie donc en cartes. Un seul des deux rendus est dans l'arbre
+                  d'accessibilité à la fois — l'autre est en `display:none`. */}
+              <ul className="sm:hidden space-y-3">
+                {refRows.map(({ key, severity, cat }) => (
+                  <li key={key} className="rounded-2xl border border-slate-200 bg-white p-4">
+                    <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1.5">
+                      <span
+                        className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-bold ring-1 ${SEVERITY_CHIP[severity]}`}
+                        dir="auto"
+                      >
+                        {cat.label}
+                      </span>
+                      <span className="text-xs font-semibold text-slate-500" dir="auto">
+                        {content.refColumns.range}{" : "}
+                        <span className="text-slate-700 tabular-nums">{cat.range}</span>
+                      </span>
+                    </div>
+                    <p className="mt-2.5 text-[15px] text-slate-600 leading-relaxed" dir="auto">
+                      {cat.advice}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+              <p className="sm:hidden mt-3 text-xs text-slate-500 leading-relaxed" dir="auto">
+                {content.refCaption}
+              </p>
+
+              {/* `tabIndex`/`role=region` : si le tableau déborde encore sur une petite
+                  tablette, la zone doit rester défilable au clavier (WCAG 2.1.1). */}
+              <div
+                role="region"
+                aria-labelledby="ref-title"
+                tabIndex={0}
+                className="hidden sm:block overflow-x-auto rounded-2xl border border-slate-200 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+              >
                 <table className="w-full text-sm border-collapse">
                   <caption className="caption-bottom p-4 text-xs text-slate-500 text-start leading-relaxed" dir="auto">
                     {content.refCaption}
                   </caption>
                   <thead>
                     <tr className="bg-slate-50">
-                      <th scope="col" className="text-start px-4 py-3 text-xs font-bold uppercase tracking-wider text-slate-500 whitespace-nowrap">
+                      <th scope="col" className="text-start px-4 py-3 text-xs font-bold uppercase tracking-wider text-slate-500">
                         {content.refColumns.category}
                       </th>
-                      <th scope="col" className="text-start px-4 py-3 text-xs font-bold uppercase tracking-wider text-slate-500 whitespace-nowrap">
+                      <th scope="col" className="text-start px-4 py-3 text-xs font-bold uppercase tracking-wider text-slate-500">
                         {content.refColumns.range}
                       </th>
                       <th scope="col" className="text-start px-4 py-3 text-xs font-bold uppercase tracking-wider text-slate-500">
@@ -233,25 +277,25 @@ export default async function ToolPage({ params }: { params: Params }) {
                     </tr>
                   </thead>
                   <tbody>
-                    {def.categories.map(({ key, severity }) => {
-                      const cat = content.categories[key];
-                      if (!cat) return null;
-                      return (
-                        <tr key={key} className="border-t border-slate-100 align-top">
-                          <th scope="row" className="px-4 py-3.5 text-start font-semibold text-slate-900" dir="auto">
-                            <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-bold ring-1 ${SEVERITY_CHIP[severity]}`}>
-                              {cat.label}
-                            </span>
-                          </th>
-                          <td className="px-4 py-3.5 font-medium text-slate-700 tabular-nums whitespace-nowrap" dir="auto">
-                            {cat.range}
-                          </td>
-                          <td className="px-4 py-3.5 text-slate-600 leading-relaxed" dir="auto">
-                            {cat.advice}
-                          </td>
-                        </tr>
-                      );
-                    })}
+                    {refRows.map(({ key, severity, cat }) => (
+                      <tr key={key} className="border-t border-slate-100 align-top">
+                        <th scope="row" className="px-4 py-3.5 text-start font-semibold text-slate-900" dir="auto">
+                          <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-bold ring-1 ${SEVERITY_CHIP[severity]}`}>
+                            {cat.label}
+                          </span>
+                        </th>
+                        {/* `whitespace-nowrap` seulement à partir de `xl` : « de la
+                            naissance au premier mois » réclame 250 px à lui seul, ce que
+                            la colonne n'a qu'une fois l'article à sa largeur maximale
+                            (l'aside `lg` ramène l'article à 640 px à 1024 px). */}
+                        <td className="px-4 py-3.5 font-medium text-slate-700 tabular-nums xl:whitespace-nowrap" dir="auto">
+                          {cat.range}
+                        </td>
+                        <td className="px-4 py-3.5 text-slate-600 leading-relaxed" dir="auto">
+                          {cat.advice}
+                        </td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
@@ -384,10 +428,14 @@ export default async function ToolPage({ params }: { params: Params }) {
             </div>
           </article>
 
-          {/* ══ Panneau de conversion (sticky, desktop) ══ */}
-          {related.specialty && (
-            <aside className="hidden lg:block" aria-label={t.asideTitle}>
-              <div className="sticky top-20 space-y-4">
+          {/* ══ Panneau de conversion (sticky, desktop) ══
+              L'aside n'est plus conditionné au maillage : seule la carte de
+              conversion en dépend. Le rappel d'urgence, lui, est un repère de
+              sécurité — il ne doit pas disparaître parce qu'une spécialité n'a pas
+              pu être résolue en base. */}
+          <aside className="hidden lg:block" aria-label={t.asideTitle}>
+            <div className="sticky top-20 space-y-4">
+              {related.specialty && (
                 <div className="rounded-2xl border border-primary-100 bg-gradient-to-br from-primary-50 to-white p-5 shadow-sm">
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-primary-600 ring-1 ring-primary-100 mb-3" aria-hidden="true">
                     <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.75" className="w-5 h-5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2v5a4 4 0 0 0 8 0V2M10 11v3a4 4 0 0 0 4 4 3 3 0 0 0 3-3v-1" /><circle cx="17" cy="12" r="1.5" /></svg>
@@ -420,18 +468,18 @@ export default async function ToolPage({ params }: { params: Params }) {
                     {t.asideFindGeneralist}
                   </Link>
                 </div>
+              )}
 
-                {/* Rappel urgence — repère de sécurité toujours visible */}
-                <div className="rounded-2xl border border-rose-100 bg-rose-50/50 p-4 flex items-start gap-3">
-                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5 shrink-0 text-rose-600 mt-0.5" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><path d="M10 6v5M10 14h.01M8.6 2.9 1.7 15a1.6 1.6 0 0 0 1.4 2.4h13.8a1.6 1.6 0 0 0 1.4-2.4L11.4 2.9a1.6 1.6 0 0 0-2.8 0z" /></svg>
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-wide text-rose-700">{t.urgencyNote}</p>
-                    <p className="text-sm text-rose-900 leading-snug mt-0.5">{dict.symptoms.emergencyNote}</p>
-                  </div>
+              {/* Rappel urgence — repère de sécurité, rendu sans condition */}
+              <div className="rounded-2xl border border-rose-100 bg-rose-50/50 p-4 flex items-start gap-3">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5 shrink-0 text-rose-600 mt-0.5" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round"><path d="M10 6v5M10 14h.01M8.6 2.9 1.7 15a1.6 1.6 0 0 0 1.4 2.4h13.8a1.6 1.6 0 0 0 1.4-2.4L11.4 2.9a1.6 1.6 0 0 0-2.8 0z" /></svg>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wide text-rose-700">{t.urgencyNote}</p>
+                  <p className="text-sm text-rose-900 leading-snug mt-0.5">{dict.symptoms.emergencyNote}</p>
                 </div>
               </div>
-            </aside>
-          )}
+            </div>
+          </aside>
         </div>
       </div>
     </>

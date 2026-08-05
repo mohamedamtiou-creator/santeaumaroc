@@ -1,12 +1,33 @@
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { prisma } from "@/lib/prisma";
+import { cachedQuery } from "@/lib/cache";
 import { getDictionary, type Locale } from "@/lib/i18n";
 
 /**
  * Maillage entrant + E-E-A-T + vitrine Pro : les questions auxquelles ce médecin
  * a répondu, affichées sur sa fiche. Composant serveur autonome (rend `null` si
  * aucune réponse) — l'injection dans la fiche se limite à une ligne.
+ *
+ * La requête est CACHÉE (1 h) : elle n'était pas passée par `cachedQuery`, alors
+ * que la page l'attend en SÉRIE après le profil (un composant serveur enfant ne
+ * démarre qu'au rendu du parent). C'était donc un aller-retour base de plus sur le
+ * chemin critique, à chaque visite. Le contenu est du maillage éditorial : il
+ * évolue lentement, une heure de fraîcheur suffit.
  */
+const getDoctorAnswers = (doctorId: string) =>
+  cachedQuery(
+    `doctor:answers:${doctorId}`,
+    3600,
+    () =>
+      prisma.answer.findMany({
+        where: { doctorId, status: "PUBLISHED", question: { status: "PUBLISHED" } },
+        orderBy: { createdAt: "desc" },
+        take: 8,
+        select: { question: { select: { slug: true, title: true } } },
+      }),
+    ["doctor-answers", "qa-answers"],
+  );
+
 export async function DoctorAnswersSection({
   doctorId, doctorFirstName, locale,
 }: {
@@ -14,12 +35,7 @@ export async function DoctorAnswersSection({
   doctorFirstName: string;
   locale: Locale;
 }) {
-  const answers = await prisma.answer.findMany({
-    where: { doctorId, status: "PUBLISHED", question: { status: "PUBLISHED" } },
-    orderBy: { createdAt: "desc" },
-    take: 8,
-    select: { question: { select: { slug: true, title: true } } },
-  });
+  const answers = await getDoctorAnswers(doctorId);
 
   const seen = new Set<string>();
   const items: { slug: string; title: string }[] = [];

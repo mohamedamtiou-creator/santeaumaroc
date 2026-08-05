@@ -1,7 +1,12 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { getDictionary, localeHref, type Dictionary } from "@/lib/i18n";
+// `@/lib/locale` pour `localeHref` ; le TYPE seul vient de `@/lib/i18n` (effacé à
+// la compilation, donc sans coût). Un import de VALEUR depuis `@/lib/i18n` — tel
+// l'ancien défaut `getDictionary("fr").pagination` — embarquait les deux
+// dictionnaires (~326 KB de source) dans le bundle client.
+import { localeHref } from "@/lib/locale";
+import type { Dictionary } from "@/lib/i18n";
 import { useLocaleContext } from "@/components/i18n/LocaleLink";
 
 type Props = {
@@ -13,7 +18,8 @@ type Props = {
    * en prop, une fonction ne traverse pas la frontière serveur → client.
    */
   basePath: string;
-  t?: Dictionary["pagination"];
+  /** Obligatoire : un défaut via `getDictionary()` tirerait tout le dictionnaire côté client. */
+  t: Dictionary["pagination"];
 };
 
 /**
@@ -37,7 +43,7 @@ type Props = {
  * ⚠️ Ne pas utiliser sur `/praticiens` : cette page lit bien `searchParams` côté
  * serveur, sa pagination est réelle et ses URL doivent rester crawlables.
  */
-export function PaginationNav({ page, totalPages, basePath, t = getDictionary("fr").pagination }: Props) {
+export function PaginationNav({ page, totalPages, basePath, t }: Props) {
   const router = useRouter();
   const locale = useLocaleContext();
 

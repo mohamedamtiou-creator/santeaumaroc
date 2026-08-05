@@ -1,5 +1,6 @@
 import type { Locale } from "./i18n";
 import { MILESTONES, MILESTONE_AGE_DAYS, antigensAt } from "./vaccination-schedule";
+import { antigenDoseLabel } from "./vaccination-schedule-ar";
 
 /**
  * Moteur du cluster `/outils` — définitions de champs + calculs purs.
@@ -962,7 +963,7 @@ function computeVaccination(values: Record<string, string>, locale: Locale): Too
       passed,
       cells: [
         fmtDate(due, locale),
-        items.map((i) => `${i.antigen.short} — ${i.dose}`).join(" · "),
+        items.map((i) => antigenDoseLabel(i.antigen, m, i.dose, locale)).join(" · "),
       ],
       // On ne SAIT PAS ce qui a été administré : un jalon passé est « à
       // vérifier sur le carnet », jamais « fait ».

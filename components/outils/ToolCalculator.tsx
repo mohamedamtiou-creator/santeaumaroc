@@ -66,6 +66,33 @@ const SEVERITY_STYLES: Record<Severity, { chip: string; card: string; value: str
   },
 };
 
+type ResultRow = { cells: string[]; severity?: Severity; emphasis?: boolean };
+
+/**
+ * Couleur du texte d'une ligne de résultat tabulaire. Une seule classe `text-*`
+ * est émise : deux classes concurrentes se départageraient par l'ordre du CSS
+ * généré, pas par celui de l'attribut.
+ *
+ * Les jalons passés étaient atténués par `opacity-60`, ce qui ramenait le gris
+ * à ~2,9:1 sur blanc — sous le minimum AA. `text-slate-500` tient 4,7:1 tout
+ * en restant visiblement en retrait.
+ */
+function rowTone(r: ResultRow, lead: boolean): string {
+  if (r.emphasis) return "text-primary-900";
+  if (r.severity === "watch") return "text-slate-500";
+  return lead ? "text-slate-900" : "text-slate-600";
+}
+
+/** Intitulé localisé de la colonne `i`, ou `null` si le résultat n'en déclare pas. */
+function columnLabel(
+  columns: string[] | undefined,
+  i: number,
+  t: ToolCalculatorLabels,
+): string | null {
+  const key = columns?.[i];
+  return key ? t.columns?.[key] ?? key : null;
+}
+
 function initialValues(slug: ToolSlug): Record<string, string> {
   const out: Record<string, string> = {};
   for (const f of TOOLS[slug].fields) out[f.name] = f.defaultValue ?? "";
@@ -300,40 +327,81 @@ function ResultCard({
       {category && <p className="mt-4 text-[15px] text-slate-700 leading-relaxed">{category.advice}</p>}
 
       {/* Résultat tabulaire (planning) — la ligne mise en avant est le prochain
-          jalon, celle que le visiteur est venu chercher. */}
+          jalon, celle que le visiteur est venu chercher.
+
+          Le panneau de résultat ne dépasse jamais ~340 px, même en desktop
+          (grille 2 colonnes + aside) : sous `sm` la table est dépliée en liste,
+          sinon la colonne de droite tombe à deux mots par ligne. */}
       {outcome.rows && outcome.rows.length > 0 && (
-        <div className="mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white">
-          <table className="w-full text-sm border-collapse">
-            {outcome.columns && (
-              <thead>
-                <tr className="bg-slate-50">
-                  {outcome.columns.map((c) => (
-                    <th key={c} scope="col" className="text-start px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-slate-500 whitespace-nowrap">
-                      {t.columns?.[c] ?? c}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-            )}
-            <tbody>
-              {outcome.rows.map((r, i) => (
-                <tr
-                  key={i}
-                  className={`border-t border-slate-100 ${r.emphasis ? "bg-primary-50/60" : ""}`}
-                >
-                  {r.cells.map((cell, j) => (
-                    <td
-                      key={j}
-                      className={`px-3 py-2.5 align-top ${j === 0 ? "whitespace-nowrap font-semibold text-slate-900" : "text-slate-600 leading-snug"} ${r.emphasis ? "text-primary-900" : ""} ${r.severity === "watch" && !r.emphasis ? "opacity-60" : ""}`}
-                    >
-                      {cell || "—"}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <>
+          <ul className="mt-4 sm:hidden space-y-2 rounded-xl border border-slate-200 bg-white p-2">
+            {outcome.rows.map((r, i) => (
+              <li
+                key={i}
+                className={`rounded-lg px-3 py-2.5 ${r.emphasis ? "bg-primary-50/60 ring-1 ring-primary-200" : ""}`}
+              >
+                {/* La liste perd les en-têtes de colonnes : chaque cellule porte
+                    donc son intitulé, invisible mais lu. Et la mise en avant ne
+                    peut pas reposer sur la seule couleur. */}
+                {r.cells.map((cell, j) => (
+                  <p
+                    key={j}
+                    className={
+                      j === 0
+                        ? `text-sm font-semibold ${rowTone(r, true)}`
+                        : `mt-0.5 text-sm leading-snug ${rowTone(r, false)}`
+                    }
+                  >
+                    {j === 0 && r.emphasis && <span className="sr-only">{t.resultLabel} — </span>}
+                    {columnLabel(outcome.columns, j, t) && (
+                      <span className="sr-only">{columnLabel(outcome.columns, j, t)} : </span>
+                    )}
+                    {cell || "—"}
+                  </p>
+                ))}
+              </li>
+            ))}
+          </ul>
+
+          <div
+            role="region"
+            aria-label={t.resultTitle}
+            tabIndex={0}
+            className="mt-4 hidden sm:block overflow-x-auto rounded-xl border border-slate-200 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+          >
+            <table className="w-full text-sm border-collapse">
+              {outcome.columns && (
+                <thead>
+                  <tr className="bg-slate-50">
+                    {outcome.columns.map((c) => (
+                      <th key={c} scope="col" className="text-start px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-slate-500">
+                        {t.columns?.[c] ?? c}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+              )}
+              <tbody>
+                {outcome.rows.map((r, i) => (
+                  <tr
+                    key={i}
+                    className={`border-t border-slate-100 ${r.emphasis ? "bg-primary-50/60" : ""}`}
+                  >
+                    {r.cells.map((cell, j) => (
+                      <td
+                        key={j}
+                        className={`px-3 py-2.5 align-top ${j === 0 ? "font-semibold" : "leading-snug"} ${rowTone(r, j === 0)}`}
+                      >
+                        {j === 0 && r.emphasis && <span className="sr-only">{t.resultLabel} — </span>}
+                        {cell || "—"}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
       )}
 
       {outcome.details && outcome.details.length > 0 && (

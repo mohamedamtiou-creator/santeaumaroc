@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
@@ -16,6 +17,7 @@ import { ClaimButton } from "./_components/ClaimButton";
 import { DoctorUserProvider, ClaimBannerGate } from "./_components/DoctorUserContext";
 import { NotifyButton } from "./_components/NotifyButton";
 import { CallbackForm } from "./_components/CallbackForm";
+import { ScheduleCard } from "./_components/ScheduleCard";
 import { PhoneLink } from "@/components/PhoneLink";
 import { getSpecialtyContent } from "@/lib/specialty-content";
 import { tSpecialty, tLanguage } from "@/lib/specialty-i18n";
@@ -48,20 +50,59 @@ const getDoctorProfile = (slug: string) =>
         _count: { select: { reviews: { where: { isPublic: true } } } },
       },
     });
-    return doc ? { ...doc, prix: decToNum(doc.prix) } : null;
+    if (!doc) return null;
+
+    // Répartition par note sur la TOTALITÉ des avis. L'histogramme la déduisait
+    // des 10 avis embarqués ci-dessus tout en divisant par le total : au-delà de
+    // 10 avis, les barres ne totalisaient plus 100 % (23 avis → ~43 %). Un
+    // `groupBy` sur index règle le compte sans ramener toutes les lignes.
+    const grouped = doc._count.reviews > 0
+      ? await prisma.review.groupBy({
+          by: ["rating"],
+          where: { doctorId: doc.id, isPublic: true },
+          _count: { rating: true },
+        })
+      : [];
+    const distribution: Record<number, number> = {};
+    for (const g of grouped) distribution[g.rating] = g._count.rating;
+
+    return { ...doc, prix: decToNum(doc.prix), distribution };
   });
 
 // Disponibilité — VOLATILE, jamais cachée. Lue UNIQUEMENT pour les fiches
 // réservables (Pro) : les 99 % de fiches non réservables ne paient plus la
 // requête « rendez-vous » (allègement vs. l'ancien getDoctor qui la chargeait
 // systématiquement).
-async function getDoctorAvailability(doctorId: string) {
+// Fenêtre utile : `generateAvailableSlots` n'émet des créneaux que de AUJOURD'HUI à
+// aujourd'hui + `bookingMaxDays`. Sans borne de date, cette requête ramenait TOUT
+// l'historique du praticien (rendez-vous, absences et créneaux bloqués depuis
+// l'origine) pour n'en exploiter qu'une fenêtre — volume qui ne fait que croître
+// avec l'ancienneté du compte, sur le chemin DYNAMIQUE (donc à chaque requête).
+// Les index existants couvrent ces filtres : `appointments(doctorId, date, time)`,
+// `doctor_absences(doctorId, startDate, endDate)`, `blocked_slots(doctorId, date, time)`.
+async function getDoctorAvailability(doctorId: string, maxDays: number) {
+  const day = 86_400_000;
+  const today   = new Date(Date.now()).toISOString().slice(0, 10);
+  // +1 jour de marge : `generateAvailableSlots` itère `<= maxDays` inclus.
+  const horizon = new Date(Date.now() + (maxDays + 1) * day).toISOString().slice(0, 10);
+
   const doc = await prisma.doctor.findUnique({
     where: { id: doctorId },
     select: {
-      blockedSlots: { select: { date: true, time: true } },
-      absences:     { select: { startDate: true, endDate: true, allDay: true, startTime: true, endTime: true } },
-      appointments: { where: { status: { notIn: ["CANCELLED"] } }, select: { date: true, time: true } },
+      blockedSlots: {
+        where:  { date: { gte: today, lte: horizon } },
+        select: { date: true, time: true },
+      },
+      // Une absence est pertinente si elle CHEVAUCHE la fenêtre : elle peut avoir
+      // commencé avant aujourd'hui tout en courant encore.
+      absences: {
+        where:  { endDate: { gte: today }, startDate: { lte: horizon } },
+        select: { startDate: true, endDate: true, allDay: true, startTime: true, endTime: true },
+      },
+      appointments: {
+        where:  { status: { notIn: ["CANCELLED"] }, date: { gte: today, lte: horizon } },
+        select: { date: true, time: true },
+      },
     },
   });
   return doc ?? { blockedSlots: [], absences: [], appointments: [] };
@@ -180,16 +221,17 @@ function Reassurance({ t }: { t: Dictionary["doctor"] }) {
 function RatingSummary({
   averageRating,
   totalCount,
-  reviews,
+  distribution,
   dict,
 }: {
   averageRating: number;
   totalCount: number;
-  reviews: { rating: number }[];
+  /** Nombre d'avis par note (1→5), sur la TOTALITÉ des avis publics. */
+  distribution: Record<number, number>;
   dict: Dictionary;
 }) {
   const dist = [5, 4, 3, 2, 1].map((star) => {
-    const count = reviews.filter((r) => r.rating === star).length;
+    const count = distribution[star] ?? 0;
     const pct   = totalCount > 0 ? (count / totalCount) * 100 : 0;
     return { star, count, pct };
   });
@@ -339,7 +381,34 @@ function EmptyReviews({ reviewButton, t }: { reviewButton: React.ReactNode; t: D
 // une fenêtre courte déclenche une tempête de revalidations DB en tâche de fond
 // (cause de « timeout when trying to connect » côté Neon). Le contenu fiche évolue
 // lentement ; les créneaux frais restent servis par la branche dynamique `canBook`.
+// ⚠️ Fenêtre EFFECTIVE = 3600 s, pas 86400 : Next retient la plus courte
+// revalidation rencontrée dans l'arbre, et `getDoctorProfile` passe par
+// `cachedQuery(…, 3600)`. Vérifié sur la réponse servie :
+// `Cache-Control: s-maxage=3600` et `x-nextjs-stale-time: 3600`. La valeur est
+// laissée à 86400 comme PLAFOND de segment (elle s'appliquerait si le cache de
+// données était desserré) — mais ne pas raisonner sur « 24 h » ici.
 export const revalidate = 86400;
+
+// ⚠️ INDISPENSABLE, malgré les apparences : sans `generateStaticParams`, une route
+// dynamique n'obtient AUCUNE entrée ISR et `revalidate` ci-dessus est purement
+// décoratif. Mesuré avant correctif : la route était absente de
+// `.next/prerender-manifest.json` et chaque réponse partait en
+// `Cache-Control: private, no-cache, no-store` — donc rendu complet + requêtes SQL
+// à CHAQUE visite, sur ~20 000 fiches balayées par les crawlers.
+//
+// Le tableau vide est la forme documentée du « tout à la demande » : rien n'est
+// pré-rendu au build (l'intention d'origine est préservée — pas de 20 000 pages
+// générées), mais la route est enregistrée pour l'ISR, donc la 1ʳᵉ visite d'une
+// fiche la met en cache pour 24 h. Cf. la note de `generateStaticParams` :
+// « You must return an empty array from generateStaticParams […] in order to
+// revalidate (ISR) paths at runtime ».
+//
+// Les fiches réservables (branche `canBook`) lisent les cookies : elles basculent
+// d'elles-mêmes en rendu dynamique par requête, ce qui garde l'invariant
+// anti-double-réservation.
+export function generateStaticParams() {
+  return [];
+}
 
 export default async function PraticienProfilePage({ params }: { params: Params }) {
   const { lang, slug } = await params;
@@ -449,37 +518,11 @@ export default async function PraticienProfilePage({ params }: { params: Params 
   const hasSchedule = activeHours.length > 0;
   const prix        = p.prix ?? undefined;
 
-  /* ── Statut « Ouvert / Fermé » en temps réel ─────────────
-     Calculé sur l'heure de Casablanca (le serveur peut être ailleurs).
-     N'utilise que les horaires existants — signal de confiance clé (Doctolib/Google). */
-  const toMin = (t: string) => {
-    const [h, m] = t.split(":").map(Number);
-    return h * 60 + (m || 0);
-  };
-  const casaNow  = new Date(new Date().toLocaleString("en-US", { timeZone: "Africa/Casablanca" }));
-  const nowDay   = casaNow.getDay();          // 0 = dimanche … 6 = samedi (comme dayOfWeek)
-  const nowMin   = casaNow.getHours() * 60 + casaNow.getMinutes();
-  const isOpenNow = activeHours.some(
-    (wh) => wh.dayOfWeek === nowDay && nowMin >= toMin(wh.startTime) && nowMin < toMin(wh.endTime),
-  );
-  // Prochaine ouverture (aujourd'hui plus tard, sinon jour suivant sur 7 jours).
-  let nextOpen: { day: number; time: string; isToday: boolean } | null = null;
-  if (hasSchedule && !isOpenNow) {
-    for (let offset = 0; offset < 7 && !nextOpen; offset++) {
-      const day = (nowDay + offset) % 7;
-      const slots = activeHours
-        .filter((wh) => wh.dayOfWeek === day && (offset > 0 || toMin(wh.startTime) > nowMin))
-        .sort((a, b) => toMin(a.startTime) - toMin(b.startTime));
-      if (slots[0]) nextOpen = { day, time: slots[0].startTime, isToday: offset === 0 };
-    }
-  }
-  const openStatusLabel = isOpenNow
-    ? d.scheduleOpen
-    : nextOpen
-      ? nextOpen.isToday
-        ? `${d.scheduleOpensAt} ${nextOpen.time}`
-        : `${d.scheduleOpensPrefix} ${dict.dayNames[nextOpen.day]} · ${nextOpen.time}`
-      : null;
+  /* Le statut « Ouvert / Fermé » et le surlignage du jour courant NE sont plus
+     calculés ici : la page est mise en cache par l'ISR pour 24 h, donc toute
+     valeur dérivée de `new Date()` au rendu serait servie figée (« Ouvert » en
+     pleine nuit). Ils vivent désormais dans l'îlot client `ScheduleCard`, qui les
+     évalue à la lecture. Les horaires eux-mêmes restent du contenu serveur. */
 
   // Gating Pro : la prise de RDV en ligne est une fonction premium.
   // Un médecin sans abonnement Pro retombe sur le parcours « appeler / être rappelé ».
@@ -505,7 +548,7 @@ export default async function PraticienProfilePage({ params }: { params: Params 
       needsPhone = !u?.phone;
     }
     // Disponibilité fraîche (hors cache) — uniquement pour les fiches réservables.
-    const { appointments, absences, blockedSlots } = await getDoctorAvailability(p.id);
+    const { appointments, absences, blockedSlots } = await getDoctorAvailability(p.id, p.bookingMaxDays);
     const bookedSlots = appointments.map((a) => ({ date: a.date, time: a.time }));
     const allSlots = generateAvailableSlots(
       bookedSlots,
@@ -1274,7 +1317,7 @@ export default async function PraticienProfilePage({ params }: { params: Params 
                     <RatingSummary
                       averageRating={p.averageRating}
                       totalCount={p._count.reviews}
-                      reviews={p.reviews}
+                      distribution={p.distribution}
                       dict={dict}
                     />
                   )}
@@ -1293,8 +1336,15 @@ export default async function PraticienProfilePage({ params }: { params: Params 
               )}
             </section>
 
-            {/* Maillage Q/R : réponses publiées par ce médecin (E-E-A-T + Pro) */}
-            <DoctorAnswersSection doctorId={p.id} doctorFirstName={p.prenom ?? p.nom ?? "ce médecin"} locale={locale} />
+            {/* Maillage Q/R : réponses publiées par ce médecin (E-E-A-T + Pro).
+                Sous `Suspense` : ce bloc est loin sous la ligne de flottaison, sa
+                requête ne doit pas retenir l'envoi du shell (le HTML se termine
+                dès que le reste est prêt, la section arrive en flux). Pas de
+                réservation de hauteur : le bloc est en fin de colonne, donc son
+                arrivée ne déplace aucun contenu déjà peint. */}
+            <Suspense fallback={null}>
+              <DoctorAnswersSection doctorId={p.id} doctorFirstName={p.prenom ?? p.nom ?? "ce médecin"} locale={locale} />
+            </Suspense>
 
           </div>
 
@@ -1396,62 +1446,20 @@ export default async function PraticienProfilePage({ params }: { params: Params 
               )}
             </div>
 
-            {/* 2. Horaires */}
-            {activeHours.length > 0 && (
-              <div className="card p-5">
-                <div className="flex items-center justify-between gap-2 mb-3">
-                  <h2 className="font-semibold text-slate-900 text-sm flex items-center gap-2">
-                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.75" className="w-4 h-4 text-primary-500" aria-hidden="true">
-                      <circle cx="8" cy="8" r="7"/>
-                      <path d="M8 4v4l2.5 2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    {d.schedule}
-                  </h2>
-                  {/* Statut temps réel — vert = ouvert, ambre = fermé + prochaine ouverture. */}
-                  {openStatusLabel && (
-                    <span
-                      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold shrink-0 ${
-                        isOpenNow
-                          ? "bg-secondary-50 text-secondary-700 border border-secondary-200"
-                          : "bg-amber-50 text-amber-700 border border-amber-200"
-                      }`}
-                    >
-                      <span aria-hidden="true" className={`w-1.5 h-1.5 rounded-full ${isOpenNow ? "bg-secondary-500" : "bg-amber-500"}`} />
-                      {isOpenNow ? d.scheduleOpen : (
-                        <span>
-                          <span className="text-amber-600 font-bold">{d.scheduleClosed}</span>
-                          <span className="font-normal text-amber-700"> · {openStatusLabel}</span>
-                        </span>
-                      )}
-                    </span>
-                  )}
-                </div>
-                <div className="flex flex-col gap-0.5">
-                  {activeHours.map((wh) => {
-                    // nowDay = jour de la semaine à l'heure du Maroc (cf. isOpenNow) —
-                    // PAS new Date().getDay() (fuseau serveur → mauvais jour surligné près de minuit).
-                    const isToday = wh.dayOfWeek === nowDay;
-                    return (
-                      <div
-                        key={wh.id}
-                        className={`flex justify-between items-center text-sm py-1.5 ${
-                          isToday
-                            ? "bg-secondary-50 -mx-2 px-2 rounded-lg"
-                            : "border-b border-slate-50 last:border-0"
-                        }`}
-                      >
-                        <span className={`font-medium w-10 shrink-0 ${isToday ? "text-secondary-700" : "text-slate-500"}`}>
-                          {dict.dayNames[wh.dayOfWeek]}
-                        </span>
-                        <span className={`font-semibold tabular-nums ${isToday ? "text-secondary-800" : "text-slate-800"}`}>
-                          {wh.startTime} – {wh.endTime}
-                        </span>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
+            {/* 2. Horaires — statut d'ouverture calculé à la lecture (cf. ScheduleCard) */}
+            <ScheduleCard
+              hours={activeHours.map((wh) => ({
+                id: wh.id, dayOfWeek: wh.dayOfWeek, startTime: wh.startTime, endTime: wh.endTime,
+              }))}
+              t={{
+                schedule: d.schedule,
+                open: d.scheduleOpen,
+                closed: d.scheduleClosed,
+                opensAt: d.scheduleOpensAt,
+                opensPrefix: d.scheduleOpensPrefix,
+                dayNames: dict.dayNames,
+              }}
+            />
 
             {/* 3. Revendiquer la fiche — en dernier (adressé aux praticiens) */}
             {isUnclaimed && (
