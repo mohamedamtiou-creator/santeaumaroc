@@ -17,7 +17,11 @@ import { getDictionary, type Locale } from "@/lib/i18n";
 const getDoctorAnswers = (doctorId: string) =>
   cachedQuery(
     `doctor:answers:${doctorId}`,
-    3600,
+    // 24 h : c'est ce cache qui plafonnait la fenêtre ISR de la fiche praticien à
+    // 1 h (Next retient la plus courte de l'arbre), sur ~20 000 fiches. La
+    // publication d'une réponse invalide désormais la fiche du praticien
+    // (features/qa/answer-actions.ts), donc la TTL n'a plus à assurer la fraîcheur.
+    86400,
     () =>
       prisma.answer.findMany({
         where: { doctorId, status: "PUBLISHED", question: { status: "PUBLISHED" } },

@@ -3,34 +3,36 @@
 import { useState, useTransition } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { toggleFollow } from "@/features/qa/follow-actions";
+import { useQuestionUser } from "@/components/qa/QuestionUserContext";
 import type { Dictionary } from "@/lib/i18n";
 
 type QaT = Dictionary["qa"];
 
 export function FollowButton({
-  questionId, following, isAuthed, t,
+  questionId, t,
 }: {
   questionId: string;
-  following: boolean;
-  isAuthed: boolean;
   t: QaT;
 }) {
-  const [isFollowing, setIsFollowing] = useState(following);
+  // Suivi et connexion viennent du contexte : les lire au rendu serveur rendait
+  // la page dynamique. `null` tant que l'utilisateur n'a pas cliqué → l'affichage
+  // suit le contexte, donc se met à jour de lui-même après hydratation.
+  const { loggedIn, following } = useQuestionUser();
+  const [local, setLocal] = useState<boolean | null>(null);
+  const isFollowing = local ?? following;
   const [, start] = useTransition();
   const router = useRouter();
   const pathname = usePathname();
 
   function onClick() {
-    if (!isAuthed) {
+    if (!loggedIn) {
       router.push(`/connexion?callbackUrl=${encodeURIComponent(pathname)}`);
       return;
     }
-    const next = !isFollowing;
-    setIsFollowing(next);
+    setLocal(!isFollowing);
     start(async () => {
       const res = await toggleFollow(questionId);
-      if (res.ok) setIsFollowing(res.following);
-      else setIsFollowing(following);
+      setLocal(res.ok ? res.following : null);
     });
   }
 

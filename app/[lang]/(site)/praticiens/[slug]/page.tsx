@@ -34,7 +34,14 @@ type Params = Promise<{ lang: string; slug: string }>;
 // est exclue d'ici et lue à part, non cachée (getDoctorAvailability), pour ne
 // jamais servir un créneau périmé (anti double-réservation).
 const getDoctorProfile = (slug: string) =>
-  cachedQuery(`doctor:${slug}`, 3600, async () => {
+  // TTL à 24 h et non 1 h : c'est CE cache qui plafonnait la fenêtre ISR de la
+  // page (Next retient la plus courte de l'arbre), donc ~20 000 fiches se
+  // régénéraient toutes les heures — 24× plus d'ISR Writes que nécessaire.
+  // Sûr, car toutes les écritures qui touchent une fiche invalident déjà son
+  // chemin précis : profil et horaires (features/praticien/actions.ts), avatar
+  // (api/upload/avatar), avis (features/reviews/actions.ts), vérification
+  // (features/admin/actions.ts). La TTL ne couvre donc que la dérive indirecte.
+  cachedQuery(`doctor:${slug}`, 86400, async () => {
     const doc = await prisma.doctor.findUnique({
       where: { slug },
       include: {

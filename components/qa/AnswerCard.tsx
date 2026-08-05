@@ -17,8 +17,6 @@ export type AnswerCardData = {
   thanksCount: number;
   createdAt: Date;
   editedAt: Date | null;
-  voted: boolean;
-  thanked: boolean;
   doctor: {
     slug: string | null;
     nom: string | null;
@@ -39,12 +37,14 @@ function fmtDate(d: Date, locale: Locale) {
   }).format(new Date(d));
 }
 
+// Reste un composant SERVEUR : tout ce qui dépend de l'utilisateur (voté,
+// remercié, droit d'accepter, connexion) a migré dans les îlots clients, qui le
+// lisent dans `QuestionUserContext`. La carte elle-même n'a donc plus besoin de
+// la session — c'est ce qui rend la page statique.
 export function AnswerCard({
-  answer, isAuthed, canAccept, t, locale,
+  answer, t, locale,
 }: {
   answer: AnswerCardData;
-  isAuthed: boolean;
-  canAccept: boolean;
   t: QaT;
   locale: Locale;
 }) {
@@ -114,13 +114,11 @@ export function AnswerCard({
           answerId={answer.id}
           upvotes={answer.upvotes}
           thanks={answer.thanksCount}
-          voted={answer.voted}
-          thanked={answer.thanked}
-          isAuthed={isAuthed}
           t={t}
         />
         <div className="flex items-center gap-3">
-          {canAccept && <AcceptButton answerId={answer.id} accepted={answer.isAccepted} t={t} />}
+          {/* Le bouton se masque lui-même selon le contexte (droit d'accepter). */}
+          <AcceptButton answerId={answer.id} accepted={answer.isAccepted} t={t} />
           {profileHref && (
             d.isPro ? (
               // Perk Pro : CTA RDV proéminent réservé aux abonnés Pro/Premium.
@@ -150,7 +148,7 @@ export function AnswerCard({
             ))}
           </ul>
         )}
-        <CommentForm answerId={answer.id} isAuthed={isAuthed} t={t} />
+        <CommentForm answerId={answer.id} t={t} />
       </div>
     </article>
   );

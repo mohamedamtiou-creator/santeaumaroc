@@ -16,7 +16,9 @@ import { regenerateQuestionSummary, clearQuestionSummary } from "@/lib/qa-summar
 async function getVerifiedDoctor(userId: string) {
   const doctor = await prisma.doctor.findUnique({
     where: { userId },
-    select: { id: true, isVerified: true, isActive: true, isBlacklisted: true, nom: true, prenom: true, civilite: true },
+    // `slug` : nécessaire pour invalider la fiche du praticien, qui liste ses
+    // réponses (cf. DoctorAnswersSection) et est mise en cache 24 h.
+    select: { id: true, slug: true, isVerified: true, isActive: true, isBlacklisted: true, nom: true, prenom: true, civilite: true },
   });
   if (!doctor || !doctor.isVerified || !doctor.isActive || doctor.isBlacklisted) return null;
   return doctor;
@@ -90,6 +92,9 @@ export async function postAnswer(state: FormState, formData: FormData): Promise<
   }
 
   revalidatePath(`/questions/${question.slug}`);
+  // La fiche du praticien liste ses réponses publiées : sans cette invalidation,
+  // le nouveau lien attendrait l'expiration du cache (24 h).
+  if (doctor.slug) revalidatePath(`/praticiens/${doctor.slug}`);
   return { message: "ok" };
 }
 

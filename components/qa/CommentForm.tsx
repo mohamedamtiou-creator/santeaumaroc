@@ -4,18 +4,20 @@ import { useActionState, useId, useState } from "react";
 import { usePathname } from "next/navigation";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { postComment } from "@/features/qa/comment-actions";
+import { useQuestionUser } from "@/components/qa/QuestionUserContext";
 import type { FormState } from "@/lib/definitions";
 import type { Dictionary } from "@/lib/i18n";
 
 type QaT = Dictionary["qa"];
 
 export function CommentForm({
-  answerId, isAuthed, t,
+  answerId, t,
 }: {
   answerId: string;
-  isAuthed: boolean;
   t: QaT;
 }) {
+  // Connexion lue dans le contexte : la page ne lit plus la session au rendu.
+  const { loggedIn } = useQuestionUser();
   const [state, action, pending] = useActionState<FormState, FormData>(postComment, undefined);
   const [value, setValue] = useState("");
   const uid = useId();
@@ -29,7 +31,7 @@ export function CommentForm({
     if (state?.message === "ok") setValue("");
   }
 
-  if (!isAuthed) {
+  if (!loggedIn) {
     return (
       <Link
         href={`/connexion?callbackUrl=${encodeURIComponent(pathname)}`}

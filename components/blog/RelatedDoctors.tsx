@@ -113,7 +113,17 @@ const getDoctors = unstable_cache(
       return { doctors, proof };
     }),
   ["blog-related-doctors"],
-  { revalidate: 300, tags: ["doctors"] },
+  // 3600 et non 300. Next retient la revalidation la PLUS COURTE de l'arbre de
+  // rendu : ce cache de 5 min imposait sa fenêtre à toutes les pages qui
+  // affichent ce bloc, alors qu'elles déclarent toutes `revalidate = 3600`.
+  // Vérifié sur les en-têtes servis — /maladies, /symptomes, /outils,
+  // /quel-medecin-pour, /comment-traiter, /quand-consulter et /examens sortaient
+  // en `s-maxage=300`, soit 1 328 pages régénérées 12× plus souvent que voulu,
+  // et autant d'ISR Writes.
+  //
+  // Rien ne justifiait 5 min : ce bloc liste des praticiens d'une spécialité sur
+  // une page éditoriale, un annuaire qui bouge à l'échelle de la semaine.
+  { revalidate: 3600, tags: ["doctors"] },
 );
 
 export async function RelatedDoctors({

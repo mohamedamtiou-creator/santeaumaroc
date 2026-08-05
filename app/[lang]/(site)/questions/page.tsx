@@ -5,7 +5,10 @@ import { getDictionary, toLocale } from "@/lib/i18n";
 import { QaHome } from "@/components/qa/QaHome";
 import { QuestionsResults } from "@/components/qa/QuestionsResults";
 
-export const revalidate = 300;
+// 3600 et non 300 : la publication d'une question appelle déjà
+// `revalidatePath("/questions")` (features/qa/actions.ts), donc l'index reste à
+// jour sans que la TTL ait à faire le travail.
+export const revalidate = 3600;
 
 type Params = Promise<{ lang: string }>;
 

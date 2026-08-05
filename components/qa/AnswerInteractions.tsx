@@ -4,6 +4,7 @@ import { useState, useTransition } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { toggleUpvote, toggleThank } from "@/features/qa/vote-actions";
 import { acceptAnswer } from "@/features/qa/answer-actions";
+import { useQuestionUser } from "@/components/qa/QuestionUserContext";
 import type { Dictionary } from "@/lib/i18n";
 
 type QaT = Dictionary["qa"];
@@ -16,40 +17,47 @@ function useLoginRedirect() {
 
 // ── Barre vote « utile » + remercier (optimistic) ─────────────────────────────
 export function VoteThankBar({
-  answerId, upvotes, thanks, voted, thanked, isAuthed, t,
+  answerId, upvotes, thanks, t,
 }: {
   answerId: string;
   upvotes: number;
   thanks: number;
-  voted: boolean;
-  thanked: boolean;
-  isAuthed: boolean;
   t: QaT;
 }) {
-  const [uState, setUState] = useState({ count: upvotes, active: voted });
-  const [tState, setTState] = useState({ count: thanks, active: thanked });
+  // « Déjà voté / remercié » et l'état de connexion viennent du CONTEXTE, plus de
+  // props : les calculer au rendu serveur imposait une lecture de session, donc
+  // une page dynamique jamais mise en cache. Les compteurs restent des props —
+  // données publiques, servies dans le HTML et donc indexables.
+  const { loggedIn, voted, thanked } = useQuestionUser();
+
+  // `null` = aucune interaction locale → l'affichage suit props + contexte, et se
+  // met donc à jour tout seul quand le contexte se résout après hydratation. Dès
+  // le premier clic, l'état optimiste prend la main ; un échec le remet à `null`,
+  // ce qui rétablit la vérité sans avoir à la recopier.
+  type Toggle = { count: number; active: boolean } | null;
+  const [uLocal, setULocal] = useState<Toggle>(null);
+  const [tLocal, setTLocal] = useState<Toggle>(null);
   const [, start] = useTransition();
   const goLogin = useLoginRedirect();
 
+  const uState = uLocal ?? { count: upvotes, active: voted.has(answerId) };
+  const tState = tLocal ?? { count: thanks, active: thanked.has(answerId) };
+
   function onUpvote() {
-    if (!isAuthed) return goLogin();
-    const optimistic = { count: uState.count + (uState.active ? -1 : 1), active: !uState.active };
-    setUState(optimistic);
+    if (!loggedIn) return goLogin();
+    setULocal({ count: uState.count + (uState.active ? -1 : 1), active: !uState.active });
     start(async () => {
       const res = await toggleUpvote(answerId);
-      if (res.ok) setUState({ count: res.count, active: res.active });
-      else setUState({ count: upvotes, active: voted });
+      setULocal(res.ok ? { count: res.count, active: res.active } : null);
     });
   }
 
   function onThank() {
-    if (!isAuthed) return goLogin();
-    const optimistic = { count: tState.count + (tState.active ? -1 : 1), active: !tState.active };
-    setTState(optimistic);
+    if (!loggedIn) return goLogin();
+    setTLocal({ count: tState.count + (tState.active ? -1 : 1), active: !tState.active });
     start(async () => {
       const res = await toggleThank(answerId);
-      if (res.ok) setTState({ count: res.count, active: res.active });
-      else setTState({ count: thanks, active: thanked });
+      setTLocal(res.ok ? { count: res.count, active: res.active } : null);
     });
   }
 
@@ -102,6 +110,10 @@ export function AcceptButton({
   accepted: boolean;
   t: QaT;
 }) {
+  // Le droit d'accepter (auteur de la question ou admin) vient du contexte : la
+  // page ne peut plus le calculer au rendu sans redevenir dynamique. Le composant
+  // se masque donc lui-même, au lieu d'être monté conditionnellement côté serveur.
+  const { canAccept } = useQuestionUser();
   const [isAccepted, setIsAccepted] = useState(accepted);
   const [pending, start] = useTransition();
 
@@ -113,6 +125,8 @@ export function AcceptButton({
       if (!res.ok) setIsAccepted(accepted);
     });
   }
+
+  if (!canAccept) return null;
 
   return (
     <button

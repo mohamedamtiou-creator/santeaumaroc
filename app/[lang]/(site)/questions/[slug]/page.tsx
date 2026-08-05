@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { prisma } from "@/lib/prisma";
 import { cachedQuery } from "@/lib/cache";
-import { tryGetSession } from "@/lib/dal";
 import { localizedAlternates, frenchOnlyAlternates } from "@/lib/hreflang";
 import { qLocalized, aLocalized, isQuestionArReady } from "@/lib/qa-content";
 import { getDictionary, toLocale } from "@/lib/i18n";
@@ -20,18 +19,34 @@ import { UrgencyBanner } from "@/components/qa/UrgencyBanner";
 import { QuestionCard, type QuestionCardData } from "@/components/qa/QuestionCard";
 import { BookingCard, type BookingDoctor } from "@/components/qa/BookingCard";
 import { RecommendedDoctors } from "@/components/qa/RecommendedDoctors";
+import { QuestionUserProvider, ComposerGate, AnonymousOnly } from "@/components/qa/QuestionUserContext";
 
-export const revalidate = 300;
+// 3600 et non 300 : la fraîcheur d'une question ne repose PAS sur la TTL. Toute
+// publication, modification ou fusion de réponse appelle déjà
+// `revalidatePath(/questions/{slug})` (features/qa/actions.ts, admin-actions.ts),
+// donc la page se met à jour à la seconde. Les 5 min ne faisaient que régénérer
+// 288 fois par jour des pages inchangées — autant d'ISR Writes pour rien.
+export const revalidate = 3600;
+
+// Indispensable pour que `revalidate` ci-dessus produise réellement de l'ISR :
+// sans `generateStaticParams`, une route dynamique n'obtient aucune entrée de
+// pré-rendu et chaque réponse repart en `no-store`. Le tableau vide est la forme
+// documentée du « tout à la demande » — rien n'est généré au build, mais la
+// première visite d'une question la met en cache.
+export function generateStaticParams() {
+  return [];
+}
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 
 type Params = Promise<{ lang: string; slug: string }>;
 
 // Lecture STABLE de la question (identité + réponses publiées + médecins + commentaires),
-// cache DURABLE 300 s aligné sur l'ISR de la page. Partagée generateMetadata + rendu.
+// cache DURABLE aligné sur l'ISR de la page (le plus court des deux gagne).
+// Partagée generateMetadata + rendu.
 // L'incrément de vues (write) reste hors cache, fire-and-forget. JSON-safe : aucun
 // Decimal sélectionné (Doctor.prix non inclus), Float/Date révivés par Next.
 const getQuestion = (slug: string) =>
-  cachedQuery(`question:${slug}`, 300, () =>
+  cachedQuery(`question:${slug}`, 3600, () =>
     prisma.question.findUnique({
       where: { slug },
       include: {
@@ -135,43 +150,13 @@ export default async function QuestionDetailPage({ params }: { params: Params })
     !!acceptedAnswer &&
     (q.aiSummarySourceAnswerId == null || q.aiSummarySourceAnswerId === acceptedAnswer.id);
 
-  const session = await tryGetSession();
-  const userId = session?.userId ?? null;
-  const isAuthed = !!userId;
-
-  // Votes / remerciements / suivi de l'utilisateur courant.
-  const answerIds = q.answers.map((a) => a.id);
-  const [votedRows, thankedRows, follow] = await Promise.all([
-    userId && answerIds.length
-      ? prisma.answerVote.findMany({ where: { userId, answerId: { in: answerIds } }, select: { answerId: true } })
-      : Promise.resolve([]),
-    userId && answerIds.length
-      ? prisma.thank.findMany({ where: { userId, answerId: { in: answerIds } }, select: { answerId: true } })
-      : Promise.resolve([]),
-    userId
-      ? prisma.questionFollow.findUnique({ where: { questionId_userId: { questionId: q.id, userId } }, select: { id: true } })
-      : Promise.resolve(null),
-  ]);
-  const votedSet = new Set(votedRows.map((v) => v.answerId));
-  const thankedSet = new Set(thankedRows.map((v) => v.answerId));
-
-  const canAccept = !!userId && (q.askedById === userId || session?.role === "ADMIN");
-
-  // Médecin vérifié sans réponse encore publiée → afficher le composer.
-  let showComposer = false;
-  if (userId && session?.role === "DOCTOR") {
-    const doctor = await prisma.doctor.findUnique({
-      where: { userId },
-      select: { id: true, isVerified: true, isActive: true, isBlacklisted: true },
-    });
-    if (doctor?.isVerified && doctor.isActive && !doctor.isBlacklisted) {
-      const already = await prisma.answer.findFirst({
-        where: { questionId: q.id, doctorId: doctor.id },
-        select: { id: true },
-      });
-      showComposer = !already;
-    }
-  }
+  /* Aucune lecture de session ici — et surtout pas de `tryGetSession()`.
+     Elle était appelée SANS CONDITION, ce qui rendait la page dynamique pour
+     TOUS les visiteurs, crawlers anonymes compris : `no-store`, aucun cache,
+     rendu et requêtes SQL complets à chaque vue. Votes, remerciements, suivi,
+     droit d'accepter et éligibilité du composer sont désormais résolus après
+     hydratation par `QuestionUserProvider` (→ /api/questions/[id]/me), sur le
+     modèle déjà en place pour la fiche praticien. */
 
   void incrementQuestionViews(slug);
 
@@ -183,8 +168,8 @@ export default async function QuestionDetailPage({ params }: { params: Params })
     thanksCount: a.thanksCount,
     createdAt: a.createdAt,
     editedAt: a.editedAt,
-    voted: votedSet.has(a.id),
-    thanked: thankedSet.has(a.id),
+
+
     doctor: {
       slug: a.doctor.slug,
       nom: a.doctor.nom,
@@ -300,7 +285,7 @@ export default async function QuestionDetailPage({ params }: { params: Params })
   };
 
   return (
-    <>
+    <QuestionUserProvider questionId={q.id}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 pb-24 lg:pb-12">
@@ -338,7 +323,7 @@ export default async function QuestionDetailPage({ params }: { params: Params })
             {q.views >= 500 && <span>· {t.views.replace("{n}", q.views.toLocaleString(locale === "ar" ? "ar-MA" : "fr"))}</span>}
           </div>
           <div className="mt-4 flex flex-wrap items-center gap-2">
-            <FollowButton questionId={q.id} following={!!follow} isAuthed={isAuthed} t={t} />
+            <FollowButton questionId={q.id} t={t} />
             <ShareButton title={loc.title} t={t} />
             <ReportDialog targetType="QUESTION" targetId={q.id} t={t} />
           </div>
@@ -378,7 +363,7 @@ export default async function QuestionDetailPage({ params }: { params: Params })
           {answers.length > 0 ? (
             <div className="flex flex-col gap-4">
               {answers.map((a) => (
-                <AnswerCard key={a.id} answer={a} isAuthed={isAuthed} canAccept={canAccept} t={t} locale={locale} />
+                <AnswerCard key={a.id} answer={a} t={t} locale={locale} />
               ))}
             </div>
           ) : (
@@ -388,13 +373,14 @@ export default async function QuestionDetailPage({ params }: { params: Params })
           )}
         </section>
 
-        {/* Composer médecin vérifié */}
-        {showComposer && (
+        {/* Composer médecin vérifié — le droit est évalué côté client (contexte),
+            car le déduire au rendu imposait de lire la session. */}
+        <ComposerGate>
           <div className="mt-6"><AnswerComposer questionId={q.id} t={t} /></div>
-        )}
-        {!isAuthed && (
+        </ComposerGate>
+        <AnonymousOnly>
           <p className="mt-4 text-sm text-slate-500">{t.patientCannotAnswer}</p>
-        )}
+        </AnonymousOnly>
 
         {/* Disclaimer */}
         <aside role="note" className="mt-8 p-4 bg-amber-50 border border-amber-200 rounded-xl">
@@ -461,6 +447,6 @@ export default async function QuestionDetailPage({ params }: { params: Params })
           <Link href="/questions/poser" className="btn-primary w-full justify-center py-3 text-[15px] font-semibold">{t.ask}</Link>
         )}
       </div>
-    </>
+    </QuestionUserProvider>
   );
 }

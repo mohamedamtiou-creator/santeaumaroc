@@ -30,7 +30,11 @@ function Check() {
  * entrée sert FR et AR.
  */
 function getQaHomeData() {
-  return cachedQuery("qa-home", 600, async () => {
+  // 3600 et non 600 : ce cache plafonnait à 10 min la fenêtre ISR de /questions,
+  // alors que la publication d'une question invalide déjà l'index
+  // (`revalidatePath("/questions")`, features/qa/actions.ts). Ce sont des
+  // compteurs et un palmarès — rien qui exige 10 minutes de fraîcheur.
+  return cachedQuery("qa-home", 3600, async () => {
     const [qCount, docCount, specCount, ansCount, trending, categories, topDoctors] = await Promise.all([
       prisma.question.count({ where: { status: "PUBLISHED" } }),
       prisma.doctor.count({ where: { isActive: true, answers: { some: { status: "PUBLISHED" } } } }),
