@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { TTL } from "@/lib/cache-ttl";
 import { cachedQuery, decToNum } from "@/lib/cache";
 import { isProPlan, isFeaturedActive, hasProAccess } from "@/lib/plan";
 import { PRATICIENS_PAGE_SIZE, type DoctorCardDTO, type DoctorsResult } from "@/lib/praticiens-query";
@@ -22,7 +23,7 @@ export function getVilleDoctors(slug: string, specialite: string, page: number):
   // taille, incohérentes avec le totalPages recalculé.
   const key = `ville-doctors:${slug}:${spec}:${p}:n${PRATICIENS_PAGE_SIZE}`;
 
-  return cachedQuery(key, 3600, async () => {
+  return cachedQuery(key, TTL.LISTING, async () => {
     const where = {
       isActive: true,
       city: { slug },

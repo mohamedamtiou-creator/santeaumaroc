@@ -1,9 +1,6 @@
 import { Suspense } from "react";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
-import { unstable_cache } from "next/cache";
 import type { Metadata } from "next";
-import { prisma } from "@/lib/prisma";
-import { processCache } from "@/lib/process-cache";
 import { localizedAlternates } from "@/lib/hreflang";
 import { getDictionary, toLocale, type Locale } from "@/lib/i18n";
 import { tSpecialty, tCity } from "@/lib/specialty-i18n";
@@ -11,40 +8,30 @@ import { PraticienCard } from "@/components/PraticienCard";
 import { SearchFilters } from "@/components/SearchFilters";
 import { Pagination } from "@/components/ui/Pagination";
 import { FaqAccordion } from "@/components/ui/FaqAccordion";
-import { getCachedDoctors, PRATICIENS_PAGE_SIZE as PAGE_SIZE } from "@/lib/praticiens-query";
+import { getCachedDoctors, getFiltersData, PRATICIENS_PAGE_SIZE as PAGE_SIZE } from "@/lib/praticiens-query";
 import { PraticiensResults } from "@/components/praticiens/PraticiensResults";
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 
-type Params = Promise<{ lang: string }>;
+// ── ISR ───────────────────────────────────────────────────────────────────────
+// Rend EXPLICITE une fenêtre qui était jusqu'ici implicite. Le segment ne
+// déclarait rien, mais la page n'était pas figée pour autant : `unstable_cache`
+// abaisse le `revalidate` du store de pré-rendu qui l'englobe
+// (next/dist/server/web/spec-extension/unstable-cache.js — « if
+// workUnitStore.revalidate < options.revalidate … else workUnitStore.revalidate =
+// options.revalidate »). La fenêtre réelle était donc le MINIMUM de l'arbre,
+// émergent et invisible à la lecture.
+//
+// C'est la « règle du binôme » de lib/cache-ttl.ts : le littéral doit ÉGALER le
+// plus petit palier de l'arbre. Ici → getCachedDoctors (TTL.LISTING = 21600) vs
+// getFiltersData (TTL.DIRECTORY = 86400) ⇒ 21600.
+//
+// ⚠️ Ce littéral doit rester statiquement analysable par Next : pas de
+// `TTL.LISTING` ici, pas de calcul. Si l'un des deux paliers ci-dessus baisse,
+// baisser ce nombre en même temps.
+export const revalidate = 21600; // TTL.LISTING
 
-// ── Cached filter dropdowns (1 h) ─────────────────────────────────────────────
-// Two-layer cache:
-//   1. unstable_cache → Next.js Data Cache (cross-request, tag-invalidatable)
-//   2. processCache  → globalThis in-process (survives Turbopack HMR hot-reloads)
-const getFiltersData = unstable_cache(
-  () => {
-    const clean = (s: string) => s.replace(/[\r\n\t]+/g, " ").trim();
-    return processCache("praticiens:filters", 3600, async () => {
-      const [specialties, cities] = await Promise.all([
-        prisma.specialty.findMany({
-          select: { slug: true, name: true },
-          orderBy: { doctors: { _count: "desc" } },
-        }),
-        prisma.city.findMany({
-          select: { slug: true, name: true },
-          orderBy: { doctors: { _count: "desc" } },
-        }),
-      ]);
-      return {
-        specialties: specialties.map((s) => ({ ...s, name: clean(s.name) })),
-        cities:      cities.map((c)      => ({ ...c, name: clean(c.name) })),
-      };
-    });
-  },
-  ["praticiens-filters"],
-  { revalidate: 3600, tags: ["filters"] },
-);
+type Params = Promise<{ lang: string }>;
 
 // ── generateMetadata ──────────────────────────────────────────────────────────
 // La page est STATIQUE : le serveur ne lit plus searchParams (filtres/pagination
@@ -386,17 +373,15 @@ async function DoctorResults({
 // /api/praticiens/search) ; ces vues sont noindex, hors périmètre SEO.
 export default async function PraticiensPage({ params }: { params: Params }) {
   // Filters are cached — resolves without hitting DB after first request
+  // `specialties`/`cities` servent au maillage interne en bas de page (14 liens
+  // chacun) et aux puces de filtre du rendu serveur. Ils ne sont PLUS passés à
+  // SearchFilters : le combobox les charge depuis /api/praticiens/filters au
+  // premier focus (cf. `lazy`). Les rendre en <option> coûtait 344 nœuds — 17 % de
+  // la page — et 15,5 KB de payload RSC, pour une liste que presque personne
+  // n'ouvre.
   const { specialties, cities } = await getFiltersData();
   const locale = toLocale((await params).lang);
   const dict = getDictionary(locale);
-  // Libellés de spécialités traduits pour le menu déroulant (le slug = valeur reste FR).
-  const specialtiesT = locale === "ar"
-    ? specialties.map((s) => ({ ...s, name: tSpecialty(s.name, locale) }))
-    : specialties;
-  // Idem pour les villes (le slug = valeur de l'option reste FR, seul le libellé est traduit).
-  const citiesT = locale === "ar"
-    ? cities.map((c) => ({ ...c, name: tCity(c.name, locale) }))
-    : cities;
 
   // Vue de base (page 1, aucun filtre) rendue côté serveur. Sert à la fois de
   // contenu du shell statique (fallback <Suspense>, donc présent dans le HTML
@@ -422,15 +407,13 @@ export default async function PraticiensPage({ params }: { params: Params }) {
         className="bg-white rounded-2xl border border-slate-200 p-4 mb-5"
         style={{ boxShadow: "0 1px 4px 0 rgb(0 0 0 / 0.06)" }}
       >
-        <SearchFilters specialties={specialtiesT} cities={citiesT} t={dict.filters} />
+        <SearchFilters specialties={[]} cities={[]} lazy t={dict.filters} />
       </div>
 
       {/* Résultats — <Suspense> requis par useSearchParams en page statique.
           Fallback = liste de base SSR → présente dans le HTML prérendu (SEO). */}
       <Suspense fallback={baseList}>
         <PraticiensResults
-          specialties={specialtiesT}
-          cities={citiesT}
           locale={locale}
           cardT={dict.card}
           paginationT={dict.pagination}

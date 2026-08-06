@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TTL } from "@/lib/cache-ttl";
 import { unstable_cache } from "next/cache";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { prisma } from "@/lib/prisma";
@@ -69,7 +70,7 @@ const getStats = unstable_cache(
     };
   },
   ["observatory-stats"],
-  { revalidate: 604800, tags: ["doctors"] },
+  { revalidate: TTL.STATIC, tags: ["doctors"] },
 );
 
 type Copy = {

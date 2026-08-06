@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { TTL } from "@/lib/cache-ttl";
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { AlphaIndexNav } from "@/components/villes/AlphaIndexNav";
@@ -30,7 +31,7 @@ type Params = Promise<{ lang: string; slug: string; seg: string[] }>;
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 
-export const revalidate = 3600;
+export const revalidate = 86400; // TTL.DIRECTORY
 
 const COPY = {
   fr: {
@@ -76,7 +77,7 @@ type Resolved = {
 };
 
 function getCity(slug: string) {
-  return cachedQuery(`ville:meta:${slug}`, 3600, () => prisma.city.findUnique({ where: { slug } }));
+  return cachedQuery(`ville:meta:${slug}`, TTL.DIRECTORY, () => prisma.city.findUnique({ where: { slug } }));
 }
 
 /**
@@ -119,11 +120,23 @@ async function resolve(citySlug: string, seg: string[]): Promise<Resolved | null
 /* ── Prérendu : toutes les pages d'index des villes éligibles ───────────── */
 
 export async function generateStaticParams() {
+  // On ne pré-rend que les lettres INDEXABLES, celles-là mêmes que le sitemap
+  // advertise (`getAlphaIndexSitemapPaths`, même seuil `ALPHA_MIN_INDEXABLE`).
+  //
+  // Avant : la boucle prenait TOUS les buckets, y compris les lettres sous le
+  // seuil — servies en `noindex, follow` par generateMetadata quelques lignes
+  // plus bas. On pré-rendait donc, et on revalidait indéfiniment, des pages
+  // volontairement exclues de l'index.
+  //
+  // Les lettres creuses restent atteignables : la barre A–Z pointe dessus et
+  // `dynamicParams` les génère à la demande. Le crawl et la découverte des
+  // fiches praticien — la raison d'être de ces index — sont intacts.
   const cities = await getAlphaIndexCities();
   const params: { slug: string; seg: string[] }[] = [];
   for (const city of cities) {
     const { buckets } = await getCityLetterBuckets(city.slug);
     for (const b of buckets) {
+      if (b.count < ALPHA_MIN_INDEXABLE) continue;
       params.push({ slug: city.slug, seg: [b.slug] });
       for (let p = 2; p <= b.pages; p++) params.push({ slug: city.slug, seg: [b.slug, String(p)] });
     }

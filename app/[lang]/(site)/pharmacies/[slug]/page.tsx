@@ -12,7 +12,7 @@ type Params = Promise<{ lang: string; slug: string }>;
 // l'utilisateur connecté est chargé côté client, cf. EstablishmentReviewDialog).
 // Vu le volume (~6 000 pharmacies), on ne pré-rend au build que les mieux notées ;
 // le reste est généré en ISR à la première visite (dynamicParams par défaut).
-export const revalidate = 3600;
+export const revalidate = 86400; // TTL.DIRECTORY
 
 export async function generateStaticParams() {
   const rows = await prisma.establishment.findMany({

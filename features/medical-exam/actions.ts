@@ -2,7 +2,7 @@
 
 import { prisma } from "@/lib/prisma";
 import { verifySession } from "@/lib/dal";
-import { revalidatePath } from "next/cache";
+import { revalidateHealthContent } from "@/lib/revalidate";
 import { redirect } from "next/navigation";
 import { parseLines } from "@/lib/medical-exam";
 
@@ -141,11 +141,11 @@ function isP2002(e: unknown): boolean {
 }
 
 function revalidateAll(slug: string) {
-  revalidatePath("/examens");
-  revalidatePath(`/examens/${slug}`);
-  revalidatePath("/ar/examens");
-  revalidatePath(`/ar/examens/${slug}`);
-  revalidatePath("/sitemap.xml");
+  revalidateHealthContent(["/examens", `/examens/${slug}`], {
+    // Tag partagé avec les caches dossiers/outils qui recopient les examens.
+    tags: ["medical-exams", "life-clusters", "tools-related"],
+    indexChanged: true,
+  });
 }
 
 export async function createExam(formData: FormData) {
@@ -219,7 +219,11 @@ export async function updateExam(id: string, formData: FormData) {
 
 export async function deleteExam(id: string) {
   await requireAdmin();
+  // Slug lu avant suppression : sinon la fiche reste en cache sans son record.
+  const exam = await prisma.medicalExam.findUnique({ where: { id }, select: { slug: true } });
   await prisma.medicalExam.delete({ where: { id } });
-  revalidatePath("/examens");
-  revalidatePath("/sitemap.xml");
+  revalidateHealthContent(
+    exam ? ["/examens", `/examens/${exam.slug}`] : ["/examens"],
+    { tags: ["medical-exams", "life-clusters", "tools-related"], indexChanged: true },
+  );
 }

@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { TTL } from "@/lib/cache-ttl";
 import { generateAvailableSlots } from "@/lib/utils";
 import { isProPlan, isFeaturedActive, hasProAccess } from "@/lib/plan";
 import { cachedQuery } from "@/lib/cache";
@@ -77,7 +78,7 @@ export function getSpecialtyDoctors(slug: string, f: SpecialtyFilters): Promise<
   // PRATICIENS_PAGE_SIZE doit invalider les listes de l'ancienne taille.
   const key = `specialite-doctors:${slug}:${ville}:${tri}:${dispo}:${conv}:${langue}:${q}:${page}:${today}:n${PRATICIENS_PAGE_SIZE}`;
 
-  return cachedQuery(key, 3600, async () => {
+  return cachedQuery(key, TTL.LISTING, async () => {
     const where = buildWhere(slug, { ville, dispo, conv, langue, q, today });
     const orderBy = buildOrderBy(tri);
     const [rawDoctors, total] = await Promise.all([

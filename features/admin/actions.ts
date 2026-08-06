@@ -2,7 +2,16 @@
 
 import { prisma } from "@/lib/prisma";
 import { verifySession } from "@/lib/dal";
+// `revalidatePath` : pages /admin uniquement (rendues dynamiquement — l'appel
+// n'y rafraîchit que le cache routeur client). Tout ce qui est public passe par
+// les invalidateurs de lib/revalidate.ts, qui couvrent les DEUX locales.
 import { revalidatePath } from "next/cache";
+import {
+  revalidateDoctor,
+  revalidateDirectory,
+  revalidateLocalizedPath,
+  revalidateSitemaps,
+} from "@/lib/revalidate";
 import { sendVerificationApprovedEmail, sendVerificationRejectedEmail } from "@/lib/email";
 
 async function requireAdmin() {
@@ -109,8 +118,12 @@ export async function approveVerification(doctorId: string, note?: string) {
 
   revalidatePath("/admin/praticiens");
   revalidatePath(`/admin/praticiens/${doctorId}`);
-  revalidatePath("/praticiens");
   revalidatePath("/praticien/tableau-de-bord/verification");
+  // La validation pose le badge « vérifié » ET réactive la fiche : celle-ci
+  // rentre donc dans le périmètre indexable (sitemap) et son rendu change.
+  revalidateDoctor(doctor.slug);
+  revalidateLocalizedPath("/praticiens");
+  revalidateSitemaps();
 }
 
 export async function rejectVerification(doctorId: string, note: string) {
@@ -161,19 +174,29 @@ export async function revokeVerification(doctorId: string, note: string) {
 
   revalidatePath("/admin/praticiens");
   revalidatePath(`/admin/praticiens/${doctorId}`);
-  revalidatePath("/praticiens");
+  // Le badge « vérifié » disparaît de la fiche publique et du listing.
+  const revoked = await prisma.doctor.findUnique({ where: { id: doctorId }, select: { slug: true } });
+  revalidateDoctor(revoked?.slug);
+  revalidateLocalizedPath("/praticiens");
 }
 
 /* ── Activation ─────────────────────────────────────────── */
 
 export async function toggleDoctorActive(doctorId: string, current: boolean) {
   await requireAdmin();
-  await prisma.doctor.update({
+  // Slug, spécialité et ville sont lus pour l'invalidation : (dés)activer une
+  // fiche la fait entrer ou sortir du sitemap, et décale les compteurs de tous
+  // les silos où elle est comptée (spécialité, ville, combo).
+  const doctor = await prisma.doctor.update({
     where: { id: doctorId },
     data:  { isActive: !current },
+    select: { slug: true, specialty: { select: { slug: true } }, city: { select: { slug: true } } },
   });
   revalidatePath("/admin/praticiens");
-  revalidatePath("/praticiens");
+  revalidateDoctor(doctor.slug);
+  revalidateDirectory(doctor.specialty?.slug, doctor.city?.slug);
+  revalidateLocalizedPath("/praticiens");
+  revalidateSitemaps();
 }
 
 /* ── Localisation / coordonnées GPS (SEO local + schema geo) ── */
@@ -207,7 +230,7 @@ export async function setDoctorCoordinates(
   });
 
   revalidatePath(`/admin/praticiens/${doctorId}`);
-  if (doctor.slug) revalidatePath(`/praticiens/${doctor.slug}`);
+  revalidateDoctor(doctor.slug);
 }
 
 /* ── Stats dashboard ────────────────────────────────────── */
@@ -244,8 +267,5 @@ export async function setDoctorPlan(doctorId: string, plan: string) {
 
   revalidatePath("/admin/praticiens");
   revalidatePath(`/admin/praticiens/${doctorId}`);
-  if (doctor.slug) {
-    revalidatePath(`/praticiens/${doctor.slug}`);
-    revalidatePath(`/praticiens/${doctor.slug}/rdv`);
-  }
+  revalidateDoctor(doctor.slug);
 }

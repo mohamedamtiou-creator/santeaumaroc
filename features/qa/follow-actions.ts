@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidateQuestion } from "@/lib/revalidate";
 import { prisma } from "@/lib/prisma";
 import { tryGetSession } from "@/lib/dal";
 import { rateLimit } from "@/lib/rate-limit";
@@ -35,6 +35,6 @@ export async function toggleFollow(questionId: string): Promise<FollowResult> {
     following = true;
   }
 
-  revalidatePath(`/questions/${question.slug}`);
+  revalidateQuestion(question.slug);
   return { ok: true, following };
 }

@@ -5,6 +5,7 @@ import { MED_HUB_PATH, MED_MIN_INDEXABLE, getMedLetterBuckets, medIndexPath } fr
 import { TOOL_SLUGS } from "@/lib/health-tools";
 import { TOOLS_AR_REVIEWED } from "@/lib/tools-content-ar";
 import { glossaryQuality } from "@/lib/glossary-quality";
+import { indexableCombos } from "@/lib/specialty-cities";
 import { CLUSTER_SLUGS } from "@/lib/life-clusters";
 import { CLUSTERS_AR_REVIEWED } from "@/lib/life-clusters-content-ar";
 
@@ -424,39 +425,23 @@ async function doctorEntries(): Promise<MetadataRoute.Sitemap> {
     }));
 }
 
-// Seuil aligné sur app/specialites/[slug]/[ville]/page.tsx : un combo sous ce
-// nombre de praticiens est mis en noindex, on ne le déclare donc pas au sitemap
-// (cohérence découverte ↔ indexabilité, pas d'URL noindex advertisée).
-const MIN_COMBO_DOCTORS = 3;
-
+/**
+ * Combos spécialité × ville indexables.
+ *
+ * Le calcul (et son seuil) vit dans `lib/specialty-cities.ts`, partagé avec le
+ * `generateStaticParams` de la page : découverte, indexabilité et pré-rendu
+ * dérivent désormais d'UNE seule requête, donc ne peuvent plus diverger. Le
+ * dépôt portait deux `groupBy` jumeaux avec deux constantes distinctes — et la
+ * page, elle, pré-rendait TOUS les combos sans aucun filtre.
+ */
 async function comboEntries(now: Date): Promise<MetadataRoute.Sitemap> {
-  const [grouped, specialties, cities] = await Promise.all([
-    prisma.doctor.groupBy({
-      by: ["specialtyId", "cityId"],
-      where: { isActive: true },
-      _count: { _all: true },
-    }),
-    prisma.specialty.findMany({ select: { id: true, slug: true } }),
-    prisma.city.findMany({ select: { id: true, slug: true } }),
-  ]);
-
-  const specSlug = new Map(specialties.map((s) => [s.id, s.slug]));
-  const citySlug = new Map(cities.map((c) => [c.id, c.slug]));
-
-  const combos: MetadataRoute.Sitemap = [];
-  for (const g of grouped) {
-    if (g._count._all < MIN_COMBO_DOCTORS) continue;
-    const sSlug = specSlug.get(g.specialtyId);
-    const cSlug = citySlug.get(g.cityId);
-    if (!sSlug || !cSlug) continue;
-    combos.push({
-      url: `${BASE}/specialites/${sSlug}/${cSlug}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.65,
-    });
-  }
-  return combos;
+  const combos = await indexableCombos();
+  return combos.map((c) => ({
+    url: `${BASE}/specialites/${c.slug}/${c.ville}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.65,
+  }));
 }
 
 async function contentEntries(): Promise<MetadataRoute.Sitemap> {

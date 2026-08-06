@@ -1,6 +1,9 @@
 "use server";
 
+// `revalidatePath` : réservé aux pages du tableau de bord (dynamiques, pas
+// d'entrée ISR). Le public passe par `revalidateDoctor` — cf. lib/revalidate.ts.
 import { revalidatePath } from "next/cache";
+import { revalidateDoctor } from "@/lib/revalidate";
 import { prisma } from "@/lib/prisma";
 import { tryGetSession } from "@/lib/dal";
 import { getLocale } from "@/lib/i18n-server";
@@ -20,9 +23,7 @@ async function getDoctorRef(userId: string) {
  * qui seraient sinon périmés jusqu'à la revalidation temporelle (1 h).
  */
 function revalidatePublicDoctor(slug: string | null | undefined) {
-  if (!slug) return;
-  revalidatePath(`/praticiens/${slug}`);
-  revalidatePath(`/praticiens/${slug}/rdv`);
+  revalidateDoctor(slug);
 }
 
 /* ── Absences ───────────────────────────────────────────── */

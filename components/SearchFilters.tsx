@@ -2,11 +2,18 @@
 
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { useRouter, usePathname } from "next/navigation";
+import { FilterCombobox } from "@/components/filters/FilterCombobox";
 import type { Dictionary } from "@/lib/i18n";
 
 type Props = {
+  /** Listes d'options. Un tableau VIDE sur /praticiens signifie « charge-les à la
+   *  demande » (cf. `lazy`) — les 97 spécialités et 247 villes ne sont ni rendues
+   *  ni sérialisées tant que le visiteur n'ouvre pas le filtre. */
   specialties:      { slug: string; name: string }[];
   cities:           { slug: string; name: string }[];
+  /** Charge les listes depuis /api/praticiens/filters au premier focus, au lieu de
+   *  les recevoir en props. Réservé aux listings qui portent le référentiel complet. */
+  lazy?:            boolean;
   fixedSpecialty?:  string;
   fixedVille?:      string;
   /** Current filter values — provided by the parent server component so this
@@ -26,14 +33,6 @@ function SearchIcon() {
     <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" className="w-4.5 h-4.5 text-slate-500 shrink-0" aria-hidden="true">
       <circle cx="9" cy="9" r="6"/>
       <path d="m14 14 4 4" strokeLinecap="round"/>
-    </svg>
-  );
-}
-
-function ChevronIcon() {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 text-slate-500 pointer-events-none shrink-0" aria-hidden="true">
-      <path d="m4 6 4 4 4-4" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   );
 }
@@ -59,7 +58,7 @@ export function SearchFilters({
   specialties, cities,
   fixedSpecialty, fixedVille,
   currentQ = "", currentSpecialty = "", currentVille = "",
-  topSpecialties = 8, topCities = 6,
+  lazy = false,
   t,
   placeholder = t.placeholder,
 }: Props) {
@@ -110,81 +109,39 @@ export function SearchFilters({
       </div>
 
       {/* ── Filtre spécialité ────────────────────── */}
-      {!fixedSpecialty && specialties.length > 0 && (
-        <label className="relative flex items-center sm:w-52">
-          <span className="absolute start-3.5 pointer-events-none">
-            <FilterIcon />
-          </span>
-          <select
-            name="specialite"
-            defaultValue={currentSpecialty}
-            onChange={(e) => e.currentTarget.form?.requestSubmit()}
-            className="input-field ps-10 pe-8 h-11 appearance-none cursor-pointer w-full"
-            aria-label={t.filterSpecialty}
-          >
-            <option value="">{t.allSpecialties}</option>
-            {specialties.length > topSpecialties ? (
-              <>
-                <optgroup label={t.groupMain}>
-                  {specialties.slice(0, topSpecialties).map((s) => (
-                    <option key={s.slug} value={s.slug}>{s.name}</option>
-                  ))}
-                </optgroup>
-                <optgroup label={t.groupAll}>
-                  {specialties.slice(topSpecialties).map((s) => (
-                    <option key={s.slug} value={s.slug}>{s.name}</option>
-                  ))}
-                </optgroup>
-              </>
-            ) : (
-              specialties.map((s) => (
-                <option key={s.slug} value={s.slug}>{s.name}</option>
-              ))
-            )}
-          </select>
-          <span className="absolute end-3 pointer-events-none">
-            <ChevronIcon />
-          </span>
-        </label>
+      {!fixedSpecialty && (lazy || specialties.length > 0) && (
+        <FilterCombobox
+          name="specialite"
+          className="sm:w-52"
+          label={t.filterSpecialty}
+          allLabel={t.allSpecialties}
+          placeholder={t.allSpecialties}
+          value={currentSpecialty}
+          options={lazy ? null : specialties}
+          source="specialties"
+          icon={<FilterIcon />}
+          loadingLabel={t.comboLoading}
+          emptyLabel={t.comboEmpty}
+          moreLabel={(n) => `+${n} · ${t.comboMore}`}
+        />
       )}
 
       {/* ── Filtre ville ─────────────────────────── */}
       {!fixedVille && (
-        <label className="relative flex items-center sm:w-44">
-          <span className="absolute start-3.5 pointer-events-none">
-            <MapPinIcon />
-          </span>
-          <select
-            name="ville"
-            defaultValue={currentVille}
-            onChange={(e) => e.currentTarget.form?.requestSubmit()}
-            className="input-field ps-10 pe-8 h-11 appearance-none cursor-pointer w-full"
-            aria-label={t.filterCity}
-          >
-            <option value="">{t.allCities}</option>
-            {cities.length > topCities ? (
-              <>
-                <optgroup label={t.groupMain}>
-                  {cities.slice(0, topCities).map((c) => (
-                    <option key={c.slug} value={c.slug}>{c.name}</option>
-                  ))}
-                </optgroup>
-                <optgroup label={t.groupAll}>
-                  {cities.slice(topCities).map((c) => (
-                    <option key={c.slug} value={c.slug}>{c.name}</option>
-                  ))}
-                </optgroup>
-              </>
-            ) : (
-              cities.map((c) => (
-                <option key={c.slug} value={c.slug}>{c.name}</option>
-              ))
-            )}
-          </select>
-          <span className="absolute end-3 pointer-events-none">
-            <ChevronIcon />
-          </span>
-        </label>
+        <FilterCombobox
+          name="ville"
+          className="sm:w-44"
+          label={t.filterCity}
+          allLabel={t.allCities}
+          placeholder={t.allCities}
+          value={currentVille}
+          options={lazy ? null : cities}
+          source="cities"
+          icon={<MapPinIcon />}
+          loadingLabel={t.comboLoading}
+          emptyLabel={t.comboEmpty}
+          moreLabel={(n) => `+${n} · ${t.comboMore}`}
+        />
       )}
 
       {/* ── Réinitialiser (si filtre actif) ─────── */}

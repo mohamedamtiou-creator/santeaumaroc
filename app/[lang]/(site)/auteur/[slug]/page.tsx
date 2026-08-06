@@ -6,7 +6,7 @@ import { toLocale, type Locale } from "@/lib/i18n";
 import { prisma } from "@/lib/prisma";
 import { professionLabel, isVerifiedAuthor } from "@/lib/contributor";
 
-export const revalidate = 3600;
+export const revalidate = 86400; // TTL.DIRECTORY
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 

@@ -1,4 +1,5 @@
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
+import { TTL } from "@/lib/cache-ttl";
 import { unstable_cache } from "next/cache";
 import { prisma } from "@/lib/prisma";
 import { processCache } from "@/lib/process-cache";
@@ -123,7 +124,7 @@ const getDoctors = unstable_cache(
   //
   // Rien ne justifiait 5 min : ce bloc liste des praticiens d'une spécialité sur
   // une page éditoriale, un annuaire qui bouge à l'échelle de la semaine.
-  { revalidate: 3600, tags: ["doctors"] },
+  { revalidate: TTL.DIRECTORY, tags: ["doctors"] },
 );
 
 export async function RelatedDoctors({

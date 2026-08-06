@@ -1,6 +1,12 @@
 "use server";
 
+// `revalidatePath` reste utilisé TEL QUEL pour les pages du tableau de bord :
+// elles sont rendues dynamiquement (lecture de session), donc l'appel n'y sert
+// qu'à rafraîchir le cache routeur client — pas d'entrée ISR à cibler, pas de
+// préfixe de locale à gérer. Les surfaces PUBLIQUES, elles, passent par
+// `revalidateDoctor` (cf. lib/revalidate.ts).
 import { revalidatePath } from "next/cache";
+import { revalidateDoctor } from "@/lib/revalidate";
 import { z } from "zod";
 import { prisma } from "@/lib/prisma";
 import { tryGetSession } from "@/lib/dal";
@@ -112,7 +118,7 @@ export async function updatePraticienProfile(
 
   revalidatePath("/praticien/tableau-de-bord/profil");
   // La fiche publique doit refléter les motifs/identité mis à jour.
-  if (updated.slug) revalidatePath(`/praticiens/${updated.slug}`);
+  revalidateDoctor(updated.slug);
   return { message: "ok" };
 }
 
@@ -147,9 +153,6 @@ export async function updateWorkingHours(
   revalidatePath("/praticien/tableau-de-bord/horaires");
   // Les horaires déterminent les créneaux publics → revalider fiche + page RDV.
   const ref = await prisma.doctor.findUnique({ where: { id: doctorId }, select: { slug: true } });
-  if (ref?.slug) {
-    revalidatePath(`/praticiens/${ref.slug}`);
-    revalidatePath(`/praticiens/${ref.slug}/rdv`);
-  }
+  revalidateDoctor(ref?.slug);
   return { message: "ok" };
 }

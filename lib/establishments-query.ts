@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { TTL } from "@/lib/cache-ttl";
 import { cachedQuery } from "@/lib/cache";
 
 export const ESTAB_PAGE_SIZE = 20;
@@ -35,7 +36,7 @@ export function getEstablishments(types: string[], ville: string, q: string, pag
   const query = (q ?? "").trim();
   const key = `establishments:${types.join(",")}:${v}:${query}:${p}`;
 
-  return cachedQuery(key, 3600, async () => {
+  return cachedQuery(key, TTL.DIRECTORY, async () => {
     const where = {
       isActive: true,
       type: { in: types },
@@ -87,7 +88,7 @@ export function getEstablishments(types: string[], ville: string, q: string, pag
  * `Int`, `createdAt` une `Date` (révivée par Next) → aucun `Decimal`.
  */
 export function getEstablishmentDetail(slug: string) {
-  return cachedQuery(`establishment:${slug}`, 3600, () =>
+  return cachedQuery(`establishment:${slug}`, TTL.DIRECTORY, () =>
     prisma.establishment.findUnique({
       where: { slug },
       include: {
@@ -101,7 +102,7 @@ export function getEstablishmentDetail(slug: string) {
 
 /** Villes pour le sélecteur de filtre (triées par nb d'établissements), cachées 1 h. */
 export function getEstablishmentCities(): Promise<{ slug: string; name: string }[]> {
-  return cachedQuery("establishments:cities", 3600, async () => {
+  return cachedQuery("establishments:cities", TTL.DIRECTORY, async () => {
     const cities = await prisma.city.findMany({
       select: { slug: true, name: true },
       orderBy: { establishments: { _count: "desc" } },

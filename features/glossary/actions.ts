@@ -2,7 +2,7 @@
 
 import { prisma } from "@/lib/prisma";
 import { verifySession } from "@/lib/dal";
-import { revalidatePath } from "next/cache";
+import { revalidateHealthContent } from "@/lib/revalidate";
 import { redirect } from "next/navigation";
 import { normalizeCategory } from "@/lib/glossary";
 
@@ -143,11 +143,10 @@ export async function createTerm(formData: FormData) {
     throw e;
   }
 
-  revalidatePath("/glossaire");
-  revalidatePath(`/glossaire/${f.slug}`);
-  revalidatePath("/ar/glossaire");
-  revalidatePath(`/ar/glossaire/${f.slug}`);
-  revalidatePath("/sitemap.xml");
+  revalidateHealthContent(["/glossaire", `/glossaire/${f.slug}`], {
+    tags: ["health-topics", "life-clusters", "tools-related"],
+    indexChanged: true,
+  });
   redirect("/admin/glossaire");
 }
 
@@ -181,17 +180,20 @@ export async function updateTerm(id: string, formData: FormData) {
     throw e;
   }
 
-  revalidatePath("/glossaire");
-  revalidatePath(`/glossaire/${f.slug}`);
-  revalidatePath("/ar/glossaire");
-  revalidatePath(`/ar/glossaire/${f.slug}`);
-  revalidatePath("/sitemap.xml");
+  revalidateHealthContent(["/glossaire", `/glossaire/${f.slug}`], {
+    tags: ["health-topics", "life-clusters", "tools-related"],
+    indexChanged: true,
+  });
   redirect("/admin/glossaire");
 }
 
 export async function deleteTerm(id: string) {
   await requireAdmin();
+  // Slug lu avant suppression : sinon la fiche reste en cache sans son record.
+  const term = await prisma.glossaryTerm.findUnique({ where: { id }, select: { slug: true } });
   await prisma.glossaryTerm.delete({ where: { id } });
-  revalidatePath("/glossaire");
-  revalidatePath("/sitemap.xml");
+  revalidateHealthContent(
+    term ? ["/glossaire", `/glossaire/${term.slug}`] : ["/glossaire"],
+    { indexChanged: true },
+  );
 }

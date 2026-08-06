@@ -10,7 +10,7 @@ type Params = Promise<{ lang: string; slug: string }>;
 
 // Page STATIQUE / ISR : plus aucune lecture de session dans le rendu (l'avis de
 // l'utilisateur connecté est chargé côté client, cf. EstablishmentReviewDialog).
-export const revalidate = 3600;
+export const revalidate = 86400; // TTL.DIRECTORY
 
 export async function generateStaticParams() {
   const rows = await prisma.establishment.findMany({

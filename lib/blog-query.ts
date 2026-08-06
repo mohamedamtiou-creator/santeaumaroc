@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { TTL } from "@/lib/cache-ttl";
 import { cachedQuery } from "@/lib/cache";
 import { Prisma } from "@prisma/client";
 import type { PostCardData } from "@/components/blog/PostCard";
@@ -28,7 +29,7 @@ export function getBlogPosts(page: number, categorie?: string, q?: string): Prom
   const query = (q ?? "").trim();
   const key = `blog-posts:${p}:${cat}:${query}`;
 
-  return cachedQuery(key, 3600, async () => {
+  return cachedQuery(key, TTL.DIRECTORY, async () => {
     const where = {
       status: "PUBLISHED" as const,
       ...(cat && !query ? { category: { slug: cat } } : {}),

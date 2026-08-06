@@ -1,4 +1,5 @@
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
+import { TTL } from "@/lib/cache-ttl";
 import { prisma } from "@/lib/prisma";
 import { cachedQuery } from "@/lib/cache";
 import { getDictionary, type Locale } from "@/lib/i18n";
@@ -34,7 +35,7 @@ function getQaHomeData() {
   // alors que la publication d'une question invalide déjà l'index
   // (`revalidatePath("/questions")`, features/qa/actions.ts). Ce sont des
   // compteurs et un palmarès — rien qui exige 10 minutes de fraîcheur.
-  return cachedQuery("qa-home", 3600, async () => {
+  return cachedQuery("qa-home", TTL.DIRECTORY, async () => {
     const [qCount, docCount, specCount, ansCount, trending, categories, topDoctors] = await Promise.all([
       prisma.question.count({ where: { status: "PUBLISHED" } }),
       prisma.doctor.count({ where: { isActive: true, answers: { some: { status: "PUBLISHED" } } } }),

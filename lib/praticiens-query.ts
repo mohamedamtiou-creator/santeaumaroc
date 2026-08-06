@@ -1,8 +1,13 @@
 import { unstable_cache } from "next/cache";
+import { TTL } from "@/lib/cache-ttl";
 import { prisma } from "@/lib/prisma";
 import { processCache } from "@/lib/process-cache";
-import { generateAvailableSlots } from "@/lib/utils";
+import { casablancaTodayStr, generateAvailableSlots } from "@/lib/utils";
 import { isProPlan, isFeaturedActive, hasProAccess } from "@/lib/plan";
+
+// Horizon de réservation affiché en liste (cf. `maxDays` ci-dessous). Sert aussi à
+// borner les requêtes de créneaux : rien au-delà n'influence les 4 puces montrées.
+const SLOTS_HORIZON_DAYS = 14;
 
 // 25 résultats/page — compromis LCP. La profondeur de pagination n'est plus un
 // enjeu SEO : la découverte des fiches ne repose PAS sur la pagination (les
@@ -42,6 +47,41 @@ export type DoctorCardDTO = {
 };
 
 export type DoctorsResult = { doctors: DoctorCardDTO[]; total: number };
+
+export type FilterOption = { slug: string; name: string };
+
+// ── Listes de filtres (spécialités / villes), cachées 1 h ────────────────────
+// Partagées par la page /praticiens (menus déroulants) ET par /api/praticiens/search
+// (résolution du libellé de la puce de filtre active). Deux couches :
+//   1. unstable_cache → Data Cache Next (cross-requête, invalidable par tag)
+//   2. processCache  → globalThis en process (survit aux hot-reloads Turbopack)
+export const getFiltersData = unstable_cache(
+  () => {
+    const clean = (s: string) => s.replace(/[\r\n\t]+/g, " ").trim();
+    // TTL court sur la couche LRU : elle est invisible de `revalidateTag`, donc
+    // elle ne doit jamais survivre longtemps à une invalidation du Data Cache
+    // qui l'enveloppe (même raison que le plafond de `lib/cache.ts`).
+    return processCache("praticiens:filters", 60, async () => {
+      const [specialties, cities] = await Promise.all([
+        prisma.specialty.findMany({
+          select: { slug: true, name: true },
+          orderBy: { doctors: { _count: "desc" } },
+        }),
+        prisma.city.findMany({
+          select: { slug: true, name: true },
+          orderBy: { doctors: { _count: "desc" } },
+        }),
+      ]);
+      return {
+        specialties: specialties.map((s) => ({ ...s, name: clean(s.name) })),
+        cities:      cities.map((c)      => ({ ...c, name: clean(c.name) })),
+      };
+    });
+  },
+  ["praticiens-filters"],
+  // Référentiel pur (97 spécialités, 247 villes) : il ne bouge qu'à l'import.
+  { revalidate: TTL.DIRECTORY, tags: ["filters"] },
+);
 
 // Normalise Prisma Decimal → number pour survivre au round-trip JSON.
 function normalisePrix(prix: unknown): number | null {
@@ -87,7 +127,10 @@ export const getCachedDoctors = unstable_cache(
               specialty:    { select: { name: true, slug: true } },
               city:         { select: { name: true, slug: true } },
               _count:       { select: { reviews: true } },
-              workingHours: { select: { dayOfWeek: true, startTime: true, endTime: true }, where: { isActive: true } },
+              // `isActive` est sélectionné (bien que la clause `where` le fixe à true)
+              // parce que generateAvailableSlots teste `wh.isActive` : sans le champ,
+              // il vaudrait `undefined` et TOUS les créneaux seraient écartés.
+              workingHours: { select: { dayOfWeek: true, startTime: true, endTime: true, isActive: true }, where: { isActive: true } },
             },
             orderBy: [
               { featuredUntil: { sort: "desc", nulls: "last" } },
@@ -101,32 +144,55 @@ export const getCachedDoctors = unstable_cache(
           prisma.doctor.count({ where }),
         ]);
 
-        // Créneaux réservables inline — requête ciblée sur les seules fiches Pro.
-        const bookableIds = rawDoctors
-          .filter((d) => hasProAccess(d.plan, d.planExpiresAt, d.trialEndsAt) && d.workingHours.length > 0)
-          .map((d) => d.id);
+        // Créneaux réservables inline — 2e requête ciblée sur les seules fiches Pro.
+        // Elle ne récupère QUE les relations d'agenda : les scalaires de réservation
+        // (consultationDuration, bookingLeadHours, bookingMaxDays) et `workingHours`
+        // proviennent déjà de la requête ci-dessus (`include` renvoie tous les
+        // scalaires du Doctor) — les redemander était un aller-retour Neon pour des
+        // données déjà en mémoire.
+        const bookable = rawDoctors.filter(
+          (d) => hasProAccess(d.plan, d.planExpiresAt, d.trialEndsAt) && d.workingHours.length > 0,
+        );
         const slotsByDoctor: Record<string, { date: string; time: string }[]> = {};
-        if (bookableIds.length > 0) {
-          const sched = await prisma.doctor.findMany({
-            where: { id: { in: bookableIds } },
+        if (bookable.length > 0) {
+          // Bornes de date : generateAvailableSlots n'examine que [aujourd'hui,
+          // aujourd'hui + maxDays]. Sans `gte`, on chargeait TOUT l'historique de
+          // rendez-vous de chaque fiche Pro depuis sa création — volume croissant
+          // avec l'ancienneté, intégralement jeté. Les dates sont stockées en
+          // `String` ISO (YYYY-MM-DD) → la comparaison lexicographique est correcte
+          // (même convention que isSlotInAbsence).
+          const todayIso = casablancaTodayStr();
+          const horizonIso = new Date(Date.parse(`${todayIso}T12:00:00Z`) + SLOTS_HORIZON_DAYS * 86_400_000)
+            .toISOString()
+            .split("T")[0];
+          const agenda = await prisma.doctor.findMany({
+            where: { id: { in: bookable.map((d) => d.id) } },
             select: {
               id: true,
-              consultationDuration: true,
-              bookingLeadHours: true,
-              bookingMaxDays: true,
-              workingHours: true,
-              blockedSlots: { select: { date: true, time: true } },
-              absences: { select: { startDate: true, endDate: true, allDay: true, startTime: true, endTime: true } },
-              appointments: { where: { status: { notIn: ["CANCELLED"] } }, select: { date: true, time: true } },
+              blockedSlots: {
+                where: { date: { gte: todayIso, lte: horizonIso } },
+                select: { date: true, time: true },
+              },
+              absences: {
+                where: { endDate: { gte: todayIso }, startDate: { lte: horizonIso } },
+                select: { startDate: true, endDate: true, allDay: true, startTime: true, endTime: true },
+              },
+              appointments: {
+                where: { status: { notIn: ["CANCELLED"] }, date: { gte: todayIso, lte: horizonIso } },
+                select: { date: true, time: true },
+              },
             },
           });
-          for (const d of sched) {
-            const booked = d.appointments.map((a) => ({ date: a.date, time: a.time }));
-            const all = generateAvailableSlots(booked, d.workingHours, d.consultationDuration, d.absences, {
+          const agendaById = new Map(agenda.map((a) => [a.id, a]));
+          for (const d of bookable) {
+            const ag = agendaById.get(d.id);
+            if (!ag) continue;
+            const booked = ag.appointments.map((a) => ({ date: a.date, time: a.time }));
+            const all = generateAvailableSlots(booked, d.workingHours, d.consultationDuration, ag.absences, {
               leadHours: d.bookingLeadHours,
-              maxDays: Math.min(d.bookingMaxDays, 14),
+              maxDays: Math.min(d.bookingMaxDays, SLOTS_HORIZON_DAYS),
             });
-            const blockedSet = new Set(d.blockedSlots.map((b) => `${b.date}-${b.time}`));
+            const blockedSet = new Set(ag.blockedSlots.map((b) => `${b.date}-${b.time}`));
             slotsByDoctor[d.id] = all
               .filter((s) => s.available && !blockedSet.has(`${s.date}-${s.time}`))
               .slice(0, 4)
@@ -167,5 +233,5 @@ export const getCachedDoctors = unstable_cache(
   // pendant tout le TTL des listes de l'ancienne taille, incohérentes avec le
   // totalPages recalculé côté page.
   ["praticiens-doctors", `n${PRATICIENS_PAGE_SIZE}`],
-  { revalidate: 300, tags: ["doctors"] },
+  { revalidate: TTL.LISTING, tags: ["doctors"] },
 );

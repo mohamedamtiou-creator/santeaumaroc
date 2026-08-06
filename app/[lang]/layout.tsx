@@ -3,7 +3,8 @@ import { Inter } from "next/font/google";
 import "@/app/globals.css";
 import { notFound } from "next/navigation";
 import { ToastProvider } from "@/components/ui/Toast";
-import { getDictionary, dirOf, isLocale, LOCALES, type Locale } from "@/lib/i18n";
+import { getDictionary, dirOf, isLocale, type Locale } from "@/lib/i18n";
+import { PRERENDERED_LOCALES } from "@/lib/cache-ttl";
 import { LocaleProvider } from "@/components/i18n/LocaleLink";
 
 const inter = Inter({
@@ -28,9 +29,15 @@ export const viewport: Viewport = {
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 
-// Locale portée par l'URL (segment [lang]) → chaque variante est pré-rendue.
+// Locale portée par l'URL (segment [lang]).
+//
+// Seul le FRANÇAIS est pré-rendu au build ; l'arabe est généré à la demande puis
+// mis en cache (`dynamicParams` = true par défaut). Ce segment étant la RACINE,
+// il multiplie tout le reste : chaque `generateStaticParams` enfant tourne une
+// fois par locale déclarée ici. Le détail du raisonnement et des garanties SEO
+// est dans `PRERENDERED_LOCALES` (lib/cache-ttl.ts) — le lire avant d'y toucher.
 export function generateStaticParams() {
-  return LOCALES.map((lang) => ({ lang }));
+  return PRERENDERED_LOCALES.map((lang) => ({ lang }));
 }
 
 export async function generateMetadata({

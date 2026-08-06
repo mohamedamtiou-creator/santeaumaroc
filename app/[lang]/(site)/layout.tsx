@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { PraticienCardSprite } from "@/components/praticiens/PraticienCardSprite";
 import { isLocale, type Locale } from "@/lib/i18n";
 
 // Chrome public (marketing + espaces connectés). Le backoffice /admin vit hors
@@ -19,6 +20,12 @@ export default async function SiteLayout({
 
   return (
     <div className="min-h-screen flex flex-col">
+      {/* Définitions <symbol> des icônes de PraticienCard. Montée ici (et non par
+          les pages) parce que les cartes sont rendues depuis six endroits, dont
+          des Client Components — cf. le composant pour le détail. ~1,2 KB, y
+          compris sur les pages sans carte : négligeable face aux ~85 KB
+          économisés sur un listing. */}
+      <PraticienCardSprite />
       <Navbar locale={locale} />
       {/* min-h réservée = viewport − navbar (h-16) : pendant le streaming
           progressif, le footer (haut) démarre sous la ligne de flottaison →

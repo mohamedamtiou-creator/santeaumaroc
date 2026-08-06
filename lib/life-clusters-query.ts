@@ -1,4 +1,5 @@
 import "server-only";
+import { TTL } from "@/lib/cache-ttl";
 import { cachedQuery } from "@/lib/cache";
 import type { Locale } from "@/lib/i18n";
 import {
@@ -76,7 +77,7 @@ function getResolvedContent(slug: ClusterSlug, locale: Locale) {
   const cluster = CLUSTERS[slug];
   return cachedQuery(
     `cluster:content:${slug}:${locale}`,
-    3600,
+    TTL.DIRECTORY,
     async () => {
       const [topics, exams, treatments, posts, specialties, cityRows] = await Promise.all([
         resolveTopics(slugsOf(cluster, "topic"), locale),

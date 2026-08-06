@@ -33,6 +33,23 @@ import { withDbRetry } from "@/lib/prisma";
  *                    (revivée en sortie).
  * @param tags        Tags d'invalidation (`revalidateTag`). Défaut : `[key]`.
  */
+/**
+ * Plafond du TTL de la couche LRU interne, INDÉPENDANT de celui du Data Cache.
+ *
+ * `processCache` est adossé à `globalThis` : il est invisible des API Next, donc
+ * ni `revalidateTag` ni `updateTag` ne peuvent l'expirer. Tant que les TTL
+ * valaient 1 h, l'écart était borné à une heure. Depuis que le Data Cache monte
+ * à 24 h ou 7 jours (cf. `lib/cache-ttl.ts`), propager la même valeur ici
+ * laisserait une instance chaude resservir des données périmées PENDANT DES
+ * JOURS après une mutation — alors même que le Data Cache, lui, aurait été
+ * correctement invalidé.
+ *
+ * Cette couche n'a jamais eu pour rôle la durabilité : elle absorbe les requêtes
+ * chaudes rapprochées (même rendu, même instance) et masque les vidages de LRU du
+ * dev. Une minute suffit à ces deux usages.
+ */
+const PROCESS_CACHE_MAX_TTL = 60;
+
 export async function cachedQuery<T>(
   key: string,
   revalidate: number,
@@ -45,7 +62,7 @@ export async function cachedQuery<T>(
   // compute et réussit à la 2e tentative, au lieu de laisser échouer la
   // revalidation (et de logguer une erreur bruyante à chaque expiration de TTL).
   const result = await unstable_cache(
-    () => processCache(key, revalidate, () => withDbRetry(fn)),
+    () => processCache(key, Math.min(revalidate, PROCESS_CACHE_MAX_TTL), () => withDbRetry(fn)),
     [key],
     { revalidate, tags: tags ?? [key] },
   )();

@@ -378,6 +378,11 @@ const frDict = {
     groupAll: "── Toutes ──",
     reset: "✕ Réinitialiser",
     resetAria: "Supprimer tous les filtres",
+    // Combobox de filtre (remplace les <select> de 97 et 247 options)
+    comboLoading: "Chargement…",
+    comboEmpty: "Aucun résultat",
+    comboTypeToSearch: "Rechercher…",
+    comboMore: "Affinez la recherche pour voir les autres",
     // Barre de contrôles de liste (tri + filtres rapides)
     sortLabel: "Trier",
     sortAria: "Trier les résultats",
@@ -3100,6 +3105,11 @@ const dictionaries: Record<Locale, Dictionary> = {
       groupAll: "── الكل ──",
       reset: "✕ إعادة تعيين",
       resetAria: "إزالة كل الفلاتر",
+      // قائمة الفلترة المدمجة (تعوّض قوائم <select> ذات 97 و247 خيارًا)
+      comboLoading: "جارٍ التحميل…",
+      comboEmpty: "لا نتائج",
+      comboTypeToSearch: "ابحث…",
+      comboMore: "حدِّد بحثك أكثر لعرض الباقي",
       // شريط التحكم في القائمة (الترتيب + الفلاتر السريعة)
       sortLabel: "ترتيب",
       sortAria: "ترتيب النتائج",

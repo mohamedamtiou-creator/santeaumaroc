@@ -1,4 +1,5 @@
 import "server-only";
+import { TTL } from "@/lib/cache-ttl";
 import { cachedQuery } from "@/lib/cache";
 import type { Locale } from "@/lib/i18n";
 import {
@@ -37,7 +38,7 @@ export async function getToolRelated(slug: ToolSlug, locale: Locale): Promise<To
   try {
     return await cachedQuery(
       `tools:related:${slug}:${locale}`,
-      3600,
+      TTL.DIRECTORY,
       async () => {
         const [topics, exams, specialties] = await Promise.all([
           resolveTopics(def.topicSlugs, locale),

@@ -11,7 +11,7 @@ import { getBlogPosts, POST_CARD_SELECT, BLOG_PER_PAGE } from "@/lib/blog-query"
 import { localizedAlternates } from "@/lib/hreflang";
 import { getDictionary, toLocale } from "@/lib/i18n";
 
-export const revalidate = 3600;
+export const revalidate = 86400; // TTL.DIRECTORY
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 

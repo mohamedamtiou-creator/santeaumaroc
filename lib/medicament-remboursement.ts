@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { TTL } from "@/lib/cache-ttl";
 import { cachedQuery, decToNum } from "@/lib/cache";
 
 /**
@@ -64,7 +65,7 @@ export type MedRow = {
 /* ── Statistiques de tête ───────────────────────────────────────────────── */
 
 export function getRemboursementStats() {
-  return cachedQuery("med:rembt:stats", 86400, async () => {
+  return cachedQuery("med:rembt:stats", TTL.STATIC, async () => {
     const [total, rembourses, nonRembourses, avecBase, avecPpv, ecartRows] = await Promise.all([
       prisma.medication.count({ where: { isActive: true } }),
       prisma.medication.count({ where: { isActive: true, tauxRemboursement: "70%" } }),
@@ -95,7 +96,7 @@ export function getRemboursementStats() {
  * le patient cherche sans la trouver ailleurs.
  */
 export function getEcartsDeBase(limit = 60) {
-  return cachedQuery(`med:rembt:ecarts:${limit}`, 86400, async () => {
+  return cachedQuery(`med:rembt:ecarts:${limit}`, TTL.STATIC, async () => {
     const rows = await prisma.$queryRaw<
       { slug: string; nom: string; dci: string | null; ppv: number; base: number; ecart: number }[]
     >`
@@ -112,7 +113,7 @@ export function getEcartsDeBase(limit = 60) {
 /* ── Index alphabétique ─────────────────────────────────────────────────── */
 
 export function getMedLetterBuckets() {
-  return cachedQuery("med:rembt:buckets", 86400, async () => {
+  return cachedQuery("med:rembt:buckets", TTL.STATIC, async () => {
     const rows = await prisma.$queryRaw<{ letter: string; n: bigint }[]>`
       SELECT upper(left(nom, 1)) AS letter, count(*) AS n
         FROM medications
@@ -174,7 +175,7 @@ function toRow(m: {
 /** Médicaments d'une lettre, page par page, triés par nom. */
 export function getMedByLetter(letterSlug: string, page: number) {
   const p = Math.max(1, page || 1);
-  return cachedQuery(`med:rembt:list:${letterSlug}:${p}`, 86400, async () => {
+  return cachedQuery(`med:rembt:list:${letterSlug}:${p}`, TTL.STATIC, async () => {
     const isOther = letterSlug === MED_OTHER_SLUG;
     const rows = await prisma.medication.findMany({
       where: isOther

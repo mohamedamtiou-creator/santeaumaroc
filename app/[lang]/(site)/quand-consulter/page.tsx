@@ -8,7 +8,7 @@ import { tSpecialty } from "@/lib/specialty-i18n";
 import { HubHero } from "@/components/health/HubHero";
 import { BlogFaq } from "@/components/blog/BlogFaq";
 
-export const revalidate = 3600;
+export const revalidate = 86400; // TTL.DIRECTORY
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 const PATH = "/quand-consulter";

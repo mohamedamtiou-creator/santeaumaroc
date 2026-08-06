@@ -7,7 +7,7 @@ import { clusterMetadata, ClusterRoute } from "@/components/clusters/clusterRout
  */
 const SLUG = "sante-enfant" as const;
 
-export const revalidate = 3600;
+export const revalidate = 86400; // TTL.DIRECTORY
 
 export const generateMetadata = ({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> =>
   clusterMetadata(SLUG, params);

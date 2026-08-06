@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { TTL } from "@/lib/cache-ttl";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
@@ -32,7 +33,7 @@ const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
  *  Stable entre deux revalidations : reflète une vraie relecture, pas l'heure de build. */
 const CONTENT_REVIEWED = "2026-06-28";
 
-export const revalidate = 3600;
+export const revalidate = 21600; // TTL.LISTING
 
 // Route dynamique [slug] : sans échantillons de params, l'accès à `params` force
 // le rendu dynamique. On pré-rend toutes les spécialités (hubs indexés, ~100) →
@@ -56,7 +57,7 @@ function buildWhere(slug: string, f: { ville: string; dispo: string; conv: strin
 }
 
 async function getSpecialty(slug: string) {
-  return cachedQuery(`specialite:meta:${slug}`, 3600, () =>
+  return cachedQuery(`specialite:meta:${slug}`, TTL.DIRECTORY, () =>
     prisma.specialty.findUnique({ where: { slug } }),
   );
 }
@@ -68,7 +69,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const [s, count] = await Promise.all([
     getSpecialty(slug),
     // Compteur canonique caché (mutualisé avec la coquille de la page).
-    cachedQuery(`specialite:count:${slug}`, 3600, () =>
+    cachedQuery(`specialite:count:${slug}`, TTL.DIRECTORY, () =>
       prisma.doctor.count({ where: { isActive: true, specialty: { slug } } }),
     ),
   ]);
@@ -286,7 +287,7 @@ async function SpecialtyRelated({
 }) {
   const relatedPostSlugs = articleSlugsForSpecialty(slug);
   const [relatedSpecialties, relatedPosts] = await Promise.all([
-    cachedQuery(`specialite:related:${slug}`, 3600, async () => {
+    cachedQuery(`specialite:related:${slug}`, TTL.DIRECTORY, async () => {
       // groupBy agrégé (1 scan) au lieu d'un `_count` corrélé par spécialité (~96
       // sous-requêtes). On exclut la spécialité courante après résolution des noms.
       const groups = await prisma.doctor.groupBy({
@@ -396,7 +397,7 @@ export default async function SpecialitePage({ params }: { params: Params }) {
   // Données de la COQUILLE uniquement (rapides / cachées), en parallèle.
   const [specialty, total, cities] = await Promise.all([
     getSpecialty(slug),
-    cachedQuery(`specialite:count:${slug}`, 3600, () => prisma.doctor.count({ where })),
+    cachedQuery(`specialite:count:${slug}`, TTL.DIRECTORY, () => prisma.doctor.count({ where })),
     specialtyCityCounts(slug),
   ]);
   if (!specialty) notFound();

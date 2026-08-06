@@ -18,7 +18,7 @@ import { DetailHero } from "@/components/health/DetailHero";
 import { SpecialtyAside } from "@/components/health/SpecialtyAside";
 import { TopicClusterLinks } from "@/components/health/TopicClusterLinks";
 
-export const revalidate = 3600;
+export const revalidate = 86400; // TTL.DIRECTORY
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 type Params = Promise<{ lang: string; slug: string }>;

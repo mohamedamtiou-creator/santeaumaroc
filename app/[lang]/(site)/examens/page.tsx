@@ -6,7 +6,7 @@ import { examLocalized, isExamReviewed } from "@/lib/medical-exam";
 import { TopicListBrowser, type BrowserItem } from "@/components/health/TopicListBrowser";
 import { HubHero } from "@/components/health/HubHero";
 
-export const revalidate = 3600;
+export const revalidate = 86400; // TTL.DIRECTORY
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 const PATH = "/examens";

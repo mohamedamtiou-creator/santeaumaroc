@@ -4,7 +4,7 @@ import { localizedAlternates } from "@/lib/hreflang";
 import { toLocale } from "@/lib/i18n";
 import { methodologyContent, METHODOLOGY_REVIEWED } from "@/lib/methodology-content";
 
-export const revalidate = 86400;
+export const revalidate = 604800; // TTL.STATIC
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 const PATH = "/methodologie";

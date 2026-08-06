@@ -5,12 +5,12 @@ import { MedicationCard } from "@/components/medicaments/MedicationCard";
 import { MedicationResults } from "@/components/medicaments/MedicationResults";
 import { MedicationFilterBar } from "@/components/medicaments/MedicationFilterBar";
 import { getMedications, getMedicationFormes, MEDICATIONS_PAGE_SIZE as PAGE_SIZE } from "@/lib/medications-query";
-import { toLocale } from "@/lib/i18n";
+import { getDictionary, toLocale } from "@/lib/i18n";
 import { localizedAlternates } from "@/lib/hreflang";
 
 type Params = Promise<{ lang: string }>;
 
-export const revalidate = 3600;
+export const revalidate = 86400; // TTL.DIRECTORY
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 
@@ -40,6 +40,10 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
    recherche/forme) est pré-rendue = shell SEO. Recherche `q` / forme / pagination
    basculent côté client (MedicationResults → /api/medicaments/search), noindex. */
 export default async function MedicamentsPage() {
+  // FR en dur : le reste de la page ne l'est pas encore non plus. Reproduit à
+  // l'identique l'ancien défaut `getDictionary("fr").pagination` de <Pagination>,
+  // désormais résolu ici (Server Component) au lieu du bundle client.
+  const paginationT = getDictionary("fr").pagination;
   const [{ medications, total }, formes] = await Promise.all([
     getMedications("", "", 1),
     getMedicationFormes(),
@@ -85,7 +89,7 @@ export default async function MedicamentsPage() {
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {medications.map((m) => <MedicationCard key={m.id} m={m} />)}
       </div>
-      <Pagination page={1} totalPages={totalPages} buildUrl={buildUrl} />
+      <Pagination page={1} totalPages={totalPages} buildUrl={buildUrl} t={paginationT} />
     </>
   );
 
@@ -109,7 +113,7 @@ export default async function MedicamentsPage() {
         {/* ── Recherche + filtres + résultats — client. <Suspense> requis
             (useSearchParams) ; fallback = vue canonique SSR (SEO). ── */}
         <Suspense fallback={<><MedicationFilterBar q="" forme="" formes={formes} />{canonicalGrid}</>}>
-          <MedicationResults formes={formes}>
+          <MedicationResults formes={formes} paginationT={paginationT}>
             {canonicalGrid}
           </MedicationResults>
         </Suspense>

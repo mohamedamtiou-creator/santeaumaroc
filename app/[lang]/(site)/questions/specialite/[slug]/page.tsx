@@ -9,7 +9,7 @@ import { tSpecialty } from "@/lib/specialty-i18n";
 import { QuestionCard, type QuestionCardData } from "@/components/qa/QuestionCard";
 import { QuestionsInfinite } from "@/components/qa/QuestionsInfinite";
 
-export const revalidate = 600;
+export const revalidate = 21600; // TTL.LISTING
 const PAGE_SIZE = 12;
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 

@@ -6,7 +6,7 @@ import { prisma } from "@/lib/prisma";
 import { publishContent } from "@/lib/publier-content";
 import { PROFESSIONS, professionLabel } from "@/lib/contributor";
 
-export const revalidate = 86400;
+export const revalidate = 604800; // TTL.STATIC
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 const PATH = "/publier-un-article";

@@ -2,7 +2,7 @@
 
 import { prisma } from "@/lib/prisma";
 import { verifySession } from "@/lib/dal";
-import { revalidatePath } from "next/cache";
+import { revalidateBlogPost, revalidateSitemaps } from "@/lib/revalidate";
 import { redirect } from "next/navigation";
 
 async function requireAdmin() {
@@ -106,7 +106,7 @@ function extractArAndSources(formData: FormData) {
 async function revalidatePillar(pillarId: string | null) {
   if (!pillarId) return;
   const pillar = await prisma.post.findUnique({ where: { id: pillarId }, select: { slug: true } });
-  if (pillar) revalidatePath(`/blog/${pillar.slug}`);
+  if (pillar) revalidateBlogPost(pillar.slug);
 }
 
 export async function createPost(formData: FormData) {
@@ -161,10 +161,9 @@ export async function createPost(formData: FormData) {
     },
   });
 
-  revalidatePath("/blog");
-  revalidatePath("/ar/blog");
+  // Création : la liste des URLs indexables change → sitemaps invalidés.
+  revalidateBlogPost(slug, { indexChanged: true });
   await revalidatePillar(pillarId);
-  revalidatePath("/sitemap.xml");
   redirect("/admin/blog");
 }
 
@@ -224,10 +223,8 @@ export async function updatePost(id: string, formData: FormData) {
     },
   });
 
-  revalidatePath("/blog");
-  revalidatePath(`/blog/${slug}`);
-  revalidatePath("/ar/blog");
-  revalidatePath(`/ar/blog/${slug}`);
+  // Édition : le contenu change, pas la liste des URLs → pas de sitemap.
+  revalidateBlogPost(slug);
   // Rafraîchit le bloc « Dans ce dossier » du pilier rattaché
   await revalidatePillar(pillarId);
   redirect("/admin/blog");
@@ -243,9 +240,7 @@ export async function publishPost(id: string) {
     data: { status: "PUBLISHED", publishedAt: new Date() },
   });
 
-  revalidatePath("/blog");
-  revalidatePath(`/blog/${post.slug}`);
-  revalidatePath("/sitemap.xml");
+  revalidateBlogPost(post.slug, { indexChanged: true });
 }
 
 export async function unpublishPost(id: string) {
@@ -254,15 +249,18 @@ export async function unpublishPost(id: string) {
   if (!post) throw new Error("Article introuvable");
 
   await prisma.post.update({ where: { id }, data: { status: "DRAFT" } });
-  revalidatePath("/blog");
-  revalidatePath(`/blog/${post.slug}`);
+  // Dépublication : l'URL sort du périmètre indexable → sitemaps invalidés.
+  revalidateBlogPost(post.slug, { indexChanged: true });
 }
 
 export async function deletePost(id: string) {
   await requireAdmin();
+  // Le slug est lu AVANT la suppression : sans lui, l'entrée ISR de la fiche
+  // survivrait au record et continuerait de servir un article disparu.
+  const post = await prisma.post.findUnique({ where: { id }, select: { slug: true } });
   await prisma.post.delete({ where: { id } });
-  revalidatePath("/blog");
-  revalidatePath("/sitemap.xml");
+  if (post) revalidateBlogPost(post.slug, { indexChanged: true });
+  else revalidateSitemaps();
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

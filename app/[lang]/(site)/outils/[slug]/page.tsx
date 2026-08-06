@@ -14,7 +14,7 @@ import { EditorialReviewNote } from "@/components/health/EditorialReviewNote";
 import { ToolCalculator } from "@/components/outils/ToolCalculator";
 import { ToolIcon } from "@/components/outils/ToolIcon";
 
-export const revalidate = 3600;
+export const revalidate = 86400; // TTL.DIRECTORY
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 const HUB = "/outils";

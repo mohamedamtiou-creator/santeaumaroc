@@ -5,7 +5,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { getDoctorInitials, telHref } from "@/lib/utils";
 import { PhoneLink } from "@/components/PhoneLink";
-import { getDictionary, localeHref, type Dictionary, type Locale } from "@/lib/i18n";
+// ⚠️ `localeHref` vient de `@/lib/locale`, JAMAIS de `@/lib/i18n` : cette carte est
+// aussi rendue par des Client Components (PraticiensResults, VilleResults,
+// SpecialtyListing…), donc elle appartient au graphe CLIENT. Le moindre import de
+// VALEUR depuis `@/lib/i18n` y embarque les deux dictionnaires (277 KB parsés par
+// le navigateur, plus lourd que react-dom). Le TYPE seul est effacé à la compilation.
+import { localeHref, type Locale } from "@/lib/locale";
+import type { Dictionary } from "@/lib/i18n";
 import { tSpecialty } from "@/lib/specialty-i18n";
 
 type Props = {
@@ -49,8 +55,10 @@ type Props = {
   /** Prochains créneaux réservables déjà calculés côté page (fiche Pro/essai).
    *  Rendus en puces cliquables vers la réservation. Ignoré si `canBookOnline` faux. */
   slots?: { date: string; time: string }[];
-  /** Traductions de carte. Défaut FR (pour les pages non encore traduites). */
-  t?: Dictionary["card"];
+  /** Traductions de carte. REQUIS : pas de défaut `getDictionary("fr").card`, qui
+   *  ferait entrer tout `lib/i18n` dans le bundle client (cf. imports ci-dessus).
+   *  Tous les appelants sont des Server Components ou reçoivent déjà `dict.card`. */
+  t: Dictionary["card"];
   /** Locale courante — traduit le nom de spécialité affiché. Défaut FR. */
   locale?: Locale;
 };
@@ -69,15 +77,27 @@ function langShort(lang: string): string {
   return LANG_SHORT[key] ?? lang.trim().slice(0, 2).toUpperCase();
 }
 
-function StarIcon({ filled }: { filled: boolean }) {
+/**
+ * Icône adossée à la sprite `<PraticienCardSprite>` (montée par le layout (site)).
+ * Les tracés ne sont plus recopiés à chaque occurrence : ~171 icônes par listing
+ * de 25 cartes, soit ~85 KB de HTML + payload RSC économisés. Cf. le composant
+ * sprite pour le détail de la mesure.
+ */
+function Icon({ id, className, fill, stroke }: { id: string; className: string; fill?: string; stroke?: string }) {
   return (
-    <svg viewBox="0 0 12 12"
-      fill={filled ? "#fbbf24" : "none"}
-      stroke={filled ? "#fbbf24" : "#d1d5db"}
-      strokeWidth="1"
-      className="w-3 h-3" aria-hidden="true">
-      <path d="M6 .5l1.39 2.82 3.11.45-2.25 2.19.53 3.09L6 7.5l-2.78 1.55.53-3.09L1.5 3.77l3.11-.45z"/>
+    <svg className={className} aria-hidden="true" fill={fill} stroke={stroke}>
+      <use href={`#${id}`} />
     </svg>
+  );
+}
+
+function StarIcon({ filled }: { filled: boolean }) {
+  // fill/stroke portés par le <svg> englobant → hérités par le <symbol>, qui n'en
+  // déclare aucun (une même définition sert l'étoile pleine et l'étoile vide).
+  return (
+    <Icon id="pc-star" className="w-3 h-3"
+      fill={filled ? "#fbbf24" : "none"}
+      stroke={filled ? "#fbbf24" : "#d1d5db"} />
   );
 }
 
@@ -97,63 +117,15 @@ function ratingColor(r: number): string {
   return "text-rose-500";
 }
 
-function ShieldCheck() {
-  return (
-    <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" className="w-3 h-3 shrink-0"
-      aria-hidden="true" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M6 0.75L0.75 3.25V7c0 2.5 1.9 4.4 5.25 5.25C9.35 11.4 11.25 9.5 11.25 7V3.25z" strokeWidth="1.1"/>
-      <path d="M3.75 6.5l1.75 1.75L9.25 4.5" strokeWidth="1.4"/>
-    </svg>
-  );
-}
-
-function MapPinIcon() {
-  return (
-    <svg viewBox="0 0 12 16" fill="none" stroke="currentColor" strokeWidth="1.5"
-      className="w-3 h-3.5 shrink-0 text-slate-500" aria-hidden="true">
-      <path d="M6 1C3.79 1 2 2.79 2 5c0 3.28 4 9 4 9s4-5.72 4-9c0-2.21-1.79-4-4-4z"/>
-      <circle cx="6" cy="5" r="1.5"/>
-    </svg>
-  );
-}
-
-function GlobeIcon() {
-  return (
-    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.25"
-      className="w-3.5 h-3.5 shrink-0 text-slate-400" aria-hidden="true">
-      <circle cx="7" cy="7" r="5.5"/>
-      <path d="M1.5 7h11M7 1.5c1.5 1.6 1.5 9.4 0 11M7 1.5c-1.5 1.6-1.5 9.4 0 11" strokeLinecap="round"/>
-    </svg>
-  );
-}
-
-function ShieldIcon() {
-  return (
-    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.25"
-      className="w-3.5 h-3.5 shrink-0 text-secondary-500" aria-hidden="true"
-      strokeLinecap="round" strokeLinejoin="round">
-      <path d="M7 1L2 3v3.5C2 9.5 4.2 11.7 7 12.5c2.8-.8 5-3 5-6V3L7 1z"/>
-      <path d="M4.75 6.75L6.4 8.4 9.5 5.3" strokeWidth="1.4"/>
-    </svg>
-  );
-}
-
-function CalendarIcon() {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" className="w-3.5 h-3.5 shrink-0" aria-hidden="true">
-      <rect x="2.25" y="3" width="11.5" height="11" rx="2"/>
-      <path d="M2.25 6.5h11.5M5.5 1.5v3M10.5 1.5v3" strokeLinecap="round"/>
-    </svg>
-  );
-}
-
-function PhoneIcon() {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.75" className="w-3.5 h-3.5 shrink-0" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M3 1h3l1.5 3.5-2 1.5a8 8 0 0 0 3.5 3.5L10.5 8 14 9.5V13c0 1-.9 1.5-2 1.5C5.5 14.5 1.5 10.5 1.5 4A2 2 0 0 1 3 1z"/>
-    </svg>
-  );
-}
+const ShieldCheck   = () => <Icon id="pc-shield-check" className="w-3 h-3 shrink-0" />;
+const MapPinIcon    = () => <Icon id="pc-map-pin"      className="w-3 h-3.5 shrink-0 text-slate-500" />;
+const GlobeIcon     = () => <Icon id="pc-globe"        className="w-3.5 h-3.5 shrink-0 text-slate-400" />;
+const ShieldIcon    = () => <Icon id="pc-shield"       className="w-3.5 h-3.5 shrink-0 text-secondary-500" />;
+const CalendarIcon  = () => <Icon id="pc-calendar"     className="w-3.5 h-3.5 shrink-0" />;
+const PhoneIcon     = () => <Icon id="pc-phone"        className="w-3.5 h-3.5 shrink-0" />;
+/** `rtl:-scale-x-100` : le chevron pointe vers la fin de ligne, donc à gauche en arabe. */
+const ChevronIcon   = ({ className = "w-3.5 h-3.5 shrink-0 rtl:-scale-x-100" }: { className?: string }) =>
+  <Icon id="pc-chevron" className={className} />;
 
 const toMin = (t: string) => {
   const [h, m] = t.split(":").map(Number);
@@ -191,7 +163,7 @@ function slotLabel(date: string, time: string, todayIso: string, tmrIso: string,
   return `${day} ${time}`;
 }
 
-export function PraticienCard({ praticien: p, priority = false, hideSpecialty = false, isPro = false, isFeatured = false, canBookOnline = true, slots, t = getDictionary("fr").card, locale = "fr" }: Props) {
+export function PraticienCard({ praticien: p, priority = false, hideSpecialty = false, isPro = false, isFeatured = false, canBookOnline = true, slots, t, locale = "fr" }: Props) {
   const fullName = [p.civilite, p.prenom, p.nom].filter(Boolean).join(" ") || t.fallbackName;
   // hrefs préfixés /ar côté serveur (locale connue) → next/link nu, sans wrapper client.
   const href     = p.slug ? localeHref(locale, `/praticiens/${p.slug}`) : "#";
@@ -260,10 +232,11 @@ export function PraticienCard({ praticien: p, priority = false, hideSpecialty = 
       {/* pointer-events-none : les clics traversent vers le lien overlay ci-dessus */}
       <div className="flex gap-3 sm:gap-4 items-center relative pointer-events-none">
 
-        {/* Avatar */}
-        <div className="shrink-0 relative w-14 h-14 sm:w-16 sm:h-16">
-          <div className="avatar-ring w-14 h-14 sm:w-16 sm:h-16">
-            <div className="avatar-ring-inner">
+        {/* Avatar — 2 div et non 3 : l'ancien conteneur externe portait exactement
+            les mêmes dimensions que `.avatar-ring`, et son `relative` ne servait
+            plus (le badge qui s'y positionnait a été retiré). */}
+        <div className="avatar-ring shrink-0 w-14 h-14 sm:w-16 sm:h-16">
+          <div className="avatar-ring-inner">
               {p.avatar ? (
                 <Image
                   src={p.avatar}
@@ -279,9 +252,7 @@ export function PraticienCard({ praticien: p, priority = false, hideSpecialty = 
                   {getDoctorInitials(p.prenom, p.nom)}
                 </span>
               )}
-            </div>
           </div>
-
         </div>
 
         {/* Informations */}
@@ -305,9 +276,7 @@ export function PraticienCard({ praticien: p, priority = false, hideSpecialty = 
                 className="shrink-0 inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[11px] font-bold text-white bg-gradient-to-br from-secondary-600 to-secondary-500"
                 title={t.proBadgeTitle}
               >
-                <svg viewBox="0 0 12 12" fill="currentColor" className="w-2.5 h-2.5 shrink-0" aria-hidden="true">
-                  <path d="M6 .5l1.55 3.14 3.45.5-2.5 2.44.59 3.42L6 8.79 2.91 10.4l.59-3.42L1 4.14l3.45-.5z"/>
-                </svg>
+                <Icon id="pc-star-solid" className="w-2.5 h-2.5 shrink-0" />
                 {t.proBadge}
               </span>
             )}
@@ -374,20 +343,20 @@ export function PraticienCard({ praticien: p, priority = false, hideSpecialty = 
               rarement affichés par les concurrents. Rendu seulement si présents. */}
           {(langCodes.length > 0 || convShown.length > 0) && (
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1.5 text-xs text-slate-500">
+              {/* Le style de texte est porté par le span parent, sans span interne :
+                  les icônes fixent leur propre couleur (`text-slate-400`,
+                  `text-secondary-500`), donc elles n'héritent pas de celle du
+                  parent — la fusion est neutre visuellement. */}
               {langCodes.length > 0 && (
-                <span className="inline-flex items-center gap-1" title={t.languagesTitle}>
+                <span className="inline-flex items-center gap-1 font-medium text-slate-600" title={t.languagesTitle}>
                   <GlobeIcon />
-                  <span className="font-medium text-slate-600">
-                    {langCodes.join(" · ")}{langExtra > 0 ? ` +${langExtra}` : ""}
-                  </span>
+                  {langCodes.join(" · ")}{langExtra > 0 ? ` +${langExtra}` : ""}
                 </span>
               )}
               {convShown.length > 0 && (
-                <span className="inline-flex items-center gap-1" title={t.conventionsTitle}>
+                <span className="inline-flex items-center gap-1 font-medium text-secondary-700" title={t.conventionsTitle}>
                   <ShieldIcon />
-                  <span className="font-medium text-secondary-700">
-                    {convShown.join(" · ")}{convExtra > 0 ? ` +${convExtra}` : ""}
-                  </span>
+                  {convShown.join(" · ")}{convExtra > 0 ? ` +${convExtra}` : ""}
                 </span>
               )}
             </div>
@@ -455,9 +424,7 @@ export function PraticienCard({ praticien: p, priority = false, hideSpecialty = 
                   className="pointer-events-auto inline-flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1 text-xs font-medium text-slate-600 hover:bg-slate-50 hover:border-slate-300 transition-colors"
                 >
                   {t.moreSlots}
-                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-3 h-3 shrink-0 rtl:-scale-x-100" aria-hidden="true">
-                    <path d="m6 3 5 5-5 5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                  <ChevronIcon className="w-3 h-3 shrink-0 rtl:-scale-x-100" />
                 </Link>
               )}
             </div>
@@ -497,9 +464,7 @@ export function PraticienCard({ praticien: p, priority = false, hideSpecialty = 
                   className="pointer-events-auto w-full sm:w-auto sm:ms-auto justify-center inline-flex items-center gap-1.5 h-10 sm:h-9 px-4 rounded-lg border border-primary-200 text-primary-700 text-xs sm:text-sm font-semibold whitespace-nowrap hover:bg-primary-50 hover:border-primary-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
                 >
                   {t.viewProfile}
-                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5 shrink-0 rtl:-scale-x-100" aria-hidden="true">
-                    <path d="m6 3 5 5-5 5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                  <ChevronIcon />
                 </Link>
               </>
             )}

@@ -1,4 +1,5 @@
 import { notFound, permanentRedirect } from "next/navigation";
+import { TTL } from "@/lib/cache-ttl";
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { prisma } from "@/lib/prisma";
@@ -26,7 +27,7 @@ import { QuestionUserProvider, ComposerGate, AnonymousOnly } from "@/components/
 // `revalidatePath(/questions/{slug})` (features/qa/actions.ts, admin-actions.ts),
 // donc la page se met à jour à la seconde. Les 5 min ne faisaient que régénérer
 // 288 fois par jour des pages inchangées — autant d'ISR Writes pour rien.
-export const revalidate = 3600;
+export const revalidate = 86400; // TTL.DIRECTORY
 
 // Indispensable pour que `revalidate` ci-dessus produise réellement de l'ISR :
 // sans `generateStaticParams`, une route dynamique n'obtient aucune entrée de
@@ -46,7 +47,7 @@ type Params = Promise<{ lang: string; slug: string }>;
 // L'incrément de vues (write) reste hors cache, fire-and-forget. JSON-safe : aucun
 // Decimal sélectionné (Doctor.prix non inclus), Float/Date révivés par Next.
 const getQuestion = (slug: string) =>
-  cachedQuery(`question:${slug}`, 3600, () =>
+  cachedQuery(`question:${slug}`, TTL.DIRECTORY, () =>
     prisma.question.findUnique({
       where: { slug },
       include: {

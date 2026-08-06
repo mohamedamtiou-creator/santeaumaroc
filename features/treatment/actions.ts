@@ -2,7 +2,7 @@
 
 import { prisma } from "@/lib/prisma";
 import { verifySession } from "@/lib/dal";
-import { revalidatePath } from "next/cache";
+import { revalidateHealthContent } from "@/lib/revalidate";
 import { redirect } from "next/navigation";
 import { parseLines } from "@/lib/treatment";
 
@@ -126,11 +126,10 @@ function isP2002(e: unknown): boolean {
 }
 
 function revalidateAll(slug: string) {
-  revalidatePath("/traitements");
-  revalidatePath(`/traitements/${slug}`);
-  revalidatePath("/ar/traitements");
-  revalidatePath(`/ar/traitements/${slug}`);
-  revalidatePath("/sitemap.xml");
+  revalidateHealthContent(["/traitements", `/traitements/${slug}`], {
+    tags: ["treatments", "life-clusters", "tools-related"],
+    indexChanged: true,
+  });
 }
 
 export async function createTreatment(formData: FormData) {
@@ -202,7 +201,11 @@ export async function updateTreatment(id: string, formData: FormData) {
 
 export async function deleteTreatment(id: string) {
   await requireAdmin();
+  // Slug lu avant suppression : sinon la fiche reste en cache sans son record.
+  const treatment = await prisma.treatment.findUnique({ where: { id }, select: { slug: true } });
   await prisma.treatment.delete({ where: { id } });
-  revalidatePath("/traitements");
-  revalidatePath("/sitemap.xml");
+  revalidateHealthContent(
+    treatment ? ["/traitements", `/traitements/${treatment.slug}`] : ["/traitements"],
+    { indexChanged: true },
+  );
 }

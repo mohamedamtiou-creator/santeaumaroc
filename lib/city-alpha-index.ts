@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { TTL } from "@/lib/cache-ttl";
 import { cachedQuery } from "@/lib/cache";
 import { PRATICIENS_PAGE_SIZE } from "@/lib/praticiens-query";
 
@@ -71,7 +72,7 @@ export type AlphaEntry = {
  * est renvoyée à part pour que l'appelant puisse le contrôler.
  */
 export function getCityLetterBuckets(citySlug: string) {
-  return cachedQuery(`ville:alpha:buckets:${citySlug}`, 3600, async () => {
+  return cachedQuery(`ville:alpha:buckets:${citySlug}`, TTL.DIRECTORY, async () => {
     const rows = await prisma.$queryRaw<{ letter: string; n: bigint }[]>`
       SELECT upper(left(d.nom, 1)) AS letter, count(*) AS n
         FROM doctors d
@@ -100,7 +101,7 @@ export function getCityLetterBuckets(citySlug: string) {
 export function getCityLetterDoctors(citySlug: string, letter: string, page: number) {
   const L = letter.toUpperCase();
   const p = Math.max(1, page || 1);
-  return cachedQuery(`ville:alpha:list:${citySlug}:${L}:${p}`, 3600, async () => {
+  return cachedQuery(`ville:alpha:list:${citySlug}:${L}:${p}`, TTL.DIRECTORY, async () => {
     const rows = await prisma.doctor.findMany({
       where: { isActive: true, city: { slug: citySlug }, nom: { startsWith: L, mode: "insensitive" } },
       select: {
@@ -140,7 +141,7 @@ export function getCityLetterDoctors(citySlug: string, letter: string, page: num
  * sans aucun chemin de lien.
  */
 export function getAlphaIndexCities() {
-  return cachedQuery(`ville:alpha:cities:min${ALPHA_MIN_CITY_DOCTORS}`, 3600, async () => {
+  return cachedQuery(`ville:alpha:cities:min${ALPHA_MIN_CITY_DOCTORS}`, TTL.DIRECTORY, async () => {
     const rows = await prisma.city.findMany({
       select: { slug: true, _count: { select: { doctors: { where: { isActive: true } } } } },
     });

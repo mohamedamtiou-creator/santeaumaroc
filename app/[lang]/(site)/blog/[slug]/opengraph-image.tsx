@@ -6,6 +6,20 @@ export const alt = "Article — Blog Santé · SantéauMaroc";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
+/**
+ * Enregistre la route pour l'ISR. Sans `generateStaticParams`, une route
+ * dynamique n'obtient aucune entrée de cache : chaque requête relançait un rendu
+ * Satori complet (requête Prisma + rastérisation PNG 1200×630), y compris pour
+ * les crawlers qui repassent sur les mêmes articles. Le tableau vide = rien au
+ * build, tout à la demande puis mis en cache. Cf. la note détaillée dans
+ * `praticiens/[slug]/opengraph-image.tsx`.
+ */
+export function generateStaticParams() {
+  return [];
+}
+
+export const revalidate = 86400; // TTL.DIRECTORY — aligné sur l'article
+
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 
 // Couleur d'accent par catégorie (aligné au design system).

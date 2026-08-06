@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { TTL } from "@/lib/cache-ttl";
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { unstable_cache } from "next/cache";
@@ -43,7 +44,7 @@ const getStats = unstable_cache(
     }
   }),
   ["home-stats"],
-  { revalidate: 3600, tags: ["home-stats"] }
+  { revalidate: TTL.DIRECTORY, tags: ["home-stats"] }
 );
 
 const getTopSpecialties = unstable_cache(
@@ -59,7 +60,7 @@ const getTopSpecialties = unstable_cache(
     }
   }),
   ["home-top-specialties"],
-  { revalidate: 3600, tags: ["home-specialties"] }
+  { revalidate: TTL.DIRECTORY, tags: ["home-specialties"] }
 );
 
 // 3 derniers articles publiés — module « Conseils santé » de la home (maillage
@@ -84,7 +85,7 @@ const getLatestPosts = unstable_cache(
     }
   }),
   ["home-latest-posts"],
-  { revalidate: 3600, tags: ["posts"] }
+  { revalidate: TTL.DIRECTORY, tags: ["posts"] }
 );
 
 /* ── Icônes SVG ─────────────────────────────────────────── */
@@ -182,7 +183,7 @@ const getCoveredCities = unstable_cache(
     }
   }),
   ["home-covered-cities"],
-  { revalidate: 3600, tags: ["home-stats"] }
+  { revalidate: TTL.DIRECTORY, tags: ["home-stats"] }
 );
 
 /* ── JSON-LD (streams separately — getCoveredCities is an expensive aggregation) */

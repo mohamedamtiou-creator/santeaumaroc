@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { TTL } from "@/lib/cache-ttl";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
@@ -27,7 +28,7 @@ const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 /** Date de dernière révision éditoriale (E-E-A-T + signal IA). Stable entre revalidations. */
 const CONTENT_REVIEWED = "2026-06-28";
 
-export const revalidate = 3600;
+export const revalidate = 21600; // TTL.LISTING
 
 export async function generateStaticParams() {
   const cities = await prisma.city.findMany({
@@ -39,14 +40,14 @@ export async function generateStaticParams() {
 
 async function getCity(slug: string) {
   // City n'a aucun champ Decimal (lat/lng = Float) → JSON-safe pour le Data Cache.
-  return cachedQuery(`ville:meta:${slug}`, 3600, () =>
+  return cachedQuery(`ville:meta:${slug}`, TTL.DIRECTORY, () =>
     prisma.city.findUnique({ where: { slug } }),
   );
 }
 
 /** Métadonnées de ville (spécialités + nb d'établissements), cachées 1 h. */
 function getCityMeta(slug: string) {
-  return cachedQuery(`ville:meta2:${slug}`, 3600, async () => {
+  return cachedQuery(`ville:meta2:${slug}`, TTL.DIRECTORY, async () => {
     const [specialties, totalEstabs, estabsByType] = await Promise.all([
       prisma.specialty.findMany({
         where: { doctors: { some: { isActive: true, city: { slug } } } },

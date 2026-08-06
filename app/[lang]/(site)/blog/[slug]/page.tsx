@@ -25,7 +25,7 @@ import { adsActive } from "@/lib/ads/config";
 
 type BlogT = Dictionary["blog"];
 
-export const revalidate = 3600;
+export const revalidate = 86400; // TTL.DIRECTORY
 
 // Pré-rend chaque article publié en HTML statique (× locales fr/ar fournies par
 // le layout [lang]). Les nouveaux articles sont générés à la demande puis mis en

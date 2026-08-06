@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { TTL } from "@/lib/cache-ttl";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
@@ -41,7 +42,7 @@ const getDoctorProfile = (slug: string) =>
   // chemin précis : profil et horaires (features/praticien/actions.ts), avatar
   // (api/upload/avatar), avis (features/reviews/actions.ts), vérification
   // (features/admin/actions.ts). La TTL ne couvre donc que la dérive indirecte.
-  cachedQuery(`doctor:${slug}`, 86400, async () => {
+  cachedQuery(`doctor:${slug}`, TTL.DIRECTORY, async () => {
     const doc = await prisma.doctor.findUnique({
       where: { slug },
       include: {
@@ -388,13 +389,16 @@ function EmptyReviews({ reviewButton, t }: { reviewButton: React.ReactNode; t: D
 // une fenêtre courte déclenche une tempête de revalidations DB en tâche de fond
 // (cause de « timeout when trying to connect » côté Neon). Le contenu fiche évolue
 // lentement ; les créneaux frais restent servis par la branche dynamique `canBook`.
-// ⚠️ Fenêtre EFFECTIVE = 3600 s, pas 86400 : Next retient la plus courte
-// revalidation rencontrée dans l'arbre, et `getDoctorProfile` passe par
-// `cachedQuery(…, 3600)`. Vérifié sur la réponse servie :
-// `Cache-Control: s-maxage=3600` et `x-nextjs-stale-time: 3600`. La valeur est
-// laissée à 86400 comme PLAFOND de segment (elle s'appliquerait si le cache de
-// données était desserré) — mais ne pas raisonner sur « 24 h » ici.
-export const revalidate = 86400;
+// ⚠️ La fenêtre EFFECTIVE est le MINIMUM de l'arbre, pas ce littéral : Next
+// retient la plus courte revalidation rencontrée, `cachedQuery` incluse. Ce 86400
+// a longtemps été décoratif — `getDoctorProfile` passait par `cachedQuery(…, 3600)`
+// et la réponse servie portait bien `s-maxage=3600` / `x-nextjs-stale-time: 3600`.
+// Les deux valent désormais TTL.DIRECTORY (86400) : le littéral dit enfin la vérité.
+// Toute modification doit porter sur LE COUPLE — cf. la règle du binôme dans
+// lib/cache-ttl.ts. Et 24 h n'est plus le seul filet de fraîcheur : chaque mutation
+// de fiche appelle `revalidateDoctor` (lib/revalidate.ts), qui expire la route dans
+// les deux locales ET le tag `doctor:{slug}`.
+export const revalidate = 86400; // TTL.DIRECTORY
 
 // ⚠️ INDISPENSABLE, malgré les apparences : sans `generateStaticParams`, une route
 // dynamique n'obtient AUCUNE entrée ISR et `revalidate` ci-dessus est purement

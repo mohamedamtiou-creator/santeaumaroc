@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidateQuestion, revalidateDoctor } from "@/lib/revalidate";
 import { prisma } from "@/lib/prisma";
 import { tryGetSession } from "@/lib/dal";
 import type { FormState } from "@/lib/definitions";
@@ -91,10 +91,10 @@ export async function postAnswer(state: FormState, formData: FormData): Promise<
     }
   }
 
-  revalidatePath(`/questions/${question.slug}`);
+  revalidateQuestion(question.slug);
   // La fiche du praticien liste ses réponses publiées : sans cette invalidation,
   // le nouveau lien attendrait l'expiration du cache (24 h).
-  if (doctor.slug) revalidatePath(`/praticiens/${doctor.slug}`);
+  revalidateDoctor(doctor.slug);
   return { message: "ok" };
 }
 
@@ -137,7 +137,7 @@ export async function editAnswer(state: FormState, formData: FormData): Promise<
     });
   }
 
-  revalidatePath(`/questions/${answer.question.slug}`);
+  revalidateQuestion(answer.question.slug);
   return { message: "ok" };
 }
 
@@ -195,6 +195,6 @@ export async function acceptAnswer(answerId: string): Promise<{ ok: boolean }> {
   }
 
   await logQa("ANSWER", answerId, willAccept ? "ACCEPTED" : "UNACCEPTED", session.userId);
-  revalidatePath(`/questions/${answer.question.slug}`);
+  revalidateQuestion(answer.question.slug);
   return { ok: true };
 }

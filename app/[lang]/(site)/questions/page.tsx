@@ -8,7 +8,7 @@ import { QuestionsResults } from "@/components/qa/QuestionsResults";
 // 3600 et non 300 : la publication d'une question appelle déjà
 // `revalidatePath("/questions")` (features/qa/actions.ts), donc l'index reste à
 // jour sans que la TTL ait à faire le travail.
-export const revalidate = 3600;
+export const revalidate = 86400; // TTL.DIRECTORY
 
 type Params = Promise<{ lang: string }>;
 

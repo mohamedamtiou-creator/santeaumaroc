@@ -1,6 +1,9 @@
 "use server";
 
+// `revalidatePath` : pages /admin (dynamiques, pas d'entrée ISR à cibler).
+// Les surfaces publiques Q/R passent par lib/revalidate.ts — FR + AR + tag.
 import { revalidatePath } from "next/cache";
+import { revalidateQuestion } from "@/lib/revalidate";
 import { prisma } from "@/lib/prisma";
 import { tryGetSession, verifySession } from "@/lib/dal";
 import type { FormState } from "@/lib/definitions";
@@ -171,10 +174,9 @@ export async function publishQuestion(id: string): Promise<void> {
     }
   }
 
-  revalidatePath("/questions");
-  revalidatePath(`/questions/${q.slug}`);
   revalidatePath("/admin/questions");
-  revalidatePath("/sitemap.xml");
+  // Publication / rejet : l'URL entre ou sort du périmètre indexable.
+  revalidateQuestion(q.slug, { indexChanged: true });
 }
 
 // ── Admin : rejeter une question ──────────────────────────────────────────────
@@ -189,10 +191,9 @@ export async function rejectQuestion(id: string, note?: string): Promise<void> {
   });
   await logQa("QUESTION", id, "REJECTED", session.userId, note?.trim() || null);
 
-  revalidatePath("/questions");
-  revalidatePath(`/questions/${q.slug}`);
   revalidatePath("/admin/questions");
-  revalidatePath("/sitemap.xml");
+  // Publication / rejet : l'URL entre ou sort du périmètre indexable.
+  revalidateQuestion(q.slug, { indexChanged: true });
 }
 
 // ── Admin : éditer une question (titre, contexte, taxonomie, SEO) ─────────────
@@ -254,8 +255,7 @@ export async function editQuestion(state: FormState, formData: FormData): Promis
   });
   await logQa("QUESTION", id, "EDITED", session.userId);
 
-  revalidatePath(`/questions/${q.slug}`);
-  revalidatePath(`/ar/questions/${q.slug}`);
   revalidatePath("/admin/questions");
+  revalidateQuestion(q.slug);
   return { message: "ok" };
 }

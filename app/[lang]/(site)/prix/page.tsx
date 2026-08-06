@@ -13,7 +13,7 @@ import {
   mentionReserve,
 } from "@/lib/prix-reference";
 
-export const revalidate = 3600;
+export const revalidate = 86400; // TTL.DIRECTORY
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 const PATH = "/prix";

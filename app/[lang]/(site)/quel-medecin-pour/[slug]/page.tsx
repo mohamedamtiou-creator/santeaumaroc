@@ -22,7 +22,7 @@ import { BlogFaq } from "@/components/blog/BlogFaq";
 import { RelatedDoctors } from "@/components/blog/RelatedDoctors";
 import { EditorialReviewNote } from "@/components/health/EditorialReviewNote";
 
-export const revalidate = 3600;
+export const revalidate = 86400; // TTL.DIRECTORY
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 type Params = Promise<{ lang: string; slug: string }>;

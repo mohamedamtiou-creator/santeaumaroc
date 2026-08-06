@@ -105,6 +105,28 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Tout sauf _next et api (les autres exclusions sont gérées dans isPassthrough).
-  matcher: ["/((?!_next|api).*)"],
+  /*
+   * ⚠️ Le matcher est la SEULE exclusion gratuite.
+   *
+   * Depuis Next 16, le proxy s'exécute dans le runtime Node.js (« Proxy defaults
+   * to the Node.js runtime », doc proxy.md) : chaque chemin qui matche démarre
+   * une fonction serverless — facturée en invocation, en Active CPU et en mémoire
+   * provisionnée. Un `return NextResponse.next()` en tête de `proxy()` ne rattrape
+   * rien : la fonction a déjà été invoquée.
+   *
+   * `isPassthrough` laissait justement passer robots.txt, sitemap/*.xml,
+   * favicon.ico, les polices et tous les assets de `public/` — après invocation.
+   * On les sort donc ici, au niveau du routeur, où ils ne coûtent rien.
+   *
+   * Liste d'EXTENSIONS explicite plutôt qu'un `\.[^/]+$` générique, pour une
+   * raison précise : `.html` doit CONTINUER d'entrer. Ce sont les anciennes URLs
+   * du site PHP (`{id}-{slug}.html`) ; en les laissant suivre la réécriture de
+   * locale, une URL inconnue affiche le 404 premium (global-not-found) au lieu du
+   * 404 par défaut de Next. Ajouter `html` à cette liste casserait cela.
+   *
+   * `isPassthrough` reste en place comme filet (dev, chemins non prévus ici).
+   */
+  matcher: [
+    "/((?!_next|api|.*\\.(?:ico|png|jpe?g|gif|svg|webp|avif|woff2?|ttf|otf|eot|txt|xml|json|webmanifest|css|js|map|pdf|mp4|webm)$).*)",
+  ],
 };

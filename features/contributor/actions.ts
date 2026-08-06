@@ -1,6 +1,9 @@
 "use server";
 
+// `revalidatePath` : espace auteur / admin (dynamiques). Page auteur publique →
+// `revalidateAuthor`, qui couvre FR et AR (cf. lib/revalidate.ts).
 import { revalidatePath } from "next/cache";
+import { revalidateAuthor } from "@/lib/revalidate";
 import { prisma } from "@/lib/prisma";
 import { verifySession } from "@/lib/dal";
 import { createSession } from "@/lib/session";
@@ -140,10 +143,7 @@ export async function updateAuthorProfile(_prev: ContributorState, formData: For
   });
 
   const u = await prisma.user.findUnique({ where: { id: session.userId }, select: { authorSlug: true } });
-  if (u?.authorSlug) {
-    revalidatePath(`/auteur/${u.authorSlug}`);
-    revalidatePath(`/ar/auteur/${u.authorSlug}`);
-  }
+  revalidateAuthor(u?.authorSlug);
   revalidatePath("/espace-auteur/profil");
   return { ok: true };
 }

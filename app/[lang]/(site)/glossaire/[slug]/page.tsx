@@ -12,7 +12,7 @@ import { tSpecialty } from "@/lib/specialty-i18n";
 import { ArticleSources, parseSources } from "@/components/blog/ArticleSources";
 import { DetailHero } from "@/components/health/DetailHero";
 
-export const revalidate = 3600;
+export const revalidate = 86400; // TTL.DIRECTORY
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 

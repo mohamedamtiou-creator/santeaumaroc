@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidateQuestion } from "@/lib/revalidate";
 import { prisma } from "@/lib/prisma";
 import { tryGetSession } from "@/lib/dal";
 import type { FormState } from "@/lib/definitions";
@@ -39,6 +39,6 @@ export async function postComment(state: FormState, formData: FormData): Promise
   });
   await logQa("COMMENT", comment.id, "SUBMITTED", session.userId);
 
-  revalidatePath(`/questions/${answer.question.slug}`);
+  revalidateQuestion(answer.question.slug);
   return { message: "ok" };
 }

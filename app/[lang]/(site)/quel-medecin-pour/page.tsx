@@ -7,7 +7,7 @@ import { isTopicArReady, isTopicReviewed, composeIntentQuestion } from "@/lib/he
 import { tSpecialty } from "@/lib/specialty-i18n";
 import { HubHero } from "@/components/health/HubHero";
 
-export const revalidate = 3600;
+export const revalidate = 86400; // TTL.DIRECTORY
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 const PATH = "/quel-medecin-pour";

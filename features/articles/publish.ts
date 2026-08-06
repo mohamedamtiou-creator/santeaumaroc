@@ -1,6 +1,6 @@
 import "server-only";
 
-import { revalidatePath } from "next/cache";
+import { revalidateBlogPost } from "@/lib/revalidate";
 import { prisma } from "@/lib/prisma";
 import { EDITORIAL_STATUS } from "@/lib/contributor";
 import { transition } from "./transitions";
@@ -56,9 +56,6 @@ export async function publishArticleNow(postId: string, actorId: string | null):
     slug: post.slug,
   });
 
-  revalidatePath("/blog");
-  revalidatePath(`/blog/${post.slug}`);
-  revalidatePath("/ar/blog");
-  revalidatePath("/sitemap.xml");
+  revalidateBlogPost(post.slug, { indexChanged: true });
   return post.slug;
 }

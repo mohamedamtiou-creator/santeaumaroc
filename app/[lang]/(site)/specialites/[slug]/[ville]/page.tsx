@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { TTL } from "@/lib/cache-ttl";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
@@ -13,7 +14,11 @@ import { EssentielBox } from "@/components/EssentielBox";
 import { SpecialtyEditorial } from "@/components/SpecialtyEditorial";
 import { getSpecialtyContent, pluralizeSynonyme } from "@/lib/specialty-content";
 import { getSpecialtyCityContent } from "@/lib/specialty-city-content";
-import { specialtyCityCounts } from "@/lib/specialty-cities";
+import {
+  specialtyCityCounts,
+  indexableCombos,
+  MIN_INDEXABLE_COMBO_DOCTORS,
+} from "@/lib/specialty-cities";
 import { getSpecialtyDoctors } from "@/lib/specialite-doctors";
 import { PRATICIENS_PAGE_SIZE as PAGE_SIZE } from "@/lib/praticiens-query";
 import { localizedAlternates } from "@/lib/hreflang";
@@ -27,38 +32,41 @@ const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 /** Date de dernière révision éditoriale (E-E-A-T + signal IA). Stable entre revalidations. */
 const CONTENT_REVIEWED = "2026-06-28";
 
-// Combo ville×spécialité indexable si assez de contenu propre (near-duplicate sinon).
-const MIN_INDEXABLE_DOCTORS = 3;
+// Combo ville×spécialité indexable si assez de contenu propre (near-duplicate
+// sinon). Le seuil vit dans lib/specialty-cities.ts : il gouverne AUSSI le
+// sitemap et le pré-rendu, les trois doivent bouger ensemble.
+const MIN_INDEXABLE_DOCTORS = MIN_INDEXABLE_COMBO_DOCTORS;
 
-export const revalidate = 3600;
+export const revalidate = 21600; // TTL.LISTING
 
 export async function generateStaticParams() {
-  // `distinct` sur les FK → une ligne par combo (spécialité × ville), au lieu de
-  // charger toute la table médecins en mémoire pour la dédupliquer. Le slug étant
-  // 1:1 avec l'id, le résultat est déjà unique. Reste borné même à 40k+ médecins.
-  const combos = await prisma.doctor.findMany({
-    where: { isActive: true },
-    select: {
-      specialty: { select: { slug: true } },
-      city:      { select: { slug: true } },
-    },
-    distinct: ["specialtyId", "cityId"],
-  });
-  return combos.map((c) => ({ slug: c.specialty.slug, ville: c.city.slug }));
+  // On ne pré-rend QUE les combos indexables — exactement ceux que le sitemap
+  // déclare (même fonction, même seuil : cf. lib/specialty-cities.ts).
+  //
+  // Avant : un `findMany({ distinct })` sur tous les couples actifs remontait
+  // 1 396 combos côté FR, dont une part servie en `noindex, follow`. Chaque combo
+  // pré-rendu coûte ~13,6 objets de cache ISR réécrits à chaque cycle de
+  // revalidation, pour des pages que Google ne doit pas indexer.
+  //
+  // Les combos sous le seuil ne DISPARAISSENT pas : `dynamicParams` vaut `true`
+  // par défaut, ils sont donc générés à la demande à la première visite et mis
+  // en cache normalement. Aucun impact SEO — ils restent crawlables via les
+  // maillages ville et spécialité, et leur `robots` était déjà `noindex`.
+  return indexableCombos();
 }
 
 async function getSpecialty(slug: string) {
-  return cachedQuery(`specialite:meta:${slug}`, 3600, () =>
+  return cachedQuery(`specialite:meta:${slug}`, TTL.DIRECTORY, () =>
     prisma.specialty.findUnique({ where: { slug } }),
   );
 }
 async function getCity(ville: string) {
-  return cachedQuery(`ville:meta:${ville}`, 3600, () =>
+  return cachedQuery(`ville:meta:${ville}`, TTL.DIRECTORY, () =>
     prisma.city.findUnique({ where: { slug: ville } }),
   );
 }
 function cityCount(slug: string, ville: string) {
-  return cachedQuery(`specialite:count:${slug}:${ville}`, 3600, () =>
+  return cachedQuery(`specialite:count:${slug}:${ville}`, TTL.DIRECTORY, () =>
     prisma.doctor.count({ where: { isActive: true, specialty: { slug }, city: { slug: ville } } }),
   );
 }

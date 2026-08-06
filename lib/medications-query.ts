@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { TTL } from "@/lib/cache-ttl";
 import { cachedQuery, decToNum } from "@/lib/cache";
 
 export const MEDICATIONS_PAGE_SIZE = 30;
@@ -46,7 +47,7 @@ export function getMedications(q: string, forme: string, page: number): Promise<
   const p = Math.max(1, page || 1);
   const key = `medications:${query}:${f}:${p}`;
 
-  return cachedQuery(key, 3600, async () => {
+  return cachedQuery(key, TTL.DIRECTORY, async () => {
     const where = {
       isActive: true,
       ...(f ? { forme: { contains: f, mode: "insensitive" as const } } : {}),
@@ -98,7 +99,7 @@ export function getMedications(q: string, forme: string, page: number): Promise<
  * Les usages page passent tous par `Number(...)` → compatibles avec `number`.
  */
 export function getMedicationDetail(slug: string) {
-  return cachedQuery(`medication:${slug}`, 3600, async () => {
+  return cachedQuery(`medication:${slug}`, TTL.DIRECTORY, async () => {
     const m = await prisma.medication.findUnique({
       where: { slug },
       include: {
@@ -113,7 +114,7 @@ export function getMedicationDetail(slug: string) {
 
 /** Formes triées par nombre de médicaments (pour les chips de filtre), cachées 1 h. */
 export function getMedicationFormes(): Promise<FormeFilter[]> {
-  return cachedQuery("medications:formes", 3600, async () => {
+  return cachedQuery("medications:formes", TTL.DIRECTORY, async () => {
     const counts = await Promise.all(
       MEDICATION_FORMES.map(async (f) => ({
         ...f,

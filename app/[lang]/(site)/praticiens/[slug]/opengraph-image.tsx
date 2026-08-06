@@ -13,6 +13,38 @@ export const alt = "Fiche praticien — SantéauMaroc";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
+/**
+ * ── Mise en cache ISR de l'image ────────────────────────────────────────────
+ *
+ * `opengraph-image` est un Route Handler spécialisé : il accepte les mêmes
+ * options de segment qu'une page, `generateStaticParams` comprise. Sans elle,
+ * une route DYNAMIQUE (`[slug]`) n'obtient AUCUNE entrée ISR — vérifié dans le
+ * build : ces deux routes OG figuraient dans `routes-manifest.json` mais étaient
+ * absentes de `prerender-manifest.json`, donc recalculées à CHAQUE requête.
+ *
+ * Ce que coûtait un recalcul, à chaque passage de crawler ou d'aperçu social sur
+ * l'une des ~20 690 fiches :
+ *   - une requête Prisma avec agrégat `_count` sur les avis ;
+ *   - cinq sous-ensembles de police téléchargés (le `fontCache` est un Map de
+ *     process, donc vidé à chaque cold start) ;
+ *   - un rendu Satori + rastérisation PNG 1200×630 — le poste CPU le plus lourd
+ *     du projet ;
+ *   - plusieurs centaines de Ko renvoyés depuis l'origine, jamais mis en cache.
+ *
+ * Le tableau vide est la forme documentée du « tout à la demande » : rien n'est
+ * pré-rendu au build (on ne veut pas 20 000 PNG dans le build output), mais la
+ * route est enregistrée pour l'ISR — la première visite calcule, les suivantes
+ * servent le cache. Même patron que `page.tsx` dans ce dossier.
+ *
+ * L'image n'est PAS invalidée par `revalidateDoctor` : elle vit sur sa propre
+ * route, et un aperçu social légèrement daté n'a aucun effet SEO. Le TTL suffit.
+ */
+export function generateStaticParams() {
+  return [];
+}
+
+export const revalidate = 86400; // TTL.DIRECTORY — aligné sur la fiche praticien
+
 type Params = Promise<{ lang: string; slug: string }>;
 
 /* ── Palette de marque (Medical Clarity System) ─────────────────────────── */

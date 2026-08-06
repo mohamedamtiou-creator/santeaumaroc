@@ -1,12 +1,17 @@
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
-import { getDictionary, type Dictionary } from "@/lib/i18n";
+// TYPE seul : ce composant est importé par des Client Components (PraticiensResults,
+// BlogResults, MedicationResults…), il appartient donc au graphe client. Un import
+// de VALEUR depuis `@/lib/i18n` — tel l'ancien défaut `getDictionary("fr").pagination`
+// — y embarquait les deux dictionnaires (277 KB). Cf. le même garde-fou dans
+// PaginationNav et PraticienCard.
+import type { Dictionary } from "@/lib/i18n";
 
 type Props = {
   page:       number;
   totalPages: number;
   buildUrl:   (p: number) => string;
-  /** Traductions. Défaut FR (pour les pages non encore traduites). */
-  t?:         Dictionary["pagination"];
+  /** Traductions. REQUIS (pas de défaut : il tirerait tout `lib/i18n`). */
+  t:          Dictionary["pagination"];
 };
 
 function buildPages(page: number, total: number): (number | "…")[] {
@@ -16,7 +21,7 @@ function buildPages(page: number, total: number): (number | "…")[] {
   return [1, "…", page - 1, page, page + 1, "…", total];
 }
 
-export function Pagination({ page, totalPages, buildUrl, t = getDictionary("fr").pagination }: Props) {
+export function Pagination({ page, totalPages, buildUrl, t }: Props) {
   if (totalPages <= 1) return null;
 
   const pages = buildPages(page, totalPages);

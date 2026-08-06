@@ -241,7 +241,16 @@ const nextConfig: NextConfig = {
     // `ETIMEDOUT` sur `prisma.city.findUnique()` / `doctor.count()` et le build
     // casse. On borne donc les workers à 8 : 8 × 5 = 40 connexions, marge large
     // sous 100 (et stable quelle que soit la croissance du nombre de pages).
-    cpus: 8,
+    // ⚠️ Ce plafond ne vaut QUE pour un build local. Sur Vercel, le conteneur de
+    // build n'a que 2 à 4 vCPU : forcer 8 workers y crée 8 process Node chargeant
+    // chacun le serveur Next complet ET son PrismaClient, qui se disputent le CPU.
+    // Le temps mural gonfle — or c'est exactement ce qui est facturé en Build CPU
+    // Minutes. On laisse donc Vercel dimensionner (1 worker par cœur réel).
+    //
+    // Le garde-fou Postgres reste tenu là-bas : le pool par process est plafonné à
+    // 5 au build (lib/prisma.ts) et le nombre de pages générées a fortement baissé
+    // (combos/lettres noindex retirés du pré-rendu, arabe généré à la demande).
+    ...(process.env.VERCEL ? {} : { cpus: 8 }),
     // Un pic transitoire (connexion lente) ne doit pas faire échouer tout le
     // build : on retente la génération d'une page jusqu'à 2 fois avant d'abandonner.
     staticGenerationRetryCount: 2,

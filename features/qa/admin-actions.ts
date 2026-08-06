@@ -1,6 +1,8 @@
 "use server";
 
+// `revalidatePath` : /admin uniquement (dynamique). Public → lib/revalidate.ts.
 import { revalidatePath } from "next/cache";
+import { revalidateQuestion } from "@/lib/revalidate";
 import { prisma } from "@/lib/prisma";
 import { verifySession } from "@/lib/dal";
 import { redirect } from "next/navigation";
@@ -86,8 +88,10 @@ export async function mergeQuestionForm(formData: FormData): Promise<void> {
   });
   await logQa("QUESTION", sourceId, "MERGED", session.userId, `→ ${targetSlug}`);
 
-  revalidatePath(`/questions/${source.slug}`);
-  revalidatePath(`/questions/${targetSlug}`);
+  // Fusion : la question source disparaît du périmètre indexable au profit
+  // de la cible → les deux fiches ET les sitemaps sont invalidés.
+  revalidateQuestion(source.slug, { indexChanged: true });
+  revalidateQuestion(targetSlug);
   revalidatePath("/admin/questions");
 }
 
@@ -135,8 +139,7 @@ export async function editAnswerArForm(formData: FormData): Promise<void> {
   await logQa("ANSWER", id, "EDITED", session.userId);
 
   if (answer.question?.slug) {
-    revalidatePath(`/questions/${answer.question.slug}`);
-    revalidatePath(`/ar/questions/${answer.question.slug}`);
+    revalidateQuestion(answer.question.slug);
   }
   revalidatePath("/admin/questions");
 }
@@ -174,6 +177,6 @@ export async function removeAnswerForm(formData: FormData): Promise<void> {
     await clearQuestionSummary(answer.questionId);
   }
   await logQa("ANSWER", id, "REMOVED", session.userId);
-  revalidatePath(`/questions/${answer.question.slug}`);
+  revalidateQuestion(answer.question.slug);
   revalidatePath("/admin/questions");
 }

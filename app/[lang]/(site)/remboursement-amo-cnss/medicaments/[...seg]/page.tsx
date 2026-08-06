@@ -28,7 +28,7 @@ type Params = Promise<{ lang: string; seg: string[] }>;
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 
-export const revalidate = 86400;
+export const revalidate = 604800; // TTL.STATIC
 
 const COPY = {
   fr: {

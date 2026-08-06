@@ -2,7 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { writeFile, mkdir, unlink } from "fs/promises";
 import { existsSync } from "fs";
 import path from "path";
+// `revalidatePath` : tableau de bord praticien (dynamique). La fiche publique
+// passe par `revalidateDoctor` — Route Handler, donc `revalidateTag` et non
+// `updateTag` (qui lève hors Server Action). Cf. lib/revalidate.ts.
 import { revalidatePath } from "next/cache";
+import { revalidateDoctor } from "@/lib/revalidate";
 import { tryGetSession } from "@/lib/dal";
 import { prisma } from "@/lib/prisma";
 import { rateLimit } from "@/lib/rate-limit";
@@ -83,7 +87,7 @@ export async function POST(req: NextRequest) {
 
   revalidatePath("/praticien/tableau-de-bord");
   revalidatePath("/praticien/tableau-de-bord/profil");
-  if (doctor.slug) revalidatePath(`/praticiens/${doctor.slug}`);
+  revalidateDoctor(doctor.slug);
 
   return NextResponse.json({ url: avatarUrl });
 }
@@ -115,7 +119,7 @@ export async function DELETE() {
 
   revalidatePath("/praticien/tableau-de-bord");
   revalidatePath("/praticien/tableau-de-bord/profil");
-  if (doctor.slug) revalidatePath(`/praticiens/${doctor.slug}`);
+  revalidateDoctor(doctor.slug);
 
   return NextResponse.json({ ok: true });
 }

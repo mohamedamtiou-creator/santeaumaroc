@@ -7,6 +7,7 @@ import { Pagination } from "@/components/ui/Pagination";
 import { MedicationCard } from "@/components/medicaments/MedicationCard";
 import { MedicationFilterBar } from "@/components/medicaments/MedicationFilterBar";
 import type { FormeFilter, MedicationCardDTO } from "@/lib/medications-query";
+import type { Dictionary } from "@/lib/i18n";
 
 function PillIcon({ className }: { className?: string }) {
   return (
@@ -27,10 +28,13 @@ function PillIcon({ className }: { className?: string }) {
  * Enveloppé dans <Suspense> par la page (requis pour useSearchParams en statique).
  */
 export function MedicationResults({
-  children, formes,
+  children, formes, paginationT,
 }: {
   children: React.ReactNode;
   formes: FormeFilter[];
+  /** Traductions de pagination — fournies par la page (Server Component). Threadées
+   *  en prop plutôt qu'importées : `Pagination` n'a plus de défaut `getDictionary`. */
+  paginationT: Dictionary["pagination"];
 }) {
   const sp = useSearchParams();
   const q     = (sp.get("q") ?? "").trim();
@@ -122,7 +126,7 @@ export function MedicationResults({
         </div>
       )}
 
-      <Pagination page={page} totalPages={totalPages} buildUrl={buildUrl} />
+      <Pagination page={page} totalPages={totalPages} buildUrl={buildUrl} t={paginationT} />
     </>
   );
 }

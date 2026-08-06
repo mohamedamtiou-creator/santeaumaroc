@@ -6,7 +6,7 @@ import { topicLocalized, isTopicReviewed } from "@/lib/health-topic";
 import { SymptomBrowser, type SymptomItem } from "@/components/health/SymptomBrowser";
 import { HubHero } from "@/components/health/HubHero";
 
-export const revalidate = 3600;
+export const revalidate = 86400; // TTL.DIRECTORY
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 const PATH = "/symptomes";

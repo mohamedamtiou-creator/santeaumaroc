@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidateQuestion } from "@/lib/revalidate";
 import { prisma } from "@/lib/prisma";
 import { tryGetSession } from "@/lib/dal";
 import { rateLimit } from "@/lib/rate-limit";
@@ -40,7 +40,7 @@ export async function toggleUpvote(answerId: string): Promise<VoteResult> {
   await prisma.answer.update({ where: { id: answerId }, data: { upvotes: count } });
   await recomputeAnswerScore(answerId);
 
-  revalidatePath(`/questions/${answer.question.slug}`);
+  revalidateQuestion(answer.question.slug);
   return { ok: true, active, count };
 }
 
@@ -76,6 +76,6 @@ export async function toggleThank(answerId: string): Promise<VoteResult> {
   await prisma.answer.update({ where: { id: answerId }, data: { thanksCount: count } });
   await recomputeAnswerScore(answerId);
 
-  revalidatePath(`/questions/${answer.question.slug}`);
+  revalidateQuestion(answer.question.slug);
   return { ok: true, active, count };
 }

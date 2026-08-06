@@ -1,6 +1,8 @@
 "use server";
 
+// `revalidatePath` : pages /admin (dynamiques). Public → lib/revalidate.ts.
 import { revalidatePath } from "next/cache";
+import { revalidateDoctor } from "@/lib/revalidate";
 import bcrypt from "bcryptjs";
 import crypto from "crypto";
 import { prisma } from "@/lib/prisma";
@@ -219,7 +221,7 @@ export async function submitClaimFlow(
     }
   }
 
-  if (ficheSlug) revalidatePath(`/praticiens/${ficheSlug}`);
+  revalidateDoctor(ficheSlug);
   revalidatePath("/admin/revendications");
   return { ok: true };
 }
@@ -275,7 +277,7 @@ export async function approveClaim(claimId: string): Promise<void> {
 
   revalidatePath("/admin/revendications");
   revalidatePath(`/admin/revendications/${claimId}`);
-  if (claim.doctor.slug) revalidatePath(`/praticiens/${claim.doctor.slug}`);
+  revalidateDoctor(claim.doctor.slug);
 }
 
 /* ── Rejeter (ADMIN) ────────────────────────────────────────── */
@@ -304,5 +306,5 @@ export async function rejectClaim(claimId: string, adminNote: string): Promise<v
 
   revalidatePath("/admin/revendications");
   revalidatePath(`/admin/revendications/${claimId}`);
-  if (claim.doctor.slug) revalidatePath(`/praticiens/${claim.doctor.slug}`);
+  revalidateDoctor(claim.doctor.slug);
 }

@@ -1,6 +1,10 @@
 import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import Image from "next/image";
-import { getDictionary, type Dictionary } from "@/lib/i18n";
+// TYPE seul : PostCard est importé par BlogResults, un Client Component — la
+// carte appartient donc au graphe client. L'ancien défaut `getDictionary("fr").blog`
+// y embarquait les deux dictionnaires (277 KB). Même garde-fou que PraticienCard,
+// Pagination et PaginationNav.
+import type { Dictionary } from "@/lib/i18n";
 import { blogCardLocalized } from "@/lib/blog-content";
 
 export type PostCardData = {
@@ -110,12 +114,14 @@ function DefaultCover({ color }: { color: string }) {
 export function PostCard({
   post,
   featured = false,
-  t = getDictionary("fr").blog,
+  t,
   locale = "fr",
 }: {
   post: PostCardData;
   featured?: boolean;
-  t?: Dictionary["blog"];
+  /** REQUIS : pas de défaut `getDictionary(...)`, il tirerait tout lib/i18n dans
+   *  le bundle client (cf. l'import en tête de fichier). */
+  t: Dictionary["blog"];
   locale?: string;
 }) {
   const colorCls = COLOR_MAP[post.category.color] ?? COLOR_MAP.blue;

@@ -1,6 +1,10 @@
 "use server";
 
+// `revalidatePath` : pages du tableau de bord patient (dynamiques).
+// Les fiches publiques passent par lib/revalidate.ts, qui couvre FR + AR et
+// expire aussi le tag de Data Cache correspondant.
 import { revalidatePath, updateTag } from "next/cache";
+import { revalidateDoctor, revalidateEstablishment, revalidateMedication } from "@/lib/revalidate";
 import { prisma } from "@/lib/prisma";
 import { invalidateProcessCache } from "@/lib/process-cache";
 import { tryGetSession } from "@/lib/dal";
@@ -107,9 +111,7 @@ export async function submitReview(
 
   /* ── Revalidation du cache ────────────────────────────────── */
   revalidatePath("/tableau-de-bord/rendez-vous");
-  if (doctorSlug) {
-    revalidatePath(`/praticiens/${doctorSlug}`);
-  }
+  revalidateDoctor(doctorSlug);
 
   return { message: "ok" };
 }
@@ -174,7 +176,7 @@ export async function submitTokenReview(
     data:  { averageRating: agg._avg.rating ?? 0, reviewsCount: agg._count },
   });
 
-  if (appt.doctor.slug) revalidatePath(`/praticiens/${appt.doctor.slug}`);
+  revalidateDoctor(appt.doctor.slug);
   return { message: "ok" };
 }
 
@@ -278,12 +280,11 @@ export async function submitEstablishmentReview(
   //  - LRU `processCache` interne (globalThis, invisible aux API Next) → purge
   //    explicite, sinon le rendu suivant re-sert le périmé.
   // `revalidatePath` rafraîchit en plus le cache routeur de la page.
-  if (slug) {
+  if (slug && basePath.startsWith("/")) {
     invalidateProcessCache(`establishment:${slug}`);
     updateTag(`establishment:${slug}`);
-    if (basePath.startsWith("/")) {
-      revalidatePath(`${basePath}/${slug}`);
-    }
+    // `basePath` vaut « /cliniques », « /pharmacies » ou « /laboratoires ».
+    revalidateEstablishment(basePath.slice(1), slug);
   }
 
   return { message: "ok" };
@@ -381,7 +382,7 @@ export async function submitMedicationReview(
   if (slug) {
     invalidateProcessCache(`medication:${slug}`);
     updateTag(`medication:${slug}`);
-    revalidatePath(`/medicaments/${slug}`);
+    revalidateMedication(slug);
   }
 
   return { message: "ok" };

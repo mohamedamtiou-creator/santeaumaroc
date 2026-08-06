@@ -6,16 +6,13 @@ import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { PraticienCard } from "@/components/PraticienCard";
 import { PraticienCardSkeleton } from "@/components/PraticienCardSkeleton";
 import { Pagination } from "@/components/ui/Pagination";
+import { tSpecialty, tCity } from "@/lib/specialty-i18n";
 import type { Dictionary, Locale } from "@/lib/i18n";
-import type { DoctorCardDTO } from "@/lib/praticiens-query";
-
-type FilterOpt = { slug: string; name: string };
+import type { DoctorCardDTO, FilterOption } from "@/lib/praticiens-query";
 
 type Props = {
   /** Liste de base (page 1, sans filtre) rendue côté serveur = shell SEO statique. */
   children: React.ReactNode;
-  specialties: FilterOpt[];
-  cities: FilterOpt[];
   locale: Locale;
   cardT: Dictionary["card"];
   paginationT: Dictionary["pagination"];
@@ -30,7 +27,7 @@ type Props = {
  *    /api/praticiens/search et les rend côté client (vues noindex, hors SEO).
  * Enveloppé dans <Suspense> par la page (requis pour useSearchParams en statique).
  */
-export function PraticiensResults({ children, specialties, cities, locale, cardT, paginationT, tp }: Props) {
+export function PraticiensResults({ children, locale, cardT, paginationT, tp }: Props) {
   const sp = useSearchParams();
   const q          = (sp.get("q") ?? "").trim();
   const specialite = (sp.get("specialite") ?? "").trim();
@@ -42,7 +39,16 @@ export function PraticiensResults({ children, specialties, cities, locale, cardT
   // en cache ne correspond pas encore à la clé courante), ce qui évite tout
   // setState synchrone dans l'effet (setState uniquement dans les callbacks async).
   const key = `${q}|${specialite}|${ville}|${page}`;
-  const [entry, setEntry] = useState<{ key: string; doctors: DoctorCardDTO[]; total: number; totalPages: number } | null>(null);
+  type Entry = {
+    key: string;
+    doctors: DoctorCardDTO[];
+    total: number;
+    totalPages: number;
+    /** Libellés des filtres actifs, résolus par l'API (cf. route search). */
+    activeSpecialty: FilterOption | null;
+    activeCity: FilterOption | null;
+  };
+  const [entry, setEntry] = useState<Entry | null>(null);
 
   useEffect(() => {
     if (!hasFilter) return;
@@ -54,16 +60,23 @@ export function PraticiensResults({ children, specialties, cities, locale, cardT
     const ac = new AbortController();
     fetch(`/api/praticiens/search?${params.toString()}`, { signal: ac.signal })
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
-      .then((json) => setEntry({ key, doctors: json.doctors, total: json.total, totalPages: json.totalPages }))
-      .catch((e) => { if (e.name !== "AbortError") setEntry({ key, doctors: [], total: 0, totalPages: 0 }); });
+      .then((json) => setEntry({
+        key,
+        doctors: json.doctors,
+        total: json.total,
+        totalPages: json.totalPages,
+        activeSpecialty: json.activeSpecialty ?? null,
+        activeCity: json.activeCity ?? null,
+      }))
+      .catch((e) => {
+        if (e.name !== "AbortError")
+          setEntry({ key, doctors: [], total: 0, totalPages: 0, activeSpecialty: null, activeCity: null });
+      });
     return () => ac.abort();
   }, [hasFilter, key, q, specialite, ville, page]);
 
   // Pas de filtre → liste de base SSR (SEO). Rendu identique serveur/hydratation.
   if (!hasFilter) return <>{children}</>;
-
-  const activeSpecialty = specialite ? specialties.find((s) => s.slug === specialite) : null;
-  const activeCity      = ville      ? cities.find((c)      => c.slug === ville)      : null;
 
   const removeParam = (drop: "q" | "specialite" | "ville") => {
     const params = new URLSearchParams();
@@ -89,20 +102,38 @@ export function PraticiensResults({ children, specialties, cities, locale, cardT
   const total = current?.total ?? 0;
   const doctors = current?.doctors ?? [];
   const totalPages = current?.totalPages ?? 0;
+  // Libellés fournis par l'API (plus de liste complète en props). Traduits ici :
+  // l'API renvoie le nom FR de la base, comme pour les cartes.
+  const activeSpecialty = current?.activeSpecialty
+    ? tSpecialty(current.activeSpecialty.name, locale)
+    : null;
+  const activeCity = current?.activeCity ? tCity(current.activeCity.name, locale) : null;
 
   return (
     <>
-      <p className="text-slate-500 mt-2 text-sm leading-relaxed" role="status" aria-live="polite" aria-atomic="true">
-        <span className="font-semibold text-slate-700">{total.toLocaleString(locale === "ar" ? "ar-MA" : "fr")}</span>{" "}
-        {total !== 1 ? tp.foundMany : tp.foundOne}
-        {activeCity && ` ${tp.inCity} ${activeCity.name}`}
-        {" · "}
-        <Link href="/praticiens" className="text-secondary-600 hover:text-secondary-700 underline underline-offset-2 font-medium">
-          {tp.showAll}
-        </Link>
+      {/* Compteur : rendu seulement une fois les données arrivées. Auparavant il
+          annonçait « 0 trouvés » pendant le chargement avant de basculer sur le
+          vrai total — trompeur, et doublement annoncé par aria-live. */}
+      <p className="text-slate-500 mt-2 text-sm leading-relaxed min-h-5" role="status" aria-live="polite" aria-atomic="true">
+        {loading ? (
+          <span className="sr-only">{tp.emptyTitle}</span>
+        ) : (
+          <>
+            <span className="font-semibold text-slate-700">{total.toLocaleString(locale === "ar" ? "ar-MA" : "fr")}</span>{" "}
+            {total !== 1 ? tp.foundMany : tp.foundOne}
+            {activeCity && ` ${tp.inCity} ${activeCity}`}
+            {" · "}
+            <Link href="/praticiens" className="text-secondary-600 hover:text-secondary-700 underline underline-offset-2 font-medium">
+              {tp.showAll}
+            </Link>
+          </>
+        )}
       </p>
 
       <div className="flex flex-wrap gap-2 mt-3">
+        {/* La puce de recherche vient de l'URL → affichable immédiatement. Les
+            puces spécialité/ville attendent leur libellé (résolu par l'API) :
+            afficher le slug brut (« gyneco-obstetrique ») serait pire que rien. */}
         {q && (
           <Link href={removeParam("q")} aria-label={`${tp.removeSearch} ${q}`}
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-medium hover:bg-red-50 hover:text-red-600 transition-colors">
@@ -110,15 +141,15 @@ export function PraticiensResults({ children, specialties, cities, locale, cardT
           </Link>
         )}
         {activeSpecialty && (
-          <Link href={removeParam("specialite")} aria-label={`${tp.removeSpecialty} ${activeSpecialty.name}`}
+          <Link href={removeParam("specialite")} aria-label={`${tp.removeSpecialty} ${activeSpecialty}`}
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-100 text-primary-800 text-xs font-medium hover:bg-red-50 hover:text-red-600 transition-colors">
-            {activeSpecialty.name} ✕
+            {activeSpecialty} ✕
           </Link>
         )}
         {activeCity && (
-          <Link href={removeParam("ville")} aria-label={`${tp.removeCity} ${activeCity.name}`}
+          <Link href={removeParam("ville")} aria-label={`${tp.removeCity} ${activeCity}`}
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-100 text-secondary-800 text-xs font-medium hover:bg-red-50 hover:text-red-600 transition-colors">
-            {activeCity.name} ✕
+            {activeCity} ✕
           </Link>
         )}
       </div>

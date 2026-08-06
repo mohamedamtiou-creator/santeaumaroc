@@ -2,9 +2,31 @@
 
 import { prisma } from "@/lib/prisma";
 import { verifySession } from "@/lib/dal";
-import { revalidatePath } from "next/cache";
+import { revalidateHealthContent } from "@/lib/revalidate";
 import { redirect } from "next/navigation";
 import { parseLines } from "@/lib/health-topic";
+
+/**
+ * Surfaces publiques adossées à UN `HealthTopic`.
+ *
+ * Un même topic alimente cinq silos : `/symptomes` et `/maladies` (selon `kind`),
+ * plus les angles `/comment-traiter`, `/prevenir` et `/quel-medecin-pour` — c'est
+ * exactement ce que `app/sitemap.ts` déclare à partir de cette table. Le dépôt
+ * n'invalidait que les deux premiers ; les trois autres restaient périmés jusqu'à
+ * expiration du TTL. On les couvre tous, les index comme les fiches.
+ *
+ * Les chemins sont donnés SANS préfixe de locale : `revalidateHealthContent` les
+ * décline en /fr et /ar (cf. lib/revalidate.ts).
+ */
+function topicPaths(slug: string): string[] {
+  return [
+    "/symptomes", `/symptomes/${slug}`,
+    "/maladies",  `/maladies/${slug}`,
+    "/comment-traiter", `/comment-traiter/${slug}`,
+    "/prevenir",        `/prevenir/${slug}`,
+    "/quel-medecin-pour", `/quel-medecin-pour/${slug}`,
+  ];
+}
 
 async function requireAdmin() {
   const session = await verifySession();
@@ -187,15 +209,14 @@ export async function createTopic(formData: FormData) {
     throw e;
   }
 
-  revalidatePath("/symptomes");
-  revalidatePath(`/symptomes/${f.slug}`);
-  revalidatePath("/ar/symptomes");
-  revalidatePath(`/ar/symptomes/${f.slug}`);
-  revalidatePath("/maladies");
-  revalidatePath(`/maladies/${f.slug}`);
-  revalidatePath("/ar/maladies");
-  revalidatePath(`/ar/maladies/${f.slug}`);
-  revalidatePath("/sitemap.xml");
+  // `health-topics` : tag porté par les caches des dossiers « parcours de vie »
+  // (lib/life-clusters-query.ts) et des outils (lib/health-tools-related.ts),
+  // qui recopient le contenu des topics. Sans lui, ces blocs resteraient périmés
+  // jusqu'à expiration du TTL alors que la fiche source, elle, serait à jour.
+  revalidateHealthContent(topicPaths(f.slug), {
+    tags: ["health-topics", "life-clusters", "tools-related"],
+    indexChanged: true,
+  });
   redirect("/admin/symptomes");
 }
 
@@ -243,22 +264,25 @@ export async function updateTopic(id: string, formData: FormData) {
     throw e;
   }
 
-  revalidatePath("/symptomes");
-  revalidatePath(`/symptomes/${f.slug}`);
-  revalidatePath("/ar/symptomes");
-  revalidatePath(`/ar/symptomes/${f.slug}`);
-  revalidatePath("/maladies");
-  revalidatePath(`/maladies/${f.slug}`);
-  revalidatePath("/ar/maladies");
-  revalidatePath(`/ar/maladies/${f.slug}`);
-  revalidatePath("/sitemap.xml");
+  // `health-topics` : tag porté par les caches des dossiers « parcours de vie »
+  // (lib/life-clusters-query.ts) et des outils (lib/health-tools-related.ts),
+  // qui recopient le contenu des topics. Sans lui, ces blocs resteraient périmés
+  // jusqu'à expiration du TTL alors que la fiche source, elle, serait à jour.
+  revalidateHealthContent(topicPaths(f.slug), {
+    tags: ["health-topics", "life-clusters", "tools-related"],
+    indexChanged: true,
+  });
   redirect("/admin/symptomes");
 }
 
 export async function deleteTopic(id: string) {
   await requireAdmin();
+  // Slug lu AVANT la suppression : sans lui les entrées ISR des cinq silos
+  // adossés au topic survivraient au record supprimé.
+  const topic = await prisma.healthTopic.findUnique({ where: { id }, select: { slug: true } });
   await prisma.healthTopic.delete({ where: { id } });
-  revalidatePath("/symptomes");
-  revalidatePath("/maladies");
-  revalidatePath("/sitemap.xml");
+  revalidateHealthContent(
+    topic ? topicPaths(topic.slug) : ["/symptomes", "/maladies"],
+    { tags: ["health-topics", "life-clusters", "tools-related"], indexChanged: true },
+  );
 }

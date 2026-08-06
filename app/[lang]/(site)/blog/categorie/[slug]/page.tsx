@@ -13,7 +13,7 @@ import { categoryIntro, categoryFaq } from "@/lib/blog-category-content";
 import { localizedAlternates } from "@/lib/hreflang";
 import { getDictionary, toLocale } from "@/lib/i18n";
 
-export const revalidate = 3600;
+export const revalidate = 21600; // TTL.LISTING
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://santeaumaroc.com";
 
