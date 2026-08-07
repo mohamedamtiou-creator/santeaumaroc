@@ -104,7 +104,8 @@ app/
 
 **Ajouts Phase 1 (dossiers) :**
 - `app/[lang]/(site)/quel-medecin-pour/[slug]/page.tsx` — gabarit intention (voir §5).
-- `app/[lang]/(site)/{symptomes,maladies,examens,traitements}/[slug]/opengraph-image.tsx` — OG dynamiques (aujourd'hui seuls blog + médecin en ont).
+- ~~`app/[lang]/(site)/{symptomes,maladies,examens,traitements}/[slug]/opengraph-image.tsx` — OG dynamiques (aujourd'hui seuls blog + médecin en ont).~~
+  **ABANDONNÉ (07/08/2026).** Une OG par `[slug]` sur une route en ISR à la demande fait payer un rendu Satori — le poste CPU le plus lourd du projet — à chaque passage de crawler sur une page froide, pour un asset que Google n'utilise pas comme signal et que seuls de rares partages sociaux affichent. La carte par médecin a été supprimée pour cette raison et remplacée par une carte de marque au niveau du segment (`praticiens/opengraph-image.tsx`), sans paramètre dynamique donc générée au build. Même patron à appliquer si ces verticaux doivent avoir une OG dédiée. Seul `blog/[slug]` garde une carte personnalisée : quelques centaines d'articles, et un contenu réellement partagé.
 - `lib/content-graph.ts` — moteur de maillage programmatique (voir §8).
 - `lib/seo/` — regrouper les helpers JSON-LD éparpillés inline (refacto non bloquante).
 

@@ -149,8 +149,11 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       url: `/praticiens/${slug}`,
       type: "profile",
       locale: locale === "ar" ? "ar_MA" : "fr_MA",
-      // Image OG/Twitter fournie dynamiquement par opengraph-image.tsx
-      // (nom + spécialité + ville + note) — meilleure que l'avatar brut.
+      // Image OG/Twitter : carte de marque du segment, héritée de
+      // `praticiens/opengraph-image.tsx` (statique, générée au build). La carte
+      // personnalisée par médecin a été retirée — son coût de rendu était payé
+      // sur les ~20 690 fiches au rythme des crawlers, pour un aperçu qui ne
+      // servait qu'aux rares partages sociaux. Détail dans ce fichier.
     },
     twitter: {
       card: "summary_large_image",

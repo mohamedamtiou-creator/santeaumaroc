@@ -96,6 +96,38 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   // et la vue /ar est en noindex jusque-là (follow, pour ne pas couper le maillage).
   const arReady = isBlogArReady(post);
 
+  /**
+   * ── og:image = la COUVERTURE DE L'ARTICLE, telle quelle ────────────────────
+   *
+   * Une version précédente générait une carte composite (`opengraph-image.tsx`) :
+   * la couverture en fond, plus un voile sombre, le logotype, la catégorie, le
+   * badge de relecture et le titre incrusté. Elle a été supprimée.
+   *
+   * POURQUOI : cette carte était une route ISR à la demande. Chaque passage de
+   * crawler sur un article froid déclenchait un rendu Satori complet (requête
+   * Prisma, téléchargement de polices, rastérisation PNG 1200×630) puis une
+   * écriture de cache — pour un visuel dont le texte DOUBLONNAIT déjà `og:title`
+   * et `og:description`, que les réseaux affichent de toute façon à côté de
+   * l'image. Les couvertures, elles, sont des fichiers statiques déjà servis par
+   * le CDN : zéro calcul, zéro écriture.
+   *
+   * Bénéfice collatéral : plus aucun texte incrusté, donc plus de problème de
+   * langue. La carte composite ne pouvait pas afficher un titre arabe — Satori
+   * n'applique aucun réordonnancement bidi et l'inversion manuelle de l'ordre des
+   * mots échoue dès qu'un titre passe à la ligne ou contient de la ponctuation
+   * (cf. `lib/og-rtl.ts`). Le sujet disparaît de lui-même.
+   *
+   * Format : les 242 couvertures font 1200×675 (16:9) — au-delà des minimums
+   * Facebook/X, et rendu en grande carte grâce à `summary_large_image`.
+   *
+   * `metadataBase` étant posé dans `app/[lang]/layout.tsx`, un chemin relatif
+   * suffit : Next l'absolutise. Sans couverture, on ne déclare rien et la page
+   * hérite de la carte de marque `app/opengraph-image.tsx`.
+   */
+  const ogImage = post.coverImage
+    ? { url: post.coverImage, width: 1200, height: 675, alt: L.coverAlt || title }
+    : null;
+
   return {
     title,
     description,
@@ -103,8 +135,6 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       ? localizedAlternates(`/blog/${slug}`, locale)
       : frenchOnlyAlternates(`/blog/${slug}`),
     ...(locale === "ar" && !arReady ? { robots: { index: false, follow: true } } : {}),
-    // og:image / twitter:image sont fournis par opengraph-image.tsx (carte
-    // dynamique : titre + catégorie + badge relecture sur la cover).
     openGraph: {
       title,
       description,
@@ -114,11 +144,13 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       publishedTime:  post.publishedAt?.toISOString(),
       modifiedTime:   post.updatedAt.toISOString(),
       section: post.category.name,
+      ...(ogImage ? { images: [ogImage] } : {}),
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      ...(ogImage ? { images: [ogImage] } : {}),
     },
   };
 }
